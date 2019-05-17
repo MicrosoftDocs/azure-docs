@@ -267,7 +267,7 @@ The following section talks about how to debug/diagnose issues with patch update
 
 The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) to install updates on the nodes. Each task is then prepared by CoordinatorService according to task approval policy. The prepared tasks are finally approved by Repair Manager which will not approve any task if cluster is in unhealthy state. Lets go step by step to understand how updates proceed on a node.
 
-1. NodeAgentNTService on a node tries to download the updates at the scheduled time.
+1. NodeAgentNTService, running on every node, looks for available Windows Update at the scheduled time. If updates are available, it goes ahead and downloads them on the node.
 2. Once the updates are downloaded, NodeAgentNTService, creates corresponding repair task for the node with the name POS___<unique_id>. Once can view these repair tasks using cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) or in SFX in the node details section. Once created the repair task, quickly moves to [Claimed state](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 3. The Coordinator service, periodically looks for repair tasks in claimed state and goes ahead and updates them to Preparing state based on the TaskApprovalPolicy. If the TaskApprovalPolicy is configured to be NodeWise, a repair task corresponding to a node is prepared only if there is no other repair task currently in Preparing/Approved/Executing/Restoring state. Similarly, in case of UpgradeWise TaskApprovalPolicy, it is ensured at any point there are tasks in the above states only for nodes which belong to the same upgrade domain. Once a repair task is moved to Preparing state, the corresponding Service Fabric node is [disabled with intent as "Restart"](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps). POA(v1.4.0 and above) posts events with property "ClusterPatchingStatus" on CoordinaterService to display the nodes which are being patched. Below image shows that updates are getting installed on _poanode_0:
 
@@ -275,13 +275,13 @@ The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/
 
 4. Once the node is disabled, the repair task is moved to Executing state. Note, a repair task stuck in preparing state, because a node is stuck in disabling state can result in blocking new repair task and hence halt patching of cluster.
 5. Once repair task is in executing state, the patch installation on that node begins. Here on, once the patch is installed, the node may or may not be restarted depending on the patch. Post that the repair task is moved to restoring state, which enables back the node again and then it is marked as completed.
-6. In v1.4.0 and above versions of the application, status of the update can be found by looking at the health events on NodeAgentService with property "WUOperationStatus+nodeName". Like in below mentioned the images, highlighted sections show the status of windows update on node 'poanode_0' and 'poanode_2':
+6. In v1.4.0 and above versions of the application, status of the update can be found by looking at the health events on NodeAgentService with property "WUOperationStatus+[NodeName]". The highlighted sections in the images below show the status of windows update on node 'poanode_0' and 'poanode_2':
 
    ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)
 
    ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusB.png)
 
-7. But if versions below 1.4.0 are being used or there is a need to find the exact status of update on the node, then, connect to the cluster using powershell and find out the status of repair task using [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted.
+7. One can also get the details using powershell, by connecting to the cluster and fetching the state of the repair task using [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted once the task moves to Executing state.
 
    ``` powershell
     D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
@@ -294,18 +294,18 @@ The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/
 
       ExecutorSubState | Detail
     -- | -- 
-      None=1 |  implies that there wasn't an ongoing operation on the node. Possible state transitions.
-      DownloadCompleted=2 | implies download operation has completed with success, partial failure, or failure.
-      InstallationApproved=3 | implies download operation was completed earlier and Repair Manager has approved the installation.
-      InstallationInProgress=4 | corresponds to state of execution of the repair task.
-      InstallationCompleted=5 | implies installation completed with success, partial success, or failure.
-      RestartRequested=6 | implies patch installation completed and there is a pending restart action on the node.
-      RestartNotNeeded=7 |  implies that restart was not needed after completion of patch installation.
-      RestartCompleted=8 | implies that restart completed successfully.
-      OperationCompleted=9 | windows update operation completed successfully.
-      OperationAborted=10 | implies that windows update operation is aborted.
+      None=1 |  Implies that there wasn't an ongoing operation on the node. Possible state transitions.
+      DownloadCompleted=2 | Implies download operation has completed with success, partial failure, or failure.
+      InstallationApproved=3 | Implies download operation was completed earlier and Repair Manager has approved the installation.
+      InstallationInProgress=4 | Corresponds to state of execution of the repair task.
+      InstallationCompleted=5 | Implies installation completed with success, partial success, or failure.
+      RestartRequested=6 | Implies patch installation completed and there is a pending restart action on the node.
+      RestartNotNeeded=7 |  Implies that restart was not needed after completion of patch installation.
+      RestartCompleted=8 | Implies that restart completed successfully.
+      OperationCompleted=9 | Windows update operation completed successfully.
+      OperationAborted=10 | Implies that windows update operation is aborted.
 
-9. In v1.4.0 and above of the application, when update attempt on a node completes, an event with property "WUOperationStatus+nodeName" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
+9. In v1.4.0 and above of the application, when update attempt on a node completes, an event with property "WUOperationStatus+[NodeName]" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
 
      ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusC.png)
 
