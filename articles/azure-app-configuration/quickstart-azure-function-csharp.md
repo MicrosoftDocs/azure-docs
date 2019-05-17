@@ -28,7 +28,7 @@ You can use any code editor to do the steps in this quickstart. [Visual Studio C
 
 ## Prerequisites
 
-To do this quickstart, install [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Make sure that the **Azure development** workload is also installed. Also install the [latest Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+To do this quickstart, install [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Make sure that the **Azure development** workload is also installed. Also install the [latest Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
