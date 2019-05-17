@@ -16,21 +16,24 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as automated ML, is the automation of steps that make machine learning possible. With machine learning, we try to teach computers to learn to perform tasks without explicitly programming the desired actions or outcome. This learning is typically achieved via the employment of statistical methods and data processing algorithms. The steps to perform and test these methods and algorithms are iterative, since you are trying them out and determining if applicable to your desired outcome. This process of machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. WBy automating these steps, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
+Automated machine learning, also referred to as AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
 
-Automated ML builds a set of ML models automatically, intelligently selects models for training, and then recommends the best one for you.  
+Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. Within  Azure Machine Learning service, AutoML is applied to the process of taking training data with a defined target feature, and intelligently iterating through combinations of ML algorithms and feature selections. As a result, each iteration produces a model and an associated training score; these scores are then used to rank and recommend the best fitted model for your data.
 
-Behind the scenes, your training data is taken with a defined target feature, and intelligently iterated upon through combinations of ML algorithms and feature selections. Then, based on training scores, the best fitted model is identified and recommended to you.
+With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
 ## When to use automated ML
 
-Data scientists and developers face a series of decisions along the way to achieving machine learning solutions. Data cleansing, parameter tuning and training models are examples of iterative and time consuming tasks that lend themselves well to automated ML.
+AutoML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
-The problem of finding the best machine learning pipeline for a given dataset scales faster than the time available for data science projects. Automated ML empowers customers, with or without data science expertise, to identify an end-to-end machine learning pipeline for any problem, achieving higher accuracy while spending far less of their time.
+Data scientists, analysts and developers across industries can use AutoML to:
+
++ Implement machine learning solutions without extensive programming knowledge
++ Save time and resources
++ Leverage data science best practices
++ Provide agile problem-solving
 
 ## How automated ML works
-
-You still have control over your experiment and transparency into what is happening. You can define constraints and experiment goals based on time, accuracy, or number of iterations, for example. You can see each model that was generated for your experiment, the training flow for each iteration, and the most influential features for a given model.
 
 Using **Azure Machine Learning service**, you can design and run your automated ML training experiments with these steps:
 
@@ -46,7 +49,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 [![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
-During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
+During training, the Azure Machine Learning service creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
 
 You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
