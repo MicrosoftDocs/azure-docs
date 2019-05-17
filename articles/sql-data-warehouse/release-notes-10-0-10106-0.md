@@ -21,7 +21,6 @@ This article summarizes the new features and improvements in the recent releases
 As new features are being rolled out to all regions, please check the version deployed to your instance and the latest Azure SQL DW release notes for the feature availability. To check your Azure SQL DW, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION AS 'SQL Data Warehouse';` to return the current version of Azure SQL DW.
 
 Example output:
-
 ![SQL Data Warehouse version](./media/release-notes/sql_data_warehouse_version.png)
 
 Use the date identified to confirm which release has been applied to your Azure SQL DW.
