@@ -23,7 +23,7 @@ Your application can be granted two types of identities:
 
 ## What can I do with Managed Identities and Managed Applications
 
-Managed Identity has many applications on Managed Applications. Some common scenarios that can be solved are:
+Managed Identity enables many scenarios for Managed Applications. Some common scenarios that can be solved are:
 
 - Deploying a Managed Application linked to existing Azure resources. An example is deploying an Azure virtual machine (VM) within the Managed Application that is attached to an [existing network interface](../virtual-network/virtual-network-network-interface-vm.md).
 - Granting the Managed Application and publisher access to Azure resources outside the **managed resource group**.
@@ -132,6 +132,8 @@ A basic CreateUIDefinition that takes a **user-assigned identity** resource as i
 }
 ```
 
+This generates a create user experience that has a textbox for a consumer to enter the **user-assigned identity** Azure resource ID. The generated experience would look like:
+
 ![Sample user-assigned identity CreateUIDefinition](./media/publish-managed-identity/user-assigned-identity.png)
 
 ### Using Azure Resource Manager templates
@@ -209,14 +211,14 @@ Once a Managed Application is granted an identity, it can be granted access to e
 
 ![Add role assignment for Managed Application](./media/publish-managed-identity/identity-role-assignment.png)
 
-### Deploying a Managed Application that requires linked existing Azure resources
+## Deploying a Managed Application that requires linked existing Azure resources
 
 > [!NOTE]
 > A **user-assigned identity** must be [configured](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) before deploying the Managed Application. In addition, linked resource deployment of Managed Applications is only supported for the **marketplace** kind.
 
 Managed Identity can also be used to deploy a Managed Application that requires access to existing resources during its deployment. When the Managed Application is provisioned by the customer, **user-assigned identities** can be added to provide additional authorizations to the **mainTemplate** deployment.
 
-#### Authoring the CreateUIDefinition with a linked resource
+### Authoring the CreateUIDefinition with a linked resource
 
 When linking the deployment of the Managed Application to existing resources, both the existing Azure resource and a **user-assigned identity** with the applicable role assignment on that resource must be provided.
 
@@ -268,9 +270,11 @@ When linking the deployment of the Managed Application to existing resources, bo
 }
 ```
 
+This generates a create user experience that has two fields. The first field allows the user to enter in the Azure resource ID for the resource being linked to the Managed Application deployment. The second is for a consumer to enter the **user-assigned identity** Azure resource ID, which has access to the linked Azure resource. The generated experience would look like:
+
 ![Sample CreateUIDefinition with two inputs: a network interface resource ID and a user assigned identity resource ID](./media/publish-managed-identity/network-interface-cuid.png)
 
-#### Authoring the mainTemplate with a linked resource
+### Authoring the mainTemplate with a linked resource
 
 In addition to updating the CreateUIDefinition, the main template also needs to be updated to accept the passed in linked resource ID. The main template can be updated to accept the new output by adding a new parameter. Since the `managedIdentity` output overrides the value on the generated Managed Application template, it is not passed to the main template and should not be included in the parameters section.
 
@@ -306,7 +310,7 @@ A sample main template that sets the network profile to an existing network inte
 }
 ```
 
-#### Consuming the Managed Application with a linked resource
+### Consuming the Managed Application with a linked resource
 
 Once the Managed Application package is created, the Managed Application can be consumed through the Azure portal. Before it can be consumed, there are several prerequisite steps.
 
