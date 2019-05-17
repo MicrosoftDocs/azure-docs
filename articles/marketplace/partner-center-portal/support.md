@@ -35,25 +35,25 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 6) Select **[Additional help](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** to open a New support request ticket. 
 
-### Additional help: How to open a support ticket
+## How to open a support ticket
 
 Selecting **Additional help** from the Commercial Marketplace support menu in Partner Center will direct you to the Microsoft Support for business page. You will see several dropdown menus. The first few dropdown menus are automatically filled out for you. For Marketplace support, identify the product family as **Cloud and Online Services**, the product as **Marketplace Publisher**, and the product version as **Marketplace Publishing**. Do not change these pre-populated dropdown menu selections. 
 
-#### Select a category that best describes the issue
+- **Select a category that best describes the issue**: Choose the category that best aligns with your question or problem. Selecting a category will cause an additional dropdown menu to appear, asking you to select the problem that best describes your issue.
 
-Choose the category that best aligns with your question or problem. Selecting a category will cause an additional dropdown menu to appear, asking you to select the problem that best describes your issue.
-
-#### Select a problem that best describes the issue
- 
-Choose the problem from the listed options that best aligns with your issue. Depending on your problem, a new section may appear saying "Here's some information that might help" with links relevant to your issue. Review these links before selecting the **Next** button to see whether your question or problem is addressed.
+- **Select a problem that best describes the issue**: Choose the problem from the listed options that best aligns with your issue. Depending on your problem, a new section may appear saying "Here's some information that might help" with links relevant to your issue. Review these links before selecting the **Next** button to see whether your question or problem is addressed.
 
 By selecting the **Next** button, you will be directed to the **Issue Details** page. 
 
 #### Tell us more about your issue
 
-In the **Issue Details** section, select your country, the language in which you'd like to receive support, and enter a title for your issue (between 3 - 200 characters).  
+In the **Issue Details** section, explain what you need help with.
 
-Enter a brief description of your issue (max 2000 characters), then select **Next**.
+- Select your country
+- Select the language in which you'd like to receive support
+- Enter a title for your issue (between 3 - 200 characters)  
+- Enter a brief description of your issue (max 2000 characters)
+- Select **Next**
 
 #### Select a support plan
 
@@ -65,13 +65,17 @@ No information is required in the **Severity** section. Select **Next**.
 
 #### Who should we contact
 
-In the **Contact Information** section, ensure that your primary contact’s name, phone number, and email is correct. Make any necessary updates to this information. You may also add other contacts from your company to this support request. When finished, select **Next**. 
+In the **Contact Information** section, ensure that your primary contact’s name, phone number, and email is correct. 
+- Update this information if you see anything that is incorrect
+- You may add other contacts from your company to this support request if desired
+- Select **Next**
 
 #### Review and submit your support request
 
-Review your support request information on the **Review** section. If all the information is correct, select **Submit**. If any information needs to be updated, select the **Change** button next to the section in need of updates.
+Review your support request information on the **Review** section. - If all the information is correct, select **Submit**. 
+- If any information needs to be updated, select the **Change** button next to the section in need of updates.
 
-### Track your existing support requests 
+## Track your existing support requests 
 
 To track your support request, visit the [Commercial Marketplace support page](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). 
 
