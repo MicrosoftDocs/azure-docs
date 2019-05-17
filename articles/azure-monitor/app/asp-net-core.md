@@ -326,14 +326,14 @@ Enabling Application Insights with this method is valid, and is used in Visual S
 ### I am deploying my ASP.NET Core application to Azure Web Apps. Should I still enable the Application Insights extension from Web Apps?
 
 If the SDK is installed at build time as shown in this article, there is no need to enable the Application Insights extension from the App Service portal. Even if the extension is installed, it will back off when it detects that the SDK is already added to the application. Enabling Application Insights from the extension frees you from installing and updating the SDK. However, enabling Application Insights as per this article is more flexible for reasons below.
-    1. Application Insights Telemetry will continue to work in:
-        1. All Operating Systems - Windows, Linux, Mac.
-        1. All publish modes - Self-Contained or Framework-Dependent.
-        1. All target frameworks, including the full .NET Framework.
-        1. All Hosting options - Azure Web APP, VMs, Linux, Containers, AKS, non-Azure.
-    1. Telemetry can be seen locally, when debugging from Visual Studio.
-    1. Allows tracking additional custom telemetry using `TrackXXX()` API.
-    1. You have full control over the configuration.
+   * Application Insights Telemetry will continue to work in:
+       * All Operating Systems - Windows, Linux, Mac.
+       * All publish modes - Self-Contained or Framework-Dependent.
+       * All target frameworks, including the full .NET Framework.
+       * All Hosting options - Azure Web APP, VMs, Linux, Containers, AKS, non-Azure.
+   * Telemetry can be seen locally, when debugging from Visual Studio.
+   * Allows tracking additional custom telemetry using `TrackXXX()` API.
+   * You have full control over the configuration.
 
 ### Can I enable Application Insights monitoring using tools like Status Monitor?
 
