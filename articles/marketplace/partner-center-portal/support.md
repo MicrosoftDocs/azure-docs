@@ -29,7 +29,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
  
 ![Support drop-down menu](./media/commercial-marketplace-support-pane.png)
 
-4) Select **Documentation** to review comprehensive answers to questions and resources. (You're in the documentation now). 
+4) Select **[Documentation](../index.md)** to review comprehensive answers to questions and resources. 
 
 5) Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of thousands of Microsoft publishers. 
 
