@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ---
 
@@ -21,7 +21,9 @@ For a complete list of available regions, see [AKS regions and availability][aks
 
 ## Does AKS support node autoscaling?
 
-Yes, autoscaling is available through the [Kubernetes autoscaler][auto-scaler], as of Kubernetes 1.10. For information on how to configure and use the cluster autoscaler, see [Cluster autoscale on AKS][aks-cluster-autoscale].
+Yes, autoscaling is available through the [Kubernetes autoscaler][auto-scaler] as of Kubernetes 1.10. For information on how to manually configure and use the cluster autoscaler, see [Cluster autoscale on AKS][aks-cluster-autoscale].
+
+You can also use the built-in cluster autoscaler (currently in preview in AKS) to manage the scaling of nodes. For more information, see [Automatically scale a cluster to meet application demands in AKS][aks-cluster-autoscaler].
 
 ## Does AKS support Kubernetes RBAC?
 
@@ -37,13 +39,17 @@ Not at this time. The Kubernetes API server is exposed as a public fully qualifi
 
 ## Are security updates applied to AKS agent nodes?
 
-Yes, Azure follows a nightly schedule to automatically apply security updates to the nodes in your cluster. However, you must reboot nodes as required. You have several options to reboot nodes:
+Azure automatically applies security patches to the Linux nodes in your cluster on a nightly schedule. However, you are responsible for ensuring that those Linux nodes are rebooted as required. You have several options for rebooting nodes:
 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes][cordon-drain] and then bring each node back up with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
 - By using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file that indicates that a reboot is required. Across the cluster, OS reboots are managed by the same [cordon and drain process][cordon-drain] as a cluster upgrade.
 
 For more information about using kured, see [Apply security and kernel updates to nodes in AKS][node-updates-kured].
+
+### Windows Server nodes
+
+For Windows Server nodes (currently in preview in AKS), Windows Update does not automatically run and apply the latest updates. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the Windows Server node pool(s) in your AKS cluster. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ## Why are two resource groups created with AKS?
 
@@ -98,7 +104,9 @@ AKS isn't currently natively integrated with Azure Key Vault. However, the [Azur
 
 ## Can I run Windows Server containers on AKS?
 
-To run Windows Server containers, you need to run nodes that are based on Windows Server. Nodes based on Windows Server aren't currently available in AKS. You can, however, use Virtual Kubelet to schedule Windows containers on Azure Container Instances and manage them as part of your AKS cluster. For more information, see [Use Virtual Kubelet with AKS][virtual-kubelet].
+Yes, Windows Server containers are available in preview. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can use only Windows Server 2019. To get started, see [Create an AKS cluster with a Windows Server node pool][aks-windows-cli].
+
+Window Server support for node pool includes some limitations that are part of the upstream Windows Server in Kubernetes project. For more information on these limitations, see [Windows Server containers in AKS limitations][aks-windows-limitations].
 
 ## Does AKS offer a service-level agreement?
 
@@ -131,6 +139,10 @@ Users can't override the minimum `maxPods` validation.
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-cluster-autoscaler]: cluster-autoscaler.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[aks-windows-cli]: windows-container-cli.md
+[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 

@@ -48,7 +48,7 @@ For information about Azure Storage guarantees for durability and availability, 
 > Premium Storage supports only locally redundant storage (LRS).
 
 ## Changing replication strategy
-You can change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure client libraries](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
+You can change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
 
    > [!NOTE]
    > Currently, you cannot use the Portal or API to convert your account to ZRS. If you want to convert your account's replication to ZRS, see [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md) for details.
