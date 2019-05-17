@@ -56,7 +56,7 @@ The scope of the activities available to you expands as you grow your offerings 
 
 The table below summarize the eligibility requirements for list and trial offers:
 
-![](./media/marketplace-publishers-guide/gtm-elegibility-requirements.png)
+![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
 \* Requires silver or gold competency. <br>
 \*\* Requires gold competency. <br>
