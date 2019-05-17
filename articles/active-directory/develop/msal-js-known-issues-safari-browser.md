@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Known issues on Safari browser with MSAL.js 
 
-## Issues with silent token renewal on Safari 12 and ITP 2.0
+## Silent token renewal on Safari 12 and ITP 2.0
 
 Apple iOS 12 and MacOS 10.14 operating systems included a release of the [Safari 12 browser](https://developer.apple.com/safari/whats-new/). For purposes of security and privacy, Safari 12 includes the [Intelligent Tracking Prevention 2.0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/). This essentially causes the browser to drop third-party cookies being set. ITP 2.0 also treats the cookies set by identity providers as third-party cookies.
 
