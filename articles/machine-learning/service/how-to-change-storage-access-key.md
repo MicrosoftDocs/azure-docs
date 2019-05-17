@@ -23,7 +23,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace.
+* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](setup-create-workspace.md) article.
 
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -55,9 +55,9 @@ To update Azure Machine Learning service to use the new key, use the following s
 
     If an entry exists for the storage account that you plan on regenerating access keys for, save the datastore name, storage account name, and container name.
 
-2. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage.md#access-keys) article. Save the new key.
+1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage.md#access-keys) article. Save the new key.
 
-3. Using the values from step 1 and the key from step 2, use the following code to re-register the datastore using the new key value:
+1. Using the values from step 1 and the key from step 2, use the following code to re-register the datastore using the new key value:
 
     ```python
     ds = Datastore.register_azure_blob_container(workspace=ws, 
@@ -72,11 +72,11 @@ To update Azure Machine Learning service to use the new key, use the following s
 
 1. To sign in to the Azure subscription that contains your workspace by using the following Azure CLI command:
 
-    ``azurecli-interactive
+    ```azurecli-interactive
     az login
     ```
 
-4. To update the workspace to use the new key to log information on experiments, snapshots, and trained models, use the following Azure CLI command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
+1. To update the workspace to use the new key to log information on experiments, snapshots, and trained models, use the following Azure CLI command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 
     ```azurecli-interactive
     az ml workspace sync-keys -w myworkspace -g myresourcegroup
