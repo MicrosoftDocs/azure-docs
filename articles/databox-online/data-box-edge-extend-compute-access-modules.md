@@ -1,5 +1,5 @@
 ---
-title: Configure network on Azure Data Box Edge to access modules| Microsoft Docs 
+title: Manage compute network on Azure Data Box Edge to access modules| Microsoft Docs 
 description: Describes how to extend the compute network on your Data Box Edge to access modules via an external IP.
 services: databox
 author: alkohli
@@ -7,18 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/17/2019
 ms.author: alkohli
 ---
-# Configure network on your Azure Data Box Edge to access modules
+# Enable compute network on your Azure Data Box Edge
 
-This article describes how to configure the network on your Azure Data Box Edge to access the compute modules running on the device.
+This article describes how the modules running on your Azure Data Box Edge can access the compute network enabled on the device.
 
 To configure the network, you'll take the following steps:
 
 - Enable a network interface on your Data Box Edge device for compute
-- Get and run a webserver app module on your Data Box Edge
-- Configure the module to access the enabled network interface
+- Add a module to access compute network on your Data Box Edge
+- Verify the module can access the enabled network interface
+
+In this tutorial, you'll use a webserver app module to demonstrate the scenario.
 
 ## Prerequisites
 
@@ -51,44 +53,32 @@ Take the following steps on your local web UI to configure compute settings.
 Take the following steps to add a webserver app module on your Data Box Edge device.
 
 1. Go to the IoT Hub resource associated with your Data Box Edge device and then select **IoT Edge device**.
-2. Select your Data Box Edge device. On the **Device details**, select **Set modules**. On **Add modules**, select **+ Add** and then select **IoT Edge Module**.
+2. Select the IoT Edge device associated with your Data Box Edge device. On the **Device details**, select **Set modules**. On **Add modules**, select **+ Add** and then select **IoT Edge Module**.
 3. In the **IoT Edge custom modules** blade:
 
     1. Specify a **Name** for your webserver app module that you want to deploy.
-    2. Provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `nginx:stable` will look for an `nginx` image that is tagged as stable on [Docker website](https://hub.docker.com/_/nginx/).
-    3. **Save** the module.
+    2. Provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `nginx:stable` will pull a stable nginx image (tagged as stable) from the public [Docker respository](https://hub.docker.com/_/nginx/).
+    3. In the **Container Create Options**, paste the following sample code:  
 
-    ![nginx module information in IoT Edge custom module blade](media/data-box-edge-extend-compute-access-modules/deploy-module-1.png)
-
-## Configure webserver app module
-
-Take the following steps to configure the module you saved in the previous section. You'll specify the port to be used to connect to the webserver app module.
-
-1. On the **Set modules**, select the module you saved and then select **Configure**. In this example, *nginx-web-server* is the module you saved.
-
-    ![Configure webserver app module in IoT Edge custom module blade](media/data-box-edge-extend-compute-access-modules/configure-module-2.png)
-
-2. In the **Container Create Options**, paste the following sample code:  
-
-    ```
-    {
-                "HostConfig": {
+        ```
+        {
+            "HostConfig": {
                 "PortBindings": {
                     "80/tcp": [
-                    {
-                        "HostPort": "8080"
-                    }
+                        {
+                            "HostPort": "8080"
+                        }
                     ]
                 }
-                }
             }
-    ```
+        }
+        ```
 
-    This configuration lets you access the module using the compute network IP over *http* on TCP port 8080 (with the default webserver port being 80).
+        This configuration lets you access the module using the compute network IP over *http* on TCP port 8080 (with the default webserver port being 80).
 
-    ![Specify port information in IoT Edge custom module blade](media/data-box-edge-extend-compute-access-modules/configure-module-1.png)
+        ![Specify port information in IoT Edge custom module blade](media/data-box-edge-extend-compute-access-modules/module-information.png)
 
-3. Select **Save**.
+    4. Select **Save**.
 
 ## Verify module access
 
