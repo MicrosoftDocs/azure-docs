@@ -80,14 +80,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. Click **Set additional URLs**.
     1. In the **Relay State** text box, enter the customer specified Relay state URL.
+    
+    > [!NOTE]
+	> Contact [Whatfix Client support team](https://support.whatfix.com) to get Relay state URL value.
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://whatfix.com`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Relay State. Contact [Whatfix Client support team](https://support.whatfix.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
