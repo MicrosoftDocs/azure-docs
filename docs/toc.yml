@@ -23,7 +23,7 @@
   href: add-in-management-and-services
 - name: Prepare localized apps and add-ins
   href: prepare-localized-apps-and-add-ins.md
-- name: Submit Add-ins via Partner Center
+- name: Submit add-ins via Partner Center
   items: 
   - name: Partner Center overview
     href: use-partner-center-to-submit-to-the-office-store.md
@@ -41,7 +41,23 @@
     href: decide-on-a-pricing-model.md
   - name: AppSource submission FAQ
     href: office-store-submission-faq.md
-- name: Create effective AppSource listings
+- name: Submit add-ins via Seller Dashboard
+  items: 
+  - name: Overview
+    href: use-the-seller-dashboard-to-submit-to-the-office-store.md
+  - name: Upload your package
+    href: upload-package.md
+  - name: Create your Store listing
+    href: office-store-listing.md
+  - name: Add lead management details
+    href: add-lead-management-details.md
+  - name: Decide on a pricing model
+    href: decide-on-a-pricing-model.md
+  - name: Create or update client IDs and secrets
+    href: create-or-update-client-ids-and-secrets.md
+  - name: AppSource submission FAQ
+    href: office-store-submission-faq.md
+  - name: Create effective AppSource listings
   items:
   - name: Overview
     href: create-effective-office-store-listings.md
