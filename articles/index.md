@@ -687,7 +687,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/china/">
+                                            <a href="/azure/china/">
                                                 <img src="media/index/azure-germany.svg" alt="" />
                                                 <p>Microsoft Azure China 21Vianet</p>
                                             </a>
