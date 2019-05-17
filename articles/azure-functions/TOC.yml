@@ -299,6 +299,8 @@
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Quota information
+    href: functions-scale.md#service-limits 
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
