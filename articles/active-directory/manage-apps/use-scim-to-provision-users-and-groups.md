@@ -1345,7 +1345,7 @@ Group resources are identified by the schema identifier, `urn:ietf:params:scim:s
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## Whitelisting IP addresses being used by the Azure AD provisioning service to make SCIM requests
-Certain apps whitelist inbound traffic to their app. In order for the Azure AD Provisioning service to function as expected, the IP addresses used must be whitelisted. A JSON file with the list of IP addresses for each service tag/region can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=56519). You can download and progream these IPs into your firewall as needed. The reserved IP ranges for for Azure AD provisioning can be found under "AzureActiveDirectoryDomainServices."
+Certain apps allow inbound traffic to their app. In order for the Azure AD Provisioning service to function as expected, the IP addresses used must be allowed. A JSON file with the list of IP addresses for each service tag/region can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=56519). You can download and program these IPs into your firewall as needed. The reserved IP ranges for for Azure AD provisioning can be found under "AzureActiveDirectoryDomainServices."
  
 
 ## Related articles
