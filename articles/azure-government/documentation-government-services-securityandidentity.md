@@ -172,7 +172,7 @@ For details on this service and how to use it, see the [Azure Information Protec
 
 ## Enterprise Mobility + Security (EMS)
 
-For information on EMS suite capabilities in Azure Government please see the [Enterprise Mobility + Security for US Government Service Description](https://docs.microsoft.com/en-us/enterprise-mobility-security/solutions/ems-govt-service-description).
+For information on EMS suite capabilities in Azure Government, see the [Enterprise Mobility + Security for US Government Service Description](https://docs.microsoft.com/en-us/enterprise-mobility-security/solutions/ems-govt-service-description).
 
 ## Next Steps
 
