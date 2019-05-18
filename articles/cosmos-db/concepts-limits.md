@@ -17,8 +17,8 @@ After you create an Azure Cosmos account under your subscription, you can manage
 
 | Resource | Default limit |
 | --- | --- |
-| Max RU per container ([dedicated throughput provisioned mode](databases-containers-items#azure-cosmos-containers)) | 1000000 <sup>1</sup>|
-| Max RU per database ([shared throughput provisioned mode](databases-containers-items#azure-cosmos-containers)) | 1000000 <sup>1</sup>|
+| Max RU per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1000000 <sup>1</sup>|
+| Max RU per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1000000 <sup>1</sup>|
 | Max RU per (logical) partition key | 10000 |
 | Max storage across all items per (logical) partition key| 10 GB |
 | Max storage per container | Unlimited |
@@ -40,8 +40,8 @@ The current and minimum throughput of a container or a database can be retrieved
 
 | Resource | Default limit |
 | --- | --- |
-| Min RU per container ([dedicated throughput provisioned mode](databases-containers-items#azure-cosmos-containers)) | 400 |
-| Min RU per database ([shared throughput provisioned mode](databases-containers-items#azure-cosmos-containers)) | 400 |
+| Min RU per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Min RU per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Min RU per container within a shared throughput database | 100 |
 | Min RU per GB of consumed storage | 40 |
 
