@@ -17,8 +17,6 @@ ms.author: wolfma
 
 # Tutorial: Recognize intents from speech using the Speech SDK for C#
 
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
-
 The Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) integrates with the [Language Understanding service (LUIS)](https://www.luis.ai/home) to provide **intent recognition.** An intent is something the user wants to do: book a flight, check the weather, or make a call. The user can use whatever terms feel natural. Using machine learning, LUIS maps user requests to the intents you have defined.
 
 > [!NOTE]
