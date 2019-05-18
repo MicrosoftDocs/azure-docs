@@ -49,16 +49,16 @@ This document provides guidance on how to update device firmware on your Azure K
 2. View the following example.
 
 ```
-    >AzureKinectFirmwareTool.exe -q
-     == Azure Kinect DK Firmware Tool ==
+   >AzureKinectFirmwareTool.exe -q
+    == Azure Kinect DK Firmware Tool ==
     Device Serial Number: 000036590812
     Current Firmware Versions:
-     RGB camera firmware:      1.5.92
-     Depth camera firmware:    1.5.66
-     Depth config file:        6109.7
-     Audio firmware:           1.5.14
-     Build Config:             Production
-     Certificate Type:         Microsoft
+    RGB camera firmware:      1.5.92
+    Depth camera firmware:    1.5.66
+    Depth config file:        6109.7
+    Audio firmware:           1.5.14
+    Build Config:             Production
+    Certificate Type:         Microsoft
 ```
 
 3. If you see the above output, your firmware is updated.
@@ -70,7 +70,9 @@ This document provides guidance on how to update device firmware on your Azure K
 Firmware updates can fail for several reasons. When a firmware update fails try these mitigation steps:
 
 1. Try to run the firmware update command a 2nd time.
-2. Confirm the device is still connected by querying for the firmware version. AzureKinectFirmareTool.exe
+
+2. Confirm the device is still connected by querying for the firmware version.        AzureKinectFirmareTool.exe
+
 3. If all else fails, follow the [recovery](https://aka.ms/AzureKinectAPIDocs/azurekinect-fw-recovery.md) steps to revert to the factory firmware and try again.
 
 For any additional issues see also [troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md)

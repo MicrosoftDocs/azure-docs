@@ -3,7 +3,9 @@ title: Azure Kinect DK record external synchronized units
 description: Using Azure Kinect recorder with external synchronized units
 author: joylital
 ms.author: joylital
-ms.date: 6/6/2019
+ms.prod: kinect-dk
+ms.date: 06/26/2019
+ms.topic: conceptual
 keywords: Kinect, sensor, viewer, external sync, phase delay, depth, RGB, camera, audio cable, recorder
 ---
 
@@ -33,7 +35,7 @@ In the example below, each device has its own dedicated host PC. This is the rec
 
 1. Set up recorder for the first unit
 
-```>k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub1.mkv```
+      ```k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub1.mkv```
 
 2. Device starts waiting.
 
@@ -48,7 +50,7 @@ Device started
  
 1. Set up recorder for the second unit
 
-```>k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub2.mkv```
+    ```k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub2.mkv```
  
 2. Device starts waiting.
 
@@ -81,7 +83,7 @@ You must start subordinate devices first and the master last.
 
 1. Start recorder on subordinate.
 
-```k4arecorder.exe --device 1 --external-sync subordinate --imu OFF -r 5 -l 5 output-2.mkv```
+```>k4arecorder.exe --device 1 --external-sync subordinate --imu OFF -r 5 -l 5 output-2.mkv```
 
 2. This goes into waiting state.
 
@@ -89,7 +91,7 @@ You must start subordinate devices first and the master last.
 
 1. start Master device
 
-```k4arecorder.exe --device 0 --external-sync master --imu OFF -r 5 -l 5 output-1.mkv```
+```>k4arecorder.exe --device 0 --external-sync master --imu OFF -r 5 -l 5 output-1.mkv```
 
 2. Wait recording to finish.
 
