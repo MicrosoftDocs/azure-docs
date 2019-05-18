@@ -36,7 +36,7 @@ Navigate to the left pane of your workspace. Select Automated Machine Learning u
 
 ![Azure portal experiment landing page](media/how-to-create-portal-experiments/landing-page.png)
 
-Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those run with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
+Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
 ![Azure portal experiment dashboard](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -190,21 +190,27 @@ Automated ML helps you with deploying the model without writing code:
 ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button.png)
 
 1. First step is to register the model into the service. Select "Register model" and wait for the registration process to complete.
-![Deploy model blade](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+    ![Deploy model blade](media/how-to-create-portal-experiments/deploy-model-blade.png)
 
 1. Once the model is registered, you'll be able to download the scoring script (scoring.py) and the environment script (condaEnv.yml) to be used during deployment.
 
-1. When the scoring script and the environment script are downloaded, go to the **Assets** blade of the left navigation pane and select **Models**
-![Navigation pane models](media/how-to-create-portal-experiments/nav-pane-models.png)
+1. When the scoring script and the environment script are downloaded, go to the **Assets** blade of the left navigation pane and select **Models**.
 
-1. Select the model you registered, and select "Create image"
-![Models: Create image](media/how-to-create-portal-experiments/model-create-image.png)
-You can identify the model by its description, which will include the run id, iteration number, in the following format: "<Run_ID>_<Iteration_number>_Model"
+    ![Navigation pane models](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Select the model you registered, and select "Create image".
+
+    You can identify the model by its description, which will include the run ID, iteration number, in the following format: *<Run_ID>_<Iteration_number>_Model*
+    
+    ![Models: Create image](media/how-to-create-portal-experiments/model-create-image.png)
+
+    
 
 1. Enter a name for the image. 
-1. Select the "Browse" button next to the "Scoring File" box to upload the scoring file (scoring.py) you previously downloaded.
+1. Select the **Browse** button next to the "Scoring File" box to upload the scoring file (scoring.py) you previously downloaded.
 
-1. Select the "Browse" button next to the "Conda File" box to upload the environment file (condaEnv.yml) you previously downloaded.
+1. Select the **Browse** button next to the "Conda File" box to upload the environment file (condaEnv.yml) you previously downloaded.
 
     You can use your own scoring script and conda file, as well as upload additional files. [Learn more about scoring script](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
 
