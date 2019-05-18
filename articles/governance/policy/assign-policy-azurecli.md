@@ -9,7 +9,7 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ---
-# Create a policy assignment to identify non-compliant resources with Azure CLI
+# Quickstart: Create a policy assignment to identify non-compliant resources with Azure CLI
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of creating a policy assignment to identify virtual
