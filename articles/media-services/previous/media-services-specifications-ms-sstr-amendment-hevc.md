@@ -51,7 +51,7 @@ The following terms are specific to this document:
 
 >  **composition time:** The time a sample is presented at the client,
 >   as defined in
->   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Common Encryption, as defined in [ISO/IEC 23001-7] Second Edition.
 > 
