@@ -1,20 +1,20 @@
 ---
-title: How to fill out the Storefront Details form | Microsoft Docs
+title: How to fill out the Storefront Details form 
 description: Explains the values for the Storefront Details form for a new Dynamics 365 Business Central app.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 

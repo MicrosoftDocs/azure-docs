@@ -2,7 +2,7 @@
 title: Tutorial - Use Azure Key Vault with an Azure web app in .NET | Microsoft Docs
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 
 ms.service: key-vault
@@ -187,7 +187,7 @@ You can also watch this video:
 
 ## Run the web app
 
-1. On the main menu of Visual Studio 2017, select **Debug** > **Start**, with or without debugging. 
+1. On the main menu of Visual Studio 2019, select **Debug** > **Start**, with or without debugging. 
 1. In the browser, go to the **About** page.  
     The value for **AppSecret** is displayed.
 

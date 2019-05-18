@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 04/26/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -60,8 +60,8 @@ The following table provides more detail about each of these email notifications
 
 | # | Email subject | When sent | Sent to |
 | --- | --- | --- | --- |
-| 1 | Action required: Approve request to *[access package]* by *[date]* *[time]* | When a requestor submits a request for an access package | All approvers |
-| 2 | Action required: Approve request to *[access package]* by *[date]* *[time]* | X days before the approval request timeout | All approvers |
+| 1 | Action required: Review access request from *[requestor]* to *[access package]* by *[date]* | When a requestor submits a request for an access package | All approvers |
+| 2 | Action required: Review access request from *[requestor]* to *[access package]* by *[date]* | X days before the approval request timeout | All approvers |
 | 3 | Status notification: *[requestor]*'s access request to *[access package]* has expired | When the approvers do not approve or deny an access request within the request duration | Requestor |
 | 4 | Status notification: *[requestor]* access request to *[access package]* has been completed | When the first approver approves or denies an access request | All approvers |
 | 5 | You have been denied access to *[access package]* | When a requestor has been denied access to the access package | Requestor |
@@ -69,11 +69,11 @@ The following table provides more detail about each of these email notifications
 | 7 | Your access to *[access package]* expires in X day(s) | X days before the requestor's access to the access package expires | Requestor |
 | 8 | Your access to *[access package]* has expired | When the requestor's access to an access package expires | Requestor |
 
-### Approve request emails
+### Review access request emails
 
 When a requestor submits an access request for an access package that is configured to require approval, all approvers configured in the policy receive an email notification with details of the request. Details include the requestor's name, organization, access start and end date if provided, business justification, when the request was submitted, and when the request will expire. The email includes a link where approvers can approve or deny the access request. Here is a sample email notification that is sent to an approver when a requestor submits an access request.
 
-![Approve request to access package email](./media/entitlement-management-shared/email-approve-request.png)
+![Review access request email](./media/entitlement-management-shared/email-approve-request.png)
 
 ### Approved or denied emails
 
@@ -85,7 +85,7 @@ When an access request is denied, an email notification is sent to the requestor
 
 ### Expired access request emails
 
-Requestors are notified when their access request has expired (timed-out). When a requestor submits an access request, the request has a request duration after which it expires. If there are no approvers who submit an approve/deny decision, the request continues to remain in a pending approval state. When the request reaches its configured expiration duration, the request expires, and can no longer be approved or denied by the approvers. In this case, the request goes into an expired state. An expired request can no longer be approved or denied. An email notification is sent to the requestor that their access request has expired, and that they need to resubmit the access request. Here is a sample email notification that is sent to a requestor when their access request has expired.
+Requestors are notified when their access request has expired. When a requestor submits an access request, the request has a request duration after which it expires. If there are no approvers who submit an approve/deny decision, the request continues to remain in a pending approval state. When the request reaches its configured expiration duration, the request expires, and can no longer be approved or denied by the approvers. In this case, the request goes into an expired state. An expired request can no longer be approved or denied. An email notification is sent to the requestor that their access request has expired, and that they need to resubmit the access request. Here is a sample email notification that is sent to a requestor when their access request has expired.
 
 ![Expired access request email](./media/entitlement-management-process/email-expired-access-request.png)
 

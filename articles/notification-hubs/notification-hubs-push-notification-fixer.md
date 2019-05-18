@@ -119,7 +119,7 @@ Here are paths to diagnose the root cause of dropped notifications in Notificati
 
 #### Push notification service developer portal ####
 
-Verify credentials in the respective push notification service developer portal (APNs, FCM, Windows Notification Service, and so on). For more information, see [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Verify credentials in the respective push notification service developer portal (APNs, FCM, Windows Notification Service, and so on). For more information, see [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### Azure portal ####
 
@@ -176,7 +176,7 @@ You can also send test notifications from Visual Studio.
 
 For more information about using Notification Hubs with Visual Studio Server Explorer, see these articles:
 
-* [How to view device registrations for notification hubs](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [How to view device registrations for notification hubs](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]
 * [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]
 
@@ -257,7 +257,7 @@ In the portal, you can get a quick overview of all the activity in your notifica
 
 #### Programmatic access ####
 
-For more information about programmatic access, see [Programmatic access](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+For more information about programmatic access, see [Programmatic access](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Several telemetry-related features, like exporting and importing registrations and telemetry access via APIs, are available only on the Standard service tier. If you attempt to use these features from the Free or Basic service tier, you'll get an exception message if you use the SDK. You'll get an HTTP 403 (Forbidden) error if you use the features directly from the REST APIs.

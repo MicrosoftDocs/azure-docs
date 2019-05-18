@@ -33,7 +33,7 @@ If you are monitoring a computer with System Center Operations Manager 2012 R2 o
 
 The Windows agent can report up to four Log Analytics workspaces, while the Linux agent only supports reporting to a single workspace.  
 
-The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/automation-change-tracking.md) and [Update Management](../../automation/automation-update-management.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/change-tracking.md) and [Update Management](../../automation/automation-update-management.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## Supported Windows operating systems
 The following versions of the Windows operating system are officially supported for the Windows agent:
