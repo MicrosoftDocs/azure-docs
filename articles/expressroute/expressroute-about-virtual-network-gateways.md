@@ -11,8 +11,8 @@ ms.author: mialdrid
 ms.custom: seodec18
 
 ---
-# About virtual network gateways for ExpressRoute
-A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations. You can use a virtual network gateway for either ExpressRoute traffic, or VPN traffic. This article focuses on ExpressRoute virtual network gateways and contains information about SKUs, estimated performance by SKU, and gateway types.
+# About ExpressRoute virtual network gateway and FastPath
+To connect your Azure virtual network and your on-premises network via ExpressRoute, you must create a virtual network gateway first. A virtual network gateway serves two purposes: exchange IP routes between the cross premises networks and route network traffic. This article explains gateway types, gateway SKUs and estimated performance by SKU. This article also explains ExpressRoute FastPath, a feature that enables cross-presmises network traffic to bypass the virtual network to improve performance.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,6 +54,17 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 * ErGw3AZ
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you also have the option to deploy the gateway in a specific zone. This is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
+
+## FastPath
+ExpressRoute virtual network gateway is designed to exchange cross premises IP routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway. 
+
+### Prerequisites
+UltraPerf ErGw3AZ
+Direct
+
+### Limitations
+UDR
+Hub and Spoke
 
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets
 For additional technical resources and specific syntax requirements when using REST APIs and PowerShell cmdlets for virtual network gateway configurations, see the following pages:
