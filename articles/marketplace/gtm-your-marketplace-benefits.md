@@ -69,6 +69,6 @@ The full list of benefits for marketplace rewards can be viewed in the [program 
 
 ## Next steps
 
-Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
 
 ---
