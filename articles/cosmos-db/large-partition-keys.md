@@ -49,6 +49,8 @@ The Large partition keys are supported with the following minimum versions of SD
 |.Net     |    1.18     |
 |Java sync     |   2.4.0      |
 |Java Async   |  2.5.0        |
+
+Currently, you cannot use containers with large partition key within in Power BI and Azure Logic Apps. You can use containers without a large partition key from these applications. 
  
 ## Next steps
 
