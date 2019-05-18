@@ -152,6 +152,9 @@ ServerTelemetryChannel is recommended for most production scenarios. InMemoryCha
 
 * Despite the name of the package/namespace being WindowsServer, this channel is supported in non-windows system with the following exception. In non-windows, channel does not create a local storage folder by default. Users must create a local storage folder and configure channel to use it. Once a local storage is configured, channel works same in windows and non-windows systems.'
 
+## Open-source SDK
+As any of the Application Insights SDK, channels are also open-source. Read and contribute to the code, or report issues [here](https://github.com/Microsoft/ApplicationInsights-dotnet).
+
 ## Next steps
 
 * [Filtering](../../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
