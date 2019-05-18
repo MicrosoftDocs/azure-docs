@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 03/13/2019
 ms.author: erhopf
 ---
 
@@ -25,7 +25,7 @@ For a complete list of languages available for speech translation, see [language
 This quickstart requires:
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project
