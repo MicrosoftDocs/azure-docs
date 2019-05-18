@@ -39,13 +39,8 @@ Unlike ARM changes, this type of change information may not be available immedia
 
 ![Screenshot of scan for changes now button in Diagnose and Solve problems tool with change analysis integration for app service web app](./media/change-analysis/scan-changes.png)
 
-<<<<<<< HEAD
 ### Dependency changes
 Dependencies resource could also be the cause of issues. For example, if a web app calls into a Redis cache, the web app performance can be impacted by Redis cache SKU. By looking into the web app DNS record change analysis service also present the dependencies change information to identify changes in all components of an app that could have caused issues.
-=======
-### Dependencies changes
-Resource dependencies could also be the cause of issues. For example, if a web app calls into a Redis cache, the web app performance can be impacted by the Redis cache SKU. By looking into the web app DNS record the change analysis tool will present the dependencies' change information to identify changes in all components of an app that could have caused issues.
->>>>>>> f41fa207d83f485619f143f1ba08db6275a83fb7
 
 
 ## Change Analysis service for App Services Web App
@@ -79,6 +74,20 @@ Azure Monitor application change analysis is currently built into the self-servi
      ![Screenshot of change diff view](./media/change-analysis/change-view.png)
 
 ## Troubleshooting
+
+### Cannot onboard Change Service RP to subscription
+It is possible that in the enablement blade you see messages similar to the following:
+*Unable to check resource registration status. Please try again later*.
+
+Following the steps below to manually onboard Change Analysis to your subscription:
+
+1. Navigate to Subscriptions, select the subscription you want to onboard the change service, then click Resource providers:
+
+    ![Screenshot for registering Change Analysis RP from Subscriptions blade](./media/change-analysis/register-rp.png)
+
+2. Select *Microsoft.ChangeAnalysis* and click *Register* on the top of the page.
+
+3. Once Resource Provider is onboarded, follow instructions from *Unable to fetch Change Analysis information* below to set hidden tag on the web app to enable deployment level change detection on the web app.
 
 ### Unable to fetch Change Analysis information.
 
