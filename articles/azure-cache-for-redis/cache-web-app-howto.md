@@ -24,7 +24,7 @@ ms.custom: mvc
 
 ## Introduction
 
-This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service by using Visual Studio 2017. The sample application connects to Azure Cache for Redis to store and retrieve data from the cache. After you finish the quickstart, you'll have a running web app, hosted in Azure, that reads and writes to Azure Cache for Redis.
+This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service by using Visual Studio 2019. The sample application connects to Azure Cache for Redis to store and retrieve data from the cache. After you finish the quickstart, you'll have a running web app, hosted in Azure, that reads and writes to Azure Cache for Redis.
 
 ![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -32,7 +32,7 @@ This quickstart shows how to create and deploy an ASP.NET web application to Azu
 
 ## Prerequisites
 
-To complete the quickstart, you need to install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following environments:
+To complete the quickstart, you need to install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following environments:
 * ASP.NET and web development
 * Azure development
 

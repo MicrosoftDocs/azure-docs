@@ -57,7 +57,9 @@ To obtain the NuGet package, follow these steps:
 
 ## Configure your storage connection string
 
-1. From the [Azure portal](https://portal.azure.com/), click **Connection String**. Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
+1. From the [Azure portal](https://portal.azure.com/), navigate to your Azure Cosmos account or the Table Storage account. 
+
+1. Open the **Connection String** or **Access keys** pane. Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
 
    ![View and copy the PRIMARY CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
    
