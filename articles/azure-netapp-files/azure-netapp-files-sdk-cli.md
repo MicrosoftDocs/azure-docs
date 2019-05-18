@@ -22,7 +22,7 @@ This article lists the SDKs supported by Azure NetApp Files.
 
 ## Supported SDKs 
 
-The supported SDKs are listed in the table below.  You can find details about the supported SDKs at their published locations in GitHub.  
+The table below lists the supported SDKs.  You can find details about the supported SDKs at their published locations in GitHub.  
 
 |    Language    |    SDK published location    |
 |------------------|--------------------------------------------------------------------------------------------|
@@ -31,9 +31,6 @@ The supported SDKs are listed in the table below.  You can find details about th
 |    [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)    |    `https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp`       |
 |    [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |    `https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp`    |
 |    [Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |    `https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp`    |
-
-You can [download Azure SDKs](https://azure.microsoft.com/downloads/). 
-
 
 <!-- ## Command-line tools -->
 
