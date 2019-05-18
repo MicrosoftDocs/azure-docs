@@ -84,7 +84,6 @@
         href: storage-performance.md
     - name: Accelerated compute
       displayName: NV NVv2 NC NCv2 NCv3 ND
-      href: sizes-gpu.md   
       items:
       - name: GPU optimized 
         href: sizes-gpu.md
