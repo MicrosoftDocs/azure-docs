@@ -66,17 +66,17 @@ You can opt into zone redundancy when configuring a multi-region writes for your
 
 
 > [!NOTE] 
-> Enabling Availability Zones for a single region Azure Cosmos DB account will result in charges that are equivalent to adding an additional region for your account.
+> Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles. 
 
 The following table summarizes the high availability capability of various account configurations: 
 
-|KPI  |Single Region without Availability Zones (Non-AZ)  |Single Region with Availability Zones (AZ)  |Multi-regions with Availability Zones (AZ, 2 regions) – Recommended setting |
+|KPI  |Single Region without Availability Zones (Non-AZ)  |Single Region with Availability Zones (AZ)  |Multi-regions with Availability Zones (AZ, 2 regions) – Recommended Setting |
 |---------|---------|---------|---------|
 |Write availability SLA     |   99.99%      |    99.99%     |  99.999%  |
 |Read availability SLA   |   99.99%      |   99.99%      |  99.999%       |
 |Price  |  Single region billing rate |  Single region Availability Zone billing rate |  Multi-region billing rate       |
-|Zone failures – data loss   |  Data loss  |   **No data loss** |   No data loss  |
-|Zone failures – availability |  Availability loss  | **No availability loss**  |  No availability loss  |
+|Zone failures – data loss   |  Data loss  |   No data loss |   No data loss  |
+|Zone failures – availability |  Availability loss  | No availability loss  |  No availability loss  |
 |Read latency    |  Cross region    |   Cross region   |    Low  |
 |Write latency    |   Cross region   |  Cross region    |   Low   |
 |Regional outage – data loss    |   Data loss      |  Data loss       |   Data loss      |
