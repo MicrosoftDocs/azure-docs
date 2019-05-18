@@ -83,9 +83,9 @@ The Standard tier of Azure Security Center is free for the first 30 days. Should
 A detailed list of feature variations in the Azure Security Center government offering can found in the variations section of this article. All other Azure Security Center capabilities can be referenced in the Azure Security Center public documentation.
 
 **What is the compliance commitment for Azure Security Center in Azure
-Government?** 
+Government?**
 
-Azure Security Center in Azure Government has achieved FedRAMP High authorization. 
+Azure Security Center in Azure Government has achieved FedRAMP High authorization.
 
 **Is Azure Security Center available for DoD customers?**
 
@@ -105,7 +105,7 @@ The URLs for accessing Key Vault in Azure Government are different:
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
 | Key Vault | \*.vault.azure.net | \*.vault.usgovcloudapi.net |
-| Service Principal ID| cfa8b339-82a2-471a-a3c9-0fc0be7a4093 | 7e7c393b-45d0-48b1-a35e-2905ddf8183c | 
+| Service Principal ID| cfa8b339-82a2-471a-a3c9-0fc0be7a4093 | 7e7c393b-45d0-48b1-a35e-2905ddf8183c |
 | Service Principal Name | Azure Key Vault | Azure Key Vault |
 
 ### Data considerations
@@ -128,19 +128,19 @@ The URLs for accessing Azure Active Directory in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-| Active Directory Endpoint and Authority | https://login.microsoftonline.com | https://login.microsoftonline.us | 
+| Active Directory Endpoint and Authority | https://login.microsoftonline.com | https://login.microsoftonline.us |
 | Active Directory Graph API| https://graph.windows.net/ | https://graph.windows.net/ |
 
 ## Azure Active Directory Premium P1 and P2
 
 Azure Active Directory Premium is available in Azure Government. For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).  
 
-For a list of features in Azure Active Directory Premium P1, see [Azure Active Directory Features](https://www.microsoft.com/cloud-platform/azure-active-directory-features) for a list of all capabilities available. This same feature list applies to the US Government cloud instance. 
+For a list of features in Azure Active Directory Premium P1, see [Azure Active Directory Features](https://www.microsoft.com/cloud-platform/azure-active-directory-features) for a list of all capabilities available. This same feature list applies to the US Government cloud instance.
 All features covered in the above list are available in the US Government cloud instance, with the following known limitations:
 
 ### Variations
 
-The following Azure Active Directory Premium P1 features are currently not available in Azure Government: 
+The following Azure Active Directory Premium P1 features are currently not available in Azure Government:
 
 - B2B Collaboration ([vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government))
 - Group-Based Licensing
@@ -155,7 +155,7 @@ The following features have known limitations in Azure Government:
 
 - Limitations with Multi-factor Authentication:
   - Hardware OATH tokens are not available in Azure Government.
-  - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when Multi-Factor Authentication should and should not be required based off the user’s current IP address. 
+  - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when Multi-Factor Authentication should and should not be required based off the user’s current IP address.
 
 - Limitations with Azure AD Join:
   - Enterprise State Roaming for Windows 10 devices is not available  
@@ -169,6 +169,10 @@ For details on this service and how to use it, see the [Azure Multi-Factor Authe
 Azure Information Protection Premium, part of the [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security) suite, is generally available in Azure Government.
 
 For details on this service and how to use it, see the [Azure Information Protection Premium Government Service Description](https://docs.microsoft.com/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
+
+## Enterprise Mobility + Security (EMS)
+
+For information on EMS suite capabilities in Azure Government please see the [Enterprise Mobility + Security for US Government Service Description](https://docs.microsoft.com/en-us/enterprise-mobility-security/solutions/ems-govt-service-description).
 
 ## Next Steps
 
