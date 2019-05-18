@@ -1,6 +1,6 @@
 ---
 title: FSLogix profile containers and Azure Files in Windows Virtual Desktop - Azure
-description: This article contains information about FSLogix profile containers within Windows Virtual Desktop and Azure files.
+description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
 services: virtual-desktop
 author: ChJenk
 
@@ -9,42 +9,44 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: v-chjenk
 ---
+
 # FSLogix Profile containers and Azure files
 
-The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. It's specifically designed to roam profiles in remote computing environments such as Windows Virtual Desktop. A complete user profile is stored in a single container and, at logon, the container is dynamically attached to the computing environment using native, in-guest VHD/VHDX Microsoft services.  The user's profile is then immediately available and appears to the system exactly like a native user profile.
+The Windows Virtual Desktop Preview service recommends FSLogix profile containers as a user profile solution. FSLogix is specifically designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. A complete user profile is stored in a single container and, at logon, the container is dynamically attached to the computing environment using native, in-guest Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX) Microsoft services. The user profile is immediately available and appears in the system exactly like a native user profile.
 
-In this article, we'll describ3e FSLogix profile containers and Azure Files. This information is in the context of Windows Virtual Desktop, which was [announced on 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
+In this article, we'll describe FSLogix profile containers as it's used with Azure Files. The information is in the context of Windows Virtual Desktop, which was [announced on 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
-Key areas that are covered:
-- Why we need user profiles
+Key issues we cover:
+- Why we need user profiles and their challenges
 - FSLogix profile containers
-- Advantages of using Azure Files
-- Reference Infrastructure
+- The advantages of using Azure files
+- Reference infrastructure regarding storage
 - Setup guide
 
 ## User profiles
 
-User profiles is a term that can be summarized as all data tied to a specific user that is both created by the user or tied to her/his settings. By default, Windows creates a local user profile that is tightly integrated with the operating system. 
+A user profile is information about individuals that contains any of a variety of business-specific data elements, including configuration information for a specific user, such as desktop settings, persistent network connections, and application settings, or personally-identifiable information. By default, Windows creates a local user profile that is tightly integrated with the operating system.
 
-Remote user profile add a layer of abstraction between a user's data and the operating system. This allows the operating system to be replaced without effecting the user data. In RDSH/VDI world the replacement of the operating system may be due to:
-- Upgrade of the operating system
-- Replacement of the existing VM 
-- User being part of a pooled (non-persistent) RDSH / VDI environment
+A remote user profile was introduced to provide a partition between user data and the operating system. This allows the operating system to be replaced without effecting user data. In Remote Desktop Session Host (RDSH) and Virtual Desktop Infrastructures (VDI), the operating system may be replaced for the following reasons:
 
-Microsoft has gone through few technologies in attempts to address user profiles. Few of the more popular are:
+- An upgrade of the operating system
+- A replacement of an existing Virtual Machine (VM)
+- A user being part of a pooled (non-persistent) RDSH or VDI environment
+
+Microsoft products operate with several technologies for remote user profiles, including these technologies:
 - Roaming user profiles (RUP)
 - User profile disks (UPD)
 - Enterprise state roaming (ESR)
 
-Of the above-mentioned solutions UPD and RUP are the most widely used user profile in RDSH / VDH environments.
+UPD and RUP are the most widely used for user profiles in the Remote Desktop Session Host (RDSH) and Virtual Hard Disk (VHD) environments.
 
-### Challenges with User Profiles
+### Challenges with User Profile technologies
 
-Existing and legacy Microsoft solutions around user profiles came with different set of challenges that no one solution could address.
+Existing and legacy Microsoft solutions around user profiles came with different sets of challenges. No single previous user profile solution handled all the needs that come with a RDSH/VDI environment. For example, UPD could not handle large OST files and RUP did not persist modern settings.
 
 Functionality
 
-None of the existing Microsoft user profile solutions is capable of handling all needs that come up in and RDSH/VDI environment. UPD could not handle large OST files. RUP was not persisting modern setting. The table below is a good summary of existing and missing capabilities around user profile technologies.
+The table below shows the benefits and limitations of previous user profile technologies.
 
 | Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-prem | Verison support | Subsequent logon time |
 | ---------- | --------------- | -------------- | ----------- | --------- | ----------------------- | ------------------------- | ------------------------ | --------------- | --------------------- |
@@ -54,45 +56,44 @@ None of the existing Microsoft user profile solutions is capable of handling all
 | **UE-V** 4 | Yes | Yes | Yes | No | Yes | No | Yes | Win 7+ | No |
 | **Cloud Files** | No | No | No | Yes | Yes 5 | Yes 6 | Yes 7 | Win 10 RS3 | No |
 
+``` footnotes
 1. Roaming User Profile, maintenance mode
 2. Enterprise State Roaming
 3. Yes, but no supporting user interface
 4. User Experience Virtualization
 5. Theoretically, but not tested
 6. Yes, but depends on synch client
-1. Needs a sync client (work folders?)
-
-
-
+7. Needs a sync client (work folders?)
+```
 
 Performance
 
-UPD requires [S2D](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. This is due to UPD using SMB protocol and copying the profile to the VM to which the user is being logged. UPD on top of S2D was the solution that the RDS team recommend for Windows Virtual Desktop during the private preview of the service.  
+UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. This is due to UPD using Server Message Block (SMB) protocol and copying the profile to the VM to which the user is being logged. UPD on top of S2D was the solution that the RDS team recommended for Windows Virtual Desktop during the private preview of the service.  
 
 Cost
 
-While S2D clusters achieve the needed performance, their monetary cost is considered high among enterprise customers and very high for SMB customers.
+While S2D clusters achieve the needed performance, their cost is considered high among enterprise customers and very high for small and medium business (SMB) customers.
 
 Administrative overhead
 
-S2D clusters require an operating system that is patched, updated and maintained in secure state. This in addition with the complexity around setting up S2D disaster recovery and the many caveats in that process renders S2D usable only for enterprises that have dedicated IT staff to handle storage in VDO RDSH / VDI environments.
+S2D clusters require an operating system that is patched, updated, and maintained in a secure state. This, in addition to the complexity of setting up S2D disaster recovery, makes S2D feasible only for enterprises with dedicated IT staff.
 
 ## FSLogix Profile Containers
 
 On Nov 19, 2018 [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). This was done due to many reasons, key among those are:
-- FSLogix profile containers performance, [Profile containers](https://fslogix.com/products/profile-containers) – resolving performance issues that historically have blocked cached exchange mode.
+- FSLogix profile containers performance, [Profile containers](https://fslogix.com/products/profile-containers) resolve performance issues that have historically blocked cached exchange mode.
 - FSLogix unblocking OneDrive, [OneDrive for Business and FSLogix best practices](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) – its mandatory to call out that without FSLogix profile containers OneDrive for Business was not supported in non-persistent RDSH / VDI environments as outlined [here](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
 - Ability to extend used profiles to include additional folders.
 
-Further this acquisition allows Microsoft to supersede existing user profile solutions like UPD with FSLogix profile containers.
+Further, this acquisition allows Microsoft to supersede existing user profile solutions like UPD with FSLogix profile containers.
 
-## Azure Files integration with AD
+## Azure Files integration with Active Directory
 
 FSLogix profile containers address performance and feature needs there was / is need for a storage solution that moves away S2D and takes advantage of the cloud and what it offers. Microsoft Azure Files [announced](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/) on Sept 24, 2018 a public preview of Azure Files supporting Azure Active Directory authentication. This evolution away from storage key enables Azure Files to step in and challenge S2D. By addressing both cost and administrative overhead Azure Files with Azure Active Directory authentication can be used as the premium solution for user profiles in the new Windows Virtual Desktop service.
 
 ## Reference Infrastructure
 
-Windows Virtual Desktop offers full control over size, type and count of VMs that are being used by our customers. Hence the focus will be on the storage infrastructure.
+The focus of this section is the storage infrastructure. Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by our customers.
 
 MISSING INFO
 
