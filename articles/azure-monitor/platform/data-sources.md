@@ -191,7 +191,6 @@ When you enable Application Insights for an application by installing an instrum
 |:---|:---|:---|
 | Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Azure Monitor for containers](../insights/container-insights-analyze.md) |
 | Azure Monitor Metrics | Metric data is stored in the metric database to drive visualization and alerts. | [View container metrics in metrics explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Container Diagnostics | Audit log and control plane logs are stored in a custom location before they're moved to a Log Analytics workspace. |  |
 | Azure Kubernetes Service | In order to a near real time experience, Azure Monitor for Containers presents data directly from the Azure Kubernetes service in the Azure portal. | [How to view container logs real time with Azure Monitor for containers (preview)](../insights/container-insights-live-logs.md) |
 
 ### Azure Monitor for VMs
