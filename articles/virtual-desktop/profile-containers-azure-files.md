@@ -9,11 +9,9 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: v-chjenk
 ---
-# Profile containers and Azure files
+# FSLogix Profile containers and Azure files
 
-The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. It's specifically designed to roam profiles in remote computing environments such as Windows Virtual Desktop.
-
-A complete user profile is stored in a single container and, at logon, the container is dynamically attached to the computing environment using native, in-guest VHD/VHDX Microsoft services.  The user's profile is then immediately available and appears to the system exactly like a native user profile.
+The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. It's specifically designed to roam profiles in remote computing environments such as Windows Virtual Desktop. A complete user profile is stored in a single container and, at logon, the container is dynamically attached to the computing environment using native, in-guest VHD/VHDX Microsoft services.  The user's profile is then immediately available and appears to the system exactly like a native user profile.
 
 In this article, we'll describ3e FSLogix profile containers and Azure Files. This information is in the context of Windows Virtual Desktop, which was [announced on 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
@@ -46,9 +44,26 @@ Existing and legacy Microsoft solutions around user profiles came with different
 
 Functionality
 
-None of the existing Microsoft user profile solutions is capable of handling all needs that come up in and RDSH / VDI environment. UPD could not handle large OST files. RUP was not persisting modern setting. The table below is a good summary of existing and missing capabilities around user profile technologies.
+None of the existing Microsoft user profile solutions is capable of handling all needs that come up in and RDSH/VDI environment. UPD could not handle large OST files. RUP was not persisting modern setting. The table below is a good summary of existing and missing capabilities around user profile technologies.
 
-(LARGE TABLE TO CREATE)
+| Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-prem | Verison support | Subsequent logon time |
+| ---------- | --------------- | -------------- | ----------- | --------- | ----------------------- | ------------------------- | ------------------------ | --------------- | --------------------- |
+| **UPD** | Yes | Yes | Yes | Yes | Yes | No | Yes | Win 7+ | Yes |
+| **RUP** 1 | No | Yes | Yes | Yes | Yes| No | Yes | Win 7+ | No |
+| **ESR** 2 | Yes | No | Yes | No | Yes 3 | Yes | No | Win 10 | No |
+| **UE-V** 4 | Yes | Yes | Yes | No | Yes | No | Yes | Win 7+ | No |
+| **Cloud Files** | No | No | No | Yes | Yes 5 | Yes 6 | Yes 7 | Win 10 RS3 | No |
+
+1. Roaming User Profile, maintenance mode
+2. Enterprise State Roaming
+3. Yes, but no supporting user interface
+4. User Experience Virtualization
+5. Theoretically, but not tested
+6. Yes, but depends on synch client
+1. Needs a sync client (work folders?)
+
+
+
 
 Performance
 
