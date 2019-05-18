@@ -25,7 +25,7 @@ You might be using a variety of Azure services in your organization. These servi
 
 Using ARM to manage your services is a highly privileged action. ARM can alter tenant-wide configurations, such as service settings and subscription billing. Single factor authentication is vulnerable to a variety of attacks like phishing and password spray. Therefore, it’s important to verify the identity of the user wanting to access ARM and update configurations by requiring multi-factor authentication before allowing access.
 
-**Baseline policy: Require MFA for service management** is a Baseline Protection policy that will require MFA for any user accessing Azure Portal, Azure PowerShell and Azure CLI. This policy applies to all users accessing ARM, regardless of if they’re an administrator.  
+**Require MFA for service management** is a [baseline policy](concept-baseline-protection.md) that will require MFA for any user accessing Azure Portal, Azure PowerShell and Azure CLI. This policy applies to all users accessing ARM, regardless of if they’re an administrator.  
 
 Once this policy is enabled in a tenant, all users logging into Azure management resources will be challenged with multi-factor authentication. If the user is not registered for MFA, the user will be required to register using the Microsoft Authenticator App in order to proceed.
 

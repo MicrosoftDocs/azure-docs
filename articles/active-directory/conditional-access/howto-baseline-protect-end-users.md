@@ -15,53 +15,71 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Protect your end-users
+# Baseline policy: End user protection (preview)
 
-Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA).  
-Baseline protection is a great way to easily protect your entire tenant. Baseline protection consists of four pre-configured policies, located in the Conditional Access blade in Azure Portal, that will protect all your users with MFA.  
- 
-Require MFA for admins is a baseline policy that requires MFA every time one of the following privileged administrator roles signs in:  
-Global administrator  
-SharePoint administrator  
-Exchange administrator  
-Conditional access administrator  
-Security administrator  
-Helpdesk administrator/ Password administrator 
-Billing administrator 
-User administrator 
- 
-Upon enabling the Require MFA for admins policy, the above nine administrator roles will be required to register for MFA using the Authenticator App. Once MFA registration is complete, administrators will need to perform MFA every single time they sign-in.  
- 
-Deployment Considerations 
-Because Require MFA for admins applies to all critical administrators, several considerations that need to be made to ensure a smooth deployment. These considerations include identifying users and service principles in Azure AD that cannot or should not perform MFA, as well as applications and clients used by your organization that do not support modern authentication. 
-Legacy Protocols 
-Legacy authentication protocols (IMAP, SMTP, POP3, etc) are used by mail clients to make authentication requests. These protocols do not support MFA. Majority of account compromises are due to bad actors performing attacks using legacy protocols as a way to bypass MFA.  
-To ensure that MFA is required when logging into an administrative account and bad actors aren’t able to bypass MFA, this policy blocks all authentication requests made to administrator accounts from legacy protocols.  
-Before you enable this policy, make sure your users aren’t using legacy authentication protocols. We recommend going through our guide on moving away from legacy authentication and upgrade to modern authentication.    
- 
-Exclude Users 
-This baseline policy provides you the option to exclude users. Before enabling the policy for your tenant, we recommend excluding the following accounts: 
-emergency-access administrative or break-glass accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant and turn off the policy. 
-Service accounts and service principles, such as Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access for applications. Service accounts need to be excluded since MFA can’t be completed programmatically.  
-If you have privileged accounts that are used in your scripts, you should replace them with managed identities for Azure resources or service principals with certificates. As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
-Users who will not be able to register for MFA using their mobile devices – this policy will require administrators to register for MFA using the Authenticator App 
-Users without smart mobile phones 
-Users who cannot use mobile phones during work 
- 
-Enable Require MFA for admins 
-Baseline policy: Require MFA for admins comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal.  
-To enable this policy and protect your administrators:  
-Sign in to the Azure portal as global administrator, security administrator, or conditional access administrator. 
-In the Azure portal, on the left navigation bar, click Azure Active Directory. 
- 
-On the Azure Active Directory page, in the Security section, click Conditional access. 
- 
-Baseline policies will automatically appear at the top. Click on Baseline policy: Require MFA for admins 
- 
-To enable the policy, click Use policy immediately. 
-You can test the policy with up to 50 users by clicking on Select users. Under the Include tab, click Select users and then use the Select option to choose which administrators you want this policy to apply to. 
-Click Save and you’re ready to go. 
-  
+We tend to think that administrator accounts are the only accounts that need protection with multi-factor authentication (MFA). Administrators have broad access to sensitive information and can make chnages to subscription-wide settings. However, bad actors tend to target end-users. After gaining access, these bad actors can request access to privileged information on behalf of the original account holder or download the entire directoy to perform a phishing attack on your whole organization. One common method to improve the protection for all users is to require a stronger form of account verification, such as multi factor authentication (MFA).
+
+To achieve a reasonable balance of security and usability, users shouldn’t be prompted every single time they sign-in. Authentication requests that reflect normal user behavior, such as signing in from the same device from the same location, have a very low chance of compromise. Only sign-ins that are deemed risky and show characteristics of a bad actor should be prompted with MFA challenges.
+
+End user protection is a risk-based MFA [baseline policy](concept-baseline-protection.md) that protects all users in a directory, including all administrator roles. Enabling this policy requires all users to register for MFA using the Authenticator App. Users can ignore the MFA registration prompt for 14 days, after which they will be blocked from signing in until they register for MFA. Once registered for MFA, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until their password is reset and risk events have been dismissed.
+
+> [!NOTE]
+> This policy applies to all users including guest accounts and will be evaluated when logging into all applications.
+
+## Recovering Compromised Accounts
+
+To help protect our customers, Microsoft’s leaked credential service finds publicly available username/password pairs. If they match one of our users, we help secure that account immediately. Users identified as having a leaked credential are confirmed compromised. These users will be blocked from signing in until their password is reset.
+
+Users assigned an Azure AD Premium license can restore access through self-service password reset (SSPR) if the capability is enabled in their directory. Users without a premium license that become blocked must contact an administrator to perform a manual password reset and dismiss the flagged user risk event.
+
+### Steps to unblock a user
+
+Confirm that the user has been blocked by the policy by examining the user’s sign-in logs. 
+
+1. An administrator needs to sign in to the **Azure Portal** and navigate to **Azure Active Directory** > **Users** > click on the name of the user and navigate to Sign-ins.
+1. To initiate password reset on a blocked user, an administrator needs to navigate to **Azure Active Directory** > **Users flagged for risk**
+1. Click on the user whose account is blocked to view information about the user’s recent sign-in activity.
+1. Click Reset Password to assign a temporary password that must be changed upon the next login.
+1. Click Dismiss all events to reset the user’s risk score.
+
+The user can now log in, reset their password, and access the application.
+
+## Deployment Considerations
+
+Because the **End user protection** policy applies to all users in your directory, several considerations need to be made to ensure a smooth deployment. These considerations include identifying users and service principles in Azure AD that cannot or should not perform MFA, as well as applications and clients used by your organization that do not support modern authentication.
+
+### Legacy Protocols
+
+Legacy authentication protocols (IMAP, SMTP, POP3, etc) are used by mail clients to make authentication requests. These protocols do not support MFA. The majority of account compromises seen are caused by bad actors performing attacks against legacy protocols attempting to bypass MFA. To ensure that MFA is required when logging into an account and bad actors aren’t able to bypass MFA, this policy blocks all authentication requests made to administrator accounts from legacy protocols.
+
+> [!WARNING]
+> Before you enable this policy, make sure your users aren’t using legacy authentication protocols. See the article [How to: Block legacy authentication to Azure AD with conditional access](block-legacy-authentication.md) for more information.
+
+### User exclusions
+
+This baseline policy provides you the option to exclude users. Before enabling the policy for your tenant, we recommend excluding the following accounts:
+
+* **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
+* **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts need to be excluded since MFA can’t be completed programmatically.
+   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md) or [service principals](../develop/howto-authenticate-service-principal-powershell.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
+
+Users who will not be able to register for MFA using their mobile devices – this policy will require users to register for MFA using the Authenticator App
+Users without smart mobile phones
+Users who cannot use mobile phones during work
+
+## Enable the baseline policy
+
+The policy **Baseline policy: End user protection (preview)** comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal.
+
+To enable this policy and protect your administrators:
+
+1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
+1. Browse to **Azure Active Directory** > **Conditional Access**
+1. In the list of policies, select **Baseline policy: End user protection (preview)**
+1. Set **Enable policy** to **Use policy immediately**
+1. Add any user exclusions by clicking on **Users** > **Select excluded users** and choosing the users that need to be excluded. Click **Select** then **Done**.
+1. Click **Save**.
+
 ## Next steps
 
 For more information, see:
@@ -69,4 +87,3 @@ For more information, see:
 * [Conditional access baseline protection policies](concept-basline-protection.md)
 * [Five steps to securing your identity infrastructure](../security/azure-ad-secure-steps.md)
 * [What is conditional access in Azure Active Directory?](overview.md)
- 

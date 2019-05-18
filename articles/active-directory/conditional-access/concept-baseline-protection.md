@@ -36,7 +36,7 @@ All four of these policies will impact legacy authentication flows like POP, IMA
 
 Due to the power and access that administrator accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign in. In Azure Active Directory, you can get a stronger account verification by requiring administrators to register for and use Azure Multi-Factor Authentication.
 
-Require MFA for admins is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
+[Require MFA for admins](howto-baseline-protect-administrators.md) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
 
 * Global administrator
 * SharePoint administrator
