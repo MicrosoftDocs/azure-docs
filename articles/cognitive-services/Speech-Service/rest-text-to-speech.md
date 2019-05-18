@@ -39,25 +39,25 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 
 | Region | Endpoint |
 |--------|----------|
-| Australia East | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Brazil South | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Canada Central | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Central US | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| East Asia | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| East US | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| East US 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| France Central | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| India Central | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Japan East | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Korea Central | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| North Central US | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| South Central US | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Southeast Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| UK South | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| West US | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| West US 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### Request headers
 
@@ -199,7 +199,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+    name='en-US-JessaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```

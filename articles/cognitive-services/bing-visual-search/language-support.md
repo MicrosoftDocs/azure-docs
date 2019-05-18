@@ -29,7 +29,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 > - Recipe, shopping, and pages-including insights are available in the en-US market only.
 
 
-## Countries
+## Countries/Regions
 
 |Country/region|Code|
 |-------|----|
