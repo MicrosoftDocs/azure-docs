@@ -3,10 +3,10 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 04/13/2019
+ms.date: 05/14/2019
 ---
 
-# Prepay for Virtual Machines with Azure Reserved VM Instances
+# Prepay for Virtual Machines with Azure Reserved VM Instances (RI)
 
 Prepay for virtual machines and save money with Azure Reserved Virtual Machine (VM) Instances. For more information, see [Azure Reserved VM Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 

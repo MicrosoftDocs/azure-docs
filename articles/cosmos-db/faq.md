@@ -85,8 +85,9 @@ Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscrip
 
 The following conditions apply to Try Azure Cosmos DB subscriptions:
 
-* One container per subscription for SQL, Gremlin API, and Table accounts.
-* Up to three collections per subscription for MongoDB accounts.
+* One [throughput provisioned container](./set-throughput.md#set-throughput-on-a-container) per subscription for SQL, Gremlin API, and Table accounts.
+* Up to three [throughput provisioned collections](./set-throughput.md#set-throughput-on-a-container) per subscription for MongoDB accounts.
+* One [throughput provisioned database](./set-throughput.md#set-throughput-on-a-database) per subscription. Throughput provisioned databases can contain any number of containers inside.
 * 10-GB storage capacity.
 * Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe, and Southeast Asia
 * Maximum throughput of 5 K RU/s when provisioned at the container level.
@@ -216,7 +217,7 @@ Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmo
 
 For more information, see [Connect to your Cosmos database with Azure Cosmos DB's API for MongoDB](connect-mongodb-account.md).
 
-Are there additional error codes that I need to deal with while using Azure Cosmos DB's API for MongoDB?
+### Are there additional error codes that I need to deal with while using Azure Cosmos DB's API for MongoDB?
 
 Along with the common MongoDB error codes, the Azure Cosmos DB's API for MongoDB has its own specific error codes:
 
