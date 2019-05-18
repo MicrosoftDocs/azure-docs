@@ -3,8 +3,8 @@ title: Create an Azure Active Directory tenant | Microsoft Docs
 description: Learn how to create an Azure AD tenant to use for registering and building applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.custom: aaddev
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
