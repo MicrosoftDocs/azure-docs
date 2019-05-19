@@ -80,7 +80,7 @@ So she sets an [alert](../../azure-monitor/app/metrics-explorer.md), for respons
 Alerts can be set on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
 
 ## Stay informed with Smart Detection Alerts
-Next day, an alert email does arrive from Application Insights. But when she opens it, she finds it isn't the response time alert that she set. Instead, it tells her there's been a sudden rise in failed requests - that is, requests that have returned failure codes of 500 or more.
+Next day, an alert email does arrive from Application Insights. But when they open it, they find it isn't the response time alert that they set. Instead, it tells them there's been a sudden rise in failed requests - that is, requests that have returned failure codes of 500 or more.
 
 Failed requests are where users have seen an error - typically following an exception thrown in the code. Maybe they see a message saying "Sorry we couldn't update your details right now." Or, at absolute embarrassing worst, a stack dump appears on the user's screen, courtesy of the web server.
 
