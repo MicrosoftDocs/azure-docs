@@ -1,11 +1,11 @@
 ---
-title: Assess Hyper-V VMs for migration with Azure Migrate | Microsoft Docs
+title: Assess Hyper-V VMs for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess on-premises Hyper-V VMs for migration to Azure using Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/13/2018
+ms.date: 05/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---
