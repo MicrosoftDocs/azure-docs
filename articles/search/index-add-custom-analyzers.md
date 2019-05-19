@@ -217,7 +217,7 @@ For analyzers, index attributes vary depending on the whether you're using prede
 |-|-|  
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
 |Type|Must be "#Microsoft.Azure.Search.CustomAnalyzer".|  
-|CharFilters|Set to either one of predefined char filters listed in the [Char Filters](#CharFilter) table or a custom char filter specified in the index definition.|  
+|CharFilters|Set to either one of predefined char filters listed in the [Char Filters](#char-filters-reference) table or a custom char filter specified in the index definition.|  
 |Tokenizer|Required. Set to either one of predefined tokenizers listed in the [Tokenizers](#Tokenizers) table below or a custom tokenizer specified in the index definition.|  
 |TokenFilters|Set to either one of predefined token filters listed in the [Token filters](#TokenFilters) table or a custom token filter specified in the index definition.|  
 
@@ -230,8 +230,8 @@ For analyzers, index attributes vary depending on the whether you're using prede
 |||  
 |-|-|  
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
-|Type|Char filter type from the list of supported char filters. See **char_filter_type** column in the [Char Filters](#CharFilter) table below.|  
-|Options|Must be valid options of a given [Char Filters](#CharFilter) type.|  
+|Type|Char filter type from the list of supported char filters. See **char_filter_type** column in the [Char Filters](#char-filters-reference) table below.|  
+|Options|Must be valid options of a given [Char Filters](#char-filters-reference) type.|  
 
 ### Tokenizers
 
