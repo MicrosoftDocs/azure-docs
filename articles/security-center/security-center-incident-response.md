@@ -47,12 +47,12 @@ For the purpose of this scenario, we're going to focus on the roles of the follo
 
 ![Incident response lifecycle](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-Judy is in security operations. Her responsibilities include:
+Judy is in security operations. Their responsibilities include:
 
 * Monitoring and responding to security threats around the clock.
 * Escalating to the cloud workload owner or security analyst as needed.
 
-Sam is a security analyst and his responsibilities include:
+Sam is a security analyst and their responsibilities include:
 
 * Investigating attacks.
 * Remediating alerts.
@@ -61,17 +61,17 @@ Sam is a security analyst and his responsibilities include:
 As you can see, Judy and Sam have different responsibilities, and they must work together to share Security Center information.
 
 ## Recommended solution
-Since Judy and Sam have different roles, they'll be using different areas of Security Center to obtain relevant information for their daily activities. Judy will use **Security alerts** as part of her daily monitoring.
+Since Judy and Sam have different roles, they'll be using different areas of Security Center to obtain relevant information for their daily activities. Judy will use **Security alerts** as part of their daily monitoring.
 
 ![Security alerts](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Judy will use Security alerts during the Detect and Assess stages. After Judy finishes the initial assessment, she might escalate the issue to Sam if additional investigation is required. At this point, Sam will use the information that was provided by Security Center, sometimes in conjunction with other data sources, to move to the Diagnose stage.
+Judy will use Security alerts during the Detect and Assess stages. After Judy finishes the initial assessment, they might escalate the issue to Sam if additional investigation is required. At this point, Sam will use the information that was provided by Security Center, sometimes in conjunction with other data sources, to move to the Diagnose stage.
 
 ## How to implement this solution
 To see how you would use Azure Security Center in an incident response scenario, we’ll follow Judy’s steps in the Detect and Assess stages, and then see what Sam does to diagnose the issue.
 
 ### Detect and Assess incident response stages
-Judy signed in to the Azure portal and is working in the Security Center console. As part of her daily monitoring activities, she started reviewing high-priority security alerts by performing the following steps:
+Judy signed in to the Azure portal and is working in the Security Center console. As part of her daily monitoring activities, they started reviewing high-priority security alerts by performing the following steps:
 
 1. Click the **Security alerts** tile and access the **Security alerts** blade.
     ![Security alert blade](./media/security-center-incident-response/security-center-incident-response-fig4.png)
@@ -86,7 +86,7 @@ Judy signed in to the Azure portal and is working in the Security Center console
     In this blade, Judy can take notes regarding the attacked resources, how many times this attack happened, and when it was detected.
 3. Click the **attacked resource** to obtain more information about this attack.
 
-After reading the description, Judy is convinced that this is not a false positive and that she should escalate this case to Sam.
+After reading the description, Judy is convinced that this is not a false positive and that they should escalate this case to Sam.
 
 ### Diagnose incident response stage
 Sam receives the case from Judy and starts reviewing the remediation steps that Security Center suggested.
