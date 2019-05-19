@@ -1,5 +1,5 @@
 ---
-title: Assess VMware VMs for migration with Azure Migrate
+title: Assess VMware VMs for migration to Azure with Azure Migrate
 description: Describes how to assess on-premises VMware VMs for migration to Azure using Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
@@ -12,21 +12,23 @@ ms.custom: mvc
 
 # Assess VMware VMs for migration
 
-As you move on-premises resources to the cloud, [Azure Migrate](migrate-overview.md) helps you to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises VMware VMs before migrating them to Azure.
-
-
-> [!NOTE]
-> This article describes how to assess VMware VMs using the latest version of Azure Migrate. If you're using the earlier classic version of Azure Migrate, you set up an assessment using [this article](tutorial-assessment-vmware-classic.md). How can I check which version I'm using?
+This article describes how to assess VMware VMs in preparation for migration to Azure with [Azure Migrate](migrate-services-overview.md) services.
 
 
 In this tutorial, you learn how to:
-
 > [!div class="checklist"]
-> * Group discovered VMs, and assess the group.
-> * Review the assessment.
+> * Group discovered VMs, and create different types of assessments for them.
+> * Review an assessment.
 
+
+This article is the second tutorial in a series that shows you how to assess and migrate VMware VMs to Azure. After you've completed this tutorial,you can begin migrating your VMs. 
+
+> [!NOTE]
+> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How Tos for VMware VM assessment and migration.
 
 ## About assessments
+
+Assessments are a point-in-time snapshot of data available in Azure Migrate. You create assessments for a group of VMware VMs that you want to migrate to Azure. An assessment helps you to figure out whether a machine is suitable for migration, and provides you with information about how the machine will be sized and costed in Azure.
 
 ### Assessment types
 
@@ -34,12 +36,11 @@ There are two types of assessments in Azure Migrate.
 
 **Assessment type** | **Details** | **Data**
 --- | --- | ---
-**Performance-based assessment** | You run an assessment using collected performance data | VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard or premium managed disks) is on the IOPS and throughput of the on-premises disks.
-**As-is assessment** | You run an assessment that doesn't use collected performance data. <br/><br/>VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is always a standard managed disk. 
+**Performance-based assessment** | Uses collected performance data. | Time and performance metrics updated every hour.<br/><br/> The appliance collects real-time data points every 20 seconds for each performance metrics, and rolls them up to a single five minute data point. The appliance sends the five-minute data point to Azure every hour for assessment calculation.<br/><br/> VM size recommendation: Based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard or premium managed disks): Based on the IOPS and throughput of the on-premises disks.
+**As-is on-premises assessment** | Uses on-premises machine configuration  <br/><br/>VM size recommendation: Based on the on-premises VM size<br/><br> The recommended disk type: Always standard managed disk. 
 
-#### Example
-For example if you have an on-premises VM with four cores at 20% utilization, and memory of 8 GB with 10% utilization, the assessments will be as follows:
-
+### Example
+To illustrate the difference, if you have an on-premises VM with four cores at 20% utilization, and memory of 8 GB with 10% utilization, the assessments will be as follows:
  
 - **Performance-based assessment**:
     - Recommends cores and RAM based on core (0.8 cores), and memory (0.8 GB) utilization.
@@ -50,40 +51,36 @@ For example if you have an on-premises VM with four cores at 20% utilization, an
 
 [Learn more](concepts-assessment-calculation.md) about how sizing works.
 
-### Creating assessments
+## Assessment best practices
 
-Assessments are a point-in-time snapshot of data available in Azure Migrate. 
+Follow these best practices for creating assessments:
 
-- Assessments aren't automatically updated with the latest data. To update an assessment with the latest data, you need to rerun it.
-- You can create as-is assessments immediately after discovery.
-- For performance assessments, we recommend that you wait at least a day after discovery:
-    - Collecting performance data takes time. Waiting at least a day ensures that there are enough performance data points before you run the assessment.
-    - For performance data, the appliance collects real-time data points every 20 seconds for each performance metrics, and rolls them up to a single five minute data point. The appliance sends the five-minute data point to Azure every hour for assessment calculation.  
-- [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about what's collected by the appliance.
+- **Create as-is assessment**: You can create as-is assessments immediately after discovery.
+- **Create performance-based assessment**: After discovery, collecting performance data takes time. Waiting at least a day ensures that there are enough performance data points before you run the assessment.
+- **Get the latest data**: Assessments aren't automatically updated with the latest data. To update an assessment with the latest data, you need to rerun it. 
+- **Make sure durations match**: When you're running performance-based assessments, make sure your profile your environment for the assessment duration. For example, if you create an assessment with a performance duration set to 1 week, you need to wait for at least a week after you start discovery, for all the data points to be collected. If you don't the assessment won't get a five-star rating. 
+- **Avoid missing data points**: The following issues might result in missing data points in a performance-based assessment:
+    - VMs are powered off during the assessment and performance data isn't collected. 
+    - If you create VMs during the month on which you base performance history. the data for those VMs will be less than a month. 
+    - The assessment is created immediately after discovery, or the assessment time doesn't match the performance data collection time.  I
 
-## Before you start
-
-Before you begin this tutorial you should deploy the Azure Migrate appliance and start discovery. 
-
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-
-    
+[Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about what's collected by the appliance.
 
 ## Check VMs in the portal
 
 Before you run an assessment, check that the VMs you want to assess appear as expected in the Azure portal:
 
-1. Open the Azure Migrate dashboard
-2. In the **Server Assessment Service** page, click the icon that displays the count for the discovered machines. 
+1. Open the Azure Migrate dashboard, click **Servers**.
+2. In **Azure Migrate: Server Assessment**, click the icon that displays the count for the discovered machines.
 
 
 ## Create an assessment
 
-Create a group and run an assessment as follows:
+Create a group of VMs, and run an assessment as follows:
 
-1. On the Azure Migrate dashboard, click **Create assessment**.
-2. Before you start, click **View all** to review the assessment properties.
+1. On the Azure Migrate dashboard, click **Servers**
+2. In  **Azure Migrate: Server Assessment**, click **Assess**.
+3. Before you start, click **View all** to review the assessment properties.
 
     ![Assessment properties](./media/tutorial-assess-vmware/assessment-properties.png)
 
@@ -93,36 +90,41 @@ Create a group and run an assessment as follows:
 
     ![Create an assessment](./media/tutorial-assess-vmware/assessment-create.png)
 
-1. After the assessment is created, view it in **Overview** > **Dashboard**.
-2. Click **Export assessment**, to download it as an Excel file.
-3. Under **Migration goals**, click **Servers**.
-4. Under **Assessment tools**, click **+Discover**.
+6. After the assessment is created, view it in **Server Assessments** > **Assessments**. I
+7. Click **Export assessment**, to download it as an Excel file.
+
+
+> [!NOTE]
+> - If you add or remove machines from a group after you create an assessment, the assessment will be marked **out-of-sync**.
+> - If there are on-premises changes to VMs that are in a group that's been assessed, the assessment is marked **outdated**.
+> - To reflect any changes, or to get the latest data, click **Recalculate** to rerun the assessment.
 
 ## Review an assessment
 
 An assessment specifies:
 
-- **Azure readiness**: Whether VMs are suitable for migration to Azure.
-- **Montly cost estimation**: The estimated monthly compute and storage costs of running VMs in Azure.
-- **Monthly storage cost estimation**: Estimated costs for disk storage after migration.
+- **Azure readiness**: Whether machines are suitable for migration to Azure.
+- **Monthly compute/storage costs**: The estimated monthly compute and storage costs of running VMs in Azure.
+- **Monthly storage cost estimation**: Estimated costs for storage broken down into disk type (Standard HDD/SSD, Premium).
 
-### View an assessment
+### Open an assessment
 
 1. In the Azure Migrate dashboard, under **Manage**, click **Assessments**.
 2. Click on an assessment to open it.
 
 ![Assessment summary](./media/tutorial-assess-vmware/assessment-summary.png)
 
-### Review readiness
+### Review VM readiness
+
 In **Azure readiness**, verify whether VMs are ready for migration to Azure.
 
 1. Review the VM status:
     - Ready: Azure Migrate recommends a VM size and cost estimates for VMs in the assessment.
     - Ready with conditions: Issues and suggested remediation shown.
-    - Not ready for Azure: Issues and suggested remediation shown.
+    - Not ready for Azure: Issues and suggested remediation.
     - Readiness unknown: Used when Azure Migrate can't assess readiness, due to data availability issues.
 
-2. Click on a VM to drill down to see source VM settings, and recommended target settings.
+2. Click on a VM to drill down to see recommended Azure sizing, as well as compute, storage, and network settings.
 
 
 ### Review monthly cost estimates
@@ -141,18 +143,15 @@ This view shows the estimate compute and storage cost of running VMs in Azure.
 This view shows aggregated storage costs for the group,  split over different types of storage disks.
 
 
-
-
-
 ### Review confidence rating 
 
-When you run performance-based assessments, a confidence rating is assigned to the assessment.
+When you run performance-based assessments, a confidence rating is assigned to the assessment. This isn't relevant if you're running an as-is on-premises assessment.
 
 - A rating from 1-star (lowest) to 5-star (highest) is awarded.
 - The confidence rating helps you estimate the reliability of the size recommendations provided by the assessment.
 - The confidence rating is based on the availability of data points needed to compute the assessment.
 - To provide a rating Azure Migrate needs the utilization data for VM CPU/Memory, and the disk IOPS/throughput data. For each network adapter attached to a VM, Azure Migrate needs the network in/out data.
-- In particular, if utilization data isn't available in vCenter Server, the size recommendation done by Azure Migrate might not be reliable. 
+- In particular, if utilization data isn't available, the size recommendation done by Azure Migrate might not be reliable. 
 
 Depending on the percentage of data points available, the confidence rating for an assessment are summarized in the following table.
 
@@ -164,27 +163,7 @@ Depending on the percentage of data points available, the confidence rating for 
    61%-80% | 4 Star
    81%-100% | 5 Star
 
-If you run a one-time discovery and the assessment is less than 4-star, make sure the statistic level in vCenter is set to 3, wait at least a day, and recalculate the assessment. If this isn't possible, run an as-is assessment instead.
-
-## Common assessment issues
-
-There can be a number of issues with assessments.
-
-###  Out-of-sync assessments
-
-If you add or remove machines from a group after you create an assessment, the assessment you created will be marked **out-of-sync**. You need to run the assessment again (**Recalculate**) to reflect the group changes.
-
-### Outdated assessments
-
-If there are on-premises changes to VMs that are in a group that's been assessed, the assessment is marked **outdated**. To reflect the changes, run the assessment again.
-
-### Missing data points
-
-An assessment might not have all the data points for a number of reasons:
-
-- VMs might be powered off during the assessment and performance data isn't collected. 
-- VMs might be created during the month on which performance history is based, thus their performance data is less than a month. 
-- The assessment was created immediately after discovery. In order to gather performance data for a specified amount of time, you need to wait the specified amount of time before you run an assessment. For example, if you want to assess performance data for a week, you need to wait a week after discovery. If you don't the assessment won't get a five-star rating. 
+If the confidence rating of an assessment is below five stars, wait at least a day and then recalculate the assessment. If there's an issue, sizing recommendations with low confidence might not be reliable. In this case, we recommend that you modify the assessment to use on-premises as-is.
 
 
 

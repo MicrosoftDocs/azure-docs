@@ -18,14 +18,14 @@ This article describes how to prepare your on-premises environment and Azure res
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create an Azure subscription if you don't have one, and make sure it has the required permissions.
-> * Verify on-premises Hyper-V requirements
+> * Verify on-premises VMware requirements.
 > * Set up an account that Azure Migrate will use to discover VMs on Hyper-V hosts and clusters.
 > * Create an Azure Migrate project.
 > * Set up a lightweight Azure Migrate appliance that runs on-premises to discover and assess VMs. 
 > * Start continuous discovery.
 
 
-This article is the first tutorial in a series that shows you how to assess and migrate Hyper-V VMs. After you've completed this tutorial, you can run an assessment for Hyper-V VMs, and migrate them to Azure.
+This article is the first tutorial in a series that shows you how to assess and migrate Hyper-V VMs to Azure. After you've completed this tutorial, you can run an assessment for Hyper-V VMs, and migrate them to Azure.
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How Tos for Hyper-V assessment and migration.
@@ -36,20 +36,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Here's what you need before you can start assessing and migrating Hyper-V VMs
+Here's what you need before you can start assessing and migrating Hyper-V VMs:
 
 - **Azure account permissions**: When you log into Azure to set up discovery and assessment, your Azure account needs permission to create Azure Active Directory (Azure AD) apps.
-- **Hyper-V requirements for VM migration**: Verify Hyper-V hosts are supported, and enable PowerShell remoting on each host
+- **Hyper-V requirements for VM migration**: Verify Hyper-V hosts are supported, and enable PowerShell remoting on each host.
 - **Account for discovery**: Set up a domain or local account with admin permissions on the Hyper-V hosts/cluster that Azure Migrate can use to discover the on-premises VMs.
 - **Azure Migrate project** You need to set up an Azure Migrate project in the Azure portal.
-- **Verify appliance requirements**: 
 - **Azure Migrate appliance**: Azure Migrate runs a lightweight appliance on a Hyper-V VM. This appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate. To set up the appliance you need to:<br/><br/> Verify requirements for the appliance.<br/><r/> Set up the appliance as a Hyper-V VM by downloading a compressed VM from Azure Migrate in the Azure portal.<br/><br/> Check that the appliance can reach Azure.<br/><br/> Configure the appliance for the first time, and register it with Azure Migrate.
 - **Allow for VHDs on SMB**: If you run VHDs on SMB in your on-premises site, enable delegation of credentials from the appliance VM to the Hyper-V hosts/cluster running the VMs that you want to discover. This enables Azure Migrate to capture required information from the discovered machines.
 
 
 ## Set up Azure account permissions
 
-Either a tenant/global admin can assign permissions to create Azure AD apps to the account, or assign the Application Developer role (that has the permissions) to the account.
+Either a tenant/global admin can assign permissions to create Azure AD apps to the account, or you can assign the Application Developer role (that has the permissions) to the account.
 
 ### Grant account permissions
 
@@ -256,4 +255,4 @@ In this tutorial, you used the Azure portal to:
 Continue to the next tutorial to assess Hyper-V VMs for migration to Azure
 
 > [!div class="nextstepaction"] 
-> [Assess Hyper-V VMs](./tutorial-server-assessment-hyper-v.md) 
+> [Assess Hyper-V VMs](./tutorial-assess-hyper-v.md) 
