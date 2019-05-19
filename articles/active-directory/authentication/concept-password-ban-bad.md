@@ -74,7 +74,7 @@ Each of the above passwords does not specifically match the banned password "abc
 
 Substring matching is used on the normalized password to check for the user’s first and last name as well as the tenant name (note that tenant name matching is not done when validating passwords on an Active Directory domain controller).
 
-Example: assume that we have a user John Doe that wants to reset his password to “J0hn123fb”. After normalization, this password would become “john123fb”. Substring matching finds that the password contains the user’s first name “John”. Even though “J0hn123fb” was not specifically on either banned password list, substring matching found “John" in the password. Therefore this password would be rejected.
+Example: assume that we have a user "Kelly Doe" that wants to reset their password to “K3lly123fb”. After normalization, this password would become “kelly123fb”. Substring matching finds that the password contains the user’s first name “Kelly”. Even though “K3lly123fb” was not specifically on either banned password list, substring matching found “Kelly" in the password. Therefore this password would be rejected.
 
 #### Score Calculation
 
