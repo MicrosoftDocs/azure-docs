@@ -57,7 +57,7 @@ Take the following steps to add a webserver app module on your Data Box Edge dev
 3. In the **IoT Edge custom modules** blade:
 
     1. Specify a **Name** for your webserver app module that you want to deploy.
-    2. Provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `nginx:stable` will pull a stable nginx image (tagged as stable) from the public [Docker respository](https://hub.docker.com/_/nginx/).
+    2. Provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `nginx:stable` will pull a stable nginx image (tagged as stable) from the public [Docker repository](https://hub.docker.com/_/nginx/).
     3. In the **Container Create Options**, paste the following sample code:  
 
         ```
