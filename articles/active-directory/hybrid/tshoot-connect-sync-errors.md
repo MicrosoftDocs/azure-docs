@@ -66,24 +66,24 @@ Azure Active Directory schema does not allow two or more objects to have the sam
 7. Azure AD Connect was uninstalled and reinstalled. During the reinstallation, a different attribute was chosen as the SourceAnchor. All the objects that had previously synced stopped syncing with InvalidSoftMatch error.
 
 #### Example case:
-1. **Bob Smith** is a synced user in Azure Active Directory from on premises Active Directory of *contoso.com*
-2. Bob Smith's **UserPrincipalName** is set as **bobs\@contoso.com**.
-3. **"abcdefghijklmnopqrstuv=="** is the **SourceAnchor** calculated by Azure AD Connect using Bob Smith's **objectGUID** from on premises Active Directory, which is the **immutableId** for Bob Smith in Azure Active Directory.
-4. Bob also has following values for the **proxyAddresses** attribute:
-   * smtp: bobs@contoso.com
-   * smtp: bob.smith@contoso.com
-   * **smtp: bob\@contoso.com**
-5. A new user, **Bob Taylor**, is added to the on premises Active Directory.
-6. Bob Taylor's **UserPrincipalName** is set as **bobt\@contoso.com**.
-7. **"abcdefghijkl0123456789==""** is the **sourceAnchor** calculated by Azure AD Connect using Bob Taylor's **objectGUID** from on premises Active Directory. Bob Taylor's object has NOT synced to Azure Active Directory yet.
-8. Bob Taylor has the following values for the proxyAddresses attribute
-   * smtp: bobt@contoso.com
-   * smtp: bob.taylor@contoso.com
-   * **smtp: bob\@contoso.com**
-9. During sync, Azure AD Connect will recognize the addition of Bob Taylor in on premises Active Directory and ask Azure AD to make the same change.
+1. **User Name** is a synced user in Azure Active Directory from on premises Active Directory of *contoso.com*
+2. The user's **UserPrincipalName** is set as **user\@contoso.com**.
+3. **"abcdefghijklmnopqrstuv=="** is the **SourceAnchor** calculated by Azure AD Connect using their **objectGUID** from on premises Active Directory, which is the **immutableId** for the user in Azure Active Directory.
+4. The user also has following values for the **proxyAddresses** attribute:
+   * smtp: user@contoso.com
+   * smtp: the.user@contoso.com
+   * **smtp: user\@contoso.com**
+5. A new user, **User Name 2**, is added to the on premises Active Directory.
+6. User Name 2's **UserPrincipalName** is set as **user2\@contoso.com**.
+7. **"abcdefghijkl0123456789==""** is the **sourceAnchor** calculated by Azure AD Connect using the user's **objectGUID** from on premises Active Directory. Their object has NOT synced to Azure Active Directory yet.
+8. User 2 has the following values for the proxyAddresses attribute
+   * smtp: user2@contoso.com
+   * smtp: the.user2@contoso.com
+   * **smtp: user2\@contoso.com**
+9. During sync, Azure AD Connect will recognize the addition of User Name 2 in on premises Active Directory and ask Azure AD to make the same change.
 10. Azure AD will first perform hard match. That is, it will search if there is any object with the immutableId equal to "abcdefghijkl0123456789==". Hard Match will fail as no other object in Azure AD will have that immutableId.
-11. Azure AD will then attempt to soft-match Bob Taylor. That is, it will search if there is any object with proxyAddresses equal to the three values, including smtp: bob@contoso.com
-12. Azure AD will find Bob Smith's object to match the soft-match criteria. But this object has the value of immutableId = "abcdefghijklmnopqrstuv==". which indicates this object was synced from another object from on premises Active Directory. Thus, Azure AD cannot soft-match these objects and results in an **InvalidSoftMatch** sync error.
+11. Azure AD will then attempt to soft-match User 2. That is, it will search if there is any object with proxyAddresses equal to the three values, including smtp: bob@contoso.com
+12. Azure AD will find the first user's object to match the soft-match criteria. But this object has the value of immutableId = "abcdefghijklmnopqrstuv==". which indicates this object was synced from another object from on premises Active Directory. Thus, Azure AD cannot soft-match these objects and results in an **InvalidSoftMatch** sync error.
 
 #### How to fix InvalidSoftMatch error
 The most common reason for the InvalidSoftMatch error is two objects with different SourceAnchor \(immutableId\) have the same value for the ProxyAddresses and/or UserPrincipalName attributes, which are used during the soft-match process on Azure AD. In order to fix the Invalid Soft Match
@@ -137,21 +137,21 @@ If Azure AD Connect attempts to add a new object or update an existing object wi
 1. Duplicate value is assigned to an already synced object, which conflicts with another synced object.
 
 #### Example case:
-1. **Bob Smith** is a synced user in Azure Active Directory from on premises Active Directory of contoso.com
-2. Bob Smith's **UserPrincipalName** on premises is set as **bobs\@contoso.com**.
-3. Bob also has following values for the **proxyAddresses** attribute:
-   * smtp: bobs@contoso.com
-   * smtp: bob.smith@contoso.com
-   * **smtp: bob\@contoso.com**
-4. A new user, **Bob Taylor**, is added to the on premises Active Directory.
-5. Bob Taylor's **UserPrincipalName** is set as **bobt\@contoso.com**.
-6. **Bob Taylor** has the following values for the **ProxyAddresses** attribute
-    i. smtp: bobt@contoso.com
-    ii. smtp: bob.taylor@contoso.com
-7. Bob Taylor's object is synchronized with Azure AD successfully.
-8. Admin decided to update Bob Taylor's **ProxyAddresses** attribute with the following value:
-    i. **smtp: bob\@contoso.com**
-9. Azure AD will attempt to update Bob Taylor's object in Azure AD with the above value, but that operation will fail as that ProxyAddresses value is already assigned to Bob Smith, resulting in "AttributeValueMustBeUnique" error.
+1. **User Name** is a synced user in Azure Active Directory from on premises Active Directory of contoso.com
+2. The user's **UserPrincipalName** on premises is set as **user\@contoso.com**.
+3. The user also has following values for the **proxyAddresses** attribute:
+   * smtp: user@contoso.com
+   * smtp: the.user@contoso.com
+   * **smtp: user\@contoso.com**
+4. A new user, **User Name**, is added to the on premises Active Directory.
+5. The user's **UserPrincipalName** is set as **user\@contoso.com**.
+6. **User Name** has the following values for the **ProxyAddresses** attribute
+    i. smtp: user@contoso.com
+    ii. smtp: the.user@contoso.com
+7. The user's object is synchronized with Azure AD successfully.
+8. Admin decided to update the user's **ProxyAddresses** attribute with the following value:
+    i. **smtp: user\@contoso.com**
+9. Azure AD will attempt to update the user's object in Azure AD with the above value, but that operation will fail as that ProxyAddresses value is already assigned to them, resulting in "AttributeValueMustBeUnique" error.
 
 #### How to fix AttributeValueMustBeUnique error
 The most common reason for the AttributeValueMustBeUnique error is two objects with different SourceAnchor \(immutableId\) have the same value for the ProxyAddresses and/or UserPrincipalName attributes. In order to fix AttributeValueMustBeUnique error
@@ -184,20 +184,20 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 This case results in a **"FederatedDomainChangeError"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
 
 #### Scenarios
-For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob\@contoso.com* was changed to *UserPrincipalName = bob\@fabrikam.com*.
+For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = user\@contoso.com* was changed to *UserPrincipalName = user\@fabrikam.com*.
 
 #### Example
-1. Bob Smith, an account for Contoso.com, gets added as a new user in Active Directory with the UserPrincipalName bob@contoso.com
-2. Bob moves to a different division of Contoso.com called Fabrikam.com and his UserPrincipalName is changed to bob@fabrikam.com
+1. An account for Contoso.com gets added as a new user in Active Directory with the UserPrincipalName user@contoso.com
+2. The user moves to a different division of Contoso.com called Fabrikam.com and their UserPrincipalName is changed to user@fabrikam.com
 3. Both contoso.com and fabrikam.com domains are federated domains with Azure Active Directory.
-4. Bob's userPrincipalName does not get updated and results in a "FederatedDomainChangeError" sync error.
+4. The user's userPrincipalName does not get updated and results in a "FederatedDomainChangeError" sync error.
 
 #### How to fix
-If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob\@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow these steps to fix the sync error
+If a user's UserPrincipalName suffix was updated from user@**contoso.com** to user\@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow these steps to fix the sync error
 
-1. Update the user's UserPrincipalName in Azure AD from bob@contoso.com to bob@contoso.onmicrosoft.com. You can use the following PowerShell command with the Azure AD PowerShell Module:
-   `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
-2. Allow the next sync cycle to attempt synchronization. This time synchronization will be successful and it will update the UserPrincipalName of Bob to bob@fabrikam.com as expected.
+1. Update the user's UserPrincipalName in Azure AD from user@contoso.com to user@contoso.onmicrosoft.com. You can use the following PowerShell command with the Azure AD PowerShell Module:
+   `Set-MsolUserPrincipalName -UserPrincipalName user@contoso.com -NewUserPrincipalName user@contoso.onmicrosoft.com`
+2. Allow the next sync cycle to attempt synchronization. This time synchronization will be successful and it will update the UserPrincipalName of the user to user@fabrikam.com as expected.
 
 #### Related Articles
 * [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
@@ -212,9 +212,9 @@ When an attribute exceeds the allowed size limit, length limit or count limit se
 * proxyAddresses
 
 ### Possible Scenarios
-1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates. For more information on how to handle LargeObject errors with userCertificate attribute, please refer to article [Handling LargeObject errors caused by userCertificate attribute](tshoot-connect-largeobjecterror-usercertificate.md).
-2. Bob's userSMIMECertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates.
-3. Bob's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
+1. The user's userCertificate attribute is storing too many certificates assigned to them. These may include older, expired certificates. The hard limit is 15 certificates. For more information on how to handle LargeObject errors with userCertificate attribute, please refer to article [Handling LargeObject errors caused by userCertificate attribute](tshoot-connect-largeobjecterror-usercertificate.md).
+2. The user's userSMIMECertificate attribute is storing too many certificates assigned to them. These may include older, expired certificates. The hard limit is 15 certificates.
+3. The user's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
 4. During automatic population of the ProxyAddresses attribute in Active Directory, an object has too many ProxyAddresses assigned.
 
 ### How to fix
