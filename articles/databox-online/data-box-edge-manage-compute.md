@@ -7,16 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: alkohli
 ---
 # Manage compute on your Azure Data Box Edge
 
 This article describes how to manage compute on your Azure Data Box Edge. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
-
 
 In this article, you learn how to:
 

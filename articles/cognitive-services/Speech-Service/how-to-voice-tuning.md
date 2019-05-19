@@ -23,14 +23,14 @@ The Voice Tuning tool supports Microsoft's [standard](language-support.md#standa
 Before you can start fine-tuning the text-to-speech output with the Voice Tuning tool, you'll need to complete these steps:
 
 1. Create a [free Microsoft account](https://account.microsoft.com/account) if you don't already have one.
-2. Create a [free Azure account](https://azure.microsoft.com/en-us/free/) if you don't already have one. Click **Start Free**, and create a new Azure account using your Microsoft account.
+2. Create a [free Azure account](https://azure.microsoft.com/free/) if you don't already have one. Click **Start Free**, and create a new Azure account using your Microsoft account.
 
-3. Create a Speech Services subscription in the Azure portal. Step-by-step instructions for [how to create a speech resource](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) are available.
+3. Create a Speech Services subscription in the Azure portal. Step-by-step instructions for [how to create a speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) are available.
    >[!NOTE]
    >When you create a speech resource in the Azure portal, the Azure location information needs to match with the TTS voice region. Neural TTS voice supports a sub set of Azure locations. For a full list of support, see [Regions](regions.md#text-to-speech).
 
    >[!NOTE]
-   >You need to have a F0 or a S0 key created in the Azure portal before you can use the service. Voice Tuning  **doesn't** support the [30-day free trial key](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >You need to have a F0 or a S0 key created in the Azure portal before you can use the service. Voice Tuning  **doesn't** support the [30-day free trial key](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
 4. Sign in to the [Voice Tuning](https://aka.ms/voicetuning) portal, and connect your Speech Services subscription. Choose a single Speech Services subscription and then create a project.
 5. Select **New Tuning**. Then follow these steps:
@@ -38,7 +38,7 @@ Before you can start fine-tuning the text-to-speech output with the Voice Tuning
    * Locate and select **All Subscriptions**.  
    * Select **Connect existing subscription**.  
      ![Connect an existing subscription](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Enter your Azure Speech Services subscription key, then select **Add**. Your subscription keys are available in the Speech customization portal from the [Subscription page](https://go.microsoft.com/fwlink/?linkid=2090458). You could also get the keys from the Resource Management pane in the [Azure portal](https://portal.azure.com/). 
+   * Enter your Azure Speech Services subscription key, then select **Add**. Your subscription keys are available in the Speech customization portal from the [Subscription page](https://go.microsoft.com/fwlink/?linkid=2090458). You could also get the keys from the Resource Management pane in the [Azure portal](https://portal.azure.com/).
    * If you have more than one Speech Services subscription that you plan to use, repeat these steps for each subscription.
 
 ## Customize the text-to-speech output
@@ -65,6 +65,6 @@ Neural Voice tuning is slightly different than tuning for Standard and Custom vo
 > The Voice Tuning tool provides contextual information about features and tuning.
 
 ## Next steps
-* [Create a Speech resource in Azure](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Create a Speech resource in Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
 * [Start Voice Tuning](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
