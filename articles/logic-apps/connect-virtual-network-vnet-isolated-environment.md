@@ -29,9 +29,7 @@ servers, systems, and services, in your virtual network.
 
 This article shows how to complete these tasks:
 
-* Set up ports on your Azure virtual network so traffic 
-can travel through your integration service environment 
-(ISE) across subnets in your virtual network.
+* Open ports on a virtual network that uses [network security groups](../virtual-network/security-overview.md), so traffic can travel through your integration service environment (ISE) across the subnets in that virtual network.
 
 * Create your integration service environment (ISE).
 
@@ -85,30 +83,11 @@ which is a capability that's available with ISE public preview.
 
 <a name="ports"></a>
 
-## Set up network ports
+## Open network ports for network security groups
 
-To work correctly and stay accessible, your integration 
-service environment (ISE) needs to have specific ports 
-available on your virtual network. Otherwise, if any of 
-these ports are unavailable, you might lose access to your 
-ISE, which might stop working. When you use an ISE in a 
-virtual network, a common setup problem is having one 
-or more blocked ports. For connections between your ISE 
-and the destination system, the connector you use might 
-also have its own port requirements. For example, if you 
-communicate with an FTP system by using the FTP connector, 
-make sure the port you use on that FTP system, 
-such as port 21 for sending commands, is available.
+To control the traffic across the virtual network's subnets where you deploy your integration service environment (ISE), you can set up [network security groups](../virtual-network/security-overview.md) for those subnets by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). However, for a virtual network that uses [network security groups](../virtual-network/security-overview.md), your ISE must have specific ports open on your virtual network. That way, your ISE can stay accessible and work correctly. Otherwise, if any of the required ports are unavailable, you might lose access to your ISE, which might stop working. Also, when you use an ISE in a virtual network, a common setup problem is having one or more blocked ports. For connections between your ISE and the destination system, the connector you use might also have its own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port you use on that FTP system, such as port 21 for sending commands, is available.
 
-To control the traffic across the virtual network's 
-subnets where you deploy your ISE, you can set up 
-[network security groups](../virtual-network/security-overview.md) for those subnets by 
-[filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
-These tables describe the ports in your virtual network 
-that your ISE uses and where those ports get used. 
-The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) 
-represents a group of IP address prefixes that help 
-minimize complexity when creating security rules.
+These tables describe the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
 > [!IMPORTANT]
 > For internal communication inside your subnets, 
