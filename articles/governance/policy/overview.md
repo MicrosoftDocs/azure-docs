@@ -10,7 +10,7 @@ manager: carmonm
 ---
 # Overview of the Azure Policy service
 
-Governance validates that your organization can achieve its goals through an effective and
+Governance validates that your organization can achieve its goals through effective and
 efficient use of IT. It meets this need by creating clarity between business goals and IT projects.
 
 Does your company experience a significant number of IT issues that never seem to get resolved?
@@ -20,7 +20,7 @@ to help manage and prevent issues. This strategic need is where Azure Policy com
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These
 policies enforce different rules and effects over your resources, so those resources stay compliant
 with your corporate standards and service level agreements. Azure Policy meets this need by
-evaluating your resources for non-compliance with assigned policies. For example, you can have a
+evaluating your resources for non-compliance with assigned policies. For example, you can have the
 policy to allow only a certain SKU size of virtual machines in your environment. Once this policy
 is implemented, new and existing resources are evaluated for compliance. With the right type of
 policy, existing resources can be brought into compliance. Later in this documentation, we'll go
@@ -28,7 +28,7 @@ over more details on how to create and implement policies with Azure Policy.
 
 > [!IMPORTANT]
 > Azure Policy's compliance evaluation is now provided for all assignments
-> regardless of pricing tier. If your assignments do not show the compliance data, please ensure that
+> regardless of the pricing tier. If your assignments do not show the compliance data, please ensure that
 > the subscription is registered with the Microsoft.PolicyInsights resource provider.
 
 ## How is it different from RBAC?
@@ -37,7 +37,7 @@ There are a few key differences between Policy and role-based access control (RB
 on user actions at different scopes. You might be added to the contributor role for a resource
 group, allowing you to make changes to that resource group. Policy focuses on resource properties
 during deployment and for already existing resources. Policy controls properties such as the types
-or locations of resources. Unlike RBAC, Policy is a default allow and explicit deny system.
+or locations of resources. Unlike RBAC, Policy is a default allow, and explicit deny system.
 
 ### RBAC Permissions in Azure Policy
 
@@ -47,7 +47,7 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
 Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor
-(Preview)** role includes most Policy operations. **Owner** has full rights. Both **Contributor**
+(Preview)** role includes most Policy operations. The **Owner** has full rights. Both **Contributor**
 and **Reader** can use all read Policy operations, but **Contributor** can also trigger
 remediation.
 
@@ -96,7 +96,7 @@ you trust with creating networking resources.
 In another example, you might want to assign a resource type whitelist policy at the management
 group level. And then assign a more permissive policy (allowing more resource types) on a child
 management group or even directly on subscriptions. However, this example wouldn't work because
-policy is an explicit deny system. Instead, you need to exclude the child management group or
+the policy is an explicit deny system. Instead, you need to exclude the child management group or
 subscription from the management group-level policy assignment. Then, assign the more permissive
 policy on the child management group or subscription level. If any policy results in a resource
 getting denied, then the only way to allow the resource is to modify the denying policy.
@@ -111,7 +111,7 @@ environment](assign-policy-portal.md). Steps for [PowerShell](assign-policy-powe
 Policy parameters help simplify your policy management by reducing the number of policy definitions
 you must create. You can define parameters when creating a policy definition to make it more
 generic. Then you can reuse that policy definition for different scenarios. You do so by passing in
-different values when assigning the policy definition. For example, specifying one set of locations
+different values when assigning the policy definition - for example, specifying one set of locations
 for a subscription.
 
 Parameters are defined when creating a policy definition. When a parameter is defined, it's
@@ -175,7 +175,7 @@ during the initiative assignment because it's not part of the list.
 
 Here are a few pointers and tips to keep in mind:
 
-- Start with an audit effect instead of a deny effect to track impact of your policy definition on
+- Start with an audit effect instead of a deny effect to track the impact of your policy definition on
 the resources in your environment. If you have scripts already in place to autoscale your
 applications, setting a deny effect may hinder such automation tasks already in place.
 
@@ -185,7 +185,7 @@ create the assignment at the next child level. If you create a definition at a m
 the assignment can be scoped down to a subscription or resource group within that management group.
 
 - We recommend creating and assigning initiative definitions even for a single policy definition.
-For example, you have policy definition *policyDefA* and create it under initiative definition
+For example, you have the policy definition *policyDefA* and create it under initiative definition
 *initiativeDefC*. If you create another policy definition later for *policyDefB* with goals similar
 to *policyDefA*, you can add it under *initiativeDefC* and track them together.
 
