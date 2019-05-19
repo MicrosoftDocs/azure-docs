@@ -92,7 +92,7 @@ It was also a bit of a surprise for her because she didn't have to configure thi
 
 This is a very useful email. It doesn't just raise an alarm. It does a lot of the triage and diagnostic work, too.
 
-It shows how many customers are affected, and which web pages or operations. Marcela can decide whether she needs to get the whole team working on this as a fire drill, or whether it can be ignored until next week.
+It shows how many customers are affected, and which web pages or operations. Marcela can decide whether they need to get the whole team working on this as a fire drill, or whether it can be ignored until next week.
 
 The email also shows that a particular exception occurred, and - even more interesting - that the failure is associated with failed calls to a particular database. This explains why the fault suddenly appeared even though Marcela's team has not deployed any updates recently.
 
