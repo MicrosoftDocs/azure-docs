@@ -71,7 +71,7 @@ She opens the Servers charts:
 There seems to be no sign of resource limitation there, so maybe the bumps in the server response charts are just a coincidence.
 
 ## Set alerts to meet goals
-Nevertheless, she'd like to keep an eye on the response times. If they go too high, she wants to know about it immediately.
+Nevertheless, they'd like to keep an eye on the response times. If response times go too high, they want to know about it immediately.
 
 So she sets an [alert](../../azure-monitor/app/metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
 
