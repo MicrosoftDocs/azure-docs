@@ -433,7 +433,7 @@ With the dry run complete, Contoso admins move on to the production migration. T
 
     ![Production](./media/contoso-migration-tfs-vsts/full5.png)
 
-8. After the migration finishes, a Contoso Dev Lead logs onto Azure DevOps Services to check that the migration worked properly. After login, he can see that projects have been migrated.
+8. After the migration finishes, a Contoso Dev Lead logs onto Azure DevOps Services to check that the migration worked properly. After login, they can see that projects have been migrated.
 
     ![Production](./media/contoso-migration-tfs-vsts/full6.png)
 
