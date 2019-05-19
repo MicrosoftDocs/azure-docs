@@ -46,7 +46,7 @@ Before you start with this tutorial, make sure to meet the following requirement
 - An Azure Event Hubs namespace.
 - An Event Hub within the namespace.
 - Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`.
-- Shared access policy name and policy key for Event Hubs.
+- Shared access policy name and policy key for Event Hubs: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-get-connection-string#get-connection-string-from-the-portal
 
 You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 
