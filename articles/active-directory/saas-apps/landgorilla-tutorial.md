@@ -184,7 +184,7 @@ Please work with [Land Gorilla support team](https://www.landgorilla.com/support
     
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Land Gorilla Client.
+In this section, you enable Britta Simon to use Azure single sign-on by granting them access to Land Gorilla Client.
 
 ![Assign User][200] 
 
