@@ -29,7 +29,7 @@ servers, systems, and services, in your virtual network.
 
 This article shows how to complete these tasks:
 
-* Open ports on a virtual network when using [network security groups](../virtual-network/security-overview.md), so traffic can travel through your integration service environment (ISE) across the subnets in that virtual network.
+* Make sure any necessary ports on a virtual network are open so that traffic can travel through your integration service environment (ISE) across the subnets in that virtual network.
 
 * Create your integration service environment (ISE).
 
@@ -83,7 +83,7 @@ which is a capability that's available with ISE public preview.
 
 <a name="ports"></a>
 
-## Check or unblock network ports
+## Check network ports
 
 When you use an integration service environment (ISE) with a virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port you use on that FTP system, such as port 21 for sending commands, is available.
 
