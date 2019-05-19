@@ -61,7 +61,7 @@ Let’s take an example – you are the owner of Subscription "Visual Studio MSD
 Joe is your peer who is a resource owner to some of the resource groups in this subscription and has read permission to the subscription.
 You wish to give access to your peer, Joe, the ability to create and manage support tickets for the resources under this subscription.
 
-1. The first step is to go to the subscription and under "Settings" you see a list of users. Click the user Joe who has reader access on the Subscription and let’s assign a new custom role to him.
+1. The first step is to go to the subscription and under "Settings" you see a list of users. Click the user Joe who has reader access on the Subscription and let’s assign a new custom role to them.
 
     ![Add role](./media/create-manage-support-requests-using-access-control/add-role.png)
 
