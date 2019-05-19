@@ -62,7 +62,7 @@ Blob attributes are used to efficiently encode potentially large data blobs for 
 
 Composite attributes are used to represent a grouping of attribute values.  The name of each sub-attribute starts with the name of the composite attribute followed by ".".  Values for composite attributes are specified as a JSON object containing the nested attribute values.  Composite attributes may have multiple object values.  However, composite attributes may not have sub-attributes that are themselves composite attributes.
 
-In the academic publication example above, this enables the service to query for papers by "harry shum" while he is at "microsoft".  Without composite attributes, the service can only query for papers where one of the authors is "harry shum" and one of the authors is at "microsoft".  For more information, see [Composite Queries](SemanticInterpretation.md#composite-function).
+In the academic publication example above, this enables the service to query for papers by "harry shum" while they were at "microsoft".  Without composite attributes, the service can only query for papers where one of the authors is "harry shum" and one of the authors is at "microsoft".  For more information, see [Composite Queries](SemanticInterpretation.md#composite-function).
 
 ## Attribute Operations
 
