@@ -180,7 +180,7 @@ Now that a malicious actor tried to access Sarah’s account, let’s see what h
 
 5. By resetting her password, Sarah’s credentials are no longer compromised and her identity returns to a safe state. 
 
-6. Sarah’s previous risk events are resolved and her user risk level is automatically reset as a response to mitigating the credentials compromise. 
+6. Sarah’s previous risk events are resolved and their user risk level is automatically reset as a response to mitigating the credentials compromise. 
 
 ## How do I configure Identity Protection? 
 
