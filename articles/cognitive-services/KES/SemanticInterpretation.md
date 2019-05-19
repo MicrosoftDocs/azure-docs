@@ -113,7 +113,7 @@ written in the 90s
 
 Returns a query that encapsulates an *innerQuery* composed of matches against sub-attributes of a common composite attribute *attr*.  The encapsulation requires the composite attribute *attr* of any matching data object to have at least one value that individually satisfies the *innerQuery*.  Note that a query on sub-attributes of a composite attribute has to be encapsulated using the Composite() function before it can be combined with other queries.
 
-For example, the following query returns academic publications by "harry shum" while he was at "microsoft":
+For example, the following query returns academic publications by "harry shum" while they were at "microsoft":
 ```
 Composite(And(Query("academic#Author.Name", "harry shum"), 
               Query("academic#Author.Affiliation", "microsoft")));
