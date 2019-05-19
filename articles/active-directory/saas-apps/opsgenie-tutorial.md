@@ -218,7 +218,7 @@ The objective of this section is to create a user called Britta Simon in OpsGeni
     c. Click **Save**. 
 
 >[!NOTE]
->Britta gets an email with instructions for setting up her profile.
+>Britta gets an email with instructions for setting up their profile.
 
 ### Test single sign-on 
 
