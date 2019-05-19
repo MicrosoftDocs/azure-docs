@@ -7,8 +7,8 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
+ms.topic: conceptual
+ms.date: 05/20/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -29,7 +29,7 @@ servers, systems, and services, in your virtual network.
 
 This article shows how to complete these tasks:
 
-* Open ports on a virtual network that uses [network security groups](../virtual-network/security-overview.md), so traffic can travel through your integration service environment (ISE) across the subnets in that virtual network.
+* Open ports on a virtual network when using [network security groups](../virtual-network/security-overview.md), so traffic can travel through your integration service environment (ISE) across the subnets in that virtual network.
 
 * Create your integration service environment (ISE).
 
@@ -83,9 +83,11 @@ which is a capability that's available with ISE public preview.
 
 <a name="ports"></a>
 
-## Open network ports for network security groups
+## Check or unblock network ports
 
-To control the traffic across the virtual network's subnets where you deploy your integration service environment (ISE), you can set up [network security groups](../virtual-network/security-overview.md) for those subnets by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). However, for a virtual network that uses network security groups, your ISE must have specific ports open on your virtual network. That way, your ISE can stay accessible and work correctly. Otherwise, if any of the required ports are unavailable, you might lose access to your ISE, which might stop working. Also, when you use an ISE in a virtual network, a common setup problem is having one or more blocked ports. For connections between your ISE and the destination system, the connector you use might also have its own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port you use on that FTP system, such as port 21 for sending commands, is available.
+When you use an integration service environment (ISE) with a virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port you use on that FTP system, such as port 21 for sending commands, is available.
+
+To control the traffic across the virtual network's subnets where you deploy ISE, you can set up [network security groups](../virtual-network/security-overview.md) by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). However, your ISE must have specific ports open on the virtual network that uses network security groups so that your ISE can stay accessible and work correctly. Otherwise, if any required ports are unavailable, you might lose access to your ISE, which might stop working. 
 
 These tables describe the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
