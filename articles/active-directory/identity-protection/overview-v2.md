@@ -153,7 +153,7 @@ Let’s look at the example of Sarah, an employee of Contoso.
 
 4. Sarah passes the MFA prompt and accesses Exchange Online, and Sarah’s user risk level is not changed. 
 
-What happened behind the scenes? The sign-in attempt from the Tor browser triggered a real-time sign-in risk in Azure AD for anonymous IP address. As Azure AD processed the request, it applied the sign-in risk policy configured in Identity Protection because Sarah’s sign-in risk level met the threshold (Medium). Since Sarah had previously registered for MFA, she was able to respond to and pass the MFA challenge. Her ability to successfully pass the MFA challenge signaled to Azure AD that she was likely the legitimate identity owner, and her user risk level does not increase. 
+What happened behind the scenes? The sign-in attempt from the Tor browser triggered a real-time sign-in risk in Azure AD for anonymous IP address. As Azure AD processed the request, it applied the sign-in risk policy configured in Identity Protection because Sarah’s sign-in risk level met the threshold (Medium). Since Sarah had previously registered for MFA, they were able to respond to and pass the MFA challenge. Their ability to successfully pass the MFA challenge signaled to Azure AD that they were likely the legitimate identity owner, and their user risk level does not increase. 
 
 
 But what if Sarah wasn’t the one trying to sign in? 
