@@ -45,7 +45,7 @@ Let's focus on the feedback part of the cycle:
 Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [availability tests](../../azure-monitor/app/monitor-web-app-availability.md):
 
 * A single-URL test for the main landing page for the app, http://fabrikambank.com/onlinebanking/. She sets criteria of HTTP code 200 and text 'Welcome!'. If this test fails, there's something seriously wrong with the network or the servers, or maybe a deployment issue. (Or someone has changed the Welcome! message on the page without letting her know.)
-* A deeper multi-step test, which logs in and gets a current account listing, checking a few key details on each page. This test verifies that the link to the accounts database is working. She uses a fictitious customer id: a few of them are maintained for test purposes.
+* A deeper multi-step test, which logs in and gets a current account listing, checking a few key details on each page. This test verifies that the link to the accounts database is working. They use a fictitious customer id: a few of them are maintained for test purposes.
 
 With these tests set up, Marcela is confident that the team will quickly know about any outage.  
 
