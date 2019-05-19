@@ -98,7 +98,7 @@ The email also shows that a particular exception occurred, and - even more inter
 
 Marcella pings the leader of the database team based on this email. She learns that they released a hot fix in the past half hour; and Oops, maybe there might have been a minor schema change....
 
-So the problem is on the way to being fixed, even before investigating logs, and within 15 minutes of it arising. However, Marcela clicks the link to open Application Insights. It opens straight onto a failed request, and she can see the
+So the problem is on the way to being fixed, even before investigating logs, and within 15 minutes of it arising. However, Marcela clicks the link to open Application Insights. It opens straight onto a failed request, and they can see the
 failed database call in the associated list of dependency calls.
 
 ![failed request](./media/detect-triage-diagnose/23.png)
