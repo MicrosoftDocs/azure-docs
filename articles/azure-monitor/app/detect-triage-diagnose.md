@@ -86,7 +86,7 @@ Failed requests are where users have seen an error - typically following an exce
 
 This alert is a surprise, because the last time she looked at it, the failed request count was encouragingly low. A small number of failures is to be expected in a busy server.
 
-It was also a bit of a surprise for her because she didn't have to configure this alert. Application Insights include Smart Detection. It automatically adjusts to your app's usual failure pattern, and "gets used to" failures on a particular page, or under high load, or linked to other metrics. It raises the alarm only if there's a rise above what it comes to expect.
+It was also a bit of a surprise for them because they didn't have to configure this alert. Application Insights include Smart Detection. It automatically adjusts to your app's usual failure pattern, and "gets used to" failures on a particular page, or under high load, or linked to other metrics. It raises the alarm only if there's a rise above what it comes to expect.
 
 ![proactive diagnostics email](./media/detect-triage-diagnose/21.png)
 
