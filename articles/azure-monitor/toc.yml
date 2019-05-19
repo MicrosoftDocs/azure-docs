@@ -819,13 +819,13 @@
     items:
     - name: Alerts
       items:
-      - name: Use application alerts
+      - name: Application alert rules
         items:
         - name: Availability
           href: app/monitor-web-app-availability.md
         - name: Metric alerts
           href: app/alerts.md
-      - name: Use metric alerts
+      - name: Platform metric alert rules
         items:
         - name: Manage metric alerts
           href: platform/alerts-metric.md
@@ -841,7 +841,7 @@
           href: platform/alerts-enable-template.md    
         - name: Classic metric alert calling a webhook
           href: platform/alerts-webhooks.md
-      - name: Use log alerts
+      - name: Log alert rules
         items:  
         - name: Configure alerts on analytics query
           href: platform/alerts-log.md
@@ -851,7 +851,7 @@
           href: platform/alerts-log-webhook.md
         - name: Troubleshooting
           href: platform/alert-log-troubleshoot.md
-      - name: Use activity log alerts
+      - name:  Activity log alert rules
         items:
         - name: Alert on an activity log event
           href: platform/alerts-activity-log.md
@@ -859,13 +859,13 @@
           href: platform/migrate-management-alerts.md
         - name: Alert on service health notifications
           href: platform/alerts-activity-log-service-notifications.md
-      - name: Action groups and alerts
+      - name: Use action groups
         items:
         - name: Create action group
           href: platform/action-groups.md
         - name: Webhook schema
           href: platform/activity-log-alerts-webhook.md
-        - name: Common alert schema definitions
+        - name: Common alert schema definition
           href: platform/alerts-common-schema-definitions.md    
         - name: SMS alert behavior
           href: platform/alerts-sms-behavior.md
@@ -875,9 +875,9 @@
           href: platform/action-groups-create-resource-manager-template.md
         - name: Implement a Logic App action
           href: platform/action-groups-logic-app.md
-      - name: Alerts from Operations Manager
+      - name: System Center Operations Manager
         href: platform/alert-management-solution.md
-      - name: Manage alerts
+      - name: Alert user interface
         items:
         - name: Manage alert instances
           href: platform/alerts-managing-alert-instances.md
@@ -887,7 +887,7 @@
           href: platform/alerts-managing-alert-states.md  
         - name: Manage alerts from other monitoring services
           href: platform/alerts-managing-nagios-zabbix-scom.md   
-      - name: Migrate classic alerts
+      - name: Migrate classic alert rules
         items:
         - name: Use the migration tool
           href: platform/alerts-using-migration-tool.md
@@ -909,17 +909,17 @@
         href: platform/autoscale-common-scale-patterns.md
       - name: Autoscale using a custom metric
         href: platform/autoscale-custom-metric.md
-      - name: Autoscale virtual machine scale sets using Resource Manager templates
+      - name: Autoscale VM scale sets using Resource Manager templates
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Automatically scale machines in a virtual machine scale set
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-      - name: Configure webhooks and email notifications on autoscale
+      - name: Webhooks and email notifications with autoscale
         href: platform/autoscale-webhook-email.md
-    - name: Service notifications
+    - name: Service health notifications in activity log
       items:
-      - name: View service notifications
+      - name: View notifications
         href: platform/service-notifications.md
-      - name: Configure alerts on service notifications
+      - name: Configure alerts on notification events
         href: platform/alerts-activity-log-service-notifications.md
     - name: IT Service Management
       items:
