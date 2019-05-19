@@ -147,7 +147,7 @@ Exceptions and events show up in the [Diagnostic Search](diagnostic-search.md) b
 
 
 ## Monitor proactively
-Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](../../azure-monitor/app/web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
+Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, they take a look at [response times](../../azure-monitor/app/web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
 
 ![Response time graph and grid of server response times.](./media/detect-triage-diagnose/response-time.png)
 
