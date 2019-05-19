@@ -157,7 +157,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Uberflip.
+In this section, you enable Britta Simon to use Azure single sign-on by granting them access to Uberflip.
 
 1. In the Azure portal, select **Enterprise Applications** > **All applications** > **Uberflip**.
 
