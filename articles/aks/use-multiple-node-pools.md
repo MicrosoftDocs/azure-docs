@@ -328,7 +328,7 @@ Only pods that have this taint applied can be scheduled on nodes in *gpunodepool
 
 In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
 
-To delete the GPU-based node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command as shown in following example:
+To delete the GPU-based node pool, use the [az aks nodepool delete][az-aks-nodepool-delete] command as shown in following example:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
