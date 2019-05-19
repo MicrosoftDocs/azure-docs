@@ -176,7 +176,7 @@ Now that a malicious actor tried to access Sarah’s account, let’s see what h
 
 3. Sarah is challenged by a password reset prompt, because Contoso’s IT admin configured the Identity Protection user risk policy to require password change when a user with high risk logs in. 
 
-4. Since Sarah is registered for SSPR and MFA, she successfully resets her password. 
+4. Since Sarah is registered for SSPR and MFA, they successfully reset their password. 
 
 5. By resetting her password, Sarah’s credentials are no longer compromised and her identity returns to a safe state. 
 
