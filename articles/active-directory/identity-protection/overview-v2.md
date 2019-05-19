@@ -143,44 +143,44 @@ The baseline flow for Identity Protection risk detection and response for any gi
 
 ## Common scenarios 
 
-Let’s look at the example of Sarah, an employee of Contoso. 
+Let’s look at the example of an employee of Contoso. 
 
-1. Sarah attempts to sign in to Exchange Online from the Tor browser. At the time of sign-in, Azure AD detects real-time risk events. 
+1. The user attempts to sign in to Exchange Online from the Tor browser. At the time of sign-in, Azure AD detects real-time risk events. 
 
-2. Azure AD detects that Sarah is signing in from an anonymous IP address, triggering a medium sign-in risk level. 
+2. Azure AD detects that the user is signing in from an anonymous IP address, triggering a medium sign-in risk level. 
 
-3. Sarah is challenged by an MFA prompt, because Contoso’s IT Admin configured the Identity Protection sign-in risk conditional access policy. The policy requires MFA for a sign-in risk of medium or higher. 
+3. The user is challenged by an MFA prompt, because Contoso’s IT Admin configured the Identity Protection sign-in risk conditional access policy. The policy requires MFA for a sign-in risk of medium or higher. 
 
-4. Sarah passes the MFA prompt and accesses Exchange Online, and Sarah’s user risk level is not changed. 
+4. The user passes the MFA prompt and accesses Exchange Online, and their user risk level is not changed. 
 
-What happened behind the scenes? The sign-in attempt from the Tor browser triggered a real-time sign-in risk in Azure AD for anonymous IP address. As Azure AD processed the request, it applied the sign-in risk policy configured in Identity Protection because Sarah’s sign-in risk level met the threshold (Medium). Since Sarah had previously registered for MFA, she was able to respond to and pass the MFA challenge. Her ability to successfully pass the MFA challenge signaled to Azure AD that she was likely the legitimate identity owner, and her user risk level does not increase. 
+What happened behind the scenes? The sign-in attempt from the Tor browser triggered a real-time sign-in risk in Azure AD for anonymous IP address. As Azure AD processed the request, it applied the sign-in risk policy configured in Identity Protection because the user's sign-in risk level met the threshold (Medium). Since they had previously registered for MFA, they were able to respond to and pass the MFA challenge. Their ability to successfully pass the MFA challenge signaled to Azure AD that she was likely the legitimate identity owner, and their user risk level does not increase. 
 
 
-But what if Sarah wasn’t the one trying to sign in? 
+But what if the user wasn’t the one trying to sign in? 
 
-1. A malicious actor with Sarah’s credentials attempts to sign in to Sarah’s Exchange Online account from the Tor browser, since they are trying to hide their IP address. 
+1. A malicious actor with the user's credentials attempts to sign in to their Exchange Online account from the Tor browser, since they are trying to hide their IP address. 
 
 2. Azure AD detects that the sign-in attempt is from an anonymous IP address, triggering a real-time sign-in risk. 
 
 3. The malicious actor is challenged by an MFA prompt, because Contoso’s IT Admin configured the Identity Protection Sign-In Risk Conditional Access policy to require MFA when sign-in risk is medium or higher. 
 
-4. The malicious actor fails the MFA challenge and cannot access Sarah’s Exchange Online account. 
+4. The malicious actor fails the MFA challenge and cannot access the user's Exchange Online account. 
 
-5. The failed MFA prompt triggered a risk event to be recorded, raising Sarah’s user risk for future sign-ins. 
+5. The failed MFA prompt triggered a risk event to be recorded, raising their user risk for future sign-ins. 
 
-Now that a malicious actor tried to access Sarah’s account, let’s see what happens the next time Sarah tries to sign in. 
+Now that a malicious actor tried to access the user's account, let’s see what happens the next time they try to sign in. 
 
-1. Sarah attempts to sign in to Exchange Online from Outlook. At the time of sign-in, Azure AD detects real-time risk events as well as any prior user risk. 
+1. The user attempts to sign in to Exchange Online from Outlook. At the time of sign-in, Azure AD detects real-time risk events as well as any prior user risk. 
 
 2. Azure AD doesn’t detect any real-time sign-in risk, but detects high user risk due to the past risky activity in the previous scenarios.  
 
-3. Sarah is challenged by a password reset prompt, because Contoso’s IT admin configured the Identity Protection user risk policy to require password change when a user with high risk logs in. 
+3. The user is challenged by a password reset prompt, because Contoso’s IT admin configured the Identity Protection user risk policy to require password change when a user with high risk logs in. 
 
-4. Since Sarah is registered for SSPR and MFA, she successfully resets her password. 
+4. Since the user is registered for SSPR and MFA, they successfully reset their password. 
 
-5. By resetting her password, Sarah’s credentials are no longer compromised and her identity returns to a safe state. 
+5. By resetting their password, the user’s credentials are no longer compromised and their identity returns to a safe state. 
 
-6. Sarah’s previous risk events are resolved and her user risk level is automatically reset as a response to mitigating the credentials compromise. 
+6. The user’s previous risk events are resolved and the user risk level is automatically reset as a response to mitigating the credentials compromise. 
 
 ## How do I configure Identity Protection? 
 
