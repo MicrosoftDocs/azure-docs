@@ -102,6 +102,6 @@ When Joe logs in to the portal and tries to create a support request, he encount
 
 ![Subscription error-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
-Joe cannot see any support requests when he clicks "All support requests"
+Joe cannot see any support requests when they click "All support requests"
 
 ![case details view-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
