@@ -69,15 +69,15 @@ To configure the integration of Uberflip into Azure AD, you need to add Uberflip
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Uberflip based on a test user named **Britta Simon**. For single sign-on to work, you need to establish a link between an Azure AD user and a related user in Uberflip.
+In this section, you configure and test Azure AD single sign-on with Uberflip based on a test user. For single sign-on to work, you need to establish a link between an Azure AD user and a related user in Uberflip.
 
 To configure and test Azure AD single sign-on with Uberflip, you need to complete the following building blocks:
 
 1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
 1. **[Configure Uberflip single sign-on](#configure-uberflip-single-sign-on)** to configure the single sign-on settings on the application side.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-1. **[Create an Uberflip test user](#create-an-uberflip-test-user)** so that there's a user named Britta Simon in Uberflip who's linked to the Azure AD user named Britta Simon.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable your users to use Azure AD single sign-on.
+1. **[Create an Uberflip test user](#create-an-uberflip-test-user)** so that there's a user in Uberflip who's linked to an Azure AD user.
 1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -133,7 +133,7 @@ To configure single sign-on on the Uberflip side, you need to send the downloade
 
 ### Create an Azure AD test user
 
-In this section, you create a test user named Britta Simon in the Azure portal.
+In this section, you create a test user in the Azure portal.
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory** > **Users** > **All users**.
 
@@ -157,7 +157,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Uberflip.
+In this section, you enable your test user to use Azure single sign-on by granting them access to Uberflip.
 
 1. In the Azure portal, select **Enterprise Applications** > **All applications** > **Uberflip**.
 
