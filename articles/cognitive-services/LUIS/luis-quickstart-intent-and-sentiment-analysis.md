@@ -78,8 +78,8 @@ Add a new intent to capture employee feedback from members of the company.
 
     |Utterances|
     |--|
-    |John Smith did a nice job of welcoming back a co-worker from maternity leave|
-    |Jill Jones did a great job of comforting a co-worker in her time of grief.|
+    |John Smith did a nice job of welcoming back a co-worker from maternity leave.|
+    |Jill Jones did a great job of comforting a grieving co-worker.|
     |Bob Barnes didn't have all the required invoices for the paperwork.|
     |Todd Thomas turned in the required forms a month late with no signatures|
     |Katherine Kelly didn't make it to the important marketing off-site meeting.|
