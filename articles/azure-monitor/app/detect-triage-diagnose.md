@@ -64,7 +64,7 @@ Browser page load time is derived from telemetry sent directly from web pages. S
 
 Marcela is slightly concerned with the server response graph. This graph shows the average time between when the server receives an HTTP request from a user's browser, and when it returns the response. It isn't unusual to see a variation in this chart, as load on the system varies. But in this case, there seems to be a correlation between small rises in the count of requests, and big rises in the response time. That could indicate that the system is operating just at its limits.
 
-She opens the Servers charts:
+They open the Servers charts:
 
 ![Various metrics](./media/detect-triage-diagnose/002-servers.png)
 
