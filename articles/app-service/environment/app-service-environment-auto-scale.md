@@ -59,7 +59,7 @@ Autoscale of an App Service environment can best be illustrated by walking throu
 This article explains all the necessary considerations when you set up autoscale. The article walks you through the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
 
 ### Scenario introduction
-Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that he manages to an App Service environment.
+Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that they manage to an App Service environment.
 
 The App Service environment is configured to manual scale as follows:
 
