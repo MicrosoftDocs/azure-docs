@@ -151,7 +151,7 @@ Marcela doesn't just sit around waiting for alerts. Soon after every redeploymen
 
 ![Response time graph and grid of server response times.](./media/detect-triage-diagnose/response-time.png)
 
-She can assess the performance effect of every deployment, typically comparing each week with the last. If there's a sudden worsening, she raises that with the relevant developers.
+They can assess the performance effect of every deployment, typically comparing each week with the last. If there's a sudden worsening, they raise that with the relevant developers.
 
 ## Triage issues
 Triage - assessing the severity and extent of a problem - is the first step after detection. Should we call out the team at midnight? Or can it be left until the next convenient gap in the backlog? There are some key questions in triage.
