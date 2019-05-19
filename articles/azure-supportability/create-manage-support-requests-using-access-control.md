@@ -98,7 +98,7 @@ Right-click the role name, "Support Request Contributor" and click "Remove"
 
 ![Remove support request access](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-When Joe logs in to the portal and tries to create a support request, he encounters the following error
+When Joe logs in to the portal and tries to create a support request, they encounter the following error
 
 ![Subscription error-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
