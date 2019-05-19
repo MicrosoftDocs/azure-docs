@@ -829,18 +829,12 @@
         items:
         - name: Manage metric alerts
           href: platform/alerts-metric.md
-        - name: Metric Alerts with dynamic thresholds
+        - name: Use dynamic thresholds
           href: platform/alerts-dynamic-thresholds.md
         - name: Metric alerts on logs
           href: platform/alerts-metric-logs.md
-        - name: Metric alert using Resource Manager template
+        - name: Using Resource Manager template
           href: platform/alerts-metric-create-templates.md
-        - name: Manage classic metric alerts
-          href: platform/alerts-classic-portal.md
-        - name: Classic metric alert suing a Resource Manager template
-          href: platform/alerts-enable-template.md    
-        - name: Classic metric alert calling a webhook
-          href: platform/alerts-webhooks.md
       - name: Log alert rules
         items:  
         - name: Configure alerts on analytics query
@@ -875,7 +869,7 @@
           href: platform/action-groups-create-resource-manager-template.md
         - name: Implement a Logic App action
           href: platform/action-groups-logic-app.md
-      - name: System Center Operations Manager
+      - name: Alert Management solution
         href: platform/alert-management-solution.md
       - name: Alert user interface
         items:
@@ -889,17 +883,29 @@
           href: platform/alerts-managing-nagios-zabbix-scom.md   
       - name: Migrate classic alert rules
         items:
-        - name: Use the migration tool
-          href: platform/alerts-using-migration-tool.md
-        - name: Prepare for the migration
+        - name: Prepare for migration
           href: platform/alerts-prepare-migration.md
         - name: Understand the migration tool
           href: platform/alerts-understand-migration.md
+        - name: Use the migration tool
+          href: platform/alerts-using-migration-tool.md
+        - name: Manage classic metric alerts
+          href: platform/alerts-classic-portal.md
+        - name: Classic metric alert using a Resource Manager template
+          href: platform/alerts-enable-template.md    
+        - name: Classic metric alert calling a webhook
+          href: platform/alerts-webhooks.md
+    - name: Service health notifications in activity log
+      items:
+      - name: View notifications
+        href: platform/service-notifications.md
+      - name: Configure alerts on notification events
+        href: platform/alerts-activity-log-service-notifications.md
     - name: Autoscale
       items:
-      - name: Walkthrough of autoscale
+      - name: Walkthrough
         href: platform/autoscale-get-started.md
-      - name: Understand Autoscale settings
+      - name: Settings
         href: platform/autoscale-understanding-settings.md
       - name: Best practices
         href: platform/autoscale-best-practices.md
@@ -907,20 +913,14 @@
         href: platform/autoscale-common-metrics.md
       - name: Common patterns
         href: platform/autoscale-common-scale-patterns.md
-      - name: Autoscale using a custom metric
+      - name: Scale with custom metrics
         href: platform/autoscale-custom-metric.md
-      - name: Autoscale VM scale sets using Resource Manager templates
-        href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Automatically scale machines in a virtual machine scale set
+      - name: Scale VM scale sets
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-      - name: Webhooks and email notifications with autoscale
+      - name: Scale VM scale sets using Resource Manager templates
+        href: platform/autoscale-virtual-machine-scale-sets.md
+      - name: Use webhooks and email notifications
         href: platform/autoscale-webhook-email.md
-    - name: Service health notifications in activity log
-      items:
-      - name: View notifications
-        href: platform/service-notifications.md
-      - name: Configure alerts on notification events
-        href: platform/alerts-activity-log-service-notifications.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
