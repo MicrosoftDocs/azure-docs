@@ -62,7 +62,7 @@ A conditional access policy is a definition of an access scenario using the foll
 
 - **[Users](conditions.md#users-and-groups)**: The users performing an access attempt (**Who**).
 
-- **[Cloud apps](conditions.md#cloud-apps)**: The targets of an access attempt (**What**).
+- **[Cloud apps](conditions.md#cloud-apps-and-actions)**: The targets of an access attempt (**What**).
 
 These two conditions are mandatory in a conditional access policy. In addition to the two mandatory conditions, you can also include additional conditions that describe how the access attempt is performed. Common examples are using mobile devices or locations that are outside your corporate network. For more information, see [Conditions in Azure Active Directory conditional access](conditions.md).
 
