@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create a container with shared throughput in an Azure Cosmos account
-description: Azure PowerShell script sample - Create a container with shared throughput in an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB Update RU/s for Gremlin API
+description: Azure PowerShell script - Azure Cosmos DB Update RU/s for Gremlin API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Create a container with shared throughput in an Azure Cosmos account using PowerShell
+# Update RU/s for a database or graph for Azure Cosmos DB - Gremlin API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-shared.ps1 "Create a container with shared throughput in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-update.ps1 "Update throughput on a database or graph for Gremlin API")]
 
 ## Clean up deployment
 

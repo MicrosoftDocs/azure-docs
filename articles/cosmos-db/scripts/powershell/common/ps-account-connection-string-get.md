@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create an Azure Cosmos database
-description: Azure PowerShell script sample - Create an Azure Cosmos database
+title: Azure PowerShell script - Get connection strings for an Azure Cosmos account
+description: Azure PowerShell script sample - Get connection strings for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Create an Azure Cosmos database using PowerShell
+# Get connection strings for an Azure Cosmos account using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-database-create.ps1 "Create an Azure Cosmos database")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-connection-string-get.ps1 "Get connection strings for an Azure Cosmos account")]
 
 ## Clean up deployment
 
@@ -33,7 +33,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
+| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invokes an action on a resource. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

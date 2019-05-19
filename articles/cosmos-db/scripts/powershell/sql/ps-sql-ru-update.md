@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Configure IP Firewall for an Azure Cosmos account
-description: Azure PowerShell script sample - Configure IP Firewall for an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB Update RU/s for SQL (Core) API
+description: Azure PowerShell script - Azure Cosmos DB Update RU/s for SQL (Core) API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Configure IP Firewall for an Azure Cosmos account using PowerShell
+# Update RU/s for a database or container for Azure Cosmos DB - SQL (Core) API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-firewall-create.ps1 "Configure IP Firewall for an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-update.ps1 "Update throughput on a database or container for SQL (Core) API")]
 
 ## Clean up deployment
 

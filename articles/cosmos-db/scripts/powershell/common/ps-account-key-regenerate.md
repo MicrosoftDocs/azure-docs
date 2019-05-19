@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell script - Get the properties of a database in an Azure Cosmos account
-description: Azure PowerShell script sample - Get the properties of a database in an Azure Cosmos account
+title: Azure PowerShell script - Regenerate keys for an Azure Cosmos account
+description: Azure PowerShell script sample - Regenerate keys for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
@@ -8,7 +8,7 @@ ms.date: 05/06/2019
 ms.author: mjbrown
 ---
 
-# Get the properties of a database in an Azure Cosmos account using PowerShell
+# Regenerate keys for an Azure Cosmos account using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-database-get.ps1 "Get the properties of a database in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-key-regenerate.ps1 "Regenerate keys for an Azure Cosmos account")]
 
 ## Clean up deployment
 
@@ -33,7 +33,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Resources**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Gets a resource. |
+| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invokes an action on a resource. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

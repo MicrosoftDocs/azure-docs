@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create an Azure Cosmos account for Core (SQL) API
-description: Azure PowerShell script sample - Create an Azure Cosmos account for Core (SQL) API
+title: Azure PowerShell script - Azure Cosmos DB list and get operations for Gremlin API
+description: Azure PowerShell script - Azure Cosmos DB list and get operations for Gremlin API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Create an Azure Cosmos account for (Core) SQL API account using PowerShell
+# List and get databases and graphs for Azure Cosmos DB - Gremlin API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-create.ps1 "Create an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-list-get.ps1 "List or get databases or graphs for Gremlin API")]
 
 ## Clean up deployment
 

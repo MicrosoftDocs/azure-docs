@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create a container with unique key policy and TTL in an Azure Cosmos account
-description: Azure PowerShell script sample - Create a container with unique key policy and TTL in an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB list and get operations for SQL (Core) API
+description: Azure PowerShell script - Azure Cosmos DB list and get operations for SQL (Core) API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Create a container with unique key policy and TTL in an Azure Cosmos account using PowerShell
+# List and get databases and containers for Azure Cosmos DB - SQL (Core) API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-unique-key-ttl.ps1 "Create a container with unique key policy and TTL in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List or get databases or containers for SQL (Core) API")]
 
 ## Clean up deployment
 
