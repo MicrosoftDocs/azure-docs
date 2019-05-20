@@ -75,9 +75,10 @@
     items:
     - name: Limit access with virtual network (preview)
       href: container-registry-vnet.md
-    - name: Authentication overview
-      href: container-registry-authentication.md
+    - name: Authentication
       items:
+      - name: Authentication overview
+        href: container-registry-authentication.md
       - name: Service principal authentication
         href: container-registry-auth-service-principal.md
       - name: Managed identity authentication
@@ -143,3 +144,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
+  - name: FAQ
+    href: container-registry-faq.md
