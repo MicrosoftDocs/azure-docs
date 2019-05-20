@@ -93,4 +93,8 @@ For more information about requesting access tokens from Azure AD for users and 
 
 ## Next steps
 
-* To learn more about Azure AD authentication and the Azure Maps Web SDK, see [Azure AD and Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+To learn more about Azure AD authentication and the Azure Maps Web SDK, see [Azure AD and Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+
+Learn how to see the API usage metrics for your Azure Maps account:
+> [!div class="nextstepaction"]	
+> [View usage metrics](how-to-view-api-usage.md)

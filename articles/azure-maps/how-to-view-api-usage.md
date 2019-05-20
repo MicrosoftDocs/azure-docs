@@ -54,6 +54,11 @@ Continue to the next section if you need to customize these graphs for your part
 ## Next steps
 
 Learn more about the Azure Maps APIs you want to track usage for:
+> [!div class="nextstepaction"]	
+> [Azure Maps Web SDK How-To](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]	
+> [Azure Maps Android SDK How-To](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps REST API documentation](https://docs.microsoft.com/rest/api/maps)

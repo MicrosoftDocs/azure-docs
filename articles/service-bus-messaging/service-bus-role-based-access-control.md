@@ -28,11 +28,18 @@ An application that uses Azure AD RBAC does not need to handle SAS rules and key
 
 ## Service Bus roles and permissions
 
-For the initial public preview, you can only add Azure AD accounts and service principals to the "Owner" or "Contributor" roles of a Service Bus Messaging namespace. This operation grants the identity full control over all entities in the namespace. Management operations that change the namespace topology are initially only supported though Azure resource management and not through the native Service Bus REST management interface. This support also means that the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object cannot be used with an Azure AD account.
+Azure provides the below built-in RBAC roles for authorizing access to a Service Bus namespace:
+
+* [Service Bus Data Owner (preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Enables data access to Service Bus namespace and its entities (Queues, Topics, Subscriptions and Filters)
+
+>[!IMPORTANT]
+> We earlier supported adding managed identity to the **"Owner"** or **"Contributor"** role.
+>
+> However, data access privileges for **"Owner"** and **"Contributor"** role will no longer be honored. If you were using the **"Owner"** or **"Contributor"** role, then those will need to be adapted to utilize the **"Service Bus Data Owner"** role.
 
 ## Use Service Bus with an Azure AD domain user account
 
-The following section describes the steps required to create and run a sample application that prompts for an interactive Azure AD user to log on, how to grant Service Bus access to that user account, and how to use that identity to access Event Hubs.
+The following section describes the steps required to create and run a sample application that prompts for an interactive Azure AD user to sign in, how to grant Service Bus access to that user account, and how to use that identity to access Event Hubs.
 
 This introduction describes a simple console application, the [code for which is on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
@@ -64,7 +71,7 @@ Before you can run the sample, edit the App.config file and, depending on your s
 
 - `tenantId`: Set to **TenantId** value.
 - `clientId`: Set to **ApplicationId** value.
-- `clientSecret`: If you want to log on using the client secret, create it in Azure AD. Also, use a web app or API instead of a native app. Also, add the app under **Access Control (IAM)** in the namespace you previously created.
+- `clientSecret`: If you want to sign in using the client secret, create it in Azure AD. Also, use a web app or API instead of a native app. Also, add the app under **Access Control (IAM)** in the namespace you previously created.
 - `serviceBusNamespaceFQDN`: Set to the full DNS name of your newly created Service Bus namespace; for example, `example.servicebus.windows.net`.
 - `queueName`: Set to the name of the queue you created.
 - The redirect URI you specified in your app in the previous steps.

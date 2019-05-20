@@ -64,7 +64,7 @@ You'll migrate WildFly/JBoss sample apps to Azure. These apps use:
 After migration, you'll run the apps using Azure Service Bus.
 
 ## Prerequisites
-To deploy a Java web app to Azure, you need an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/en-us/free/).
+To deploy a Java web app to Azure, you need an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/free/).
 
 In addition, you'll need the following prerequisites:
 
