@@ -10,9 +10,6 @@ To create a submission in Partner Center, the first step is to reserve a name. N
 
 We recommmend that you reserve your name even if you haven't developed your add-in yet, so that another developer doesn't use your name. Note, however, that you'll need to submit your add-in within three months in order to keep the name that you reserved.
 
-> [!IMPORTANT]
-> You can reserve additional names for an app, and you may choose to use one of those in the published version of your app instead of the one you reserve when you first create your app in Partner Center. However, be aware that the first name you enter here will be used in some of your app's [identity details](view-app-identity-details.md), such as the **Package Family Name (PFN)**. These values may be visible to some users, and cannot be changed, so make sure that the name you reserve is appropriate for this use.
-
 ## Reserve your add-in name
 
 1.  From the **Overview** page, select **Create a new...**.

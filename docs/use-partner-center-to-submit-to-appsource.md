@@ -13,11 +13,11 @@ If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and c
 
 For information about the AppSource approval process, see [Make your solutions available in AppSource](submit-to-the-office-store.md).
 
-## Submission process
+## Submission checklist
 
 Submitting your add-in involves specifying your add-in name and adding your add-in details via Partner Center.
 
-### Create your submission
+### Create your submission and reserve name
 
 On the [Office Products](https://partner.microsoft-int.com/en-us/dashboard/office/products) page in Partner Center, select **Create a new...**, and select the type of solution that you are submitting:
 
@@ -39,7 +39,7 @@ On the Product overview page, add the details associated with your submission. T
 |Define your Store settings|[Define add-in properties](define-add-in-properties.md) and [Create your AppSource listing](appsource-listing.md)|
 |Define your pricing and availability|[Set pricing and availability](set-pricing-and-availability.md)|
 
-## Review and publish
+### Review and publish
 
 After you add your information, you can submit your solution for publishing. Your approved add-ins will be listed in product-specific stores.
 
