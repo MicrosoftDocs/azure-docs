@@ -48,51 +48,51 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 
 ### <a name="v2"></a>Version 2.x
 
-Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). You must first install the .NET Core 2.x SDK.
+Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). 
+
+> [!IMPORTANT]
+> You can bypass the requirement for installing the .NET Core 2.x SDK by using [extension bundles].
 
 #### <a name="windows-npm"></a>Windows
 
 The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Install [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
+1. Install [Node.js], which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
 
-2. Install [Node.js], which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
-
-3. Install the Core Tools package:
+1. Install the Core Tools package:
 
     ```bash
     npm install -g azure-functions-core-tools
     ```
+1. If you do not plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS with Homebrew
 
 The following steps use Homebrew to install the Core Tools on macOS.
 
-1. Install [.NET Core 2.x SDK for macOS](https://www.microsoft.com/net/download/macos).
+1. Install [Homebrew](https://brew.sh/), if it's not already installed.
 
-2. Install [Homebrew](https://brew.sh/), if it's not already installed.
-
-3. Install the Core Tools package:
+1. Install the Core Tools package:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+1. If you do not plan to use [extension bundles], install [.NET Core 2.x SDK for macOS](https://www.microsoft.com/net/download/macos).
+
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) with APT
 
 The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
-
-2. Register the Microsoft product key as trusted:
+1. Register the Microsoft product key as trusted:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-3. Verify your Ubuntu server is running one of the appropriate versions from the table below. To add the apt source, run:
+1. Verify your Ubuntu server is running one of the appropriate versions from the table below. To add the apt source, run:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -106,11 +106,12 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-4. Install the Core Tools package:
+1. Install the Core Tools package:
 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+1. If you do not plan to use [extension bundles], install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
 
 ## Create a local Functions project
 
@@ -496,3 +497,4 @@ To file a bug or feature request, [open a GitHub issue](https://github.com/azure
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[extension bundles]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles
