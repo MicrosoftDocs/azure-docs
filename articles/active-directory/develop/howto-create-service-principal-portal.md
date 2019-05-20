@@ -108,6 +108,8 @@ To upload the certificate:
     ![Upload certificate](./media/howto-create-service-principal-portal/upload-cert.png)
 1. Click **Add**.
 
+After registering the certificate with your application in the application registration portal, you need to enable the client application code to use the certificate.
+
 ### Create a new application secret
 If you choose not to use a certificate, you can create a new application secret.
 1. Select **Certificates & secrets**.
