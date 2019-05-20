@@ -62,7 +62,7 @@ A Microsoft account, e.g. *\@outlook.com or \@live.com*, is used to access many 
 
 ---
 
-## 3. Submit the marketplace registration form  
+## 3. Create a Partner Center account  
 | 15 min |  
 
 After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) to the Marketplace, our onboarding team contacts you to support your publishing experience. See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
