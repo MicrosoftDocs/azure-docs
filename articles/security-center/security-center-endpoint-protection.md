@@ -13,222 +13,149 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2019
+ms.date: 05/20/2019
 ms.author: monhaber
 ---
 
-# Endpoint Protection solutions Discovery and Health Assessment by Azure Security Center
+# Endpoint Protection Assessment and Recommendations by Azure Security Center
 
 ## Overview
 
-Endpoint Protection evaluation in Azure Security Center detects and provides health assessment of [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Microsoft and non-Microsoft solutions. This document elaborates how the discovery and health assessment is performed and the steps to take to troubleshoot when a problem is found.
+Endpoint Protection assessment and recommendation in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Endpoint Protection solutions. This document explains how Azure Security Center runs the following two recommendations for Endpoint Protection solutions.
+
+* Install endpoint protection solutions on your virtual machine
+* Resolve endpoint protection health issues on your machines
 
 ## Windows Defender
 
-### Discovery
+* The Install endpoint protection solutions on virtual machine recommendation appears when [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) ran and the result was AMServiceEnabled  : False
 
-1. Run [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) and result exists<!--Rephrase this sentence - is it "and if there is a result, then check...."? -->
-1. Check for 'AMServiceEnabled: True'
+* The Resolve endpoint protection health issues on your machines recommendation appears when  [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) ran and either or both of the following occurred:
 
-### Health Assessment
+        * At least one of the following properties is false:
+            'AMServiceEnabled'
+            'AntispywareEnabled'
+            'RealTimeProtectionEnabled'
+            'BehaviorMonitorEnabled'
+            'IoavProtectionEnabled'
+            'OnAccessProtectionEnabled'
 
-1. Run [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps)
-1. No real time protection status checks all conditions below<!--Rephrase this sentence -->
+        * If one or both of the following properties is greater or equal to 7. 
 
-      `AMServiceEnabled: True`
+            'AntispywareSignatureAge'
+            'AntivirusSignatureAge'
 
-      `AntispywareEnabled: True`
-
-      `RealTimeProtectionEnabled: True`
-
-     `BehaviorMonitorEnabled: True`
-
-      `IoavProtectionEnabled : True`
-
-      `OnAccessProtectionEnabled: True`
-
-1. Check Signature Update status
-
-      `AntispywareSignatureAge >= 7 days`
-    
-      `AntivirusSignatureAge >= 7 days`
-    
 ## Microsoft System Center Endpoint Protection
 
-### Discovery
+* The **Install endpoint protection solutions on virtual machine** recommendation appears after importing **SCEPMpModule  ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )**, and running **Get-MProtComputerStatus, results with AMServiceEnabled = false**
 
-1. Import **SCEPMpModule "$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1**
+* The **Resolve endpoint protection health issues on your machines** recommendation appears if the following checks when **Get-MprotComputerStatus** ran and either or both of the following occurred:
 
-1. Run **Get-MProtComputerStatus** and result exists<!--Rephrase this sentence-->
+* At least one of the following properties is false:
+      'AMServiceEnabled'
+      'AntispywareEnabled'
+      'RealTimeProtectionEnabled'
+      'BehaviorMonitorEnabled'
+      'IoavProtectionEnabled'
+      'OnAccessProtectionEnabled'
+      
+* If one or both of the following Signature Updates is greater or equal to 7. 
+AntispywareSignatureAge
+AntivirusSignatureAge 
 
-1. Check `AMServiceEnabled = true`
-
-## Health Assessment
-
-1. Run **Get-MprotComputerStatus**
-1. Real time protection status checks all conditions below:
-
-      `AMServiceEnabled: True`
-
-      `AntispywareEnabled: True`
-
-      `BehaviorMonitorEnabled: True`
-
-      `IoavProtectionEnabled: True`
-
-      `OnAccessProtectionEnabled: True`
-    
-3. Check Signature Update status
-
-      `AntispywareSignatureAge >= 7 daysv`
-    
-      `AntivirusSignatureAge >= 7 days`
-    
 ## Trend Micro
 
-For Trend Micro, Azure Security Center checks only Discovery. No health assessments
-
-### Discovery
-
-1. **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists 
-1. **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
-1. **dsq_query.cmd** file is found in Installation Folder
-1. Run **dsa_query.cmd**
-1. `Component.AM.mode: on` - Trend Micro Deep Security Agent detected.
-
-### Threat status
-
-For Trend Micro, there are threat detection and health discovery. You can treat them as 2 different events.
-
-We will first check is there any threat detected on the machine by querying event id 9501 in Deep Security Agent event log.
-If yes, we will send an event like below:
-
-Protection status will always be 550 if a threat is detected:
-    **protectionRank** = **550** 
-    **protectionStatus** = **Threat Detected**
-    **protectionStatusDetails** = **At least one threat detected**
-    
-If scan action for the threat is unknown:
-    **threatRank** = **470** 
-    **threatStatus** = **Unknown**
-    **threatStatusDetails** = **Unknown**
-    
- If scan action for the threat is delete: <!--Redo this statement-->
-    **threatRank** = **370**
-    **threatStatus** = **Remediated**
-    **threatStatusDetails** = **Remediated**
-    
-If customers would like to see is there any threat detected on the machine, they can filter log by protectionRank = 550
-
-### Health Assessment
-
-Then we will collect one more record for the current protection status of the machine.
-
-Threat status and rank are always unknown for Trend Micro in this event.
+* The Install endpoint protection solutions on virtual machine recommendation appears if one or more of the following checks are not met:
+    * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
+    * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
+    * The **dsq_query.cmd** file is found in the Installation Folder
+    * Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
 ## Symantec Endpoint Protection
+The **Install endpoint protection solutions on virtual machine** recommendation appears if any of the following checks are not met:
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-For Symantec, windows registry values are used for detection and health assessment
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-### Discovery
+Or
 
-  * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME** = **"Symantec Endpoint Protection"**
-    
-  * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus** = **1** 
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-Or 
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME** = **"Symantec Endpoint Protection"**
+The Resolve endpoint protection health issues on your machines will appear if any of the following checks are not met:  
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus** = **1**
+* Check Symantec Version >= 12:  Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
-### Health Assessment
+* Check Real Time Protection status: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
 
-Real time protection enabled is evaluated based on following checks:
+* Check Signature Update status: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 days**
 
-1. Check **Symantec Version** >= **12**, registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**;
+* Check Full Scan status: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 days**
 
-1. Check Real Time Protection status - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff** == **1**
+* Find signature version number Path to signature version for Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"** 
 
-1. Check Signature Update status - **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate** <= **7 days**
+* Path to signature version for Symantec 14: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
 
-1. Check Full Scan status - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime** <= **7 days**
+Registry Paths:
 
-1. Find signature version number:
-
-     * Path to signature version for Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"**
-
-     * Path to signature version for Symantec 14: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
-
-    * Registry Paths: **"HKLM:\Software\Symantec\Symantec Endpoint Protection\" + $Path;**
-    **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\" + $Path**
+**"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
+**"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
 ## McAfee Endpoint Protection for Windows
 
-For McAfee, windows registry values are used for detection and health assessment.
+The **Install endpoint protection solutions on virtual machine** recommendation appear if the following checks are not met:
 
-### Discovery
-1. **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
+* **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
-2. **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas** = **1**
+* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-### Health Assessment
-1. McAfee Verion **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** >= **10**
-1. Find Signature Version at **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
-1. Find Signature date at **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate"** >= **7 days**
-1. Find Scan date at **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime"** >= **7 days**
+The Resolve endpoint protection health issues on your machines will appear if following checks are not met:
 
-## McAfee Endpoint Protection for Linux
+* McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
-For McAfee Linux, commands and logs are used for detection and health assessment.
+* Find Signature Version: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
 
-### Discovery
+* Find Signature date: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
 
-1. File **/opt/isec/ens/threatprevention/bin/isecav** exits
-1. Successfully run **"/opt/isec/ens/threatprevention/bin/isecav --version"**
-1. From the output from command in step 2: **McAfee name** = **McAfee Endpoint Security for Linux Threat Prevention**
-1. From the output from command in step 2: **McAfee version** >= **10**
+* Find Scan date: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days**
 
-### Health Assessment
+## McAfee Endpoint Security for Linux Threat Prevention
+The Install endpoint protection solutions on virtual machine recommendation appears if one or both of the following checks are not met:
 
-1. Run **"/opt/isec/ens/threatprevention/bin/isecav --version"** to get **mcafeeVersion**, **datVersion**, **datTime**, **engineVersion**
+* File **/opt/isec/ens/threatprevention/bin/isecav** exits
 
-1. Run **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** to get Quick scan, Full scan and DAT and engine Update time.
-   One of the scan needs >= **7 days**, DAT and engine Update time >= **7 days**
+* Successfully ran **"/opt/isec/ens/threatprevention/bin/isecav --version"** and the output is: **McAfee name = McAfee Endpoint Security** for Linux Threat Prevention and **McAfee version >= 10**
 
-1. Run **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** to get On Access Scan status and GTI status
-   On Access Scan = On
-1. Run **"/opt/isec/ens/threatprevention/bin/isecav --getapstatus"** to get Access Protection
+The Resolve endpoint protection health issues on your machines recommendation appears if one or both of the following checks are not met:
 
-## Sophos Anti-Virus for Linux
+* Running **"/opt/isec/ens/threatprevention/bin/isecav --version"** results with **mcafeeVersion**, **datVersion**, **datTime**, **engineVersion**
+* Running **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** to get **Quick scan**, **Full scan** and **DAT** and **engine Update time**. One of the scan **>= 7 days**, DAT and **engine Update time >= 7 days**
+* Run **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** to get **On Access Scan** status and **GTI status On Access Scan = On**
+* Run **"/opt/isec/ens/threatprevention/bin/isecav --getapstatus"** to get **Access Protection**
 
-For Sophos Linux, commands and logs are used for detection and health assessment
+## Sophos Antivirus for Linux
 
-### Discovery
+The Install endpoint protection solutions on virtual machine appears if  one or more of the following checks are not met:
 
-1. Check if the file **/opt/sophos-av/bin/savdstatus** exits or search for the customized location **"find / -iname savdstatus | grep /bin/savdstatus"**
+* File **/opt/sophos-av/bin/savdstatus** exits or search for customized location **"readlink $(which savscan)"**
+* Successfully ran **"/opt/sophos-av/bin/savdstatus --version"**, and **Sophos name = Sophos Anti-Virus and Sophos version >= 9**
 
-1. Successfully run **"/opt/sophos-av/bin/savdstatus --version"**
+The Resolve endpoint protection health issues on your machines recommendation appears if one or more of the following checks are not met:
 
-1. From the output from command in step 2: **Sophos name** = **Sophos Anti-Virus**
+* Running **"/opt/sophos-av/bin/savdstatus --version"** gets **Sophos buildRevision**, **threatDetectionEngine**, **threatData**, **threatCount**, **threatDataRelease** and **lastUpdate**
 
-1. From the output from command in step 2: **Sophos version** >= **9**
+* Running **"/opt/sophos-av/bin/savdstatus --lastupdate"** gets **lastUpdate >= 7 days**
 
-### Health Assessment
+* Running **"/opt/sophos-av/bin/savdstatus -v"** gets **On access scanning** status and it is not equal to **"On-access scanning is not running"**
 
-1. Run **"/opt/sophos-av/bin/savdstatus --version"** to get Sophos **buildRevision**, **threatDetectionEngine**, **threatData**, **threatCount**, **threatDataRelease** and **lastUpdate**. <!--What is Sophos?-->
+* Running **"/opt/sophos-av/bin/savconfig** gets **LiveProtection"** and is not enabled
 
-1. Run **"/opt/sophos-av/bin/savdstatus --lastupdate"** to get lastUpdate >= 7 days
+* Running **"/opt/sophos-av/bin/savdstatus --rms"** gets **remote management status**
 
-1. Run **"/opt/sophos-av/bin/savdstatus -v"** to get On access scanning status and it is not equal to "On-access scanning is not running"
+* Running **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished" | tail -1"** gets On demand scan date within past 7 days 
 
-1. Run **"/opt/sophos-av/bin/savconfig get LiveProtection"** to check it is enabled or not.
-
-1. Run "**/opt/sophos-av/bin/savdstatus --rms"** to get remote managment status.
-
-1. Run **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished" | tail -1"** to get **On demand** scan date within past 7 days.
-
-1. Run **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .* completed" | tail -1"** to get scheduled scan date within the past 7 days. One of **On demand** scan and scheduled scan needs to be happened within past 7 days.
+* Running **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .* completed" | tail -1"** gets scheduled scan date within past 7 days One of On demand scan and scheduled scan needs to be happened within past 7 days
 
 ## Troubleshoot and support
 
