@@ -8,7 +8,7 @@ ms.date: 05/16/2019
 ms.author: makromer
 
 ---
-# Mapping Data Flows performance and tuning guide
+# Mapping data flows performance and tuning guide
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
