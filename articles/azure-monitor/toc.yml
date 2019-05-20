@@ -819,53 +819,47 @@
     items:
     - name: Alerts
       items:
-      - name: Use metric alerts
-        items:
-        - name: Create, view and manage metric alerts in Azure Monitor
-          href: platform/alerts-metric.md
-        - name: Create, view and manage classic metric alerts in Azure Monitor
-          href: platform/alerts-classic-portal.md
-        - name: Metric Alerts with Dynamic Thresholds
-          href: platform/alerts-dynamic-thresholds.md
-        - name: Configure metric alerts on logs
-          href: platform/alerts-metric-logs.md
-        - name: Create a newer metric alert with a Resource Manager template
-          href: platform/alerts-metric-create-templates.md
-        - name: Create a classic metric alert with a Resource Manager template
-          href: platform/alerts-enable-template.md    
-        - name: Have a classic metric alert call a webhook
-          href: platform/alerts-webhooks.md
-      - name: Use log alerts
-        items:  
-        - name: Configure alerts on analytics query
-          href: platform/alerts-log.md
-        - name: Log alert queries
-          href: platform/alerts-log-query.md
-        - name: Webhook actions for log alerts
-          href: platform/alerts-log-webhook.md
-        - name: Troubleshooting log alerts
-          href: platform/alert-log-troubleshoot.md
-      - name: Use activity log alerts
-        items:
-        - name: Configure alerts on an activity log event
-          href: platform/alerts-activity-log.md
-        - name: Migrate to activity log alerts
-          href: platform/migrate-management-alerts.md
-        - name: Configure alerts on service notifications
-          href: platform/alerts-activity-log-service-notifications.md
-      - name: Use application alerts
+      - name: Application alert rules
         items:
         - name: Availability
           href: app/monitor-web-app-availability.md
         - name: Metric alerts
           href: app/alerts.md
-      - name: Use action groups with alerts
+      - name: Platform metric alert rules
         items:
-        - name: Create action groups
+        - name: Manage metric alerts
+          href: platform/alerts-metric.md
+        - name: Use dynamic thresholds
+          href: platform/alerts-dynamic-thresholds.md
+        - name: Metric alerts on logs
+          href: platform/alerts-metric-logs.md
+        - name: Using Resource Manager template
+          href: platform/alerts-metric-create-templates.md
+      - name: Log alert rules
+        items:  
+        - name: Configure alerts on analytics query
+          href: platform/alerts-log.md
+        - name: Queries
+          href: platform/alerts-log-query.md
+        - name: Webhook actions
+          href: platform/alerts-log-webhook.md
+        - name: Troubleshooting
+          href: platform/alert-log-troubleshoot.md
+      - name:  Activity log alert rules
+        items:
+        - name: Alert on an activity log event
+          href: platform/alerts-activity-log.md
+        - name: Migrate management events to activity log alerts
+          href: platform/migrate-management-alerts.md
+        - name: Alert on service health notifications
+          href: platform/alerts-activity-log-service-notifications.md
+      - name: Use action groups
+        items:
+        - name: Create action group
           href: platform/action-groups.md
-        - name: Learn about the webhook schema
+        - name: Webhook schema
           href: platform/activity-log-alerts-webhook.md
-        - name: Common alert schema definitions
+        - name: Common alert schema definition
           href: platform/alerts-common-schema-definitions.md    
         - name: SMS alert behavior
           href: platform/alerts-sms-behavior.md
@@ -875,9 +869,9 @@
           href: platform/action-groups-create-resource-manager-template.md
         - name: Implement a Logic App action
           href: platform/action-groups-logic-app.md
-      - name: Alerts from Operations Manager
+      - name: Alert Management solution
         href: platform/alert-management-solution.md
-      - name: Manage alerts
+      - name: Alert user interface
         items:
         - name: Manage alert instances
           href: platform/alerts-managing-alert-instances.md
@@ -887,19 +881,31 @@
           href: platform/alerts-managing-alert-states.md  
         - name: Manage alerts from other monitoring services
           href: platform/alerts-managing-nagios-zabbix-scom.md   
-      - name: Migrate classic alerts
+      - name: Migrate classic alert rules
         items:
-        - name: Use the migration tool
-          href: platform/alerts-using-migration-tool.md
-        - name: Prepare for the migration
+        - name: Prepare for migration
           href: platform/alerts-prepare-migration.md
         - name: Understand the migration tool
           href: platform/alerts-understand-migration.md
+        - name: Use the migration tool
+          href: platform/alerts-using-migration-tool.md
+        - name: Manage classic metric alerts
+          href: platform/alerts-classic-portal.md
+        - name: Classic metric alert using a Resource Manager template
+          href: platform/alerts-enable-template.md    
+        - name: Classic metric alert calling a webhook
+          href: platform/alerts-webhooks.md
+    - name: Service health notifications in activity log
+      items:
+      - name: View notifications
+        href: platform/service-notifications.md
+      - name: Configure alerts on notification events
+        href: platform/alerts-activity-log-service-notifications.md
     - name: Autoscale
       items:
-      - name: Walkthrough of autoscale
+      - name: Walkthrough
         href: platform/autoscale-get-started.md
-      - name: Understand Autoscale settings
+      - name: Settings
         href: platform/autoscale-understanding-settings.md
       - name: Best practices
         href: platform/autoscale-best-practices.md
@@ -907,20 +913,14 @@
         href: platform/autoscale-common-metrics.md
       - name: Common patterns
         href: platform/autoscale-common-scale-patterns.md
-      - name: Autoscale using a custom metric
+      - name: Scale with custom metrics
         href: platform/autoscale-custom-metric.md
-      - name: Autoscale virtual machine scale sets using Resource Manager templates
-        href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Automatically scale machines in a virtual machine scale set
+      - name: Scale VM scale sets
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-      - name: Configure webhooks and email notifications on autoscale
+      - name: Scale VM scale sets using Resource Manager templates
+        href: platform/autoscale-virtual-machine-scale-sets.md
+      - name: Use webhooks and email notifications
         href: platform/autoscale-webhook-email.md
-    - name: Service notifications
-      items:
-      - name: View service notifications
-        href: platform/service-notifications.md
-      - name: Configure alerts on service notifications
-        href: platform/alerts-activity-log-service-notifications.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
