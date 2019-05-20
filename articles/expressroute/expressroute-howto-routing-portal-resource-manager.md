@@ -25,9 +25,6 @@ This article helps you create and manage routing configuration for an Azure Reso
 > * [Video - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
-> [!Note]
-> Azure public peering is deprecated for new circuits. For more information, see [ExpressRoute peering](expressroute-circuit-peerings.md).
->
 
 You can configure Azure private and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [About circuits and peerings](expressroute-circuit-peerings.md).
 
