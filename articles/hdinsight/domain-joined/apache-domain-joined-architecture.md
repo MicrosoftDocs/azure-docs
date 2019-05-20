@@ -15,7 +15,7 @@ The standard Azure HDInsight cluster is a single-user cluster. It's suitable for
 
 Many enterprises have moved toward a model in which IT teams manage clusters, and multiple application teams share clusters. These larger enterprises need multiuser access to each cluster in Azure HDInsight.
 
-HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), you can access the clusters by using your domain credentials. 
+HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), you can access the clusters by using your domain credentials. 
 
 The virtual machines (VMs) in HDInsight are domain joined to your provided domain. So, all the services running on HDInsight (Apache Ambari, Apache Hive server, Apache Ranger, Apache Spark thrift server, and others) work seamlessly for the authenticated user. Administrators can then create strong authorization policies by using Apache Ranger to provide role-based access control for resources in the cluster.
 
@@ -39,7 +39,7 @@ To summarize, you need to set up an environment with:
 HDInsight currently supports only Azure AD DS as the main domain controller that the cluster uses for Kerberos communication. But other complex Active Directory setups are possible, as long as such a setup leads to enabling Azure AD DS for HDInsight access.
 
 ### Azure Active Directory Domain Services
-[Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md) provides a managed domain that's fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the domain in a highly available (HA) setup. You can deploy your cluster without worrying about maintaining domain controllers. 
+[Azure AD DS](../../active-directory-domain-services/overview.md) provides a managed domain that's fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the domain in a highly available (HA) setup. You can deploy your cluster without worrying about maintaining domain controllers. 
 
 Users, groups, and passwords are synchronized from Azure AD. The one-way sync from your Azure AD instance to Azure AD DS enables users to sign in to the cluster by using the same corporate credentials. 
 

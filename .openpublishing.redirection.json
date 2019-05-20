@@ -4047,7 +4047,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-overview.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-overview",
+      "redirect_url": "/azure/active-directory-domain-services/overview",
       "redirect_document_id": false
     },
     {

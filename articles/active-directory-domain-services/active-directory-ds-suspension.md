@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/20/2019
 ms.author: mstephen
 
 ---
@@ -108,7 +108,7 @@ Your managed domain can only be restored to the date of the last backup. The dat
 
 ## Next steps
 - [Resolve alerts for your managed domain](active-directory-ds-troubleshoot-alerts.md)
-- [Read more about Azure Active Directory Domain Services](active-directory-ds-overview.md)
+- [Read more about Azure Active Directory Domain Services](overview.md)
 - [Contact the product team](contact-us.md)
 
 ## Contact us

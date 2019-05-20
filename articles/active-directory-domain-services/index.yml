@@ -8,7 +8,7 @@ metadata:
   author: MikeStephens-MS
   ms.author: mstephen
   manager: daveba
-  ms.date: 05/14/2019
+  ms.date: 05/20/2019
   ms.topic: landing-page
   ms.devlang: na
   ms.service: active-directory
@@ -23,7 +23,7 @@ sections:
     className: cardsM
     columns: 2
     items:
-    - href: active-directory-ds-overview.md
+    - href: overview.md
       html: <p>Read about what Azure AD Domain Services can do for you.</p>
       image:
         src: https://docs.microsoft.com/media/common/i_investigate.svg

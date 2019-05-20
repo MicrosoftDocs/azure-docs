@@ -23,7 +23,7 @@ It's helpful to understand some key terms relating to Azure AD authentication ov
 
 -   **Azure AD Domain Services**  
     Azure AD Domain Services provides managed domain services such as domain join, group policies, LDAP, and Kerberos/NTLM authentication. These services are fully
-    compatible with Windows Server Active Directory. For more information, see [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+    compatible with Windows Server Active Directory. For more information, see [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md).
 
 -   **Azure Role Based Access Control (RBAC)**  
     Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on RBAC, see [What is role-based access control (RBAC) in Azure?](../../role-based-access-control/overview.md)

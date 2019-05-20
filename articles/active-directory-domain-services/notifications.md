@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/20/2019
 ms.author: mstephen
 
 ---
@@ -91,7 +91,7 @@ Check your spam or junk folder in your email for the notification and make sure 
 
 ## Next steps
 - [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
-- [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
+- [Read more about Azure AD Domain Services](overview.md)
 - [Contact the product team](contact-us.md)
 
 ## Contact us
