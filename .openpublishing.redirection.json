@@ -39119,6 +39119,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-windows-vm-template.md",
+      "redirect_url" : "/azure/active-directory-domain-services/join-windows-vm-template",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md",
       "redirect_url" : "/azure/active-directory-domain-services/join-ubuntu-linux-vm",
       "redirect_document_id": true
