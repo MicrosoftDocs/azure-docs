@@ -125,7 +125,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. Logout URL
 
-### Configure iLMS Single Sign-On
+### Configure iLMS SSO
 
 1. In a different web browser window, sign in to your **iLMS admin portal** as an administrator.
 
