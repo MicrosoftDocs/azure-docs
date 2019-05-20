@@ -18,7 +18,7 @@ This page provides information about how you can use the `k4arecorder` command p
 This quickstart assumes:
 
 * You have the Azure Kinect DK connected to your host PC and powered properly.
-* You have completed he setup hardware process.
+* You have finished setting up the hardware.
 
 ## Create recording
 
