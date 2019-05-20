@@ -54,7 +54,7 @@
         - name: Manage Group Policy for Azure AD Domain Services
           href: manage-group-policy.md
         - name: Configure password polices on a managed domain
-          href: active-directory-ds-password-policy.md
+          href: password-policy.md
         - name: Delete a managed domain
           href: delete-aadds.md
         - name: Create an Azure AD DS administrative virtual machine
