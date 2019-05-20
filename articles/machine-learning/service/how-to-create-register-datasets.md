@@ -10,15 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
+ms.date: 05/20/2019
 
 ---
 
-# Create and register Azure Machine Learning Datasets (Preview)
+# Create and register datasets (Preview) in Azure Machine Learning
 
-In this article, you learn the Azure Machine Learning workflows to create and register Datasets, and how to access them for reuse across local and remote experiments.
+In this article, you'll learn how to create Azure Machine Learning datasets (preview) and how to access them across your local and remote experiments. These managed datasets make it easier to access and work with your data during:
++ Model training
++ Pipeline configuration and runs
 
-Azure Machine Learning Datasets (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as, model training and pipeline creation. Using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), you can work with data in popular formats, access underlying storage, explore and prepare data, manage the life cycle of different dataset definitions, and compare between datasets used in training and in production.
+With datasets, you can:
++ Work with data in various formats uniformly with simplified access to underlying data storage
++ Explore and prep data
++ Manage data lifecycles
++ Version your data
++ Compare training data to production data
+
+You can interact with your datasets with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## Prerequisites
 
