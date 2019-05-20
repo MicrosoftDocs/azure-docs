@@ -111,7 +111,7 @@ environment](assign-policy-portal.md). Steps for [PowerShell](assign-policy-powe
 Policy parameters help simplify your policy management by reducing the number of policy definitions
 you must create. You can define parameters when creating a policy definition to make it more
 generic. Then you can reuse that policy definition for different scenarios. You do so by passing in
-different values when assigning the policy definition - for example, specifying one set of locations
+different values when assigning the policy definition. For example, when you specify one set of locations
 for a subscription.
 
 Parameters are defined when creating a policy definition. When a parameter is defined, it's
