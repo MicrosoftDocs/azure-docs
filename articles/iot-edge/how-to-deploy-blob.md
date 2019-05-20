@@ -103,10 +103,10 @@ A deployment manifest is a JSON document that describes which modules to deploy,
            "<source container name1>": {
              "target": "<target container name1>"
            }
-             }
-           }
          }
        }
+     }
+   }
 
       ```
 
@@ -120,9 +120,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 #### Specify routes
 
-By default the wizard gives you a route called **route** defined as `FROM /* INTO $upstream`, which means that any messages output by any modules are sent to your IoT hub.  
-
-Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
+Routes are not supported by the blob storage module, so select **Next** to continue to the review section.
 
 #### Review deployment
 

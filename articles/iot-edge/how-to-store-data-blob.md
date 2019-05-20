@@ -21,6 +21,9 @@ Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.co
 
 This module comes with **tiering** and **time-to-live** features.
 
+> [!NOTE]
+> Currently tiering and time-to-live functionality are only available in Linux AMD64 and Linux ARM32.
+
 **Tiering** is a configurable functionality, which allows you to automatically upload the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
 
 - Turn ON/OFF the tiering feature
@@ -57,10 +60,16 @@ An Azure IoT Edge device:
 
 - You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
-- The Azure Blob Storage on IoT Edge module is supported on these [operating systems](support.md#operating-systems).
+- The Azure Blob Storage on IoT Edge module supports the following device configurations:
 
-> [!NOTE]
-> Currently tiering and time-to-live functionality are only available in Linux AMD64 and Linux ARM32.
+  | Operating system | Architecture |
+  | ---------------- | ----- | ----- |
+  | Ubuntu Server 16.04 | AMD64 |
+  | Ubuntu Server 18.04 | AMD64 |
+  | Windows 10 IoT Core (October update) | AMD64 |
+  | Windows 10 IoT Enterprise (October update) | AMD64 |
+  | Windows Server 2019 | AMD64 |
+  | Raspbian-stretch | ARM32 |
 
 Cloud resources:
 
@@ -89,6 +98,56 @@ The name of this setting is `ttlSettings`
 | ----- | ----- | ---- |
 | ttlOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
 | timeToLiveInMinutes | `<minutes>` | Specify the TTL in minutes. The module will automatically delete your blobs from local storage when TTL expires |
+
+## Configure log files for your blob storage module
+
+For information on configuring log files for your module, see these [production best practices](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics).
+
+## Connect to your blob storage module
+
+You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device.
+
+Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured.
+
+- For modules that are deployed on the same device as where the Azure Blob Storage on IoT Edge module is running, the blob endpoint is: `http://<module name>:11002/<account name>`.
+- For modules that are deployed on a different device than where the Azure Blob Storage on IoT Edge module is running, then depending upon your setup the blob endpoint is one of:
+  - `http://<device IP >:11002/<account name>`
+  - `http://<IoT Edge device hostname>:11002/<account name>`
+  - `http://<fully qualified domain name>:11002/<account name>`
+
+## Azure Blob Storage quickstart samples
+
+The Azure Blob Storage documentation includes quickstarts that provide sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to connect to your blob storage module.
+
+The following quickstarts use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
+
+- [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+- [Python](../storage/blobs/storage-quickstart-blobs-python.md)
+- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+
+## Connect to your local storage with Azure Storage Explorer
+
+You can use **Azure Storage Explorer** to connect to your local storage account. This is available only with [Azure Storage Explorer version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
+
+> [!NOTE]
+> You might encounter errors while performing the following steps, such as adding a connection to a local storage account, or creating containers in local storage account. Please ignore and refresh.
+
+1. Download and install Azure Storage Explorer
+
+1. Connect to Azure Storage using a connection string
+
+1. Provide connection string: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+
+1. Go through the steps to connect.
+
+1. Create container inside your local storage account
+
+1. Start uploading files as Block blobs.
+   > [!NOTE]
+   > This module does not support Page blobs.
+
+1. You can choose to connect your Azure storage accounts where you are uploading the data. It gives you a single view for both your local storage account and Azure storage account
 
 ## Supported storage operations
 
@@ -149,52 +208,6 @@ Supported:
 Unsupported:
 
 - Put block from URL
-
-## Connect to your blob storage module
-
-You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device.
-
-Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured.
-
-- For modules that are deployed on the same device as where the Azure Blob Storage on IoT Edge module is running, the blob endpoint is: `http://<module name>:11002/<account name>`.
-- For modules that are deployed on a different device than where the Azure Blob Storage on IoT Edge module is running, then depending upon your setup the blob endpoint is one of:
-  - `http://<device IP >:11002/<account name>`
-  - `http://<IoT Edge device hostname>:11002/<account name>`
-  - `http://<fully qualified domain name>:11002/<account name>`
-
-### Azure Blob Storage quickstart samples
-
-The Azure Blob Storage documentation includes quickstarts that provide sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to connect to your blob storage module.
-
-The following quickstarts use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
-
-- [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
-- [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
-
-## Azure Storage Explorer
-
-You can use **Azure Storage Explorer** to connect to your local storage account. It works with [Azure Storage Explorer version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
-
-> [!NOTE]
-> You might encounter errors while performing the following steps, such as adding a connection to a local storage account, or creating containers in local storage account. Please ignore and refresh.
-
-1. Download and install Azure Storage Explorer
-
-1. Connect to Azure Storage using a connection string
-
-1. Provide connection string: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
-
-1. Go through the steps to connect.
-
-1. Create container inside your local storage account
-
-1. Start uploading files as Block blobs.
-   > [!NOTE]
-   > This module does not support Page blobs.
-
-1. You can choose to connect your Azure storage accounts where you are uploading the data. It gives you a single view for both your local storage account and Azure storage account
 
 ## Feedback
 
