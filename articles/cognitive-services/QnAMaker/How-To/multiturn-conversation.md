@@ -77,7 +77,7 @@ Reduce the question and answer pairs displayed to just those with contextual con
 
     ![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-    The bold text in the column indicates the current question. The parent question is the first question. Any questions below are the linked question and answer pairs. 
+    In the preceding image, #1 indicates bold text in the column which signifies the current question. The parent question is the top item in the row. Any questions below are the linked question and answer pairs. 
 
 ## Add existing QnA pair as follow-up prompt
 
@@ -86,8 +86,8 @@ The original question of `My account` correctly returns the `Accounts and signin
 ![The original question of `My account` correctly returns the `Accounts and signing in` answer and already has the follow-up prompts linked.](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
 1. Change the **View options** to include all question and answer pairs by selecting **Hide context (PREVIEW)**. 
-1. To link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair. For the Surface manual, search for `Sign out` to reduce the list
-1. Select **Add follow-up prompt** in the row for `Signout`.
+1. To link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair. For the Surface manual, search for `Sign out` to reduce the list.
+1. In the row for `Signout`, elect **Add follow-up prompt**  from the **Answer** column.
 1. In the **Follow-up prompt (PREVIEW)** pop-up window, enter the following:
 
     |Field|Value|
@@ -101,7 +101,7 @@ The original question of `My account` correctly returns the `Accounts and signin
 
     ![Search the Follow-up prompt's Link to Answer dialog for an existing answer, using the text of the answer.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
-    Once you have added the follow-up prompt, remember to select **Save and train** in the top navigation.
+1. Once you have added the follow-up prompt, remember to select **Save and train** in the top navigation.
   
 <!--
 
@@ -128,49 +128,30 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 
 ## Add new QnA pair as follow-up prompt
 
-1. Select **Add QnA pair**. 
-1. Enter the new question text, `Give feedback.` with an answer of `What kind of feedback do you have?`.
+1. From the knowledge base's toolbar, search for and select the existing QnA pair for `Accounts and Signing In`. 
 
 1. In the **Answer** column for this question, select **Add follow-up prompt**. 
-1. The **Follow-up prompt (PREVIEW)** pop-up window allows you to search for an existing question or enter a new question. Create a new prompt by entering the following values: 
+1. The **Follow-up prompt (PREVIEW)**, create a new prompt by entering the following values: 
 
     |Text field|Value|
     |--|--|
-    |**Display Text**|`Feedback on an QnA Maker service`|
-    |**Link to answer**|`How would you rate QnA Maker??`|
+    |**Display Text**|`Create a Windows Account`|
+    |**Context-only**|Selected. This answer will only be returned if the question specifies context.|
+    |**Link to answer**|`[Create](https://account.microsoft.com/) a Windows account with a new or existing email account.`|
     |||
 
     ![Create new prompt QnA](../media/conversational-context/create-child-prompt-from-parent.png)
 
-1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
+
 1. Select **Create new** then select **Save**. 
 
     This created a new question-and-answer pair and linked the selected question as a follow-up prompt. The **Context** column, for both questions, indicates a follow-up prompt relationship. 
 
+1. Change the **View options** to [show context](#show-questions-and-answers-with-context).
+
     ![![The Context column, for both questions, indicates a follow-up prompt relationship.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Select **Add follow-up prompt** for the `Give feedback` question to add another follow-up prompt. This opens the **Follow-up prompt (PREVIEW)** pop-up window.
-
-1. Create a new prompt by entering the following values:
-
-    |Text field|Value|
-    |--|--|
-    |**Display Text**|`Feedback on an existing feature`|
-    |**Link to answer**|`Which feature would you like to give feedback on?`|
-    |||
-
-1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
-
-1. Select **Save**. 
-
-    This created a new question and linked the question as a follow-up prompt question to the `Give feedback` question.
-    
-    At this point, the top question has two follow-up prompts liked to the previous question, `Give feedback`.
-
-    ![![At this point, the top question has two follow-up prompts liked to the previous question, `Give feedback`.](../media/conversational-context/all-child-prompts-created.png)](../media/conversational-context/all-child-prompts-created.png#lightbox)
-
-1. Select **Save and Train** to train the knowledge base with the new questions. 
-
+1. Once you have added the follow-up prompt, remember to select **Save and train** in the top navigation.
 
 ## Test the QnA set to get all the follow-up prompts
 
@@ -185,7 +166,7 @@ Use the empty `context` object to request the answer to the user's question and 
 ```JSON
 {
   "question": "accounts and signing in",
-  "top": 30,
+  "top": 3,
   "userId": "Default",
   "isTest": false,
   "context": {}
@@ -203,31 +184,58 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
-            "score": 86.96,
-            "id": 37,
-            "source": "surface-pro-4-user-guide-EN .pdf",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "score": 100.0,
+            "id": 15,
+            "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": true,
+                "isContextOnly": false,
                 "prompts": [
                     {
                         "displayOrder": 0,
-                        "qnaId": 38,
+                        "qnaId": 16,
                         "qna": null,
                         "displayText": "Use the sign-in screen"
                     },
                     {
                         "displayOrder": 1,
-                        "qnaId": 39,
+                        "qnaId": 17,
                         "qna": null,
                         "displayText": "Use Windows Hello to sign in"
                     },
                     {
                         "displayOrder": 2,
-                        "qnaId": 40,
+                        "qnaId": 18,
                         "qna": null,
                         "displayText": "Sign out"
+                    },
+                    {
+                        "displayOrder": 0,
+                        "qnaId": 79,
+                        "qna": null,
+                        "displayText": "Create a Windows Account"
+                    }
+                ]
+            }
+        },
+        {
+            "questions": [
+                "Sign out"
+            ],
+            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start , and right-click your name. Then select Sign out. ",
+            "score": 38.01,
+            "id": 18,
+            "source": "product-manual.pdf",
+            "metadata": [],
+            "context": {
+                "isContextOnly": false,
+                "prompts": [
+                    {
+                        "displayOrder": 0,
+                        "qnaId": 16,
+                        "qna": null,
+                        "displayText": "Turn off the device"
                     }
                 ]
             }
@@ -237,26 +245,12 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
                 "Use the sign-in screen"
             ],
             "answer": "**Use the sign-in screen**\n\n1.  \n\nTurn on or wake your Surface by pressing the power button. \n\n2.  \n\nSwipe up on the screen or tap a key on the keyboard. \n\n3.  \n\nIf you see your account name and account picture, enter your password and select the right arrow or press Enter on your keyboard. \n\n4.  \n\nIf you see a different account name, select your own account from the list at the left. Then enter your password and select the right arrow or press Enter on your keyboard. ",
-            "score": 32.27,
-            "id": 38,
-            "source": "surface-pro-4-user-guide-EN .pdf",
+            "score": 27.53,
+            "id": 16,
+            "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": true,
-                "prompts": []
-            }
-        },
-        {
-            "questions": [
-                "Sign out"
-            ],
-            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start , and right-click your name. Then select Sign out. ",
-            "score": 27.0,
-            "id": 40,
-            "source": "surface-pro-4-user-guide-EN .pdf",
-            "metadata": [],
-            "context": {
-                "isContextOnly": true,
+                "isContextOnly": false,
                 "prompts": []
             }
         }
@@ -265,7 +259,7 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
 }
 ```
 
-The `prompts` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow. 
+The `prompts` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow, then send the selected value to QnA Maker in the following request. 
 
 ## JSON request to return non-initial answer and follow-up prompts
 
@@ -276,12 +270,11 @@ In the following JSON request, the current question is `Use Windows Hello to sig
 ```JSON
 {
   "question": "Use Windows Hello to sign in",
-  "top": 30,
+  "top": 3,
   "userId": "Default",
-  "isTest": false,
-  "qnaId": 39,
+  "isTest": true,
   "context": {
-    "previousQnAId": 37,
+    "previousQnAId": 15,
     "previousUserQuery": "accounts and signing in"
   }
 }
@@ -296,38 +289,61 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
     "answers": [
         {
             "questions": [
-                "Give feedback"
+                "Use Windows Hello to sign in"
             ],
-            "answer": "What kind of feedback do you have?",
+            "answer": "**Use Windows Hello to sign in**\n\nSince Surface Pro 4 has an infrared (IR) camera, you can set up Windows Hello to sign in just by looking at the screen. \n\nIf you have the Surface Pro 4 Type Cover with Fingerprint ID (sold separately), you can set up your Surface sign you in with a touch. \n\nFor more info, see What is Windows Hello? on Windows.com. ",
             "score": 100.0,
-            "id": 288,
-            "source": "Editorial",
+            "id": 17,
+            "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": true,
+                "isContextOnly": false,
+                "prompts": []
+            }
+        },
+        {
+            "questions": [
+                "Meet Surface Pro 4"
+            ],
+            "answer": "**Meet Surface Pro 4**\n\nGet acquainted with the features built in to your Surface Pro 4. \n\nHere’s a quick overview of Surface Pro 4 features: \n\n\n\n\n\n\n\nPower button \n\n\n\n\n\nPress the power button to turn your Surface Pro 4 on. You can also use the power button to put it to sleep and wake it when you’re ready to start working again. \n\n\n\n\n\n\n\nTouchscreen \n\n\n\n\n\nUse the 12.3” display, with its 3:2 aspect ratio and 2736 x 1824 resolution, to watch HD movies, browse the web, and use your favorite apps. \n\nThe new Surface G5 touch processor provides up to twice the touch accuracy of Surface Pro 3 and lets you use your fingers to select items, zoom in, and move things around. For more info, see Surface touchscreen on Surface.com. \n\n\n\n\n\n\n\nSurface Pen \n\n\n\n\n\nEnjoy a natural writing experience with a pen that feels like an actual pen. Use Surface Pen to launch Cortana in Windows or open OneNote and quickly jot down notes or take screenshots. \n\nSee Using Surface Pen (Surface Pro 4 version) on Surface.com for more info. \n\n\n\n\n\n\n\nKickstand \n\n\n\n\n\nFlip out the kickstand and work or play comfortably at your desk, on the couch, or while giving a hands-free presentation. \n\n\n\n\n\n\n\nWi-Fi and Bluetooth® \n\n\n\n\n\nSurface Pro 4 supports standard Wi-Fi protocols (802.11a/b/g/n/ac) and Bluetooth 4.0. Connect to a wireless network and use Bluetooth devices like mice, printers, and headsets. \n\nFor more info, see Add a Bluetooth device and Connect Surface to a wireless network on Surface.com. \n\n\n\n\n\n\n\nCameras \n\n\n\n\n\nSurface Pro 4 has two cameras for taking photos and recording video: an 8-megapixel rear-facing camera with autofocus and a 5-megapixel, high-resolution, front-facing camera. Both cameras record video in 1080p, with a 16:9 aspect ratio. Privacy lights are located on the right side of both cameras. \n\nSurface Pro 4 also has an infrared (IR) face-detection camera so you can sign in to Windows without typing a password. For more info, see Windows Hello on Surface.com. \n\nFor more camera info, see Take photos and videos with Surface and Using autofocus on Surface 3, Surface Pro 4, and Surface Book on Surface.com. \n\n\n\n\n\n\n\nMicrophones \n\n\n\n\n\nSurface Pro 4 has both a front and a back microphone. Use the front microphone for calls and recordings. Its noise-canceling feature is optimized for use with Skype and Cortana. \n\n\n\n\n\n\n\nStereo speakers \n\n\n\n\n\nStereo front speakers provide an immersive music and movie playback experience. To learn more, see Surface sound, volume, and audio accessories on Surface.com. \n\n\n\n\n",
+            "score": 21.92,
+            "id": 3,
+            "source": "product-manual.pdf",
+            "metadata": [],
+            "context": {
+                "isContextOnly": false,
                 "prompts": [
                     {
                         "displayOrder": 0,
-                        "qnaId": 291,
+                        "qnaId": 4,
                         "qna": null,
-                        "displayText": "Feedback on an QnA Maker service"
-                    },
-                    {
-                        "displayOrder": 0,
-                        "qnaId": 292,
-                        "qna": null,
-                        "displayText": "Feedback on an existing feature"
+                        "displayText": "Ports and connectors"
                     }
                 ]
             }
+        },
+        {
+            "questions": [
+                "Use the sign-in screen"
+            ],
+            "answer": "**Use the sign-in screen**\n\n1.  \n\nTurn on or wake your Surface by pressing the power button. \n\n2.  \n\nSwipe up on the screen or tap a key on the keyboard. \n\n3.  \n\nIf you see your account name and account picture, enter your password and select the right arrow or press Enter on your keyboard. \n\n4.  \n\nIf you see a different account name, select your own account from the list at the left. Then enter your password and select the right arrow or press Enter on your keyboard. ",
+            "score": 19.04,
+            "id": 16,
+            "source": "product-manual.pdf",
+            "metadata": [],
+            "context": {
+                "isContextOnly": false,
+                "prompts": []
+            }
         }
-    ]
+    ],
+    "debugInfo": null
 }
 ```
 
 ## Displaying prompts and sending context in the client application 
 
-If you have added prompts in your knowledge base and have tested the flow in the test pane, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query.
+If you added prompts in your knowledge base and tested the flow in the test pane, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query.
 
 ## Display order supported in API
 
