@@ -46,7 +46,7 @@
         - name: Configure scoped synchronization from Azure AD to a managed domain
           href: scoped-synchronization.md
         - name: Secure your managed domain
-          href: active-directory-ds-secure-your-domain.md
+          href: secure-your-domain.md
         - name: Create an OU on a managed domain
           href: create-ou.md
         - name: Create a group managed service account on a managed domain

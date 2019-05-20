@@ -39119,8 +39119,13 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-secure-your-domain.md",
+      "redirect_url" : "/azure/active-directory-domain-services/secure-your-domain",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-scoped-synchronization.md",
-      "redirect_url" : "/azure/active-directory-domain-services/scoped-synchronization.md",
+      "redirect_url" : "/azure/active-directory-domain-services/scoped-synchronization",
       "redirect_document_id": true
     },
     {
