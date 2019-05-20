@@ -7,7 +7,7 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/20/2019
 
 #Customer intent: I want to use create an Azure Data Explorer proxy for cross product queries with Log Analytics and Application Insights 
 ---
