@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 05/17/2019
  
 #Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from Kafka, so I can analyze streaming data.
 ---
@@ -19,11 +19,11 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
  
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. 
  
-* [A test cluster and database](create-cluster-database-portal.md)
+* [A test cluster and database](create-cluster-database-portal.md).
  
-* [A sample app](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) that generates data and sends it to Kafka
+* [A sample app](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) that generates data and sends it to Kafka.
 
-* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
  
 ## Kafka connector setup
 
