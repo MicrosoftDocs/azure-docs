@@ -16,6 +16,8 @@ The [Azure Activity Log](activity-logs-overview.md) provides insight into subscr
 ## Azure portal
 View the Activity Log for all resources from the **Monitor** menu in the Azure portal. View the Activity Log for a particular resource from the **Activity Log** option in that resource's menu.
 
+![View Activity Log](./media/activity-logs-overview/view-activity-log.png)
+
 You can filter Activity Log events by the following fields:
 
 * **Timespan**: The start and end time for events.
@@ -29,11 +31,9 @@ You can filter Activity Log events by the following fields:
 * **Event initiated by**: The user who performed the operation.
 * **Open search**: Open text search box that searches for that string across all fields in all events.
 
-![View Activity Log](./media/activity-logs-overview/view-activity-log.png)
-
 ### View change history
 
-When reviewing the Activity Log, it can help to see what changes happened during that event time. You can view this information with **Change history**. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with the event.
+When reviewing the Activity Log, it can help to see what changes happened during that event time. You can view this information with **Change history**. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with that event.
 
 ![Change history list for an event](media/activity-logs-overview/change-history-event.png)
 
@@ -45,7 +45,7 @@ To learn more about Change history, see [Get resource changes](../../governance/
 
 
 ## Log Analytics workspace
-Click **Logs** at the top of the **Activity Log** page to open the [Activity Log Analytics monitoring solution](activity-log-collect.md) for the subscription. This will allow you to view analytics for the Activity Log and to run [log queries](../log-query/log-query-overview.md). If your Activity Log isn't connected to a Log Analytics workspace, you will be prompted to perform this configuration.
+Click **Logs** at the top of the **Activity Log** page to open the [Activity Log Analytics monitoring solution](activity-log-collect.md) for the subscription. This will allow you to view analytics for the Activity Log and to run [log queries](../log-query/log-query-overview.md) with the **AzureActivity** table. If your Activity Log isn't connected to a Log Analytics workspace, you will be prompted to perform this configuration.
 
 
 
@@ -154,6 +154,7 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 
 ## Next Steps
 
+* [Read an overview of the Activity Log](activity-log-overview.md)
 * [Archive the Activity Log to storage or stream it to Event Hubs](activity-log-export.md)
 * [Stream the Azure Activity Log to Event Hubs](activity-logs-stream-event-hubs.md)
 * [Archive the Azure Activity Log to storage](archive-activity-log.md)

@@ -24,12 +24,13 @@ Archiving the Activity Log to a storage account is useful if you would like to r
 ## Prerequisites
 
 ### Storage account
-You need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving Diagnostic Logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location. 
+You need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving Diagnostic Logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
+
 The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 > [!NOTE]
 >  You cannot currently archive data to a storage account that is behind a secured virtual network.
 
-## Event Hubs
+### Event Hubs
 You need to [create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you previously streamed Activity Log events to this Event Hubs namespace, then that event hub will be reused.
 
 The shared access policy defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. You can create or modify shared access policies for the Event Hubs namespace in the Azure portal under the Configure tab for your Event Hubs namespace.
@@ -39,11 +40,11 @@ To update the Activity Log log profile to include streaming, you must have the L
 Stream the Activity Log to an Event Hub by creating a [Log Profile](#log-profile).
 
 ## Log profile
-You define how your Azure Activity log is exported using a **log profile**. The log profile defines the follwoing.
+You define how your Azure Activity log is exported using a **log profile**. The log profile defines the following.
 
 * Where the Activity Log should be sent (Storage Account or Event Hubs).
-* Which event categories (Write, Delete, Action) should be sent. *The meaning of "category" in Log Profiles and Activity Log events is different. In the Log Profile, "Category" represents the operation type (Write, Delete, Action). In an Activity Log event, the "category" property represents the source or type of event (for example, Administration, ServiceHealth, Alert, and more).*
-* Which regions (locations) should be exported. You should include all locations as many events in the Activity Log are global events.
+* Which event categories (Write, Delete, Action) should b sent.<br>The meaning of *category* in Log Profiles and Activity Log events is different. In the Log Profile, *Category* represents the operation type (Write, Delete, Action). In an Activity Log event, the *category*"* property represents the source or type of event (for example, Administration, ServiceHealth, and Alert).
+* Which regions (locations) should be exported. You should include all locations since many events in the Activity Log are global events.
 * How long the Activity Log should be retained in a Storage Account.
      - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
     - If retention policies are set, but storing logs in a storage account is disabled, then retention policies have no effect.
@@ -53,15 +54,15 @@ You can use a storage account or event hub namespace that is not in the same sub
 
 
 > [!WARNING]
-> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
+> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](diagnostic-logs-append-blobs.md)
 >
 >
 
-These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
+Each Azure subscription can only have one log profile. These settings can be configured via the **Export** option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI.
 
 ### Create log profile using the Azure portal
 
-You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the **Export to Event Hub** option in the Azure portal.
+Create or edit a log profile with the **Export to Event Hub** option in the Azure portal.
 
 1. From the **Monitor** menu in the Azure portal, select  **Export to Event Hub**.
 

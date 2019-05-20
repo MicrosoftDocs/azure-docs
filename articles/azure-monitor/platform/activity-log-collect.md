@@ -3,7 +3,7 @@ title: Collect and analyze Azure activity logs in Log Analytics workspace | Micr
 description: You can use the Azure Activity Logs solution to analyze and search the Azure activity log across all your Azure subscriptions.
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -11,8 +11,8 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/03/2019
-ms.author: magoedte
+ms.date: 05/19/2019
+ms.author: bwren
 ---
 
 # Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor
@@ -70,5 +70,4 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 - Learn more about the [Activity Log](activity-logs-overview.md).
 - Learn more about the [Azure Monitor data platform](data-platform.md).
-- Learn more about the [data sources](data-sources.md) collected by Azure Monitor.
 - Use [log queries](../log-query/log-query-overview.md) to view detailed information from your Activity Log.

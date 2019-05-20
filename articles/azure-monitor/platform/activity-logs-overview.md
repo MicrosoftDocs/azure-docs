@@ -1,11 +1,12 @@
 ---
 title: Overview of the Azure Activity Log
 description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
-author: johnkemnetz
+author: bwren
+![View Activity Log](./media/activity-logs-overview/view-activity-log.png)
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/19/2019
 ms.author: bwren
 ms.subservice: logs
 ---
@@ -13,7 +14,9 @@ ms.subservice: logs
 
 The **Azure Activity Log** provides insight into subscription-level events that have occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. The Activity Log was previously known as _Audit Logs_ or _Operational Logs_, since the Administrative category reports control-plane events for your subscriptions. 
 
-Use the Activity Log, to determine the _what_, _who_, and _when_ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/RDFE model.
+Use the Activity Log, to determine the _what_, _who_, and _when_ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. 
+
+The Activity Log does not include read (GET) operations or operations for resources that use the Classic/RDFE model.
 
 ## Comparison to Diagnostic Logs
 There is a single Activity Log for each Azure subscription. It provides data about the operations on a resource from the outside (the "control plane"). [Diagnostic Logs](diagnostic-logs-overview.md) are emitted by a resource and provide information about the operation of that resource (the "data plane"). You must enable diagnostic settings for each resource.
@@ -28,7 +31,7 @@ There is a single Activity Log for each Azure subscription. It provides data abo
 Activity Log events are stored for 90 days. To store this data for longer periods, [collect it in Azure Monitor](activity-log-collect.md) or [export it to storage or Event Hubs](activity-log-export.md).
 
 ## View the Activity Log
-View the Activity Log for all resources from the **Monitor** menu in the Azure portal. View the Activity Log for a particular resource from the **Activity Log** option in that resource's menu. You can also retrieve Activity Log records with PowerShell, CLI, or REST API.  See [View and retrieve Azure Activity log events](activity-log-view.md) for details.
+View the Activity Log for all resources from the **Monitor** menu in the Azure portal. View the Activity Log for a particular resource from the **Activity Log** option in that resource's menu. You can also retrieve Activity Log records with PowerShell, CLI, or REST API.  See [View and retrieve Azure Activity log events](activity-log-view.md).
 
 ![View Activity Log](./media/activity-logs-overview/view-activity-log.png)
 
@@ -40,7 +43,7 @@ Collect the Activity Log into a Log Analytics workspace in Azure Monitor to anal
 ## Export Activity Log
 Export the Activity Log to Azure Storage for archiving or stream it to an Event Hub for ingestion by a third-party service or custom analytics solution. See [Export the Azure Activity Log](activity-log-export.md). You can also analyze Activity Log events in Power BI using the [**Power BI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 
-## Alert on the Activity Log
+## Alert on Activity Log
 You can create an alert when particular events are created in the Activity Log with an [Activity Log alert](activity-log-alerts.md). You can also create an alert using a [log query](alerts-log-query.md) when your Activity Log is connected to a Log Analytics workspace, but there is a cost to log query alerts. There is no cost for Activity Log alerts.
 
 ## Categories in the Activity Log
