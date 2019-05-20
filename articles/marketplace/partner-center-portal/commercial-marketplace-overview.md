@@ -53,3 +53,4 @@ Learn more about recent and future releases by visiting the [marketplace roadmap
 
 - For brand new Microsoft partners interested in publishing a SaaS offer to the marketplaces, see [Create a Commercial Marketplace account in Partner Center](./create-account.md).
 - For existing partners who have previously published offers in the Cloud Partner Portal, [Manage your Commercial Marketplace account in Partner Center](./manage-account.md). 
+- Learn more about cloud marketplace management moving to Partner Center in this [Partner Community blog post](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), including a demo video.
