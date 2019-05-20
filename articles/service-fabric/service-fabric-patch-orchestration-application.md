@@ -138,7 +138,7 @@ Automatic Windows Updates might lead to availability loss because multiple clust
 
 ## Download the app package
 
-To download application package, please visit Github release [page](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) of Patch Orchestration Application.
+To download application package, please visit GitHub release [page](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) of Patch Orchestration Application.
 
 ## Configure the app
 
@@ -445,7 +445,7 @@ An administrator must intervene and determine why the application or cluster bec
 ## Release Notes
 
 >[!NOTE]
-> Starting from version 1.4.0, release notes and releases can be found on Github release [page](https://github.com/microsoft/Service-Fabric-POA/releases/).
+> Starting from version 1.4.0, release notes and releases can be found on GitHub release [page](https://github.com/microsoft/Service-Fabric-POA/releases/).
 
 ### Version 1.1.0
 - Public release
