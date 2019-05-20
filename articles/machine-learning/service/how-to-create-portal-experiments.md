@@ -186,8 +186,14 @@ Once you have the best model at hand, it is time to deploy it as a web service t
 
 Automated ML helps you with deploying the model without writing code:
 
-1. From the "Run Details" page, select the "Deploy best model", or from the algorithm details page, select "Deploy model"
-![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button.png)
+1. You have a few options for deployment. 
+    1. If you want to deploy the best model based on the metric criteria you set for the experiment, select **Deploy Best Model** from the **Run Detail** page.
+
+        ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. If you want to deploy a specific model iteration, drill down on the model to open its specific run detail page and select **Deploy Model**.
+
+        ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button2.png)
 
 1. First step is to register the model into the service. Select "Register model" and wait for the registration process to complete.
 
@@ -202,10 +208,8 @@ Automated ML helps you with deploying the model without writing code:
 1. Select the model you registered, and select "Create image".
 
     You can identify the model by its description, which will include the run ID, iteration number, in the following format: *<Run_ID>_<Iteration_number>_Model*
-    
-    ![Models: Create image](media/how-to-create-portal-experiments/model-create-image.png)
 
-    
+    ![Models: Create image](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. Enter a name for the image. 
 1. Select the **Browse** button next to the "Scoring File" box to upload the scoring file (scoring.py) you previously downloaded.
