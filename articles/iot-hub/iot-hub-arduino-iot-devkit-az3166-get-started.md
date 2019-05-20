@@ -74,7 +74,9 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
+   > [!NOTE]
+   > If you get an error running `device-identity`, install the [Azure IOT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) for more details.
+  
 1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.

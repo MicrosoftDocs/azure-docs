@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -87,15 +87,17 @@ Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21V
 
 ## What are access packages and policies?
 
-Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. The resources include access to groups, applications, and sites. Access packages are used to govern access for your internal employees, and also users outside your organization. Access packages are defined in containers called *catalogs*.
+Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. The resources include access to groups, applications, or sites. Access packages are used to govern access for your internal employees, and also users outside your organization. Access packages are defined in containers called *catalogs*.
 
 Access packages also include one or more *policies*. A policy defines the rules or guardrails to access an access package. Enabling a policy enforces that only the right users are granted access, to the right resources, and for the right amount of time.
+
+![Access package and policies](./media/entitlement-management-overview/elm-overview-access-package.png)
 
 With an access package and its policies, the access package manager defines:
 
 - Resources
 - Roles the users need for the resources
-- Users and external users that are eligible to request access
+- Internal users and external users that are eligible to request access
 - Approval process and the users that can approve or deny access
 - Duration of user's access
 
@@ -110,7 +112,7 @@ The following diagram shows an example of the different elements in entitlement 
 
 When using the [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) invite experience, you must already know the email addresses of the external guest users you want to bring into your resource directory and work with. This works great when you're working on a smaller or short-term project and you already know all the participants, but this is harder to manage if you have lots of users you want to work with or if the participants change over time.  For example, you might be working with another organization and have one point of contact with that organization, but over time additional users from that organization will also need access.
 
-With entitlement management, you can define a policy that allows users from organizations you specify, that are also using Azure AD, to be able to request an access package. You can specify whether approval is required and an expiration date for the access. If approval is required, you can also designate as an approver one or more users from the external organization that you previously invited - since they are likely to know which external users from their organization need access. Once you have configured the access package, you can send a link to the access package to your contact person at the external organization. That contact can share with others users in the external organization, and they can use this link to request the access package.  Users from that organizational who have already been invited into your directory can also use that link.
+With entitlement management, you can define a policy that allows users from organizations you specify, that are also using Azure AD, to be able to request an access package. You can specify whether approval is required and an expiration date for the access. If approval is required, you can also designate as an approver one or more users from the external organization that you previously invited - since they are likely to know which external users from their organization need access. Once you have configured the access package, you can send a link to the access package to your contact person at the external organization. That contact can share with other users in the external organization, and they can use this link to request the access package.  Users from that organization who have already been invited into your directory can also use that link.
 
 When a request is approved, entitlement management will provision the user with the necessary access, which may include inviting the user if they're not already in your directory. Azure AD will automatically create a B2B account for them.  Note that an administrator may have previously limited which organizations are permitted for collaboration, by setting a [B2B allow or deny list](../b2b/allow-deny-list.md) to allow or block invites to other organizations.  If the user is not permitted by the allow or block list, then they will not be invited.
 
@@ -123,11 +125,11 @@ To better understand entitlement management and its documentation, you should re
 | Term or concept | Description |
 | --- | --- |
 | entitlement management | A service that assigns, revokes, and administers access packages. |
-| catalog | A container of related resources and access packages. |
-| General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |
 | access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
 | access request | A request to access an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |
+| catalog | A container of related resources and access packages. |
+| General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |
 | resource | An asset or service (such as a group, application, or site) that a user can be granted permissions to. |
 | resource type | The type of resource, which includes groups, applications, and SharePoint Online sites. |
 | resource role | A collection of permissions associated with a resource. |

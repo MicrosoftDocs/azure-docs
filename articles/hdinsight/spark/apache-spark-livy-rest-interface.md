@@ -147,27 +147,11 @@ Perform the following steps:
 
 ## Updates to Livy configuration starting with HDInsight 3.5 version
 
-HDInsight 3.5 clusters and above, by default, disable use of local file paths to access sample data files or jars. We encourage you to use the `wasb://` path instead to access jars or sample data files from the cluster. If you do want to use local path, you must update the Ambari configuration accordingly. To do so:
-
-1. Go to the Ambari portal for the cluster. The Ambari Web UI is available on your HDInsight cluster at https://**CLUSTERNAME**.azurehdidnsight.net, where CLUSTERNAME is the name of your cluster.
-
-2. From the left navigation, click **Livy**, and then click **Configs**.
-
-3. Under **livy-default** add the property name `livy.file.local-dir-whitelist` and set it's value to **"/"** if you want to allow full access to file system. If you want to allow access only to a specific directory, provide the path to that directory as the value.
+HDInsight 3.5 clusters and above, by default, disable use of local file paths to access sample data files or jars. We encourage you to use the `wasb://` path instead to access jars or sample data files from the cluster. 
 
 ## Submitting Livy jobs for a cluster within an Azure virtual network
 
 If you connect to an HDInsight Spark cluster from within an Azure Virtual Network, you can directly connect to Livy on the cluster. In such a case, the URL for Livy endpoint is `http://<IP address of the headnode>:8998/batches`. Here, **8998** is the port on which Livy runs on the cluster headnode. For more information on accessing services on non-public ports, see [Ports used by Apache Hadoop services on HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
-
-## Troubleshooting
-
-Here are some issues that you might run into while using Livy for remote job submission to Spark clusters.
-
-### Using an external jar from the additional storage is not supported
-
-**Problem:** If your Livy Spark job references an external jar from the additional storage account associated with the cluster, the job fails.
-
-**Resolution:** Make sure that the jar you want to use is available in the default storage associated with the HDInsight cluster.
 
 
 

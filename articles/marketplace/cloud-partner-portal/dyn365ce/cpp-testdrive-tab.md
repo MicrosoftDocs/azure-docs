@@ -1,20 +1,12 @@
 ---
-title: Dynamics 365 for Customer Engagement application offer Test Drive tab - Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Customer Engagement application offer Test Drive tab | Azure Marketplace 
 description: How to configure test drive for a Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace.
 services: Azure, Marketplace, AppSource, Cloud Partner Portal, Dynamics 365 for Customer Engagement
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Dynamics 365 for Customer Engagement application Test Drive tab

@@ -1,14 +1,14 @@
 ---
-title: Supported versions in Azure Database for PostgreSQL
-description: Describes the supported versions in Azure Database for PostgreSQL.
+title: Supported versions in Azure Database for PostgreSQL - Single Server
+description: Describes the supported versions in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 5/6/2019
 ---
 # Supported PostgreSQL database versions
-Microsoft aims to support n-2 versions of the PostgreSQL engine in the Azure Database for PostgreSQL service. The versions would be the current major version on Azure (n) and the two prior major versions (-2).
+Microsoft aims to support n-2 versions of the PostgreSQL engine in Azure Database for PostgreSQL - Single Server. The versions would be the current major version on Azure (n) and the two prior major versions (-2).
 
 Azure Database for PostgreSQL currently supports the following versions:
 
