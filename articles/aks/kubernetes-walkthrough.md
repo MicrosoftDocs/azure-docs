@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.52 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a resource group
 
@@ -93,7 +93,7 @@ The following example output shows the single node created in the previous steps
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.9.11
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## Run the application
@@ -249,7 +249,7 @@ The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown 
 
 ![View the health of running containers in AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
+To see logs for the `azure-vote-front` pod, choose the option to **View in analytics**, then select **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
 ![View the containers logs in AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
@@ -272,7 +272,7 @@ In this quickstart, pre-created container images were used to create a Kubernete
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and deployed a multi-container application to it.  [Access the Kubernetes web dashboard][kubernetes-dashboard] for the cluster you just created.
+In this quickstart, you deployed a Kubernetes cluster and deployed a multi-container application to it. You can also [access the Kubernetes web dashboard][kubernetes-dashboard] for your AKS cluster.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
