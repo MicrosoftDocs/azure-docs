@@ -1,24 +1,20 @@
 ---
-title: What is Identity secure score? - Azure Active Directory (Public preview) | Microsoft Docs
-description: Instructions about how you can use the identity secure score to improve the security posture of your Azure AD tenant.
+title: What is identity secure score? - Azure Active Directory (Public preview)
+description: How you can use the identity secure score to improve the security posture of your directory
+
 services: active-directory
-keywords: identity secure score, Azure AD, secure access to company resources
-documentationcenter: ''
-author: MarkusVi
-manager: daveba
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.topic: overview 
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 09/19/2018
-ms.author: markvi
-ms.reviewer: nigu
-ms.custom: "it-pro"
+ms.topic: conceptual
+ms.date: 05/20/2019
+
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: tilarso
 
 #Customer intent: As an IT admin, I want understand the identity secure score, so that I can maximize the security posture of my tenant.
+
 ms.collection: M365-identity-device-management
 ---
 
