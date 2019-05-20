@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 5/18/2019
 ms.author: mayg
 
 ---
@@ -106,7 +106,7 @@ You might want to automate certain actions while doing a failover. You can use s
 ## Post failover considerations
 Post failover you might want to consider the following recommendations:
 ### Retaining drive letter after failover
-To retain the drive letter on virtual machines after failover, you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Azure Site Recovery handles retention of drive letters. [Read more](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) on how it is done when you choose to exclude some disks.
 
 ## Prepare to connect to Azure VMs after failover
 
