@@ -18,6 +18,7 @@
   - name: Create Node.js app
     href: quickstart-nodejs.md
   - name: Create Node.js app using Docker and Visual Studio Code
+    items:
     - name: Getting started
       href: tutorial-javascript-vscode-get-started.md
     - name: Create a container registry
