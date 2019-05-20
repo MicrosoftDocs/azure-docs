@@ -18,10 +18,10 @@ ms.author: pepogors
 
 ---
 # Use Visual Studio to create and and publish .Net Core applications targeting a remote Linux Service Fabric cluster
-With Visual Studio tooling you can develop and publish Service Fabric .Net Core applications targeting Linux.
+With Visual Studio tooling you can develop and publish Service Fabric .Net Core applications targeting Linux. The cluster runtime must be 6.4.649.1 or above to deploy a .Net Core application targeting Linux from Visual Studio.
 
 > [!Note]
-> Visual Studio doesn't support debugging Service Fabric applications targeting Linux.
+> Visual Studio doesn't support debugging Service Fabric applications which target Linux.
 >
 
 ## Create a Service Fabric application targeting .Net Core
@@ -36,7 +36,7 @@ With Visual Studio tooling you can develop and publish Service Fabric .Net Core 
 ## Deploy to a remote cluster
 1. In the solution explorer, right click on the application and select **Build**.
 ![build-application]
-2. Once the solution has completed building, right click on the service and click to edit the **csproj file**.
+2. Once the build process for the application has completed, right click on the service and click to edit the **csproj file**.
 ![edit-csproj]
 3. Edit the UpdateServiceFabricManifestEnabled property from True to **False**.
 ```xml
@@ -64,3 +64,6 @@ With Visual Studio tooling you can develop and publish Service Fabric .Net Core 
 [build-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
 [edit-csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
 [publish-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png
+
+## Next steps
+* Learn about [Getting started with Service Fabric with .Net Core](https://azure.microsoft.com/resources/samples/service-fabric-dotnet-core-getting-started/)
