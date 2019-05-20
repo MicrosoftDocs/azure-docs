@@ -44,7 +44,7 @@ For example, the following JSON shows a policy that limits where resources are d
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -64,7 +64,7 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
-All Azure Policy samples are at [Policy samples](../samples/index.md).
+All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -112,6 +112,11 @@ A parameter has the following properties that are used in the policy definition:
   - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
+  - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
+    during policy assignment. This property is useful in case you wish to assign permissions outside
+    the assignment scope. There is one role assignment per role definition in the policy (or per
+    role definition in all of the policies in the initiative). The parameter value must be a valid
+    resource or scope.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
 
@@ -129,7 +134,7 @@ would be used by each assignment of the policy definition to limit the accepted 
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -167,6 +172,7 @@ options within the Azure portal. Allowed values for **strongType** currently inc
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -257,13 +263,17 @@ supported conditions are:
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match all characters, and any other character to match that actual character.
+letter, `.` to match any character, and any other character to match that actual character.
 **match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
 **matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
@@ -428,7 +438,7 @@ evaluation.
 
 ### Effect
 
-Policy supports the following types of effect:
+Azure Policy supports the following types of effect:
 
 - **Deny**: generates an event in the activity log and fails the request
 - **Audit**: generates a warning event in activity log but doesn't fail the request
@@ -469,21 +479,34 @@ definition](../how-to/remediate-resources.md#configure-policy-definition).
 ```
 
 For complete details on each effect, order of evaluation, properties, and examples, see
-[Understanding Policy Effects](effects.md).
+[Understanding Azure Policy Effects](effects.md).
 
 ### Policy functions
 
 All [Resource Manager template
 functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
-use within a policy rule, except the following functions:
+use within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+The following functions are available to use in a policy rule, but differ from use in an Azure
+Resource Manager template:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
+  - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 Additionally, the `field` function is available to policy rules. `field` is primarily used with
 **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
@@ -674,9 +697,9 @@ and `productName`. It uses two built-in policies to apply the default tag value.
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md)
-- Review [Understanding policy effects](effects.md)
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md)
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md)
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md)
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md)
+- Review examples at [Azure Policy samples](../samples/index.md).
+- Review [Understanding policy effects](effects.md).
+- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
+- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

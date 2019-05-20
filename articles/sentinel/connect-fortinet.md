@@ -4,7 +4,7 @@ description: Learn how to connect Fortinet data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: add92907-0d7c-42b8-a773-f570f2d705ff

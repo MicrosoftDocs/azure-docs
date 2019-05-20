@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Archive Azure Active Directory logs to a storage account (preview) | Microsoft Docs
-description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account (preview)  
+title: Tutorial - Archive Azure Active Directory logs to a storage account | Microsoft Docs
+description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Archive Azure AD logs to an Azure storage account (preview)
+# Tutorial: Archive Azure AD logs to an Azure storage account
 
 In this tutorial, you learn how to set up Azure Monitor diagnostics settings to route Azure Active Directory (Azure AD) logs to an Azure storage account.
 

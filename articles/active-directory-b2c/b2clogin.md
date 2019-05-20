@@ -3,7 +3,7 @@ title: Set redirect URLs to b2clogin.com - Azure Active Directory B2C | Microsof
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C. 
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

@@ -91,10 +91,10 @@ If you cannot find any self-signed certificates using the preceding steps, conta
 
 Blank sign-in dialogs are most often caused by ADFS asking Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue you can attempt to use Device Code Flow for sign-in. To do so, perform the following steps:
 
-1. "Go to Preview" -> "Use Device Code Sign-In".
+1. Menu: Preview -> "Use Device Code Sign-In".
 2. Open the Connect Dialog (either via the plug icon on the left-hand vertical bar, or "Add Account" on the account panel).
 3. Choose what environment you want to sign in to.
-4. Click the "Sign" In button.
+4. Click the "Sign In" button.
 5. Follow the instructions on the next panel.
 
 If you find yourself having issues signing into the account you want to use because your default browser is already signed into a different account, you can either:
@@ -230,7 +230,7 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 
 In general, the following packages are required to run Storage Explorer on Linux:
 
-* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Note: Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed then you will need to patch Storage Explorer (see below). If you are running Storage Explorer 1.8.0 or greater then you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
 * `libgnome-keyring-common` and `libgnome-keyring-dev`
 * `libgconf-2-4`
 
