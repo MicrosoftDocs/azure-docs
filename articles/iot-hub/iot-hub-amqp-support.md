@@ -122,13 +122,13 @@ As shown above, a C2D feedback message has content type of `application/vnd.micr
 * Key `originalMessageId` in feedback body has the ID of the original C2D message sent by the service. This can be used to correlate feedback to C2D messages.
 
 ### Receive telemetry messages (service client)
-By default, IoT Hub stores ingested device telemetry messages in a build-in Event Hubs. Your service client can use the AMQP protocol to receive the stored events.
+By default, IoT Hub stores ingested device telemetry messages in a built-in Event hub. Your service client can use the AMQP protocol to receive the stored events.
 
-For this purpose, the service client first needs to connect to the IoT Hub endpoint and receive a redirection address to the built-in Event Hubs. Service client then uses the provided address to connect to the built-in Event Hub.
+For this purpose, the service client first needs to connect to the IoT Hub endpoint and receive a redirection address to the built-in Event Hubs. Service client then uses the provided address to connect to the built-in Event hub.
 
 In each step, the client needs to present the following pieces of information:
-* Valid service credentials (SAS token);
-* A well-formatted path to the consumer group partition it intends to retrieve messages from;
+* Valid service credentials (service SAS token).
+* A well-formatted path to the consumer group partition it intends to retrieve messages from. For a given consumer group and partition ID, the path has the following format: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (the default consumer group is `$Default`).
 * An optional filtering predicate to designate a starting point in the partition (this can be in the form of a sequence number, offset or enqueued timestamp).
 
 The code snippet below uses [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to demonstrate the above steps.
@@ -146,14 +146,18 @@ iot_hub_name = '<iot-hub-name>'
 hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
 policy_name = 'service'
 access_key = '<primary-or-secondary-key>'
-operation = '/messages/events/ConsumerGroups/{consumer_group}/Partitions/{p_id}'.format(consumer_group='$Default', p_id=2)
+operation = '/messages/events/ConsumerGroups/{consumer_group}/Partitions/{p_id}'.format(consumer_group='$Default', p_id=0)
 
 username = '{policy_name}@sas.root.{iot_hub_name}'.format(policy_name=policy_name, iot_hub_name=iot_hub_name)
 sas_token = generate_sas_token(hostname, access_key, policy_name)
 uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
 
-# Following variable captures optional filtering predicates
-# Set this variable to None if no filter is needed
+# Optional filtering predicates can be specified using endpiont_filter
+# Valid predicates include:
+# - amqp.annotation.x-opt-sequence-number
+# - amqp.annotation.x-opt-offset
+# - amqp.annotation.x-opt-enqueued-time
+# Set endpoint_filter variable to None if no filter is needed
 endpoint_filter = b'amqp.annotation.x-opt-sequence-number > 2995'
 
 # Helper function to set the filtering predicate on the source URI
@@ -182,7 +186,7 @@ for msg in batch:
   print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
 ```
 
-Even though the code snippet above demonstrates receiving events from a single partition ID, a typical application often needs to retrieve events stored on all the hub partitions.
+For a given device ID, IoT Hub uses a hash of the device ID to determine which partition to store messages in. Furthermore, note that even though the code snippet above demonstrates receiving events from a single partition ID, a typical application often needs to retrieve events stored on all the hub partitions.
 
 
 ### Additional notes
