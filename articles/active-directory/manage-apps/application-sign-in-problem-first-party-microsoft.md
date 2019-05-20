@@ -84,7 +84,7 @@ Following are some common issues folks run into when their users cannot sign in 
 
 - For **Microsoft** **applications that don’t require a license**, here are some other things to check:
 
-  * If the application is requesting **user-level permissions** (for example “Access this user’s mailbox”), make sure that the user has signed in to the application and has performed a **user-level consent operation** to let the application access her data.
+  * If the application is requesting **user-level permissions** (for example “Access this user’s mailbox”), make sure that the user has signed in to the application and has performed a **user-level consent operation** to let the application access their data.
 
   * If the application is requesting **administrator-level permissions** (for example “Access all user’s mailboxes”), make sure that a Global Administrator has performed an **administrator-level consent operation on behalf of all users** in the organization.
 
