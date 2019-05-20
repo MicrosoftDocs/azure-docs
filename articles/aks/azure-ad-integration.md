@@ -19,7 +19,6 @@ This article shows you how to deploy the prerequisites for AKS and Azure AD, the
 The following limitations apply:
 
 - Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
-- *Guest* users in Azure AD, such as if you are using a federated sign in from a different directory, are not supported.
 
 ## Authentication details
 
@@ -110,6 +109,10 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
         When the permissions have been successfully granted, the following notification is displayed in the portal:
 
         ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
+
+1. On the left-hand navigation of the Azure AD application, select **Authentication**.
+
+    * Under **Default client type**, select **Yes** to *Treat the client as a public client*.
 
 1. On the left-hand navigation of the Azure AD application, take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Client application ID`.
 
@@ -238,13 +241,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 When complete, the authentication token is cached. You are only reprompted to sign in when the token has expired or the Kubernetes config file re-created.
 
 If you are seeing an authorization error message after signing in successfully, check whether:
-1. The user you are signing in as is not a Guest in the Azure AD instance (this scenario is often the case if you use a federated account from a different directory).
-2. The user is not a member of more than 200 groups.
-3. Secret defined in the application registration for server does not match the value configured using --aad-server-app-secret
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. You defined the appropriate object ID or UPN, depending on if the user account is in the same Azure AD tenant or not.
+2. The user is not a member of more than 200 groups.
+3. Secret defined in the application registration for server matches the value configured using `--aad-server-app-secret`
 
 ## Next steps
 

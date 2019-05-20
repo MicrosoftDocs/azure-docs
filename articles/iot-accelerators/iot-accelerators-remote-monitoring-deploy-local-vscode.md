@@ -54,7 +54,7 @@ dotnet build -c Release
 
 ### Deploy all other microservices on local machine
 
-The following steps show you how to run the Remote Monitoring microservices in Visual Studio 2017:
+The following steps show you how to run the Remote Monitoring microservices in Visual Studio Code:
 
 1. Launch Visual Studio Code.
 1. Open the **azure-iot-pcs-remote-monitoring-dotnet** module from your local copy in VS Code.

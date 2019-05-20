@@ -5,13 +5,18 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
+ms.date: 05/16/2019
+ms.author: pbutlerm
 ---
 
 # Update an existing SaaS application offer
 
 There are various kinds of updates that you might want to do to your offer after it's been published and is live. Any change you make to your new version of your offer should be saved and republished to have it reflect in the Marketplace. This article steps through the different aspects of updating your SaaS offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+
+> [!IMPORTANT] 
+> SaaS offer functionality is being migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must
+> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
+> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
 
 There are several reasons why you might want to update your offer, such as:
 
@@ -70,7 +75,7 @@ To see historical publishing activity, select the **History** tab on the left na
 
 ![See offer history in Cloud Partner Portal](./media/saas-offer-history.png)
 
-You can use the Audit history page to search for a specific offer and apply filters such as Publisher, Offer and Event Type (for example, OfferGoLiveRequested.) You can also download the audit history as a csv file.
+You can use the Audit history page to search for a specific offer and apply filters such as Publisher, Offer, and Event Type (for example, OfferGoLiveRequested.) You can also download the audit history as a csv file.
 
 
 ## Next steps
