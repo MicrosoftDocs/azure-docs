@@ -533,7 +533,7 @@ If you couldn't enable automatic updates, see the following common errors and re
 
 -  **Error**: The Azure Run as Certificate used by the automation account is about to expire. 
 
-    The self-signed certificate that is created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. If you have signed up for email notifications, you will also receive emails when an action is required from your side. This error will be shown 2 months prior to the expiry date, and will change to a critical error if the certificate has expired. Once the certificate has expired, auto update wil not be functional till you renew the same.
+    The self-signed certificate that is created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. If you have signed up for email notifications, you will also receive emails when an action is required from your side. This error will be shown 2 months prior to the expiry date, and will change to a critical error if the certificate has expired. Once the certificate has expired, auto update will not be functional till you renew the same.
 
    **Recommended action**: Click on 'Repair' and then 'Renew Certificate' to resolve this issue.
     
