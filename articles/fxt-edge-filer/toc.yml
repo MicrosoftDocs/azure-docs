@@ -1,0 +1,25 @@
+- name: Azure FXT Edge Filer documentation
+  href: index.yml 
+- name: Overview
+  items:
+  - name: What is Azure FXT Edge Filer?
+    href: fxt-overview.md
+- name: Tutorials
+  items:  
+  - name: Install Azure FXT Edge Filer hardware 
+    href: fxt-install.md
+  - name: Cable the network ports 
+    href: fxt-network.md  
+  - name: Connect power 
+    href: fxt-power.md
+
+    
+- name: Reference
+  items: 
+  - name: Hardware specifications 
+    href: fxt-specs.md
+  - name: Monitor the FXT Edge Filer hardware
+    href: fxt-monitor.md
+  - name: Additional documentation
+    href: fxt-additional-doc.md
+
