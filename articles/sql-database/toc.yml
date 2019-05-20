@@ -368,7 +368,7 @@
   items:
   - name: Overview
     href: sql-database-howto.md
-  - name: Single database 
+  - name: Single databases and elastic pools
     items: 
     - name: Overview
       href: sql-database-howto-single-database.md
@@ -448,7 +448,7 @@
         href: elastic-jobs-tsql.md
       - name: Migrate (from old Elastic jobs)
         href: elastic-jobs-migrate.md
-  - name: Managed instance
+  - name: Managed instances
     items:
     - name: Overview
       href: sql-database-howto-managed-instance.md
@@ -462,6 +462,8 @@
       href: sql-database-managed-instance-create-vnet-subnet.md
     - name: Configure existing VNet and subnet for managed instance
       href: sql-database-managed-instance-configure-vnet-subnet.md
+    - name: Delete subnet after deleting managed instance
+      href: sql-database-managed-instance-delete-virtual-cluster.md
     - name: Configure custom DNS
       href: sql-database-managed-instance-custom-dns.md
     - name: Sync network configuration
@@ -718,6 +720,10 @@
     href: sql-database-glossary-terms.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
+  - name: SQL Server Blog
+    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
+  - name: Microsoft Azure Blog
+    href: https://azure.microsoft.com/blog/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Public data sets

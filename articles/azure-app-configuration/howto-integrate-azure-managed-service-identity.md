@@ -16,7 +16,7 @@ ms.date: 02/24/2019
 ms.author: yegu
 
 ---
-# Tutorial: Integrate with Azure managed identities
+# Integrate with Azure managed identities
 
 Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, you can set up your code to use the service principal that was created for the Azure compute service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
 
