@@ -39119,6 +39119,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-suspension.md",
+      "redirect_url" : "/azure/active-directory-domain-services/suspension",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-secure-your-domain.md",
       "redirect_url" : "/azure/active-directory-domain-services/secure-your-domain",
       "redirect_document_id": true

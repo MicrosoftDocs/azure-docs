@@ -112,7 +112,7 @@
         - name: Resolve mismatched tenant errors
           href: mismatched-tenant-error.md
         - name: Suspended domains
-          href: active-directory-ds-suspension.md
+          href: suspension.md
         - name: Troubleshoot secure LDAP
           href: tshoot-ldaps.md
 - name: Resources

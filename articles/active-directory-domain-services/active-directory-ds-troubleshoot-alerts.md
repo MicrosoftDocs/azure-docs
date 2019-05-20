@@ -288,7 +288,7 @@ Here are some common reasons why synchronization stops on managed domains:
 **Resolution:**
 
 > [!WARNING]
-> If your managed domain is suspended for an extended period of time, it is in danger of being deleted. It is best to address the suspension as quickly as possible. To read more, visit [this article](active-directory-ds-suspension.md).
+> If your managed domain is suspended for an extended period of time, it is in danger of being deleted. It is best to address the suspension as quickly as possible. To read more, visit [this article](suspension.md.md).
 
 To restore your service, [renew your Azure subscription](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) associated with your managed domain.
 
@@ -301,7 +301,7 @@ To restore your service, [renew your Azure subscription](https://docs.microsoft.
 **Resolution:**
 
 > [!WARNING]
-> If your managed domain is suspended for an extended period of time, it is in danger of being deleted. It is best to address the suspension as quickly as possible. To read more, visit [this article](active-directory-ds-suspension.md).
+> If your managed domain is suspended for an extended period of time, it is in danger of being deleted. It is best to address the suspension as quickly as possible. To read more, visit [this article](suspension.md).
 
 [Check your domain's health](check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. If you can resolve any of these alerts, do so. After, contact support to re-enable your subscription.
 
