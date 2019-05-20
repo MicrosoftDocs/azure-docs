@@ -94,12 +94,22 @@ When programmatically signing in, you need to pass the tenant ID with your authe
    ![Client ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## Certificates and secrets
-Deamon applications can use two forms of credentials to authenticate with Azure AD: certficates and application secrets.
+Deamon applications can use two forms of credentials to authenticate with Azure AD: certficates and application secrets.  We recommend using a certificate, but you can also create a new application secret.
 
 ### Upload a certificate
 
-### Create a new application secret
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Export this certificate using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
 
+To upload the certificate:
+1. Select **Certificates & secrets**.
+
+   ![Select settings](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. Click on **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
+    ![Upload certificate](./media/howto-create-service-principal-portal/upload-cert.png)
+1. Click **Add**.
+
+### Create a new application secret
+If you choose not to use a certificate, you can create a new application secret.
 1. Select **Certificates & secrets**.
 
    ![Select settings](./media/howto-create-service-principal-portal/select-certs-secrets.png)
@@ -112,7 +122,6 @@ Deamon applications can use two forms of credentials to authenticate with Azure 
    After saving the client secret, the value of the client secret is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
    ![Copy secret](./media/howto-create-service-principal-portal/copy-secret.png)
-
 
 ## Required permissions
 
