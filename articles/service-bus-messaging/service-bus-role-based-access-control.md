@@ -39,7 +39,7 @@ Azure provides the below built-in RBAC roles for authorizing access to a Service
 
 ## Use Service Bus with an Azure AD domain user account
 
-The following section describes the steps required to create and run a sample application that prompts for an interactive Azure AD user to log on, how to grant Service Bus access to that user account, and how to use that identity to access Event Hubs.
+The following section describes the steps required to create and run a sample application that prompts for an interactive Azure AD user to sign in, how to grant Service Bus access to that user account, and how to use that identity to access Event Hubs.
 
 This introduction describes a simple console application, the [code for which is on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
@@ -71,7 +71,7 @@ Before you can run the sample, edit the App.config file and, depending on your s
 
 - `tenantId`: Set to **TenantId** value.
 - `clientId`: Set to **ApplicationId** value.
-- `clientSecret`: If you want to log on using the client secret, create it in Azure AD. Also, use a web app or API instead of a native app. Also, add the app under **Access Control (IAM)** in the namespace you previously created.
+- `clientSecret`: If you want to sign in using the client secret, create it in Azure AD. Also, use a web app or API instead of a native app. Also, add the app under **Access Control (IAM)** in the namespace you previously created.
 - `serviceBusNamespaceFQDN`: Set to the full DNS name of your newly created Service Bus namespace; for example, `example.servicebus.windows.net`.
 - `queueName`: Set to the name of the queue you created.
 - The redirect URI you specified in your app in the previous steps.

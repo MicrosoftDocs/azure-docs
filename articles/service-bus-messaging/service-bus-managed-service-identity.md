@@ -35,7 +35,7 @@ You can add a managed identity to the "Service Bus Data Owner" role of a Service
 
 To use the new built-in role, please complete the below steps -
 
-1. proceed to the [Azure Portal](https://portal.azure.com)
+1. proceed to the [Azure portal](https://portal.azure.com)
 2. Navigate to the Service Bus namespace where you have currently setup the "Owner" or "Contributor" role.
 3. Click on "Access Control(IAM)" from the left pane menu.
 4. Proceed to add a new role assignment as below
