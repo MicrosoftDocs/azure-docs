@@ -3967,12 +3967,12 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-configure-secure-ldap.md",
-      "redirect_url": "/azure/active-directory-domain-services/configure-ldaps.md",
+      "redirect_url": "/azure/active-directory-domain-services/configure-ldaps",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-create-ou.md",
-      "redirect_url": "/azure/active-directory-domain-services/create-ou.md",
+      "redirect_url": "/azure/active-directory-domain-services/create-ou",
       "redirect_document_id": false
     },
     {
