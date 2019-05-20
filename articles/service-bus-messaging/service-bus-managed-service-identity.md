@@ -26,7 +26,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 ## Service Bus roles and permissions
 
-You can add a managed identity to the "Service Bus Data Owner" role of a Service Bus namespace. It grants the identity full control (for management and data operations) on all entities in the namespace.
+You can add a managed identity to the "Service Bus Data Owner" role of a Service Bus namespace. It grants the identity, full control (for management and data operations) on all entities in the namespace.
 
 >[!IMPORTANT]
 > We earlier supported adding managed identity to the **"Owner"** or **"Contributor"** role.
