@@ -221,11 +221,3 @@ To learn more about using R in Azure SQL Database Machine Learning Services (pre
 * [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
 * [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
 * [Add an R package to Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-add-r-packages.md)
-
-<!-- Maybe replace the above with this when the second tutorial gets ported from SQL MLS
-
-To build a clustering model in Azure SQL Database Machine Learning Services (preview), try the tutorial [foo](foo.md).
-
--->
-
-> NOTE TO ME: Add a clean-up resources section.
