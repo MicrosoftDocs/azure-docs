@@ -38,9 +38,9 @@ You then see a confirmation page. You can confirm the deletion of your account b
 
 ## Next steps
 
-Setup authenication with Azure Maps:
+Setup authentication with Azure Maps:
 > [!div class="nextstepaction"]
-> [Manage authenication](how-to-manage-authentication.md)
+> [Manage authentication](how-to-manage-authentication.md)
 
 Learn how to manage an Azure Maps account pricing tier:
 > [!div class="nextstepaction"]	
