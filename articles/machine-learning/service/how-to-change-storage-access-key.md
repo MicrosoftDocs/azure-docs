@@ -14,8 +14,7 @@ ms.date: 05/17/2019
 
 ---
 
-
-## Regenerate storage account access keys
+# Regenerate storage account access keys
 
 Learn how to change the access keys for Azure Storage accounts used by the Azure Machine Learning service. Azure Machine Learning can use storage accounts to store data or trained models.
 
@@ -33,7 +32,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 To update Azure Machine Learning service to use the new key, use the following steps:
 
-1. To find the datastore entry for the storage account, us the following code:
+1. To find the datastore entry for the storage account, use the following code:
 
     ```python
     import azureml.core
