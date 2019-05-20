@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 # Close your work or school account in an unmanaged directory
 
-If you are a user in an unmanaged Azure Active Directory (Azure AD) organization, you can close your account at any time if you no longer need to use apps from that organization or maintain any association. An unmanaged directory does not have a Global administrator. The users in an unmanaged directory can close their accounts on their own, without having to contact an administrator.
+If you are a user in an unmanaged Azure Active Directory (Azure AD) organization, and you no longer need to use apps from that organization or maintain any association with is, you can close your account at any time. An unmanaged directory does not have a Global administrator. Users in an unmanaged directory can close their accounts on their own, without having to contact an administrator.
 
-Users in an unmanaged directory are often created during self-service signup. For example, if an information worker in an organization signs up for a free service. For more information about self-service signup, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md).
+Users in an unmanaged directory are often created during self-service signup. An example might be an information worker in an organization who signs up for a free service. For more information about self-service signup, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -29,9 +29,9 @@ Users in an unmanaged directory are often created during self-service signup. Fo
 
 Before you can close your account, you should confirm the following items:
 
-1. Make sure you are a user of an unmanaged Azure AD directory. You can't close your account if you belong to a managed directory. If you belong to a managed directory, you must contact your administrator if you want to close your account. For information about how to determine if you belong to an unmanaged directory, see [Delete the user from Unmanaged Tenant](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Make sure you are a user of an unmanaged Azure AD directory. You can't close your account if you belong to a managed directory. If you belong to a managed directory and want to close your account, you must contact your administrator. For information about how to determine whether you belong to an unmanaged directory, see [Delete the user from Unmanaged Tenant](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
-1. Save any data you want to keep. For information about how to submit an export request, see [Accessing and exporting system-generated logs for Unmanaged Tenants](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
+* Save any data you want to keep. For information about how to submit an export request, see [Accessing and exporting system-generated logs for Unmanaged Tenants](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
 
 > [!WARNING]
 > Closing your account is irreversible. When you close your account, all personal data will be removed. You will no longer have access to your account and data associated with your account.
