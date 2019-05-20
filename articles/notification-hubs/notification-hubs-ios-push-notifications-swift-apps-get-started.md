@@ -133,7 +133,7 @@ In this section, you'll build the iOS app that will connect to the notification 
 
    To keep it simple, you'll use *DefaultFullSharedAccessSignature* so you can use the token to send notifications as well. However, in practice the `DefaultListenSharedAccessSignature` would be a better choice for situations where you only want to receive notifications.       
 6. Under **Project Navigator**, click the **Project Name**, then click the **General** tab
-7. Find **Identity**, then set the **Bundle Identifier** value so it matches the one used for the **App ID** (from the earlier [registering the app for push notifications](#register-the-app-for-push-notifications) step) that is, `'com.<organization>.PushDemo'`
+7. Find **Identity**, then set the **Bundle Identifier** value so it matches the one used for the **App ID** (from the earlier step) that is, `'com.<organization>.PushDemo'`
 8. Find **Signing**, then make sure you select the appropriate **Team** for your **Apple Developer Account** (the one under which you had created your certificates and profiles earlier).  **Xcode** should automatically pull down the appropriate **Provisioning Profile** based on the **Bundle Identifier**. If you don't see the new **Provisioning Profile**, try refreshing the profiles for the **Signing Identity** (*Xcode > Preferences > Account > View Details*). Clicking on the **Signing Identity**, then clicking the **Refresh** button in the bottom-right should download the profiles.
 9. Select the **Capabilities** tab and ensure that **push notifications** are enabled.
 10. Open your **AppDelegate.swift** file to implement the *UNUserNotificationCenterDelegate* protocol and add the following code to the top of the class:

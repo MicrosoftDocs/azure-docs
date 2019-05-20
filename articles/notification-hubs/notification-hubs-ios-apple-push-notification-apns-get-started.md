@@ -99,7 +99,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
      github "Azure/azure-notificationhubs-ios"
      ```
 
-     Next, update and build dependencies:
+     Next, update, and build dependencies:
 
      ```shell
      $ carthage update
