@@ -19040,6 +19040,71 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/labs/anomaly-finder/overview.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/apiref.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/csharp.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/java.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/python.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/ruby.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/php.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/javascript.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/curl.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/csharp-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/java-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/python-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/javascript-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/expand-disks",
       "redirect_document_id": false
@@ -38941,6 +39006,16 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/translation.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/devices-sdk-third-party-notices.md",
+      "redirect_url": "https://aka.ms/sdsdk-toctpn",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-license.md",
+      "redirect_url": "https://aka.ms/sdsdk-license",
       "redirect_document_id": false
     },
     {
