@@ -65,6 +65,27 @@ When one of the previous conditions happen, **System.FM** or **System.FMM** flag
 * **Property**: Rebuild.
 * **Next steps**: Investigate the network connection between the nodes, as well as the state of any specific nodes that are listed on the description of the health report.
 
+### Seed Node Status
+**System.FM** reports a cluster level warning if some seed nodes are unhealthy. Seed nodes are the nodes which maintain the availability of the underlying cluster. These nodes help to ensure the cluster remains up by establishing leases with other nodes and serving as tiebreakers during certain kinds of network failures. If a majority of the seed nodes are down in the cluster and they are not brought back, the cluster automatically shuts down. 
+
+A seed node is unhealthy if its node status is Down, Removed or Unknown.
+The warning report for seed node status will list all the unhealthy seed nodes with detailed information.
+
+* **SourceID**: System.FM
+* **Property**: SeedNodeStatus
+* **Next steps**: If this warning shows in the cluster, follow below instructions to fix it:
+If cluster is running Service Fabric version 6.5 or higher:
+   a. Service Fabric cluster on Azure
+   In this case, Service Fabric can detect the unhealthy seed nodes automatically and take actions to fix it. In order to make it work, make sure that the number of regular (non-seed) nodes is no less than the number of Down seed nodes. Depending on the cluster status, it may take some time to fix the issue.
+   b. Service Fabric standalone cluster
+   In this case, to clear the warning report, all the seed nodes need to become healthy. Depending on why seed nodes are unhealthy, different actions need to be taken: if the seed node is Down, people need to bring that seed node up; if the seed node is Removed or Unknown, this seed node needs to be removed from the cluster. Once all the seed nodes become healthy, the warning report will be cleared.
+
+If cluster is running Service Fabric version older than 6.5:
+   In this case, the warning report needs to be cleared manually. People should make sure all the seed nodes become healthy before clearing the report. If the seed node is Down, people need to bring that seed node up; if the seed node is Removed or Unknown, that seed node needs to be removed from the cluster.
+   After all the seed nodes become healthy, use following command from Powershell to clear the warning report:
+   Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
+
+
 ## Node system health reports
 **System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
