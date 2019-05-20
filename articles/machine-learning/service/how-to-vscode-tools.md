@@ -69,7 +69,7 @@ To install the Azure Machine Learning extension:
 
 ## Get started with Azure Machine Learning
 
-Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md#workspace) in the cloud. This workspace will contain your models and resources. 
+Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning service workspace](concept-workspace.md) in the cloud. This workspace will contain your models and resources. 
 
 To create a workspace and add your first experiment:
 

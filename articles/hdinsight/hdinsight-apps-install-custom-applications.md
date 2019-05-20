@@ -112,8 +112,8 @@ From the portal, you can also delete the cluster or delete the resource group wh
 ### Use Azure PowerShell
 Using Azure PowerShell, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### Use Azure Classic CLI
-Using Azure Classic CLI, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure Classic CLI](hdinsight-administer-use-command-line.md#delete-clusters).
+### Use Azure CLI
+Using Azure CLI, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## Next steps
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): learn how to develop Resource Manager templates for deploying HDInsight applications.

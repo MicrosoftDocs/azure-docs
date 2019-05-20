@@ -20,7 +20,7 @@ Use this quickstart to begin searching for news with the Bing News Search SDK fo
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
@@ -37,7 +37,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 ## Create and initialize a project
 
-1. create a new C# console solution in Visual Studio. Then add the following into the main code file.
+1. Create a new C# console solution in Visual Studio. Then add the following into the main code file.
     
     ```csharp
     using System;

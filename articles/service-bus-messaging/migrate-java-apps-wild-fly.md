@@ -64,7 +64,7 @@ You'll migrate WildFly/JBoss sample apps to Azure. These apps use:
 After migration, you'll run the apps using Azure Service Bus.
 
 ## Prerequisites
-To deploy a Java web app to Azure, you need an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account]((https://azure.microsoft.com/pricing/free-trial/)).
+To deploy a Java web app to Azure, you need an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/en-us/free/).
 
 In addition, you'll need the following prerequisites:
 
@@ -937,7 +937,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
 
 For additional info, refer to: 
  
- - [Deploying Generic JMS RA Adapter in JBoss/WildFly](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+ - [Deploying Generic JMS RA Adapter in JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
  - [JBoss/WildFly CLI Guide](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
  - [Open SSH session from your development machine to App Service Linux](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
 

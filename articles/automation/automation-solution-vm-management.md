@@ -427,7 +427,9 @@ If you decide you no longer need to use the solution, you can delete it from the
 
 To delete the solution, perform the following steps:
 
-1. From your Automation account, select **Workspace** from the left page.
+1. From your Automation account, under **Related resources**, select **Linked workspace**.
+1. Select **Go to workspace**.
+1. Under **General**, select **Solutions**. 
 1. On the **Solutions** page, select the solution **Start-Stop-VM[Workspace]**. On the **VMManagementSolution[Workspace]** page, from the menu, select **Delete**.<br><br> ![Delete VM Mgmt Solution](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. In the **Delete Solution** window, confirm that  you want to delete the solution.
 1. While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu. You are returned to the **Solutions** page after the process to remove the solution starts.

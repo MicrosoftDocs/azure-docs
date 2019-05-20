@@ -154,7 +154,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Azure Storage data movement API and library references
 * [Storage Import/Export Service REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [Storage Data Movement Client Library for .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
+* [Storage Data Movement Client Library for .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### Tools and utilities
 * [Azure PowerShell Cmdlets for Storage](https://docs.microsoft.com/powershell/module/az.storage)

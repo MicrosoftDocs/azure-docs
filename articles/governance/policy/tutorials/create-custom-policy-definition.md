@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
 ---
-# Create a custom policy definition
+# Tutorial: Create a custom policy definition
 
 A custom policy definition allows customers to define their own rules for using Azure. These rules
 often enforce:

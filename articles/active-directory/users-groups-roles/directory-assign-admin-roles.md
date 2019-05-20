@@ -161,10 +161,15 @@ The following administrator roles are available:
   *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
+
+  > [!NOTE]
+  > Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+
   > [!NOTE]
   > This role was previously called "Password Administrator" in [Azure portal](https://portal.azure.com/). We are changing its name to "Helpdesk Administrator" to match its name in Azure AD PowerShell, Azure AD Graph API and Microsoft Graph API. For a short time, we will change the name to "Helpdesk (Password) Administrator" in Azure portal before the change to "Helpdesk Administrator".
-  >
-  
+
+
 * **[Power BI Administrator](#power-bi-service-administrator)**: Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).

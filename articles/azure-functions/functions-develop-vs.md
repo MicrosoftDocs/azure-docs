@@ -1,6 +1,6 @@
 ---
 title: Develop Azure Functions using Visual Studio  | Microsoft Docs
-description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2017.
+description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
 services: functions
 documentationcenter: .net
 author: ggailey777  
@@ -14,7 +14,7 @@ ms.author: glenga
 ---
 # Develop Azure Functions using Visual Studio  
 
-Azure Functions Tools for Visual Studio 2017 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
+Azure Functions Tools for Visual Studio 2019 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
 The Azure Functions Tools provides the following benefits: 
 
@@ -24,16 +24,16 @@ The Azure Functions Tools provides the following benefits:
 * Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
 * Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-This article provides details about how to use the Azure Functions Tools for Visual Studio 2017 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
+This article provides details about how to use the Azure Functions Tools for Visual Studio 2019 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
 
 ## Prerequisites
 
-Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
+Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2019 installation:
 
-![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Install Visual Studio 2019 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Make sure that your Visual Studio is up-to-date and that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools.
 

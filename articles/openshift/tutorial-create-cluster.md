@@ -31,7 +31,7 @@ In this tutorial series you learn how to:
 > [!IMPORTANT]
 > This tutorial requires version 2.0.65 of the Azure CLI.
 >    
-> Before you can use Azure Red Hat Openshift, you need to purchase Azure virtual machine reserved instances as described in [Set up your Azure Red Hat Openshift development environment](howto-setup-environment.md#purchase-azure-virtual-machine-reserved-instances).
+> Before you can use Azure Red Hat Openshift, you need to purchase Azure virtual machine reserved instances as described in [Set up your Azure Red Hat Openshift development environment](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
 
 Before you begin this tutorial:
 
