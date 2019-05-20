@@ -108,7 +108,7 @@
             - name: Restore missing service principals
               href: active-directory-ds-troubleshoot-service-principals.md
             - name: Secure LDAP errors
-              href: active-directory-ds-troubleshoot-ldaps.md
+              href: alert-ldaps.md
         - name: Resolve mismatched tenant errors
           href: mismatched-tenant-error.md
         - name: Suspended domains

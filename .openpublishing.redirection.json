@@ -39119,6 +39119,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-troubleshoot-ldaps.md",
+      "redirect_url" : "/azure/active-directory-domain-services/alert-ldaps",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-troubleshoot-alerts.md",
       "redirect_url" : "/azure/active-directory-domain-services/troubleshoot-alerts",
       "redirect_document_id": true
