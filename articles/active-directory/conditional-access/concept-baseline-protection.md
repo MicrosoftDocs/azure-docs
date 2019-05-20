@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Conditional access baseline protection policies - Azure Active Directory
+description: Baseline conditional access policies to protect organizations from common attacks
 
 services: active-directory
 ms.service: active-directory
@@ -25,10 +25,10 @@ Managing customized conditional access policies requires an Azure AD Premium lic
 
 There are four baseline policies that organizations can enable:
 
-* Require MFA for admins
-* End user protection (preview)
-* Block legacy authentication (preview)
-* Require MFA for service management (preview)
+* [Require MFA for admins](howto-baseline-protect-administrators.md)
+* [End user protection (preview)](howto-baseline-protect-end-users.md)
+* [Block legacy authentication (preview)](howto-baseline-protect-legacy-auth.md)
+* [Require MFA for service management (preview)](howto-baseline-protect-azure.md)
 
 All four of these policies will impact legacy authentication flows like POP, IMAP, and older Office desktop clients.
 
@@ -65,7 +65,7 @@ The **Block legacy authentication (preview)** baseline policy blocks authenticat
 
 ### Require MFA for service management (preview)
 
-Organizations use a variety of Azure services and manage them from Azure Resource Manager (ARM) based tools:
+Organizations use a variety of Azure services and manage them from Azure Resource Manager based tools like:
 
 * Azure portal
 * Azure PowerShell
@@ -88,5 +88,10 @@ To enable a baseline policy:
 ## Next steps
 
 For more information, see:
-[Five steps to securing your identity infrastructure](../security/azure-ad-secure-steps.md)
-[What is conditional access in Azure Active Directory?](overview.md)
+
+* [Five steps to securing your identity infrastructure](../security/azure-ad-secure-steps.md)
+* [What is conditional access in Azure Active Directory?](overview.md)
+* [Require MFA for admins](howto-baseline-protect-administrators.md)
+* [End user protection (preview)](howto-baseline-protect-end-users.md)
+* [Block legacy authentication (preview)](howto-baseline-protect-legacy-auth.md)
+* [Require MFA for service management (preview)](howto-baseline-protect-azure.md)
