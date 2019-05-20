@@ -30,7 +30,7 @@ You also need the Azure CLI version **2.0.33** or later. Run `az --version` to f
 
 To install the Virtual Kubelet, [Helm](https://docs.helm.sh/using_helm/#installing-helm) is also required.
 
-## Register Container Instances feature provider
+### Register Container Instances feature provider
 
 If you have not previously used the Azure Container Instance (ACI) service, register the service provider with your subscription. You can check the status of the ACI provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
 
