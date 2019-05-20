@@ -13,13 +13,15 @@ ms.author: sajaya
 
 # Frequently asked questions about Azure Container Registry
 
+This article addresses frequently asked questions and known issues about Azure Container Registry.
+
 ## Resource management
 
 - [Can I create an Azure container registry using a Resource Manager template?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
 - [Is there security vulnerability scanning for images in ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
-- [How to configure Kubernetes with Azure Container Registry?](#how-to-configure-kubernetes-with-azure-container-registry)
-- [How to get admin credentials for a container registry?](#how-to-get-admin-credentials-for-a-container-registry)
-- [How to get admin credentials in a Resource Manager template?](#how-to-get-admin-credentials-in-a-resource-manager-template)
+- [How do I configure Kubernetes with Azure Container Registry?](#how-do-i-configure-kubernetes-with-azure-container-registry)
+- [How do I get admin credentials for a container registry?](#how-do-i-get-admin-credentials-for-a-container-registry)
+- [How do I get admin credentials in a Resource Manager template?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
@@ -30,12 +32,11 @@ Yes. Here is [a template](https://github.com/Azure/azure-cli/blob/master/src/com
 
 Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
-
-### How to configure Kubernetes with Azure Container Registry?
+### How do I configure Kubernetes with Azure Container Registry?
 
 See the documentation for [Kubernetes](http://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](container-registry-auth-aks.md).
 
-### How to get admin credentials for a container registry?
+### How do I get admin credentials for a container registry?
 
 > [!IMPORTANT]
 > The admin user account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. Individual identity is recommended for users and service principals for headless scenarios. See [Authentication overview](container-registry-authentication.md).
@@ -54,7 +55,7 @@ Using Azure Powershell:
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
 ```
 
-### How to get admin credentials in a Resource Manager template?
+### How do I get admin credentials in a Resource Manager template?
 
 > [!IMPORTANT]
 > The admin user account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. Individual identity is recommended for users and service principals for headless scenarios. See [Authentication overview](container-registry-authentication.md).
@@ -88,22 +89,22 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 
 ## Registry operations
 
-- [How to access Docker Registry HTTP API V2?](#how-to-access-docker-registry-http-api-v2)
-- [How to delete all manifests that are not referenced by any tag in a repository?](#how-to-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
+- [How do I access Docker Registry HTTP API V2?](#how-do-i-access-docker-registry-http-api-v2)
+- [How do I delete all manifests that are not referenced by any tag in a repository?](#how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
 - [Why does the registry quota usage not reduce after deleting images?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [How do I validate storage quota changes?](#how-do-i-validate-storage-quota-changes)
-- [How to authenticate with my registry when running the CLI in a container?](#how-to-authenticate-with-my-registry-when-running-the-cli-in-a-container)
+- [How do I authenticate with my registry when running the CLI in a container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
 - [Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
 - [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust)
-- [How to grant access to pull or push images without the permission to manage the registry resource](#how-to-grant-access-to-pull-or-push-images-without-the-permission-to-manage-the-registry-resource)
-- [How to enable automatic image quarantine for a registry](#how-to-enable-automatic-image-quarantine-for-a-registry)
+- [How do I grant access to pull or push images without the permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-the-permission-to-manage-the-registry-resource)
+- [How do I enable automatic image quarantine for a registry](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 
-### How to access Docker Registry HTTP API V2?
+### How do I access Docker Registry HTTP API V2?
 
 ACR supports Docker Registry HTTP API V2. The APIs can be accessed at
-`https://\<your registry login server\>/v2/`. Example: `https://mycontainerregistry.azurecr.io/v2/`
+`https://<your registry login server>/v2/`. Example: `https://mycontainerregistry.azurecr.io/v2/`
 
-### How to delete all manifests that are not referenced by any tag in a repository?
+### How do I delete all manifests that are not referenced by any tag in a repository?
 
 If you are on bash:
 
@@ -154,7 +155,7 @@ Delete the image using the Azure CLI or portal and check the updated usage in a 
 az acr repository delete -n myregistry --image 1gb
 ```
 
-### How to authenticate with my registry when running the CLI in a container?
+### How do I authenticate with my registry when running the CLI in a container?
 
 You need to run the Azure CLI container by mounting the Docker socket:
 
@@ -192,12 +193,12 @@ Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
 It is suggested to verify those public keys and certificates after the overall TUF verification done by the Docker and Notary client.
 
-### How to grant access to pull or push images without the permission to manage the registry resource
+### How do you grant access to pull or push images without permission to manage the registry resource?
 
-ACR supports [custom roles](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-roles) that provide different levels of permissions. Specifically, `AcrPull` and `AcrPush` roles allow users to pull and/or push images without the permission to manage the registry resource in Azure.
+ACR supports [custom roles](container-registry-roles.md) that provide different levels of permissions. Specifically, `AcrPull` and `AcrPush` roles allow users to pull and/or push images without the permission to manage the registry resource in Azure.
 
-* Azure Portal: Your registry -> Access Control (IAM) -> Add (Select `AcrPull` or `AcrPush` for the Role).
-* Azure CLI: Find the resource id `id` of the registry by running the following command:
+* Azure portal: Your registry -> Access Control (IAM) -> Add (Select `AcrPull` or `AcrPush` for the Role).
+* Azure CLI: Find the resource ID of the registry by running the following command:
 
   ```azurecli
   az acr show -n myRegistry
@@ -237,10 +238,9 @@ The assignee is then able to authenticate and access images in the registry.
 
 With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have the permission to manage the registry resource in Azure. For example, `az acr list` or `az acr show -n myRegistry` won't show the registry.
 
-### How to enable automatic image quarantine for a registry
+### How do you enable automatic image quarantine for a registry?
 
 Image quarantine is currently a preview feature of ACR. You can enable the quarantine mode of a registry so that only those images which have successfully passed security scan are visible to normal users. For details, see the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
-
 
 ## Diagnostics
 
@@ -249,6 +249,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)	
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
+- [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 
 ### docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 
@@ -380,12 +381,16 @@ redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$regis
 curl $redirect_url
 ```
 
+### Why does the Azure portal not list all my repositories or tags? 
+
+If you are using the Edge browser, you can see at most 100 repositories or tags listed. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+
 ## Tasks
 
-- [How to batch cancel runs?](#how-to-batch-cancel-runs)
-- [How to include .git folder in az acr build command?](#how-to-include-git-folder-in-az-acr-build-command)
+- [How do I batch cancel runs?](#how-do-i-batch-cancel-runs)
+- [How do I include the .git folder in az acr build command?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
 
-### How to batch cancel runs?
+### How do I batch cancel runs?
 
 The following commands cancel all running tasks in the specified registry.
 
@@ -394,7 +399,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 | xargs -I% az acr task cancel-run -r $myregistry --run-id %
 ```
 
-### How to include .git folder in az acr build command?
+### How do I include the .git folder in az acr build command?
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
