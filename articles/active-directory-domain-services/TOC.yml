@@ -89,7 +89,7 @@
         - name: Windows Server VM from template
           href: active-directory-ds-join-windows-vm-template.md
         - name: CentOS
-          href: active-directory-ds-join-centos-linux-vm.md
+          href: join-centos-linux-vm.md
         - name: CoreOS
           href: active-directory-ds-join-coreos-linux-vm.md
         - name: Red Hat Enterprise Linux
