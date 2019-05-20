@@ -15,13 +15,13 @@ ms.author: cshoe
 
 # Register Azure Functions binding extensions
 
-As of Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
+In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
 
-Consider the following items pertaining to binding extensions:
+Consider the following items related to binding extensions:
 
-- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio 2017](#local-csharp).
+- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio 2019](#local-csharp).
 
-- HTTP and timer triggers are supported by default and do not require an extension.
+- HTTP and timer triggers are supported by default and don't require an extension.
 
 The following table indicates when and how you register bindings.
 
@@ -29,7 +29,7 @@ The following table indicates when and how you register bindings.
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic|
 |Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
-|C# class library using Visual Studio 2017|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|
+|C# class library using Visual Studio 2019|[Use NuGet tools](#c-class-library-with-visual-studio-2019)|[Use NuGet tools](#c-class-library-with-visual-studio-2019)|
 |C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
 ## Local development with Azure Functions Core Tools and extension bundles
@@ -37,9 +37,9 @@ The following table indicates when and how you register bindings.
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 <a name="local-csharp"></a>
-## C# class library with Visual Studio 2017
+## C# class library with Visual Studio 2019
 
-In **Visual Studio 2017**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
+In **Visual Studio 2019**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
