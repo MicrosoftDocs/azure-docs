@@ -16,13 +16,13 @@ manager: carmonm
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. 
 
-This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. To learn about configuring Application Insights without Visual Studio checkout this [article](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio).
+This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. To learn about configuring Application Insights without Visual Studio checkout this [article](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 ## Prerequisites
 
 To complete this quickstart:
 
-- [Install Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+- [Install Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
   - ASP.NET and web development
   - Azure development
 - [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)

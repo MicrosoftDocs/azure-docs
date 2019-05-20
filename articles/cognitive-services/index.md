@@ -292,7 +292,7 @@ ms.topic: hub-page
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Forms Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Form Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Ink Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                     </div>

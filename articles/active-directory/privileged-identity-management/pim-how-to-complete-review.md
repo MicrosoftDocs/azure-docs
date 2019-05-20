@@ -28,7 +28,7 @@ After the access review period is over, or all the users have finished their sel
 
 On the access review's detail blade, there are a number options for managing that review.
 
-![PIM access review buttons - screenshot](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![PIM access review buttons - screenshot](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### Remind
 If an access review is set up so that the users review themselves, the **Remind** button sends out a notification. 

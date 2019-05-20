@@ -38,6 +38,9 @@ To build a serverless app in Visual Studio, you need these items:
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure 
     > that you select the **Azure development** workload.
+    > For Visual Studio 2019, Cloud Explorer can open the 
+    > Logic App Designer in the Azure portal, but can't 
+    > yet open the embedded Logic App Designer.
 
   * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). 
   Learn more about [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).

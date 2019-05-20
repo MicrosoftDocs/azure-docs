@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 3. Choose **Create a resource** in the top-left corner of the Azure portal.
 4. Search for and select **Active Directory B2C**, and then click **Create**.
-5. Choose **Create a new Azure AD B2C Tenant**, enter an organization name and initial domain name, which is used in the tenant name, select the country (it can't be changed later), and then click **Create**.
+5. Choose **Create a new Azure AD B2C Tenant**, enter an organization name and initial domain name, which is used in the tenant name, select the country/region (it can't be changed later), and then click **Create**.
 
     ![Create a tenant](./media/tutorial-create-tenant/create-tenant.png)
 

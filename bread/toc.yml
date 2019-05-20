@@ -142,9 +142,6 @@
   - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
-  - name: Azure China 21Vianet
-    tocHref: /azure/china/
-    topicHref: /azure/china/
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
@@ -699,14 +696,14 @@
         items:
           - name: Linux classic deployments
             tocHref: /azure/virtual-machines/linux/classic/
-            topicHref: /azure/virtual-machines/linux/classic/
+            topicHref: /previous-versions/azure/virtual-machines/linux/classic/
       - name: Windows
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/
         items:
           - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
-            topicHref: /azure/virtual-machines/windows/classic/
+            topicHref: /previous-versions/azure/virtual-machines/windows/classic/
           - name: SQL VM
             tocHref: /azure/virtual-machines/windows/sql
             topicHref: /azure/virtual-machines/windows/sql
