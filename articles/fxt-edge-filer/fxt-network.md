@@ -45,7 +45,7 @@ Each Azure FXT Edge Filer node includes the following network ports:
 
 * Six high-speed 25GbE/10GbE dual rate data ports: 
 
-  * Four ports provided by two dual-port plub-in network adapters
+  * Four ports provided by two dual-port plug-in network adapters
   * Two ports provided by the motherboard mezzanine network adapter 
 
 * Two 1GbE ports provided by the motherboard mezzanine network adapter 

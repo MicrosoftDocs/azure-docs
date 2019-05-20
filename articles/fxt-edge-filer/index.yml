@@ -10,7 +10,7 @@ metadata:
   ms.date: 05/20/2019
   ms.author: v-erkell
 abstract:
-  description: The Microsoft Azure FXT Edge Filer hybrid storage cache is a hardware/software hybrid system that speeds up data access for file-based, read-intensive high performance computing (HPC) workflows. A cluster of three or more FXT Edge Filer devices can accelerate storage performance for on-premises NAS systems (NetApp or Dell EMC Isilon), cloud storage, or a combination of solutions. 
+  description: The Microsoft Azure FXT Edge Filer hybrid storage cache is a hardware/software hybrid system that speeds up data access for file-based, read-intensive high-performance computing (HPC) workflows. A cluster of three or more FXT Edge Filer devices can accelerate storage performance for on-premises NAS systems (NetApp or Dell EMC Isilon), cloud storage, or a combination of solutions. 
   
 sections:
 - title: Step-by-step tutorials  
