@@ -271,16 +271,16 @@ The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/
 
    POA(v1.4.0 and above) posts events with property "ClusterPatchingStatus" on CoordinaterService to display the nodes which are being patched. Below image shows that updates are getting installed on _poanode_0:
 
-    [![Image of Cluster patching status](media/service-fabric-patch-orchestration-application/ClusterPatchingStatus.png)](media/service-fabric-patch-orchestration-application/ClusterPatchingStatus.png#lightbox)
+    [![Image of Cluster patching status](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
 
 4. Once the node is disabled, the repair task is moved to Executing state. Note, a repair task stuck in preparing state, after because a node is stuck in disabling state can result in blocking new repair task and hence halt patching of cluster.
 5. Once repair task is in executing state, the patch installation on that node begins. Here on, once the patch is installed, the node may or may not be restarted depending on the patch. Post that the repair task is moved to restoring state, which enables back the node again and then it is marked as completed.
 
    In v1.4.0 and above versions of the application, status of the update can be found by looking at the health events on NodeAgentService with property "WUOperationStatus-[NodeName]". The highlighted sections in the images below show the status of windows update on node 'poanode_0' and 'poanode_2':
 
-   [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png#lightbox)
+   [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusB.png)](media/service-fabric-patch-orchestration-application/WUOperationStatusB.png#lightbox)
+   [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    One can also get the details using powershell, by connecting to the cluster and fetching the state of the repair task using [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted once the task moves to Executing state.
 
@@ -308,7 +308,7 @@ The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/
 
 6. In v1.4.0 and above of the application, when update attempt on a node completes, an event with property "WUOperationStatus-[NodeName]" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
 
-     [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusC.png)](media/service-fabric-patch-orchestration-application/WUOperationStatusC.png#lightbox)
+     [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### Diagnostic logs
 
