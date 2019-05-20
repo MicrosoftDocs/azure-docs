@@ -72,7 +72,7 @@ Worker pool 1 is used for production workloads, while worker pool 2 and worker p
 
 The App Service plans for QA and dev are configured to manual scale. The production App Service plan is set to autoscale to deal with variations in load and traffic.
 
-Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
+Frank is very familiar with the application. They know that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
 
 ![Specific settings for LOB app.][asp-scale]
 
