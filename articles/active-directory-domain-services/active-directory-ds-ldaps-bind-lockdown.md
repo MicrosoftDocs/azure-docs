@@ -69,4 +69,4 @@ The sample NSG in the following table locks down secure LDAP access over the int
 
 
 ## Next step
-[Troubleshoot secure LDAP on a managed domain](active-directory-ds-ldaps-troubleshoot.md)
+[Troubleshoot secure LDAP on a managed domain](tshoot-ldaps.md)

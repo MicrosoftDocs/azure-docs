@@ -114,7 +114,7 @@
         - name: Suspended domains
           href: active-directory-ds-suspension.md
         - name: Troubleshoot secure LDAP
-          href: active-directory-ds-ldaps-troubleshoot.md
+          href: tshoot-ldaps.md
 - name: Resources
   items: 
     - name: FAQs
