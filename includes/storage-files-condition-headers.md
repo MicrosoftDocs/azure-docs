@@ -12,7 +12,7 @@
 
 ## Error ConditionHeadersNotSupported from a Web Application using Azure Files from Browser
 
-When accessing content hosted in Azure Files through an application that makes use of conditional headers, such as a web browser, access fails, displaying a ConditionalHeaderNotSupported error.
+When accessing content hosted in Azure Files through an application that makes use of conditional headers, such as a web browser, access fails, displaying a ConditionHeadersNotSupported error.
 
 ![ConditionHeaderNotSupported Error](media/storage-files-condition-headers/conditionalerror.png)
 
@@ -22,6 +22,6 @@ Conditional headers are not yet supported, applications implementing them will n
 
 ### Workaround
 
-When a new file is uploaded, the cache-control property by default is “no-cache”. To force the application to request the file every time, the file's cache-control property needs to be updated from “no-cache” to “no-cache, no-store, must-revalidate”.
+When a new file is uploaded, the cache-control property by default is “no-cache”. To force the application to request the file every time, the file's cache-control property needs to be updated from “no-cache” to “no-cache, no-store, must-revalidate”. This can be achieved using [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
 
 ![Cache-control-property update](media/storage-files-condition-headers/cachecontroloptions.png)
