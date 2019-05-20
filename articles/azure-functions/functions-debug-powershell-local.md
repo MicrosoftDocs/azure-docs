@@ -91,13 +91,13 @@ With `Wait-Debugger` in place, you can now debug the functions using either Visu
 
 ## Debug in Visual Studio Code
 
-To debug your PowerShell functions in Visual Studio Code, you must have the following:
+To debug your PowerShell functions in Visual Studio Code, you must have the following dependencies:
 
 * [PowerShell extension for Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md)
 * [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell#powershell-core)
 
-After installing these, load an existing function app project. You can also [create a Functions project](functions-create-first-function-vs-code.md).
+After installing these dependencies, load an existing function app project. You can also [create a Functions project](functions-create-first-function-vs-code.md).
 
 >[!IMPORTANT]
 > Since PowerShell Core installs side-by-side with Windows PowerShell, you need to set PowerShell Core as the PowerShell version to use with the PowerShell extension for Visual Studio Code. See the [PowerShell extension docs](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension) on how to make sure you're using PowerShell Core.
