@@ -96,7 +96,7 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 - [How do I authenticate with my registry when running the CLI in a container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
 - [Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
 - [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust)
-- [How do I grant access to pull or push images without the permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-the-permission-to-manage-the-registry-resource)
+- [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [How do I enable automatic image quarantine for a registry](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 
 ### How do I access Docker Registry HTTP API V2?
