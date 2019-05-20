@@ -28,22 +28,23 @@ Endpoint Protection assessment and recommendation in Azure Security Center detec
 
 ## Windows Defender
 
-* The Install endpoint protection solutions on virtual machine recommendation appears when [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) ran and the result was AMServiceEnabled  : False
+* The **Install endpoint protection solutions on virtual machine** recommendation appears when [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) ran and the result was AMServiceEnabled  : False
 
-* The Resolve endpoint protection health issues on your machines recommendation appears when  [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) ran and either or both of the following occurred:
+* The **Resolve endpoint protection health issues on your machines** recommendation appears when  [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) ran and either or both of the following occurred:
 
-        * At least one of the following properties is false:
-            'AMServiceEnabled'
-            'AntispywareEnabled'
-            'RealTimeProtectionEnabled'
-            'BehaviorMonitorEnabled'
-            'IoavProtectionEnabled'
-            'OnAccessProtectionEnabled'
+  * At least one of the following properties is false:
 
-        * If one or both of the following properties is greater or equal to 7. 
+     'AMServiceEnabled'
+     'AntispywareEnabled'
+     'RealTimeProtectionEnabled'
+     'BehaviorMonitorEnabled'
+     'IoavProtectionEnabled'
+     'OnAccessProtectionEnabled'
 
-            'AntispywareSignatureAge'
-            'AntivirusSignatureAge'
+  * If one or both of the following properties is greater or equal to 7.
+
+     'AntispywareSignatureAge'
+     'AntivirusSignatureAge'
 
 ## Microsoft System Center Endpoint Protection
 
@@ -52,12 +53,12 @@ Endpoint Protection assessment and recommendation in Azure Security Center detec
 * The **Resolve endpoint protection health issues on your machines** recommendation appears if the following checks when **Get-MprotComputerStatus** ran and either or both of the following occurred:
 
 * At least one of the following properties is false:
-      'AMServiceEnabled'
-      'AntispywareEnabled'
-      'RealTimeProtectionEnabled'
-      'BehaviorMonitorEnabled'
-      'IoavProtectionEnabled'
-      'OnAccessProtectionEnabled'
+   'AMServiceEnabled'
+   'AntispywareEnabled'
+   'RealTimeProtectionEnabled'
+   'BehaviorMonitorEnabled'
+   'IoavProtectionEnabled'
+   'OnAccessProtectionEnabled'
       
 * If one or both of the following Signature Updates is greater or equal to 7. 
 AntispywareSignatureAge
@@ -65,7 +66,7 @@ AntivirusSignatureAge
 
 ## Trend Micro
 
-* The Install endpoint protection solutions on virtual machine recommendation appears if one or more of the following checks are not met:
+* The **Install endpoint protection solutions on virtual machine** recommendation appears if one or more of the following checks are not met:
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
     * The **dsq_query.cmd** file is found in the Installation Folder
@@ -83,7 +84,7 @@ Or
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-The Resolve endpoint protection health issues on your machines will appear if any of the following checks are not met:  
+The **Resolve endpoint protection health issues on your machines** recommendation will appear if any of the following checks are not met:  
 
 * Check Symantec Version >= 12:  Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
@@ -110,7 +111,7 @@ The **Install endpoint protection solutions on virtual machine** recommendation 
 
 * **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-The Resolve endpoint protection health issues on your machines will appear if following checks are not met:
+The **Resolve endpoint protection health issues on your machines** recommendation will appear if following checks are not met:
 
 * McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
@@ -119,43 +120,6 @@ The Resolve endpoint protection health issues on your machines will appear if fo
 * Find Signature date: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
 
 * Find Scan date: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days**
-
-## McAfee Endpoint Security for Linux Threat Prevention
-The Install endpoint protection solutions on virtual machine recommendation appears if one or both of the following checks are not met:
-
-* File **/opt/isec/ens/threatprevention/bin/isecav** exits
-
-* Successfully ran **"/opt/isec/ens/threatprevention/bin/isecav --version"** and the output is: **McAfee name = McAfee Endpoint Security** for Linux Threat Prevention and **McAfee version >= 10**
-
-The Resolve endpoint protection health issues on your machines recommendation appears if one or both of the following checks are not met:
-
-* Running **"/opt/isec/ens/threatprevention/bin/isecav --version"** results with **mcafeeVersion**, **datVersion**, **datTime**, **engineVersion**
-* Running **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** to get **Quick scan**, **Full scan** and **DAT** and **engine Update time**. One of the scan **>= 7 days**, DAT and **engine Update time >= 7 days**
-* Run **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** to get **On Access Scan** status and **GTI status On Access Scan = On**
-* Run **"/opt/isec/ens/threatprevention/bin/isecav --getapstatus"** to get **Access Protection**
-
-## Sophos Antivirus for Linux
-
-The Install endpoint protection solutions on virtual machine appears if  one or more of the following checks are not met:
-
-* File **/opt/sophos-av/bin/savdstatus** exits or search for customized location **"readlink $(which savscan)"**
-* Successfully ran **"/opt/sophos-av/bin/savdstatus --version"**, and **Sophos name = Sophos Anti-Virus and Sophos version >= 9**
-
-The Resolve endpoint protection health issues on your machines recommendation appears if one or more of the following checks are not met:
-
-* Running **"/opt/sophos-av/bin/savdstatus --version"** gets **Sophos buildRevision**, **threatDetectionEngine**, **threatData**, **threatCount**, **threatDataRelease** and **lastUpdate**
-
-* Running **"/opt/sophos-av/bin/savdstatus --lastupdate"** gets **lastUpdate >= 7 days**
-
-* Running **"/opt/sophos-av/bin/savdstatus -v"** gets **On access scanning** status and it is not equal to **"On-access scanning is not running"**
-
-* Running **"/opt/sophos-av/bin/savconfig** gets **LiveProtection"** and is not enabled
-
-* Running **"/opt/sophos-av/bin/savdstatus --rms"** gets **remote management status**
-
-* Running **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished" | tail -1"** gets On demand scan date within past 7 days 
-
-* Running **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .* completed" | tail -1"** gets scheduled scan date within past 7 days One of On demand scan and scheduled scan needs to be happened within past 7 days
 
 ## Troubleshoot and support
 
