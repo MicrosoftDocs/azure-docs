@@ -4,7 +4,7 @@ description: Instructions to use recording tool
 author: joylital
 ms.author: jawirth, joylital
 ms.prod: kinect-dk
-ms.date: 3/5/2019
+ms.date: 06/05/2019
 ms.topic: quickstart
 keywords: azure, kinect, record, playback, reader, matroska, mkv, streams, depth, rgb, camera, color, imu, audio, sensor
 ---
@@ -15,7 +15,7 @@ This page provides information about how you can use the `k4arecorder` command p
 
 ## Prerequisites
 
-This quickstart assumes:
+This quick start assumes:
 
 * You have the Azure Kinect DK connected to your host PC and powered properly.
 * You have completed the set up hardware process.
