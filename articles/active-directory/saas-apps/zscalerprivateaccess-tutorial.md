@@ -59,10 +59,10 @@ Configure and test Azure AD SSO with Zscaler Private Access (ZPA) using a test u
 To configure and test Azure AD SSO with Zscaler Private Access (ZPA), complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure Zscaler Private Access (ZPA)](#configure-zscaler-private-Access-ZPA-sso)** to configure the SSO settings on application side.
+2. **[Configure Zscaler Private Access (ZPA)](#configure-zscaler-private-access-zpa)** to configure the SSO settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Zscaler Private Access (ZPA) test user](#create-zscaler-private-Access-ZPA-test-user)** to have a counterpart of Britta Simon in Zscaler Private Access (ZPA) that is linked to the Azure AD representation of user.
+5. **[Create Zscaler Private Access (ZPA) test user](#create-zscaler-private-access-zpa-test-user)** to have a counterpart of Britta Simon in Zscaler Private Access (ZPA) that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
