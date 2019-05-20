@@ -53,6 +53,7 @@ ms.custom: H1Hack27Feb2017
 [sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
 [sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
 [sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
+[high-availability-guide]:high-availability-guide.md
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-infrastructure-wsfc-file-share]:sap-high-availability-infrastructure-wsfc-file-share.md
@@ -204,11 +205,16 @@ Before you start the installation, review the following articles:
 
 * [Prepare Azure infrastructure SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances][sap-high-availability-infrastructure-wsfc-file-share]
 
+* [High availability for SAP NetWeaver on Azure VMs][high-availability-guide]
+
 You need the following executables and DLLs from SAP:
 * SAP Software Provisioning Manager (SWPM) installation tool version SPS25 or later.
-* Download the latest NTCLUST.SAR archive with new SAP cluster resource DLL. The new SAP cluster DLLs support SAP ASCS/SCS high availability with file share on Windows Server Failover Cluster.
+* SAP Kernel 7.49 or later
 
-  For more information about the new SAP cluster resource DLL, see this blog: [New SAP cluster resource DLL is available!][sap-blog-new-sap-cluster-resource-dll].
+> [!IMPORTANT]
+> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP NetWeaver 7.40 (and later), with SAP Kernel 7.49 (and later).
+>
+
 
 We do not describe the Database Management System (DBMS) setup because setups vary depending on the DBMS you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities that various DBMS vendors support for Azure. Such functionalities include AlwaysOn or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
 
@@ -315,6 +321,8 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
+Restart the SAP ASCS/SCS instance . 
+Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance]([high-availability-guide]:high-availability-guide.md). 
 
 ## Install a DBMS instance and SAP application servers
 
