@@ -45,7 +45,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
   > [!IMPORTANT]
   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those soon.
 
 ### Download the flight data
 
@@ -79,11 +79,9 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
     ![Create an Azure Databricks workspace](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Create an Azure Databricks service")
 
-3. Select **Pin to dashboard** and then select **Create**.
+3. The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
 
-4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
-
-    ![Databricks deployment tile](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Databricks deployment tile")
+4. Select **Pin to dashboard** and then select **Create**.
 
 ## Create a Spark cluster in Azure Databricks
 
@@ -176,7 +174,7 @@ Use these values to replace the mentioned placeholders.
    * Replace the `file-system-name` placeholder with any name that you want to give your file system.
 
    > [!NOTE]
-   > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+   > In a production setting, consider storing your password in Azure Databricks. Then, add a look up key to your code block instead of the password. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 

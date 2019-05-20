@@ -54,7 +54,7 @@ After selecting the subscription, the admin user must click **Access Control (IA
 
 The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu, the admin user sees only the built-in RBAC roles that are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles for Azure resources](built-in-roles.md).
 
-The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, he will be visible under **Subscriptions > Access Control (IAM)** with all the current users that are currently assigned an RBAC role at the Subscription scope.
+The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, they will be visible under **Subscriptions > Access Control (IAM)** with all the current users that are currently assigned an RBAC role at the Subscription scope.
 
 ![add permissions to new RBAC role](./media/role-assignments-external-users/3.png)
 
@@ -63,7 +63,7 @@ The admin user then needs to add the email address of the external user. The exp
 The user "chessercarlton@gmail.com" has been invited to be an **Owner** for the “Free Trial” subscription. After sending the invitation, the external user will receive an email confirmation with an activation link.
 ![email invitation for RBAC role](./media/role-assignments-external-users/5.png)
 
-Being external to the organization, the new user does not have any existing attributes in the "Default tenant Azure" directory. They will be created after the external user has given consent to be recorded in the directory that is associated with the subscription he has been assigned a role to.
+Being external to the organization, the new user does not have any existing attributes in the "Default tenant Azure" directory. They will be created after the external user has given consent to be recorded in the directory that is associated with the subscription they have been assigned a role to.
 
 ![email invitation message for RBAC role](./media/role-assignments-external-users/6.png)
 
