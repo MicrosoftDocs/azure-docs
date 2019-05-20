@@ -104,7 +104,7 @@
           href: troubleshoot-alerts.md          
           items: 
             - name: Fix a broken NSG configuration
-              href: active-directory-ds-troubleshoot-nsg.md
+              href: alert-nsg.md
             - name: Restore missing service principals
               href: active-directory-ds-troubleshoot-service-principals.md
             - name: Secure LDAP errors

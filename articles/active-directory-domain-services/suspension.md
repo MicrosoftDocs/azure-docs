@@ -63,7 +63,7 @@ In some cases (for example, if you have an invalid network configuration), the d
 A managed domain is put in the **Suspended** state for the following reasons:
 
 * One or more critical alerts haven't been resolved in 15 days. Critical alerts can be caused by a misconfiguration that blocks access to resources that are needed by Azure AD DS.
-    * For example, the alert [AADDS104: Network Error](active-directory-ds-troubleshoot-nsg.md) has been unresolved for more than 15 days in the managed domain.
+    * For example, the alert [AADDS104: Network Error](alert-nsg.md) has been unresolved for more than 15 days in the managed domain.
 * There's a billing issue with your Azure subscription or your Azure subscription has expired.
 
 Managed domains are suspended when Microsoft is unable to manage, monitor, patch, or back up the domain on an ongoing basis.

@@ -47,7 +47,7 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 6. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 
 > [!TIP]
-> Port 636 is not the only rule needed for Azure AD Domain Services to run smoothly. To learn more, visit the [Networking guidelines](networking.md) or [Troubleshoot NSG configuration](active-directory-ds-troubleshoot-nsg.md) articles.
+> Port 636 is not the only rule needed for Azure AD Domain Services to run smoothly. To learn more, visit the [Networking guidelines](networking.md) or [Troubleshoot NSG configuration](alert-nsg.md) articles.
 >
 
 ## AADDS502: Secure LDAP certificate expiring
