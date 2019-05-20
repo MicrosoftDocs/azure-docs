@@ -73,7 +73,7 @@ Azure DNS has the following limitations:
 * The virtual network must be completely empty the first time you link it to a private zone as a registration or resolution virtual network. However, the virtual network can then be non-empty for future linking as a registration or resolution virtual network, to other private zones.
 * Currently, conditional forwarding is not supported (for example, for enabling resolution between Azure and OnPrem networks). For information about how customers can realize this scenario via other mechanisms, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-For common questions and answers about private zones in Azure DNS, including specific DNS registration and resolution behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns).  
+For common questions and answers about private zones in Azure DNS, including specific DNS registration and resolution behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.md).  
 
 ## Pricing
 
@@ -85,7 +85,7 @@ Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./pr
 
 Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns). 
+For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.md).
 
 Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
 
