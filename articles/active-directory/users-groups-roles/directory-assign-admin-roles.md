@@ -1178,6 +1178,7 @@ Privileged Authentication Administrator | Privileged authentication administrato
 Privileged Role Administrator | Privileged role administrator | e8611ab8-c189-46e8-94e1-60213ab1f814
 Reports Reader | Reports reader | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Security Administrator | Security administrator | 194ae4cb-b126-40b2-bd5b-6091b380977d
+Security Operator | Security operator | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Security Reader | Security reader | 5d6b6bb7-de71-4623-b4af-96380a352509
 Service Support Administrator | Service administrator | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint Service Administrator | Sharepoint administrator | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
