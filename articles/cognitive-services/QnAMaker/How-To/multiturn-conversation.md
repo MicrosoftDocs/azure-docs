@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 05/14/2019
+ms.date: 05/20/2019
 ms.author: diberry
 #
 ---
@@ -31,29 +31,100 @@ A chat bot manages the conversation, question by question, with the user to dete
 
 ![Within the conversational flow, manage conversation state in a multi-turn dialog system by providing prompts within the answers presented as options to continue the conversation.](../media/conversational-context/conversation-in-bot.png)
 
-In the preceding image, the user's question needs to be refined before returning the answer. In the knowledge base, the question (#1), has four follow-up prompts, presented in the chat bot as four choices (#2). 
+In the preceding image, the user entered `My account`. The knowledge base has 3 linked QnA pairs. The user needs to select from one of the three choices to refine the answer. In the knowledge base, the question (#1), has three follow-up prompts, presented in the chat bot as three choices (#2). 
 
 When the user selects a choice (#3), then the next list of refining choices (#4) is presented. This can continue (#5) until the correct and final answer (#6) is determined.
 
-You need to change your client application to manage the contextual conversation.
+The preceding image has **Enable multi-turn** selected in order to have selectable prompts displayed. 
 
-## Create a multi-turn conversation from document's structure
+### Using multi-turn in a bot
+
+You need to change your client application to manage the contextual conversation. You will need to add [code to your bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting) to see the prompts.  
+
+## Create a multi-turn conversation from a document's structure
+
 When you create a knowledge base, you will see an optional check-box to enable multi-turn extraction. If you select this option, when you import a document, the multi-turn conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you. 
+
 Multi-turn structure can only be inferred from URLs, PDF, or DOCX files. 
 
-The following image of a Microsoft Surface [PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf) is meant to be used as a manual. 
+The following image of a Microsoft Surface [PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf) is meant to be used as a manual. Due to the size of this PDF file, the Azure QnA Maker resource requires the Search pricing tier is B (15 indexes) or greater. 
 
 ![![If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import.](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
 When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
 
-![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+1. In **Step 1**, select **Create a knowledge base** from the top navigation.
+1. In **Step 2**, create or use an existing QnA service. Make sure to use a QnA service with a Search service of B15 or higher because the Surface Manual PDF file, used later is too large for a smaller tier.
+1. In **Step 3**, enter a name for your knowledge base, such as `Surface manual`.
+1. In **Step 4**, select **Enable multi-turn extraction from URLs, .pdf or .docx files.** Select the URL for the Surface Manual
+
+    ```text
+    https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).```
+
+1. Select the **Create your KB** button. 
+
+    Once the knowledge is created, a view of the question and answer pairs displays.
 
 ## Show questions and answers with context
 
-1. Reduce the question and answer pairs displayed to just those with contextual conversations. Select **View options**, then select **Show context (PREVIEW)**. The list will be empty until you add the first question and answer pair with a follow-up prompt. 
+Reduce the question and answer pairs displayed to just those with contextual conversations. 
+
+1. Select **View options**, then select **Show context (PREVIEW)**. The list shows question and answer pairs containing follow-up prompts. 
 
     ![Filter question and answer pairs by contextual conversations](../media/conversational-context/filter-question-and-answers-by-context.png)
+
+2. The multi-turn context displays in the first column.
+
+    ![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+
+    The bold text in the column indicates the current question. The parent question is the first question. Any questions below are the linked question and answer pairs. 
+
+## Add existing QnA pair as follow-up prompt
+
+The original question of `My account` correctly returns the `Accounts and signing in` answer and already has the follow-up prompts linked.
+
+![The original question of `My account` correctly returns the `Accounts and signing in` answer and already has the follow-up prompts linked.](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
+
+1. Change the **View options** to include all question and answer pairs by selecting **Hide context (PREVIEW)**. 
+1. To link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair. For the Surface manual, search for `Sign out` to reduce the list
+1. Select **Add follow-up prompt** in the row for `Signout`.
+1. In the **Follow-up prompt (PREVIEW)** pop-up window, enter the following:
+
+    |Field|Value|
+    |--|--|
+    |Display text|`Turn off the device`. This is custom text you choose to display in the follow-up prompt.|
+    |Context-only|Selected. This answer will only be returned if the question specifies context.|
+    |Link to Answer|Enter `Use the sign-in screen` to find the existing QnA pair.|
+
+
+1.  One match is returned. Select the answer you want as the follow-up, then select **Save**. 
+
+    ![Search the Follow-up prompt's Link to Answer dialog for an existing answer, using the text of the answer.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    Once you have added the follow-up prompt, remember to select **Save and train** in the top navigation.
+  
+<!--
+
+## To find best prompt answer, add metadata to follow-up prompts 
+
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
+
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
+    |--|--|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
+    
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+
+1. Save and train. 
+
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## Add new QnA pair as follow-up prompt
 
@@ -100,38 +171,6 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 
 1. Select **Save and Train** to train the knowledge base with the new questions. 
 
-## Add existing QnA pair as follow-up prompt
-
-1. If you want to link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair.
-1. Select **Add follow-up prompt** in that row.
-1. In the **Follow-up prompt (PREVIEW)** pop-up window, enter the answer text in the search box. All matches are returned. Select the answer you want as the follow-up, and check **Context-only**, then select **Save**. 
-
-    ![Search the Follow-up prompt's Link to Answer dialog for an existing answer, using the text of the answer.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
-
-    Once you have added the follow-up prompt, remember to select **Save and train**.
-  
-<!--
-
-## To find best prompt answer, add metadata to follow-up prompts 
-
-If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
-
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
-
-1. For the two follow-up QnA pairs, add metadata to each one:
-
-    |Question|Add metadata|
-    |--|--|
-    |`Feedback on an QnA Maker service`|"Feature":"all"|
-    |`Feedback on an existing feature`|"Feature":"one"|
-    
-    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
-
-1. Save and train. 
-
-    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
-
--->
 
 ## Test the QnA set to get all the follow-up prompts
 
