@@ -19,8 +19,8 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Baseline Protection
-    href: baseline-protection.md
+  - name: Baseline protection policies
+    href: concept-baseline-protection.md
   - name: Conditions
     href: conditions.md
   - name: Location conditions
