@@ -79,11 +79,9 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
     ![Create an Azure Databricks workspace](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Create an Azure Databricks service")
 
-3. Select **Pin to dashboard** and then select **Create**.
+3. The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
 
-4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
-
-    ![Databricks deployment tile](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Databricks deployment tile")
+4. Select **Pin to dashboard** and then select **Create**.
 
 ## Create a Spark cluster in Azure Databricks
 
