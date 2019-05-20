@@ -55,9 +55,9 @@ Run the following command to launch the Docker container for the device simulati
 
 ### Deploy all other microservices on local machine
 
-The following steps show you how to run the Remote Monitoring microservices in Visual Studio 2017:
+The following steps show you how to run the Remote Monitoring microservices in Visual Studio:
 
-1. Launch Visual Studio 2017
+1. Launch Visual Studio.
 1. Open the **remote-monitoring.sln** solution in the **services** folder in your local copy of the repository.
 1. In **Solution Explorer**, right-click the solution and the click **Properties**.
 1. Select **Common Properties > Startup Project**.

@@ -49,6 +49,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
+* [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
@@ -228,6 +229,9 @@ For more information, see [Virtual machine sizes](virtual-machines/linux/sizes.m
 The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+
+### Functions limits
+[!INCLUDE [functions-limits](../includes/functions-limits.md)]
 
 ### Scheduler limits
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
