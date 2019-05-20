@@ -53,7 +53,7 @@ This channel is shipped as part of the `Microsoft.ApplicationInsights` nuget pac
 
 Telemetry Channel can be configured by setting wanted `TelemetryChannel` on the active `TelemetryConfiguration`. For Asp.Net applications, configuration involves setting `TelemetryChannel` on `TelemetryConfiguration.Active`, or modifying `ApplicationInsights.config`. For ASP.NET Core applications, configuration involves adding the wanted channel to the Dependency Injection Container.
 
-Following shows an example where user is configuring the `StorageFolder` for the channel. `StorageFolder` is just one of the configurable settings. The full set of configuration settings are described [here](telemetrychannels.md#Configurable-settings-in-Channel).
+Following shows an example where user is configuring the `StorageFolder` for the channel. `StorageFolder` is just one of the configurable settings. The full set of configuration settings are described [here](telemetrychannels.md#configurable-settings-in-channel).
 
 ## Configuring TelemetryChannel using ApplicationInsights.Config for ASP.NET Applications
 
