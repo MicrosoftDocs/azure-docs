@@ -39,7 +39,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Create an application gateway with a web application firewall.</a>
+    - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Create an application gateway with a web application firewall</a>
     - html: <a href="/azure/application-gateway/create-ssl-portal">Configure an application gateway with SSL termination.</a>
     - html: <a href="/azure/application-gateway/create-multiple-sites-portal">Create and configure an application gateway to host multiple web sites.</a>
     - html: <a href="/azure/application-gateway/create-url-route-portal">Create an application gateway with path-based routing rules.</a>
