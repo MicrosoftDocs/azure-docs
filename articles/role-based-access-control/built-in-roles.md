@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -52,12 +52,14 @@ The following table provides a brief description of each built-in role. Click th
 | [Avere Operator](#avere-operator) | Used by the Avere vFXT cluster to manage the cluster |
 | [Azure Kubernetes Service Cluster Admin Role](#azure-kubernetes-service-cluster-admin-role) | List cluster admin credential action. |
 | [Azure Kubernetes Service Cluster User Role](#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. |
+| [Azure Maps Data Reader (Preview)](#azure-maps-data-reader-preview) | Grants access to read map related data from an Azure maps account. |
 | [Azure Stack Registration Owner](#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. |
 | [Backup Contributor](#backup-contributor) | Lets you manage backup service,but can't create vaults and give access to others |
 | [Backup Operator](#backup-operator) | Lets you manage backup services, except removal of backup, vault creation and giving access to others |
 | [Backup Reader](#backup-reader) | Can view backup services, but can't make changes |
 | [Billing Reader](#billing-reader) | Allows read access to billing data |
 | [BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them. |
+| [Blockchain Member Node Access (Preview)](#blockchain-member-node-access-preview) | Allows for access to Blockchain Member nodes |
 | [CDN Endpoint Contributor](#cdn-endpoint-contributor) | Can manage CDN endpoints, but can’t grant access to other users. |
 | [CDN Endpoint Reader](#cdn-endpoint-reader) | Can view CDN endpoints, but can’t make changes. |
 | [CDN Profile Contributor](#cdn-profile-contributor) | Can manage CDN profiles and their endpoints, but can’t grant access to other users. |
@@ -571,6 +573,21 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## Azure Maps Data Reader (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Grants access to read map related data from an Azure maps account. |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Maps/accounts/data/read | Grants data read access to a maps account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## Azure Stack Registration Owner
 > [!div class="mx-tableFixed"]
 > | | |
@@ -809,6 +826,21 @@ The following table provides a brief description of each built-in role. Click th
 > | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Blockchain Member Node Access (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for access to Blockchain Member nodes |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **Actions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Gets or Lists existing Blockchain Member Transaction Node(s). |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Connects to a Blockchain Member Transaction Node. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1136,6 +1168,8 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Advisor/configurations/read | Get configurations |
+> | Microsoft.Advisor/recommendations/read | Reads recommendations |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1156,6 +1190,8 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Advisor/configurations/read | Get configurations |
+> | Microsoft.Advisor/recommendations/read | Reads recommendations |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1195,6 +1231,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Lists the unencrypted credentials related to the order. |
 > | Microsoft.Databox/locations/availableSkus/action | This method returns the list of available skus. |
+> | Microsoft.Databox/locations/validateAddress/action | Validates the shipping address and provides alternate addresses if any. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
@@ -1296,6 +1333,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.DevTestLab/*/read | Read the properties of a lab |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Claim a random claimable virtual machine in the lab. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | Create virtual machines in a lab. |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | Ensure the current user has a valid profile in the lab. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Delete formulas. |
 > | Microsoft.DevTestLab/labs/formulas/read | Read formulas. |
 > | Microsoft.DevTestLab/labs/formulas/write | Add or modify formulas. |
@@ -1423,6 +1461,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2495,7 +2534,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Full permissions on containers.  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Full permissions on containers. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
