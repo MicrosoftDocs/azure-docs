@@ -1,5 +1,5 @@
 ---
-title: Managed Application with Managed Identity
+title: Azure Managed Application with Managed Identity
 description: Learn how to configure a Managed Application with a Managed Identity. Managed Identity can be used to deploy Managed Applications linked to existing resources, grant Managed Applications to manage Azure resources outside the managed resource group, and provide an operational identity of Managed Applications for Activity Log and other services within Azure.
 services: managed-applications
 ms.service: managed-applications
@@ -9,19 +9,19 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ---
-# How to deploy and use Managed Application with Managed Identity
+# Azure Managed Application with Managed Identity
 
 > [!NOTE]
 > Managed Identity support for Managed Applications is currently in preview. Please use the 2018-09-01-preview api version to utilize Managed Identity.
 
-Learn how to configure a Managed Application to contain a Managed Identity. This can be used to allow the customer to grant the Managed Application access to additional existing resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+Learn how to configure a Managed Application to contain a Managed Identity. This can be used to allow the customer to grant the Managed Application access to additional existing resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure Active Directory (AAD), see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 
 - A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
 - A **user-assigned identity** is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
 
-## What can I do with Managed Identities and Managed Applications
+## How to use Managed Identity
 
 Managed Identity enables many scenarios for Managed Applications. Some common scenarios that can be solved are:
 
@@ -29,28 +29,21 @@ Managed Identity enables many scenarios for Managed Applications. Some common sc
 - Granting the Managed Application and publisher access to Azure resources outside the **managed resource group**.
 - Providing an operational identity of Managed Applications for Activity Log and other services within Azure.
 
-## Adding Managed Identity to a Managed Application
+## Adding Managed Identity
 
-Creating a Managed Application with a Managed Identity requires an additional property to be set on the Azure resource. An example of an identity property on a Managed Application would like:
+Creating a Managed Application with a Managed Identity requires an additional property to be set on the Azure resource. The following example shows a sample **identity** property:
 
 ```json
 {
-        "type": "Microsoft.Solutions/applications",
-        "name": "identityManagedApp",
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Solutions/applications/identityManagedApp",
-        "location": "east us",
-        "identity": {
-            "type": "SystemAssigned, UserAssigned",
-            "userAssignedIdentities": {
-                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity": {}
-            }
-        },
-        "properties": {
-            "ManagedResourceGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testManagedRG",
-            "parameters": { }
-        }
+"identity": {
+    "type": "SystemAssigned, UserAssigned",
+    "userAssignedIdentities": {
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity": {}
+    }
 }
 ```
+
+There are two common ways to create a Managed Application with **identity**: [CreateUIDefinition.json](./create-uidefinition-overview.md) and [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). For simple single create scenarios, CreateUIDefinition should be used to enable Managed Identity, because it provides a richer experience. However, when dealing with advanced or complex systems that require automated or multiple Managed Application deployments, templates can be used.
 
 ### Using CreateUIDefinition
 
@@ -205,13 +198,13 @@ A basic Azure Resource Manager template that deploys a Managed Application with 
 ]
 ```
 
-## Granting the Managed Application access to Azure resources
+## Granting access to Azure resources
 
 Once a Managed Application is granted an identity, it can be granted access to existing azure resources. This process can be done through the Access control (IAM) interface in the Azure portal. The name of the Managed Application or **user-assigned identity** can be searched to add a role assignment.
 
 ![Add role assignment for Managed Application](./media/publish-managed-identity/identity-role-assignment.png)
 
-## Deploying a Managed Application that requires linked existing Azure resources
+## Deploying Managed Applications with linked existing Azure resources
 
 > [!NOTE]
 > A **user-assigned identity** must be [configured](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) before deploying the Managed Application. In addition, linked resource deployment of Managed Applications is only supported for the **marketplace** kind.
@@ -318,7 +311,7 @@ Once the Managed Application package is created, the Managed Application can be 
 - The **user-assigned identity** must be [created and given role assignments](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) to the linked resource.
 - The existing linked resource ID and the **user-assigned identity** ID are provided to the CreateUIDefinition.
 
-## Accessing the Managed Application Managed Identity token
+## Accessing the Managed Identity token
 
 The token of the Managed Application can now be accessed through the `listTokens` api from the publisher tenant. An example request might look like:
 
