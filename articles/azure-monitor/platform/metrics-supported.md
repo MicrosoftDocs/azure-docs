@@ -842,12 +842,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |GatewayRequests|Gateway Requests|Count|Total|Number of gateway requests|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Categorized Gateway Requests|Count|Total|Number of gateway requests by categories (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|Autoscale|Autoscale Metrics|Count|Maximum|Autoscale Metrics|ClusterDnsName, MetricName|
-|AllocatedMB|Allocated MB|Count|Maximum|Allocated MB|ClusterDnsName, MetricName|
-|AvailableMB|Available MB|Count|Maximum|Available MB|ClusterDnsName, MetricName|
-|AppsPending|Apps Pending|Count|Maximum|Apps Pending|ClusterDnsName, MetricName|
-|AppsRunning|Apps Running|Count|Maximum|Apps Running|ClusterDnsName, MetricName|
-|AppsSubmitted|Apps Submitted|Count|Maximum|Apps Submitted|ClusterDnsName, MetricName|
 |NumActiveWorkers|Number of Active Workers|Count|Maximum|Number of Active Workers|ClusterDnsName, MetricName|
 
 ## Microsoft.Insights/AutoscaleSettings
