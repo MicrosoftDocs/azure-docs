@@ -4,21 +4,11 @@ description: Get answers to frequently asked questions about Azure Cosmos DB, a 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
 ---
 # Frequently asked questions about different APIs in Azure Cosmos DB
-
-### What happened to the DocumentDB API?
-
-The Azure Cosmos DB DocumentDB API or SQL (DocumentDB) API is now known as Azure Cosmos DB SQL API. You don't need to change anything to continue running your apps built with DocumentDB API. The functionality stays the same.
-
-If you had a DocumentDB API account before, you now have a SQL API account, with no change to your billing.
-
-### What happened to Azure DocumentDB as a service?
-
-The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. Cosmos DB also implements [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) and [Azure Table Storage](table-introduction.md) wire protocols directly on the service. This enables you to point client drivers (and tools) for the commonly used NoSQL APIs directly to your Cosmos database.
 
 ### What are the typical use cases for Azure Cosmos DB?
 
@@ -26,9 +16,9 @@ Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applicatio
 
 ### How does Azure Cosmos DB offer predictable performance?
 
-A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
+A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
 
-You can configure each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help with determining your container needs, try the [throughput calculator](https://www.documentdb.com/capacityplanner).
+You can configure each Azure Cosmos container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help with determining your container needs, try the [throughput calculator](https://www.documentdb.com/capacityplanner).
 
 ### How does Azure Cosmos DB support various data models such as key/value, columnar, document, and graph?
 

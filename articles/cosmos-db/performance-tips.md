@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos DB datab
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
 
 ---

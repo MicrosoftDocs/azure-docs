@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/20/2019
 ---
 # Quickstart: Build a .NET web app using SQL API account in Azure Cosmos DB
 

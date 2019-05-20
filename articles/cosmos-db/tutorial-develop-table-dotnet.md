@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/11/2019
+ms.date: 05/20/2019
 ---
 # Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK
 
