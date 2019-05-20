@@ -42,13 +42,13 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 The `az cosmosdb show` command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
 
-## Update throughput (RS/s) on a database <a id="database-ru-update"></a>
+## Update throughput (RU/s) on a database <a id="database-ru-update"></a>
 
 The following template will update the throughput of a database. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-database-ru-update/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
 [!code-json[cosmosdb-mongodb-database-ru-update](~/quickstart-templates/101-cosmosdb-mongodb-database-ru-update/azuredeploy.json)]
 
-### Deploy database throughput template via Azure CLI
+### Deploy database template via Azure CLI
 
 To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
 
@@ -63,13 +63,13 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
 ```
 
-## Update throughput (RS/s) on a collection <a id="collection-ru-update"></a>
+## Update throughput (RU/s) on a collection <a id="collection-ru-update"></a>
 
 The following template will update the throughput of a collection. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-collection-ru-update/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
 [!code-json[cosmosdb-mongodb-collection-ru-update](~/quickstart-templates/101-cosmosdb-mongodb-collection-ru-update/azuredeploy.json)]
 
-### Deploy collection throughput template via Azure CLI
+### Deploy collection template via Azure CLI
 
 To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
 

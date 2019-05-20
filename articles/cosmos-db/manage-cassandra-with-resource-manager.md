@@ -42,13 +42,13 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 The `az cosmosdb show` command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
 
-## Update throughput (RS/s) on a keyspace <a id="keyspace-ru-update"></a>
+## Update throughput (RU/s) on a keyspace <a id="keyspace-ru-update"></a>
 
 The following template will update the throughput of a keyspace. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-keyspace-ru-update/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
 [!code-json[cosmosdb-cassandra-keyspace-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json)]
 
-### Deploy keyspace throughput template via Azure CLI
+### Deploy keyspace template via Azure CLI
 
 To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
 
@@ -63,13 +63,13 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName keyspaceName=$keyspaceName throughput=$throughput
 ```
 
-## Update throughput (RS/s) on a table <a id="table-ru-update"></a>
+## Update throughput (RU/s) on a table <a id="table-ru-update"></a>
 
 The following template will update the throughput of a table. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-table-ru-update/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
 [!code-json[cosmosdb-cassandra-table-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json)]
 
-### Deploy table throughput template via Azure CLI
+### Deploy table template via Azure CLI
 
 To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
 
