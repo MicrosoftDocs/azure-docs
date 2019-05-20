@@ -139,7 +139,7 @@ import uamqp
 import urllib
 import time
 
-# Use generate_sas_token implementation available here: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# Use generate_sas_token implementation available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -186,7 +186,7 @@ for msg in batch:
   print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
 ```
 
-For a given device ID, IoT Hub uses a hash of the device ID to determine which partition to store messages in. Furthermore, note that even though the code snippet above demonstrates receiving events from a single partition ID, a typical application often needs to retrieve events stored on all the hub partitions.
+For a given device ID, IoT Hub uses a hash of the device ID to determine which partition to store its messages in. The code snippet above demonstrates receiving events from a single such partition. Note, however, that a typical application often needs to retrieve events stored in all event hub partitions.
 
 
 ### Additional notes
