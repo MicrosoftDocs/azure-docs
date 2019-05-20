@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 05/20/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
 	 In the **Sign-on URL** text box, type a URL using the following pattern:
-    ` https://<SUBDOMAIN>.oraclecloud.com/`
+    ` https://<SUBDOMAIN>.<REGION>.oraclecloud.com/`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Oracle Cloud Client support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -152,10 +152,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	f. For the **IDENTITY PROVIDER GROUP field**, enter a group name and group id that will be passed from Azure portal and select a corresponding group from the **OCI GROUP** dropdown list.
 
-	>[!NOTE]
-	>In our example, we have used OCIAdmins for the Azure portal group name and the corresponding Administrators group for the OCI GROUP. You can create different groups by using **+ Add Mapping** option, for example OCIAdmins, OCIEveryone etc and set a mapping for each group.
+	g. If you use **Administrators** for the Azure portal group name and that need to be mapped to the corresponding **Administrators** group for the **OCI GROUP**. In the same way you can create different groups by using **+ Add Mapping** option and set a mapping for each group.
 
-	g. Click **Submit**.
+	h. Click **Submit**.
 
 ### Create an Azure AD test user
 
@@ -214,7 +213,9 @@ To enable Azure AD users to sign in to Oracle Cloud, they must be provisioned in
 
 ### Test SSO
 
-When you select the Oracle Cloud tile in the Access Panel, you should be automatically signed in to the Oracle Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Oracle Cloud tile in the Access Panel, you should redirect to the Oracle Cloud sign in page then select the **IDENTITY PROVIDER** from the drop down menu and click **Continue** as shown below to set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+![Configuration](./media/oracle-cloud-tutorial/config10.png)
 
 ## Additional Resources
 
