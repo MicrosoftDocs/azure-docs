@@ -174,7 +174,7 @@
     items:
     - name: Use Azure PowerShell to provision entities
       href: service-bus-manage-with-ps.md
-    - name: Monitor Service Bus with Azure Monitoring
+    - name: Monitor Service Bus with Azure Monitor
       href: service-bus-metrics-azure-monitor.md
     - name: Service Bus management libraries
       href: service-bus-management-libraries.md
