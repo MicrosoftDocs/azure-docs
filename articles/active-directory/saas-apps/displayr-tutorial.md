@@ -71,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Displayr** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set-up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	>[!NOTE]
 	>These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Displayr Client support team](mailto:support@displayr.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/certificatebase64.png)
 
@@ -111,7 +111,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	f. Click **Save**.
 
-1. On the **Set up Displayr** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set-up Displayr** section, copy the appropriate URL(s) based on your requirement.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -125,7 +125,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Setup configuration](common/setup-sso.png)
 
-3. If you want to setup Displayr manually, open a new web browser window and sign into your Displayr company site as an administrator and perform the following steps:
+3. If you want to set up Displayr manually, open a new web browser window and sign into your Displayr company site as an administrator and perform the following steps:
 
 4. Click on **Settings** then navigate to **Account**.
 
