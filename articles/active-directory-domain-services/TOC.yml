@@ -95,7 +95,7 @@
         - name: Red Hat Enterprise Linux
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
-          href: active-directory-ds-join-ubuntu-linux-vm.md
+          href: join-ubuntu-linux-vm.md
     - name: Troubleshoot Azure AD DS
       items: 
         - name: Troubleshooting guide
