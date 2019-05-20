@@ -38,7 +38,7 @@
         - name: Scenarios
           href: active-directory-ds-scenarios.md
         - name: Select a virtual network
-          href: active-directory-ds-networking.md
+          href: networking.md
     - name: Manage Azure AD DS
       items: 
         - name: Check a managed domain's health

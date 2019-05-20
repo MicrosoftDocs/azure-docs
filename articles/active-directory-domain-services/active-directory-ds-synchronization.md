@@ -124,5 +124,5 @@ As described in a preceding section of this article, there is no synchronization
 ## Related Content
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)
 * [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md)
+* [Networking considerations for Azure AD Domain Services](networking.md)
 * [Get started with Azure AD Domain Services](create-instance.md)
