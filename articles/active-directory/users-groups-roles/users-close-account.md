@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 If you are a user in an unmanaged Azure Active Directory (Azure AD) organization, and you no longer need to use apps from that organization or maintain any association with is, you can close your account at any time. An unmanaged directory does not have a Global administrator. Users in an unmanaged directory can close their accounts on their own, without having to contact an administrator.
 
-Users in an unmanaged directory are often created during self-service signup. An example might be an information worker in an organization who signs up for a free service. For more information about self-service signup, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md).
+Users in an unmanaged directory are often created during self-service sign-up. An example might be an information worker in an organization who signs up for a free service. For more information about self-service sign-up, see [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -52,6 +52,6 @@ To close an unmanaged work or school account, follow these steps:
 
 ## Next steps
 
-- [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md)
+- [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
 - [Delete the user from Unmanaged Tenant](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
 - [Accessing and exporting system-generated logs for Unmanaged Tenants](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)
