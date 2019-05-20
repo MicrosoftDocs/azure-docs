@@ -34,7 +34,7 @@ There isn't an equivalent file to control the [SDK in a web page][client].
 This document describes the sections you see in the configuration file, how they control the components of the SDK, and which NuGet packages load those components.
 
 > [!NOTE]
-> ApplicationInsights.config and .xml instructions do not apply to the .NET Core SDK. For changes to a .NET Core application we typically use the appsettings.json file. An example of this can be found in the [Snapshot Debugger documentation.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+> ApplicationInsights.config and .xml instructions do not apply to the .NET Core SDK. For configuring .NET Core applications, follow [this](../../azure-monitor/app/asp-net-core.md) guide.
 
 ## Telemetry Modules (ASP.NET)
 Each telemetry module collects a specific type of data and uses the core API to send the data. The modules are installed by different NuGet packages, which also add the required lines to the .config file.
@@ -103,10 +103,10 @@ The Microsoft.ApplicationInsights package provides the [core API](https://msdn.m
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.
 
 ## Telemetry Channel
-The telemetry channel manages buffering and transmission of telemetry to the Application Insights service.
+The [telemetry channel](telemetrychannels.md) manages buffering and transmission of telemetry to the Application Insights service.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` is the default channel for services. It buffers data in memory.
-* `Microsoft.ApplicationInsights.PersistenceChannel` is an alternative for console applications. It can save any unflushed data to persistent storage when your app closes down, and will send it when the app starts again.
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` is the default channel for web applications. It buffers data in memory, and employs retry mechanisms and local disk storage for more reliable telemetry delivery.
+* `Microsoft.ApplicationInsights.InMemoryChannel` is a lightweight telemetry channel, which is used if no other channel is configured. 
 
 ## Telemetry Initializers (ASP.NET)
 Telemetry initializers set context properties that are sent along with every item of telemetry.

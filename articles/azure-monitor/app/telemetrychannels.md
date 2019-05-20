@@ -16,7 +16,7 @@ ms.author: cithomas
 ---
 # TelemetryChannel in Application Insights
 
-TelemetryChannel is an integral part of [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). TelemetryChannel is responsible for sending telemetry to Azure Application Insights backend. The .NET and .NET Core versions of the SDKs has two in-built TelemetryChannels - InMemoryChannel and ServerTelemetryChannel. This article describes each channel in detail, including how users can customize channel behavior. This document also describes how one can write a new channel on their own using the extensibility points provided by the SDK.
+TelemetryChannel is an integral part of [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). It manages buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs has two in-built TelemetryChannels - `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how users can customize channel behavior.
 
 ## What is a TelemetryChannel?
 
@@ -121,9 +121,11 @@ The `ServerTelemetryChannel` works as follows. Arriving items are stored in an i
 
 ## Configurable settings in Channel
 
-Please refer to the following links to learn about the full list of settings available in both in-built channels.
-https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs
-https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs
+The full list of configurable settings for each channel are here:
+
+[InMemoryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs)
+
+[ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
 
 Most commonly used settings for `ServerTelemetryChannel` are listed below:
 
@@ -139,7 +141,7 @@ ServerTelemetryChannel is recommended for most production scenarios. InMemoryCha
 
 ## Frequently Asked Questions
 
-*Does ApplicationInsights in-built channel offer guaranteed telemetry delivery or What are the scenarios where telemetry can be lost and what can I do about it?*
+*Does ApplicationInsights channel offer guaranteed telemetry delivery or What are the scenarios where telemetry can be lost?*
 
 * Short answer is none of the built-in channels offer transaction type guarantee about telemetry delivery to the backend. While ServerTelemetryChannel is way advanced compared to InMemoryChannel in terms of reliable telemetry delivery, it also makes a best-effort attempt to send telemetry and telemetry can still be lost in several scenarios as explained below:
 
@@ -155,6 +157,7 @@ ServerTelemetryChannel is recommended for most production scenarios. InMemoryCha
 ## Open-source SDK
 As any of the Application Insights SDK, channels are also open-source. Read and contribute to the code, or report issues [here](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
-## Next steps
+## Related documentation
 
-* [Filtering](../../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
+* [Sampling](../../azure-monitor/app/sampling.md) can provide more strict control of what your SDK sends.
+* [SDK Troubleshooting](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
