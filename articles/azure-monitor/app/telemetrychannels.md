@@ -36,14 +36,14 @@ public interface ITelemetryChannel
 }
 ```
 
-The `Send(ITelemetry item)` method of TelemetryChannel is called after all `TelemetryInitializer`s and `TelemetryProcessor`s are called. This means that any items dropped by `TelemetryProcessor` will not reach channel. Channel is responsible for buffering, serializing and sending telemetry items to Azure Application Insights service, where it is stored for querying and analysis.
+The `Send(ITelemetry item)` method of TelemetryChannel is called after all `TelemetryInitializer`s and `TelemetryProcessor`s are called. This means that any items dropped by `TelemetryProcessor` won't reach channel. Channel is responsible for buffering, and sending telemetry items to Application Insights service, where it is stored for querying and analysis.
 
 ## Built-in TelemetryChannels
 
 Application Insights .NET/.NET Core SDK ships with two built-in channels:
 
 * **InMemoryChannel**
-`InMemoryChannel` is a light-weight channel, which buffers items in memory until it's sent. Items are buffered in memory and flushed once every 30 seconds or whenever 500 items have buffered. This channel offers minimal reliability guarantees as it does not retry sending telemetry upon failures. This channel doesn't keep items in disk, so any unsent items are lost permanently upon application shutdown (gracefully or not). There's a `Flush()` method implemented by this channel, which can be used to force-flush any in-memory telemetry items synchronously.
+`InMemoryChannel` is a light-weight channel, which buffers items in memory until it's sent. Items are buffered in memory and flushed once every 30 seconds or whenever 500 items have buffered. This channel offers minimal reliability guarantees as it doesn't retry sending telemetry upon failures. This channel doesn't keep items in disk, so any unsent items are lost permanently upon application shutdown (gracefully or not). There's a `Flush()` method implemented by this channel, which can be used to force-flush any in-memory telemetry items synchronously.
 This channel is shipped as part of the `Microsoft.ApplicationInsights` nuget package itself, and is the default channel SDK uses when nothing else is configured.
 
 * **ServerTelemetryChannel**
@@ -51,7 +51,7 @@ This channel is shipped as part of the `Microsoft.ApplicationInsights` nuget pac
 
 ## Configuring TelemetryChannel
 
-Telemetry Channel can be configured by setting desired `TelemetryChannel` on the active `TelemetryConfiguration`. For Asp.Net applications, configuration involves setting `TelemetryChannel` on `TelemetryConfiguration.Active`, or modifying `ApplicationInsights.config`. For ASP.NET Core applications, configuration involves adding the desired channel to the Dependency Injection Container.
+Telemetry Channel can be configured by setting wanted `TelemetryChannel` on the active `TelemetryConfiguration`. For Asp.Net applications, configuration involves setting `TelemetryChannel` on `TelemetryConfiguration.Active`, or modifying `ApplicationInsights.config`. For ASP.NET Core applications, configuration involves adding the wanted channel to the Dependency Injection Container.
 
 Following shows an example where user is configuring the `StorageFolder` for the channel. `StorageFolder` is just one of the configurable settings. The full set of configuration settings are described [here](telemetrychannels.md#Configurable-settings-in-Channel).
 
@@ -117,7 +117,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 ## Working of ServerTelemetryChannel
 
-The `ServerTelemetryChannel` buffers arriving items in an in-memory buffer. It is serialized, compressed, and stored into `Transmission` instance once every 30 secs or when 500 items are buffered. A single `Transmission` instance contains up to 500 items, and represents a batch of telemetry being sent over a single https call to the Application Insights service. By default, there can be up to 10 `Transmission`s being sent in parallel. If telemetry is arriving at faster rates or if Network/Application Insights backend is slow, then `Transmission`s get stored into memory. The default capacity of this in-memory Transmission buffer is 5 MB. Once in-memory capacity exceeds, `Transmission`s are stored into local disk for up to 50 MB. `Transmission`s are stored into local disk when there are network issues as well. Only items stored in the local disk survive an application crash, and they are sent whenever application is started again.
+The `ServerTelemetryChannel` buffers arriving items in an in-memory buffer. It is serialized, compressed, and stored into `Transmission` instance once every 30 secs or when 500 items are buffered. A single `Transmission` instance contains up to 500 items, and represents a batch of telemetry being sent over a single https call to the Application Insights service. By default, there can be up to 10 `Transmission`s being sent in parallel. If telemetry is arriving at faster rates or if Network/Application Insights backend is slow, then `Transmission`s get stored into memory. The default capacity of this in-memory Transmission buffer is 5 MB. Once in-memory capacity exceeds, `Transmission`s are stored into local disk for up to 50 MB. `Transmission`s are stored into local disk when there are network issues as well. Only items stored in the local disk survive an application crash, which are sent whenever application is started again.
 
 ## Configurable settings in Channel
 
@@ -129,30 +129,30 @@ The full list of configurable settings for each channel are here:
 
 Most commonly used settings for `ServerTelemetryChannel` are listed below:
 
-1. `MaxTransmissionBufferCapacity` - Maximum amount of memory, in bytes, used by the channel to buffer transmissions in memory. Once this capacity is reached, new items will be stored directly into local disk. The default is 5 MB. Setting higher value leads to lesser disk usage, but it is important to note that items in memory are lost if application crashes.
+1. `MaxTransmissionBufferCapacity` - Maximum amount of memory, in bytes, used by the channel to buffer transmissions in memory. Once this capacity is reached, new items will be stored directly into local disk. The default is 5 MB. Setting higher value leads to lesser disk usage, but it is important to note that items in memory will be lost if application crashes.
 
 2. `MaxTransmissionSenderCapacity` - Maximum amount of `Transmission`s that will be sent to Application Insights at the same time. The default is 10, but can be configured to a higher number. This is recommended when huge volume of telemetry is generated, typically when doing load testing and/or when sampling is turned off.
 
-3. `StorageFolder` - The folder used by the channel to stored items in disk as needed. In Windows, either %LocalAppData% or %Temp% is used, if nothing is configured explicitly. In Non-Windows, user **must** configure a valid location, without which telemetry will not be stored in local disk.
+3. `StorageFolder` - The folder used by the channel to stored items in disk as needed. In Windows, either %LocalAppData% or %Temp% is used, if nothing is configured explicitly. In Non-Windows, user **must** configure a valid location, without which telemetry won't be stored in local disk.
 
 ## Which channel should I use ?
 
-`ServerTelemetryChannel` is recommended for most production scenarios. `InMemoryChannel` is recommended if there is a need to do synchronous flush as `ServerTelemetryChannel` does not offer a synchronous flush, and hence some sleep is required after calling `Flush()`, if the application is shutting down.
+`ServerTelemetryChannel` is recommended for most production scenarios. `InMemoryChannel` is recommended if there's a need to do synchronous flush as `ServerTelemetryChannel` doesn't offer a synchronous flush, and hence some sleep is required after calling `Flush()`, if the application is shutting down.
 
 ## Frequently Asked Questions
 
 *Does ApplicationInsights channel offer guaranteed telemetry delivery or What are the scenarios where telemetry can be lost?*
 
-* Short answer is none of the built-in channels offer transaction type guarantee about telemetry delivery to the backend. While ServerTelemetryChannel is way advanced compared to InMemoryChannel in terms of reliable telemetry delivery, it also makes a best-effort attempt to send telemetry and telemetry can still be lost in several scenarios. Some of the common scenarios where telemetry is lost includes:
+* Short answer is none of the built-in channels offer transaction type guarantee about telemetry delivery to the backend. While `ServerTelemetryChannel` is more advanced compared to `InMemoryChannel` for reliable telemetry delivery, it also makes a best-effort attempt to send telemetry and telemetry can still be lost in several scenarios. Some of the common scenarios where telemetry is lost includes:
 
 1. Items in memory are lost whenever application is crashed.
 1. Telemetry gets stored in local disk during network outage or issues with Application Insights backend. However, items older than 24 hours are discarded. So telemetry is lost during extended period of network issues.
 1. The default disk locations for storing telemetry in Windows are %LocalAppData% or %Temp%. These locations are typically local to the machine. If the application migrates physically from one location to another, any telemetry stored in this location is lost.
-1. In Azure Web Apps (Windows), the default disk location is "D:\local\LocalAppData". This location is not persisted, and is wiped out in app restarts, scale outs etc., leading to loss of telemetry stored in those locations. Users can override storage to a persisted location like "D:\home", but these persisted locations are underneath served by remote storage, and can be slow.
+1. In Azure Web Apps (Windows), the default disk location is "D:\local\LocalAppData". This location isn't persisted, and is wiped out in app restarts, scale outs and so on, leading to loss of telemetry stored in those locations. Users can override storage to a persisted location like "D:\home", but these persisted locations are underneath served by remote storage, and can be slow.
 
 *Does ServerTelemetryChannel works in non-windows systems?*
 
-* Despite the name of the package/namespace being WindowsServer, this channel is supported in non-windows system with the following exception. In non-windows, channel does not create a local storage folder by default. Users must create a local storage folder and configure channel to use it. Once local storage is configured, channel works same in windows and non-windows systems.'
+* Despite the name of the package/namespace being WindowsServer, this channel is supported in non-windows system with the following exception. In non-windows, channel doesn't create a local storage folder by default. Users must create a local storage folder and configure channel to use it. Once local storage is configured, channel works same in windows and non-windows systems.'
 
 ## Open-source SDK
 Like every Application Insights SDKs, channels are also open-source. Read and contribute to the code, or report issues [here](https://github.com/Microsoft/ApplicationInsights-dotnet).
