@@ -19,21 +19,21 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 ## Support options for publishers
 
-1) Sign in to the [Commercial Marketplace program on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account. (If you have not yet done so, you will need to [create a Partner Center account](./create-account.md).)
+1. Sign in to the [Commercial Marketplace program on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account. (If you have not yet done so, you will need to [create a Partner Center account](./create-account.md).)
 
-2) In the upper menu on the right side of the page, select the **Support** icon. 
+1. In the upper menu on the right side of the page, select the **Support** icon. 
  
-![Support icon](./media/commercial-marketplace-support.png)
+   ![Support icon](./media/commercial-marketplace-support.png)
 
-3) The **Help and support** pane will appear from the right-hand side of the page. There will be a dropdown for each program in Partner Center that your account is registered for. Select the **Commercial Marketplace** dropdown menu. 
+1. The **Help and support** pane will appear from the right-hand side of the page. There will be a dropdown for each program in Partner Center that your account is registered for. Select the **Commercial Marketplace** dropdown menu. 
  
-![Support drop-down menu](./media/commercial-marketplace-support-pane.png)
+   ![Support drop-down menu](./media/commercial-marketplace-support-pane.png)
 
-4) Select **[Documentation](../index.md)** to review comprehensive answers to questions and resources. 
+1. Select **[Documentation](../index.md)** to review comprehensive answers to questions and resources. 
 
-5) Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of other Microsoft publishers. 
+1. Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of other Microsoft publishers. 
 
-6) Select **[Additional help](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** to open a **New support request** ticket. 
+1. Select **[Additional help](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** to open a **New support request** ticket. 
 
 ## How to open a support ticket
 
@@ -49,11 +49,11 @@ By selecting the **Next** button, you will be directed to the **Issue Details** 
 
 In the **Issue Details** section, explain what you need help with.
 
-- Select your country
-- Select the language in which you'd like to receive support
-- Enter a title for your issue (between 3 - 200 characters)  
-- Enter a brief description of your issue (max 2000 characters)
-- Select **Next**
+- Select your country.
+- Select the language in which you'd like to receive support.
+- Enter a title for your issue (from 3 to 200 characters).  
+- Enter a brief description of your issue (max 2000 characters).
+- Select **Next**.
 
 #### Select a support plan
 
@@ -72,7 +72,8 @@ In the **Contact Information** section, ensure that your primary contact’s nam
 
 #### Review and submit your support request
 
-Review your support request information on the **Review** section. - If all the information is correct, select **Submit**. 
+Review your support request information on the **Review** section. 
+- If all the information is correct, select **Submit**. 
 - If any information needs to be updated, select the **Change** button next to the section in need of updates.
 
 ## Track your existing support requests 
