@@ -106,7 +106,7 @@
             - name: Fix a broken NSG configuration
               href: alert-nsg.md
             - name: Restore missing service principals
-              href: active-directory-ds-troubleshoot-service-principals.md
+              href: alert-service-principal.md
             - name: Secure LDAP errors
               href: alert-ldaps.md
         - name: Resolve mismatched tenant errors
