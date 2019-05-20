@@ -5,7 +5,7 @@ services: security- center
 documentationcenter: na
 author: monhaber 
 manager: barbkess 
-editor: ''
+editor: ``
 
 ms.assetid: 2730a2f5-20bc-4027-a1c2-db9ed0539532
 ms.service: security-center
@@ -21,30 +21,30 @@ ms.author: monhaber
 
 ## Overview
 
-Endpoint Protection assessment and recommendation in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Endpoint Protection solutions. This document explains how Azure Security Center runs the following two recommendations for Endpoint Protection solutions.
+Endpoint Protection assessment and recommendation in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Endpoint Protection solutions. This topic explains how Azure Security Center runs the following two recommendations for Endpoint Protection solutions.
 
-* Install endpoint protection solutions on your virtual machine
-* Resolve endpoint protection health issues on your machines
+* **Install endpoint protection solutions on your virtual machine**
+* **Resolve endpoint protection health issues on your machines**
 
 ## Windows Defender
 
-* The **Install endpoint protection solutions on virtual machine** recommendation appears when [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) ran and the result was AMServiceEnabled  : False
+* The **Install endpoint protection solutions on virtual machine** recommendation appears when [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and the result is **AMServiceEnabled  : False**
 
-* The **Resolve endpoint protection health issues on your machines** recommendation appears when  [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) ran and either or both of the following occurred:
+* The **Resolve endpoint protection health issues on your machines** recommendation appears when  [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and either or both of the following occurs:
 
   * At least one of the following properties is false:
 
-     'AMServiceEnabled'
-     'AntispywareEnabled'
-     'RealTimeProtectionEnabled'
-     'BehaviorMonitorEnabled'
-     'IoavProtectionEnabled'
-     'OnAccessProtectionEnabled'
+     `AMServiceEnabled`
+     `AntispywareEnabled`
+     `RealTimeProtectionEnabled`
+     `BehaviorMonitorEnabled`
+     `IoavProtectionEnabled`
+     `OnAccessProtectionEnabled`
 
   * If one or both of the following properties is greater or equal to 7.
 
-     'AntispywareSignatureAge'
-     'AntivirusSignatureAge'
+     `AntispywareSignatureAge`
+     `AntivirusSignatureAge`
 
 ## Microsoft System Center Endpoint Protection
 
@@ -53,12 +53,12 @@ Endpoint Protection assessment and recommendation in Azure Security Center detec
 * The **Resolve endpoint protection health issues on your machines** recommendation appears if the following checks when **Get-MprotComputerStatus** ran and either or both of the following occurred:
 
 * At least one of the following properties is false:
-   'AMServiceEnabled'
-   'AntispywareEnabled'
-   'RealTimeProtectionEnabled'
-   'BehaviorMonitorEnabled'
-   'IoavProtectionEnabled'
-   'OnAccessProtectionEnabled'
+   `AMServiceEnabled`
+   `AntispywareEnabled`
+   `RealTimeProtectionEnabled`
+   `BehaviorMonitorEnabled`
+   `IoavProtectionEnabled`
+   `OnAccessProtectionEnabled`
       
 * If one or both of the following Signature Updates is greater or equal to 7. 
 AntispywareSignatureAge
