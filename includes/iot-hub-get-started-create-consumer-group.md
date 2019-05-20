@@ -3,11 +3,11 @@ author: robinsh
 manager: philmea
 ms.author: robinsh
 ms.topic: include
-ms.date: 04/17/2019
+ms.date: 05/20/2019
 ---
 ## Add a consumer group to your IoT hub
 
-[Consumer groups](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) provide independent views into the event stream for apps and Azure services that consume data from the same Event Hub endpoint. With consumer groups, multiple apps and services can independently consume the same event stream. In this section, you add a consumer group to your IoT hub's built-in endpoint that you use later to pull data from the endpoint.
+[Consumer groups](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) provide independent views into the event stream that enable apps and Azure services to independently consume data from the same Event Hub endpoint. In this section, you add a consumer group to your IoT hub's built-in endpoint that is used later in this tutorial to pull data from the endpoint.
 
 To add a consumer group to your IoT hub, follow these steps:
 
