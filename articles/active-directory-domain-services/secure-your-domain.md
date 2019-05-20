@@ -3,7 +3,7 @@ title: 'Secure your Azure Active Directory Domain Services managed domain | Micr
 description: Secure your managed domain
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: ergreenl
+ms.date: 05/20/2019
+ms.author: mstephen
 
 ---
 
@@ -55,4 +55,4 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 ## Next steps
-* [Understand synchronization in Azure AD Domain Services](active-directory-ds-synchronization.md)
+* [Understand synchronization in Azure AD Domain Services](synchronization.md)

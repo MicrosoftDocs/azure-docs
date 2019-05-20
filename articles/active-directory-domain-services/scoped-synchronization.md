@@ -202,5 +202,5 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScoped
 ```
 
 ## Next steps
-* [Understand synchronization in Azure AD Domain Services](active-directory-ds-synchronization.md)
+* [Understand synchronization in Azure AD Domain Services](synchronization.md)
 * [Enable Azure Active Directory Domain Services using PowerShell](powershell-create-instance.md)

@@ -18,7 +18,7 @@
 - name: Concepts
   items: 
     - name: How synchronization works
-      href: active-directory-ds-synchronization.md
+      href: synchronization.md
 - name: How to
   items: 
     - name: Create an Azure AD DS instance

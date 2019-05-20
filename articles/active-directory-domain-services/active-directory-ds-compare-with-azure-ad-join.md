@@ -66,7 +66,7 @@ On a domain-joined machine, user authentication happens using NTLM or Kerberos a
 * [Features](active-directory-ds-features.md)
 * [Deployment scenarios](scenarios.md)
 * [Find out if Azure AD Domain Services suits your use-cases](comparison.md)
-* [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](active-directory-ds-synchronization.md)
+* [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](synchronization.md)
 
 ### Learn more about Azure AD Join
 * [Introduction to device management in Azure Active Directory](../active-directory/device-management-introduction.md)
