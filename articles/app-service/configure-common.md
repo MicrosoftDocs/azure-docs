@@ -1,5 +1,5 @@
 ---
-title: Configure apps in portal - Azure App Service
+title: Configure apps in the portal - Azure App Service
 description: Learn to configure common settings for an App Service app in the Azure portal.
 keywords: azure app service, web app, app settings, environment variables
 services: app-service\web
@@ -19,7 +19,7 @@ ms.author: cephalin
 ms.custom: seodec18
 
 ---
-# Configure App Service app in Azure portal
+# Configure an App Service app in the Azure portal
 
 This topic explains how to configure common settings for web apps, mobile back end, or API app using the [Azure portal].
 
