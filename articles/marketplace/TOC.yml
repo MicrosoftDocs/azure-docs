@@ -47,7 +47,7 @@
         href: ./iot-edge-module.md
       - name: Consulting Service
         href: ./consulting-services.md
-      - name: Office 365, Dynamics 365 and Power BI publishing guide
+      - name: Office 365, Dynamics 365, and Power BI publishing guide
         href: ./appsource-offer-publishing-guide.md
       - name: Enable an AppSource and Marketplace listing by using Azure Active Directory
         href: ./enable-appsource-marketplace-using-azure-ad.md
@@ -485,3 +485,5 @@
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
     href: ./partner-center-portal/update-existing-offer.md
+  - name: Support options
+    href: ./partner-center-portal/support.md
