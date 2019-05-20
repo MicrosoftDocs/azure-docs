@@ -66,24 +66,25 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||
-|----|----|----|----|----|
-|Environment|Azure|Non-Azure|Azure|Non-Azure|
-|VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|
-|Network-based threat detection alerts|✔|X|✔|X|
-|Windows Defender ATP integration|✔ (on supported versions)|✔|X|X|
-|Missing patches|✔|✔|✔|✔|
-|Security configurations|✔|✔|✔|✔|
-|Endpoint protection|✔|✔|X|X|
-|JIT VM access|✔|X|✔|X|
-|Adaptive application controls|✔|✔|✔|✔|
-|FIM|✔|✔|✔|✔|
-|Disk encryption|✔|X|✔|X|
-|Third-party deployment|✔|X|✔|X|
-|NSGs|✔|X|✔|X|
-|Fileless threat detection|✔|✔|X|X|
-|Network map|✔|X|✔|X|
-|Adaptive network controls|✔|X|✔|X|
+|Server|Windows||Linux||Pricing|
+|----|----|----|----|----|----|
+|Environment|Azure|Non-Azure|Azure|Non-Azure||
+|VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
+|Network-based threat detection alerts|✔|X|✔|X|Standard|
+|Windows Defender ATP integration|✔ (on supported versions)|✔|X|X|Standard|
+|Missing patches|✔|✔|✔|✔|Free|
+|Security configurations|✔|✔|✔|✔|Free|
+|Endpoint protection assessment|✔|✔|X|X|Free|
+|JIT VM access|✔|X|✔|X|Standard|
+|Adaptive application controls|✔|✔|✔|✔|Standard|
+|FIM|✔|✔|✔|✔|Standard|
+|Disk encryption assessment|✔|X|✔|X|Free|
+|Third-party deployment|✔|X|✔|X|Free|
+|NSGs assessment|✔|X|✔|X|Free|
+|Fileless threat detection|✔|✔|X|X|Standard|
+|Network map|✔|X|✔|X|Standard|
+|Adaptive network controls|✔|X|✔|X|Standard|
+|Regulatory Compliance dashboard & reports|✔|✔|✔|✔|Standard|
 
 
 ### Supported endpoint protection solutions
@@ -110,7 +111,7 @@ The following table provides a matrix of:
 ## Supported PaaS features 
 
 
-|Service|Recommendations|Threat detection|
+|Service|Recommendations (Free)|Threat detection (Standard)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -120,11 +121,13 @@ The following table provides a matrix of:
 |Cloud Services|✔| X|
 |VNets|✔| NA|
 |Subnets|✔| NA|
-|NICs|✔| ✔|
+|NICs|✔| NA|
 |NSGs|✔| NA|
-|Subscription|✔| ✔|
+|Subscription|✔ **| ✔|
 
-\* These features are currently supported in public preview. 
+\* These features are currently supported in public preview.
+
+\*\* AAD recommendations are only available for Standard subscriptions
 
 
 
