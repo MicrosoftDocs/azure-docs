@@ -12,13 +12,19 @@ ms.subservice: common
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files. 
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
+
+> [!NOTE]
+> AzCopy V10 is the currently supported version of AzCopy. However, if you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
+>
+> - [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+> - [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 <a id="download-and-install-azcopy" />
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file. There's nothing to install.
+First, download the AzCopy V10 executable file.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -41,11 +47,11 @@ Before you can do anything meaningful with AzCopy, you need to authenticate your
 
 ## Authenticate your identity
 
-You can authenticate your identity by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token. 
+You can authenticate your identity by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
 
 Use this table as a guide:
 
-| Storage type | Supported method of authentication |
+| Storage type | Currently supported method of authentication |
 |--|--|
 |**Blob storage** | Azure AD & SAS |
 |**Blob storage (hierarchial namespace)** | Azure AD only |
@@ -78,9 +84,9 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 ### Authenticate with a SAS token
 
-You can append a SAS token to each AzCopy command that you execute.
+You can append a SAS token to each source or destination URL that use in your AzCopy commands.
 
-This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container path.
+This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container URL.
 
 ```azcopy
 azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
@@ -114,13 +120,6 @@ In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload a
 
 > [!NOTE]
 > You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
-
-## Use a previous version of AzCopy
-
-AzCopy V10 is the currently supported version of AzCopy. However, if you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
-
-- [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
-- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## Next steps
 
