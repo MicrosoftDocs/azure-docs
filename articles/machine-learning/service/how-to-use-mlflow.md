@@ -15,15 +15,16 @@ ms.custom: seodec18
 
 # How to use MLflow with Azure Machine Learning service (Preview)
 
-This article demonstrates how to use MLflow's tracking API, also known as MLflow Tracking, with Azure Machine Learning to track and log your experiment metrics and artifacts in your workspace.
+This article demonstrates how to use MLflow's tracking URI and logging API, collectively also known as MLflow Tracking, with Azure Machine Learning service to track and log your experiment metrics and artifacts in your [Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store your training metrics and models.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training run metrics and model artifacts, whether your experiments are run locally, on a virtual machine, or on a remote compute cluster. If you already use MLflow Tracking with your experiments, the [Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) provides a centralized, secure, and scalable location to store your training metrics and models.
-
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training run metrics and model artifacts, whether your experiments are run locally, on a virtual machine, or on a remote compute cluster.
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram.png)
 
 ## Compare MLflow and Azure Machine Learning service clients
 
- The below table summarizes the different clients that can use Azure Machine Learning service, as well as their respective function capabilities.  
+ The below table summarizes the different clients that can use Azure Machine Learning service, and their respective function capabilities.
+
+ MLflow Tracking offers logging, as well as metric and artifact storage functionalities that were only previously available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 | | MLflow | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure portal|
 |-|-|-|-|-|
