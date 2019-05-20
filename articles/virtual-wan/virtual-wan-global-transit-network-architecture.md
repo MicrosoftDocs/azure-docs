@@ -85,7 +85,7 @@ The Remote User-to-branch path lets remote users who are using a point-to-site c
 
 ### <a name="vnetvnet"></a>VNet-to-VNet transit using VNet peering
 
-To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. Connecting VNets through VNet Peering is the recommend solution for VNets that need to be connected to each other. For more information about VNet peering, see [VNet Peering Overview](../virtual-network/virtual-network-peering-overview.md). [Gateway transit](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (in the context of VNet peering) is not required for Virtual WAN because Virtual WAN automatically enables gateway transit.
+To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. Connecting VNets through VNet Peering is the recommend solution for VNets that need to be connected to each other. [Gateway transit](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (in the context of VNet peering) is not required for Virtual WAN because Virtual WAN automatically enables gateway transit.
 
 ### <a name="globalreach"></a>ExpressRoute Global Reach
 
