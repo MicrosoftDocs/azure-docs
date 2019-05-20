@@ -15,15 +15,17 @@ Azure Service Health is a suite of experiences that provide personalized guidanc
 
 Azure Service Health is composed of:
 
- 1. [Azure status](overview.md) - A global view of the health of Azure services
- 2. [Service Health](overview.md) - A personalized view of the health of your Azure services
- 3. [Resource Health](overview.md) - A deeper view of the health of the individual resources provisioned to you by your Azure services
+ 1. **Azure status** - A global view of the health of Azure services
+ 2. **Service Health** - A personalized view of the health of your Azure services
+ 3. **Resource Health** - A deeper view of the health of the individual resources provisioned to you by your Azure services
 
 Together, these experiences provide you with a comprehensive view into the health of Azure, at the granularity that is most relevant to you.
 
+For more in depth information on each service, see [Service Health Overview](resource-health-overview.md)
+
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/resources/videos/announcing-azure-service-health/">
+        <a href="https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

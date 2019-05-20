@@ -10,19 +10,18 @@
     href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
 - name: Concepts
   items:
-  - name: Azure status overview
+  - name: Azure status page overview
     href: azure-status-overview.md
-  - name: Azure service health overview
+  - name: Service health overview
     href: service-health-overview.md
-  - name: Azure resource health overview
+  - name: Resource health overview
     href: resource-health-overview.md
 - name: How To
   items:
   - name: Configure alerts for service health events
     href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-    items:
-    - name: View service health notifications by using the Azure portal
-      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+  - name: View service health notifications by using the Azure portal
+    href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
   - name: Send alerts to outside systems via webhook
     href: service-health-alert-webhook-guide.md
   - name: Send alerts to ServiceNow
@@ -35,10 +34,10 @@
     href: service-health-rest.md
   - name: Configure alerts for resource health events
     href: resource-health-alert-arm-template-guide.md
-  - name: Frequently Asked Questions
-    href: resource-health-faq.md
 - name: Reference
   items:
+  - name: Frequently Asked Questions
+    href: resource-health-faq.md
   - name: Service health notifications properties 
     href: service-health-notifications-properties.md
   - name: Resource health types and checks

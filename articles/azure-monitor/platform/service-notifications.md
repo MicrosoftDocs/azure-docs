@@ -11,9 +11,9 @@ ms.subservice: logs
 ---
 # View service health notifications by using the Azure portal
 
-Service health notifications are published by Azure, and contain information about the resources under your subscription. These notifications are a sub-class of activity log events, and can also be found in the activity log. Service health notifications can be informational or actionable, depending on the class.
+Service health notifications are published by the Azure infrastructure. They contain information about the resources under your subscription. These notifications are a sub-class of activity log events, and so can also be found in the activity log. Service health notifications can be informational or actionable, depending on the class.
 
-For more information on the various classes of service health notifications, see [Service health notifications properties](..\..\service-health\service-health-notifications-properties.md).
+For more information on the various classes of service health notifications, see [Service health notifications properties](../../service-health/service-health-notifications-properties.md).
 
 ## View your service health notifications in the Azure portal
 
@@ -34,3 +34,4 @@ For more information on the various classes of service health notifications, see
 * Receive [alert notifications whenever a service health notification](../../azure-monitor/platform/alerts-activity-log-service-notifications.md) is posted.  
 * Learn more about [activity log alerts](../../azure-monitor/platform/activity-log-alerts.md).
 
+//
