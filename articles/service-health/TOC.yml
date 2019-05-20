@@ -2,7 +2,7 @@
   href: index.md
 - name: Overview
   items:
-  - name: What is in Azure Service Health
+  - name: Azure Service Health service
     href: overview.md
 - name: Quickstarts
   items:
@@ -36,12 +36,12 @@
     href: resource-health-alert-arm-template-guide.md
 - name: Reference
   items:
-  - name: Frequently Asked Questions
-    href: resource-health-faq.md
   - name: Service health notifications properties 
     href: service-health-notifications-properties.md
   - name: Resource health types and checks
     href: resource-health-checks-resource-types.md
+  - name: Resource Health FAQ
+    href: resource-health-faq.md
 - name: Resources
   items:
   - name: Azure Roadmap
