@@ -172,7 +172,7 @@ Time Series Insights Preview indexes data by using a blob-size optimization stra
 
 ### Scale
 
-Time Series Insights Preview supports an initial ingress scale of up to 6 Mega Bytes per second (Mbps) per environment. Enhanced scaling support is ongoing. We plan to update our documentation to reflect those improvements
+Time Series Insights Preview supports an initial ingress scale of up to 1 Mega Byte per Second (Mbps) per environment. Enhanced scaling support is ongoing. We plan to update our documentation to reflect those improvements.
 
 ## Next steps
 
