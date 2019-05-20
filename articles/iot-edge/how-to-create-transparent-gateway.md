@@ -170,7 +170,7 @@ The Azure IoT Edge git repository contains scripts that you can use to generate 
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Navigate to the directory in which you want to work. We'll refer to this directory throughtout the article as *\<WRKDIR>*. All certificate and key files will be created in this directory.
+2. Navigate to the directory in which you want to work. We'll refer to this directory throughout the article as *\<WRKDIR>*. All certificate and key files will be created in this directory.
   
 3. Copy the config and script files from the IoT Edge repo, wherever you cloned it on your machine, into your working directory.
 

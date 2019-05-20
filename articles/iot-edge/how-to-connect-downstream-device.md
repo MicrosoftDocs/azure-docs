@@ -72,7 +72,7 @@ To learn more about IoT Edge certificates and some production implications, see 
 
 This article uses *owner CA* to refer to the root CA certificate, since that's the term used by the scripts in the prerequisite gateway article. 
 
-Installing the owner CA certificate in the operating system's certificate store generally allows most applications to use the owner CA certificate. There are some exceptions, like NodeJS application which don't use the OS certificate store but rather use the Node runtime's internal certificate store. If you can't install the certificate at the operating system level, refer to the language-specific examples later in this article to use the certificate with the Azure IoT SDK in applications. 
+Installing the owner CA certificate in the operating system's certificate store generally allows most applications to use the owner CA certificate. There are some exceptions, like NodeJS applications that don't use the OS certificate store but rather use the Node runtime's internal certificate store. If you can't install the certificate at the operating system level, refer to the language-specific examples later in this article to use the certificate with the Azure IoT SDK in applications. 
 
 ### Ubuntu
 
@@ -185,7 +185,7 @@ This section introduces a sample application to connect an Azure IoT Python devi
 
 ## Test the gateway connection
 
-This is a sample command which tests that everything has been set up correctly. You should see a message saying "verified OK".
+This is a sample command that tests that everything has been set up correctly. You should see a message saying "verified OK".
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
@@ -196,8 +196,8 @@ openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azu
 If your leaf device has intermittent connection to its gateway device, try the following steps for resolution. 
 
 1. Is the gateway name appended to the connection string the same as the hostname in the IoT Edge config.yaml file on the gateway device?
-2. Is the gateway name resolvable to an IP Address? You can resolve intenmittent connections either by using DNS or by adding a host file entry on the leaf device.
-3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge.
+2. Is the gateway name resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the leaf device.
+3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparent IoT Edge.
 
 ## Next steps
 

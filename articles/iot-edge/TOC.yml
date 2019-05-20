@@ -152,6 +152,8 @@
       href: how-to-create-transparent-gateway.md
     - name: Connect a downstream device
       href: how-to-connect-downstream-device.md
+    - name: Authenticate a downstream device
+      href: how-to-authenticate-downstream-device.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
   - name: Configure proxy support
