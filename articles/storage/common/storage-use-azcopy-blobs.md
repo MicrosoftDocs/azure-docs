@@ -12,7 +12,7 @@ ms.subservice: common
 
 # Transfer data with AzCopy and blob storage
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that work with blob storage.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that work with Blob storage.
 
 ## Get started
 

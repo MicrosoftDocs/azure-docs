@@ -12,7 +12,7 @@ ms.subservice: common
 
 # Configure, optimize, and troubleshoot AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you to perform advanced configuration tasks and helps you to troubleshoot issues that can arise as you use AzCopy.
+AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you to perform advanced configuration tasks and helps you to troubleshoot issues that can arise as you use AzCopy.
 
 > [!NOTE]
 > If you're looking for content to help you get started with AzCopy, see any of the following articles:
@@ -35,7 +35,7 @@ To configure the proxy settings for AzCopy, set the `https_proxy` environment va
 
 ## Optimize throughput
 
-Set the `AZCOPY_CONCURRENCY_VALUE` environment variable to configure the number of concurrent requests, and to control the throughput performance and resource consumption. The value is set to `300` by default. Reducing this value will limit the bandwidth and the CPU that is used by AzCopy.
+Set the `AZCOPY_CONCURRENCY_VALUE` environment variable to configure the number of concurrent requests, and to control the throughput performance and resource consumption. The value is set to `300` by default. Reducing this value will limit the bandwidth and the number of CPU cycles that are used by AzCopy.
 
 | Operating system | Command  |
 |--------|-----------|
