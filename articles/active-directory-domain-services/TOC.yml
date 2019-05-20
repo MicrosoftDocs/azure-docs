@@ -62,7 +62,7 @@
         - name: Manage DNS for Azure AD Domain Services
           href: manage-dns.md
         - name: Update email notifications
-          href: active-directory-ds-notifications.md
+          href: notifications.md
         - name: Configure secure LDAP (LDAPS) in an Azure AD Domain Services domain
           href: "configure-ldaps.md"
           items:             
