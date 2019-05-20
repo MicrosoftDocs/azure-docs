@@ -39119,6 +39119,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-coreos-linux-vm.md",
+      "redirect_url" : "/azure/active-directory-domain-services/join-coreos-linux-vm",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md",
       "redirect_url" : "/azure/active-directory-domain-services/join-centos-linux-vm",
       "redirect_document_id": true

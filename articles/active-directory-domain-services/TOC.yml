@@ -91,7 +91,7 @@
         - name: CentOS
           href: join-centos-linux-vm.md
         - name: CoreOS
-          href: active-directory-ds-join-coreos-linux-vm.md
+          href: join-coreos-linux-vm.md
         - name: Red Hat Enterprise Linux
           href: active-directory-ds-join-rhel-linux-vm.md
         - name: Ubuntu Server
