@@ -118,7 +118,7 @@
 - name: Resources
   items: 
     - name: FAQs
-      href: active-directory-ds-faqs.md
+      href: faqs.md
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
     - name: Compatible third-party software

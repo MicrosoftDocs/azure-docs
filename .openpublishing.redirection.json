@@ -4002,7 +4002,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-faqs.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-faqs",
+      "redirect_url": "/azure/active-directory-domain-services/faqs",
       "redirect_document_id": false
     },
     {
