@@ -57,6 +57,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 1. Wait approximately 4-5 minutes, until the status changes to **Running**.
 
+
 ## Launch Jupyter web interface
 
 After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
