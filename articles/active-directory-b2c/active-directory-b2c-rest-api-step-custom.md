@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ---
 
-# Add REST API claims exchanges to custom polices in Azure Active Directory B2C
+# Add REST API claims exchanges to custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -39,7 +39,7 @@ The scenario that is represented in this article includes the following actions:
 
 ## Prepare the API
 
-In this section, you prepare the Azure function to receive a value for `email`, and then return the the value for `city` that can be used by Azure AD B2C as a claim.
+In this section, you prepare the Azure function to receive a value for `email`, and then return the value for `city` that can be used by Azure AD B2C as a claim.
 
 Change the run.csx file for the Azure function that you created to use the following code: 
 
@@ -125,7 +125,7 @@ Add a definition for `city` inside the **BuildingBlocks** element. You can find 
 
 There are many use cases where the REST API call can be used as an orchestration step. As an orchestration step, it can be used as an update to an external system after a user has successfully completed a task like first-time registration, or as a profile update to keep information synchronized. In this case, it's used to augment the information provided to the application after the profile edit.
 
-Add a step to the profile edit user journey. After the user is authenticated (orchestration steps 1-4 in the following XML) and the user has provided the updated profile information (step 5). Copy the profile edit user journey XML code from the *TrustFrameworkBase.xml* file to your *TrustFrameworkExtensions.xml* file inside the **UserJourneys** element. Then make the modification as step 6.
+Add a step to the profile edit user journey. After the user is authenticated (orchestration steps 1-4 in the following XML), and the user has provided the updated profile information (step 5). Copy the profile edit user journey XML code from the *TrustFrameworkBase.xml* file to your *TrustFrameworkExtensions.xml* file inside the **UserJourneys** element. Then make the modification as step 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -135,7 +135,7 @@ Add a step to the profile edit user journey. After the user is authenticated (or
 </OrchestrationStep>
 ```
 
-The final XML for the user journey should look like this:
+The final XML for the user journey should look like this example:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -197,7 +197,7 @@ The final XML for the user journey should look like this:
 
 Edit the *ProfileEdit.xml* file and add `<OutputClaim ClaimTypeReferenceId="city" />` to the **OutputClaims** element.
 
-After you add the new claim, the technical profile looks like this:
+After you add the new claim, the technical profile looks like this example:
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
