@@ -54,6 +54,8 @@
       href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
     - name: Push localized notifications to iOS devices
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+    - name: Push notificiations to Swift apps
+      href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
   - name: Kindle
     items:
     - name: Push notifications using Amazon Device Messaging  

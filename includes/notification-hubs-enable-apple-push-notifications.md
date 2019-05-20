@@ -130,3 +130,21 @@ To be able to send push notifications to an iOS app, you must register your appl
 7. When the new provisioning profile is created click to download it and install it on your Xcode development machine. Then click **Done**.
 
     ![Download the provisioning profile](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+
+## Create a notification hub
+In this section, you create a notification hub and configure authentication with APNS using the **.p12** push certificate that you previously created. If you want to use a notification hub that you have already created, you can skip to step 5.
+
+[!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
+
+### Configure your notification hub with APNS information
+
+1. Under **Notification Services**, select **Apple (APNS)**.
+2. Select **Certificate**.
+3. Select the **file icon**.
+4. Select the **.p12** file that you exported earlier.
+5. Specify the correct **password**.
+6. Select **Sandbox** mode. Only use the **Production** if you want to send push notifications to users who purchased your app from the store.
+
+    ![Configure APNS certification in Azure portal][7]
+
+You have now configured your notification hub with APNS, and you have the connection strings to register your app and send push notifications.
