@@ -4,7 +4,7 @@ description: Learn about SQL syntax, database concepts, and SQL queries for Azur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
 
 ---
@@ -864,7 +864,7 @@ The results are:
     ]
 ```
 
-The following SQL query is another example of using array within in subqueries. This query gets all the distinct  given names of children in an arrary.
+The following SQL query is another example of using array within in subqueries. This query gets all the distinct  given names of children in an array.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
