@@ -27,7 +27,7 @@ This article covers registering as a cloud marketplace publisher. Depending on y
 |:--- |:--- |:--- |:--- |  
 | 1 | Register in Microsoft Partner Network | 15 min | [Register in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 min | [Create a Microsoft ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Submit the marketplace registration form | 15 min | [Submit the marketplace nomination form](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 3 | Create a Partner Center account | 15 min | [Create a Partner Center account](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Sign into Cloud Partner Portal | 1-3 days | [Sign into Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Register in Microsoft Developer Center (Dev Center) (for Azure Marketplace transact offers) | 5-10 days | [Register in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
@@ -62,14 +62,19 @@ A Microsoft account, e.g. *\@outlook.com or \@live.com*, is used to access many 
 
 ---
 
-## 3. Submit the marketplace registration form  
+## 3. Create a Partner Center account  
 | 15 min |  
+
+After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) to the Marketplace, our onboarding team contacts you to support your publishing experience. See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
+
+<!---
 Complete this brief [registration form](https://azuremarketplace.microsoft.com/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
 
 You will be asked to include the following information:
 *	Details about your organization, including your Microsoft Partner Network ID (which you can look up in either [Partner Center](https://partnercenter.microsoft.com/partner/home) or [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
 *	A brief description of your initial app or consulting services offer that you intend to publish, including the Microsoft product or service to which your offer most closely aligns
 *	The target audience for your app or service 
+-->
 
 ---
 ## 4. Sign into Cloud Partner Portal

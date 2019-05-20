@@ -14,24 +14,24 @@ ms.subservice: common
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you copy objects, folders, and buckets from Amazon Web Services (AWS) S3 to Azure blob storage by using AzCopy.
 
-## Set up authentication
+## Choose how you'll provide authorization credentials
 
-* To authenticate with the Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
+* To authorize with the Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
 
-* To authenticate with AWS S3, use an AWS access key and a secret access key.
+* To authorize with AWS S3, use an AWS access key and a secret access key.
 
-### Authenticate with Azure Storage
+### Authorize with Azure Storage
 
-See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy, and authenticate your identity with the Azure storage service.
+See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy, and choose how you'll provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command.
+> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage.
 >
-> If you'd rather use a SAS token, then you can append that token to the resource url in each command.
+> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
 >
 > For example: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
-### Authenticate with AWS S3
+### Authorize with AWS S3
 
 Gather your AWS access key and secret access key, and then set the these environment variables:
 

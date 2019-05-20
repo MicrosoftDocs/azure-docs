@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Microsoft identity platform (v2.0) overview
 
-Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built. The Microsoft identity platform consists of:
+Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built. The Microsoft identity platform consists of:
 
 - **OAuth 2.0 and OpenID Connect standard-compliant authentication service** that enables developers to authenticate any Microsoft identity, including:
   - Work or school accounts (provisioned through Azure AD)
@@ -76,4 +76,4 @@ When you’re ready to launch your app into a **production environment**, review
 
 ## Learn more
 
-If you’d planning to build a customer-facing application that signs in social and local identities, take a look at the [Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+If you’re planning to build a customer-facing application that signs in social and local identities, see the [Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

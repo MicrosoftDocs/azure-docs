@@ -365,7 +365,7 @@ Azure Machine Learning service is now generally available.
 With this release, we are announcing a new managed compute experience through the [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute target replaces Azure Batch AI compute for Azure Machine Learning. 
 
 This compute target:
-+ Is used for model training and batch inferencing
++ Is used for model training and batch inference/scoring
 + Is single- to multi-node compute
 + Does the cluster management and job scheduling for the user
 + Autoscales by default

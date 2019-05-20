@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ---
@@ -16,12 +16,12 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 
 ## Get started
 
-See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and authenticate your identity.
+See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command.
+> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage.
 >
-> If you'd rather use a SAS token, then you can append that token to the resource url in each command.
+> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
 >
 > For example: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>"`.
 

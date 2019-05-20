@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ---
@@ -24,7 +24,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file.
+First, download the AzCopy V10 executable file to any folder on your computer. For convenience, consider adding the AzCopy folder location to your system path for ease of use.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -43,21 +43,21 @@ To learn more about a specific command, type `azCopy` followed by the name of th
 
 For example, to learn about the `copy` command, type `azcopy copy`, and then press the ENTER key.
 
-Before you can do anything meaningful with AzCopy, you need to authenticate your identity with the storage service.
+Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
 
-## Authenticate your identity
+## Choose how you'll provide authorization credentials
 
-You can authenticate your identity by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
+You can provide authorization credentials by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
 
 Use this table as a guide:
 
-| Storage type | Currently supported method of authentication |
+| Storage type | Currently supported method of authorization |
 |--|--|
 |**Blob storage** | Azure AD & SAS |
 |**Blob storage (hierarchial namespace)** | Azure AD only |
 |**File storage** | SAS only |
 
-### Authenticate with Azure AD
+### Use Azure AD
 
 First, ensure that one of these roles has been assigned to your identity:
 
@@ -82,7 +82,7 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
-### Authenticate with a SAS token
+### Use a SAS token
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands.
 

@@ -112,6 +112,7 @@ The following table provides a brief description of each built-in role. Click th
 | [Security Admin](#security-admin) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
 | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Administrator instead |
 | [Security Reader](#security-reader) | In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes |
+| [Service Bus Data Owner](#service-bus-data-owner) | Allows for full access to Azure Service Bus resources |
 | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment |
 | [Site Recovery Operator](#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations |
 | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations |
@@ -2012,6 +2013,22 @@ The following table provides a brief description of each built-in role. Click th
 > | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Service Bus Data Owner
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for full access to Azure Service Bus resources. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Actions** |  |
+> | Microsoft.ServiceBus/* | Allows full management access to Service Bus namespace |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | Allows full data access to Service Bus namespace |
 > | **NotDataActions** |  |
 > | *none* |  |
 

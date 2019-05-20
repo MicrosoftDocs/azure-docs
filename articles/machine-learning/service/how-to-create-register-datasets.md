@@ -122,7 +122,7 @@ dataset = dataset.register(workspace = workspace,
 Use `list()` to see all of the registered Datasets in your workspace.
 
 ```Python
-Dataset.list(workspace_name)
+Dataset.list(workspace)
 ```
 
 The preceding code results in the following:

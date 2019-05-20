@@ -9,7 +9,7 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ---
-# Create a policy assignment to identify non-compliant resources using Azure PowerShell
+# Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
 The first step in understanding compliance in Azure is to identify the status of your resources. In
 this quickstart, you create a policy assignment to identify virtual machines that aren't using
