@@ -5,7 +5,7 @@ services: security- center
 documentationcenter: na
 author: monhaber 
 manager: barbkess 
-editor: ``
+editor: ****
 
 ms.assetid: 2730a2f5-20bc-4027-a1c2-db9ed0539532
 ms.service: security-center
@@ -21,7 +21,7 @@ ms.author: monhaber
 
 ## Overview
 
-Endpoint Protection assessment and recommendation in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Endpoint Protection solutions. This topic explains how Azure Security Center runs the following two recommendations for Endpoint Protection solutions.
+Endpoint Protection assessment and recommendations in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Endpoint Protection solutions. This topic explains the scenarios that generates the following two recommendations for Endpoint Protection solutions by Azure Security Center.
 
 * **Install endpoint protection solutions on your virtual machine**
 * **Resolve endpoint protection health issues on your machines**
@@ -34,17 +34,17 @@ Endpoint Protection assessment and recommendation in Azure Security Center detec
 
   * At least one of the following properties is false:
 
-     `AMServiceEnabled`
-     `AntispywareEnabled`
-     `RealTimeProtectionEnabled`
-     `BehaviorMonitorEnabled`
-     `IoavProtectionEnabled`
-     `OnAccessProtectionEnabled`
+     **AMServiceEnabled**
+     **AntispywareEnabled**
+     **RealTimeProtectionEnabled**
+     **BehaviorMonitorEnabled**
+     **IoavProtectionEnabled**
+     **OnAccessProtectionEnabled**
 
   * If one or both of the following properties is greater or equal to 7.
 
-     `AntispywareSignatureAge`
-     `AntivirusSignatureAge`
+     **AntispywareSignatureAge**
+     **AntivirusSignatureAge**
 
 ## Microsoft System Center Endpoint Protection
 
@@ -53,12 +53,12 @@ Endpoint Protection assessment and recommendation in Azure Security Center detec
 * The **Resolve endpoint protection health issues on your machines** recommendation appears when **Get-MprotComputerStatus** runs and either or both of the following occurs:
 
 * At least one of the following properties is false:
-   `AMServiceEnabled`
-   `AntispywareEnabled`
-   `RealTimeProtectionEnabled`
-   `BehaviorMonitorEnabled`
-   `IoavProtectionEnabled`
-   `OnAccessProtectionEnabled`
+   **AMServiceEnabled**
+   **AntispywareEnabled**
+   **RealTimeProtectionEnabled**
+   **BehaviorMonitorEnabled**
+   **IoavProtectionEnabled**
+   **OnAccessProtectionEnabled**
       
 * If one or both of the following Signature Updates is greater or equal to 7. 
 AntispywareSignatureAge
@@ -84,7 +84,7 @@ Or
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-The **Resolve endpoint protection health issues on your machines** recommendation will appears if any of the following checks are not met:  
+The **Resolve endpoint protection health issues on your machines** recommendation appears if any of the following checks are not met:  
 
 * Check Symantec Version >= 12:  Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
@@ -111,7 +111,7 @@ The **Install endpoint protection solutions on virtual machine** recommendation 
 
 * **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-The **Resolve endpoint protection health issues on your machines** recommendation will appears if following checks are not met:
+The **Resolve endpoint protection health issues on your machines** recommendation appears if following checks are not met:
 
 * McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
