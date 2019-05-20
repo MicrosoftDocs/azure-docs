@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: lahugh
 ---
 
@@ -98,7 +98,7 @@ Currently, the following Windows generation 2 images are published in the Azure 
 * 2012-r2-datacenter-gen2
 * 2012-datacenter-gen2
 
-See the capabilities section for a list of supported marketplace images as we will continue adding additional images that support Generation 2.
+See the capabilities section for a list of supported marketplace images as we will continue adding additional images that support generation 2.
 
 ### Managed image or managed disk
 
