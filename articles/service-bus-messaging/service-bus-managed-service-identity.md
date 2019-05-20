@@ -26,7 +26,23 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 ## Service Bus roles and permissions
 
-You can only add a managed identity to the "Owner" or "Contributor" roles of a Service Bus namespace. It grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager. It is not through the native Service Bus REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or the .NET Standard client [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objects within a managed identity.
+You can add a managed identity to the "Service Bus Data Owner" role of a Service Bus namespace. It grants the identity, full control (for management and data operations) on all entities in the namespace.
+
+>[!IMPORTANT]
+> We earlier supported adding managed identity to the **"Owner"** or **"Contributor"** role.
+>
+> However, data access privileges for **"Owner"** and **"Contributor"** role will no longer be honored. If you were using the **"Owner"** or **"Contributor"** role, then those will need to be adapted to utilize the **"Service Bus Data Owner"** role.
+
+To use the new built-in role, please complete the below steps -
+
+1. proceed to the [Azure portal](https://portal.azure.com)
+2. Navigate to the Service Bus namespace where you have currently setup the "Owner" or "Contributor" role.
+3. Click on "Access Control(IAM)" from the left pane menu.
+4. Proceed to add a new role assignment as below
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Hit "Save" to save the new role assignment.
 
 ## Use Service Bus with managed identities for Azure resources
 
