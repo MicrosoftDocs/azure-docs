@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -68,6 +68,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>
   **The following services are NOT supported**:
     * CDN
+    * Azure Front Door
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -75,11 +76,12 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI
+* Power BI - Available via an Azure Regional Community, see [here](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
     * CDN
+    * Azure Front Door
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -148,7 +150,7 @@ If your service provider offers ExpressRoute at both sites, you can work with yo
 
 ### Can I have multiple ExpressRoute circuits in the same metro? Can I link them to the same virtual network?
 
-Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can still link them to the same virtual network, but only upto 4 ExpressRoute circuits at each peering location. For example, you can select the peering locations "Singapore" and "Singapore2" and connect circuits from each to the same virtual network. 
+Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can link up to 4 circuits to the same virtual network.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 
@@ -186,7 +188,7 @@ No. From a routing perspective, all virtual networks linked to the same ExpressR
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
 
-Yes. You can link a single virtual network with up to four ExpressRoute circuits. They must be ordered through four different [ExpressRoute locations](expressroute-locations.md).
+Yes. You can link a single virtual network with up to four ExpressRoute circuits in either the same or different peering locations. 
 
 ### Can I access the Internet from my virtual networks connected to ExpressRoute circuits?
 
@@ -216,7 +218,7 @@ Yes. We accept up to 4000 route prefixes for private peering and 200 for Microso
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We do not accept private prefixes (RFC1918) for the Microsoft peering BGP session.
+We do not accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size (up to /32) on both the Microsoft and the private peering.
 
 ### What happens if I exceed the BGP limits?
 
