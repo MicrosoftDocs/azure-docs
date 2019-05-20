@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
 ---
 # Manage compute on your Azure Data Box Edge
@@ -126,4 +126,4 @@ Take the following steps in the Azure portal to sync the access keys for your de
 
 ## Next steps
 
-- Learn how to [Manage users via Azure portal](data-box-edge-manage-users.md).
+- Learn how to [Manage Edge compute network via Azure portal](data-box-edge-extend-compute-access-modules.md).
