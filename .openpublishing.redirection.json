@@ -39132,7 +39132,11 @@
       "source_path": "articles/media-services/video-indexer/video-indexer-create-new.md",
       "redirect_url": "/azure/media-services/video-indexer/use-editor-create-project",
       "redirect_document_id": false
+    },
+	   {
+      "source_path": "articles/azure-monitor/app/asp-net-core-no-visualstudio.md",
+      "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
     }
-
   ]
 }
