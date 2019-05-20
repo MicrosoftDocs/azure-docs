@@ -21,9 +21,7 @@ In part one of this three-part tutorial series, you'll prepare the data from an 
 
 For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
 
-This tutorial is **part one of a three-part tutorial series**.
-
-In part one, you'll learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Import a sample database into an Azure SQL database
@@ -151,7 +149,7 @@ From the Azure portal, follow these steps:
 1. Select your TutorialDB database.
 1. On the **Overview** page, select **Delete**.
 
-## Next Steps
+## Next steps
 
 In part one of this tutorial series, you completed these steps:
 

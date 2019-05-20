@@ -19,9 +19,7 @@ ms.date: 05/02/2019
 
 In part two of this three-part tutorial series, you'll create two predictive models in R with Azure SQL Database Machine Learning Services (preview), and then select the most accurate model.
 
-This tutorial is **part two of a three-part tutorial series**.
-
-In part two, you'll learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Train two machine learning models
@@ -116,7 +114,7 @@ From the Azure portal, follow these steps:
 1. Select your TutorialDB database.
 1. On the **Overview** page, select **Delete**.
 
-## Next Steps
+## Next steps
 
 In part two of this tutorial series, you completed these steps:
 

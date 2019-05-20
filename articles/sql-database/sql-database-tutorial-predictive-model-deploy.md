@@ -21,9 +21,7 @@ In part three of this three-part tutorial, you'll deploy a predictive model in R
 
 You'll create a stored procedure with an embedded R script that makes predictions using the model. Because your model executes in the Azure SQL database, it can easily be trained against data stored in the database.
 
-This tutorial is **part three of a three-part tutorial series**.
-
-In part three, you'll learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Store the predictive model in a database table
@@ -207,7 +205,7 @@ From the Azure portal, follow these steps:
 1. Select your TutorialDB database.
 1. On the **Overview** page, select **Delete**.
 
-## Next Steps
+## Next steps
 
 In part three of this tutorial series, you completed these steps:
 
