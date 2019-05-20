@@ -93,7 +93,7 @@ A support person will contact you and provide any assistance you need.
 
 **Should I plan for any downtime during the migration?**
 
-There is no downtime caused by the migration. During a live migration, you can continue  your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
+There is no downtime caused by the migration. During a live migration, you can continue using your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
 
 **Is there any data loss associated with the migration?**
 
