@@ -1,0 +1,51 @@
+---
+title: Azure Kinect Sensor SDK system requirements
+description: Sensor SDK system requirements
+author: joylital
+ms.author: joylital
+ms.prod: kinect-dk
+ms.date: 06/17/2019
+ms.topic: article
+keywords: azure, kinect, system requirements, CPU, GPU, USB, set up, setup, minimum, requirements
+---
+
+# Azure Kinect Sensor SDK system requirements
+
+This document provides details about the system requirements needed to install the Sensor SDK and successfully deploy your Azure Kinect DK.
+
+## Supported operating systems and architectures
+
+- Windows 10 April 2018 release (x64) or later
+- Linux Ubuntu 18.04 (x64) with OpenGLv4.4 or later GPU driver
+
+The Sensor SDK is available for the Windows API (Win32) for native C/C++ Windows applications and is not currently available to UWP applications. Azure Kinect DK is not supported for Windows 10 in S mode.
+
+## Development environment requirements
+
+To contribute into the Sensor SDK or building SDK, see [here](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK)
+
+## Host PC hardware requirements
+
+The PC host hardware requirement is very dependent on application/algorithm/sensor frame rate/resolution executed on host PC. Recommended minimum Sensor SDK configuration for Windows is:
+
+- 7th Gen Intel® CoreTM i3 Processor (Dual Core 2.4 GHz with HD620 GPU or faster)
+- 4GB Memory
+- Dedicated USB3 port
+
+<<<<<<< HEAD
+Lower end and older CPUs may also work depending on your use-case scenario. Body Tracking minimum hardware requirements are greater than those of the Sensor SDk.
+=======
+Lower end and older CPUs may also work depending on your use-case scenario. Body Tracking minimum hardware requirements are greater than those of the Sensor SDk and will be available soon.
+>>>>>>> bc671265e5a2f09f9e5fa720fc6b5e7aaeae94be
+
+Performance differs also between Windows/Linux operating systems and graphics drivers in use.
+
+## USB3
+
+There are known compatibility issues with USB Host controllers. Consult [Supported USB3 host controllers](https://review.docs.microsoft.com/azurekinect/troubleshooting?branch=master#usb3-host-controller-compatibility).
+
+## Next steps
+
+[Azure Kinect DK Overview](what-is-azure-kinect-dk.md)
+
+[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)

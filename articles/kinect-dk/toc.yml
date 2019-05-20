@@ -50,4 +50,16 @@
      href: azure-kinect-dk-depth-camera.md
    - name: Azure Kinect DK coordinate systems
      href: azure-kinect-dk-coordinate-systems.md
-     
+- name: Resources
+  items: 
+   - name: Sensor SDK
+     items:
+      - name: Download sensor SDK
+        href: sensor-sdk-download.md
+   - name: System requirements
+     href: system-requirements.md
+   - name: Azure Kinect Hardware specification
+     href: hardware-specification.md
+   - name: Compare to Windows Kinect
+     href: windows-comparison.md
+   - name: Azure Kinect Support
