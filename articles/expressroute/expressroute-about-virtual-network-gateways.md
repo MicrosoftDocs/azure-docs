@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 
@@ -58,7 +58,7 @@ The new gateway SKUs also support other deployment options to best match your ne
 ## <a name="fastpath"></a>FastPath
 ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway. 
 
-FastPath is available on [ExpressRoute Direct](expressroute-erdirect-about.md) only. In other words, you can enable this feature only if you [connect your virtual network gateway](expressroute-howto-linkvnet-arm.md) to an ExpressRoute circuit created on an ExpressRoute Direct port. In addition, your virtual network gateway must be either Ultra Performance or ErGw3AZ.
+FastPath is available on [ExpressRoute Direct](expressroute-erdirect-about.md) only. In other words, you can enable this feature only if you [connect your virtual network](expressroute-howto-linkvnet-arm.md) to an ExpressRoute circuit created on an ExpressRoute Direct port. FastPath still requires a virtual network gateway to be created to exchange routes between virtual network and on-premises network. The virtual network gateway must be either Ultra Performance or ErGw3AZ.
 
 FastPath doesn't support the following features:
 * UDR on Gateway subnet: if you apply a UDR to the Gateway subnet of your virtual network the network traffic from your on-premises network will continue to be sent to the virtual network gateway.
@@ -79,4 +79,4 @@ See [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-g
 
 See [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) for more information about configuring zone-redundant gateways.
 
-See [Link virtual network to ExpressRoute](expressroute-howto-erdirect.md) for more information about how to enable FastPath. 
+See [Link virtual network to ExpressRoute](expressroute-howto-linkvnet-arm.md) for more information about how to enable FastPath. 
