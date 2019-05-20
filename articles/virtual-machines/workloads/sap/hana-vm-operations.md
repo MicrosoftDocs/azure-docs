@@ -195,7 +195,7 @@ Check whether the storage throughput for the different suggested volumes meets t
 >  
 
 #### Azure Ultra SSD storage configuration for SAP HANA
-Microsoft is in the process of introducing a new Azure storage type called [Azure Ultra SSD](https://azure.microsoft.com/updates/ultra-ssd-new-azure-managed-disks-offering-for-your-most-latency-sensitive-workloads/). The big difference between Azure storage offered so far and Ultra SSD is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capability for Ultra SSD:
+Microsoft is in the process of introducing a new Azure storage type called [Azure Ultra SSD](https://azure.microsoft.com/updates/ultra-ssd-new-azure-managed-disks-offering-for-your-most-latency-sensitive-workloads/). The big difference between Azure storage offered so far and Ultra SSD is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra SSD:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)
@@ -405,7 +405,7 @@ has to be followed to comply with the official certification:
 - Multiple Azure disks must be attached to the DT 2.0 VM
 - It's required to create a software raid / striped volume (either via lvm or mdadm) using striping across the Azure disks
 
-More details are going be explained in the following sections.
+More details are going to be explained in the following sections.
 
 ![SAP HANA DT 2.0 Architecture Overview](media/hana-vm-operations/hana-dt-20.PNG)
 
