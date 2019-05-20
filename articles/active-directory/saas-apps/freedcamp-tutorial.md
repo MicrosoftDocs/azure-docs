@@ -59,7 +59,7 @@ Configure and test Azure AD SSO with Freedcamp using a test user called **Britta
 To configure and test Azure AD SSO with Freedcamp, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure Freedcamp](#configure-freedcamp-sso)** to configure the SSO settings on application side.
+2. **[Configure Freedcamp](#configure-freedcamp)** to configure the SSO settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Freedcamp test user](#create-freedcamp-test-user)** to have a counterpart of Britta Simon in Freedcamp that is linked to the Azure AD representation of user.
