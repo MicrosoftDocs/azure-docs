@@ -131,7 +131,8 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 Add the following information to your knife.rb:
 
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
+
+validation_key           "#{current_dir}/myorg.pem"
 
 Also add the following line reflecting the name of your Azure publish settings file.
 

@@ -67,7 +67,7 @@
   - name: Billing and subscriptions
     href: https://docs.microsoft.com/azure/billing/billing-getting-started
   - name: Hosting comparisons
-    href: https://docs.microsoft.com/azure/app-service/overview-compare
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
   - name: What is App Service?
     href: https://docs.microsoft.com/azure/app-service/overview
   - name: Virtual machines

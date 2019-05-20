@@ -3,7 +3,7 @@ title: Add a web application - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to add a web application to your Active Directory B2C tenant.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.author: davidmu
 ms.date: 04/16/2019

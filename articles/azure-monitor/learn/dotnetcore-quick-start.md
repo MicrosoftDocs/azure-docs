@@ -16,13 +16,13 @@ manager: carmonm
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. 
 
-This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. 
+This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. To learn about configuring Application Insights without Visual Studio checkout this [article](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 ## Prerequisites
 
 To complete this quickstart:
 
-- [Install Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+- [Install Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
   - ASP.NET and web development
   - Azure development
 - [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
@@ -89,28 +89,6 @@ Application Insights can gather telemetry data from any internet-connected appli
 4. Return to the **Overview** page and examine the KPI Dashboards.  This dashboard provides statistics about your application health, including the number of incoming requests, the duration of those requests, and any failures that occur. 
 
    ![Health Overview timeline graphs](./media/dotnetcore-quick-start/7kpidashboards.png)
-
-   To enable the **Page View Load Time** chart to populate with **client-side telemetry** data, add this script to each page that you want to track:
-
-   ```HTML
-   <!-- 
-   To collect user behavior analytics about your application, 
-   insert the following script into each page you want to track.
-   Place this code immediately before the closing </head> tag,
-   and before any other scripts. Your first data will appear 
-   automatically in just a few seconds.
-   -->
-   <script type="text/javascript">
-     var appInsights=window.appInsights||function(config){
-       function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
-       }({
-           instrumentationKey:"<insert instrumentation key>"
-       });
-       
-       window.appInsights=appInsights;
-       appInsights.trackPageView();
-   </script>
-   ```
 
 5. On the left click on **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can click **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by picking "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 

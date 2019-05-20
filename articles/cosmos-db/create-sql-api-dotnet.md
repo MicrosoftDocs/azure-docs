@@ -29,8 +29,8 @@ In this quickstart, you use Data Explorer in the Azure portal to create the data
 
 ## Prerequisites
 
-Visual Studio 2017 with the Azure development workflow installed
-- You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+Visual Studio 2019 with the Azure development workflow installed
+- You can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
 An Azure subscription or free Azure Cosmos DB trial account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -188,28 +188,32 @@ This step is optional. In this quickstart, you created a database and a collecti
 * The following code creates the new collection by using the `CreateDocumentCollectionAsync` method:
 
     ```csharp
-    private static async Task CreateCollectionIfNotExistsAsync()
+    private static async Task CreateCollectionIfNotExistsAsync(string partitionkey)
     {
-        try
-        {
-           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-        }
+       try
+       {       
+        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), new RequestOptions { PartitionKey = new PartitionKey(partitionkey) });
+       }
         catch (DocumentClientException e)
         {
            if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-           {
-              await client.CreateDocumentCollectionAsync(
-              UriFactory.CreateDatabaseUri(DatabaseId),
-              new DocumentCollection
-              {
-                  Id = CollectionId
-              },
-              new RequestOptions { OfferThroughput = 400 });
-           }
-           else
-           {
-             throw;
-           }
+            {
+                await client.CreateDocumentCollectionAsync(
+                  UriFactory.CreateDatabaseUri(DatabaseId),
+                   new DocumentCollection
+                    {
+                      Id = CollectionId,
+                      PartitionKey = new PartitionKeyDefinition
+                       {
+                           Paths = new System.Collections.ObjectModel.Collection<string>(new List<string>() { partitionkey })
+                        }
+                    },
+                      new RequestOptions { OfferThroughput = 400 });
+            }
+            else
+            {
+                throw;
+            }
         }
     }
     ```

@@ -1,22 +1,15 @@
 ---
-title: Private offers | Azure
+title: Private offers | Azure Marketplace
 description: Private offers in the Azure Marketplace for app and service publishers.
 services: Azure, Marketplace, Compute
-documentationcenter:
 author: qianw211
 manager: pabutler
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-
 ---
+
 # Private offers
 
 Private offers on [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) enable publishers to create SKUs that are only visible to targeted customers.

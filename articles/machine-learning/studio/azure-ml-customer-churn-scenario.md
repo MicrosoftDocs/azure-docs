@@ -213,7 +213,7 @@ This paper describes a sensible approach to tackling the common problem of custo
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Telco churn model template](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](https://gallery.azure.ai/) 
  

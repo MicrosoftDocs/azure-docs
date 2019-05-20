@@ -48,6 +48,7 @@ This section provides a reference for the following API Management policies. For
 -   [Authentication policies](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.  
     -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) - Authenticate with a backend service using client certificates.  
+    -   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) - Authenticate with a backend service using a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Caching policies](api-management-caching-policies.md#CachingPolicies)  
     -   [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache look up and return a valid cached response when available.  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches response according to the specified cache control configuration.  
@@ -77,5 +78,4 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)	

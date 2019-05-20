@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
 ---
 # Set environment variables in container instances
@@ -138,18 +138,15 @@ Azure:\
 
 ## Azure portal example
 
-To set environment variables when you start a container in the Azure portal, specify them in the **Configuration** page when you create the container.
+To set environment variables when you start a container in the Azure portal, specify them in the **Advanced** page when you create the container.
 
-When you deploy with the portal, you're currently limited to three variables, and you must enter them in this format: `"variableName":"value"`
-
-To see an example, start the [aci-wordcount][aci-wordcount] container with the *NumWords* and *MinLength* variables.
-
-1. In **Configuration**, set the **Restart policy** to *On failure*
-2. Enter `"NumWords":"5"` for the first variable, select **Yes** under **Add additional environment variables**, and enter `"MinLength":"8"` for the second variable. Select **OK** to verify and then deploy the container.
+1. On the **Advanced** page, set the **Restart policy** to *On failure*
+2. Under **Environment variables**, enter `NumWords` with a value of `5` for the first variable, and enter `MinLength` with a value of `8` for the second variable. 
+1. Select **Review + create** to verify and then deploy the container.
 
 ![Portal page showing environment variable Enable button and text boxes][portal-env-vars-01]
 
-To view the container's logs, under **SETTINGS** select **Containers**, then **Logs**. Similar to the output shown in the previous CLI and PowerShell sections, you can see how the script's behavior has been modified by the environment variables. Only five words are displayed, each with a minimum length of eight characters.
+To view the container's logs, under **Settings** select **Containers**, then **Logs**. Similar to the output shown in the previous CLI and PowerShell sections, you can see how the script's behavior has been modified by the environment variables. Only five words are displayed, each with a minimum length of eight characters.
 
 ![Portal showing container log output][portal-env-vars-02]
 

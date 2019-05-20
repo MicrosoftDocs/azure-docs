@@ -28,7 +28,7 @@ Here are the steps you need to take to set up a VM with WinRM connectivity
 4. Get the URL for your self-signed certificate in the Key Vault
 5. Reference your self-signed certificates URL while creating a VM
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Step 1: Create a Key Vault
 You can use the below command to create the Key Vault

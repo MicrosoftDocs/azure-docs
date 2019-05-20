@@ -3,8 +3,8 @@ title: Power BI Workspace Collections FAQ
 description: Frequently asked questions related to Power BI Workspace Collections.
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
