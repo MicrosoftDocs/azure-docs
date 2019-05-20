@@ -68,7 +68,7 @@ There are two ways that you can approve or deny access:
 
 1. To approve or deny each request, click the row to open a window to specify the action to take.
 
-1. Click **Approve** or **Deny**. If you are unsure, you can click **Don't know**. Doing so will result in the user maintaining his/her access, but the selection will be reflected in the audit logs.
+1. Click **Approve** or **Deny**. If you are unsure, you can click **Don't know**. Doing so will result in the user maintaining their access, but the selection will be reflected in the audit logs.
 
     ![Perform access review](./media/perform-access-review/approve-deny.png)
 

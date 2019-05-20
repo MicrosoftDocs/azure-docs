@@ -63,7 +63,7 @@ For non-routine, computationally intensive indexing requirements - such as OCR o
 Parallel processing has these elements:
 
 + Subdivide source data among multiple containers or multiple virtual folders inside the same container. 
-+ Map each mini data set to its own [date source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Map each mini data set to its own [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + For cognitive search, reference the same [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in each indexer definition.
 + Write into the same target search index. 
 + Schedule all indexers to run at the same time.
