@@ -22,7 +22,6 @@ This article provides answers to common questions when you're deploying disaster
 
 Yes, in addition to using Site Recovery to set up full disaster recovery for VMware VMs, you can also use Site Recovery to migrate on-premises VMware VMs to Azure. In this scenario you replicate on-premises VMware VMs to Azure storage. Then, you fail over from on-premises to Azure. After failover, your apps and workloads are available and running on Azure VMs. The process is similar to setting up full disaster recovery, except that in a migration you can't fail back from Azure.
 
-
 ### Does my Azure account need permissions to create VMs?
 If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account or managed disk based on your configuration. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
@@ -279,7 +278,7 @@ Azure is designed for resilience. Site Recovery is engineered for failover to a 
 ### Can I fail back to a different location?
 Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
-### Why do I need a VPN or ExpressRoute to fail back?
+### Why do I need a VPN or ExpressRoute with Private Peering to fail back?
 When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required.
 
 ### Can I resize the Azure VM after failover?

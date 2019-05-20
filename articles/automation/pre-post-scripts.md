@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
@@ -24,9 +24,7 @@ To use a pre and or post script in an Update Deployment, start by creating an Up
 
 ![Select scripts](./media/pre-post-scripts/select-scripts.png)
 
-Select the script you want to use, in this example, you used the **UpdateManagement-TurnOnVms** runbook. When you select the runbook the **Configure Script** page opens, provide values for the parameters, and choose **Pre-Script**. Click **OK** when done.
-
-![Configure script](./media/pre-post-scripts/configure-script.png)
+Select the script you want to use, in this example, you used the **UpdateManagement-TurnOnVms** runbook. When you select the runbook the **Configure Script** page opens, choose **Pre-Script**. Click **OK** when done.
 
 Repeat this process for the **UpdateManagement-TurnOffVms** script. But when choosing the **Script type**, choose **Post-Script**.
 
