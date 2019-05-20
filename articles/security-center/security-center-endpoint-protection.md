@@ -48,9 +48,9 @@ Endpoint Protection assessment and recommendation in Azure Security Center detec
 
 ## Microsoft System Center Endpoint Protection
 
-* The **Install endpoint protection solutions on virtual machine** recommendation appears after importing **SCEPMpModule  ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )**, and running **Get-MProtComputerStatus, results with AMServiceEnabled = false**
+* The **Install endpoint protection solutions on virtual machine** recommendation appears when importing **SCEPMpModule  ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )** and running **Get-MProtComputerStatus** results with **AMServiceEnabled = false**
 
-* The **Resolve endpoint protection health issues on your machines** recommendation appears if the following checks when **Get-MprotComputerStatus** ran and either or both of the following occurred:
+* The **Resolve endpoint protection health issues on your machines** recommendation appears when **Get-MprotComputerStatus** runs and either or both of the following occurs:
 
 * At least one of the following properties is false:
    `AMServiceEnabled`
@@ -84,7 +84,7 @@ Or
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-The **Resolve endpoint protection health issues on your machines** recommendation will appear if any of the following checks are not met:  
+The **Resolve endpoint protection health issues on your machines** recommendation will appears if any of the following checks are not met:  
 
 * Check Symantec Version >= 12:  Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
@@ -105,13 +105,13 @@ Registry Paths:
 
 ## McAfee Endpoint Protection for Windows
 
-The **Install endpoint protection solutions on virtual machine** recommendation appear if the following checks are not met:
+The **Install endpoint protection solutions on virtual machine** recommendation appears if the following checks are not met:
 
 * **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
 * **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-The **Resolve endpoint protection health issues on your machines** recommendation will appear if following checks are not met:
+The **Resolve endpoint protection health issues on your machines** recommendation will appears if following checks are not met:
 
 * McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
