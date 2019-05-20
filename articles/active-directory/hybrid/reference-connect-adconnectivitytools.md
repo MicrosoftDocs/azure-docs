@@ -311,7 +311,7 @@ Accept wildcard characters: False
 
 #### -SkipDnsPort
 
-If user is not using DNS services provided by the AD Site / Logon DC, then he\she may want
+If user is not using DNS services provided by the AD Site / Logon DC, then they may want
 to skip checking port 53.
 User must still be able to resolve _.ldap._tcp.\<forestfqdn\>
 in order for the Active Directory Connector configuration to succeed.
