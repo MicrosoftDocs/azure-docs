@@ -295,7 +295,7 @@ Create an SAP ASCS/SCS cluster network name (for example, **pr1-ascs [10.0.6.7]*
 
 ### Install an ASCS/SCS instance on the first ASCS/SCS cluster node
 
-1. Install an SAP ASCS/SCS instance on the first cluster node. To install the instance, in the SAP SWPM installation tool, go to:
+Install an SAP ASCS/SCS instance on the first cluster node. To install the instance, in the SAP SWPM installation tool, go to:
 
 **\<Product>** > **\<DBMS>** > **Installation** > **Application Server ABAP** (or **Java**) > **High-Availability System** > **ASCS/SCS instance** > **First cluster node**.
 
@@ -305,7 +305,7 @@ Configure an SAP cluster resource, the SAP-SID-IP probe port, by using PowerShel
 
 ### Install an ASCS/SCS instance on the second ASCS/SCS cluster node
 
-2. Install an SAP ASCS/SCS instance on the second cluster node. To install the instance, in the SAP SWPM installation tool, go to:
+Install an SAP ASCS/SCS instance on the second cluster node. To install the instance, in the SAP SWPM installation tool, go to:
 
 **\<Product>** > **\<DBMS>** > **Installation** > **Application Server ABAP** (or **Java**) > **High-Availability System** > **ASCS/SCS instance** > **Additional cluster node**.
 
