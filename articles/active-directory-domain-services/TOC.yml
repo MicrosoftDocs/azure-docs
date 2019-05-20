@@ -77,7 +77,7 @@
     - name: Deploy applications to Azure AD DS
       items: 
         - name: Configure support for profile synchronization for SharePoint Server
-          href: active-directory-ds-enable-sharepoint-profile-sync.md
+          href: deploy-sp-profile-sync.md
         - name: Configure Kerberos Constrained Delegation
           href: deploy-kcd.md
         - name: Deploy Azure AD Application Proxy

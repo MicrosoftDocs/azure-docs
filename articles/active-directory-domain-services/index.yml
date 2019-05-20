@@ -66,7 +66,7 @@ sections:
     style: unordered
     items: 
     - html: <a href="deploy-azure-app-proxy.md">Deploy Azure AD App Proxy</a>
-    - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">Profile synchronization for SharePoint Server</a>
+    - html: <a href="deploy-sp-profile-sync.md">Profile synchronization for SharePoint Server</a>
     - html: <a href="deploy-kcd.md">Configure Kerberos Constrained Delegation</a>
 
 - title: How-to articles
