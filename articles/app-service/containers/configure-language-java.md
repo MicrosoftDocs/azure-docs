@@ -61,7 +61,7 @@ The built-in Java images are based on the [Alpine Linux](https://alpine-linux.re
 
 Azure App Service for Linux supports out of the box tuning and customization through the Azure portal and CLI. Review the following articles for non-Java-specific web app configuration:
 
-- [Configure App Service settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configure app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
 - [Set up a custom domain](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Enable SSL](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Add a CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -69,7 +69,7 @@ Azure App Service for Linux supports out of the box tuning and customization thr
 
 ### Set Java runtime options
 
-To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, create an [application setting](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) named `JAVA_OPTS` with the options. App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
+To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, create an [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) named `JAVA_OPTS` with the options. App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
 
 In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `-Xms512m -Xmx1204m`.
 
@@ -228,7 +228,7 @@ To configure Tomcat to use Java Database Connectivity (JDBC) or the Java Persist
 </appSettings>
 ```
 
-Or set the environment variables in the "Application Settings" blade in the Azure portal.
+Or set the environment variables in the **Configuration** > **Application Settings** page in the Azure portal.
 
 Next, determine if the data source should be available to one application or to all applications running on the Tomcat servlet.
 
@@ -323,10 +323,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
 To connect to data sources in Spring Boot applications, we suggest creating connection strings and injecting them into your `application.properties` file.
 
-1. In the "Application Settings" section of the App Service blade, set a name for the string, paste your JDBC connection string into the value field, and set the type to "Custom". You can optionally set this connection string as slot setting.
-
-    ![Creating a connection string in the Portal.]
-    
+1. In the "Configuration" section of the App Service page, set a name for the string, paste your JDBC connection string into the value field, and set the type to "Custom". You can optionally set this connection string as slot setting.
 
     This connection string is accessible to our application as an environment variable named `CUSTOMCONNSTR_<your-string-name>`. For example, the connection string we created above will be named `CUSTOMCONNSTR_exampledb`.
 
@@ -379,7 +376,7 @@ Upload the startup script to `/home/site/deployments/tools` in your App Service 
 
 Set the **Startup Script** field in the Azure portal to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh`.
 
-Supply [app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) in the application configuration to pass environment variables for use in the script. Application settings keep connection strings and other secrets needed to configure your application out of version control.
+Supply [app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in the application configuration to pass environment variables for use in the script. Application settings keep connection strings and other secrets needed to configure your application out of version control.
 
 ### Modules and dependencies
 
@@ -397,7 +394,7 @@ To install modules and their dependencies into the Wildfly classpath via the JBo
 Once you have the files and content for your module, follow the steps below to add the module to the Wildfly application server.
 
 1. FTP your files to `/home/site/deployments/tools` in your App Service instance. See this document for instructions on getting your FTP credentials.
-2. In the Application Settings blade of the Azure portal, set the “Startup Script” field to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh` .
+2. In the **Configuration** > **General settings** page of the Azure portal, set the “Startup Script” field to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh` .
 3. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the portal or using the Azure CLI.
 
 ### Configure data source connections
