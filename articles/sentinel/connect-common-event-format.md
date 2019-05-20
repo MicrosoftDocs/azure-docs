@@ -58,7 +58,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
-   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated Linux VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
+   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated Linux VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vCPUs, 8 GB memory)** and has a public IP address.
       1. In the **Custom deployment** page, provide your details and choose a username and a password and if you agree to the terms and conditions, purchase the VM.
       1. Configure your appliance to send logs using the settings listed in the connection page. For the Generic Common Event Format connector, use these settings:
          - Protocol = UDP
