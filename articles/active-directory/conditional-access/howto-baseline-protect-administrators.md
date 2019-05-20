@@ -43,7 +43,7 @@ Because the **Require MFA for admins** policy applies to all critical administra
 Legacy authentication protocols (IMAP, SMTP, POP3, etc.) are used by mail clients to make authentication requests. These protocols do not support MFA. Most of the account compromises seen by Microsoft are caused by bad actors performing attacks against legacy protocols attempting to bypass MFA. To ensure that MFA is required when logging into an administrative account and bad actors aren’t able to bypass MFA, this policy blocks all authentication requests made to administrator accounts from legacy protocols.
 
 > [!WARNING]
-> Before you enable this policy, make sure your administrators aren’t using legacy authentication protocols. See the article [How to: Block legacy authentication to Azure AD with conditional access](block-legacy-authentication.md) for more information.
+> Before you enable this policy, make sure your administrators aren’t using legacy authentication protocols. See the article [How to: Block legacy authentication to Azure AD with conditional access](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) for more information.
 
 ### User exclusions
 

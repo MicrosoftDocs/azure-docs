@@ -55,6 +55,9 @@ Because the **Require MFA for service management** policy applies to all Azure R
 
 Legacy authentication protocols (IMAP, SMTP, POP3, etc.) are used by mail clients to make authentication requests. These protocols do not support MFA. Most of the account compromises seen by Microsoft are caused by bad actors performing attacks against legacy protocols attempting to bypass MFA. To ensure that MFA is required when logging into an account accessing Azure Resource Manager and bad actors aren’t able to bypass MFA, this policy blocks all authentication requests made to accounts from legacy protocols.
 
+> [!WARNING]
+> Before you enable this policy, make sure your users aren’t using legacy authentication protocols. See the article [How to: Block legacy authentication to Azure AD with conditional access](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) for more information.
+
 ### User exclusions
 
 This baseline policy provides you the option to exclude users. Before enabling the policy for your tenant, we recommend excluding the following accounts:
