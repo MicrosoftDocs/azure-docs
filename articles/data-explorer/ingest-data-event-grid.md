@@ -190,6 +190,16 @@ If you don't plan to use your event grid again, clean up **test-hub-rg**, to avo
 
 1. In the new window, enter the name of the resource group to delete (*test-hub-rg*), and then select **Delete**.
 
+## Optional : Set ingestion properties via blob metadata
+
+You can specify Ingestion properties of the blob ingestion via the blob metadata. Setting the blob metadata is done by [Azure Cloud Shell](https://docs.microsoft.com/en-us/cli/azure/storage/blob/metadata?view=azure-cli-latest#az-storage-blob-metadata-update) or [Azure Storage Client Library](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-properties-metadata#setting-and-retrieving-metadata).
+
+These follow properties can be set:
+
+* *IgnoreFirstRecord* - In order to ignore the header of the ingested file, set the `kustoIgnoreFirstRecord` property on the blob metadata to 'true'. 
+
+* *rawSizeBytes* - In order to achieve the best ingestion performance, it is important to let Kusto know the **uncompressed** size of the compressed blobs submitted for ingestion. Since Event Grid notifications only contain the basic details, the size information needs to be communicated explicitly. Uncompressed size information can be provided by setting the `rawSizeBytes` property on the blob metadata to **uncompressed** data size in bytes.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
