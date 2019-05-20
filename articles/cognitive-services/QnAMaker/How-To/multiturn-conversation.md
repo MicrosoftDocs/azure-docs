@@ -59,7 +59,8 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 1. In **Step 4**, select **Enable multi-turn extraction from URLs, .pdf or .docx files.** Select the URL for the Surface Manual
 
     ```text
-    https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).```
+    https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
+    ```
 
 1. Select the **Create your KB** button. 
 
