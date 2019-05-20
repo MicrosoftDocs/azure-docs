@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
 ---
 
@@ -141,7 +141,7 @@ You can access your data in three general ways:
 
 ### Data deletion
 
-Don't delete blobs. The Time Series Insights Preview maintains metadata about the blobs within it.
+Don't delete blobs. Not only are they useful for auditing and maintaining a record of your data, the Time Series Insights Preview maintains blob metadata within each blob.
 
 ## Time Series Insights data ingress
 
