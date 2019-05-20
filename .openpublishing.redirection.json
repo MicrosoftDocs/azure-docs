@@ -4037,7 +4037,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-getting-started.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+      "redirect_url": "/azure/active-directory-domain-services/create-instance",
       "redirect_document_id": false
     },
     {

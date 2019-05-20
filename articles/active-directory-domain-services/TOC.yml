@@ -24,7 +24,7 @@
     - name: Create an Azure AD DS instance
       items: 
         - name: "Task 1 configure basic settings"
-          href: active-directory-ds-getting-started.md
+          href: create-instance.md
         - name: "Task 2 configure network settings"
           href: active-directory-ds-getting-started-network.md
         - name: "Task 3 configure administrator group and enable Azure AD Domain Services"

@@ -147,5 +147,5 @@ If you're having trouble with credentials and are unable to join the domain, try
 * Wait long enough for password synchronization to be completed, as specified in the getting started guide.
 
 ## Related content
-* [Azure AD DS getting started guide](active-directory-ds-getting-started.md)
+* [Azure AD DS getting started guide](create-instance.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
