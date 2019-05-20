@@ -93,7 +93,7 @@
         - name: CoreOS
           href: join-coreos-linux-vm.md
         - name: Red Hat Enterprise Linux
-          href: active-directory-ds-join-rhel-linux-vm.md
+          href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: active-directory-ds-join-ubuntu-linux-vm.md
     - name: Troubleshoot Azure AD DS

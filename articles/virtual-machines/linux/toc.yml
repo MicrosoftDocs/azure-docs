@@ -218,7 +218,7 @@
       displayName: AAD
       items:
         - name: Red Hat Enterprise Linux
-          href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+          href: ../../active-directory-domain-services/join-rhel-linux-vm.md
         - name: CentOS
           href: ../../active-directory-domain-services/join-centos-linux-vm.md
         - name: Ubuntu
