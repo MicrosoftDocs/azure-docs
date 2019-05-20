@@ -18,64 +18,24 @@ ms.author: miparker
 ---
 
 # Tutorial: Push notifications to Swift iOS apps using the Notification Hubs REST API
-The article provides a high-level overview of the available options for connecting your client app to Notification Hubs. Then, it shows you how to connect a Swift-based iOS app to a notification hub from the client using the [REST API](/rest/api/notificationhubs/).  
+In this tutorial, you use Azure Notification Hubs to push notifications to an Swift-based iOS application using the [REST API](/rest/api/notificationhubs/). You create a blank iOS app that receives push notifications by using the [Apple Push Notification service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
-## Overview 
-Push notifications enable backend services to push information to mobile devices even when the app on the device isn't active. They can aid in keeping users engaged, app content up-to-date, and supporting other asynchronous workflows. While the infrastructure required for push notifications is fairly complex, [Azure Notification Hub](notification-hubs-push-notification-overview.md) abstracts the details of the underlying **PNS (Platform Notification Service)** enabling you to send mobile push notifications to any mobile platform with a single API call. For a detailed overview of Azure Notification Hubs, see [Introduction to Azure Notification Hubs](notification-hubs-push-notification-overview.md). 
+In this tutorial, you take the following steps:
 
-### Connect to Notification Hubs
-There are a couple of key decisions to consider up-front when working with Notification Hubs:  
-
-- Whether to handle registration directly via the client
-- Deciding which **Device Registration** option to use
-
-### Handle registrations (client vs service)
-The two main patterns for registering devices with Notification Hubs are to handle it directly from the device or indirectly through an application backend service. 
-
-Regardless of the chosen approach, you must supply a PNS handle for each device and channel. It's acquired within the client app itself. On iOS, it's provided within the *didRegisterForRemoteNotificationsWithDeviceToken* method in AppDelegate. In Android, it's provided by the Firebase identity service.  
-
-Once you have a valid PNS handle, the device registration can be either handled by the client app directly or through a backend service.
-
-When handled by the client directly, the backend is responsible only for sending notifications. The client assumes the responsibilities for keeping the PNS handle up-to-date on the Notification Hubs and must manage things like tags itself.
-
-When you use a service to handle the registration, the client app must still provide an updated PNS handle each time it's launched but the service takes care of everything else.
-
-The backend service approach is the preferred option in most cases for the following reasons:
-
-- Ability to handle changes outside of app releases
-- Enables scaling beyond a single hub
-- Logic is encapsulated in a single place
-
-While the service-based approach is advantageous in many cases, the direct approach might be considered an easier on-ramp and is perfectly sufficient for many scenarios.  
-
-For more information about registrations, see [Registration Management](notification-hubs-push-notification-registration-management.md).
-
-### Device registration options
-
-Whether you choose to handle the registration directly or indirectly ([client vs service](#handle-registrations-client-vs-service)), there are currently two available options for registering a device with Notification Hubs:
-
-#### Registration  
-The original approach to connecting devices to Notification Hubs. It associates the PNS handle for a given device with tags and optionally a template. The REST APIs are XML based and not as easy to work with as with the installation APIs. However, they can be used via both [client and server SDKs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).  
-
-#### Installation  
-This approach is the latest and the best approach to connecting devices to Notification Hub. It's described as an enhanced registration and has the following advantages over the original registration approach:
-
-- Fully idempotent so you can retry it without risking duplicate registrations
-- Easier to do individual pushes targeting specific devices
-- Ability to update the registration without having to delete and resend in its entirety
-- Nicer JSON-based API that is easier to work with overall
-
-### Summary
-Handing registration via an intermediary **service** using the installation approach is the preferred option for most. In this case, you can use either the [Notification Hubs SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) or the  [Notification Hubs REST API](/rest/api/notificationhubs/).
-
-When handling registration directly via the **client** is preferred, it's a choice between using the [Notification Hubs SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) with the original registration approach or using the [Notification Hubs REST API](/rest/api/notificationhubs/) to use the newer (and best) installation approach.  When handling the registration from the client itself, the client SDK does not yet support the preferred [installation approach](notification-hubs-push-notification-registration-management.md#installations), so you must use the [REST API](/rest/api/notificationhubs/).
-
-## Walkthrough
-This walkthrough provides step-by-step instructions for connecting a Swift-based iOS app to a notification hub from the client using the [REST API](/rest/api/notificationhubs/).  
+> [!div class="checklist"]
+> * Generate the certificate signing request file
+> * Request your app for push notifications
+> * Create a provisioning profile for the app
+> * Create a notification hub
+> * Configure the notification hub with APNS information
+> * Connect your iOS app to notification hubs
+> * Test the solution
 
 ## Prerequisites
 To follow along, you need:
 
+- Go through [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md) if you aren't familiar with the service. 
+- Learn about registrations and installation: [Registration management](notification-hubs-push-notification-registration-management.md)
 - An active [Apple Developer Account](https://developer.apple.com) 
 - A Mac with Xcode along with a valid developer certificate installed into your Keychain
 - A physical iPhone device you can run and debug with (it is not possible to test push notifications with the simulator)
@@ -100,7 +60,7 @@ First, configure the requisite certificate for the **Notification Hub**, and a s
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## Use Xcode
+## Connect your iOS app to Notification Hubs
 In this section, you'll build the iOS app that will connect to the notification hub.  
 
 ### Create an iOS project

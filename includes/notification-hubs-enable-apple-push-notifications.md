@@ -136,7 +136,7 @@ In this section, you create a notification hub and configure authentication with
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
 
-### Configure your notification hub with APNS information
+## Configure your notification hub with APNS information
 
 1. Under **Notification Services**, select **Apple (APNS)**.
 2. Select **Certificate**.
