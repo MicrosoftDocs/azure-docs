@@ -305,6 +305,9 @@
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
+      - name: ASP.NET Core 
+        displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
+        href: app/asp-net-core.md
       - name: ASP.NET apps
         items:
         - name: Web apps
@@ -338,14 +341,7 @@
         - name: Windows services
           href: app/windows-services.md
         - name: Windows desktop
-          href: app/windows-desktop.md
-        - name: ASP.NET Core
-          href: app/asp-net-core.md
-          items:
-          - name: Profiler for Linux App services (preview)
-            href: app/profiler-aspnetcore-linux.md
-        - name: ASP.NET Core without Visual Studio
-          href: app/asp-net-core-no-visualstudio.md            
+          href: app/windows-desktop.md        
         - name: Console
           href: app/console.md
         - name: Application dashboard
