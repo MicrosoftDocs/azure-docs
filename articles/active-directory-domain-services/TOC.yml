@@ -14,7 +14,7 @@
 - name: Samples
   items: 
     - name: Create an Azure AD DS instance using Azure PowerShell
-      href: active-directory-ds-enable-using-powershell.md
+      href: powershell-create-instance.md
 - name: Concepts
   items: 
     - name: How synchronization works

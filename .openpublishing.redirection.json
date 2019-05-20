@@ -39119,6 +39119,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-enable-using-powershell.md",
+      "redirect_url" : "/azure/active-directory-domain-services/powershell-create-instance",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-enable-sharepoint-profile-sync.md",
       "redirect_url" : "/azure/active-directory-domain-services/deploy-sp-profile-sync",
       "redirect_document_id": true
