@@ -14,10 +14,10 @@ ms.author: v-chjenk
 
 The Windows Virtual Desktop Preview service recommends FSLogix profile containers as a user profile solution. FSLogix is specifically designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. A complete user profile is stored in a single container and, at logon, the container is dynamically attached to the computing environment using native, in-guest Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX) Microsoft services. The user profile is immediately available and appears in the system exactly like a native user profile.
 
-In this article, we'll describe FSLogix profile containers as it's used with Azure Files. The information is in the context of Windows Virtual Desktop, which was [announced on 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
+In this article, we'll describe FSLogix profile containers used with Azure Files. The information is in the context of Windows Virtual Desktop, which was [announced on 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
 Key issues we cover:
-- Why we need user profiles and their challenges
+- Why we need user profiles and user profile challenges
 - FSLogix profile containers
 - The advantages of using Azure files
 - Reference infrastructure regarding storage
@@ -27,7 +27,7 @@ Key issues we cover:
 
 A user profile is information about individuals that contains any of a variety of business-specific data elements, including configuration information for a specific user, such as desktop settings, persistent network connections, and application settings, or personally-identifiable information. By default, Windows creates a local user profile that is tightly integrated with the operating system.
 
-A remote user profile was introduced to provide a partition between user data and the operating system. This allows the operating system to be replaced without effecting user data. In Remote Desktop Session Host (RDSH) and Virtual Desktop Infrastructures (VDI), the operating system may be replaced for the following reasons:
+A remote user profile was introduced to provide a partition between user data and the operating system, which allows the operating system to be replaced without effecting user data. In Remote Desktop Session Host (RDSH) and Virtual Desktop Infrastructures (VDI), the operating system may be replaced for the following reasons:
 
 - An upgrade of the operating system
 - A replacement of an existing Virtual Machine (VM)
@@ -38,15 +38,15 @@ Microsoft products operate with several technologies for remote user profiles, i
 - User profile disks (UPD)
 - Enterprise state roaming (ESR)
 
-UPD and RUP are the most widely used for user profiles in the Remote Desktop Session Host (RDSH) and Virtual Hard Disk (VHD) environments.
+UPD and RUP are the most widely used technologies for user profiles in Remote Desktop Session Host (RDSH) and Virtual Hard Disk (VHD) environments.
 
 ### Challenges with User Profile technologies
 
-Existing and legacy Microsoft solutions around user profiles came with different sets of challenges. No single previous user profile solution handled all the needs that come with a RDSH/VDI environment. For example, UPD could not handle large OST files and RUP did not persist modern settings.
+Existing and legacy Microsoft solutions around user profiles came with various challenges. No previous solution handled all the user profile needs that come with an RDSH/VDI environment. For example, UPD cannot handle large OST files and RUP does not persist modern settings.
 
-Functionality
+####Functionality####
 
-The table below shows the benefits and limitations of previous user profile technologies.
+The table below shows  benefits and limitations of previous user profile technologies.
 
 | Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-prem | Verison support | Subsequent logon time |
 | ---------- | --------------- | -------------- | ----------- | --------- | ----------------------- | ------------------------- | ------------------------ | --------------- | --------------------- |
@@ -66,26 +66,27 @@ The table below shows the benefits and limitations of previous user profile tech
 7. Needs a sync client (work folders?)
 ```
 
-Performance
+#### Performance
 
-UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. This is due to UPD using Server Message Block (SMB) protocol and copying the profile to the VM to which the user is being logged. UPD on top of S2D was the solution that the RDS team recommended for Windows Virtual Desktop during the private preview of the service.  
+UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. This is due to UPD using Server Message Block (SMB) protocol and copying the profile to the VM in which the user is being logged. UPD on top of S2D was the solution that the RDS team recommended for Windows Virtual Desktop during the private preview of the service.  
 
-Cost
+#### Cost
 
-While S2D clusters achieve the needed performance, their cost is considered high among enterprise customers and very high for small and medium business (SMB) customers.
+While S2D clusters achieve the necessary performance, the cost is considered high among enterprise customers and very high for small and medium business (SMB) customers.
 
-Administrative overhead
+#### Administrative overhead
 
-S2D clusters require an operating system that is patched, updated, and maintained in a secure state. This, in addition to the complexity of setting up S2D disaster recovery, makes S2D feasible only for enterprises with dedicated IT staff.
+S2D clusters require an operating system that is patched, updated, and maintained in a secure state. This, in addition to the complexity of setting up S2D disaster recovery, makes S2D feasible only for enterprises with a dedicated IT staff.
 
 ## FSLogix Profile Containers
 
-On Nov 19, 2018 [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). This was done due to many reasons, key among those are:
-- FSLogix profile containers performance, [Profile containers](https://fslogix.com/products/profile-containers) resolve performance issues that have historically blocked cached exchange mode.
-- FSLogix unblocking OneDrive, [OneDrive for Business and FSLogix best practices](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) – its mandatory to call out that without FSLogix profile containers OneDrive for Business was not supported in non-persistent RDSH / VDI environments as outlined [here](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
-- Ability to extend used profiles to include additional folders.
+On Nov 19, 2018 [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). This is due to many reasons, key among those are:
 
-Further, this acquisition allows Microsoft to supersede existing user profile solutions like UPD with FSLogix profile containers.
+- FSLogix profile containers high performance, [Profile containers](https://fslogix.com/products/profile-containers) resolve performance issues that have historically blocked cached exchange mode.
+- FSLogix unblocks OneDrive: [OneDrive for Business and FSLogix best practices](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices). Without FSLogix profile containers, OneDrive for Business is not supported in non-persistent RDSH or VDI environments. For more information, see [Use the sync client on virtual desktops](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
+- Ability to extend user profiles to include additional folders.
+
+This acquisition lets Microsoft replace existing user profile solutions, like UPD, with FSLogix profile containers.
 
 ## Azure Files integration with Active Directory
 
