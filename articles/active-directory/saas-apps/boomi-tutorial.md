@@ -249,7 +249,7 @@ In order to enable Azure AD users to log in to Boomi, they must be provisioned i
 
 	d. Enter the user's **Federation ID**. Each user must have a Federation ID that uniquely identifies the user within the account.
 
-	e. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give him normal Atmosphere access as well as single sign-on access.
+	e. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give them normal Atmosphere access as well as single sign-on access.
 
 	f. Click **OK**.
 
