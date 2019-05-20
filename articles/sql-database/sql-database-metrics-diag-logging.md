@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 05/21/2019
 ---
- 
+
 # Azure SQL Database metrics and diagnostics logging
 
-In this topic, you will learn how to configure logging of diagnostics telemetry for Azure SQL Database through the Azure portal, PowerShell, Azure CLI, Azure Monitor REST API, and Azure Resource Manager template. These diagnostics can be used to gauge resource utilization and query execution statistics. 
+In this topic, you will learn how to configure logging of diagnostics telemetry for Azure SQL Database through the Azure portal, PowerShell, Azure CLI, Azure Monitor REST API, and Azure Resource Manager template. These diagnostics can be used to gauge resource utilization and query execution statistics.
 
 Single databases, pooled databases in elastic pools, and instance databases in a managed instance can stream metrics and diagnostics logs for easier performance monitoring. You can configure a database to transmit resource usage, workers and sessions, and connectivity to one of the following Azure resources:
 
@@ -114,7 +114,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 1. In addition, configure streaming of diagnostics telemetry for each database within the elastic pool you want to monitor by following steps described in the next section.
 
 > [!IMPORTANT]
-> In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in elastic pool, as documented below. 
+> In addition to configuring diagnostics telemetry for an elastic pool, you also need to configure diagnostics telemetry for each database in elastic pool, as documented below.
 
 ### Configure streaming of diagnostics telemetry for single database, or database in elastic pool
 
@@ -176,7 +176,7 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 1. In addition, configure streaming of diagnostics telemetry for each instance database within the managed instance you want to monitor by following the steps described in the next section.
 
 > [!IMPORTANT]
-> In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below. 
+> In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below.
 
 ### Configure streaming of diagnostics telemetry for instance databases
 
@@ -256,6 +256,7 @@ Provide the workspace resource ID \<$WSID\> as a parameter when executing the sc
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Replace \<subID\> with the subscription ID, \<RG_NAME\> with the resource group name, and \<WS_NAME\> with the workspace name.
 
 ### Azure CLI
@@ -391,10 +392,6 @@ A blob name for storing data from an elastic pool looks like:
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-
-### Download metrics and logs from Storage
-
-Learn how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## Data retention policy and pricing
 
@@ -714,5 +711,3 @@ To learn about Event Hubs, read:
 
 - [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-To learn more about Azure Storage, see [how to download metrics and diagnostics logs from Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
