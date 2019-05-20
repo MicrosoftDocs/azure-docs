@@ -60,4 +60,4 @@ You have two options to resolve the mismatched directory error. You may:
 
 ## Related content
 * [Azure AD Domain Services - Getting Started guide](create-instance.md)
-* [Troubleshooting guide - Azure AD Domain Services](active-directory-ds-troubleshooting.md)
+* [Troubleshooting guide - Azure AD Domain Services](troubleshooting.md)

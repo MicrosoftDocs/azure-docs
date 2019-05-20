@@ -99,7 +99,7 @@
     - name: Troubleshoot Azure AD DS
       items: 
         - name: Troubleshooting guide
-          href: active-directory-ds-troubleshooting.md
+          href: troubleshooting.md
         - name: Troubleshoot alerts
           href: troubleshoot-alerts.md          
           items: 
