@@ -22,7 +22,9 @@ This quickstart walks you through how to create an Azure SQL Database [managed i
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/). 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a managed instance
 
