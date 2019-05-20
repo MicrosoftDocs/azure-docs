@@ -28,9 +28,9 @@ Endpoint Protection assessment and recommendations in Azure Security Center dete
 
 ## Windows Defender
 
-* The **Install endpoint protection solutions on virtual machine** recommendation appears when [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and the result is **AMServiceEnabled  : False**
+* The **Install endpoint protection solutions on virtual machine** recommendation is generated when [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and the result is **AMServiceEnabled  : False**
 
-* The **Resolve endpoint protection health issues on your machines** recommendation appears when  [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and either or both of the following occurs:
+* The **Resolve endpoint protection health issues on your machines** recommendation is generated when  [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and either or both of the following occurs:
 
   * At least one of the following properties is false:
 
@@ -48,9 +48,9 @@ Endpoint Protection assessment and recommendations in Azure Security Center dete
 
 ## Microsoft System Center Endpoint Protection
 
-* The **Install endpoint protection solutions on virtual machine** recommendation appears when importing **SCEPMpModule  ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )** and running **Get-MProtComputerStatus** results with **AMServiceEnabled = false**
+* The **Install endpoint protection solutions on virtual machine** recommendation is generated when importing **SCEPMpModule  ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )** and running **Get-MProtComputerStatus** results with **AMServiceEnabled = false**
 
-* The **Resolve endpoint protection health issues on your machines** recommendation appears when **Get-MprotComputerStatus** runs and either or both of the following occurs:
+* The **Resolve endpoint protection health issues on your machines** recommendation is generated when **Get-MprotComputerStatus** runs and either or both of the following occurs:
 
 * At least one of the following properties is false:
    **AMServiceEnabled**
@@ -66,14 +66,14 @@ AntivirusSignatureAge
 
 ## Trend Micro
 
-* The **Install endpoint protection solutions on virtual machine** recommendation appears if one or more of the following checks are not met:
+* The **Install endpoint protection solutions on virtual machine** recommendation is generated if one or more of the following checks are not met:
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
     * The **dsq_query.cmd** file is found in the Installation Folder
     * Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
 ## Symantec Endpoint Protection
-The **Install endpoint protection solutions on virtual machine** recommendation appears if any of the following checks are not met:
+The **Install endpoint protection solutions on virtual machine** recommendation is generated if any of the following checks are not met:
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
@@ -84,7 +84,7 @@ Or
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-The **Resolve endpoint protection health issues on your machines** recommendation appears if any of the following checks are not met:  
+The **Resolve endpoint protection health issues on your machines** recommendation is generated if any of the following checks are not met:  
 
 * Check Symantec Version >= 12:  Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
@@ -105,13 +105,13 @@ Registry Paths:
 
 ## McAfee Endpoint Protection for Windows
 
-The **Install endpoint protection solutions on virtual machine** recommendation appears if the following checks are not met:
+The **Install endpoint protection solutions on virtual machine** recommendation is generated if the following checks are not met:
 
 * **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
 * **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-The **Resolve endpoint protection health issues on your machines** recommendation appears if following checks are not met:
+The **Resolve endpoint protection health issues on your machines** recommendation is generated if following checks are not met:
 
 * McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
