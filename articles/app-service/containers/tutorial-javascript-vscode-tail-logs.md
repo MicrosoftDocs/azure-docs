@@ -62,6 +62,4 @@ The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azur
 > [I'm done!](./tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'tailing-logs')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=tailing-logs)

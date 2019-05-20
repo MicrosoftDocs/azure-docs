@@ -52,6 +52,4 @@ Docker Version 17.12.0-ce, build c97c6d6
 > [I've installed the Docker and Azure App Service extensions](./tutorial-javascript-vscode-create-registry.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'getting-started')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=getting-started)

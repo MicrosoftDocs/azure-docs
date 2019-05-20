@@ -72,6 +72,4 @@ Function Runtime Version: 2.0.11415.0
 > [I've installed the Azure Functions extension](./tutorial-javascript-vscode-create-app.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'getting-started')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)

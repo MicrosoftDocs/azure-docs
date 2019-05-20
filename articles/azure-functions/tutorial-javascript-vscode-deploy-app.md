@@ -72,6 +72,4 @@ Or get them all by installing the
 > [I'm done!](./functions-monitoring.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=deploy-app)

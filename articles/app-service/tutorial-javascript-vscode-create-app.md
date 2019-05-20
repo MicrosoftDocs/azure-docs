@@ -66,6 +66,4 @@ $ code .
 > [I created the Node.js application](./tutorial-javascript-vscode-deploy-app.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'create-app')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)

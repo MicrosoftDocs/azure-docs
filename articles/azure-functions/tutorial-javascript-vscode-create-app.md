@@ -29,6 +29,4 @@ Next, add an HTTP trigger Function to your app.
 > [I've created the Functions app](./tutorial-javascript-vscode-create-function.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'create-app')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-app)

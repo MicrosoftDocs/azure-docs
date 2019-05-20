@@ -59,6 +59,5 @@ You can deploy changes to this app by using the same process and choosing the ex
 > [My site is on Azure](./tutorial-javascript-vscode-tail-logs.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=deploy-app)
 
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a> -->

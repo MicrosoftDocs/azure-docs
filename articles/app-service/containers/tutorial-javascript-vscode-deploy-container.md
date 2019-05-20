@@ -37,6 +37,4 @@ The Output panel will open during deployment to indicate the status of the opera
 > [My site is on Azure](./tutorial-javascript-vscode-tail-logs.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=deploy-app)

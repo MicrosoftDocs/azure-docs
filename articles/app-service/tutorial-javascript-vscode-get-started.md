@@ -52,6 +52,4 @@ In VS Code, you should see your Azure email address in the Status Bar and your s
 > [I've installed the Azure App Service extension](./tutorial-javascript-vscode-create-app.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'getting-started')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=getting-started)

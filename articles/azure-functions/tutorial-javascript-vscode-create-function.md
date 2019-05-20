@@ -33,7 +33,4 @@ Next, run your app locally to verify everything is working.
 > [I've created the Function](./tutorial-javascript-vscode-run-app.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'create-function')" href="javascript:void(0)">I ran into an issue</a> -->
-
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-function)

@@ -52,6 +52,4 @@ Ensure that the registry endpoint that you just setup is visible under **Registr
 > [I've created a registry](./tutorial-javascript-vscode-containerize-app.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'getting-started')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=create-registry)

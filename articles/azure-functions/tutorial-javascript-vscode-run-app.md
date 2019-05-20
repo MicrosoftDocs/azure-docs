@@ -31,6 +31,4 @@ Next, set up your Azure account and publish the Function App from the extension.
 > [I ran the Function App](./tutorial-javascript-vscode-deploy-app.md)
 
 > [!div class="nextstepaction"]
-> [I ran into an issue]()
-
-<!-- <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'run-app')" href="javascript:void(0)">I ran into an issue</a> -->
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=run-app)
