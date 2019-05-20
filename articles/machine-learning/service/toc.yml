@@ -6,6 +6,9 @@
   - name: What is Azure Machine Learning service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
+  - name: How the service works
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
 - name: Setup
   items:
   - name: Create a workspace
@@ -77,9 +80,6 @@
       href:  ui-sample-classification-predict-churn.md
 - name: Concepts
   items:
-  - name: How the service works
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
   - name: Workspace
     displayName: concept definitions architecture
     href: concept-workspace.md
