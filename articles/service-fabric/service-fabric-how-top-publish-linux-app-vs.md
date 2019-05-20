@@ -1,0 +1,66 @@
+---
+title: Learn about creating and publishing .Net Core applications to a remote Linux cluster | Microsoft Docs
+description: Create and publish .Net Core applications targeting a remote Linux cluster from Visual Studio
+services: service-fabric
+documentationcenter: .net
+author: peterpogorski
+manager: chackdan
+editor: 
+
+ms.assetid: 
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: troubleshooting
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 5/20/2019
+ms.author: pepogors
+
+---
+# Use Visual Studio to create and and publish .Net Core applications targeting a remote Linux Service Fabric cluster
+With Visual Studio tooling you can develop and publish Service Fabric .Net Core applications targeting Linux.
+
+> [!Note]
+> Visual Studio doesn't support debugging Service Fabric applications targeting Linux.
+>
+
+## Create a Service Fabric application targeting .Net Core
+1. Launch Visual Studio as an **administrator**.
+2. Create a project with **File->New->Project**.
+3. In the **New Project** dialog, choose **Cloud -> Service Fabric Application**.
+![create-application]
+4. Name the application and click **Ok**.
+5. On the **New Service Fabric Service** page, select a service the type of service that you would like to create under the **.Net Core Section**.
+![create-service]
+
+## Deploy to a remote cluster
+1. In the solution explorer, right click on the application and select **Build**.
+![build-application]
+2. Once the solution has completed building, right click on the service and click to edit the **csproj file**.
+![edit-csproj]
+3. Edit the UpdateServiceFabricManifestEnabled property from True to **False**.
+```xml
+    <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
+```
+4. Update the RuntimeIndetifier from win7-x64 to the target platform in the service project.
+```xml
+    <RuntimeIdentifier>ubuntu.16.04-x64</RuntimeIdentifier>
+```
+5. In the ServiceManifest, update the entrypoint program to remove .exe. 
+```xml
+    <EntryPoint> 
+    <ExeHost> 
+        <Program>Actor1</Program> 
+    </ExeHost> 
+    </EntryPoint>
+```
+6. In Solution Explorer, right-click on the application and select **Publish**. The **Publish** dialog box appears.
+7. In **Connection Endpoint**, select the endpoint for the remote Service Fabric Linux cluster that you would like to target.
+![publish-application]
+
+<!--Image references-->
+[create-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-application-remote-linux.png
+[create-service]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
+[build-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
+[edit-csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
+[publish-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png
