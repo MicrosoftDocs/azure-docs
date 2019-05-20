@@ -44,7 +44,7 @@
         - name: Check a managed domain's health
           href: check-health.md
         - name: Configure scoped synchronization from Azure AD to a managed domain
-          href: active-directory-ds-scoped-synchronization.md
+          href: scoped-synchronization.md
         - name: Secure your managed domain
           href: active-directory-ds-secure-your-domain.md
         - name: Create an OU on a managed domain

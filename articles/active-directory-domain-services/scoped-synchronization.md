@@ -61,7 +61,7 @@ Complete the following steps to configure group-based scoped synchronization to 
 
 2. Select the groups you want to sync and provide the display name of the groups you want synchronized to your managed domain.
 
-3. Save the [script in the following section](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) to a file called ```Select-GroupsToSync.ps1```. Execute the script like below:
+3. Save the [script in the following section](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) to a file called ```Select-GroupsToSync.ps1```. Execute the script like below:
 
    ```powershell
    .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
@@ -176,7 +176,7 @@ Write-Output "******************************************************************
 
 
 ## Modify group-based scoped synchronization
-To modify the list of groups whose users should be synchronized to your managed domain, re-run the [PowerShell script](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) and specify the new list of groups. Remember to always specify the 'AAD DC Administrators' group in this list.
+To modify the list of groups whose users should be synchronized to your managed domain, re-run the [PowerShell script](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) and specify the new list of groups. Remember to always specify the 'AAD DC Administrators' group in this list.
 
 > [!WARNING]
 > **Do not forget to include the 'AAD DC Administrators' group.**
