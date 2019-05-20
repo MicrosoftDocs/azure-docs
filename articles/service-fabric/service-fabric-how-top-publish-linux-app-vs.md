@@ -36,12 +36,17 @@ With Visual Studio tooling you can develop and publish Service Fabric .Net Core 
 ## Deploy to a remote cluster
 1. In the solution explorer, right click on the application and select **Build**.
 ![build-application]
-2. Once the build process for the application has completed, right click on the service and click to edit the **csproj file**.
+2. Once the build process for the application has completed, right click on the service and select edit the **csproj file**.
 ![edit-csproj]
 3. Edit the UpdateServiceFabricManifestEnabled property from True to **False**.
 ```xml
     <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
 ```
+
+> [!Note]
+> Setting UpdateServiceFabricManifestEnabled to false, will disable updates to the ServiceManifest.xml during a build. Any change such as add, remove, or rename to the service will not be reflected in the ServiceManifest.xml. If any changes are made you must either update the ServiceManifest manually or temporarily set UpdateServiceFabricManifestEnabled to true and build the service that will update the ServiceManifest.xml and then revert it back to false.
+>
+
 4. Update the RuntimeIndetifier from win7-x64 to the target platform in the service project.
 ```xml
     <RuntimeIdentifier>ubuntu.16.04-x64</RuntimeIdentifier>
