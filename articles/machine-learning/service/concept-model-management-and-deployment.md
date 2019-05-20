@@ -17,6 +17,32 @@ ms.custom: seodec18
 
 In this article, you can learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
+## Operationalize models (MLOps)
+
+### Convert training to an Azure Pipeline
+
+for CICD stuff
+
+### Convert and optimize models
+
+### Package and debug models
+
+### Validate and profile models
+
+### Deploy models
+
+## Serve models
+
+### Models in the cloud
+
+### Models on the edge
+
+### Monitor and scale models
+
+
+
+# OLD STUFF
+
 The following diagram illustrates the complete deployment workflow:
 [![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
