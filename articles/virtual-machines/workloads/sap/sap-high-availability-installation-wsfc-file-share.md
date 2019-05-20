@@ -321,7 +321,7 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Restart the SAP ASCS/SCS instance . 
+Restart the SAP ASCS/SCS instance. 
 Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance]([high-availability-guide]:high-availability-guide.md). 
 
 ## Install a DBMS instance and SAP application servers
