@@ -34,8 +34,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* Whatfix single sign-on (SSO) enabled subscription.
-* To enable Security Assertion Markup Language (SAML) single sign-on for Whatfix products, you need to set up Atlassian Access. Learn more about [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+* Soloinsight-CloudGate SSO single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
@@ -93,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-### Configure Whatfix Single Sign-On
+### Configure Whatfix SSO
 
 To configure single sign-on on **Whatfix** side, you need to send the **App Federation Metadata Url** to [Whatfix support team](https://support.whatfix.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
