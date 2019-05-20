@@ -1,5 +1,5 @@
 ---
-title: Develop for Azure NetApp Files with REST API | Microsoft Docs
+title: Azure NetApp Files SDKs | Microsoft Docs
 description: Lists the SDKs supported by Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
