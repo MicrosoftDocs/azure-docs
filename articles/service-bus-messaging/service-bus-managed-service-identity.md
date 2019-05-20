@@ -33,6 +33,17 @@ You can add a managed identity to the "Service Bus Data Owner" role of a Service
 >
 > However, data access privileges for **"Owner"** and **"Contributor"** role will no longer be honored. If you were using the **"Owner"** or **"Contributor"** role, then those will need to be adapted to utilize the **"Service Bus Data Owner"** role.
 
+To use the new built-in role, please complete the below steps -
+
+1. proceed to the [Azure Portal](https://portal.azure.com)
+2. Navigate to the Service Bus namespace where you have currently setup the "Owner" or "Contributor" role.
+3. Click on "Access Control(IAM)" from the left pane menu.
+4. Proceed to add a new role assignment as below
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Hit "Save" to save the new role assignment.
+
 ## Use Service Bus with managed identities for Azure resources
 
 The following section describes the steps required to create and deploy a sample application that runs under a managed identity, how to grant that identity access to a Service Bus Messaging namespace, and how the application interacts with Service Bus entities using that identity.
