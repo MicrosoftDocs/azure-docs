@@ -62,7 +62,7 @@ Create a ModuleClient instance to connect your module to the IoT Edge hub runnin
 
 [Prepare your development and test environment for IoT Edge](development-environment.md)
 
-[Use Visual Studio 2017 to develop C# modules for IoT Edge](how-to-visual-studio-develop-csharp-module.md)
+[Use Visual Studio to develop C# modules for IoT Edge](how-to-visual-studio-develop-module.md)
 
 [Use Visual Studio Code to develop modules for IoT Edge](how-to-vs-code-develop-module.md)
 

@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
 ---
 
@@ -67,6 +67,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 * Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
 * You can't delete the first node pool.
+* The HTTP application routing add-on can't be used.
 
 While this feature is in preview, the following additional limitations apply:
 
@@ -343,6 +344,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 In this article you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
+To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
+
 <!-- EXTERNAL LINKS -->
 [aks-github]: https://github.com/azure/aks/issues]
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -371,3 +374,4 @@ In this article you learned how to create and manage multiple node pools in an A
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

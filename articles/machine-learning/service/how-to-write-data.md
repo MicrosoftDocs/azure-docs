@@ -19,6 +19,7 @@ In this article, you learn different methods to write data using the [Azure Mach
 
 > [!Important]
 > If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) to transform your data, snapshot data, and store versioned dataset definitions. Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions.
+> If you use the `azureml-dataprep` package to create a dataflow with your transformations instead of using the `azureml-datasets` package to create a dataset, you won't be able to use snapshots or versioned datasets later.
 
 Since there are no limitations to how many write steps there are in a pipeline, you can easily add additional write steps to get intermediate results for troubleshooting or for other pipelines.
 

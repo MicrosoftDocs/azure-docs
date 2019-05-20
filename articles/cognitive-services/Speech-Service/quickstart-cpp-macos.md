@@ -77,7 +77,7 @@ Download and install the SDK as follows:
 * Run the following command to build the application.
 
   ```sh
-  g++ helloworld.cpp -o helloworld --std=c++11 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
+  g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
 ## Run the app
