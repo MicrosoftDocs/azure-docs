@@ -158,3 +158,9 @@ The following table lists the limits for the [Try Azure Cosmos DB for Free](http
 | Maximum total storage per account | 10 GB |
 
 Try Cosmos DB supports global distribution in only the Central US, North Europe, and Southeast Asia regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+## Next steps
+
+* Learn more about [Provisioned throughput in Cosmos DB](request-units.md)
+* [How to manage conflict resolution policies](how-to-manage-conflicts.md)
+* [How to read from the conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed)
