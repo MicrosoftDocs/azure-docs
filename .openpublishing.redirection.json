@@ -4062,7 +4062,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-scenarios.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-scenarios",
+      "redirect_url": "/azure/active-directory-domain-services/scenarios",
       "redirect_document_id": false
     },
     {

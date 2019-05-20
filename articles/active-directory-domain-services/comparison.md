@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/20/2019
 ms.author: mstephen
 ---
 
@@ -25,7 +25,7 @@ With Azure AD Domain Services you can deploy your workloads in Azure Infrastruct
 To decide whether to use Azure AD Domain Services we recommend the following reading material:
 
 * See the list of [features offered by Azure AD Domain Services](active-directory-ds-features.md).
-* Review common [deployment scenarios for Azure AD Domain Services](active-directory-ds-scenarios.md).
+* Review common [deployment scenarios for Azure AD Domain Services](scenarios.md).
 * Finally, [compare Azure AD Domain Services to a do-it-yourself AD option](comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
 ## Compare Azure AD Domain Services to DIY AD domain in Azure
@@ -133,5 +133,5 @@ We have published [guidelines for Deploying Windows Server Active Directory on A
 ## Related Content
 
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)
-* [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
+* [Deployment scenarios - Azure AD Domain Services](scenarios.md)
 * [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

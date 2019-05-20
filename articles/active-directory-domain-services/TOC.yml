@@ -36,7 +36,7 @@
     - name: Plan for Azure AD DS
       items: 
         - name: Scenarios
-          href: active-directory-ds-scenarios.md
+          href: scenarios.md
         - name: Select a virtual network
           href: networking.md
     - name: Manage Azure AD DS
