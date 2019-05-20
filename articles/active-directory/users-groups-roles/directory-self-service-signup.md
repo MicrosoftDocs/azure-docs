@@ -78,4 +78,4 @@ For more information and examples of how to use these parameters, see [Set-MsolC
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet Reference](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
-* [Close your work or school account](users-close-account.md)
+* [Close your work or school account in an unmanaged directory](users-close-account.md)
