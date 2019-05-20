@@ -39119,6 +39119,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-mismatched-tenant-error.md",
+      "redirect_url" : "/azure/active-directory-domain-services/mismatched-tenant-error",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-ldaps-troubleshoot.md",
       "redirect_url" : "/azure/active-directory-domain-services/tshoot-ldaps",
       "redirect_document_id": true
