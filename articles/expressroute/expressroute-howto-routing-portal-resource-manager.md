@@ -1,9 +1,7 @@
 ---
 title: 'Configure peering for a circuit - ExpressRoute: Azure | Microsoft Docs'
 description: This article documents the steps for creating and provisioning ExpressRoute private and Microsoft peering. This article also demonstrates how to check the status, update, or delete peerings for a circuit.
-> [!Note]
-> Azure public peering is deprecated for new circuits. For more information, see [ExpressRoute peering](expressroute-circuit-peerings.md).
->
+
 services: expressroute
 author: mialdrid
 
