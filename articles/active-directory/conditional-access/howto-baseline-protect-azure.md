@@ -81,6 +81,6 @@ To enable this policy and protect your administrators:
 
 For more information, see:
 
-* [Conditional access baseline protection policies](concept-basline-protection.md)
-* [Five steps to securing your identity infrastructure](../security/azure-ad-secure-steps.md)
+* [Conditional access baseline protection policies](concept-baseline-protection.md)
+* [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
 * [What is conditional access in Azure Active Directory?](overview.md)

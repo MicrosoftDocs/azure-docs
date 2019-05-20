@@ -89,7 +89,7 @@ To enable a baseline policy:
 
 For more information, see:
 
-* [Five steps to securing your identity infrastructure](../security/azure-ad-secure-steps.md)
+* [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
 * [What is conditional access in Azure Active Directory?](overview.md)
 * [Require MFA for admins](howto-baseline-protect-administrators.md)
 * [End user protection (preview)](howto-baseline-protect-end-users.md)
