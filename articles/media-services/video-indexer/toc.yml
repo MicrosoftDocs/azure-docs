@@ -46,8 +46,6 @@
     href: video-indexer-view-edit.md
   - name: Use editor to create projects
     href: use-editor-create-project.md
-  - name: Create video insights from existing videos
-    href: video-indexer-create-new.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
   - name: Customize content models

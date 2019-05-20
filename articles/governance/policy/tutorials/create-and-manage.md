@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
 ---
-# Create and manage policies to enforce compliance
+# Tutorial: Create and manage policies to enforce compliance
 
 Understanding how to create and manage policies in Azure is important for staying compliant with
 your corporate standards and service level agreements. In this tutorial, you learn to use Azure

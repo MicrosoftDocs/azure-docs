@@ -165,7 +165,7 @@
       href: grant-access-to-create-subscription.md
     - name: Authenticate across tenants
       href: authenticate-multi-tenant.md
-  - name: Audit deployments
+  - name: Audit changes
     items:
     - name: View activity logs
       href: resource-group-audit.md

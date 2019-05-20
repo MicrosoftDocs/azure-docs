@@ -126,7 +126,7 @@ Yes, in the server you can write:
 
 Learn more for [ASP.NET](api-filtering-sampling.md) or [Java](java-filter-telemetry.md).
 
-## How are City, Country and other geo location data calculated?
+## How are city, country/region, and other geo location data calculated?
 
 We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 

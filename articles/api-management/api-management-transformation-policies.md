@@ -370,7 +370,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 #### Convert JSON to SOAP using a Liquid template
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -400,7 +400,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|template|Used to change the templating mode that the set body policy will run in. Currently the only supported value is:<br /><br />- liquid - the set body policy will use the liquid templating engine |No|liquid|
+|template|Used to change the templating mode that the set body policy will run in. Currently the only supported value is:<br /><br />- liquid - the set body policy will use the liquid templating engine |No||
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.

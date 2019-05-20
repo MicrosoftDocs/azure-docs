@@ -106,7 +106,7 @@ namespace CustomInitializer.Telemetry
             {
                 //set custom role name here
                 telemetry.Context.Cloud.RoleName = "Custom RoleName";
-                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }

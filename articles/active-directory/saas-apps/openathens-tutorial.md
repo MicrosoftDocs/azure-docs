@@ -139,11 +139,11 @@ To configure Azure AD single sign-on with OpenAthens, perform the following step
 
 	a. In **Display name mapping**, select **Use attribute**.
 
-	b. In the **Display name attribute** text box, enter the value `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	b. In the **Display name attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 	
 	c. In **Unique user mapping**, select **Use attribute**.
 
-	d. In the **Unique user attribute** text box, enter the value `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	d. In the **Unique user attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
 	e. In **Status**, select all the three check boxes.
 
