@@ -75,9 +75,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
-	a. Click **Upload metadata file**.
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section.
+	1. Click **Upload metadata file**.
+	1. Click on **folder logo** to select the metadata file and click **Upload**.
+	1. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section.
 
 	> [!Note]
 	> You get the **Service Provider metadata file** on the RingCentral SSO Configuration page which is explained later in the tutorial.
