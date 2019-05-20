@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect firmware tool
-description:  Azure Kinect Firmware Tool
+description:  Azure Kinect Firmware Tool usage
 author: joylital
 ms.author: joylital
 ms.prod: kinect-dk
@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: kinect, firmware, update
 ---
 
-# Azure Kinect Dk firmware tool
+# Azure Kinect DK firmware tool
 
 The Azure Kinect Firmware Tool can be used to query and update the device firmware of the Azure Kinect DK.
 
@@ -42,7 +42,7 @@ Current Firmware Versions:
 
 If you have more than one device attached, you can specify which device you want to query by adding the full serial number to the command, such as: 
 
-```AzureKinectFirmwareTool.exe -q 000036590812```
+`AzureKinectFirmwareTool.exe -q 000036590812`
 
 ## Update device firmware
 
@@ -50,11 +50,11 @@ The most common use of this tool is to update device firmware using the -u optio
 
 For step-by-step firmware update instruction, see [Azure Kinect firmware update](azure-kinect-dk-update-device-firmware.md).  
 
-```AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin```
+`AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin`
 
 If you have more than one device attach, you can specify which device you want to query by adding the full serial number to the command. 
 
-```AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin 000036590812```
+`AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin 000036590812`
 
 ## Reset device
 
@@ -62,13 +62,13 @@ An attached Azure Kinect DK can be reset using -r option, if you must get the de
 
 If you have more than one device attached, you can specify which device you want to query by adding the full serial number to the command.
 
-```AzureKinectFirmwareTool.exe -r 000036590812```
+`AzureKinectFirmwareTool.exe -r 000036590812`
 
 ## Inspect firmware
 
 Inspecting firmware allows you to get the version information from a firmware bin file before updating an actual device.
 
-```AzureKinectFirmwareTool.exe -i firmware\AzureKinectDK_Fw_1.5.926614.bin```
+`AzureKinectFirmwareTool.exe -i firmware\AzureKinectDK_Fw_1.5.926614.bin`
 
 ```
  == Azure Kinect DK Firmware Tool ==

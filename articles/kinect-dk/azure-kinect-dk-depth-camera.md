@@ -1,9 +1,9 @@
 ---
 title: Azure Kinect depth camera
-description: Depth camera concepts
-author: rabbitdaxi 
-ms.author: rabbitdaxi
-ms.prod: kinec-dk
+description: Azure Kinect Depth camera concepts
+author: joylital 
+ms.author: joylital
+ms.prod: kinect-dk
 ms.date: 06/05/2019
 ms.topic: conceptual 
 keywords: kinect, azure, sensor, sdk, depth camera, tof, principles, performance, invalidation

@@ -35,37 +35,37 @@ In the example below, each device has its own dedicated host PC. This is the rec
 
 1. Set up recorder for the first unit
 
-      ```k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub1.mkv```
+      `k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub1.mkv`
 
 2. Device starts waiting.
 
-```
-Device serial number: 000011590212
-Device version: Rel; C: 1.5.78; D: 1.5.60[6109.6109]; A: 1.5.13
-Device started
-[subordinate mode] Waiting for signal from master
-```
+    ```
+    Device serial number: 000011590212
+    Device version: Rel; C: 1.5.78; D: 1.5.60[6109.6109]; A: 1.5.13
+    Device started
+    [subordinate mode] Waiting for signal from master
+    ```
 
 ### Subordinate-2
  
 1. Set up recorder for the second unit
 
-    ```k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub2.mkv```
+    `k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub2.mkv`
  
 2. Device starts waiting.
 
-```
-Device serial number: 000011590212
-Device version: Rel; C: 1.5.78; D: 1.5.60[6109.6109]; A: 1.5.13
-Device started
-[subordinate mode] Waiting for signal from master
-```
+    ```
+    Device serial number: 000011590212
+    Device version: Rel; C: 1.5.78; D: 1.5.60[6109.6109]; A: 1.5.13
+    Device started
+    [subordinate mode] Waiting for signal from master
+    ```
 
 ### Master
 
 1. Start recording on master:
 
-```>k4arecorder.exe --external-sync master -r 5 -l 10 master.mkv```
+    `>k4arecorder.exe --external-sync master -r 5 -l 10 master.mkv`
 
 2. Wait until recording finished
 
@@ -83,7 +83,7 @@ You must start subordinate devices first and the master last.
 
 1. Start recorder on subordinate.
 
-```>k4arecorder.exe --device 1 --external-sync subordinate --imu OFF -r 5 -l 5 output-2.mkv```
+    `>k4arecorder.exe --device 1 --external-sync subordinate --imu OFF -r 5 -l 5 output-2.mkv`
 
 2. This goes into waiting state.
 
@@ -91,7 +91,7 @@ You must start subordinate devices first and the master last.
 
 1. start Master device
 
-```>k4arecorder.exe --device 0 --external-sync master --imu OFF -r 5 -l 5 output-1.mkv```
+    `>k4arecorder.exe --device 0 --external-sync master --imu OFF -r 5 -l 5 output-1.mkv`
 
 2. Wait recording to finish.
 

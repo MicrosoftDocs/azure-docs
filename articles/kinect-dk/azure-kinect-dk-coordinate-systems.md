@@ -1,9 +1,9 @@
 ---
 title: Azure Kinect coordinate systems
-description: 2D and 3D coordinate systems
-author: rabbitdaxi
-ms.author: rabbitdaxi
-ms.prod: kinct-dk
+description: Coordinate systems description associated with Azure DK sensors
+author: joylital
+ms.author: joylital
+ms.prod: kinect-dk
 ms.date: 07/05/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth camera, tof, principles, performance, invalidation
