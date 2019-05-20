@@ -63,22 +63,24 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 The tables below summarize our recommendations for integrating SQL Server BCDR technologies with Site Recovery as per the **availability of a BCDR technology** for your SQL server deployment. Note that all Enterprise versions of SQL server have Always On feature.
 
 **On-premises to Azure**
-| **Always On** | **FCI (Non-DTC application)** | **Recommendation** |
-| --- | --- | --- | --- | --- |
-| Yes |Yes | Always On availability groups |
-| No | Yes | Site Recovery replication with local mirror |
-| No | No | Site recovery replication |
+
+**Always On** | **FCI (Non-DTC application)** | **Recommendation** |
+--- | --- | --- 
+Yes |Yes | Always On availability groups
+No | Yes | Site Recovery replication with local mirror
+No | No | Site recovery replication
 
 [Learn more](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#hybrid-it-disaster-recovery-solutions) about the high availability options to recover SQL Server in Azure Virtual Machines.
 
 **Azure to Azure**
-| **Always On** | **FCI (Non-DTC application)** | **Active Geo-Replication** | **Auto-failover Groups** | **Recommendation** |
-| --- | --- | --- | --- | --- |
-| Yes | Yes | Yes | Yes | Auto-failover groups |
-| Yes | Yes | Yes | No | Active Geo-replication |
-| Yes | Yes | No | No | Always On availability groups |
-| No | Yes | No | No | Always On availability groups |
-| No | Yes | No | No | Site recovery replication |
+
+**Always On** | **FCI (Non-DTC application)** | **Active Geo-Replication** | **Auto-failover Groups** | **Recommendation**
+--- | --- | --- | --- | ---
+Yes | Yes | Yes | Yes | Auto-failover groups
+Yes | Yes | Yes | No | Active Geo-replication
+Yes | Yes | No | No | Always On availability groups
+No | Yes | No | No | Always On availability groups
+No | Yes | No | No | Site recovery replication
 
 Learn more about the [business continuity](../sql-database/sql-database-business-continuity.md) and [high availability](../sql-database/sql-database-high-availability.md) options to recover SQL Server in Azure Virtual Machines.
 
