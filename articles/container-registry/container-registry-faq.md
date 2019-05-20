@@ -193,7 +193,7 @@ Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
 It is suggested to verify those public keys and certificates after the overall TUF verification done by the Docker and Notary client.
 
-### How do you grant access to pull or push images without permission to manage the registry resource?
+### How do I grant access to pull or push images without permission to manage the registry resource?
 
 ACR supports [custom roles](container-registry-roles.md) that provide different levels of permissions. Specifically, `AcrPull` and `AcrPush` roles allow users to pull and/or push images without the permission to manage the registry resource in Azure.
 
@@ -238,7 +238,7 @@ The assignee is then able to authenticate and access images in the registry.
 
 With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have the permission to manage the registry resource in Azure. For example, `az acr list` or `az acr show -n myRegistry` won't show the registry.
 
-### How do you enable automatic image quarantine for a registry?
+### How do I enable automatic image quarantine for a registry?
 
 Image quarantine is currently a preview feature of ACR. You can enable the quarantine mode of a registry so that only those images which have successfully passed security scan are visible to normal users. For details, see the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
