@@ -31,5 +31,5 @@ See [Key limits](luis-boundaries.md#key-limits) for information.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use speech to text](../speech-service/how-to-recognize-intents-from-speech-csharp.md)
+> [Extracting data](luis-concept-data-extraction.md)
 
