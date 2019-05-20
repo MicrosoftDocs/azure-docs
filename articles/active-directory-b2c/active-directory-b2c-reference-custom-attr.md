@@ -20,7 +20,7 @@ ms.subservice: B2C
  You can create custom attributes in the [Azure portal](https://portal.azure.com/) and use them in your sign-up user flows, sign-up or sign-in user flows, or profile editing user flows. You can also read and write these attributes by using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Custom attributes in Azure AD B2C use [Azure AD Graph API Directory Schema Extensions](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).  
 
 > [!NOTE]
-> Support for newer [Microsoft Graph API](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-1.0) for querying Azure AD B2C tenant is still under development.
+> Support for newer [Microsoft Graph API](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) for querying Azure AD B2C tenant is still under development.
 >
 
 ## Create a custom attribute
@@ -52,5 +52,5 @@ The custom attribute is now available in the list of **User attributes** and for
 5. Select **Application claims** and then select the custom attribute. 
 6. Click **Save**.
 
-Once you have created a new user using a user flow which uses the newly created custom attribute, the object can be queried in [Azure AD Graph Explorer](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart). Alternatively you can use the [**Run user flow**](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows) feature on the user flow to verify the customer experience. You should now see **ShoeSize** in the list of attributes collected during the sign-up journey, and see it in the token sent back to your application. 
+Once you have created a new user using a user flow which uses the newly created custom attribute, the object can be queried in [Azure AD Graph Explorer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). Alternatively you can use the [**Run user flow**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) feature on the user flow to verify the customer experience. You should now see **ShoeSize** in the list of attributes collected during the sign-up journey, and see it in the token sent back to your application. 
 

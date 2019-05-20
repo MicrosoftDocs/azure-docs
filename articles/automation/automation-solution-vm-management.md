@@ -74,7 +74,7 @@ To deploy the Start/Stop VMs during off hours solution to an Automation Account 
 To deploy the Start/Stop VMs during off hours solution to a new Automation Account and Log Analytics workspace the user deploying the solution needs the permissions defined in the preceding section as well as the following permissions:
 
 - Co-administrator on subscription - This is needed to create the Classic Run As Account
-- Be part of the **Application Developer** role. For more details on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
+- Be part of the Azure Active Directory **Application Developer** role. For more details on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
 
 | Permission |Scope|
 | --- | --- |

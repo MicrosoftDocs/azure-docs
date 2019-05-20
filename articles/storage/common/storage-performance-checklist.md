@@ -13,7 +13,7 @@ ms.subservice: common
 ## Overview
 Since the release of the Microsoft Azure Storage services, Microsoft has developed a number of proven practices for using these services in a performant manner, and this article serves to consolidate the most important of them into a checklist-style list. The intention of this article is to help application developers verify they are using proven practices with Azure Storage and to help them identify other proven practices they should consider adopting. This article does not attempt to cover every possible performance and scalability optimization — it excludes those that are small in their impact or not broadly applicable. To the extent that the application's behavior can be predicted during design, it's useful to keep these in mind early on to avoid designs that will run into performance problems.  
 
-Every application developer using Azure Storage should take the time to read this article, and check that his or her application follows each of the proven practices listed below.  
+Every application developer using Azure Storage should take the time to read this article, and check that their application follows each of the proven practices listed below.  
 
 ## Checklist
 This article organizes the proven practices into the following groups. Proven practices applicable to:  
