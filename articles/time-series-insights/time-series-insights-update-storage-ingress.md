@@ -23,7 +23,7 @@ When you create a Time Series Insights Preview pay-as-you-go SKU environment, yo
 * A Time Series Insights environment.
 * An Azure Storage general-purpose V1 account where the data will be stored.
 
-Time Series Insights Preview uses Azure Blob storage with the Parquet file type. Time Series Insights manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure storage account. You create these blobs by using an Azure storage account.
+The Time Series Insights Preview uses Azure Blob storage with the Parquet file type. Time Series Insights manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure storage account. You create these blobs by using an Azure storage account.
 
 Like other Azure Storage blobs, Time Series Insights-created blobs let you read and write to them to support various integration scenarios.
 
@@ -96,12 +96,12 @@ A physical partition is a block blob that's stored in your storage account. The 
 
 ### Logical partitions
 
-A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. Time Series Insights Preview logically partitions each blob based on two properties:
+A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. The Time Series Insights Preview logically partitions each blob based on two properties:
 
 * **Time Series ID**: The partition key for all Time Series Insights data within the event stream and the model.
 * **Timestamp**: The time based on the initial ingress.
 
-Time Series Insights Preview provides performant queries that are based on these two properties. These two properties also provide the most effective method for delivering Time Series Insights data quickly.
+The Time Series Insights Preview provides performant queries that are based on these two properties. These two properties also provide the most effective method for delivering Time Series Insights data quickly.
 
 It's important to select an appropriate Time Series ID, because it's an immutable property. For more information, see [Choose Time Series IDs](./time-series-insights-update-how-to-id.md).
 
@@ -115,7 +115,7 @@ Time Series Insights publishes up to two copies of each event in your Azure stor
 
 Additionally, Time Series Insights repartitions the Parquet files to optimize for the Time Series Insights APIs. The most recently repartitioned file is also saved.
 
-During public Preview, data is stored indefinitely in your Azure storage account.
+During public preview, data is stored indefinitely in your Azure storage account.
 
 ### Writing and editing Time Series Insights blobs
 
@@ -141,7 +141,7 @@ You can access your data in three general ways:
 
 ### Data deletion
 
-Don't delete blobs, because Time Series Insights Preview maintains metadata about the blobs within it.
+Don't delete blobs. The Time Series Insights Preview maintains metadata about the blobs within it.
 
 ## Time Series Insights data ingress
 
