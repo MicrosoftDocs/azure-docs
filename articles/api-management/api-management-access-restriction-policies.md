@@ -312,8 +312,6 @@ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or ba
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
 
-> [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
-
 ### Policy statement
 
 ```xml
