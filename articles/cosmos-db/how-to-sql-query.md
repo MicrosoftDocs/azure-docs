@@ -864,7 +864,7 @@ The results are:
     ]
 ```
 
-The following SQL query is another example of using array within in subqueries. This query gets all the distinct  given names of children in an arrary.
+The following SQL query is another example of using array within in subqueries. This query gets all the distinct  given names of children in an array.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

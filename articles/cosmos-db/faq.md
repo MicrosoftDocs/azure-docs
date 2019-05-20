@@ -81,7 +81,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 * 10-GB storage capacity.
 * Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe, and Southeast Asia
 * Maximum throughput of 5 K RU/s when provisioned at the container level.
-* Maxium throughput of 20 K RU/s when provisioned at the database level.
+* Maximum throughput of 20 K RU/s when provisioned at the database level.
 * Subscriptions expire after 30 days, and can be extended to a maximum of 31 days total.
 * Azure support tickets can't be created for Try Azure Cosmos DB accounts; however, support is provided for subscribers with existing support plans.
 
@@ -515,7 +515,7 @@ Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to aut
 
 ### How can I protect against injection attacks using Gremlin drivers?
 
-Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Most native Apache Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### Why am I getting the “Gremlin Query Compilation Error: Unable to find any method” error?
 
@@ -741,7 +741,7 @@ Yes, you can use regular syntax to create composite partition key.
 
 No, during preview stable loader isn't supported.
 
-### Can an on-premises cassandra cluster be paired with Azure Cosmos DB's Apache Cassandra API?
+### Can an on-premises Apache Cassandra cluster be paired with Azure Cosmos DB's Cassandra API?
 
 At present Azure Cosmos DB has an optimized experience for cloud environment without overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario.
 
