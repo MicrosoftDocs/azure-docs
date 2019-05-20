@@ -33,11 +33,11 @@ over more details on how to create and implement policies with Azure Policy.
 
 ## How is it different from RBAC?
 
-There are a few key differences between Policy and role-based access control (RBAC). RBAC focuses
+There are a few key differences between Azure Policy and role-based access control (RBAC). RBAC focuses
 on user actions at different scopes. You might be added to the contributor role for a resource
 group, allowing you to make changes to that resource group. Policy focuses on resource properties
 during deployment and for already existing resources. Policy controls properties such as the types
-or locations of resources. Unlike RBAC, Policy is a default allow, and explicit deny system.
+or locations of resources. Unlike RBAC, Azure Policy is a default allow and explicit deny system.
 
 ### RBAC Permissions in Azure Policy
 
