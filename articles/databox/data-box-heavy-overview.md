@@ -14,9 +14,9 @@ ms.author: alkohli
 
 # What is Azure Data Box Heavy? (preview)
 
-Azure Data Box Heavy allows you to send hundreds of terabytes of data into Azure in a quick, inexpensive, and reliable way. The data is transferred to Azure by shipping you a Data Box Heavy device with 1-PB storage capacity, which you can fill with your data and send back to Microsoft. The device has a rugged casing to protect and secure your data during transit.
+Azure Data Box Heavy allows you to send hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable way. The data is transferred to Azure by shipping you a Data Box Heavy device with 1-PB storage capacity, which you fill with your data and send back to Microsoft. The device has a rugged casing to protect and secure your data during transit.
 
-Data Box Heavy is currently in preview and you can sign up to request for a device via the Azure portal. Once the device is received at your datacenter, you can set it up using the local web UI. Copy the data from your servers to the device and ship the device back to Azure. In the Azure datacenter, your data is uploaded to your Azure Storage account(s). You can track entire end-to-end process in the Azure portal.
+Data Box Heavy is currently in preview. Sign up to request for a device via the Azure portal. Once the device is received at your datacenter, set it up using the local web UI. Copy the data from your servers to the device and ship the device back to Azure. In the Azure datacenter, your data is uploaded to your Azure Storage account(s). You can track the entire end-to-end process in the Azure portal.
 
 
 > [!IMPORTANT]
@@ -29,9 +29,9 @@ Data Box Heavy is currently in preview and you can sign up to request for a devi
 Data Box Heavy is best suited for data sizes in the hundreds of terabytes, where network connectivity is insufficient to upload the data to Azure. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. Here are the various scenarios where Data Box Heavy can be used for data transfer.
 
  - **One time migration** - when large amount of on-premises data is moved to Azure.
-     - Moving a media library from offline tapes into Azure to create an online media library.
-     - Migrating your VM farm, SQL server, and applications to Azure
-     - Moving historical data to Azure for in-depth analysis and reporting using HDInsight
+     - Move a media library from offline tapes into Azure to create an online media library.
+     - Migrate your VM farm, SQL server, and applications to Azure.
+     - Move historical data to Azure for in-depth analysis and report using HDInsight.
 
  - **Initial bulk transfer** - when an initial bulk transfer is done using Data Box Heavy (seed) followed by incremental transfers over the network.
      - For example, Data Box Heavy and a backup solutions partner are used to move initial large historical backup to Azure. Once complete, the incremental data is transferred via network to Azure storage.
@@ -60,12 +60,12 @@ The Data Box Heavy device has the following features in this release.
 |---------------------------------------------------------|--------------------------|
 | Weight                                                  | ~ 500 lbs.                |
 | Dimensions                                              | Device - Width: 26 inches Height: 28 inches Length: 48 inches |
-| Rack space                                              | Cannot be rack-mounted|
-| Cables required                                         | 4 X grounded 120 V/10 A power cords (NEMA 5-15) included <br> Device supports up to 240V power and has C-13 power receptacles <br> Use network cables compatible with [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
+| Rack space                                              | Can't be rack-mounted|
+| Cables required                                         | 4 X grounded 120 V/10 A power cords (NEMA 5-15) included <br> Device supports up to 240 V power and has C-13 power receptacles <br> Use network cables compatible with [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
 |Power                                                    | 4 built-in power supply units (PSUs) shared across both the device nodes|
 | Storage capacity                                        | ~ 1-PB raw, 70 disks of 14 TB each <br> 770-TB usable capacity|
 |Number of nodes                                          | 2 independent nodes per device (500 TB each) |
-| Network interfaces per node                             | 4 network interfaces per node <br> MGMT, DATA3 <ul><li> 2 X 1-GbE interfaces </li><li> MGMT is for management, not user configurable, used for initial setup </li><li> DATA3 is a user-configurable data interface, DHCP by default</li><li>The 1-GbE network interfaces can also be configured as 10-GbE</li></ul>DATA1, DATA2 data interfaces <ul><li>2 X 40-GbE interfaces </li><li> DHCP (default) or static, user configurable data interfaces</li>|
+| Network interfaces per node                             | 4 network interfaces per node <br> MGMT, DATA3 <ul><li> 2 X 1-GbE interfaces </li><li> MGMT is for management, not user configurable, used for initial setup </li><li> DATA3 is a user-configurable data interface, DHCP by default</li><li>1-GbE network interfaces can also be configured as 10-GbE interfaces</li></ul>DATA1, DATA2 data interfaces <ul><li>2 X 40-GbE interfaces </li><li> DHCP (default) or static, user configurable data interfaces</li>|
 
 
 ## Components
@@ -74,7 +74,7 @@ The Data Box Heavy includes the following components:
 
 * **Data Box Heavy device** - a physical device with a rugged exterior that stores data securely. This device has a usable storage capacity of 770 TB.
     
-* **Data Box service** – an extension of the Azure portal that lets you manage a Data Box Heavy device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box Heavy device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  
+* **Data Box service** – an extension of the Azure portal that lets you manage a Data Box Heavy device from a web interface that you can access from different geographical locations. Use the Data Box service to administer your Data Box Heavy device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  
 
 * **Local web user interface** – a web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the Data Box service. Use the local web UI also to shut down and restart the device, view copy logs, and contact Microsoft Support to file a service request.
 
@@ -93,7 +93,7 @@ A typical flow includes the following steps:
 
 5. **Upload** - Data is automatically copied from the device to Azure. The device disks are securely erased as per the National Institute of Standards and Technology (NIST) guidelines.
 
-Throughout this process, you are notified via email on all status changes.
+Throughout this process, you're notified via email on all status changes.
 
 ## Region availability
 
@@ -111,7 +111,7 @@ For the most up-to-date information on region availability for Data Box Heavy, g
 
 ## Sign up
 
-Data Box Heavy is in preview and you need to sign up. Perform the following steps to sign up for Data Box Heavy:
+Data Box Heavy is in preview and you need to sign up. Take the following steps to sign up for Data Box Heavy:
 
 1. Sign into the Azure portal at: https://aka.ms/azuredatabox.
 2. Click **+ Create a resource** to create a new resource. Search for **Azure Data Box**. Select **Azure Data Box** service.
@@ -130,6 +130,6 @@ Data Box Heavy is in preview and you need to sign up. Perform the following step
 
     <!--![The Data Box Heavy sign up 4]()-->
 
-Once you are signed up and enabled for preview, you can order a Data Box Heavy.
+Once you're signed up and enabled for preview, you can order a Data Box Heavy.
 
     
