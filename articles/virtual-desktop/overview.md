@@ -85,7 +85,7 @@ Windows Virtual Desktop comprises the Windows desktops and apps you deliver to u
 For optimal performance, make sure your network meets the following requirements:
 
 * Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms.
-* Network traffic may flow outside country borders when VMs that host desktops and apps connect to the management service.
+* Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
 * To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
 
 ## Provide feedback

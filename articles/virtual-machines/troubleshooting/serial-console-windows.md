@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
-ms.author: harijay
+ms.author: alsin
 ---
 
 # Azure Serial Console for Windows

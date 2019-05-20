@@ -99,7 +99,7 @@ The following snippets are all taken from the app.py file and uses the connectio
 
 2. Open a terminal window and `cd` to the directory that the app is saved in.
 
-3. Then set the environment variable for the Flask app with `set FLASK_APP=app.py` or `export FLASK_APP=app.py` if you are using a Mac.
+3. Then set the environment variable for the Flask app with `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` for PowerShell editors, or `export FLASK_APP=app.py` if you are using a Mac. 
 
 4. Run the app with `flask run` and browse to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 

@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ---
-# Create a policy assignment to identify non-compliant resources by using a Resource Manager template
+# Quickstart: Create a policy assignment to identify non-compliant resources by using a Resource Manager template
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of creating a policy assignment to identify virtual
