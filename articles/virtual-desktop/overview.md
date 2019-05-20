@@ -91,7 +91,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 
 ## Supported virtual machine OS image
 
-Windows Virtual Desktop only supports the following two OS images
+Windows Virtual Desktop supports the following OS images:
 
 * Windows 10 Enterprise multi-session
 * Windows Server 2016
