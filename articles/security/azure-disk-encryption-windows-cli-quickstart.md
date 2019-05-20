@@ -26,7 +26,7 @@ Create a resource group with the [az group create](/cli/azure/group?view=azure-c
 az group create --name myResourceGroup --location eastus
 ```
 
-## Create virtual machine
+## Create a virtual machine
 
 Create a VM with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password. 
 
@@ -64,7 +64,7 @@ Azure disk encryption stores its encryption key in an Azure Key Vault. Create a 
 az keyvault create --name "myKV" --resource-group "myResourceGroup" --location eastus --enabled-for-disk-encryption
 ```
 
-## Encrypt the VM
+## Encrypt the virtual machine
 
 Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-latest), providing your unique Key Vault name to the --disk-encryption-keyvault parameter.
 
