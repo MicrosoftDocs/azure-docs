@@ -6,13 +6,14 @@ author: rolyon
 manager: mtillman
 
 ms.service: active-directory
+ms.subservice: users-groups-roles
+ms.topic: article
 ms.workload: identity
-ms.subservice: fundamentals
-ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rolyon
 ms.reviewer: 
-ms.c qustom: "it-pro, seodec18"
+ms.custom: it-pro
+
 ms.collection: M365-identity-device-management
 ---
 
