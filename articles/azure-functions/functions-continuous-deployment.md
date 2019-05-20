@@ -17,19 +17,19 @@ ms.author: glenga
 
 # Continuous deployment for Azure Functions
 
-Azure Functions hosted on Windows allow you to deploy your code continuously through [source control integration](functions-deployment-technologies.md#source-control). This enables a workflow where code updates trigger deployment to Azure. If you're new to Azure Functions, get started with the [Azure Functions overview](functions-overview.md).
+Azure Functions allows you to deploy your code continuously through [source control integration](functions-deployment-technologies.md#source-control). This enables a workflow where code updates trigger deployment to Azure. If you're new to Azure Functions, get started with the [Azure Functions overview](functions-overview.md).
 
-Continuous deployment is a great option for projects where you're integrating multiple and frequent contributions. It also lets you maintain a single source of truth for your function code. You can configure continuous deployment in Azure Functions with the following options for location of your source code:
+Continuous deployment is a great option for projects where you're integrating multiple and frequent contributions. It also lets you maintain a single source of truth for your function code. You can configure continuous deployment in Azure Functions from the following source code locations:
 
 * [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/)
 * [GitHub](https://github.com)
 * [Bitbucket](https://bitbucket.org/)
 
-The unit of deployment for Azure functions is the function app. This means that all functions in a function app will be deployed at the same time. After continuous deployment is enabled, access to function code in the Azure portal is set to *read-only*.
+The unit of deployment for Azure functions is the function app. This means that all functions in a function app are deployed at the same time. After continuous deployment is enabled, access to function code in the Azure portal is configured as *read-only*, since the source of truth is set to be elsewhere.
 
 ## Requirements for continuous deployment
 
-For continuous deployment to work properly with Azure Functions, your directory structure must be compatible with what Azure Functions expects:
+For continuous deployment to succeed, your directory structure must be compatible the following basic folder structure that Azure Functions expects:
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 

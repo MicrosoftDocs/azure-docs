@@ -21,183 +21,118 @@ There are a few different technologies capable of deploying to Azure Functions. 
 ## Deployment Technology Availability for Azure Functions
 
 > [!IMPORTANT]
-> Azure Functions supports cross platform local development, and hosting on two operating systems: Windows and Linux. There are three hosting plans currently available, each with different behaviors - [consumption, premium, and dedicated](functions-scale.md). Not all deployment technologies are available for each flavor of Azure Functions.
+> Azure Functions supports cross platform local development, and hosting on two operating systems: Windows and Linux. There are three hosting plans currently available, each with different behaviors - [Consumption](functions-scale.md#consumption-plan),  [Premium](functions-scale.md#premium-plan-public-preview), and [dedicated (App Service)](functions-scale.md#app-service-plan). Not all deployment technologies are available for each flavor of Azure Functions.
 
-| Deployment Technology | Windows Consumption | Windows Premium (Preview) | Windows Dedicated | Linux Consumption (Preview) | Linux Dedicated |
+| Deployment technology | Windows consumption | Windows premium (preview) | Windows dedicated  | Linux consumption (preview) | Linux dedicated |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
-| External Package URL |✔|✔|✔|✔|✔|
-| Zip Deploy |✔|✔|✔| |✔|
-| Web Deploy |✔|✔|✔| | |
-| Docker Container | | | | |✔|
-| Source Control |✔|✔|✔| |✔|
-| Local Git |✔|✔|✔| |✔|
-| Cloud Sync |✔|✔|✔| |✔|
-| FTP |✔|✔|✔| |✔|
-| Portal Editing |✔|✔|✔| |✔<sup>1</sup>|
+| External package URL<sup>1</sup> |✔|✔|✔|✔|✔|
+| Zip deploy |✔|✔|✔| |✔|
+| Docker container | | | | |✔|
+| Web deploy |✔|✔|✔| | |
+| Source control |✔|✔|✔| |✔|
+| Local Git<sup>1</sup> |✔|✔|✔| |✔|
+| Cloud sync<sup>1</sup> |✔|✔|✔| |✔|
+| FTP<sup>1</sup> |✔|✔|✔| |✔|
+| Portal editing |✔|✔|✔| |✔<sup>2</sup>|
 
-<sup>1</sup> Portal editing is enabled for only HTTP and Timer triggers for Functions on Linux using the Dedicated Plan.
+<sup>1</sup> Deployment technology which requires [manual trigger syncing](#trigger-syncing).
+<sup>2</sup> Portal editing is enabled for only HTTP and Timer triggers for Functions on Linux using the Dedicated Plan.
 
 ## Key concepts
 
-Before continuing, it's important to understand some key concepts that will be critical to understanding how deployments work in Azure Functions.
+Before continuing, it's important to learn some key concepts that will be critical to understanding how deployments work in Azure Functions.
 
 ### Trigger Syncing
 
-When a user of Azure Functions modifies the trigger information for of their functions, it must be communicated to Azure Functions infrastructure to ensure proper invocation. This happens automatically for many deployment technologies, but for others, the user must manually synchronize their triggers with Azure Functions. Specifically, when a user deploys via _External Package URL_, _Local Git_, _Cloud Sync_, or _FTP_, they must ensure synchronization manually. This can be accomplished in one of three ways:
+When you change any of your triggers, the Functions infrastructure needs to be aware of these changes. This synchronization happens automatically for many deployment technologies. However, in some cases you must manually synchronize your triggers. When you deploy your updates using an external package URL, local Git, cloud sync, or FTP, you must be sure to manually synchronize your triggers. You can synchronize triggers in one of three ways:
 
-1. Refreshing your function app in the Azure portal
-2. Sending an HTTP POST request to `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook.md#authorization-keys).
-3. Sending an HTTP POST request to `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/syncfunctiontriggers?api-version=2016-08-01`
+* Restart your function app in the Azure portal
+* Send an HTTP POST request to `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook.md#authorization-keys).
+* Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app.
 
-## Deployment Technology Details
+## Deployment Technology Details  
 
 ### External Package URL
 
-#### What it does
+__What it does:__ Allows you to reference a remote package (zip) file which contains your function app. The file is downloaded from the provided URL, and the app runs in [Run-From-Package](run-functions-from-deployment-package.md) mode.
 
-This deployment technology allows you to point your function app towards a package (zip) file which is hosted elsewhere. Azure Functions will grab the file from the provided URL, and will start your app in [Run-From-Package](run-functions-from-deployment-package.md) mode.
+__How to use it:__ Add `WEBSITE_RUN_FROM_PACKAGE` to your application settings.The value of this setting should be a URL - the location of the specific package file you want to run. You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+If using Azure blob storage, you should use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) to give Functions access to the package.
 
-#### How to use it
-
-To instruct the functions runtime to grab your zip file from wherever you're hosting it, you must add `WEBSITE_RUN_FROM_PACKAGE` to your app settings. The value of this setting should be a URL - the location of the specific package file you want to run. If using Azure blob storage, you should use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) to give Functions access to the package.
-
-#### When to use it
-
-This is the only deployment method supported for Azure Functions running on Linux in the Consumption plan (Preview). As such it's the recommended version for this scenario. Note that when updating the package file a function app is pointing to, you must manually tell Azure Functions to pick up the latest changes. For more information, see [Trigger Syncing](#trigger-syncing).
+__When to use it:__ This is the only deployment method supported for Azure Functions running on Linux in the Consumption plan (Preview). When updating the package file a function app is referencing, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed.
 
 ### Zip Deploy
 
-#### What it does
+__What it does:__ Lets you to push a zip file containing your function app to Azure. Optionally, you can also specify to have your app start in [Run-From-Package](run-functions-from-deployment-package.md) mode.
 
-This deployment technology allows you to push a zip file to your function app in Azure. You can also optionally specify to have your app start in your app in [Run-From-Package](run-functions-from-deployment-package.md) mode.
+__How to use it:__ Use your favorite client tool - [VS Code](functions-create-first-function-vs-code#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a zip file to your function app, follow the instructions [here](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-#### How to use it
+Additionally, when deploying through zip deploy, users can specify to run their app from in [Run-From-Package](run-functions-from-deployment-package.md) mode by setting the `WEBSITE_RUN_FROM_PACKAGE` application setting value as `1`. This option is suggested and will yield faster loading times for your applications. This is done by default for the above client tools.
 
-To deploy a zip to your function app, send an HTTP request to the `https://{functionappname}.scm.azurewebsites.net/api/zipdeploy` endpoint. This request can either include zip contents directly, or point to the URL where a zip file is hosted. The expected request structure is as follows:
-
-| Verb | Arguments |
-| ---- | --------- |
-| POST | -T \<zipfile\> |
-| PUT  | -H "Content-Type: application/json" -d "{'packageUri':'\<zipURL\>}'}" |
-
-For example, using curl:
-
-```bash
-curl -X POST -u <user> https://{sitename}.scm.azurewebsites.net/api/zipdeploy -T <zipfile>
-curl -X PUT -u <user> https://{sitename}.scm.azurewebsites.net/api/zipdeploy -H "Content-Type: application/json" -d "{'packageUri':'<zipUrl>'}"
-```
-
-Additionally, when deploying through zip deploy, users can specify to run their app from in [Run-From-Package](run-functions-from-deployment-package.md) mode by setting the `WEBSITE_RUN_FROM_PACKAGE` application setting value as `1`. This option is suggested and will yield faster loading times for your applications.
-
-#### When to use it
-
-This is the recommended deployment technology for Azure Functions running on Windows, and Azure Functions running on Linux in the Dedicated plan.
-
-### Web Deploy (MSDeploy)
-
-#### What it does
-
-This deployment technology packages and deploys your Windows applications to any IIS server - including your Azure function apps running on Windows.
-
-#### How to use it
-
-To deploy your application using Web Deploy, use the [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md), and don't tick the `Run from package file (recommended)` check box.
-
-Alternatively, call the MSDeploy.exe directly after downloading [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
-
-#### When to use it
-
-This deployment technology is supported and has no issues, but the preferred mechanism is now [Zip Deploy with Run From Package enabled](#zip-deploy). To learn more, visit the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
+__When to use it:__ This is the recommended deployment technology for Azure Functions running on Windows, and Azure Functions running on Linux in the Dedicated plan.
 
 ### Docker Container
 
-#### What it does
+__What it does:__ Specify a container image which Azure Functions will pull and run.
 
-This deployment technology allows you to specify a container image which Azure Functions will pull and run.
+__How to use it:__ Create a Linux function app in the Dedicated plan, and specify which container image to run from. You can do this in two ways:
 
-#### How to use it
-
-To use this deployment technique, you must create a Linux function app in the Dedicated plan. You can do this in two ways:
-
-1. Create a Linux Dedicated function app in the Azure portal. Select `Docker Image` for Publish, and configure the container, providing the location where the image is hosted.
-2. Create a Linux Dedicated function app through the Azure CLI. Learn more about this [here](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
+* Create a Linux function app on an App Service plan in the Azure portal. Select **Docker Image** for **Publish**, and configure the container, providing the location where the image is hosted.
+* Create a Linux function app on an App Service plan through the Azure CLI. Learn more about this [here](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
 
 To deploy to an existing app using a custom container, use the [`func deploy`](functions-run-local.md#publish) command of the [Azure Functions Core Tools](functions-run-local.md).
 
-#### When to use it
+__When to use it:__ Use this option when you need more control over the Linux environment in which your function app runs. This deployment mechanism is only available for Functions running on Linux in an App Service plan.
 
-If you want to run Functions from a custom container, this is the way to do it. This deployment mechanism is only available for Functions running on Linux in the Dedicated plan.
+### Web Deploy (MSDeploy)
+
+__What it does:__ Packages and deploys your Windows applications to any IIS server - including your Azure function apps running on Windows.
+
+__How to use it:__ Use the [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md), and don't tick the `Run from package file (recommended)` check box.
+
+Alternatively, call the MSDeploy.exe directly after downloading [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
+
+__When to use it:__ This deployment technology is supported and has no issues, but the preferred mechanism is now [Zip Deploy with Run From Package enabled](#zip-deploy). To learn more, visit the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
 
 ### Source Control
 
-#### What it does
+__What it does:__ Allows you to hook your function app up to a git repository such that any updates to code in that repository triggers deployment. For more information, take a look at the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
-This deployment technology allows you to hook up your function app with a git repository, such that any pushes to that repository will trigger a publish. For more information, take a look at the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
+__How to use it:__ Use the Deployment Center in the Azure Functions portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
-#### How to use it
-
-To set up source control for your function app, use the Deployment Center in the Azure Functions portal. Read more about how to set this up [here](functions-continuous-deployment.md).
-
-#### When to use it
-
-Using source control is the best practice for teams collaborating on their function apps, and this is a great option which enables more sophisticated deployment pipelines.
+__When to use it:__ Using source control is the best practice for teams collaborating on their function apps, and this is a great option which enables more sophisticated deployment pipelines.
 
 ### Local Git
 
-#### What it does
+__What it does:__ Lets you push code from your local machine to Azure Functions using Git.
 
-This deployment technology allows you to push code from your local machine to Azure Functions using Git.
+__How to use it:__ Follow the instructions [here](../app-service/deploy-local-git.md).
 
-#### How to use it
+__When to use it:__ In general, other deployment methods are recommended. When publishing from local git, you must [manually sync triggers](#trigger-syncing).
 
-Follow the instructions [here](../app-service/deploy-local-git.md).
+### Cloud sync
 
-#### When to use it
+__What it does:__ Allows you to sync your content from Dropbox and OneDrive to Azure Functions.
 
-In general, other deployment methods are recommended. Note that when using this deployment technology, you must manually tell Azure Functions to pick up the latest changes. For more information, see [Trigger Syncing](#trigger-syncing).
+__How to use it:__ Follow the instructions in [Sync content from a cloud folder](../app-service/deploy-content-sync.md).
 
-### Cloud Sync
-
-#### What it does
-
-This deployment technology allows you to sync your content from Dropbox and OneDrive to Azure Functions.
-
-#### How to use it
-
-Follow the instructions [here](../app-service/deploy-content-sync.md).
-
-#### When to use it
-
-In general, other deployment methods are recommended. Note that when using this deployment technology, you must manually tell Azure Functions to pick up the latest changes. For more information, see [Trigger Syncing](#trigger-syncing).
+__When to use it:__ In general, other deployment methods are recommended. When publishing with cloud sync, you must [manually sync triggers](#trigger-syncing).
 
 ### FTP
 
-#### What it does
+__What it does:__ Lets you directly transfer files to Azure Functions.
 
-This deployment technology allows you to directly transfer files to Azure Functions.
+__How to use it:__ Follow the instructions in [Deploy content using FTP/s](../app-service/deploy-ftp.md).
 
-#### How to use it
-
-Follow the instructions [here](../app-service/deploy-ftp.md).
-
-#### When to use it
-
-In general, other deployment methods are recommended. Note that when using this deployment technology, you must manually tell Azure Functions to pick up the latest changes. For more information, see [Trigger Syncing](#trigger-syncing).
+__When to use it:__ In general, other deployment methods are recommended. When publishing with FTP, you must [manually sync triggers](#trigger-syncing).
 
 ### Portal Editing
 
-#### What it does
+__What it does:__ Using the portal based editor allows you to directly edit files on your function app (essentially deploying anytime you click **Save**).
 
-This deployment technology consists of using the portal based editor to directly edit files on your function app.
+__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function). Using any other deployment method makes your function read only and prevents continued portal editing, to preserve a single source of truth. To return to a state in which you can edit your files using the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment related Application Settings (like `WEBSITE_RUN_FROM_PACKAGE`).
 
-#### How to use it
-
-Navigate to the Azure Functions section of the Azure portal, create a new function app, and create a function. If you pick a language, hosting plan, and operating system which supports portal editing, you will be able to author your functions in the Azure portal, directly touching your production resources.
-
-> [!Note]
-> If you've deployed to your function app with any of these technologies, your function app will become read only and the portal editing experience will be disabled. This is because the source of truth for your application is now the deployment source. To return to a state in which you can edit your files using the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment related Application Settings (like `WEBSITE_RUN_FROM_PACKAGE`).
-
-##### Portal Editing Availability
+#### Portal Editing Availability
 
 | | Windows Consumption | Windows Premium (Preview) | Windows Dedicated | Linux Consumption (Preview) | Linux Dedicated |
 |-| :-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
@@ -212,9 +147,7 @@ Navigate to the Azure Functions section of the Azure portal, create a new functi
 
 <sup>1</sup> Portal editing is enabled for only HTTP and Timer triggers for Functions on Linux using the Dedicated Plan.
 
-#### When to use it
-
-The portal is a great way to get started with Azure Functions, but for any more intense development work using the client tooling is recommended:
+__When to use it:__ The portal is a great way to get started with Azure Functions, but for any more intense development work using the client tooling is recommended:
 
 * [Get started using VS Code](functions-create-first-function-vs-code.md)
 * [Get started using the Azure Functions Core Tools](functions-run-local.md)

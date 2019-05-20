@@ -182,7 +182,7 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 ### Deployment Technology
 
-When publishing from Visual Studio, one of two technologies is used to perform the deployment: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) and [Zip Deploy (with Run From Package enabled)](functions-deployment-technologies.md#zip-deploy).
+When publishing from Visual Studio, one of two technologies is used to perform the deployment: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) and [Zip Deploy with Run-From-Package enabled (recommended)](functions-deployment-technologies.md#zip-deploy).
 
 ## Function app settings
 
