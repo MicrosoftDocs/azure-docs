@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/20/2019
 ms.author: mstephen
 
 ---
@@ -146,7 +146,7 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 
 ## There are one or more alerts on your managed domain
 
-See how to resolve alerts on your managed domain by visiting the [Troubleshoot Alerts](active-directory-ds-troubleshoot-alerts.md) article.
+See how to resolve alerts on your managed domain by visiting the [Troubleshoot Alerts](troubleshoot-alerts.md) article.
 
 ## Users removed from your Azure AD tenant are not removed from your managed domain
 Azure AD protects you from accidental deletion of user objects. When you delete a user account from your Azure AD tenant, the corresponding user object is moved to the Recycle Bin. When this delete operation is synchronized to your managed domain, it causes the corresponding user account to be marked disabled. This feature helps you recover or undelete the user account later.

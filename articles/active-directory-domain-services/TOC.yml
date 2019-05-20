@@ -101,7 +101,7 @@
         - name: Troubleshooting guide
           href: active-directory-ds-troubleshooting.md
         - name: Troubleshoot alerts
-          href: active-directory-ds-troubleshoot-alerts.md          
+          href: troubleshoot-alerts.md          
           items: 
             - name: Fix a broken NSG configuration
               href: active-directory-ds-troubleshoot-nsg.md

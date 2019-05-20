@@ -45,7 +45,7 @@ For example, if you've configured a restrictive NSG for your virtual network, Mi
 
 Each alert has a set of resolution steps. Some alerts are transient and get automatically resolved by the service. You can resolve some other alerts by following the instructions in the corresponding resolution steps for that alert. For some critical alerts, you need to contact Microsoft support to get a resolution.
 
-For more information, see [How to troubleshoot alerts on a managed domain](active-directory-ds-troubleshoot-alerts.md).
+For more information, see [How to troubleshoot alerts on a managed domain](troubleshoot-alerts.md).
 
 **What to expect**
 
@@ -91,7 +91,7 @@ A managed domain that stays in the "Suspended" state for 15 days is **Deleted**.
 
 
 ## How do you know if your managed domain is suspended?
-You see an [alert](active-directory-ds-troubleshoot-alerts.md) on the Azure AD DS Health page in the Azure portal that declares that the domain is suspended. The state of the domain also shows "Suspended".
+You see an [alert](troubleshoot-alerts.md) on the Azure AD DS Health page in the Azure portal that declares that the domain is suspended. The state of the domain also shows "Suspended".
 
 
 ## Restore a suspended domain
@@ -107,7 +107,7 @@ Your managed domain can only be restored to the date of the last backup. The dat
 
 
 ## Next steps
-- [Resolve alerts for your managed domain](active-directory-ds-troubleshoot-alerts.md)
+- [Resolve alerts for your managed domain](troubleshoot-alerts.md)
 - [Read more about Azure Active Directory Domain Services](overview.md)
 - [Contact the product team](contact-us.md)
 
