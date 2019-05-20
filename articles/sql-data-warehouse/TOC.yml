@@ -261,7 +261,6 @@
       href: sql-data-warehouse-how-to-manage-and-monitor-importance.md 
     - name: Set request level Importance
       href: sql-data-warehouse-how-to-set-request-level-importance.md 
-
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2
