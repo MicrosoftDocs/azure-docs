@@ -161,6 +161,15 @@ Try Cosmos DB supports global distribution in only the Central US, North Europe,
 
 ## Next steps
 
-* Learn more about [Provisioned throughput in Cosmos DB](request-units.md)
-* [How to manage conflict resolution policies](how-to-manage-conflicts.md)
-* [How to read from the conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed)
+Read more about Cosmos DB's core concepts [global distribution](distribute-data-globally.md) and [partitioning](partitioning-overview.md) and [provisioned throughput](request-units.md).
+
+Get started with Azure Cosmos DB with one of our quickstarts:
+
+* [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
+* [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
+* [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
+* [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)
