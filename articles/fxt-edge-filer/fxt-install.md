@@ -132,7 +132,7 @@ To remove the device from the rack, follow this procedure.
 2. Unlock each lever by rotating it up to its release position (2).
 3. Grasp the sides of the system firmly and pull it forward until the rail standoffs are at the front of the J-slots. Lift the system up and away from the rack and place it on a level surface (3).
 
-![Illustration of removing a system from the rack, with steps numbered](media/removing-system-rack-400.png)
+![Illustration of removing a system from the rack, with steps numbered](media/fxt-install/removing-system-rack-400.png)
 
 ### Engage the slam latch
 
@@ -171,7 +171,7 @@ An optional cable management arm (CMA) is provided with the FXT Edge Filer. Prin
    1. Push the tray forward until it clicks into place. (1)
    1. To remove the tray, squeeze the latch-release buttons toward the center and pull the tray out of the receiver brackets (2).
 
-   ![Illustration of CMA tray installation](media/cma-tray-scan-400.png)
+   ![Illustration of CMA tray installation](media/fxt-install/cma-tray-scan-400.png)
 
 3. Install the CMA attachment brackets. 
 

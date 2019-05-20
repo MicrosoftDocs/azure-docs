@@ -27,7 +27,7 @@ The system has ten drive bays, accessible from the front. Each populated drive i
 
 Drive numbers are printed on the space between drives. In the Azure FXT Edge Filer, drive 0 is the top left drive, and drive 1 is directly underneath it.
 
-![photo of one hard drive bay in the FXT chassis, showing drive numbers and capacity labels](media/drives-photo.png)
+![photo of one hard drive bay in the FXT chassis, showing drive numbers and capacity labels](media/fxt-drives-photo.png)
 
 | Drive numbers    |  Use   |  Specifications |
 |------------------|--------|-----------------|
