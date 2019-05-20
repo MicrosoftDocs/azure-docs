@@ -4,7 +4,7 @@ description: How to configure downstream or leaf devices to connect through Azur
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 05/15/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -35,8 +35,6 @@ Before following the steps in this article, you should have two devices ready to
 2. A downstream device that has a device identity from IoT Hub. 
     You cannot use an IoT Edge device as the downstream device. Instead, use a device registered as a regular IoT device in IoT Hub. In the portal, you can register a new device in the **IoT devices** section. Or you can use the Azure CLI to [register a device](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Copy the connection string and have it available to use in later sections. 
 
-    Currently, only downstream devices with symmetric key authentication can connect through IoT Edge gateways. X.509 certificate authorities and X.509 self-signed certificates are not currently supported.
-    
 > [!NOTE]
 > The "gateway name" used in this article needs to be the same name as used as hostname in your IoT Edge config.yaml file. The gateway name needs to be resolvable to an IP Address, either using DNS or a host file entry. Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge. If a firewall is in between, the respective port needs to be open.
 
