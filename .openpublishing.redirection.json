@@ -5956,8 +5956,13 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/web-sites-configure.md",
+      "redirect_url": "/azure/app-service/configure-common",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-web/web-sites-configure.md",
-      "redirect_url": "/azure/app-service/web-sites-configure",
+      "redirect_url": "/azure/app-service/configure-common",
       "redirect_document_id": false
     },
     {
@@ -6402,7 +6407,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-java-custom-upload.md",
-      "redirect_url": "/azure/app-service/web-sites-configure",
+      "redirect_url": "/azure/app-service/configure-common",
       "redirect_document_id": false
     },
     {
@@ -9427,7 +9432,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-transform-extend.md",
-      "redirect_url": "/azure/app-service/web-sites-configure",
+      "redirect_url": "/azure/app-service/configure-common",
       "redirect_document_id": false
     },
     {
