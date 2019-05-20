@@ -31,9 +31,9 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 4) Select **[Documentation](../index.md)** to review comprehensive answers to questions and resources. 
 
-5) Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of thousands of Microsoft publishers. 
+5) Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of other Microsoft publishers. 
 
-6) Select **[Additional help](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** to open a New support request ticket. 
+6) Select **[Additional help](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** to open a **New support request** ticket. 
 
 ## How to open a support ticket
 
