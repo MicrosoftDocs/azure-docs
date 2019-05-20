@@ -148,7 +148,7 @@ The steps above are sufficient to start collecting server-side telemetry. If you
         </head>
     ```
 
-The `.cshtml` file names referenced above are from a default MVC application template. Ultimately, to properly enable client-side monitoring for your application you need the JavaScript snippet to be present in the `<head>` section of each page your application that you want to monitor. For this application template adding the Javascript snippet to `_Layout.cshtml` will effectively accomplish this goal. If your project does not have this specific file you can still add [client-side monitoring](https://docs.microsoft.com/azure/azure-monitor/app/website-monitoring) you would just need to either add the JavaScript to an equivalent file that controls the `<head>` of all pages within your app, or alternatively you could add the snippet to multiple individual pages though this would be difficult to maintain and is generally not recommended.
+The `.cshtml` file names referenced above are from a default MVC application template. Ultimately, to properly enable client-side monitoring for your application you need the JavaScript snippet to be present in the `<head>` section of each page of your application that you want to monitor. For this application template adding the Javascript snippet to `_Layout.cshtml` will effectively accomplish this goal. If your project does not have this specific file you can still add [client-side monitoring](https://docs.microsoft.com/azure/azure-monitor/app/website-monitoring). You would just need to either add the JavaScript to an equivalent file that controls the `<head>` of all pages within your app, or alternatively you could add the snippet to multiple individual pages though this would be difficult to maintain and is generally not recommended.
 
 ## Configuring Application Insights SDK
 
@@ -337,7 +337,7 @@ If the SDK is installed at build time as shown in this article, there is no need
 
 ### Can I enable Application Insights monitoring using tools like Status Monitor?
 
-No. [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) and its upcoming replacement [Status Monitor v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) currently supports ASP.NET 4.x only. This document will be updated when support for ASP.NET Core applications is available.
+No. [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) and its upcoming replacement [Status Monitor v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) currently supports ASP.NET 4.x only.
 
 ### I have an ASP.NET Core 2.0 Application. Isn't Application Insights automatically enabled without me doing anything?
 
@@ -347,7 +347,7 @@ No. [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-
 
 * Yes. Feature support for the SDK is same in all platforms, with the following exceptions:
 
-    * Performance Counters are not yet supported in Non-Windows. This document will be updated when Linux and MacOS support is added.
+    * Performance Counters are not yet supported in Non-Windows.
     * Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or MacOS, the channel does not automatically create a local storage folder to keep telemetry temporarily if there are network issues. This limitation causes telemetry to be lost if there are temporary network or server issues. The workaround for this issue is for the user to configure a local folder for the channel, as shown below.
 
 ```csharp
