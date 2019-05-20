@@ -102,7 +102,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
+In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
 
 ```php
 getenv("DB_HOST")
@@ -234,7 +234,7 @@ When a working PHP app behaves differently in App Service or has errors, try the
     - Depending on your *composer.json*, different packages may be installed for production mode (`require` vs. `require-dev`).
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.
-- Run your app in App Service in debug mode. For example, in [Laravel](https://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Run your app in App Service in debug mode. For example, in [Laravel](https://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ### robots933456
 
