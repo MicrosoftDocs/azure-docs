@@ -36,12 +36,13 @@ In this section, you create three simulated devices that send data to an instanc
 
 1. On the **Create Device Simulation solution** page, enter or select values for the following parameters:
 
-   | Parameter | Action |
-   | --- | --- |
-   | **Solution name** |	Enter a unique value for creation of a new resource group. The listed Azure resources are created and assigned to the resource group. |
-   | **Subscription** |	Specify the same subscription used for creation of your Time Series Insights environment. |
-   | **Region** |	Specify the same region used for creation of your Time Series Insights environment. |
-   | **Deploy optional Azure Resources**	| Leave IoT Hub selected, because the simulated devices will use it to connect and stream data. |
+    | Parameter | Action |
+    | --- | --- |
+    | **Solution name** | Enter a unique value for creation of a new resource group. The listed Azure resources are created and assigned to the resource group. |
+    | **Subscription** | Specify the same subscription used for creation of your Time Series Insights environment. |
+    | **Region** | Specify the same region used for creation of your Time Series Insights environment. |
+    | **Deploy optional Azure Resources** | Leave IoT Hub selected, because the simulated devices will use it to connect and stream data. |
+ 
     Select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
 
     [![Create Device Simulation solution page](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
@@ -68,7 +69,7 @@ In this section, you create three simulated devices that send data to an instanc
 
     Select **Start simulation**.
 
-   In the device simulation dashboard, note the information shown for **Active devices** and **Messages per second**.
+    In the device simulation dashboard, note the information shown for **Active devices** and **Messages per second**.
 
     [![Azure IoT simulation dashboard](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
