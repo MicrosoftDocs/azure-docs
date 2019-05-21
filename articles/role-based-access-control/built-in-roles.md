@@ -1411,7 +1411,7 @@ The following table provides a brief description of each built-in role. Click th
 > | | |
 > | --- | --- |
 > | **Description** | Allows for full access to Azure Event Hubs resources. |
-> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | **Actions** |  |
 > | Microsoft.EventHubs/* | Allows full management access to Event Hubs namespace |
 > | **NotActions** |  |
