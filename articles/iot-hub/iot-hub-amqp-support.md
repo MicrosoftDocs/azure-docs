@@ -189,11 +189,6 @@ for msg in batch:
 For a given device ID, IoT Hub uses a hash of the device ID to determine which partition to store its messages in. The code snippet above demonstrates receiving events from a single such partition. Note, however, that a typical application often needs to retrieve events stored in all event hub partitions.
 
 
-### Additional notes
-* The AMQP connections may be disrupted due to network glitch, or expiry of the authentication token (generated in the code). The service client must handle these circumstances and re-establish the connection and links if needed. For the case of authentication token expiry, the client can also proactively renew the token prior to its expiry to avoid a connection drop.
-* In some cases, your client must be able to correctly handle link redirections. Refer to your AMQP client documentation on how to handle this operation.
-
-
 ## Device client
 
 ### Connection and authenticating to IoT Hub (device client)
@@ -326,6 +321,10 @@ for result in results:
     if result == uamqp.constants.MessageState.SendFailed:
         print result
 ```
+
+## Additional notes
+* The AMQP connections may be disrupted due to network glitch, or expiry of the authentication token (generated in the code). The service client must handle these circumstances and re-establish the connection and links if needed. For the case of authentication token expiry, the client can also proactively renew the token prior to its expiry to avoid a connection drop.
+* In some cases, your client must be able to correctly handle link redirections. Refer to your AMQP client documentation on how to handle this operation.
 
 ## Next steps
 
