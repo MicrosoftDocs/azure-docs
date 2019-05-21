@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 05/21/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -124,9 +124,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Zscaler Private Access Administrator idpconfig](./media/zscalerprivateaccess-tutorial/idpconfig.png)
 
-	b. Select your domain from **Domains** field.
+	c. Select your domain from **Domains** field.
 	
-	c. Click **Save**.
+	d. Click **Save**.
 
 ### Create an Azure AD test user
 
