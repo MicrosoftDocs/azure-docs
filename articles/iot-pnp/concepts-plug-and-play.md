@@ -1,6 +1,6 @@
 ---
-title: 'Azure IoT Device Builder | Microsoft Docs'
-description: Understand Azure Device Builder.
+title: 'Azure IoT Plug and Play | Microsoft Docs'
+description: Understand Azure IoT Plug and Play.
 author: dsk-2015
 manager: philmea
 ms.service: iot-pnp
@@ -10,9 +10,9 @@ ms.date: 05/17/2019
 ms.author: dkshir
 ---
 
-# Azure Device Builder
+# Azure IoT Plug and Play
 
-Azure Device Builder is an important tool to access IoT PnP capabilities. 
+Azure IoT Plug and Play is a new service to allow you to choose and connect authorized devices to your IoT hub. 
 
 This is an example file, and from here on is a direct copy paste from another service. Use this as a placeholder. 
 
