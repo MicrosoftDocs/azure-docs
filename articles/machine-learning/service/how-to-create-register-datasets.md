@@ -134,26 +134,17 @@ dataset = dataset.register(workspace = workspace,
 >[!NOTE]
 > If `exist_ok = False` (default), and you attempt to register a dataset with the same name as another, an error occurs. Set to `True` to overwrite existing.
 
-Use `list()` to see all of the registered Datasets in your workspace.
-
-```Python
-Dataset.list(workspace)
-```
-
-The preceding code results in the following:
-
-```Python
-[Dataset(Name: dataset_crime,
-         Workspace: workspace_name)]
-```
-
 ## Access data in datasets
 
-Registered Datasets are accessible and consumable locally, remotely and on compute clusters like the Azure Machine Learning compute. To reuse your registered Dataset across experiments and compute environments, use the following code to get your workspace and registered dataset by name.
+Registered datasets are accessible and consumable locally, remotely and on compute clusters like the Azure Machine Learning compute. To reuse your registered Dataset across experiments and compute environments, use the following code to get your workspace and registered dataset by name.
 
 ```Python
 workspace = Workspace.from_config()
 
+# See list of datasets registered in workspace.
+Dataset.list(workspace)
+
+# Get dataset by name
 dataset = workspace.datasets['dataset_crime']
 ```
 
