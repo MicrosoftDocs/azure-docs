@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/02/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Platforms and features supported by Azure Security Center
