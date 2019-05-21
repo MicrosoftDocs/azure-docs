@@ -6036,7 +6036,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-stack/user">
+                                <a href="/azure-stack/asdk/">
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardImageOuter">
