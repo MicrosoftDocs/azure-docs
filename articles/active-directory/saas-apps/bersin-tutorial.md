@@ -187,7 +187,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Bersin test user
 
-In this section, you create a user called Britta Simon in Bersin. Work with the [Bersin support team](mailto:USBersinServiceClient@deloitte.com) to add the users in the Bersin platform or the domain which is needed to be whitelisted in the Bersin platform. If the domain is added by the team, users will get automatically provisioned to the Bersin platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Bersin. Work with the [Bersin support team](mailto:USBersinServiceClient@deloitte.com) to add the users in the Bersin platform or the domain that must be added to an allow list for the Bersin platform. If the domain is added by the team, users will get automatically provisioned to the Bersin platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
