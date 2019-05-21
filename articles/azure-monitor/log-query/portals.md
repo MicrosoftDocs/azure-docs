@@ -47,11 +47,14 @@ The following options are not yet available through the resource view of Log Ana
 - Switching to different workspace/resource (currently not planned)
 
 ## Understanding scope 
-The scope picker in Log Analytics allows you to select the scope of your query. 
+The scope picker in Log Analytics allows you to select the scope of your query. Depending 
 
-If you select a Log Analytics workspace, then the scope will be all records in that workspace regardless of how they were created. 
+- **If you select a Log Analytics workspace**, then the scope will be all records in that workspace regardless of how they were created.
+- **If you select a resource type other than Log Analytics workspace**, then the scope is all records created by that resource in all Log Analytics workspaces that you can access. 
 
-If you select a resource type that contains other resource type such as a subscription or a resource group, then the scope is all records create by all contained resources in all Log Analytics workspaces that you can access. 
+If you select a resource type that contains other resources such as a subscription or a resource group, then the scope is all records created by all contained resources in all Log Analytics workspaces that you can access. For example, if you select a resource group, then the scope will be all records created by the resources in that resource group. 
+
+
 
 
 ## Firewall requirements
