@@ -29,25 +29,30 @@ You can only add a managed identity to the "Owner" or "Contributor" roles of an 
 
 
 ## Event Hubs roles and permissions
-
-You can add a managed identity to the "Service Bus Data Owner" role of a Service Bus namespace. It grants the identity, full control (for management and data operations) on all entities in the namespace.
+You can add a managed identity to the **Event Hubs Data Owner** role of an Event Hubs namespace. It grants the identity, full control (for management and data operations) on all entities in the namespace.
 
 >[!IMPORTANT]
-> We earlier supported adding managed identity to the **"Owner"** or **"Contributor"** role.
+> We earlier supported adding managed identity to the **Owner** or **Contributor** role.
 >
-> However, data access privileges for **"Owner"** and **"Contributor"** role will no longer be honored. If you were using the **"Owner"** or **"Contributor"** role, then those will need to be adapted to utilize the **"Service Bus Data Owner"** role.
+> However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Event Hubs Data Owner** role.
 
-To use the new built-in role, please complete the below steps -
+To use the new built-in role, follow these steps: 
 
-1. proceed to the [Azure portal](https://portal.azure.com)
-2. Navigate to the Service Bus namespace where you have currently setup the "Owner" or "Contributor" role.
-3. Click on "Access Control(IAM)" from the left pane menu.
-4. Proceed to add a new role assignment as below
+1. Navigate to the [Azure portal](https://portal.azure.com)
+2. Navigate to the Event Hubs namespace where you have currently setup the **Owner** or **Contributor** role.
+3. Select **Access Control(IAM)** from the left menu.
+4. On the **Access Control (IAM)** page, select **Add** in the **Add a role assignment** section. 
 
-    ![Service Bus RBAC Data Owner](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+    ![Add a role assignment button](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. On the **Add role assignment** page, do the following steps: 
+    1. For **Role**, select **Azure Eevent Hubs Data Owner**. 
+    2. Select the **identity** to be added to the role.
+    3. Select **Save**. 
 
-5. Hit "Save" to save the new role assignment.
+        ![Event Hubs Data Owner role](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Switch to the **Role assignments** page and confirm that the user is added to the **Azure Event Hubs Data Owner** role. 
 
+    ![Confirm user is added to the role](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## Use Event Hubs with managed identities for Azure Resources
 
