@@ -38,7 +38,7 @@ To use the new built-in role, follow these steps:
 
     ![Add a role assignment button](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
 5. On the **Add role assignment** page, do the following steps: 
-    1. For **Role**, select **Azure Eevent Hubs Data Owner**. 
+    1. For **Role**, select **Azure Event Hubs Data Owner**. 
     2. Select the **identity** to be added to the role.
     3. Select **Save**. 
 
