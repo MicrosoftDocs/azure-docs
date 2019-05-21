@@ -112,18 +112,6 @@ The configuration requirements and content of Diagnostic logs vary by resource t
 | Storage | Send Diagnostic logs to Azure Storage for archiving. | [Archive Azure Diagnostic Logs](archive-diagnostic-logs.md) |
 | Event Hubs | Stream Diagnostic logs to other locations using Event Hubs. |[Stream Azure Diagnostic Logs to an event hub](diagnostic-logs-stream-event-hubs.md) |
 
-
-
-### Other services
-The Azure services in the following table do not currently store their data in the Azure Monitor data platform like other services.
-
-| Service | Description | Reference |
-|:---|:---|:---|
-| Storage | Metrics for Azure Storage are collected in Azure Monitor along with other resources, but logs are written to the storage account. You can import these logs into a Log Analytics workspace in Azure Monitor, but this requires custom configuration. You can also retrieve this data with the Storage Analytics API.  | [Azure Storage metrics in Azure Monitor](../../storage/common/storage-metrics-in-azure-monitor.md)<br>[Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md)<br>[Storage Analytics API](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)<br>[Query Azure Storage analytics logs in Azure Log Analytics](https://azure.microsoft.com/blog/query-azure-storage-analytics-logs-in-azure-log-analytics/) |
-| App Service | Metrics for app services are collected in Azure Monitor along with other resources. Logs are written to file, table, or blob storage. | [Enable diagnostics logging for apps in Azure App Service](../../app-service/troubleshoot-diagnostic-logs.md)  |
-
-
-
 ## Guest operating system
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.
 
