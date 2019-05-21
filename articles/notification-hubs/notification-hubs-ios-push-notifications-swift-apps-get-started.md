@@ -51,13 +51,6 @@ It should be possible to follow along to create this first-principles example wi
 > [!NOTE]
 > The notification hub will be configured to use the *Sandbox* authentication mode only. You should not use this authentication mode for production workloads.
 
-## Use Apple developer portal
-First, configure the requisite certificate for the **Notification Hub**, and a specific **App ID** and **Provisioning Profile** for the client app. The high-level steps are:  
-
-- Generate the **CSR** (Certificate Signing Request)
-- Register the app (**App ID**) for push notifications
-- Create a **Provisioning Profile** for the app 
-
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ## Connect your iOS app to Notification Hubs
