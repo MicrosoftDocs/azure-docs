@@ -14,7 +14,7 @@ ms.date: 05/21
 ms.author: kumud
 
 ---
-# Network monitoring solutions 
+# How Microsoft builds its fast and reliable global network
 
 Every day, customers around the world connect to Microsoft Azure, Bing, Dynamics 365, Office 365, OneDrive, Xbox, and many other services through trillions of requests. These requests are for diverse types of data, such as enterprise cloud applications and email, VOIP, streaming video, IoT, search, and cloud storage.
 
