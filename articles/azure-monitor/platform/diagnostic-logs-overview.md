@@ -5,7 +5,7 @@ author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 05/20/2019
 ms.author: nikiest
 ms.subservice: logs
 ---

@@ -20,7 +20,9 @@ ms.author: bwren
 
 Azure Monitor is based on a [data platform](data-platform.md) of [Logs](data-platform-logs.md) and [Metrics](data-platform-metrics.md) as described in [Azure Monitor data platform](data-platform.md). Monitoring data from Azure resources may be written to other locations though, either before they are copied to Azure Monitor or to support additional scenarios. 
 
-The following table identifies the different locations where monitoring data in this article are written and the different methods for accessing it.
+## Monitoring data locations
+
+The following table identifies the different locations where monitoring data in Azure is sent and the different methods for accessing it.
 
 | Location | Description | Methods of access |
 |:---|:---|:---|:--|

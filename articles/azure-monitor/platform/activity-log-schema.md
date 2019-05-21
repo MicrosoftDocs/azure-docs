@@ -795,6 +795,6 @@ When streaming the Azure Activity Log to a storage account or Event Hubs namespa
 
 
 ## Next steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Learn more about the Activity Log](activity-logs-overview.md)
+* [Export the Activity Log to Azure Storage or Event Hubs](activity-log-export.md)
 
