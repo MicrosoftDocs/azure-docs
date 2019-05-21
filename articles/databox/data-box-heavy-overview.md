@@ -59,7 +59,7 @@ The Data Box Heavy device has the following features in this release.
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Weight                                                  | ~ 500 lbs.                |
-| Dimensions                                              | Device - Width: 26 inches Height: 28 inches Length: 48 inches |
+| Dimensions                                              | Width: 26 inches Height: 28 inches Length: 48 inches |
 | Rack space                                              | Can't be rack-mounted|
 | Cables required                                         | 4 X grounded 120 V/10 A power cords (NEMA 5-15) included <br> Device supports up to 240 V power and has C-13 power receptacles <br> Use network cables compatible with [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
 |Power                                                    | 4 built-in power supply units (PSUs) shared across both the device nodes|
