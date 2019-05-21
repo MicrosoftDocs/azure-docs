@@ -16,6 +16,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 > [!NOTE]
 > AzCopy **V10** is the currently supported version of AzCopy.
+>
 > If you need to use AzCopy **v8.1**, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 <a id="download-and-install-azcopy" />
