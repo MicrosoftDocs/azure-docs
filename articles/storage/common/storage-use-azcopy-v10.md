@@ -58,16 +58,42 @@ Use this table as a guide:
 
 ### Use Azure AD
 
-First, ensure that one of these roles has been assigned to your identity:
+Make sure that your identity has authorization that it needs to perform operations on your storage account.
+
+#### Authorization to upload files
+
+Make that one of these roles has been assigned to your identity:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 These roles can be assigned to your identity in any of these scopes:
 
+- Container (file system)
 - Storage account
 - Resource group
 - Subscription
+
+You can also upload files to a container or folder if your identity has been added to the access control list (ACL) of the target container or folder. That identity needs write permission on the target folder and execute permission on container and each parent folder. 
+
+To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
+
+#### Authorization to download files
+
+Make that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
+
+This role can be assigned to your identity in any of these scopes:
+
+- Container (file system)
+- Storage account
+- Resource group
+- Subscription
+
+You can also download files from a container or folder if your identity has been added to the access control list (ACL) of the target container or folder. That identity needs read permission on the target folder and execute permission on container and each parent folder.
+
+To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
+
+#### Authenticate your identity
 
 After you've verified that your identity has one of these role assignments, open a command prompt. Then, type the following command, and press the ENTER key.
 
