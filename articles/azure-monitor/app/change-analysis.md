@@ -25,7 +25,7 @@ When a live site issue/outage occurs, determining root cause quickly is critical
 The change analysis service detects various types of changes from infrastructure layer all the way to application deployment. It is a subscription level Azure resource provider that looks into resource changes in the subscription and provides data for various diagnostics tools to help users understand what changes might have caused issues.
 
 The following diagram illustrates the architecture of change analysis service:
-![Architecture diagram for how change analysis service obtains change data and provide data to client tools](./media/change-analysis/overview-diagram.PNG)
+![Architecture diagram for how change analysis service obtains change data and provide data to client tools](./media/change-analysis/overview.png)
 
 Currently the tool is integrated into the App Services web app diagnose and solve problems experience. See *Change Analysis service for App Services Web App* section on how to enable and view changes made to a web app.
 
@@ -35,7 +35,7 @@ This information is always available as long as the `Microsoft.ChangeAnalysis` r
 
 ### Web Application deployment and configuration changes
 Change Analysis tool captures deployment and configuration state of an application every 4 hours to compute the differences and present what has changed. Examples of such changes include application environment variable changes, IP configuration rule changes, Managed Service Identity changes, SSL settings changes, and so on.
-Unlike ARM changes, this type of change information may not be available immediately in the tool. To view the latest changes, use the 'Scan changes now' button in the tool.
+Unlike Resource Manager changes, this type of change information may not be available immediately in the tool. To view the latest changes, use the 'Scan changes now' button in the tool.
 
 ![Screenshot of scan for changes now button in Diagnose and Solve problems tool with change analysis integration for app service web app](./media/change-analysis/scan-changes.png)
 
