@@ -39,15 +39,39 @@ If you run into problems with the deployment, you can deploy on your local devel
 
 ### Validate and profile models
 
+Azure Machine Learning service can use profiling to determine the ideal CPU and memory settings to use when deploying your model. Model validation happens as part of this process, using data that you supply for the profiling process.
 
-
-### Deploy models
+For more information, see [TBD]().
 
 ## Serve models
 
-### Models in the cloud
+Trained machine learning models can be deployed as web services in the cloud or locally on your development environment. You can also deploy models to Azure IoT Edge devices. Deployments can use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
 
-### Models on the edge
+### Web service
+
+You can use your models in **web services** with the following compute targets:
+
+* Azure Container Instance
+* Azure Kubernetes Service
+* Local development environment
+
+To deploy the model as a web service, you must provide the following:
+
+* The model or ensemble of models.
+* Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
+* Deployment configuration that describes how and where to deploy the model.
+
+For more information, see [Deploy models](how-to-deploy-and-where.md).
+
+### IoT Edge devices
+
+You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to hardware devices, which enables inferencing on the device.
+
+For more information, see [Deploy models](how-to-deploy-and-where.md).
+
+### Analytics
+
+Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (Preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 ### Monitor and scale models
 
