@@ -13,12 +13,14 @@ ms.date: 05/15/2019
 
 # Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or jobs that must handle data in continuous segments, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Sliding Window - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence interval for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps.
+To regularly run tasks, processes, or jobs that must handle data in continuous segments, you can start your logic app workflow with the **Sliding Window - Schedule** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps.
 
 Here are some patterns that this trigger supports:
 
 * Run immediately and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+
 * Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+
 * Delay for a specific duration, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 
 For differences between this trigger and the Recurrence trigger or for more information about scheduling recurring workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
