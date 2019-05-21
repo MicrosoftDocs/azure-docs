@@ -58,7 +58,7 @@ Watch the video for quick introduction
 
 An Azure IoT Edge device:
 
-- You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+- You can use your development machine or a virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
 - The Azure Blob Storage on IoT Edge module supports the following device configurations:
 
