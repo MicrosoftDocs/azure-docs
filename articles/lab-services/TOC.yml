@@ -116,8 +116,9 @@
       - name: Set retention policy and run cleanup scripts
         href: image-factory-set-retention-policy-cleanup.md
     - name: DevTest Labs in the enterprise
-      href: devtest-lab-guidance-prescriptive-adoption.md
       items:
+      - name: DevTest Labs at enterprise scale
+        href: devtest-lab-guidance-prescriptive-adoption.md
       - name: Reference architecture
         href: devtest-lab-reference-architecture.md
       - name: Scale up your DevTest Labs deployment
