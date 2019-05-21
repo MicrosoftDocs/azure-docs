@@ -110,6 +110,10 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
 
         ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
+1. On the left-hand navigation of the Azure AD application, select **Authentication**.
+
+    * Under **Default client type**, select **Yes** to *Treat the client as a public client*.
+
 1. On the left-hand navigation of the Azure AD application, take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Client application ID`.
 
    ![Get the application ID](media/aad-integration/application-id-client.png)

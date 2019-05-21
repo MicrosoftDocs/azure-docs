@@ -47,7 +47,7 @@ The Azure AD default for browser session persistence allows users on personal de
 
 ## Configuring authentication session controls
 
-Conditional access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about conditional access, see [What is conditional access in Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
+Conditional access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about conditional access, see [What is conditional access in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
 > If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft plans to retire the configurable token lifetime feature on October 15 and replace it with the conditional access authentication session management feature.  
@@ -63,7 +63,7 @@ Conditional access is an Azure AD Premium capability and requires a premium lice
 1. Go to **Access Controls** > **Session** and click **Sign-in frequency**
 1. Enter the required value of days and hours in the first text box
 1. Select a value of **Hours** or **Days** from dropdown
-1. Save you policy
+1. Save your policy
 
 ![Conditional access policy configured for sign in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

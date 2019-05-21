@@ -68,7 +68,7 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 ### IoT Edge devices
 
-You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to hardware devices, which enables inferencing on the device.
+You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to hardware devices, which enables inference, or model scoring, on the device.
 
 For more information, see [Deploy models](how-to-deploy-and-where.md).
 
