@@ -14942,7 +14942,7 @@
     },
     {
       "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
-      "redirect_url": "/azure/networking/networking/networking-overview.md",
+      "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
     },
     {
