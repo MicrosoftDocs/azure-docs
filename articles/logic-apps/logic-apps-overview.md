@@ -19,7 +19,7 @@ ms.suite: integration
 # What is Azure Logic Apps?
 
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 
-is a cloud service that helps you automate and orchestrate tasks, 
+is a cloud service that helps you schedule, automate, and orchestrate tasks, 
 business processes, and [workflows](#logic-app-concepts) 
 when you need to integrate apps, data, systems, 
 and services across enterprises or organizations. 
@@ -48,14 +48,7 @@ or both for creating logic apps that securely access and process data in real ti
 
 ## How does Logic Apps work? 
 
-Every logic app workflow starts with a trigger, 
-which fires when a specific event happens, 
-or when new available data meets specific criteria. 
-Many triggers include basic scheduling capabilities so 
-that you can specify how regularly your workloads run. 
-For more custom scheduling scenarios, 
-start your workflows with the Schedule trigger. 
-Learn more about [how to build schedule-based workflows](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
+Every logic app workflow starts with a trigger, which fires when a specific event happens, or when new available data meets specific criteria. Many triggers provided by the connectors in Logic Apps include basic scheduling capabilities so that you can set up how regularly your workloads run. For more complex scheduling or advanced recurrences, you can use a Recurrence trigger as the first step in any workflow. Learn more about [schedule-based workflows](../logic-apps/concepts-schedule-automated-recurring-tasks-workflow.md).
 
 Each time that the trigger fires, the Logic Apps engine 
 creates a logic app instance that runs the actions in the workflow. 
