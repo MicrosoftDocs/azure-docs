@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
@@ -15,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
