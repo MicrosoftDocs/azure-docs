@@ -19,7 +19,7 @@ ms.author: glenga
 | Function apps per plan |100 |100 |unbounded<sup>5</sup> |
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group |
 | Storage<sup>6</sup> |1 GB |250 GB |50-1000 GB |
-| Custom domains per app</a> |0 (azurewebsites.net subdomain only)|500 |500 |
+| Custom domains per app</a> |500 |500 |500 |
 | Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Not supported, wildcard certificate for *.azurewebsites.net available by default| unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
 
 <sup>1</sup>For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-subscription-service-limits.md#app-service-limits).  
