@@ -39,7 +39,7 @@ Application Proxy works with:
 
 Application Proxy supports single sign-on. For more information on supported methods, see [Choosing a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-Application Proxy is recommended for giving external remote users access to internal resources. Application Proxy replaces the need for a VPN or reverse proxy. It is not intended for internal users on the corporate network.  Internal users who unnecessarily use Application Proxy can introduce unexpected and undesirable performance issues.
+Application Proxy is recommended for giving remote users access to internal resources. Application Proxy replaces the need for a VPN or reverse proxy. It is not intended for internal users on the corporate network.  These users who unnecessarily use Application Proxy can introduce unexpected and undesirable performance issues.
 
 ## How Application Proxy works
 

@@ -116,8 +116,9 @@
       - name: Set retention policy and run cleanup scripts
         href: image-factory-set-retention-policy-cleanup.md
     - name: DevTest Labs in the enterprise
-      href: devtest-lab-guidance-prescriptive-adoption.md
       items:
+      - name: DevTest Labs at enterprise scale
+        href: devtest-lab-guidance-prescriptive-adoption.md
       - name: Reference architecture
         href: devtest-lab-reference-architecture.md
       - name: Scale up your DevTest Labs deployment
@@ -176,6 +177,8 @@
         href: integrate-environments-devops-pipeline.md
       - name: Use Platform-as-a-Service (PaaS) services
         href: use-paas-services.md
+      - name: Deploy nested templates 
+        href: deploy-nested-template-environments.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
@@ -188,6 +191,8 @@
       items: 
       - name: Set policies and schedules
         href: devtest-lab-set-lab-policy.md
+      - name: Send autoshutdown notifications
+        href: devtest-lab-auto-shutdown.md
       - name: Configure cost management
         href: devtest-lab-configure-cost-management.md
       - name: Configure Azure Marketplace images

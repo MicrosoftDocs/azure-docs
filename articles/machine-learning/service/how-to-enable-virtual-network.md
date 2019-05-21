@@ -13,9 +13,9 @@ author: aashishb
 ms.date: 01/08/2019
 ---
 
-# Securely run experiments and inferencing inside an Azure virtual network
+# Securely run experiments and inference inside an Azure virtual network
 
-In this article, you learn how to run your experiments and inferencing inside a virtual network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. It allows you to securely train your models and access your deployed models for inferencing.
+In this article, you learn how to run your experiments and inference inside a virtual network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. It allows you to securely train your models and access your deployed models for inference. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 
 The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. These compute targets can be created inside a virtual network. For example, you can use the Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see the [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
@@ -31,7 +31,7 @@ This document assumes that you are familiar with Azure Virtual Networks, and IP 
 ## Storage account for your workspace
 
 > [!IMPORTANT]
-> You can put the storage account that is attached to Azure Machine Learning service workspace behind the virtual network only while doing experimentation. Inferencing requires unrestricted access to the storage account. If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks while doing inferencing.
+> You can put the storage account that is attached to Azure Machine Learning service workspace behind the virtual network only while doing experimentation. Inference requires unrestricted access to the storage account. If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks during inference, or model scoring.
 
 To use Azure Machine Learning experimentation capabilities with Azure Storage behind a virtual network follow the steps below:
 
@@ -291,7 +291,7 @@ aks_target = ComputeTarget.create(workspace = ws,
                                   provisioning_configuration = config)
 ```
 
-When the creation process is completed, you can do inferencing on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).
+When the creation process is completed, you can inference/score on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).
 
 ## Next steps
 

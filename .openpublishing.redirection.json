@@ -4769,6 +4769,11 @@
       "source_path": "articles/azure-functions/functions-bindings-external-file.md",
       "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
       "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-functions/functions-create-vnet-old.md",
+      "redirect_url": "/azure/azure-functions/functions-create-vnet",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
@@ -5871,8 +5876,13 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/web-sites-configure.md",
+      "redirect_url": "/azure/app-service/configure-common",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-web/web-sites-configure.md",
-      "redirect_url": "/azure/app-service/web-sites-configure",
+      "redirect_url": "/azure/app-service/configure-common",
       "redirect_document_id": false
     },
     {
@@ -6317,7 +6327,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-java-custom-upload.md",
-      "redirect_url": "/azure/app-service/web-sites-configure",
+      "redirect_url": "/azure/app-service/configure-common",
       "redirect_document_id": false
     },
     {
@@ -9342,7 +9352,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-transform-extend.md",
-      "redirect_url": "/azure/app-service/web-sites-configure",
+      "redirect_url": "/azure/app-service/configure-common",
       "redirect_document_id": false
     },
     {
@@ -15156,6 +15166,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/vs-code-how-to.md",
+      "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/custom-deserializer.md",
       "redirect_url": "https://aka.ms/asapreview1",
       "redirect_document_id": false
@@ -18947,6 +18962,71 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-endpoints-in-resource-manager.md",
       "redirect_url": "/azure/virtual-machines/linux/endpoints-in-resource-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/overview.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/apiref.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/csharp.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/java.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/python.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/ruby.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/php.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/javascript.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/curl.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/csharp-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/java-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/python-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/labs/anomaly-finder/quickstart/javascript-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
       "redirect_document_id": false
     },
     {
@@ -36179,6 +36259,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/personalizer/personalizer-container-configuration.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/personalizer-container-howto.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-reference-prebuilt-keyphrase",
       "redirect_document_id": true
@@ -38844,6 +38934,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/devices-sdk-third-party-notices.md",
+      "redirect_url": "https://aka.ms/sdsdk-toctpn",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-license.md",
+      "redirect_url": "https://aka.ms/sdsdk-license",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/develop/app-registration-portal-content.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
       "redirect_document_id": false
@@ -38891,21 +38991,6 @@
     {
       "source_path": "articles/media-services/latest/scripts/cli-upload-file-asset.md",
       "redirect_url": "/azure/media-services/latest/cli-upload-file-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/rdp.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/windows-container-cli.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/windows-node-limitations.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
       "redirect_document_id": false
     },
     {
@@ -38972,7 +39057,11 @@
       "source_path": "articles/media-services/video-indexer/video-indexer-create-new.md",
       "redirect_url": "/azure/media-services/video-indexer/use-editor-create-project",
       "redirect_document_id": false
+    },
+	   {
+      "source_path": "articles/azure-monitor/app/asp-net-core-no-visualstudio.md",
+      "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
     }
-
   ]
 }
