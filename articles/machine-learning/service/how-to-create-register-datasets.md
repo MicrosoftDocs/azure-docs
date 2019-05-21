@@ -72,11 +72,12 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 
 Alternatively, use the file-specific functions to explicitly control the parsing of your file. 
 
+
 ### Create from Azure Datastores
 
-To create Datasets from an Azure Datastore, be sure to:
+To create Datasets from an Azure Datastore:
 
-* Verify you have contributor or owner access to the registered Azure Datastore.
+* Verify you have `contributor` or `owner` access to the registered Azure Datastore.
 
 * Import the [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) and [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) and `Dataset` packages from the SDK.
 
@@ -120,7 +121,7 @@ dataset.head(5)
 
 To complete the creation process, register your datasets with workspace:
 
-Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register Datasets to your workspace for sharing and reuse within your organization and across various experiments.
+Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register Datasets to your workspace so they can be shared with others and reused across various experiments.
 
 ```Python
 dataset = dataset.register(workspace = workspace,
@@ -131,17 +132,7 @@ dataset = dataset.register(workspace = workspace,
 ```
 
 >[!NOTE]
-> The default parameter setting for `register()` is `exist_ok = False`. If you try to register a Dataset with the same name without changing this setting an error results.
-
-The `register()` method returns the already registered Dataset with the parameter setting, `exist_ok = True`.
-
-```Python
-dataset = dataset.register(workspace = workspace,
-                           name = 'dataset_crime',
-                           description = 'Training data',
-                           exist_ok = True
-                           )
-```
+> If `exist_ok = False` (default), and you attempt to register a dataset with the same name as another, an error occurs. Set to `True` to overwrite existing.
 
 Use `list()` to see all of the registered Datasets in your workspace.
 
