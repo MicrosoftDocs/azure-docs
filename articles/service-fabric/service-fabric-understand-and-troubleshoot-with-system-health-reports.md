@@ -628,7 +628,7 @@ The property and text indicate which API got stuck. The next steps to take for d
 
 - **IStatefulServiceReplica.Close** and **IStatefulServiceReplica.Abort**: The most common case is a service not honoring the cancellation token passed in to `RunAsync`. It might also be that `ICommunicationListener.CloseAsync`, or if overridden, `OnCloseAsync` is stuck.
 
-- **IStatefulServiceReplica.ChangeRole(S)** and **IStatefulServiceReplica.ChangeRole(N)**: The most common case is a service not honoring the cancellation token passed in to `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(S)** and **IStatefulServiceReplica.ChangeRole(N)**: The most common case is a service not honoring the cancellation token passed in to `RunAsync`. In this scenario, the best solution is to restart the replica.
 
 - **IStatefulServiceReplica.ChangeRole(P)**: The most common case is that the service has not returned a task from `RunAsync`.
 

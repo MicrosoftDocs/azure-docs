@@ -137,7 +137,7 @@ This includes examples of a spoken utterance, and a custom pronunciation for eac
 |--------------|--------------------------|
 | three c p o | 3CPO |  
 | c n t k | CNTK |
-| i triple e | IEE |
+| i triple e | IEEE |
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 

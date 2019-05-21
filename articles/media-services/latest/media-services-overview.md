@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -25,7 +25,7 @@ ms.custom: mvc
 Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you are an application developer, a call center, a government agency, an entertainment company, Media Services helps you create applications that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers. 
 
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## What can I do with Media Services?
 
@@ -72,7 +72,6 @@ Articles contain code samples that demonstrate how to complete a task. In this s
 
 * [Create an account - CLI](create-account-cli-how-to.md)
 * [Access APIs - CLI](access-api-cli-how-to.md)
-* [Start developing with SDKs](developers-guide.md)
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 

@@ -43,10 +43,10 @@ Integrating Time Series Insights with these other services provides additional d
 
 There are several ways to keep your Time Series Insights data, apps, and services running even if they're disrupted. You might also determine that a complete, duplicate, backup copy of your Azure Time Series environment is required:
 
-1. As a TSI-specific **failover instance** to redirect data and traffic to.
+1. As a Time Series Insights-specific **failover instance** to redirect data and traffic to.
 1. For auditing and data preservation purposes.
 
-In general, the best way to duplicate a TSI environment is to create a second TSI environment in a backup Azure region. Events are also sent to this secondary environment from your primary event source. Make sure to use a second, dedicated, consumer group and to follow that source's business disaster recovery guidelines (provided above).
+In general, the best way to duplicate a Time Series Insights environment is to create a second Time Series Insights environment in a backup Azure region. Events are also sent to this secondary environment from your primary event source. Make sure to use a second, dedicated, consumer group and to follow that source's business disaster recovery guidelines (provided above).
 
 Specifically, to create a duplicate environment:
 
@@ -58,7 +58,7 @@ Specifically, to create a duplicate environment:
 Finally:
 
 * If your primary region is affected during a disaster incident, reroute operations to the backup Time Series Insights environment.
-* Use your second region to backup and recover all TSI telemetry and query data.
+* Use your second region to back up and recover all Time Series Insights telemetry and query data.
 
 > [!IMPORTANT]
 > * Note that a delay might be experienced in the event of a failover.

@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 This article discusses the two types of Azure Time Series Insights Preview access policies.
 
-## Sign in to TSI
+## Sign in to Time Series Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environment** in the search results.

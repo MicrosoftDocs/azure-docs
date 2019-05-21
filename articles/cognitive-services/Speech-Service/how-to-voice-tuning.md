@@ -30,7 +30,7 @@ Before you can start fine-tuning the text-to-speech output with the Voice Tuning
    >When you create a speech resource in the Azure portal, the Azure location information needs to match with the TTS voice region. Neural TTS voice supports a sub set of Azure locations. For a full list of support, see [Regions](regions.md#text-to-speech).
 
    >[!NOTE]
-   >You need to have a F0 or a S0 key created in the Azure portal before you can use the service. Voice Tuning  **doesn't** support the [30-day free trial key](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >You need to have a F0 or a S0 key created in the Azure portal before you can use the service. Voice Tuning  **doesn't** support the [30-day free trial key](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
 4. Sign in to the [Voice Tuning](https://aka.ms/voicetuning) portal, and connect your Speech Services subscription. Choose a single Speech Services subscription and then create a project.
 5. Select **New Tuning**. Then follow these steps:
@@ -38,7 +38,7 @@ Before you can start fine-tuning the text-to-speech output with the Voice Tuning
    * Locate and select **All Subscriptions**.  
    * Select **Connect existing subscription**.  
      ![Connect an existing subscription](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Enter your Azure Speech Services subscription key, then select **Add**. Your subscription keys are available in the Speech customization portal from the [Subscription page](https://go.microsoft.com/fwlink/?linkid=2090458). You could also get the keys from the Resource Management pane in the [Azure portal](https://portal.azure.com/). 
+   * Enter your Azure Speech Services subscription key, then select **Add**. Your subscription keys are available in the Speech customization portal from the [Subscription page](https://go.microsoft.com/fwlink/?linkid=2090458). You could also get the keys from the Resource Management pane in the [Azure portal](https://portal.azure.com/).
    * If you have more than one Speech Services subscription that you plan to use, repeat these steps for each subscription.
 
 ## Customize the text-to-speech output

@@ -84,7 +84,7 @@ metadata:
   namespace: kube-system
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
-    .:53 {
+    <domain to be rewritten>.com:53 {
         proxy foo.com 1.1.1.1
     }
 ```

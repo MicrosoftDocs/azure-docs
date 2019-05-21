@@ -74,7 +74,7 @@ There are two ways that you can approve or deny access:
 
 1. To approve or deny access for a single user, click the row to open a window to specify the action to take. To approve or deny access for multiple users, add check marks next to the users and then click the **Review X user(s)** button to open a window to specify the action to take.
 
-1. Click **Approve** or **Deny**. If you are unsure, you can click **Don't know**. Clicking **Don't know** will result in the user maintaining his/her access, but the selection will be reflected in the audit logs.
+1. Click **Approve** or **Deny**. If you are unsure, you can click **Don't know**. Doing so will result in the user maintaining their access, but the selection will be reflected in the audit logs.
 
     ![Perform access review](./media/perform-access-review/approve-deny.png)
 

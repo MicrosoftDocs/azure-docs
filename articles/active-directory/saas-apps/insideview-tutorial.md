@@ -139,13 +139,13 @@ To configure Azure AD single sign-on with InsideView, perform the following step
 
 	c. Open your base-64 encoded certificate, which you have downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox.
 
-	d. In the **Crm User Id Mapping** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+	d. In the **Crm User Id Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-	e. In the **Crm Email Mapping** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+	e. In the **Crm Email Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-	f. In the **Crm First Name Mapping** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+	f. In the **Crm First Name Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-	g. In the **Crm lastName Mapping** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+	g. In the **Crm lastName Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
 	h. Click **Save**.
 
