@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 05/25/2019
 ---
 
 # Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps
@@ -45,15 +45,15 @@ Here are the differences between these triggers:
 
 * **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If you select "Day", you can specify hours and minutes of the day, for example, every day at 2:30. If you select "Week", you can select days of the week, such as Wednesday and Saturday, along with specifying hours and minutes of the day. If any recurrences are missed, the Recurrence trigger waits and restarts recurrences at the next scheduled interval. This trigger doesn't process the past missed recurrences. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
-* **Sliding Window**: Runs your workflow at regular, non-overlapping, sequential time intervals. You can specify a start date and time, time zone, and a duration to delay the workflow. However, this trigger doesn't provide options to specify hours and minutes of the day or for days of the week. If any recurrences are missed, the Sliding Window trigger processes those past missed recurrences.
+* **Sliding Window**: Runs your workflow at regular, non-overlapping, sequential time intervals. You can specify a start date and time, time zone, and a duration to delay the workflow. However, this trigger doesn't provide options to specify hours and minutes of the day or for days of the week. If any recurrences are missed, the Sliding Window trigger processes those past missed recurrences. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
 
 ## Schedule actions
 
 After any action in your logic app workflow, you can use the Delay and Delay Until actions for adding a pause in your workflow before the next action runs.
 
-* **Delay**: Pauses for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months.
+* **Delay**: Pauses for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months. For more information, see [Pause workflows with delay actions](../connectors/connectors-native-delay.md).
 
-* **Delay until**: Pauses until the specified date and time.
+* **Delay until**: Pauses until the specified date and time. For more information, see [Pause workflows with delay actions](../connectors/connectors-native-delay.md).
 
 ## Patterns for start date and time
 
@@ -91,15 +91,15 @@ So for this scenario, no matter how far in the past you specify the start time, 
 Here are various example recurrences that you can set up for the triggers that support the options:
 
 | Trigger | Recurrence | Interval | Frequency | Start time | On these days | At these hours | At these minutes | Note |
-|---------|------------|----------|-----------|------------|---------------|----------------|------------------| -----|
+|---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Recurrence, <br>Sliding Window | Run every 15 minutes (no start date and time) | 15 | Minute | {none} | {unavailable} | {none} | {none} | This schedule starts immediately, then calculates future recurrences based on the last run time. |
 | Recurrence, <br>Sliding Window | Run every 15 minutes (with start date and time) | 15 | Minute | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time, then calculates future recurrences based on the last run time. |
-| Recurrence, <br>Sliding Window | Run every hour, on the hour (with start date and time) | 1 | Hour | *startDate*Thh:00:00Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time. Future recurrences run every hour at the "00" minute mark. <p>If the frequency is "Week" or "Month", this schedule respectively runs only one day per week or one day per month. |
+| Recurrence, <br>Sliding Window | Run every hour, on the hour (with start date and time) | 1 | Hour | *startDate*Thh:00:00Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time. Future recurrences run every hour at the "00" minute mark, which is calculated from the start time. <p>If the frequency is "Week" or "Month", this schedule respectively runs only one day per week or one day per month. |
 | Recurrence, <br>Sliding Window | Run every hour, every day (no start date and time) | 1 | Hour | {none} | {unavailable} | {none} | {none} | This schedule starts immediately and calculates future recurrences based on the last run time. <p>If the frequency is "Week" or "Month", this schedule respectively runs only one day per week or one day per month. |
 | Recurrence, <br>Sliding Window | Run every hour, every day (with start date and time) | 1 | Hour | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time, then calculates future recurrences based on the last run time. <p>If the frequency is "Week" or "Month", this schedule respectively runs only one day per week or one day per month. |
-| Recurrence, <br>Sliding Window | Run every 15 minutes past the hour, every hour (with start date and time) | 1 | Hour | *startDate*T00:15:00Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time, running at 00:15 AM, 1:15 AM, 2:15 AM, and so on. |
+| Recurrence, <br>Sliding Window | Run every 15 minutes past the hour, every hour (with start date and time) | 1 | Hour | *startDate*T00:15:00Z | {unavailable} | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time. Future recurrences run at the "15" minute mark, which is calculated from the start time, so at 00:15 AM, 1:15 AM, 2:15 AM, and so on. |
 | Recurrence | Run every 15 minutes past the hour, every hour (no start date and time) | 1 | Day | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | This schedule runs at 00:15 AM, 1:15 AM, 2:15 AM, and so on. Also, this schedule is equivalent to a frequency of "Hour" and a start time with "15" minutes. |
-| Recurrence | Run every 15 minutes at the 15-minute mark (no start date and time) | 1 | Day | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | This schedule doesn't start until the next specified 15-minute mark. |
+| Recurrence | Run every 15 minutes at the specified minute marks (no start date and time). | 1 | Day | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | This schedule doesn't start until the next specified 15-minute mark. |
 | Recurrence | Run at 8:00 AM every day (no start date and time) | 1 | Day | {none} | {unavailable} | 8 | {none} | This schedule runs at 8:00 AM every day, based on the specified schedule. |
 | Recurrence | Run at 8:00 AM every day (with start date and time) | 1 | Day | *startDate*T08:00:00Z | {unavailable} | {none} | {none} | This schedule runs 8:00 AM every day, based on the specified start time. | 
 | Recurrence | Run at 8:30 AM every day (no start date and time) | 1 | Day | {none} | {unavailable} | 8 | 30 | This schedule runs at 8:30 AM every day, based on the specified schedule. |
@@ -112,7 +112,8 @@ Here are various example recurrences that you can set up for the triggers that s
 | Recurrence | Run every hour during working hours | 1 | Week | {none} | Select all days except Saturday and Sunday. | Select the hours of the day that you want. | Select any minutes of the hour that you want. | For example, if your working hours are 8:00 AM to 5:00 PM, then select "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" as the hours of the day. <p>If your working hours are 8:30 AM to 5:30 PM, select the previous hours of the day plus "30" as minutes of the hour. |
 | Recurrence | Run once every day on weekends | 1 | Week | {none} | "Saturday", "Sunday" | Select the hours of the day that you want. | Select any minutes of the hour as appropriate. | This schedule runs every Saturday and Sunday at the specified schedule. |
 | Recurrence | Run every 15 minutes biweekly on Mondays only | 2 | Week | {none} | "Monday" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | This schedule runs every other Monday at every 15-minute mark. |
-| Recurrence, <br>Sliding Window {see note} | Run every hour for one day per month | 1 | Month | {see note} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | If you don't specify a start date and time, this schedule uses the creation date and time. To control the minutes for the recurrence schedule, specify the minutes of the hour, a start time, or use the creation time. For example, if the start time or creation time is 8:25 AM, this schedule runs at 8:25 AM, 9:25 AM, 10:25 AM, and so on. |
+| Recurrence, Sliding Window | Run every month | 1 | Month | *startDate*T*startTime*Z | {unavailable} | {unavailable} | {unavailable} | This schedule doesn't start *any sooner* than the specified start date and time and calculates future recurrences on the start date and time. If you don't specify a start date and time, this schedule uses the creation date and time. |
+| Recurrence | Run every hour for one day per month | 1 | Month | {see note} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | If you don't specify a start date and time, this schedule uses the creation date and time. To control the minutes for the recurrence schedule, specify the minutes of the hour, a start time, or use the creation time. For example, if the start time or creation time is 8:25 AM, this schedule runs at 8:25 AM, 9:25 AM, 10:25 AM, and so on. |
 |||||||||
 
 <a name="run-once"></a>

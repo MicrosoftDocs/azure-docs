@@ -1,6 +1,6 @@
 ---
-title: Create, schedule, and run recurring tasks with Sliding Window trigger - Azure Logic Apps
-description: Run scheduled, recurring, automated tasks and workflows with the Sliding Window trigger in Azure Logic Apps
+title: Schedule recurring tasks with Sliding Window trigger - Azure Logic Apps
+description: Schedule and run recurring automated tasks and workflows with the Sliding Window trigger in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -13,7 +13,7 @@ ms.date: 05/15/2019
 
 # Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger in Azure Logic Apps
 
-To run tasks, processes, or jobs at regularly recurring intervals, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Sliding Window - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence interval for repeating that workflow. If any recurrences are missed, this trigger processes those past missed recurrences. For example, to synchronize information between your database and backup storage, use the Sliding Window trigger so that your data .
+To regularly run tasks, processes, or jobs that must handle data in continuous segments, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Sliding Window - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence interval for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps.
 
 Here are some patterns that this trigger supports:
 

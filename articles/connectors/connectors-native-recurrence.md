@@ -1,6 +1,6 @@
 ---
-title: Create, schedule, and run recurring tasks with Recurrence trigger - Azure Logic Apps
-description: Run scheduled, recurring, automated tasks and workflows with the Recurrence trigger in Azure Logic Apps
+title: Schedule recurring tasks with Recurrence trigger - Azure Logic Apps
+description: Schedule and run recurring automated tasks and workflows with the Recurrence trigger in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -13,7 +13,7 @@ ms.date: 05/15/2019
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or jobs on specific schedule, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for repeating that workflow. If any recurrences are missed, this trigger waits and restarts recurrences at the next scheduled interval.
+To regularly run tasks, processes, or jobs on specific schedule, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for repeating that workflow. If recurrences are missed for any reason, this trigger restarts recurrences at the next scheduled interval.
 
 Here are some patterns that this trigger supports along with more advanced recurrences and complex schedules:
 
