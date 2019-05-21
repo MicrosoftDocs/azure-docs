@@ -5,7 +5,7 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: cynthn
 ms.custom: include file
 ---
@@ -101,3 +101,23 @@ $job.State
 >
 > You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
+
+
+## Share the gallery
+
+In this example, we are going to give access to someone outside our company using their e-mail address. The person we are going to share with is *Alinne Montes*, and her e-mail address is *alinne_montes@contoso.com*.
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```
+
+When complete, Alinne should be able to see the gallery as a resource in the [Azure portal](https://portal.azure.com).
+

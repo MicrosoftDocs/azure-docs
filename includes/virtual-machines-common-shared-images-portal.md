@@ -70,3 +70,4 @@ Allowed characters for image version are numbers and periods. Numbers must be wi
 1. When the deployment is finished, select **Go to resource**.
 
 It can take a while to replicate the image to all of the target regions.
+
