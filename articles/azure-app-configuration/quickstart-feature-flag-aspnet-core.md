@@ -18,11 +18,12 @@ ms.author: yegu
 
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
+
 # Quickstart: Add feature flags to an ASP.NET Core app
 
-Feature management in ASP.NET Core can be enabled by connecting your application to Azure App Configuration. You can use this managed service to store all your feature flags and control their states centrally. This quickstart shows you how to incorporate the service into an ASP.NET Core web app to create an end-to-end implementation of feature management.
+You can enable feature management in ASP.NET Core by connecting your application to Azure App Configuration. You can use this managed service to store all your feature flags and control their states centrally. This quickstart shows how to incorporate App Configuration into an ASP.NET Core web app to create an end-to-end implementation of feature management.
 
-The .NET Core Feature Management libraries extend the framework with comprehensive feature flag support. They are built on top of the .NET Core configuration system. They seamlessly integrate with App Configuration through its .NET Core configuration provider.
+The .NET Core Feature Management libraries extend the framework with comprehensive feature flag support. These libraries are built on top of the .NET Core configuration system. They seamlessly integrate with App Configuration through its .NET Core configuration provider.
 
 You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
@@ -32,11 +33,11 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Feature Manager** > **+ Create** to add the following feature flags:
+1. Select **Feature Manager** > **+ Create** to add the following feature flags:
 
     | Key | State |
     |---|---|
@@ -44,17 +45,19 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 ## Create an ASP.NET Core web app
 
-You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.
+You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI instead of using Visual Studio is that the .NET Core CLI is available across the Windows, macOS, and Linux platforms.
 
 1. Create a new folder for your project. For this quickstart, name it *TestFeatureFlags*.
 
 2. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
-        dotnet new mvc
+   ```    
+   dotnet new mvc
+   ```
 
 ## Add Secret Manager
 
-Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
+Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
 - Open the *.csproj* file. Add a `UserSecretsId` element as shown here, and replace its value with your own, which typically is a GUID. Save the file.
 
@@ -74,25 +77,31 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     </Project>
     ```
 
-## Connect to an app configuration store
+## Connect to an App Configuration store
 
 1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+    ```
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
-        dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-008560001-910
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-008560001-910
+    ```
 
 2. Run the following command to restore packages for your project:
 
-        dotnet restore
+    ```
+    dotnet restore
+    ```
 
-3. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
+3. Add a secret named **ConnectionStrings:AppConfig** to Secret Manager.
 
-    This secret contains the connection string to access your app configuration store. Replace the value in the following command with the connection string for your app configuration store.
+    This secret contains the connection string to access your App Configuration store. Replace the value in the following command with the connection string for your App Configuration store.
 
     This command must be executed in the same directory as the *.csproj* file.
 
-        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```
+    dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```
 
     Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), for example, you use an application setting **Connection Strings** in App Service instead of with Secret Manager to store the connection string.
 
@@ -126,7 +135,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     using Microsoft.FeatureManagement.AspNetCore;
     ```
 
-7. Update the `ConfigureServices` method to add the feature flag support by calling the `services.AddFeatureManagement()` method and optionally include any filter to be used with feature flags by calling `services.AddFeatureFilter<FilterType>()`:
+7. Update the `ConfigureServices` method to add feature flag support by calling the `services.AddFeatureManagement()` method. Optionally, you can include any filter to be used with feature flags by calling `services.AddFeatureFilter<FilterType>()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -135,7 +144,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     }
     ```
 
-8. Add a *MyFeatureFlags.cs* file.
+8. Add a *MyFeatureFlags.cs* file:
 
     ```csharp
     namespace TestFeatureFlags
@@ -147,7 +156,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     }
     ```
 
-9. Add *BetaController.cs* to the Controllers directory:
+9. Add *BetaController.cs* to the *Controllers* directory:
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
@@ -173,7 +182,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     }
     ```
 
-10. Open *_ViewImports.cshtml* in the Views directory, and add the feature manager tag helper:
+10. Open *_ViewImports.cshtml* in the *Views* directory, and add the feature manager tag helper:
 
     ```html
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
