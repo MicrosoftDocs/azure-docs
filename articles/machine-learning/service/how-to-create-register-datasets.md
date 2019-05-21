@@ -21,7 +21,7 @@ In this article, you'll learn how to create Azure Machine Learning datasets (pre
 + Pipeline configuration and runs
 
 With datasets, you can:
-+ Work with data in various formats uniformly with simplified access to underlying data storage
++ Work with data with simplified access to underlying data storage
 + Explore and prep data
 + Manage data lifecycles
 + Version your data
@@ -31,13 +31,13 @@ You can interact with your datasets with the [Azure Machine Learning Python SDK]
 
 ## Prerequisites
 
-To create and register Datasets you need:
+To create and work with datasets, you need:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* An [Azure Machine Learning service workspace Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
-* The Azure Machine Learning SDK for Python. To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 
 > [!Note]
 > Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
@@ -108,12 +108,6 @@ dataset = Dataset.from_delimited_files(datapath)
 # returns the first 5 rows of the Dataset as a pandas Dataframe.
 dataset.head(5)
 ```
-
-||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location|
-|--|--|---|---|---|---|----|------|-------|------|-----|---|----|----|-----|-----|------|----|-----|----|----|-----
-|0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|DECEPTIVE PRACTICE|FINANCIAL IDENTITY THEFT OVER $ 300|OTHER|FALSE|FALSE|...|9|50|11|1183356|1831503|2016|5/11/2016 15:48|41.69283384|-87.60431945|(41.692833841, -87.60431945)|
-1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT| FROM BUILDING|RESIDENCE|FALSE|FALSE|...|21|71|6|1166776|1850053|2016|5/12/2016 15:48|41.74410697|-87.66449429|(41.744106973, -87.664494285)
-
 
 ## Register datasets
 
