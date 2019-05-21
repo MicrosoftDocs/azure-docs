@@ -40,7 +40,7 @@ In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn 
 
 * Azure SQL Database Server with Machine Learning Services enabled - During the public preview, Microsoft will onboard you and enable machine learning for your existing or new databases. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
-* RevoScaleR package - See [RevoScaleR](https://docs.microsoft.com/en-us/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) for options to install this package locally.
+* RevoScaleR package - See [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) for options to install this package locally.
 
 * R IDE - This tutorial uses [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
 
@@ -56,7 +56,7 @@ The sample dataset used in this tutorial has been saved to a **.bacpac** databas
 
 1. Download the file [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac).
 
-1. Follow the directions in [Import a BACPAC file to create an Azure SQL database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-import), using these details:
+1. Follow the directions in [Import a BACPAC file to create an Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-import), using these details:
 
    * Import from the **TutorialDB.bacpac** file you downloaded
    * During the public preview, choose the **Gen5/vCore** configuration for the new database
