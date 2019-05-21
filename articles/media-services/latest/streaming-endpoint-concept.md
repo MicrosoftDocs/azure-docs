@@ -15,7 +15,7 @@ ms.date: 04/27/2019
 ms.author: juliako
 ---
 
-# Streaming Endpoints (Origin)
+# Streaming Endpoints 
 
 In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry leading DRMs.
 
