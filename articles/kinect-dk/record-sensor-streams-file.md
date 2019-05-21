@@ -18,16 +18,16 @@ This page provides information about how you can use the `k4arecorder` command p
 This quickstart assumes:
 
 * You have the Azure Kinect DK connected to your host PC and powered properly.
-* You have finished setting up the hardware.
+* You have finished [setting up](set-up-azure-kinect-dk) the hardware.
 
 ## Create recording
 
-1. Open a command prompt, and navigate to the recorder location or path, such as ```C:\Program Files\Azure Kinect SDK\tools\amd64\release\k4arecorder.exe```.
+1. Open a command prompt, and navigate to the recorder location or path, such as `C:\Program Files\Azure Kinect SDK\tools\amd64\release\k4arecorder.exe`.
 2. Record 5 seconds using these default settings (*Depth NFOV unbinned and RGB 1080p at 30 fps with IMU*).
 
     `k4arecorder.exe -l 5 %TEMP%\output.mkv`
 
-3. For a complete overview of recording options and tips, refer to k4arecorder.
+3. For a complete overview of recording options and tips, refer to [Azure Kinect recorder](azure-kinect-dk-recorder.md).
 
 ## Play back recording
 
@@ -40,5 +40,7 @@ You can use the k4a-viewer to play back a recording.
 
 > [!div class="nextstepaction"]
 >[Azure Kinect recorder](azure-kinect-dk-recorder.md)
+
 >[Azure Kinect viewer](azure-kinect-sensor-viewer.md)
+
 >[Azure Kinect SDK record playback](record-playback-api.md)
