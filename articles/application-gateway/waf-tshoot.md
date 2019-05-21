@@ -284,13 +284,19 @@ The first entry is logged because the user used a numeric IP address to navigate
 
 The second one (rule 942130) is the interesting one. You can see in the details that it matched a pattern (1=1), and the field is named **text1**. Follow the same previous steps to exclude the **Request Attribute Name** that **equals** **1=1**.
 
-Another way to find the Attribute name is to right-click and inspect the element in a browser. There should be a **name** field for any input area, and that is what qualifies as a *Request Attribute Name*.
-
 ## Finding request header names
 
-Fiddler is a useful tool once again to find request header names. In the following screenshot, you can see [Drew please complete this section]
+Fiddler is a useful tool once again to find request header names. In the following screenshot, you can see the headers for this GET request, which include *Content-Type*, *User-Agent*, and so on.
 
 ![Fiddler](media/waf-tshoot/fiddler-2.png)
+
+Another way to view request and response headers is to look inside the developer tools of Chrome. You can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load a web page, and click the request you want to inspect.
+
+![Chrome F12](media/waf-overview/chrome-f12.png)
+
+## Finding request cookie names
+
+If the request contains cookies, the **Cookies** tab can be selected to view them in Fiddler.
 
 ## Restrict global parameters to eliminate false positives
 
