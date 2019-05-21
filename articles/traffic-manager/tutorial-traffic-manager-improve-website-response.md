@@ -2,7 +2,7 @@
 title: Tutorial - Route traffic to improve website response using Azure Traffic Manager
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
-author: kumudd
+author: asudbring
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,7 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Tutorial: Improve website response using Traffic Manager
@@ -31,8 +31,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 In order to see the Traffic Manager in action, this tutorial requires that you deploy the following:
-- two instances of basic websites running in different Azure regions - **East US** and **West Europe**.
-- two test VMs for testing the Traffic Manager - one VM in **East US** and the second VM in **West Europe**. The test VMs are used to illustrate how Traffic Manager routes user traffic to the website that is running in the same region as it provides the lowest latency.
+- Two instances of basic websites running in different Azure regions - **East US** and **West Europe**.
+- Two test VMs for testing the Traffic Manager - one VM in **East US** and the second VM in **West Europe**. The test VMs are used to illustrate how Traffic Manager routes user traffic to the website that is running in the same region as it provides the lowest latency.
 
 ### Sign in to Azure
 
@@ -47,41 +47,22 @@ In this section, you create two website instances that provide the two service e
 #### Create VMs for running websites
 In this section, you create two VMs *myIISVMEastUS* and *myIISVMWEurope* in the **East US** and **West Europe** Azure regions.
 
-1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 VM**.
-2. Enter, or select, the following information for **Basics**, accept the defaults for the remaining settings, and then select **Create**:
+1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
+2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
 
-    |Setting|Value|
-    |---|---|
-    |Name|myIISVMEastUS|
-    |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Select **New** and then type *myResourceGroupTM1*.|
-    |Location| Select **East US**.|
-    |||
+   - **Subscription** > **Resource Group**: Select **Create new** and then type **myResourceGroupTM1**.
+   - **Instance Details** > **Virtual machine name**: Type *myIISVMEastUS*.
+   - **Instance Details** > **Region**:  Select **East US**.
+   - **Administrator Account** > **Username**:  Enter a user name of your choosing.
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
+   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** in the pull down box.
 
-4. Select a VM size under **Choose a size**.
-5. Select the following values for **Settings**, then select **OK**:
-    
-    |Setting|Value|
-    |---|---|
-    |Virtual network| Select **Virtual network**, in **Create virtual network**, for **Name**, enter *myVNet1*, for subnet, enter *mySubnet*.|
-    |Network Security Group|Select **Basic**, and in **Select public inbound ports** drop-down, select **HTTP** and **RDP** |
-    |Boot diagnostics|Select **Disabled**.|
-    |||
-
-6. Under **Create** in the **Summary**, select **Create** to start the VM deployment.
-
-7. Complete steps 1-6 again, with the following changes:
-
-    |Setting|Value|
-    |---|---|
-    |Resource group | Select **New**, and then type *myResourceGroupTM2*|
-    |Location|West Europe|
-    |VM Name | myIISVMWEurope|
-    |Virtual network | Select **Virtual network**, in **Create virtual network**, for **Name**, enter *myVNet2*, for subnet, enter *mySubnet*.|
-    |||
-
-8. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
+3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
+4. Select **Review + create**.
+5. Review the settings, and then click **Create**.  
+6. Follow the steps to create a second VM named *myIISVMWEurope*, with a **Resource group** name of *myResourceGroupTM2*, a **location** of *West Europe*, and all the other settings the same as *myIISVMEastUS*.
+7. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
    ![Create a VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
