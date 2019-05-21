@@ -38,10 +38,10 @@ In this section, you create three simulated devices that send data to an instanc
 
     | Parameter | Action |
     | --- | --- |
-    | **Solution name** | Enter a unique value for creation of a new resource group. The listed Azure resources are created and assigned to the resource group. |
-    | **Subscription** | Specify the same subscription used for creation of your Time Series Insights environment. |
-    | **Region** | Specify the same region used for creation of your Time Series Insights environment. |
-    | **Deploy optional Azure Resources** | Leave IoT Hub selected, because the simulated devices will use it to connect and stream data. |
+    | **Solution name** | Enter a unique value for a new resource group. The listed Azure resources are created and assigned to the resource group. |
+    | **Subscription** | Select the subscription that you used to create your Time Series Insights environment. |
+    | **Region** | Select the region that you used to create your Time Series Insights environment. |
+    | **Deploy optional Azure Resources** | Leave the **IoT Hub** check box selected. The simulated devices use IoT Hub to connect and stream data. |
  
     Select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
 
@@ -77,7 +77,7 @@ In this section, you create three simulated devices that send data to an instanc
 
 Before you create an Azure Time Series Insights environment, you need the names of your IoT hub, your subscription, and the resource group.
 
-1. Go to the solution accelerator dashboard and sign in by using the same Azure subscription account. Find the device simulation that you created in the preceding section.
+1. Go to the solution accelerator dashboard. Sign in by using the same Azure subscription account. Find the device simulation that you created in the preceding section.
 
 1. Select your device simulator, and then select **Launch**. In the device simulator solution accelerator pane on the right, select the **Azure Management Portal** option.
 
@@ -102,11 +102,11 @@ This section describes how to create an Azure Time Series Insights Preview envir
     | Parameter | Action |
     | --- | ---|
     | **Environment name** | Enter a unique name for the Azure Time Series Insights Preview environment. |
-    | **Subscription** | Enter the subscription where you want to create the Azure Time Series Insights Preview environment. A best practice is to use the same subscription as the rest of your IoT resources created by the device simulator. |
-    | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Preview environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as your other IoT resources that were created by the device simulator. |
+    | **Subscription** | Enter the subscription where you want to create the Azure Time Series Insights Preview environment. A best practice is to use the same subscription as the rest of the IoT resources that are created by the device simulator. |
+    | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Preview environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
     | **Location** | Select a datacenter region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to create your Azure Time Series Insights Preview environment in the same region as your other IoT resources. |
-    | **Tier** |  Select **PAYG** (pay-as-you-go). This is the SKU for the Azure Time Series Insights Preview product. |
-    | **Property ID** | Enter a value that uniquely identifies your time series instance. This field is immutable and can't be changed later. For this tutorial, enter **iothub-connection-device-id**. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
+    | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Preview product. |
+    | **Property ID** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box is immutable. You can't change it later. For this tutorial, enter **iothub-connection-device-id**. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account to create. |
    
    Select **Next: Event Source**.
@@ -125,7 +125,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **IoT Hub name** | Select the IoT hub name you created for the device simulator. |
    | **IoT Hub access policy** | Select **iothubowner**. |
    | **Iot Hub consumer group** | Select **New**, enter a unique name, and then select **Add**. The consumer group must be a unique value in Azure Time Series Insights Preview. |
-   | **Timestamp property** | This value is used to identify the timestamp property in your incoming telemetry data. For this tutorial, leave it blank. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to. |
+   | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to. |
 
    Select **Review + create**.
 
@@ -135,7 +135,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
     [![Review + Create page, with Create button](media/v2-update-provision/payg-six-review.png)](media/v2-update-provision/payg-six-review.png#lightbox)
 
-    You can see the status of your deployment.
+    You can see the status of your deployment:
 
     [![Notification that deployment is complete](media/v2-update-provision/payg-seven-deploy.png)](media/v2-update-provision/payg-seven-deploy.png#lightbox)
 
@@ -145,11 +145,11 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
       [![Selected environment](media/v2-update-provision/payg-eight-environment.png)](media/v2-update-provision/payg-eight-environment.png#lightbox)
 
-   1. On the Azure Time Series Insights Preview page, select **Data Access Policies**.
+   1. On the Azure Time Series Insights Preview page, select **Data Access Policies**:
 
       [![Data access policies](media/v2-update-provision/payg-nine-data-access.png)](media/v2-update-provision/payg-nine-data-access.png#lightbox)
 
-   1. Verify that your credentials are listed.
+   1. Verify that your credentials are listed:
 
       [![Listed credentials](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
@@ -195,14 +195,14 @@ In this section, you apply a model to structure your data. To complete the model
 
    [![The Add button for types](media/v2-update-provision/define-two-add.png)](media/v2-update-provision/define-two-add.png#lightbox)
 
-1. Next, you define three variables for the type: pressure, temperature, and humidity. In the **Add a Type** pane, enter or select the following parameters:
+1. Next, you define three variables for the type: *pressure*, *temperature*, and *humidity*. In the **Add a Type** pane, enter or select the following parameters:
 
     | Parameter | Action |
     | --- | ---|
     | **Name** | Enter **Chiller**. |
     | **Description** | Enter **This is a type definition of Chiller**. |
 
-   * To define pressure, under **Variables**, enter or select the following parameters:
+   * To define *pressure*, under **Variables**, enter or select the following parameters:
 
      | Parameter | Action |
      | --- | ---|
@@ -214,7 +214,7 @@ In this section, you apply a model to structure your data. To complete the model
 
       To add the next variable, select  **Add Variable**.
 
-   * Define temperature:
+   * Define *temperature*:
 
      | Parameter | Action |
      | --- | ---|
@@ -226,7 +226,7 @@ In this section, you apply a model to structure your data. To complete the model
 
       To add the next variable, select  **Add Variable**.
 
-   * Define humidity:
+   * Define *humidity*:
 
       | | |
       | --- | ---|
@@ -267,7 +267,7 @@ In this section, you apply a model to structure your data. To complete the model
 
     [![Selecting the Edit button for an instance](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
 
-1. In the **Edit instances** pane, add or select the following parameters:
+1. In the **Edit instances** pane, add or select values for the following parameters:
 
     | Parameter | Action |
     | --- | --- |
