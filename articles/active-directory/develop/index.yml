@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: ./media/index/identity-platform-overview.png
+      src: ./media/index/identity-platform-thumbnail.png
       width: 250  
     title: Microsoft identity platform overview (2:20)
     href: https://youtu.be/y_fgJAatVhk
