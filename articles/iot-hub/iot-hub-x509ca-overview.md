@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ---
-
 # Device Authentication using X.509 CA Certificates
 
 This article describes how to use X.509 Certificate Authority (CA) certificates to authenticate devices connecting IoT Hub.  In this article you will learn:
@@ -35,7 +34,7 @@ For production environment, we recommend that you purchase an X.509 CA certifica
 
 You may also create a self-signed X.509 CA for experimentation or for use in closed IoT networks.
 
-Regardless of how you obtain your X.509 CA certificate, make sure to keep it's corresponding private key secret and protected at all times.  This is necessary for trust building trust in the X.509 CA authentication. 
+Regardless of how you obtain your X.509 CA certificate, make sure to keep it's corresponding private key secret and protected at all times.  This is necessary for trust building trust in the X.509 CA authentication.
 
 Learn how to [create a self-signed CA certificate](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), which you can use for experimentation throughout this feature description.
 
@@ -44,6 +43,8 @@ Learn how to [create a self-signed CA certificate](https://github.com/Azure/azur
 The owner of an X.509 CA certificate can cryptographically sign an intermediate CA who can in turn sign another intermediate CA, and so on, until the last intermediate CA terminates this process by signing a device. The result is a cascaded chain of certificates known as a certificate chain of trust. In real life this plays out as delegation of trust towards signing devices. This delegation is important because it establishes a cryptographically variable chain of custody and avoids sharing of signing keys.
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+The device certificate (also called a leaf certificate) must have the *Subject Name* set to the **Device ID** that was used when registering the IoT device in the Azure IoT Hub. This setting is required for authentication.
 
 Learn here how to [create a certificate chain](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) as done when signing devices.
 
@@ -55,13 +56,15 @@ The upload process entails uploading a file that contains your certificate.  Thi
 
 The proof of possession step involves a cryptographic challenge and response process between you and IoT Hub.  Given that digital certificate contents are public and therefore susceptible to eavesdropping, IoT Hub would like to ascertain that you really own the CA certificate.  It shall do so by generating a random challenge that you must sign with the CA certificate's corresponding private key.  If you kept the private key secret and protected as earlier advised, then only you will possess the knowledge to complete this step. Secrecy of private keys is the source of trust in this method.  After signing the challenge, complete this step by uploading a file containing the results.
 
-Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#registercerts).
+Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## How to create a device on IoT Hub
 
 To preclude device impersonation, IoT Hub requires you to let it know what devices to expect.  You do this by creating a device entry in the IoT Hub's device registry.  This process is automated when using IoT Hub [Device Provisioning Service](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
-Learn here how to [manually create a device in IoT Hub](iot-hub-security-x509-get-started.md#createdevice).
+Learn here how to [manually create a device in IoT Hub](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+
+Create an X.509 device for your IoT hub
 
 ## Authenticating devices signed with X.509 CA certificates
 
@@ -69,7 +72,7 @@ With X.509 CA certificate registered and devices signed into a certificate chain
 
 A successful device connection to IoT Hub completes the authentication process and is also indicative of a proper setup.
 
-Learn here how to [complete this device connection step](iot-hub-security-x509-get-started.md#authenticatedevice).
+Learn here how to [complete this device connection step](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
 ## Next Steps
 

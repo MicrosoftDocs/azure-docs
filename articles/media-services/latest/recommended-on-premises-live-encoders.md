@@ -9,7 +9,7 @@ manager: johndeu
 ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
 # product-name-from-white-list
 
@@ -40,8 +40,7 @@ For detailed information about live encoding with Media Services, see [Live stre
 Media Services recommends using one of following live encoders that have RTMP as output. The supported URL schemes are `rtmp://` or `rtmps://`.
 
 > [!NOTE]
- > When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.<br/>
- When streaming via RTMPS, check firewall and/or proxy settings to confirm that outbound TCP ports 2935 and 2936 are open.
+> When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB
@@ -66,6 +65,9 @@ Media Services recommends using one of the following live encoders that have mul
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
+
+> [!TIP]
+>  If you are streaming live events in multiple languages (for example, one English audio track and one Spanish audio track), you can accomplish this with the Media Excel live encoder configured to send the live feed to a pass-through Live Event.
 
 ## Configuring on-premises live encoder settings
 

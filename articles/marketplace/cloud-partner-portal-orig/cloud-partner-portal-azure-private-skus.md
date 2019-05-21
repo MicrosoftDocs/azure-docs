@@ -1,20 +1,12 @@
 ---
-title: Private SKUs and plans | Microsoft Docs
+title: Private SKUs and plans | Azure Marketplace
 description: How to use private SKUs to manage the offer availability.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 Private SKUs and Plans
@@ -24,7 +16,7 @@ Private SKUs enable you to restrict the availability of SKUs to specific
 customers. When a SKU is marked private, it's not available in any
 public catalog including on [Azure
 Marketplace](https://azuremarketplace.microsoft.com) and the [Azure
-portal](http://portal.azure.com). On the Azure portal, only customers
+portal](https://portal.azure.com). On the Azure portal, only customers
 with access to the SKU can see it. Additionally, they would also be
 prompted that they have access to private offers.
 

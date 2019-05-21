@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 6f089c12-128b-4dbd-96e3-1320d37eeba4
-ms.service: notebooks
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

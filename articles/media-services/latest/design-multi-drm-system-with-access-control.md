@@ -25,7 +25,7 @@ Designing and building a Digital Rights Management (DRM) subsystem for an over-t
 
 The targeted readers for this document are engineers who work in DRM subsystems of OTT or online streaming/multiscreen solutions or readers who are interested in DRM subsystems. The assumption is that readers are familiar with at least one of the DRM technologies on the market, such as PlayReady, Widevine, FairPlay, or Adobe Access.
 
-In this discussion, by multi-DRM we include the 3 DRMs supported by Azure Media Services: Common Encryption (CENC) for PlayReady and Widevine, FairPlay as well as AES-128 clear key encryption. A major trend in online streaming and the OTT industry is to use native DRMs on various client platforms. This trend is a shift from the previous one that used a single DRM and its client SDK for various client platforms. When you use CENC with multi-native DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
+In this discussion, by multi-DRM we include the 3 DRMs supported by Azure Media Services: Common Encryption (CENC) for PlayReady and Widevine, FairPlay as well as AES-128 clear key encryption. A major trend in online streaming and the OTT industry is to use native DRMs on various client platforms. This trend is a shift from the previous one that used a single DRM and its client SDK for various client platforms. When you use CENC with multi-native DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
 
 The benefits of using native multi-DRM for content protection are that it:
 
@@ -45,7 +45,7 @@ The goals of this article are to:
 The following table summarizes native DRM support on different platforms and EME support in different browsers.
 
 | **Client platform** | **Native DRM** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Smart TVs, STBs** | PlayReady, Widevine, and/or other | Embedded browser/EME for PlayReady and/or Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome for Widevine |
@@ -141,7 +141,7 @@ The following table shows the mapping.
 | **Key management** |Not needed for reference implementation |
 | **Content management** |A C# console application |
 
-In other words, both IDP and STS are provided by Azure AD. The [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) is used for the player. Both Azure Media Services and Azure Media Player support CENC over DASH, FairPlay over HLS, PlayReady over smooth streaming, and AES-128 encryption for DASH, HLS and smooth.
+In other words, both IDP and STS are provided by Azure AD. The [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/) is used for the player. Both Azure Media Services and Azure Media Player support CENC over DASH, FairPlay over HLS, PlayReady over smooth streaming, and AES-128 encryption for DASH, HLS and smooth.
 
 The following diagram shows the overall structure and flow with the previous technology mapping:
 
@@ -195,7 +195,7 @@ Implementation includes the following steps:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Create a player by using the [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
+8. Create a player by using the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
 9. The following table shows the test matrix.
 
@@ -361,7 +361,7 @@ There are two types of security keys:
 
 > [!NOTE]
 > If you use .NET Framework/C# as your development platform, the X509 certificate used for an asymmetric security key must have a key length of at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception is thrown:
-
+> 
 > IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing cannot be smaller than '2048' bits.
 
 ## The completed system and test

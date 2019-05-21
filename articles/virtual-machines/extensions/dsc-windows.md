@@ -145,7 +145,7 @@ Extension package is downloaded and deployed to this location on the Azure VM
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Extension status file contains the sub status and status success/error codes along with the detailed error and desciption for each extension run.
+Extension status file contains the sub status and status success/error codes along with the detailed error and description for each extension run.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

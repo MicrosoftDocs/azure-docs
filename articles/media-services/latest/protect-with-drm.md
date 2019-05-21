@@ -1,5 +1,5 @@
 ---
-title: Use DRM dynamic encryption license delivery service with Azure Media Services| Microsoft Docs
+title: Use DRM dynamic encryption and license delivery service with Azure Media Services| Microsoft Docs
 description: You can use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
 services: media-services
 documentationcenter: ''
@@ -11,58 +11,39 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/10/2019
+ms.topic: conceptual
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
 
 ---
-# Use DRM dynamic encryption and license delivery service
+# Tutorial: Use DRM dynamic encryption and license delivery service
 
-You can use Azure Media Services to deliver MPEG-DASH, Smooth Streaming, and HTTP Live Streaming (HLS) streams protected with [PlayReady digital rights management (DRM)](https://www.microsoft.com/playready/overview/). You can also use Media Services to deliver encrypted DASH streams with **Google Widevine** DRM licenses. Both PlayReady and Widevine are encrypted per the common encryption (ISO/IEC 23001-7 CENC) specification. Media Services also enables you to encrypt your HLS content with **Apple FairPlay** (AES-128 CBC). 
+You can use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses. For in-depth explanation, see [Content protection with dynamic encryption](content-protection-overview.md).
 
 Furthermore, Media Services provides a service for delivering PlayReady, Widevine, and FairPlay DRM licenses. When a user requests DRM-protected content, the player application requests a license from the Media Services license service. If the player application is authorized, the Media Services license service issues a license to the player. A license contains the decryption key that can be used by the client player to decrypt and stream the content.
 
-This article is based on the [Encrypting with DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) sample. Among other things, the sample demonstrates how to:
-
-* Create an encoding Transform that uses a built-in preset for adaptive bitrate encoding and ingest a file directly from an [HTTPs source URL](job-input-from-http-how-to.md).
-* Set the signing key used for verification of your token.
-* Set the requirements (restrictions) on the content key policy that must be met to deliver keys with the specified configuration. 
-
-    * Configuration 
-    
-        In this sample, the [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though, this sample app does not configure the [FairPlay](fairplay-license-overview.md) license, it contains a method that you can use to configure FairPlay. If you wish, you can add FairPlay configuration as another option.
-
-    * Restriction
-
-        The app sets a JWT token type restriction on the policy.
-
-* Create a StreamingLocator for the specified asset and with the specified streaming policy name. In this case, the predefined policy is used. It sets two content keys on the StreamingLocator: AES-128 (envelope) and CENC (PlayReady and Widevine).  
-    
-    Once the StreamingLocator is created the output asset is published and available to clients for playback.
-
-    > [!NOTE]
-    > Make sure the StreamingEndpoint from which you want to stream is in the Running state.
-
-* Create a URL, to the Azure Media Player, that includes both the DASH manifest and the PlayReady token needed to play back the PlayReady encrypted content. The sample sets the expiration of the token to 1 hour. 
-
-    You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already.  
-
-    ![Protect with DRM](./media/protect-with-drm/playready_encrypted_url.png)
-
-> [!NOTE]
-> You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine.
+This article is based on the [Encrypting with DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) sample. 
 
 The sample described in this article produces the following result:
 
 ![AMS with DRM protected video](./media/protect-with-drm/ams_player.png)
+
+This tutorial shows you how to:    
+
+> [!div class="checklist"]
+> * Create an encoding Transform
+> * Set the signing key used for verification of your token
+> * Set requirements on the content key policy
+> * Create a StreamingLocator with the specified streaming policy
+> * Create a URL used to  playback your file
 
 ## Prerequisites
 
 The following are required to complete the tutorial.
 
 * Review the [Content protection overview](content-protection-overview.md) article.
-* Review the [Design multi-drm content protection system with access control](design-multi-drm-system-with-access-control.md)
+* Review the [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 * Install Visual Studio Code or Visual Studio
 * Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
 * Get credentials needed to use Media Services APIs by following [Access APIs](access-api-cli-how-to.md)
@@ -159,18 +140,42 @@ The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
-## Build a DASH streaming URL
+## Build a streaming URL
 
 Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs. To build a URL, you need to concatenate the [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) host name and the **StreamingLocator** path. In this sample, the *default* **StreamingEndpoint** is used. When you first create a Media Service account, this *default* **StreamingEndpoint** will be in a stopped state, so you need to call **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
+When you run the app, you see the following:
+
+![Protect with DRM](./media/protect-with-drm/playready_encrypted_url.png)
+
+You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already. 
+ 
 ## Clean up resources in your Media Services account
 
 Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes Jobs.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
+## Clean up resources
+
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. 
+
+Execute the following CLI command:
+
+```azurecli
+az group delete --name amsResourceGroup
+```
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
-Check out how to [protect with AES-128](protect-with-aes128.md)
+Check out
+
+> [!div class="nextstepaction"]
+> [Protect with AES-128](protect-with-aes128.md)
+

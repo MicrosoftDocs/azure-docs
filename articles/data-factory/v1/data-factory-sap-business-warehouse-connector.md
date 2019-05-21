@@ -286,7 +286,7 @@ As mentioned in the [data movement activities](data-factory-data-movement-activi
 
 When moving data from SAP BW, the following mappings are used from SAP BW types to .NET types.
 
-Data type in the ABAP Dictionary | .Net Data Type
+Data type in the ABAP Dictionary | .NET Data Type
 -------------------------------- | --------------
 ACCP |	Int
 CHAR | String

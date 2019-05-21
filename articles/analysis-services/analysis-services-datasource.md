@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -47,18 +47,19 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| Oracle |Microsoft OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET | |
-| Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET | |
+| Oracle | OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET |
+| Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET |
 | | | |
 
 ### In-memory only
 
 |Datasource  |  
-|---------|---------|
+|---------|
 |Access Database     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
+|CSV file  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel workbook     |  
 |Exchange<sup>[1](#tab1400b)</sup>     |  
@@ -75,12 +76,14 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |Salesforce Reports<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint<sup>[1](#tab1400b)</sup>     |   
+|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Sybase Database     |  
+|TXT file  |
 |XML table<sup>[1](#tab1400b)</sup>    |  
-|||
+||
  
-<a name="tab1400b">1</a> Tabular 1400 and higher models only.
+<a name="tab1400b">1</a> - Tabular 1400 and higher models only.   
+<a name="filesSP">2</a> - Files in on-premises SharePoint are not supported.
 
 ## Specifying a different provider
 

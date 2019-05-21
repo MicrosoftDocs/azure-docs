@@ -31,7 +31,11 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 **Unlimited data transfer** - Azure Backup does not limit the amount of inbound or outbound data you transfer. Azure Backup also does not charge for the data that is transferred. However, if you use the Azure Import/Export service to import large amounts of data, there is a cost associated with inbound data. For more information about this cost, see [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md). Outbound data refers to data transferred from a Recovery Services vault during a restore operation.
 
-**Data encryption** - Data encryption allows for secure transmission and storage of your data in the public cloud. You store the encryption passphrase locally, and it is never transmitted or stored in Azure. If it is necessary to restore any of the data, only you have encryption passphrase, or key.
+**Data encryption**:
+- On-premises, data in transit is encrypted on the on-premises machine using AES256. The data transmitted is protected by HTTPS between storage and backup. The iSCSI protocol secures the data transmitted between backup and the user machine. Secure tunneling is used to protect the iSCSI channel.
+- For on-premises to Azure backup, data in Azure is encrypted at-rest using the passphrase you provide when you set up backup. The passphrase or key it is never transmitted or stored in Azure. If it is necessary to restore any of the data, only you have encryption passphrase, or key.
+- For Azure VMs, data is encrypted at-reset using Storage Service Encryption (SSE). Backup automatically encrypts data before storing it. Azure Storage decrypts data before retrieving it.
+- Backup also supports Azure VMs encrypted using Azure Disk Encryption (ADE). [Learn more](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 **Application-consistent backup** - An application-consistent backup means a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups, which ensure additional fixes are not required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.
 
@@ -48,6 +52,7 @@ Use the following table for information about what you can protect with each Azu
 | Azure IaaS VM Backup |<li>Application-aware snapshots (VSS)<li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric-level backup with no backup infrastructure needed |<li>Back up VMs once-a-day <li>Restore VMs only at disk level<li>Cannot back up on-premises |<li>VMs, <li>All disks (using PowerShell) |<p>Recovery Services vault</p> |
 
 ## What are the deployment scenarios for each component?
+
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported |
 | --- | --- | --- | --- |
 | Azure Backup (MARS) agent |<p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> |<p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> |<p>Recovery Services vault</p> |
@@ -76,10 +81,10 @@ The following table shows Azure Backup components supported for Linux.
 
 **Component** | **Linux (Azure endorsed)**
 --- | ---
-Azure Backup (MARS) agent | No ( Windows-based agent only)
-System Center DPM | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux Guest VMs</br></br> File-consistent backup not available for Azure VMs
+Azure Backup (MARS) agent | No (Windows-based agent only)
+System Center DPM | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restores of Hyper-V and VMWare Linux Guest VMs</br></br> File-consistent backup not available for Azure VMs
 Azure Backup Server | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs</br></br> File-consistent backup not available for Azure VMs
-Azure IaaS VM Backup | App-consistent backup using the [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/><br/> [File-level recovery](backup-azure-restore-files-from-vm.md)<br/><br/> [Create a VM from a restored disk](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Create a VM from a recovery point](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
+Azure IaaS VM Backup | App-consistent backup using the [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/><br/> [File-level recovery](backup-azure-restore-files-from-vm.md)<br/><br/> [Create a VM from a restored disk](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [Create a VM from a recovery point](backup-azure-arm-restore-vms.md#create-a-vm).
 
 ## Using premium storage VMs with Azure Backup
 Azure Backup protects premium storage VMs. Azure premium storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage and other disk types, see the article, [select a disk type](../virtual-machines/windows/disks-types.md).
@@ -108,6 +113,7 @@ Azure Backup allows you to restore a complete VM with managed disks, or restore 
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.
 
 ### Storage
+
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Recovery Services vault |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
@@ -115,7 +121,7 @@ The following sections provide tables that summarize the availability or support
 | Tape storage | |![Yes][green] | | |
 | Compression <br/>(in Recovery Services vault) |![Yes][green] |![Yes][green] |![Yes][green] | |
 | Incremental backup |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
-| Disk deduplication | |![Partially][yellow] |![Partially][yellow] | | |
+| Disk deduplication | |![Partially][yellow] |![Partially][yellow] | |
 
 ![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -126,7 +132,7 @@ Backups are compressed to reduce the required storage space. The only component 
 
 
 #### Disk Deduplication
-You can take advantage of deduplication when you deploy System Center DPM or Azure Backup Server [on a Hyper-V virtual machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server performs data deduplication (at the host level) on virtual hard disks (VHDs) that are attached to the virtual machine as backup storage.
+You can take advantage of deduplication when you deploy System Center DPM or Azure Backup Server [on a Hyper-V virtual machine](https://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server performs data deduplication (at the host level) on virtual hard disks (VHDs) that are attached to the virtual machine as backup storage.
 
 > [!NOTE]
 > Deduplication is not available in Azure for any Backup component. When System Center DPM and Backup Server are deployed in Azure, the storage disks attached to the VM cannot be deduplicated.
@@ -149,6 +155,7 @@ With **Full Backup**, each backup copy contains the entire data source. Full bac
 **Incremental Backup** achieves high storage and network efficiency by storing only the blocks of data that changed since the previous backup. With incremental backup, there is no need to take regular full backups. In the example, after taking the full backup in the first month, blocks A2, A3, A4, and A9 are marked as changed, and transferred to the second month. In the third month, only changed block A5 is marked and transferred. Moving less data saves storage and network resources, which decreases TCO.
 
 ### Security
+
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Network security<br/> (to Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
@@ -168,6 +175,7 @@ All backup traffic from your servers to the Recovery Services vault is encrypted
 Backing up Azure VMs requires setting up encryption *within* the virtual machine. Azure Backup supports Azure Disk Encryption, which uses BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. On the back end, Azure Backup uses [Azure Storage Service encryption](../storage/common/storage-service-encryption.md), which protects data at rest.
 
 ### Network
+
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Network compression <br/>(to **backup server**) | |![Yes][green] |![Yes][green] | |

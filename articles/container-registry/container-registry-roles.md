@@ -3,10 +3,11 @@ title: Azure Container Registry - roles and permissions
 description: Use Azure role-based access control (RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 services: container-registry
 author: dlepow
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: danlep
 ---
 
@@ -19,8 +20,9 @@ The Azure Container Registry service supports a set of Azure roles that provide 
 | Owner | X | X | X | X | X | X |  |  
 | Contributor | X | X | X |  X | X | X |  |  
 | Reader | X |  |  | X |  |  |  |
-| AcrPush |  |  | X | X | X |  |  |  
+| AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
+| AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## Differentiate users and services
@@ -57,7 +59,7 @@ The ability to `docker pull` a non-quarantined image, or pull another [supported
 
 ## Delete image data
 
-The ability to [delete container images or repositories](container-registry-delete.md).
+The ability to [delete container images](container-registry-delete.md), or delete other [supported artifacts](container-registry-image-formats.md) such as Helm charts, from a registry.
 
 ## Change policies
 

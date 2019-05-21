@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -63,7 +63,7 @@ To configure the integration of GitHub into Azure AD, you need to add GitHub fro
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **GitHub**, select **GitHub** from result panel then click **Add** button to add the application.
+4. In the search box, type **GitHub**, select **GitHub.com** from result panel then click **Add** button to add the application.
 
 	 ![GitHub in the results list](common/search-new-app.png)
 
@@ -183,7 +183,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

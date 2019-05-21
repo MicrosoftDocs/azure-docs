@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -20,10 +20,10 @@ Use this quickstart to make your first image search using the Bing Image Search 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) with additional error handling and annotations.
 
 ## Prerequisites
-* Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
+* Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/vs/whatsnew/).
 * The [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-To install the Bing Image Search SDK in visual studio, use the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.
+To install the Bing Image Search SDK in Visual Studio, use the **Manage NuGet Packages** option from **Solution Explorer**.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

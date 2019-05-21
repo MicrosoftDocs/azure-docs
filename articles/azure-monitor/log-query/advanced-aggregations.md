@@ -33,6 +33,7 @@ Event
 | order by TimeGenerated desc
 | summarize makelist(EventID) by Computer
 ```
+
 |Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
@@ -49,6 +50,7 @@ Event
 | order by TimeGenerated desc
 | summarize makeset(EventID) by Computer
 ```
+
 |Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
@@ -71,7 +73,7 @@ Heartbeat
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
 | computer3 | "antiMalware", "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 Use `mvexpand` to show each value in a separate row instead of a comma-separated list:
 
@@ -91,7 +93,7 @@ Heartbeat
 | computer2 | "updates" |
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 
 You could then use `makelist` again to group items together, and this time see the list of computers per solution:
@@ -103,6 +105,7 @@ Heartbeat
 | mvexpand Solutions
 | summarize makelist(Computer) by tostring(Solutions) 
 ```
+
 |Solutions | list_Computer |
 |--------------|----------------------|
 | "security" | ["computer1", "computer2"] |
@@ -119,6 +122,7 @@ Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
+
 | Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Direct Agent | 2017-06-06T17:00:00Z | 15 |
@@ -148,6 +152,7 @@ Heartbeat
 | mvexpand TimeGenerated, count_
 | project Category, TimeGenerated, count_
 ```
+
 | Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Direct Agent | 2017-06-06T17:00:00Z | 15 |

@@ -72,7 +72,7 @@ Event
 ```
 
 ## Print
-`print` will return a table with a single column and a single row, showing the result of a calculation. This is often used in cases where you need a simple calcuation. For example, to find the current time in PST and add a column with EST:
+`print` will return a table with a single column and a single row, showing the result of a calculation. This is often used in cases where you need a simple calculation. For example, to find the current time in PST and add a column with EST:
 
 ```Kusto
 print nowPst = now()-8h

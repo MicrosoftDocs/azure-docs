@@ -2,7 +2,7 @@
 title: Monitors in Durable Functions - Azure
 description: Learn how to implement a status monitor using the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
@@ -84,7 +84,7 @@ Multiple orchestrator instances can run simultaneously by sending multiple **Mon
 
 ## Strongly-typed data transfer (.NET only)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:
+The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
@@ -162,7 +162,7 @@ You can see the orchestration's activity by looking at the function logs in the 
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-The orchestration will [terminate](durable-functions-instance-management.md#terminating-instances) once its timeout is reached or clear skies are detected. You can also use `TerminateAsync` (.NET) or `terminate` (JavaScript) inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above, replacing `{text}` with the reason for termination:
+The orchestration will [terminate](durable-functions-instance-management.md) once its timeout is reached or clear skies are detected. You can also use `TerminateAsync` (.NET) or `terminate` (JavaScript) inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above, replacing `{text}` with the reason for termination:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

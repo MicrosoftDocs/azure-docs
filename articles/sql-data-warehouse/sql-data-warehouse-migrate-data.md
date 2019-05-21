@@ -2,13 +2,13 @@
 title: Migrate your data to SQL Data Warehouse | Microsoft Docs
 description: Tips for migrating your data to Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: jrowlandjones
+author: TwoUnder 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mausher
 ms.reviewer: igorstan
 ---
 
@@ -186,11 +186,11 @@ For more development tips, see [development overview][development overview].
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[ExpressRoute documentation]: http://azure.microsoft.com/documentation/services/expressroute/
+[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
+[ExpressRoute documentation]: https://azure.microsoft.com/documentation/services/expressroute/
 
-[production version]: http://aka.ms/downloadazcopy/
-[preview version]: http://aka.ms/downloadazcopypr/
+[production version]: https://aka.ms/downloadazcopy/
+[preview version]: https://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx

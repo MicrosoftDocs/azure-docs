@@ -6,13 +6,13 @@ services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 12/13/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
 
 ---
 
-FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. 
+FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`
 
 - Provide a valid FedEx, UPS, or DHL carrier account number that Microsoft will use to ship the drives back. 
     

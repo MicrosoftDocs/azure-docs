@@ -6,6 +6,7 @@ author: vhorne
 ms.service: dns
 ms.date: 2/19/2019
 ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Delegation of DNS zones with Azure DNS

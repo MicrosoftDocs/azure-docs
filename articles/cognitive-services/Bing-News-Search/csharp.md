@@ -21,9 +21,9 @@ While this application is written in C#, the API is a RESTful Web service compat
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -48,7 +48,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
     const string searchTerm = "Microsoft";
     ```
-## Create a struct to format the Bing News Search response
+   ## Create a struct to format the Bing News Search response
 
 1. Define a `SearchResult` struct to contain the image search results, and JSON header information.
 

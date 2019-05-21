@@ -1,5 +1,5 @@
 ---
-title: Copy data to  your Microsoft Azure Data Box via NFS| Microsoft Docs
+title: Tutorial to copy data to Azure Data Box via NFS| Microsoft Docs
 description: Learn how to copy data to your Azure Data Box via NFS
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/15/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -36,7 +36,8 @@ Before you begin, make sure that:
 
 Based on the storage account selected, Data Box creates up to:
 - Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium or blob storage account. 
+- One share for premium storage. 
+- One share for blob storage account. 
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
@@ -122,7 +123,12 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 
      We recommend that you start with 16 parallel copies and increase the number of threads depending on the resources available.
 
-- To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
+> [!IMPORTANT]
+> The following Linux file types are not supported: symbolic links, character files, block files, sockets, and pipes. These file types will result in failures during the **Prepare to ship** step.
+
+Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+
+To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

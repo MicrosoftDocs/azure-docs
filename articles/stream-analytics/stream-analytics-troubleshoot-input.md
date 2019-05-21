@@ -34,7 +34,9 @@ When a Stream Analytics job receives a malformed message from an input, it drops
 ![Azure Stream Analytics inputs tile](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Enable the diagnostics logs to view the details of the warning. For malformed input events, the execution logs contain an entry with the message that looks like: 
-<code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
+```
+Could not deserialize the input event(s) from resource <blob URI> as json.
+```
 
 ### What caused the deserialization error
 You can take the following steps to analyze the input events in detail to get a clear understanding of what caused the deserialization error. You can then fix the event source to generate events in the right format to prevent you from hitting this issue again.

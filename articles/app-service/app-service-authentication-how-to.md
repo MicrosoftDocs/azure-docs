@@ -199,7 +199,7 @@ To refresh your access token at anytime, just call `/.auth/refresh` in any langu
 
 ```JavaScript
 function refreshTokens() {
-  var refreshUrl = "/.auth/refresh";
+  let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
     console.log("Token refresh completed successfully.");
   }) .fail(function() {

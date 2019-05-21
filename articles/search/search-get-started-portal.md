@@ -1,18 +1,24 @@
 ---
-title: Indexing and query quickstart tutorial using Azure portal - Azure Search
-description: Learn how to build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
+title: 'Quickstart: Create, load, and query an index in Azure portal - Azure Search'
+description: Build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
 # Quickstart: Use built-in portal tools for Azure Search import, indexing, and queries
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 For a fast ramp up on Azure Search concepts, try the built-in tools in the Azure portal. Wizards and editors do not offer full parity with the .NET and REST APIs, but you can get started quickly with a code-free introduction, writing interesting queries against a sample data within minutes.
 
@@ -29,13 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or find an existing service under your current subscription.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way:
-
-   * In the Jumpbar, click **All services** on the left navigation pane.
-   * In the search box, type *search* to get a list of search-related services for your subscription. Click **Search services**. Your service should appear in the list.
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 
@@ -74,7 +74,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
    ![Skip cognitive skill step](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> You can try the new cognitive search preview feature for Azure Search from [cognitive search quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
+> You can step through an AI-indexing example in a [quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
 
 ### Step 3 - Configure index
 
@@ -150,7 +150,7 @@ Moving forward, you should now have a search index that's ready to query using t
 
    ![Search explorer command](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. Click **Change index** on the command bar to switch to *realestate-us-sample*. Click **Set API version** on the command bar to see which REST APIs are available. For the queries below, use the generally available version (2017-11-11).
+2. Click **Change index** on the command bar to switch to *realestate-us-sample*. Click **Set API version** on the command bar to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
 
    ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
@@ -224,7 +224,7 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 ### <a name="fuzzy-search"></a> Try fuzzy search
 
-By default, misspelled query terms, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
+By default, misspelled query terms, like *samamish* for the Sammamish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
 
 #### Example (misspelled term, unhandled): `search=samamish`
 
@@ -248,7 +248,7 @@ Geospatial search is supported through the [edm.GeographyPoint data type](https:
 
 The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates.
 
-Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
+Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country/region by name, add fields containing city or country/region names, in addition to coordinates.
 
 ## Takeaways
 

@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -5493,7 +5493,7 @@ This article contains a definition of the **Postman** collection that contains g
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Name\": \"test-streamingendpoint-1\",\n    \"Description\": \"\",\n    \"ScaleUnits\": 0,\n    \"CustomHostNames\": [],\n    \"AccessControl\": null,\n    \"CdnEnabled\": true,\n    \"CdnProfile\": \"AzureMediaStreamingPlatformCdnProfile-StandardVerizon\",\n    \"CdnProvider\": \"StandardVerizon\",\n    \"CacheControl\":{    \n      \"MaxAge\":\"1800\"  \n\t},  \n   \"CrossSiteAccessPolicies\":{    \n      \"ClientAccessPolicy\":\"<access-policy><cross-domain-access><policy><allow-from http-request-headers='*'><domain uri='http://*' /></allow-from><grant-to><resource path='/' include-subpaths='false' /></grant-to></policy></cross-domain-access></access-policy>\",  \n      \"CrossDomainPolicy\":\"<?xml version='1.0'?><!DOCTYPE cross-domain-policy SYSTEM 'http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd'><cross-domain-policy><allow-access-from domain='*' /></cross-domain-policy>\"  \n   }  \n}"
+							"raw": "{\n    \"Name\": \"test-streamingendpoint-1\",\n    \"Description\": \"\",\n    \"ScaleUnits\": 0,\n    \"CustomHostNames\": [],\n    \"AccessControl\": null,\n    \"CdnEnabled\": true,\n    \"CdnProfile\": \"AzureMediaStreamingPlatformCdnProfile-StandardVerizon\",\n    \"CdnProvider\": \"StandardVerizon\",\n    \"CacheControl\":{    \n      \"MaxAge\":\"1800\"  \n\t},  \n   \"CrossSiteAccessPolicies\":{    \n      \"ClientAccessPolicy\":\"<access-policy><cross-domain-access><policy><allow-from http-request-headers='*'><domain uri='http://*' /></allow-from><grant-to><resource path='/' include-subpaths='false' /></grant-to></policy></cross-domain-access></access-policy>\",  \n      \"CrossDomainPolicy\":\"<?xml version='1.0'?><!DOCTYPE cross-domain-policy SYSTEM 'https://www.macromedia.com/xml/dtds/cross-domain-policy.dtd'><cross-domain-policy><allow-access-from domain='*' /></cross-domain-policy>\"  \n   }  \n}"
 						},
 						"url": {
 							"raw": "{{RESTAPIEndpoint}}/StreamingEndpoints",

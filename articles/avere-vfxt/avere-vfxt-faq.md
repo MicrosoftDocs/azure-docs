@@ -4,7 +4,7 @@ description: Frequently asked questions about Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 02/28/2019
 ms.author: v-erkell
 ---
 
@@ -196,6 +196,14 @@ For latency-sensitive environments, you should use a fiber solution with a minim
 
 No, Avere vFXT is meant to be operated in a network environment secured through best practices.  
 
+### Can I restrict internet access from my cluster's virtual network? 
+
+In general, you can configure additional security on your vnet as needed, but some restrictions can interfere with the operation of the cluster.
+
+For example, restricting outbound internet access from your vnet causes problems for the cluster unless you also add a rule that explicitly allows access to AzureCloud. This situation is described in [supplemental documentation on GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+For help with customized security, contact support as described in [Get help with your system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
 ## Technical: Back-end storage (core filers)
 
 ### How many core filers does a single Avere vFXT environment support?
@@ -212,6 +220,10 @@ In general terms, Avere vFXT for Azure supports the following systems as core fi
 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0, and 8.1) 
 * NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) and (7-Mode 7.*, 8.0-8.3) 
+
+  > [!NOTE] 
+  > Azure NetApp Files currently is not supported. 
+
 * Azure blob containers (locally redundant storage only) 
 * AWS S3 buckets 
 * Google Cloud buckets

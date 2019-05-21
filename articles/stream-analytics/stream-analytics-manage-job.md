@@ -94,10 +94,10 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 1. Extract the contents of [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.
 2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice (There is more than one .config file, so be sure that you open the right one.)
 
-3. Update the <appSettings> element in the config file with the following details:
+3. Update the `<appSettings>` element in the config file with the following details:
 
    * Set the value of the *EventHubName* key to the value of the EntityPath in the connection string.
-   * Set the value of the *Microsoft.ServiceBus.ConnectionString* key to the connection string without the EntityPath value.
+   * Set the value of the *Microsoft.ServiceBus.ConnectionString* key to the connection string without the EntityPath value (don't forget to remove the semicolon that precedes it).
 
 4. Save the file.
 5. Next open a command window and change to the folder where you unzipped the TelcoGenerator application. Then enter the following command:
@@ -116,7 +116,7 @@ Before you start the TelcoGenerator app, you should configure it to send data to
    |**Record**  |**Definition**  |
    |---------|---------|
    |CallrecTime    |  The timestamp for the call start time.       |
-   |SwitchNum     |  The telephone switch used to connect the call. For this example, the switches are strings that represent the country of origin (US, China, UK, Germany, or Australia).       |
+   |SwitchNum     |  The telephone switch used to connect the call. For this example, the switches are strings that represent the country/region of origin (US, China, UK, Germany, or Australia).       |
    |CallingNum     |  The phone number of the caller.       |
    |CallingIMSI     |  The International Mobile Subscriber Identity (IMSI). It's a unique identifier of the caller.       |
    |CalledNum     |   The phone number of the call recipient.      |
@@ -178,7 +178,7 @@ The last step is to define an output sink for the job where it can write the tra
 3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize**:
 
    |**Setting**  |**Suggested value**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Output alias  |  MyPBIoutput  |
    |Dataset name  |   ASAdataset  |
    |Table name |  ASATable  |
@@ -210,7 +210,7 @@ In this example, fraudulent calls are made from the same user within five second
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   To check for fraudulent calls, you can self-join the streaming data based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country of origin) is different. When you use a JOIN operation with streaming data, the join must provide some limits on how far the matching rows can be separated in time. Because the streaming data is endless, the time bounds for the relationship are specified within the **ON** clause of the join using the [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) function.
+   To check for fraudulent calls, you can self-join the streaming data based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country/region of origin) is different. When you use a JOIN operation with streaming data, the join must provide some limits on how far the matching rows can be separated in time. Because the streaming data is endless, the time bounds for the relationship are specified within the **ON** clause of the join using the [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) function.
 
    This query is just like a normal SQL join except for the **DATEDIFF** function. The **DATEDIFF** function used in this query is specific to Stream Analytics, and it must appear within the `ON...BETWEEN` clause.
 
@@ -234,7 +234,7 @@ You can test a query from the query editor using sample data. Run the following 
 
 4. Select **Test** to test the query. You should see the following results:
 
-   ![Out put from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Output from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## Start the job and visualize output
 

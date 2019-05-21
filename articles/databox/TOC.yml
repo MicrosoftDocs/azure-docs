@@ -28,12 +28,16 @@
           href: data-box-deploy-copy-data-via-rest.md
         - name: Via data copy service
           href: data-box-deploy-copy-data-via-copy-service.md
+        - name: To managed disks
+          href: data-box-deploy-copy-data-from-vhds.md
       - name: 4 - Return, upload, verify
         href: data-box-deploy-picked-up.md  
     - name: Concepts
       items:
       - name: Read safety guidelines
         href: data-box-safety.md
+      - name: Tracking and logging
+        href: data-box-logs.md
       - name: Review requirements
         items:
         - name: For Data Box
@@ -45,7 +49,7 @@
       - name: Review security 
         href: data-box-security.md 
       - name: FAQ
-        href: data-box-faq.md  
+        href: data-box-faq.md 
     - name: How to
       items:  
       - name: Manage via Azure portal
@@ -57,8 +61,22 @@
       - name: Cable the device
         href: data-box-cable-options.md
       - name: Contact Support
-        href: data-box-disk-contact-microsoft-support.md  
-    
+        href: data-box-disk-contact-microsoft-support.md
+      - name: Migrate
+        items:
+        - name: To SharePoint Online
+          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context
+        - name: To Azure File Sync
+          href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+        - name: From HDFS store
+          href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
+      - name: Troubleshoot
+        items:
+        - name: Data Box issues
+          href: data-box-troubleshoot.md
+        - name: Data Box Blob storage issues
+          href: data-box-troubleshoot-rest.md    
+ 
   - name: Data Box Disk 
     items:
     - name: Overview

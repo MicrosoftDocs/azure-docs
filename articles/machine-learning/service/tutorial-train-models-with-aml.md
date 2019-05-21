@@ -1,21 +1,20 @@
 ---
 title: "Image classification tutorial: Train models"
 titleSuffix: Azure Machine Learning service
-description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
+description: Learn how to train an image classification model with scikit-learn in a Python Jupyter notebook with Azure Machine Learning service. This tutorial is part one of a two-part series. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
-ms.date: 01/28/2019
+author: sdgilley
+ms.author: sgilley
+ms.date: 05/08/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
 
-# Tutorial: Train an image classification model with Azure Machine Learning service
+# Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning
 
 In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
@@ -26,13 +25,12 @@ Learn how to take the following actions:
 > [!div class="checklist"]
 > * Set up your development environment.
 > * Access and examine the data.
-> * Train a simple logistic regression locally by using the popular scikit-learn machine learning library. 
-> * Train multiple models on a remote cluster.
+> * Train a simple logistic regression model on a remote cluster.
 > * Review training results and register the best model.
 
 You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md). 
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 1.0.8.
@@ -44,29 +42,29 @@ Skip to [Set up your development environment](#start) to read through the notebo
 * A Python 3.6 notebook server with the following installed:
     * The Azure Machine Learning SDK for Python
     * `matplotlib` and `scikit-learn`
-* The tutorial notebook and the file utils.py
-* A machine learning workspace 
-* The configuration file for the workspace in the same directory as the notebook 
+* The tutorial notebook and the file **utils.py**
+* A machine learning workspace
+* The configuration file for the workspace in the same directory as the notebook
 
 Get all these prerequisites from either of the sections below.
  
-* Use [Azure Notebooks](#azure) 
+* Use a [cloud notebook server in your workspace](#azure) 
 * Use [your own notebook server](#server)
 
-### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
+### <a name="azure"></a>Use a cloud notebook server in your workspace
 
-It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
-
-After you complete the steps below, run the **tutorials/img-classification-part1-training.ipynb** notebook in your **Getting Started** project.
+It's easy to get started with your own cloud-based notebook server. The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you once you create this cloud resource.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* After you launch the notebook webpage, open the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 
 ### <a name="server"></a>Use your own Jupyter notebook server
 
-Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
-
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+ After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook from your cloned directory.
 
 ## <a name="start"></a>Set up your development environment
 
@@ -314,18 +312,16 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 Notice how the script gets data and saves models:
 
 + The training script reads an argument to find the directory that contains the data. When you submit the job later, you point to the datastore for this argument:
-`parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
+```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ The training script saves your model into a directory named **outputs**: <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
-Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial.
-The file `utils.py` is referenced from the training script to load the dataset correctly. Copy this script into the script folder, so that it can be accessed along with the training script on the remote resource.
++ The training script saves your model into a directory named **outputs**. Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
++ The training script requires the file `utils.py` to load the dataset correctly. The following code copies `utils.py` into `script_folder` so that the file can be accessed along with the training script on the remote resource.
 
-```python
-import shutil
-shutil.copy('utils.py', script_folder)
-```
+  ```python
+  import shutil
+  shutil.copy('utils.py', script_folder)
+  ```
 
 
 ### Create an estimator

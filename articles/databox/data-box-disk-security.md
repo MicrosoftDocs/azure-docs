@@ -66,17 +66,17 @@ Azure Data Box Disk collects and displays personal information in the following 
 
 - **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
 
-    - Contact name
-    - Phone number
-    - Email
-    - Street address
-    - City
-    - Zip/postal code
-    - State
-    - Country/Province/Region
-    - Drive ID
-    - Carrier account number
-    - Shipping tracking number
+  - Contact name
+  - Phone number
+  - Email
+  - Street address
+  - City
+  - Zip/postal code
+  - State
+  - Country/Province/Region
+  - Drive ID
+  - Carrier account number
+  - Shipping tracking number
 
     The order details are deleted by the Data Box service when the job completes or when you delete the order.
 

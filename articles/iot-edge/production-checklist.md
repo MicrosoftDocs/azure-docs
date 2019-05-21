@@ -129,7 +129,7 @@ In the tutorials and other documentation, we instruct you to use the same contai
 
 ### Use tags to manage versions
 
-A tag is a Docker concept that you can use to distinguish between versions of Docker containers. Tags are suffixes like **1.0** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.0**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward. 
+A tag is a docker concept that you can use to distinguish between versions of docker containers. Tags are suffixes like **1.0** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.0**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward. 
 
 Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device. 
 
@@ -167,7 +167,7 @@ This checklist is a starting point for firewall rules:
    | \*.azurecr.io | 443 | Personal and 3rd party container registries |
    | \*.blob.core.windows.net | 443 | Download of image deltas | 
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
-   | \*.docker.io  | 443 | Docker access (optional) |
+   | \*.docker.io  | 443 | Docker Hub access (optional) |
 
 ### Configure communication through a proxy
 
@@ -181,16 +181,61 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 ### Set up logs and diagnostics
 
-On Linux, the IoT Edge daemon uses journald as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the Docker default.  
+On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own. 
 
-If you're worried about logs becoming too large on a resource constrained device, you have a few options to reduce memory use. 
+### Place limits on log size
 
-* You can specifically limit the size of all docker logfiles in the Docker daemon itself. For Linux, configure the daemon at `/etc/docker/daemon.json`. For Windows, `C:\ProgramData\docker\confige\daemon.json`. 
-* If you want to adjust the logfile size for each container, you can do so in the CreateOptions of each module. 
-* Configure Docker to automatically manage logs by setting journald as the default logging driver for Docker. 
-* Periodically remove old logs from your device by installing a logrotate tool for Docker. Use the following file specification: 
+By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. Consider the following options to prevent this:
+
+**Option: Set global limits that apply to all container modules**
+
+You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to `json-file` (recommended) with limits on size and number of files:
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
+
+| Platform | Location |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
+
+The container engine must be restarted for the changes to take effect.
+
+**Option: Adjust log settings for each container module**
+
+You can do so in the **createOptions** of each module. For example:
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Additional options on Linux systems**
+
+* Configure the container engine to send logs to `systemd` [journal](https://docs.docker.com/config/containers/logging/journald/) by setting `journald` as the default logging driver. 
+
+* Periodically remove old logs from your device by installing a logrotate tool. Use the following file specification: 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

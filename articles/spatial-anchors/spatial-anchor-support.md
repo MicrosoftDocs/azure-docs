@@ -4,7 +4,7 @@ description: Azure Spatial Anchors information on how to open a request with the
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
@@ -21,11 +21,11 @@ To open a technical support ticket within the Azure Portal for Azure Spatial Anc
 
 ![Azure portal help and support](./media/spatial-anchor-support.png)
 
-2. With the Help + support page open, select **+ New support request**.
+1. With the Help + support page open, select **+ New support request**.
 
 ![Azure portal new support request](./media/spatial-anchor-support2.png)
 
-3. When completing the support ticket fields: 
+1. When completing the support ticket fields: 
 
 - Issue type: Technical
 - Service: Spatial Anchors

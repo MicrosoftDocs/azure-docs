@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn how to add, change, or delete a virtual network subnet in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Add, change, or delete a virtual network subnet
@@ -47,12 +48,12 @@ The account you log into, or connect to Azure with, must be assigned to the [net
 
        To remove a service endpoint, unselect the service you want to remove the service endpoint for. To learn more about service endpoints, and the services they can be enabled for, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md). Once you enable a service endpoint for a service, you must also enable network access for the subnet for a resource created with the service. For example, if you enable the service endpoint for *Microsoft.Storage*, you must also enable network access to all Azure Storage accounts you want to grant network access to. For details about how to enable network access to subnets that a service endpoint is enabled for, see the documentation for the individual service you enabled the service endpoint for.
 
-    To validate that a service endpoint is enabled for a subnet, view the [effective routes](diagnose-network-routing-problem.md) for any network interface in the subnet. When an endpoint is configured, you see a *default* route with the address prefixes of the service, and a nextHopType of **VirtualNetworkServiceEndpoint**. To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md).
+     To validate that a service endpoint is enabled for a subnet, view the [effective routes](diagnose-network-routing-problem.md) for any network interface in the subnet. When an endpoint is configured, you see a *default* route with the address prefixes of the service, and a nextHopType of **VirtualNetworkServiceEndpoint**. To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md).
 6. To add the subnet to the virtual network that you selected, select **OK**.
 
 **Commands**
 
-- Azure CLI: [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
+- Azure CLI: [az network vnet subnet create](/cli/azure/network/vnet/subnet)
 - PowerShell: [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)
 
 ## Change subnet settings

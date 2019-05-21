@@ -18,8 +18,8 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 

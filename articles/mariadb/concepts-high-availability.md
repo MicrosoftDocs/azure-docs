@@ -1,8 +1,8 @@
 ---
 title: High availability concepts in Azure Database for MariaDB
 description: This topic provides information of high availability when using Azure Database for MariaDB
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018

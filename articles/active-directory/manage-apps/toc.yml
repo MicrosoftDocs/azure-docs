@@ -29,6 +29,8 @@
       items:
       - name: Application Proxy
         href: application-proxy.md
+      - name: Plan an Application Proxy deployment
+        href: application-proxy-deployment-plan.md
       - name: Connectors
         href: application-proxy-connectors.md
       - name: Connector groups
@@ -165,6 +167,8 @@
         href: application-provisioning-config-problem.md
       - name: Problem saving administrator credentials while configuring user provisioning gallery app
         href: application-provisioning-config-problem-storage-limit.md
+      - name: Sync an attribute for mapping - gallery app
+        href: user-provisioning-sync-attributes-for-mapping.md
       - name: Users are not provisioned - gallery app
         href: application-provisioning-config-problem-no-users-provisioned.md
       - name: Wrong users provisioned - gallery app
@@ -221,6 +225,8 @@
           href: application-proxy-configure-single-sign-on-password-vaulting.md
         - name: Headers
           href: application-proxy-configure-single-sign-on-with-ping-access.md
+        - name: SAML SSO
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Access panel
       items:
       - name: Manage browser extension
@@ -267,6 +273,10 @@
         href: application-sign-in-problem-federated-sso-gallery.md
       - name: Problem with custom-developed app
         href: application-sign-in-problem-custom-dev.md
+  - name: Reference
+    items:
+    - name: Application Proxy version history
+      href: application-proxy-release-version-history.md
   - name: Resources
     items:
     - name: Azure AD deployment plans

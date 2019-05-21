@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 05/07/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
@@ -58,9 +58,9 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
 1. Select the following entity from the list of prebuilt entities then select **Done**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-    ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+     ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
 
 ## Create an intent to determine employee feedback
 
@@ -86,6 +86,8 @@ Add a new intent to capture employee feedback from members of the company.
     |Denise Dillard missed the meeting for June reviews.|
     |Mark Mathews rocked the sales pitch at Harvard|
     |Walter Williams did a great job on the presentation at Stanford|
+
+    Select the **View options**, select **Show entity values** to see the names.
 
     [![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 

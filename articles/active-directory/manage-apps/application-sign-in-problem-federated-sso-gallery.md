@@ -3,8 +3,8 @@ title: Problems signing in to a gallery application configured for federated sin
 description: Guidance for the specific errors when signing into an application you have configured for SAML-based federated single sign-on with Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: luleon, asteen
 
 ms.collection: M365-identity-device-management
@@ -30,7 +30,7 @@ To troubleshoot the sign-in issues below, we recommend you follow these suggesti
 
 ## Application not found in directory
 
-*Error AADSTS70001: Application with Identifier ‘https://contoso.com’ was not found in the directory*.
+*Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory*.
 
 **Possible cause**
 
@@ -60,7 +60,7 @@ Ensure that the `Issuer` attribute in the SAML request matches the Identifier va
 
 ## The reply address does not match the reply addresses configured for the application
 
-*Error AADSTS50011: The reply address ‘https://contoso.com’ does not match the reply addresses configured for the application*
+*Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application*
 
 **Possible cause**
 
@@ -90,7 +90,7 @@ After you've updated the Reply URL value in Azure AD, and it matches the value s
 
 ## User not assigned a role
 
-*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application*.
+*Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application*.
 
 **Possible cause**
 
@@ -147,9 +147,9 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 **Resolution**
 
-1.  Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
+1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
 
-1.  Contact the application vendor and share the following info:
+1. Contact the application vendor and share the following info:
 
    -   SAML request
 

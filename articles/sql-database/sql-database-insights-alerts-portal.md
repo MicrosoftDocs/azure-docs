@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
@@ -53,7 +53,7 @@ You can configure and get information about alert rules using
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the **average** CPU has been above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the average CPU is below 80% over 5 minutes. The CPU measurement occurs every 1 minute. Consult the table below for supported time windows and the aggregation type that each alert uses- not all alerts use the average value.   
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
-7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email@contoso.com;email2@contoso.com*
+7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email\@contoso.com;email2\@contoso.com*
 8. Put in a valid URI in the **Webhook** field if you want it called when the alert fires.
 9. Select **OK** when done to create the alert.   
 

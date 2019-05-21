@@ -12,7 +12,7 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
 ---
@@ -34,7 +34,7 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
-* [Visual Studio Community 2017].
+* [Visual Studio Community].
 * Familiarity with UWP app development. Visit the [UWP documentation](https://docs.microsoft.com/windows/uwp/) to learn how to [get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) to build UWP apps.
 
 ## Create a new Azure Mobile App backend
@@ -65,7 +65,7 @@ Once you have configured your Mobile App backend, you can either create a new cl
     This sends a POST request to the new mobile app backend that's hosted in Azure.
 
 > [!TIP]
-> You can add the UWP app project to the same solution as the server project if you are using the .NET backend. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution. To add a UWP app project to the backend solution, you must be using Visual Studio 2017.
+> You can add the UWP app project to the same solution as the server project if you are using the .NET backend. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution. To add a UWP app project to the backend solution, you must be using Visual Studio 2017 or later.
 
 ## Next steps
 
@@ -81,4 +81,4 @@ Once you have configured your Mobile App backend, you can either create a new cl
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

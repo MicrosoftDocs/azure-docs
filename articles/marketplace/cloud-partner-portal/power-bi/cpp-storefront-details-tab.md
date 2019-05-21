@@ -1,20 +1,12 @@
 ---
-title: Storefront Details for a Power BI App offer - Azure Marketplace | Microsoft Docs
+title: Storefront Details for a Power BI App offer | Azure Marketplace 
 description: Configure Storefront Details fields for a Power BI App offer for the Microsoft AppSource Marketplace. 
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
+ms.date: 04/24/2019
+ms.author: pabutler
 ---
 
 # Power BI app Storefront Details tab
@@ -28,13 +20,13 @@ In the **Offer Details** section, enter general information about your AppSource
 
 ![Offer Details section of the Storefront Details tab](./media/offer-details-section.png)
 
-To complete the fields in this section, use the following table:
+The following table provides more information about these fields. Required fields are indicted by an asterisk (*).  
 
 |   Field               |   Description                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Offer summary**     | A brief purpose of the app, using up to 100 characters.                             |
-| **Offer description** | A description of the app, using up to 3,000 characters. This field supports simple HTML formatting. |
-|                       |                                                                                         |
+| **Offer summary\***     | A brief purpose of the app, using up to 100 characters.                             |
+| **Offer description\*** | A description of the app, using up to 3,000 characters. This field supports simple HTML formatting. |
+|   |    |
 
 
 ## Listing Details section
@@ -43,13 +35,13 @@ The **Listing Details** section gathers information about the context of your ap
 
 ![Listing Details section of the Storefront Details tab](./media/listing-details-section.png)
 
-To complete the fields in this section, use the following table:
+To complete the fields in this section, use the following table.  Required fields are indicted by an asterisk (*).
  
 |   Field                                  |   Description                                                        |
 | --------------                           | ---------------------                                                |
 | **Industries**                           | Select the industry where your app fits best. If your app relates to multiple industries, leave this field blank.      |
-| **Categories**                           | Select up to three categories that relate to your app.     |
-| **Help link for your app**               | Provide a URL to a page that offers online help for your app.           |
+| **Categories\***                           | Select up to three categories that relate to your app.     |
+| **Help link for your app\***               | Provide a URL to a page that offers online help for your app.           |
 | **Products your app works with (Max 3)** | Select the **New** plus sign to create a text field. In the field, enter the name of a product that your app works with. List up to three products.       |
 | **Search keywords (Max 3)**              | Enter up to three keywords that users will likely use to search for your application in AppSource. For example, if the application is called "My Emailing app," your keywords might be **emails**, **mailing**, and **mail app**. |
 |  |  |
@@ -61,13 +53,13 @@ In the **Marketing Artifacts** section, upload branding and marketing materials 
 
 ![Marketing Artifacts section of the Storefront Details tab](./media/marketing-artifacts-section.png)
 
-To complete the fields in this section, use the following table:
+To complete the fields in this section, use the following table. Required fields are indicted by an asterisk (*).
  
 |    Field                             |    Description                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logos*                              |                                                                   |
-| **Offer logo (png format, 48x48)**   | Upload a logo to display in the overview of the app or in app search results. AppSource supports only PNG format, with a resolution of 48 x 48 px.  |
-| **Offer logo (png format, 216x216)** | Upload a logo to display on your app’s detail page.  AppSource supports only PNG format, with a resolution of 216 x 216 px.  |
+| **Offer logo (png format, 48x48)\***   | Upload a logo to display in the overview of the app or in app search results. AppSource supports only PNG format, with a resolution of 48 x 48 px.  |
+| **Offer logo (png format, 216x216)\*** | Upload a logo to display on your app’s detail page.  AppSource supports only PNG format, with a resolution of 216 x 216 px.  |
 | *Videos*                             |                                                                   |
 | **Name**                             | Enter your app's name or title.                                          |
 | **URL**                              | Enter the URL of a video hosted on YouTube or Vimeo.                              |
@@ -75,7 +67,7 @@ To complete the fields in this section, use the following table:
 | *Documents*                          | Add up to three documents to display on AppSource, under the **Learn more** heading.  |
 | **Name**                             | Enter the name or title of a supporting document.                              |
 | **File**                             | Upload a PDF file.                             |
-| *Screenshots*                        | Add up to five screenshots.                        |
+| *Screenshots\**                      | Add up to five screenshots.                        |
 | **Name**                             | Enter a name or title of a screenshot.                                       |
 | **Image**                            | Upload a PNG screenshot. Its resolution must be 1280 x 720 px.  | 
 |   |   |
@@ -96,8 +88,8 @@ To complete the fields in this section, use the following table:
 
 |   Field                |   Description                           |
 |------------------------|--------------------------------------   |
-| **Privacy policy URL** | URL for your posted privacy policy       |
-| **Terms of use**       | Your use policy, formatted as plain text or simple HTML     |
+| **Privacy policy URL\*** | URL for your posted privacy policy       |
+| **Terms of use\***       | Your use policy, formatted as plain text or simple HTML     |
 |  |  |
 
 

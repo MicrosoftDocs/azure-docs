@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -35,7 +35,7 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-
 
     ```javascript
     'use strict';
-    const Search = require('azure-cognitiveservices-imagesearch');
+    const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
 
@@ -50,7 +50,7 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-
 
     //instantiate the image search client 
     let credentials = new CognitiveServicesCredentials(serviceKey);
-    let imageSearchApiClient = new Search.ImageSearchAPIClient(credentials);
+    let imageSearchApiClient = new ImageSearchAPIClient(credentials);
 
     ```
 
@@ -63,7 +63,7 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-## Send a query and handle the response
+   ## Send a query and handle the response
 
 1. Call the helper function and handle its `promise` to parse the image results returned in the response.
 

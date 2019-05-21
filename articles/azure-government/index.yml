@@ -7,13 +7,13 @@ metadata:
   meta.description:  
   services: Azure-government
   author: juliako
-  manager: carolz
+  manager: femila
   ms.service: Azure-government
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/19/2018
-  ms.author: carolz
+  ms.author: juliako
 abstract:
   description: Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. 
   aside:
@@ -27,16 +27,6 @@ abstract:
     width: 250
 
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-      - image:
-          src: media/index/azure-government.svg
-        text: Learn about Azure Government
-        href: /azure/azure-government/documentation-government-welcome
 
 - title: 5-Minute Quickstarts
   items:
@@ -57,27 +47,6 @@ sections:
         src: media/index/powershell.svg
       text: PowerShell
       href: documentation-government-get-started-connect-with-ps.md
-  - type: paragraph
-    text: 'Use dev tools for developing and deploying applications on Azure Government'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/DevOpsPipelines.svg
-      text: Azure Pipelines
-      href: connect-with-azure-pipelines.md
-    - image:
-        src: media/index/logo_vs.svg
-      text: Visual Studio
-      href: documentation-government-get-started-connect-with-vs.md
-    - image:
-        src: media/index/SSMS_Logo.svg
-      text: SSMS
-      href: documentation-government-connect-ssms.md
-    - image:
-        src: media/index/storage.svg
-      text: Azure storage
-      href: documentation-government-get-started-connect-to-storage.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -95,6 +64,5 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/azure-government/documentation-government-image-gallery">Images</a>
-    - html: <a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a>
     - html: <a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace for partners</a>
 

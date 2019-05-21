@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
@@ -21,6 +21,9 @@ ms.author: rkarlin
 # Customize OS security configurations in Azure Security Center (Preview)
 
 This walkthrough demonstrates how to customize OS security configuration assessments in Azure Security Center.
+
+> [!NOTE]
+> The ability to customize OS security configurations will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
 
 ## What are OS security configurations?
 
@@ -109,7 +112,7 @@ Each category has its own set of attributes. You can change the following attrib
 
     - List of allowed user groups, for example: *Administrators*, *Backup Operators*
 
--   **state**: The string can contain the options *Disabled* or *Enabled*. For this private preview release, the string is case-sensitive.
+-   **state**: The string can contain the options *Disabled* or *Enabled*. For this release, the string is case-sensitive.
 
 These are the only fields that can be configured. If you violate the file format or size, you won’t be able to save the change. You will receive an error telling you that you need to upload a valid JSON configuration file.
 
@@ -278,7 +281,7 @@ All potential errors are listed in the following table:
 | BaselineRuleCceIdNotUniqueError          | The CCE-ID *{0}* is not unique.                                                                                                                  |
 | BaselineRuleEmptyProperty                | The property *{0}* is missing or invalid.                                                                                                       |
 | BaselineRuleIdNotInDefault               | The rule has a source property *Microsoft* but it was not found in the Microsoft default ruleset.                                                   |
-| BaselineRuleIdNotUniqueError             | The rule Id is not unique.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | The rule identifier is not unique.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | The property *{0}* was found invalid. The value is not a valid GUID.                                                                             |
 | BaselineRuleInvalidHive                  | The hive must be LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | The rule name is not unique.                                                                                                                 |
@@ -287,10 +290,10 @@ All potential errors are listed in the following table:
 | BaselineRuleNotInPlace                   | The rule matches a default rule with type {0} and is listed in {1} list.                                                                       |
 | BaselineRulePropertyTooLong              | The property *{0}* is too long. Max allowed length: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | The expected value *{0}* doesn't match the registry value type that is defined.                                                              |
-| BaselineRulesetAdded                     | The ruleset with the ID *{0}* was not found in the default configuration. The ruleset cannot be added.                                               |
+| BaselineRulesetAdded                     | The ruleset with the identifier *{0}* was not found in the default configuration. The ruleset cannot be added.                                               |
 | BaselineRulesetIdMustBeUnique            | The given baseline ruleset *{0}* must be unique.                                                                                           |
-| BaselineRulesetNotFound                  | The ruleset with id *{0}* and name *{1}* was not found in the given configuration. The ruleset cannot be deleted.                                |
-| BaselineRuleSourceNotMatch               | The rule with ID *{0}* is already defined.                                                                                                       |
+| BaselineRulesetNotFound                  | The ruleset with identifier *{0}* and name *{1}* was not found in the given configuration. The ruleset cannot be deleted.                                |
+| BaselineRuleSourceNotMatch               | The rule with identifier *{0}* is already defined.                                                                                                       |
 | BaselineRuleTypeDoesntMatch              | The default rule type is *{0}*.                                                                                                              |
 | BaselineRuleTypeDoesntMatchError         | The actual type of the rule is *{0}*, but the *ruleType* property is *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Only *expectedValue* and *state* properties are allowed to be changed.                                                                       |

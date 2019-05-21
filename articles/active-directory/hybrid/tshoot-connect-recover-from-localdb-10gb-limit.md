@@ -78,13 +78,13 @@ The name of the database created for Azure AD Connect is **ADSync**. To perform 
 ### Delete run history data
 By default, Azure AD Connect retains up to seven days’ worth of run history data. In this step, we delete the run history data to reclaim DB space so that Azure AD Connect Synchronization Service can start syncing again.
 
-1.	Start **Synchronization Service Manager** by going to START → Synchronization Service.
+1. Start **Synchronization Service Manager** by going to START → Synchronization Service.
 
-2.	Go to the **Operations** tab.
+2. Go to the **Operations** tab.
 
-3.	Under **Actions**, select **Clear Runs**…
+3. Under **Actions**, select **Clear Runs**…
 
-4.	You can either choose **Clear all runs** or **Clear runs before… <date>** option. It is recommended that you start by clearing run history data that are older than two days. If you continue to run into DB size issue, then choose the **Clear all runs** option.
+4. You can either choose **Clear all runs** or **Clear runs before… \<date>** option. It is recommended that you start by clearing run history data that are older than two days. If you continue to run into DB size issue, then choose the **Clear all runs** option.
 
 ### Shorten retention period for run history data
 This step is to reduce the likelihood of running into the 10-GB limit issue after multiple sync cycles.

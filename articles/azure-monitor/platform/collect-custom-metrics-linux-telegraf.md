@@ -4,7 +4,7 @@ description: Collect custom metrics for a Linux VM with the InfluxData Telegraf 
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics

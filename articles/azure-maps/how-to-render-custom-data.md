@@ -130,9 +130,9 @@ You can also obtain the path and pin location information by using the [Data Upl
 
 4. Select **Send** and review the response header. The location header contains the URI used to access or download the data for future use. It also contains a unique `udId` for the uploaded data.  
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 5. Use the `udId` value received from the Data Upload API to render features on the map. To do this, open a new tab in the collection you created in the preceding section. Select the GET HTTP method on the builder tab and enter this URL to make a GET request:
 

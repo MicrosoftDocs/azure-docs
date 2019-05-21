@@ -380,12 +380,13 @@ With some queues, you can dequeue multiple messages with one request. Processing
 Each message should be processed in its own asynchronous control flow. For more information, see the [Outgoing dependencies tracking](#outgoing-dependencies-tracking) section.
 
 ## Long-running background tasks
+
 Some applications start long-running operations that might be caused by user requests. From the tracing/instrumentation perspective, it's not different from request or dependency instrumentation: 
 
 ```csharp
 async Task BackgroundTask()
 {
-    var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>(taskName);
     operation.Telemetry.Type = "Background";
     try
     {
@@ -410,9 +411,9 @@ async Task BackgroundTask()
 }
 ```
 
-In this example, `telemetryClient.StartOperation` creates `RequestTelemetry` and fills the correlation context. Let's say you have a parent operation that was created by incoming requests that scheduled the operation. As long as `BackgroundTask` starts in the same asynchronous control flow as an incoming request, it's correlated with that parent operation. `BackgroundTask` and all nested telemetry items are automatically correlated with the request that caused it, even after the request ends.
+In this example, `telemetryClient.StartOperation` creates `DependencyTelemetry` and fills the correlation context. Let's say you have a parent operation that was created by incoming requests that scheduled the operation. As long as `BackgroundTask` starts in the same asynchronous control flow as an incoming request, it's correlated with that parent operation. `BackgroundTask` and all nested telemetry items are automatically correlated with the request that caused it, even after the request ends.
 
-When the task starts from the background thread that doesn't have any operation (`Activity`) associated with it, `BackgroundTask` doesn't have any parent. However, it can have nested operations. All telemetry items reported from the task are correlated to the `RequestTelemetry` created in `BackgroundTask`.
+When the task starts from the background thread that doesn't have any operation (`Activity`) associated with it, `BackgroundTask` doesn't have any parent. However, it can have nested operations. All telemetry items reported from the task are correlated to the `DependencyTelemetry` created in `BackgroundTask`.
 
 ## Outgoing dependencies tracking
 You can track your own dependency kind or an operation that's not supported by Application Insights.

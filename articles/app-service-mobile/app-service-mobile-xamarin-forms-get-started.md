@@ -11,7 +11,7 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
 ---
@@ -29,9 +29,9 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For more information, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio Tools for Xamarin, in Visual Studio 2017 or Visual Studio for Mac. See the [Xamarin installation page][Install Xamarin] for instructions.
+* Visual Studio Tools for Xamarin, in Visual Studio 2017 or later, or Visual Studio for Mac. See the [Xamarin installation page][Install Xamarin] for instructions.
 
-* (optional) To build an iOS app, a Mac with Xcode 9.0 or later is required. Visual Studio for Mac can be used to develop iOS apps, or Visual Studio 2017 can be used (so long as the Mac is available on the network).
+* (optional) To build an iOS app, a Mac with Xcode 9.0 or later is required. Visual Studio for Mac can be used to develop iOS apps, or Visual Studio 2017 or later can be used (so long as the Mac is available on the network).
 
 ## Create a new Mobile Apps back end
 
@@ -59,7 +59,7 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
    This action downloads a project that contains a client application that's connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
 
-3. Extract the project that you downloaded, and then open it in Visual Studio 2017.
+3. Extract the project that you downloaded, and then open it in Visual Studio.
 
    ![Extracted project in Visual Studio][8]
 

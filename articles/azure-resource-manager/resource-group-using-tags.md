@@ -4,8 +4,6 @@ description: Shows how to apply tags to organize Azure resources for billing and
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: 003a78e5-2ff8-4685-93b4-e94d6fb8ed5b
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 04/26/2019
 ms.author: tomfitz
 
 ---
@@ -111,7 +109,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-To apply all tags from a resource group to its resources, and *not retain existing tags on the resources*, use the following script:
+To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -121,7 +119,7 @@ foreach ($g in $groups)
 }
 ```
 
-To apply all tags from a resource group to its resources, and *retain existing tags on resources that are not duplicates*, use the following script:
+To apply all tags from a resource group to its resources, and *keep existing tags on resources that aren't duplicates*, use the following script:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -218,7 +216,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To apply all tags from a resource group to its resources, and *not retain existing tags on the resources*, use the following script:
+To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -234,7 +232,7 @@ do
 done
 ```
 
-To apply all tags from a resource group to its resources, and *retain existing tags on resources*, use the following script:
+To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)

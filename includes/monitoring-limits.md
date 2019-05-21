@@ -9,21 +9,24 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: "include file"
 ---
-| Resource | Default Limit | Maximum Limit |
+| Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Autoscale Settings |100 per region per subscription | same as default |
-| Metric Alerts (classic) |100 active alert rules per subscription | call support |
-| Metric Alerts |100 active alert rules per subscription | call support |
-| Action Groups |2000 action groups per subscription | call support |
+| Autoscale settings |100 per region per subscription. | Same as default. |
+| Metric alerts (classic) |100 active alert rules per subscription. | Call support. |
+| Metric alerts |100 active alert rules per subscription. | Call support. |
+| Activity log alerts | 100 active alert rules per subscription. | Same as default. |
+| Log alerts | 512 | Call support. |
+| Action groups |2,000 action groups per subscription. | Call support. |
 
-**Action Group specific Limits**
-| Resource | Default Limit | Maximum Limit |
+**Action group-specific limits**
+
+| Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Azure app Push | 10 Azure app actions per Action Group | call support |
-| Email | 1000 email actions in an Action Group. Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | call support |
-| ITSM | 10 ITSM actions in an Action Group | call support | 
-| Logic App | 10 Logic App actions in an Action Group | call support |
-| Runbook | 10 Runbook actions in an Action Group | call support |
-| SMS | 10 SMS actions in an Action Group. Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | call support |
-| Voice | 10 Voice actions in an Action Group. Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | call support |
-| Webhook | 10 Webhook actions in an Action Group. Other limits available at [action specific information](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | call support |
+| Azure app push | 10 Azure app actions per action group. | Call support. |
+| Email | 1,000 email actions in an action group. Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Call support. |
+| ITSM | 10 ITSM actions in an action group. | Call support. | 
+| Logic app | 10 logic app actions in an action group. | Call support. |
+| Runbook | 10 runbook actions in an action group. | Call support. |
+| SMS | 10 SMS actions in an action group. Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Call support. |
+| Voice | 10 voice actions in an action group. Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Call support. |
+| Webhook | 10 webhook actions in an action group.  Maximum number of webhook calls is 1500 per minute per subscription. Other limits are available at [action-specific information](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Call support. |
