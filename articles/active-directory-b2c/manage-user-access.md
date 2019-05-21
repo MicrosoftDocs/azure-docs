@@ -34,7 +34,7 @@ If a user is identified as a minor, you can set the user flow in Azure AD B2C to
 
 - **Send an unsigned JSON token to the application**: Azure AD B2C notifies the application that the user is a minor and provides the status of the user’s parental consent. The application then proceeds by applying business rules. A JSON token does not complete a successful authentication with the application. The application must process the unauthenticated user according to the claims included in the JSON token, which may include **name**, **email**, **ageGroup**, and **consentProvidedForMinor**.
 
-- **Block the user**: If a user is a minor, and parental consent has not been provided, Azure AD B2C can notify the user that he or she is blocked. No token is issued, access is blocked, and the user account is not created during a registration journey. To implement this notification, you provide a suitable HTML/CSS content page to inform the user and present appropriate options. No further action is needed by the application for new registrations.
+- **Block the user**: If a user is a minor, and parental consent has not been provided, Azure AD B2C can notify the user that they are blocked. No token is issued, access is blocked, and the user account is not created during a registration journey. To implement this notification, you provide a suitable HTML/CSS content page to inform the user and present appropriate options. No further action is needed by the application for new registrations.
 
 ## Get parental consent
 
@@ -44,7 +44,7 @@ The following is an example of a user flow for gathering parental consent:
 
 1. An [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
 
-2. The application processes the JSON token and shows a screen to the minor, notifying him or her that parental consent is required and requesting the consent of a parent online. 
+2. The application processes the JSON token and shows a screen to the minor, notifying them that parental consent is required and requesting the consent of a parent online. 
 
 3. Azure AD B2C shows a sign-in journey that the user can sign in to normally and issues a token to the application that is set to include **legalAgeGroupClassification = “minorWithParentalConsent”**. The application collects the email address of the parent and verifies that the parent is an adult. To do so, it uses a trusted source, such as a national ID office, license verification, or credit card proof. If verification is successful, the application prompts the minor to sign in by using the Azure AD B2C user flow. If consent is denied (for example, if **legalAgeGroupClassification = “minorWithoutParentalConsent”**), Azure AD B2C returns a JSON token (not a login) to the application to restart the consent process. It is optionally possible to customize the user flow so that a minor or an adult can regain access to a minor’s account by sending a registration code to the minor’s email address or the adult’s email address on record.
 

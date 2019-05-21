@@ -97,7 +97,7 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 3. Update the `<appSettings>` element in the config file with the following details:
 
    * Set the value of the *EventHubName* key to the value of the EntityPath in the connection string.
-   * Set the value of the *Microsoft.ServiceBus.ConnectionString* key to the connection string without the EntityPath value.
+   * Set the value of the *Microsoft.ServiceBus.ConnectionString* key to the connection string without the EntityPath value (don't forget to remove the semicolon that precedes it).
 
 4. Save the file.
 5. Next open a command window and change to the folder where you unzipped the TelcoGenerator application. Then enter the following command:

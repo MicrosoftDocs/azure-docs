@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/17/2019
 ---
 
 # Understand and adjust Streaming Units
@@ -46,7 +46,7 @@ In general, the best practice is to start with 6 SUs for queries that don't use 
 For more information about choosing the right number of SUs, see this page: [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and on the query defined for the job. You can select up to your quota in SUs for a job. By default, each Azure subscription has a quota of up to 200 SUs for all the analytics jobs in a specific region. To increase SUs for your subscriptions beyond this quota, contact [Microsoft Support](https://support.microsoft.com). Valid values for SUs per job are 1, 3, 6, and up in increments of 6.
+> Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and on the query defined for the job. You can select up to your quota in SUs for a job. By default, each Azure subscription has a quota of up to 500 SUs for all the analytics jobs in a specific region. To increase SUs for your subscriptions beyond this quota, contact [Microsoft Support](https://support.microsoft.com). Valid values for SUs per job are 1, 3, 6, and up in increments of 6.
 
 ## Factors that increase SU% utilization 
 
