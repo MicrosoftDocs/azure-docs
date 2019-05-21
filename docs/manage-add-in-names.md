@@ -20,25 +20,21 @@ If you no longer want to use a name you previously reserved, you can release it 
 
 To delete one of your reserved names, find the name you no longer want to use and then select **Delete**. In the confirmation dialog box, select **Delete** again to confirm.
 
-Note that your add-in must have at least one reserved name. To remove an add-in from Partner Center (and release all the names you've reserved), click **Delete this app** from the **App overview** page. If you have a submission for the app in progress, you'll need to delete that submission first. Note that if you've already published the app to the Store, you can't delete it from Partner Center (though you can use the **Show/hide products** functionality on your **Overview** page to hide it). 
+Note that your add-in must have at least one reserved name. To remove an add-in from Partner Center (and release all the names you've reserved), click **Delete** on the **Add-in setup** page. Note that if you've already published your add-in to AppSource, you can't delete it from Partner Center. 
 
 
-## Rename an app that has already been published
+## Rename an add-in that has already been published
 
-If your app is already in the Store and you want to rename it, you can do so by reserving a new name for it (by following the steps described above) and then creating a new submission for the app. 
+If your add-in is already in AppSource and you want to rename it, you can do so by reserving a new name for it (as described earlier in this topic) and then creating a new submission for it. 
 
-You must update your app's package(s) to replace the old name with the new one and upload the updated package(s) to your submission.
-- First, update the Package.StoreAssociation.xml file to use the new name, either manually or by using Visual Studio (**Project > Store > Associate App with the Store...**). For more info, see [Package a UWP app with Visual Studio](../packaging/packaging-uwp-apps.md).
-- You'll also need to update the [**Package/Properties/DisplayName**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-displayname) element in your app manifest, and update any graphics or text that includes the app's name. 
-  > [!IMPORTANT]
-  > Be sure to update the Package.StoreAssociation.xml file before you change the **Package/Properties/DisplayName** in the app manifest, or you may get an error.
+You must update your add-in package to replace the old name with the new one and upload the updated package to your submission.
 
-To update a Store listing so that it uses the new name, go to the [Store listing page](create-app-store-listings.md) for that language and select the name from the **Product name** dropdown. Be sure to review your description and other parts of the listing for any mentions of the name and make updates if needed.
+To update an AppSource listing to use the new name, go to the [Store listings](office-store-listing.md) page for that language and select the name from the **Product name** dropdown. Be sure to review your description and other parts of the listing for any mentions of the name and make updates if needed.
 
 > [!NOTE]
-> If your app has packages and/or Store listings in multiple languages, you'll need to update the packages and/or Store listings for every language in which the name needs to be updated.
+> If your app has packages and/or listings in multiple languages, you'll need to update them for every language in which the name needs to be updated.
 
-Once your app has been published with the new name, you can delete any older names that you no longer need to use.
+After your add-in is published with the new name, you can delete any names that you no longer need to use.
 
 > [!TIP]
-> Each app appears in Partner Center using the first name which you reserved for it. If you've followed the steps above to rename an app, and you'd like it to appear in Partner Center using the new name, you must delete the original name (by clicking **Delete** on the **Manage app names** page). 
+> Each add-in appears in Partner Center using the first name that you reserved for it. If you've followed these steps to rename an add-in, and you'd like it to appear in Partner Center using the new name, you must delete the original name (by selecting **Delete** on the **Manage app names** page). 
