@@ -74,7 +74,7 @@ To set up your app to get tokens, you need to register the app in your Azure AD 
 2. On the top bar, select your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
 3. Select **All services** in the leftmost navigation pane, and then select **Azure Active Directory**.
 4. Select **App registrations**, and then select **New registration**.
-5. Follow the prompts to create a new **Native** client application.
+5. Follow the prompts to create a new client application.
     * **Name** is the application name and describes your application to end users.
     * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value that is specific to your application and is based on the previous redirect URI information. Also select **Public client (mobile and desktop)** from the dropdown.
 6. After you've completed the registration, Azure AD assigns your app a unique application ID. You'll need this value in the next sections, so copy it from the application tab.
