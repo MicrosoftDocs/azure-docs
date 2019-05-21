@@ -140,7 +140,7 @@ Verify cable:
 - Connect device via the cable to the host PC.
 - Validate that all devices enumerate correctly in Windows device manager. Depth and RGB camera should appear as shown in the example below.
 
-![Azure Kinect DK in Device Manager](./media/resources/hardware-specs-media/device-manager.png)
+  ![Azure Kinect DK in Device Manager](./media/resources/hardware-specs-media/device-manager.png)
 
 - Validate that cable can stream reliably on all sensors in the Azure Kinect Viewer, with the  following settings:
 
