@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Workspace mappings
 
-When enabling solutions like Update Management, Change Tracking and Inventory, or the Start/Stop VMs during off-hours solution, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+When enabling solutions like Update Management, Change Tracking and Inventory, or the Start/Stop VMs during off-hours solution, only certain regions are supported for linking a Log Analytics workspace and an Automation Account. This mapping only applies to the Automation Account and the Log Analytics workspace. The resources reporting to your Automation Account or Log Analytics workspace can reside in other regions.
 
 ## Supported mappings
 
