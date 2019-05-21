@@ -1,5 +1,5 @@
 ---
-title: Manage and monitor request level Importance in Azure SQL Data Warehouse | Microsoft Docs
+title: Manage and monitor Workload Importance in Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how to manage and monitor request level importance
 services: sql-data-warehouse
 author: ronortloff
@@ -12,7 +12,7 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ---
 
-# Manage and monitor request level Importance in Azure SQL Data Warehouse
+# Manage and monitor Workload Importance in Azure SQL Data Warehouse
 
 This article shows you how to use DMVs and catalog views to manage and monitor request level importance in Azure SQL Data Warehouse.
 
@@ -37,7 +37,7 @@ The sys.workload_management_workload_classifiers catalog view contains basic inf
 To exclude the system-defined classifiers that map to resource classes execute the following code:
 
 ```sql
-  SELECT *
+SELECT *
   FROM sys.workload_management_workload_classifiers
   WHERE classifier_id > 12
 ```
@@ -45,14 +45,14 @@ To exclude the system-defined classifiers that map to resource classes execute t
 The catalog view, [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest), contains information on the parameters used in creation of the classifier.  The below query shows that ExecReportsClassifier was created on the membername parameter for values with ExecutiveReports:
 
 ```sql
-SELECT cd.*
+SELECT c.name,cd.classifier_type, classifier_value
   FROM sys.workload_management_workload_classifiers c
   JOIN sys.workload_management_workload_classifier_details cd
     ON cd.classifier_id = c.classifier_id
   WHERE c.name = 'ExecReportsClassifier'
 ```
 
-NEED SCREEN SHOT OF the RESULTS!!
+![query results](/media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm_queryresults.png)
 
 To simplify troubleshooting misclassification, we recommended you remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run sp_droprolemember for each membername returned from the corresponding resource class.
 Below is an example of checking for existence before dropping a workload classifier:

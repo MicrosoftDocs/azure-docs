@@ -257,9 +257,9 @@
     items:
     - name: Analyze your workload
       href: analyze-your-workload.md 
-    - name: Manage and monitor request level Importance
+    - name: Manage and monitor Workload Importance
       href: sql-data-warehouse-how-to-manage-and-monitor-importance.md 
-    - name: Set request level Importance
+    - name: Configure Workload Importance
       href: sql-data-warehouse-how-to-set-request-level-importance.md 
   - name: Manage and monitor
     items:
