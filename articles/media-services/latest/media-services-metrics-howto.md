@@ -39,7 +39,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 ## View metrics in Azure portal
 
 1. Log in to the Azure portal at https://portal.azure.com.
-1. Navigate to you Azure Monitor account and select **Metrics**.
+1. Navigate to you Azure Media Services account and select **Metrics**.
 
     ![Metrics](media/media-services-metrics/metrics01.png)
 1. Give your chart a name.
@@ -49,6 +49,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 1. Add metrics that you want to view.
 
     ![Metrics](media/media-services-metrics/metrics03.png)
+1. You can pin your chart to your dashboard.
 
 ## View metrics with Azure CLI
 
