@@ -56,13 +56,13 @@ Use this table as a guide:
 |**Blob storage (hierarchial namespace)** | Azure AD only |
 |**File storage** | SAS only |
 
-### Use Azure AD
+### Option 1: Use Azure AD
 
 Make sure that your identity has authorization that it needs to perform operations on your storage account.
 
 #### Authorization to upload files
 
-Make that one of these roles has been assigned to your identity:
+First, verify that one of these roles has been assigned to your identity:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -74,13 +74,13 @@ These roles can be assigned to your identity in any of these scopes:
 - Resource group
 - Subscription
 
-You can also upload files to a container or folder if your identity has been added to the access control list (ACL) of the target container or folder. That identity needs write permission on the target folder and execute permission on container and each parent folder. 
+You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or folder. In the ACL, your identity needs write permission on the target folder, and execute permission on container and each parent folder.
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
 
 #### Authorization to download files
 
-Make that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
+First, verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
 
 This role can be assigned to your identity in any of these scopes:
 
@@ -89,7 +89,7 @@ This role can be assigned to your identity in any of these scopes:
 - Resource group
 - Subscription
 
-You can also download files from a container or folder if your identity has been added to the access control list (ACL) of the target container or folder. That identity needs read permission on the target folder and execute permission on container and each parent folder.
+You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or folder. In the ACL, your identity needs read permission on the target folder, and execute permission on container and each parent folder.
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
 
@@ -107,7 +107,7 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
-### Use a SAS token
+### Option 2: Use a SAS token
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands.
 
