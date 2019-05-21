@@ -48,6 +48,26 @@ Use the Azure Blob Storage client library for .NET to:
 
 [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 
+## Create the app
+
+Create a .NET Core application named **blob-quickstart**. For simplicity, this app will both send and receive messages through the queue.
+
+1. In a console window (such as CMD, PowerShell, or Azure CLI), use the `dotnet new` command to create a new console app with the name **blob-quickstart**. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+
+   ```console
+   dotnet new console -n blob-quickstart
+   ```
+
+2. Switch to the newly created **blob-quickstart** folder and build the app to verify that all is well.
+
+   ```console
+   cd blob-quickstart
+   ```
+
+   ```console
+   dotnet build
+   ```
+
 ## Install the package
 
 Navigate to your application directory and install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
@@ -59,8 +79,6 @@ dotnet add package Microsoft.Azure.Storage.Blob
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## Configure your storage connection string
-
-To run the application, you must provide the connection string for your storage account. The example application reads the connection string from an environment variable and uses it to authorize requests to Azure Storage.
 
 After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
 
