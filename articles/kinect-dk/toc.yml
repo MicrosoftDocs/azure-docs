@@ -6,15 +6,15 @@
   items:
   - name: Set up Azure Kinect DK
     href: set-up-azure-kinect-dk.md
-  - name: Record sensor streams file
+  - name: Record sensor streams to file
     href: record-sensor-streams-file.md
 - name: How-to guides
   items: 
    - name: Using Sensor SDK
      items:
-       - name: Overview Sensor SDK
+       - name: Overview
          href: overview-sensor-sdk.md
-       - name: Find then open device
+       - name: Find and open device
          href: find-then-open-device.md
        - name: Retrieve images
          href: retrieve-images.md
@@ -51,11 +51,9 @@
    - name: Azure Kinect DK coordinate systems
      href: azure-kinect-dk-coordinate-systems.md
 - name: Resources
-  items: 
-   - name: Sensor SDK
-     items:
-      - name: Download the Sensor SDK
-        href: sensor-sdk-download.md
+  items:  
+   - name: Download the Sensor SDK
+     href: sensor-sdk-download.md
    - name: System requirements
      href: system-requirements.md
    - name: Azure Kinect hardware specification

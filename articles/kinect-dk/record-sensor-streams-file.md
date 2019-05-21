@@ -38,6 +38,7 @@ You can use the k4a-viewer to play back a recording.
 
 ## Next steps
 
-* k4arecorder
-* k4a-viewer
-* sdk-record-playback
+> [!div class="nextstepaction"]
+>[Azure Kinect recorder](azure-kinect-dk-recorder.md)
+>[Azure Kinect viewer](azure-kinect-sensor-viewer.md)
+>[Azure Kinect SDK record playback](record-playback-api.md)
