@@ -46,6 +46,13 @@ The following options are not yet available through the resource view of Log Ana
 - Query explorer
 - Switching to different workspace/resource (currently not planned)
 
+## Understanding scope 
+The scope picker in Log Analytics allows you to select the scope of your query. 
+
+If you select a Log Analytics workspace, then the scope will be all records in that workspace regardless of how they were created. 
+
+If you select a resource type that contains other resource type such as a subscription or a resource group, then the scope is all records create by all contained resources in all Log Analytics workspaces that you can access. 
+
 
 ## Firewall requirements
 Your browser requires access to the following addresses to access Log Analytics.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
