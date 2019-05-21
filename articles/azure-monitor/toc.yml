@@ -78,7 +78,7 @@
     - name: Log data ingestion time
       href: platform/data-ingestion-time.md         
   - name: Insights
-    href: insights/insights.md
+    href: insights/insights-overview.md
   - name: Monitoring solutions
     href: insights/solutions-inventory.md
   - name: Data security
