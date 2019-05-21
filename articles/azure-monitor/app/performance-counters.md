@@ -64,7 +64,7 @@ If the performance counter you want isn't included in the list of metrics, you c
 ```
 
 > [!NOTE]
-> Asp.Net Core applications do not have `ApplicationInsights.config`, and hence the above method is not valid for Asp.Net Core Applications.
+> ASP.NET Core applications do not have `ApplicationInsights.config`, and hence the above method is not valid for ASP.NET Core Applications.
 
 You can capture both standard counters and those you've implemented yourself. `\Objects\Processes` is an example of a standard counter that is available on all Windows systems. `\Sales(photo)\# Items Sold` is an example of a custom counter that might be implemented in a web service.
 
@@ -74,7 +74,7 @@ The format is `\Category(instance)\Counter"`, or for categories that don't have 
 
 If you specify an instance, it will be collected as a dimension "CounterInstanceName" of the reported metric.
 
-### Collecting performance counters in code for Asp.Net Web Applications or .NET/.NET Core Console Applications
+### Collecting performance counters in code for ASP.NET Web Applications or .NET/.NET Core Console Applications
 To collect system performance counters and send them to Application Insights, you can adapt the snippet below:
 
 
@@ -95,7 +95,7 @@ Or you can do the same thing with custom metrics you created:
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 
-### Collecting performance counters in code for Asp.Net Core Web Applications
+### Collecting performance counters in code for ASP.NET Core Web Applications
 
 Modify `ConfigureServices` method in your `Startup.cs` class as below.
 
@@ -109,7 +109,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
         // The following configures PerformanceCollectorModule.
   services.ConfigureTelemetryModule<PerformanceCollectorModule>((module, o) =>
             {
-                // the application process name could be "dotnet" for Asp.Net Core self-hosted applications.
+                // the application process name could be "dotnet" for ASP.NET Core self-hosted applications.
                 module.Counters.Add(new PerformanceCounterCollectionRequest(
     @"\Process([replace-with-application-process-name])\Page Faults/sec", "DotnetPageFaultsPerfSec"));
             });
