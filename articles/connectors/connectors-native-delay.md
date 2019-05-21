@@ -14,7 +14,7 @@ ms.date: 05/10/2019
 
 # Pause workflows with delay actions in Azure Logic Apps
 
-To stop running your logic app for a specific amount of time, you can add the [built-in](../connectors/apis-list.md) **Delay - Schedule** [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) after or before any action in your logic app's workflow. Or, you can add the built-in **Delay until - Schedule** action to stop running until a specific date and time:
+To stop running your logic app for a specific amount of time, you can add the built-in **Delay - Schedule** action after or before any action in your logic app's workflow. Or, you can add the built-in **Delay until - Schedule** action to stop running until a specific date and time.
 
 * **Delay**: Pauses for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months.
 
