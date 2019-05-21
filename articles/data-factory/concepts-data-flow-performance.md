@@ -22,16 +22,19 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 > When you are designing and testing Data Flows from the ADF UI, make sure to turn on the Debug switch so that you can execute your data flows in real-time without waiting for a cluster to warm up.
 >
 
+![Debug Button](media/data-flow/debugb1.png "Debug")
+
 ## Optimizing for Azure SQL DB
 
+![Source Part](media/data-flow/sourcepart2.png "Source Part")
 
-You can match Spark data partitioning to your source database partitioning based on a database table column key in the Source transformation
+### You can match Spark data partitioning to your source database partitioning based on a database table column key in the Source transformation
 
+* Go to "Optimize" and select "Source". Set either a specific table column or a type in a query.
+* If you chose "column", then pick the partition column.
+* Also, set the maximum number of connections to your Azure SQL DB. You can try a higher setting to gain parallel connections to your database. However, some cases may result in faster performance with a limited number of connections.
 
-Go to "Optimize" and select "Source". Set either a specific table column or a type in a query.
-If you chose "column", then pick the partition column.
-Also, set the maximum number of connections to your Azure SQL DB. You can try a higher setting to gain parallel connections to your database. However, some cases may result in faster performance with a limited number of connections.
-Set Batch Size and Query on Source
+### Set Batch Size and Query on Source
 
 
 Setting batch size will instruct ADF to store data in sets in memory instead of row-by-row. It is an optional setting and you may run out of resources on the compute nodes if they are not sized properly.
