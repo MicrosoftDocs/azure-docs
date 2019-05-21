@@ -40,23 +40,32 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 - A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
 ## <a id="registermodel"></a> Register a machine learning model
 
-The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or imported from a model trained elsewhere. The following examples demonstrate how to register a model from file:
+The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or imported from a model trained elsewhere.
+
+The following examples demonstrate how to register a model from file:
 
 ### Register a model from an Experiment Run
 
 **Scikit-Learn example with the CLI**
+
 ```azurecli-interactive
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
 ```
+
 **Using the SDK**
+
 ```python
 model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
 print(model.name, model.id, model.version, sep='\t')
 ```
+
+**Using VS Code**
+
+Register models using any model files or folders with the [VS Code](how-to-vscode-tool.md#deploy-and-manage-models) extension.
 
 ### Register an externally created model
 
@@ -263,6 +272,10 @@ az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
+**Using VS Code**
+
+To [deploy your models with VS Code](how-to-vscode-tools.md#deploy-and-manage-models) you don't need to create an ACI container to test in advance, because ACI containers are created on the fly.
+
 ### <a id="aks"></a> Deploy to Azure Kubernetes Service (PRODUCTION)
 
 You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
@@ -288,6 +301,8 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 print(service.get_logs())
 ```
+
+You can also [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models), but you'll need to configure AKS clusters in advance.
 
 For more information on configuring your AKS deployment, including autoscale, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
