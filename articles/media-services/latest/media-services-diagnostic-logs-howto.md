@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Media Services diagnostic logs
+# Monitor Media Services diagnostic logs
 
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. All data collected by Azure Monitor fits into one of two fundamental types, metrics and logs. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. 
 
