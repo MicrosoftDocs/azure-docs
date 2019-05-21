@@ -92,8 +92,7 @@ On the pane that opens, enter the following information:
 When you are finished, select **Create** to deploy the Storage Sync Service.
 
 # [PowerShell](#tab/azure-powershell)
-Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the Azure PowerShell modules.
-
+Replace **<Az_Region>**, **<RG_Name>**, and **<my-storage-sync-service>** below with your own values, then you can use the following cmds to create and deploy a Storage Sync Service:
 
 ```powershell
 Connect-AzAccount
