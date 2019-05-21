@@ -112,13 +112,7 @@ After you add the environment variable, run `source .bash_profile` from your con
 
 ## Key concepts
 
-Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-
-Explain how these classes work together - the object model.
-
-## Usage examples
-
-This section provides examples of the key concepts. You'll learn how to:
+You'll learn how to:
 
    * [Try parsing the connection string](#try-parsing-the-connection-string)
    * [Create a container](#create-a-container)
