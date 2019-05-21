@@ -86,7 +86,7 @@ Here's how this recurrence looks:
 | 2017-09-**07** at 2:00 PM | 2017-09-**09** at 2:00 PM | 2017-09-**11** at 2:00 PM </br>2017-09-**13** at 2:00 PM </br>2017-09-**15** at 2:00 PM </br>and so on... |
 ||||
 
-So, no matter how far in the past you specify the start time, for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, your first run time is the same.
+So, no matter how far in the past you specify the start time, for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, your first run always uses the next future start time.
 
 For the Sliding Window trigger, the Logic Apps engine calculates run times based on the start time, honors past run times, uses the start time for the first run, and calculates future runs based on the start time.
 
@@ -97,7 +97,7 @@ Here's how this recurrence looks:
 | 2017-09-**07** at 2:00 PM | 2017-09-**07** at 2:00 PM | 2017-09-**09** at 2:00 PM </br>2017-09-**11** at 2:00 PM </br>2017-09-**13** at 2:00 PM </br>2017-09-**15** at 2:00 PM </br>and so on... |
 ||||
 
-So, no matter how far in the past you specify the start time, for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, your first run time is always the same as the start time.
+So, no matter how far in the past you specify the start time, for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, your first run always uses the specified start time.
 
 <a name="example-recurrences"></a>
 
