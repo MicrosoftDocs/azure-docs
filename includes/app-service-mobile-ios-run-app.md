@@ -16,7 +16,7 @@ ms.author: crdun
 
     `let client = MSClient(applicationURLString: "ZUMOAPPURL")`
 
-        becomes
+    becomes
     
     `let client = MSClient(applicationURLString: "https://test123.azurewebsites.net")`
     
@@ -26,7 +26,7 @@ ms.author: crdun
 
     `self.client = [MSClient clientWithApplicationURLString:@"ZUMOAPPURL"];`
 
-        becomes
+    becomes
     
     `self.client = [MSClient clientWithApplicationURLString:@"https://test123.azurewebsites.net"];`
 

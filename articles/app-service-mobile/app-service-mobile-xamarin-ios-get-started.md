@@ -51,7 +51,7 @@ To complete this tutorial, you need the following prerequisites:
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
-        becomes
+    becomes
     
     `const string applicationURL = @"https://test123.azurewebsites.net";`
     

@@ -56,9 +56,9 @@ Follow these steps to create a new Mobile App backend.
 
 4. In `App` class, replace `ZUMOAPPURL` parameter with public endpoint above.
 
-     `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
+    `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
 
-        becomes
+    becomes
     
     `public static MobileServiceClient MobileService = new MobileServiceClient("https://test123.azurewebsites.net");`
 

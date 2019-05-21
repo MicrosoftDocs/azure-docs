@@ -59,7 +59,7 @@ project for a simple "todo list" backend and publish it to Azure.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
-        becomes
+    becomes
     
     `const string applicationURL = @"https://test123.azurewebsites.net";`
     

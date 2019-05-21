@@ -14,7 +14,9 @@ ms.author: crdun
 4. In `onCreate()` method, replace `ZUMOAPPURL` parameter with public endpoint above.
     
     `new MobileServiceClient("ZUMOAPPURL", this).withFilter(new ProgressFilter());` 
-        becomes
+    
+    becomes
+    
     `new MobileServiceClient("https://test123.azurewebsites.net", this).withFilter(new ProgressFilter());`
     
 5. Press the **Run 'app'** button to build the project and start the app in the Android simulator.

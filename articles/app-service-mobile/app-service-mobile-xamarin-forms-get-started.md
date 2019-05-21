@@ -71,7 +71,7 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 
-        becomes
+    becomes
 
     `public static string ApplicationURL = @"https://test123.azurewebsites.net";`
     
@@ -126,8 +126,6 @@ In this section, you run the Xamarin.iOS project for iOS devices. You can skip t
 1. Right-click the iOS project, and then select **Set As Startup Project**.
 
 2. On the **Run** menu, select **Start Debugging** to build the project and start the app in the iPhone emulator.
-
-
 
 In the app, type meaningful text, such as *Learn Xamarin*, and then select the plus sign (**+**).
 

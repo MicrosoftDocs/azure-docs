@@ -18,7 +18,9 @@ ms.author: crdun
 5. Go to the `index.js` file in ZUMOAPPNAME/www/js/index.js and in `onDeviceReady()` method, replace `ZUMOAPPURL` parameter with public endpoint above.
 
     `client = new WindowsAzure.MobileServiceClient('ZUMOAPPURL');`
-        becomes
+    
+    becomes
+    
     `client = new WindowsAzure.MobileServiceClient('https://test123.azurewebsites.net');`
     
 6. To build and run your Cordova app, press F5 or click the green arrow. If you see a security dialog in the emulator requesting access to the network, accept it.
