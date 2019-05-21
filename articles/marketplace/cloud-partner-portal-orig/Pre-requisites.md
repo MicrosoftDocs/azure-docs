@@ -13,12 +13,11 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
 ---
 
-Prerequisites for Application Curation
-===============================
+# Prerequisites for Application Curation
 
 Microsoft requires specific reviews in order to validate that the
 following requirements are met:
@@ -42,4 +41,5 @@ curation artifacts and tests:
 - Models (code and tests)
 - Marketing content
 
-See [Pre-requisites for app curation](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions) for more info.
+For more information on technical and process requirements, see [Validate applications for Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Also, if you have not already done so, review the [Office 365, Dynamics 365, PowerApps, and Power BI Offer Publishing Guide](../appsource-offer-publishing-guide.md).
+

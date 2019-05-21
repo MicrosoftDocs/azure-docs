@@ -12,12 +12,12 @@ ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>The Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data to Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
-
 <h2>Offline data transfer</h2>
 <p>For limited to no network bandwidth</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk</b> for data sizes < 40 TB. Microsoft ships you 1 to 5 encrypted solid-state drives (SSDs) to copy data and ship back.</p>
+                            <p><b>Data Box Disk</b> for data sizes &lt; 40 TB. Microsoft ships you 1 to 5 encrypted solid-state drives (SSDs) to copy data and ship back.</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy<SUP>Preview</SUP></b> for data sizes > 500 TB. Microsoft ships you a 1 petabyte (PB) device via freight to copy data and ship back.</p>
+                            <p><b>Data Box Heavy</b> for data sizes &gt; 500 TB. Microsoft ships you a 1 petabyte (PB) device via freight to copy data and ship back.</p>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,6 @@ ms.author: alkohli
         </a>
     </li>
 </ul>
-
 <h2>Online data transfer</h2>
 <p>Over the network transfer</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -88,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Gateway <SUP>Preview</SUP></b> virtual device with storage. Use this device to send your data over the network to Azure.</p>
+                            <p><b>Data Box Gateway</b> virtual device with storage. Use this device to send your data over the network to Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -106,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Edge <SUP>Preview</SUP></b> physical device with storage and compute. Use this device when you intend to analyze, transform, or filter your data as it moves to Azure.</p>
+                            <p><b>Data Box Edge</b> physical device with storage and compute. Use this device when you intend to analyze, transform, or filter your data as it moves to Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -114,3 +113,4 @@ ms.author: alkohli
         </a>
     </li>
 </ul>
+</div>

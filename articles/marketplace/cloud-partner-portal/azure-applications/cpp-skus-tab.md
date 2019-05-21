@@ -21,8 +21,8 @@ ms.author: pbutlerm
 
 This article describes how to use the SKUs tab to create SKUs for your Azure application. 
 
->[!IMPORTANT] 
-The steps for configuring a SKU are different for a Managed application offer and a Solution template offer. These differences are documented in this article. 
+> [!IMPORTANT]
+> The steps for configuring a SKU are different for a Managed application offer and a Solution template offer. These differences are documented in this article. 
 
 ## Configure Azure application SKUs
 
@@ -86,7 +86,7 @@ Configure the following SKU settings:
   >[!NOTE]
   >Save your pricing changes to enable export/import of pricing data.
 
-- **Simplified Currency Pricing** - Enter the price for the SKU, in USD per month. This must be the same as Old Pricing. For more information, see [Simplified Currency Pricing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing).
+- **Simplified Currency Pricing** - Enter the price for the SKU, in USD per month. This must be the same as Old Pricing. For more information, see [Simplified Currency Pricing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### Package Details for Solution Template
 
@@ -131,11 +131,11 @@ For a managed application you must configure Authorization and Policy Settings.
 
 #### Authorization
 
-Add the Azure Active Directory Identifier of user, group or application to which you want to grant the permission to the managed resource group. The permission that is granted is indicated by the role definition Id. It could be a Owner, Contributor or any custom role.
+Add the Azure Active Directory Identifier of user, group or application to which you want to grant the permission to the managed resource group. The permission that is granted is indicated by the role definition Id. It could be an Owner, Contributor or any custom role.
 
 #### Policy Settings
 
-Add the policies that the Managed App complies with. Learn more about Azure Resource policies, see [What is Azure Policy?](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) 
+Add the policies that the Managed App complies with. Learn more about Azure Resource policies, see [What is Azure Policy?](../../../governance/policy/overview.md)
 
 
    ![Authorization and policy settings for a managed application](./media/azureapp-sku-details-managedapp-auth-policy.png)

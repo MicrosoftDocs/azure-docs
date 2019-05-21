@@ -1,10 +1,9 @@
 ---
 title: Advanced query samples
-description: Use Azure Resource Graph to run some advanced queries.
-services: resource-graph
+description: Use Azure Resource Graph to run some advanced queries, including VMSS capacity, listing all tags used, and matching virtual machines with regular expressions.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
@@ -20,11 +19,13 @@ to understand how to compose requests for the resources you're looking for.
 We'll walk through the following advanced queries:
 
 > [!div class="checklist"]
-> - [Get VMSS capacity and size](#vmss-capacity)
+> - [Get virtual machine scale set capacity and size](#vmss-capacity)
 > - [List all tag names](#list-all-tags)
 > - [Virtual machines matched by regex](#vm-regex)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Language support
 
@@ -41,7 +42,7 @@ virtual machine size and the capacity of the scale set. The query uses the `toin
 cast the capacity to a number so that it can be sorted. Finally, the columns are renamed into
 custom named properties.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -53,7 +54,7 @@ az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | wh
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
+Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
 ## <a name="list-all-tags"></a>List all tag names
@@ -61,7 +62,7 @@ Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescales
 This query starts with the tag and builds a JSON object listing all unique tag names and their
 corresponding types.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -71,13 +72,13 @@ az graph query -q "project tags | summarize buildschema(tags)"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
+Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ```
 
 ## <a name="vm-regex"></a>Virtual machines matched by regex
 
 This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference) (known as _regex_).
-The **matches regex @** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`. That regex definition is explained as:
+The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`. That regex definition is explained as:
 
 - `^` - Match must start at the beginning of the string.
 - `Contoso` - The case-sensitive string.
@@ -90,7 +91,7 @@ The **matches regex @** allows us to define the regex to match, which is `^Conto
 
 After matching by name, the query projects the name and orders by name ascending.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc
@@ -101,7 +102,7 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
 ## Next steps

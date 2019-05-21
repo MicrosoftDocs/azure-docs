@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Screencast-O-Matic
 
@@ -129,17 +130,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. On the **Setup Access Page**, perform the following steps:
 
-	* Under **Access URL** section, type your instancename in the specified textbox.
+   * Under **Access URL** section, type your instancename in the specified textbox.
 
-	![The Access](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![The Access](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-	* Select **Require Domain User** under **SAML User Restriction (optional)** section.
+   * Select **Require Domain User** under **SAML User Restriction (optional)** section.
 
-	* Under **Upload IDP Metadata XML File**, Click **Choose File** to upload the metadata which you have downloaded from Azure portal.
+   * Under **Upload IDP Metadata XML File**, Click **Choose File** to upload the metadata which you have downloaded from Azure portal.
 
-	* Click **OK**.	
+   * Click **OK**. 
 
-	![The Access](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![The Access](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### Create an Azure AD test user
 

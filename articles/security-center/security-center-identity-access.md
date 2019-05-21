@@ -4,7 +4,7 @@ description: Learn how to use the identity and access capability in Azure Securi
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -64,11 +64,11 @@ Under **Overview**, there is a list of recommendations. The first column lists t
 
 1. Select a recommendation. The recommendation’s window opens and displays:
 
-  - Description of the recommendation
-  - List of unhealthy and healthy subscriptions
-  - List of resources that are unscanned due to a failed assessment or the resource is under a subscription running on the Free tier and is not assessed
+   - Description of the recommendation
+   - List of unhealthy and healthy subscriptions
+   - List of resources that are unscanned due to a failed assessment or the resource is under a subscription running on the Free tier and is not assessed
 
-  ![Recommendation's window][3]
+   ![Recommendation's window][3]
 
 1. Select a subscription in the list for additional detail.
 
@@ -77,27 +77,27 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
 ![Subscription's tab][4]
 
-1.	Select a subscription. A summary view opens with three tabs:
+1. Select a subscription. A summary view opens with three tabs:
 
-  - **Recommendations**:  based on assessments performed by Security Center that failed.
-  - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
+   - **Recommendations**:  based on assessments performed by Security Center that failed.
+   - **Passed assessments**: list of assessments performed by Security Center that passed.
+   - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
 
-  Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
+   Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
 
-  ![Recommendations for select subscription][5]
+   ![Recommendations for select subscription][5]
 
 1. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
 
-  ![Description of recommendation][6]
+   ![Description of recommendation][6]
 
-  Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
+   Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
 
-  ![Passed assessments][7]
+   ![Passed assessments][7]
 
 1. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
 
-  ![Passed assessments][8]
+   ![Passed assessments][8]
 
 ## Recommendations
 Use the table below as a reference to help you understand the available Identity & Access recommendations and what each one does if you apply it.

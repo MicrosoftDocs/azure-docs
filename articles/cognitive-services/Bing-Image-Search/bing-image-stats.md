@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Bing Statistics provides analytics to the Bing Image Search API. Analytics include call volume, top query strings, geographic distribution, and more. 
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 03/04/2019
 ms.author: scottwhi
 ---
 

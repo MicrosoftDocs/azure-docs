@@ -3,8 +3,8 @@ title: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
 description: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
 services: service-fabric
 documentationcenter: service-fabric
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: 
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 ms.date: 04/09/2018
-ms.author: ryanwi
+ms.author: atsenthi
 ms.custom: mvc
 ---
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
@@ -37,33 +37,24 @@ Automated machine learning is the process of taking training data with a defined
 
 1. Configure the [compute target](how-to-set-up-training-targets.md) that is used to train the model.
 
-1. Configure the automated machine learning configuration. This controls the parameters used as Azure Machine Learning iterates over different models, hyperparameter settings, and what metrics to look at when determining the best model 
+1. Configure the automated machine learning configuration. This controls the parameters used as Azure Machine Learning iterates over different models, hyperparameter settings, and what metrics to look at when determining the best model
 
 1. Submit a training run.
 
 During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the iteration limit you provide, or when it reaches the target value for the metric you specify.
 
-[ ![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png) ](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
+[![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
 You can inspect the logged run information, which contains metrics gathered during the run. The training run also produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-## Model explainability
-
-A common pitfall of automated machine learning is an inability to see the end-to-end process. Azure Machine Learning allows you to view detailed information about the models to increase transparency into what's running on the back-end. Some models, like linear regression, are considered to be fairly straightforward and therefore easy to understand. But as we add more features and use more complicated machine learning models, understanding them gets more and more difficult. There are two key aspects to transparency in machine learning:
-
-1. Awareness of the machine learning pipeline and all the steps involved including data preprocessing/featurization, and hyperparameter values.
-1. Understanding the relationship between input variables (also known as “features”) and model output.  Knowing both the magnitude and direction of the impact of each feature on the predicted value helps better understand and explain the model. This is known as feature importance.
-
-You can enable global feature importance on-demand post training for the pipeline of your choice, or enable it for all pipelines as part of automated ML training.  This is a preview feature and we will continue to invest in providing richer information to help you better understand your ML models.  
-
-Follow this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) to experiment with model explanations in Azure Machine Learning.
 
 ## Next steps
 
 See examples and learn how to build models using Automated Machine Learning:
-+ [Samples: Use Jupyter notebooks to explore Azure Machine Learning service](samples-notebooks.md#automated-ml-setup)
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
+
++ [Notebook Samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 
 + [Use automatic training on a remote resource](how-to-auto-train-remote.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Create a Azure Media Services account - Azure CLI| Microsoft Docs
-description: Use the Azure CLI script to create a Azure Media Services account.
+title: Create an Azure Media Services account - Azure CLI| Microsoft Docs
+description: Use the Azure CLI script to create an Azure Media Services account.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,19 +13,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
 ---
 
 # CLI example: Create an Azure Media Services account
 
-The Azure CLI script in this topic shows how to create an Azure Media Services account.
+The Azure CLI script in this topic shows how to create an Azure Media Services account. 
 
-## Prerequisites 
+The Media Services account and all associated storage accounts must be in the same Azure subscription. It is recommended to use storage accounts in the same location as the Media Services account.
 
-Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## Example script
 

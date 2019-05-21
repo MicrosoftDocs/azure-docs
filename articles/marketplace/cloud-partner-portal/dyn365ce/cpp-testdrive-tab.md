@@ -19,9 +19,9 @@ ms.author: pbutlerm
 
 # Dynamics 365 for Customer Engagement application Test Drive tab
 
-Use the **Test Drive** tab to create a trial experience for your customers.  It provides customers with a hands-on, self-guided trial of your offer's key features and benefits, demonstrated in a real-world implementation scenario.  Of the trial options available, Test Drive is the most effective at generating high-quality leads and increased conversion of those leads.  For more information, see [What is Test Drive?](../../cloud-partner-portal-orig/what-is-test-drive.md)
+Use the **Test Drive** tab to create a trial experience for your customers.  It provides customers with a hands-on, self-guided trial of your offer's key features and benefits, demonstrated in a real-world implementation scenario.  Of the trial options available, Test Drive is the most effective at generating high-quality leads and increased conversion of those leads.  For more information, see [What is Test Drive?](../test-drive/what-is-test-drive.md)
 
-The Test Drive experience for Dynamics 365 applications automatically runs as a Microsoft-hosted solution.  For more information, see [Hosted Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive).
+The Test Drive experience for Dynamics 365 applications automatically runs as a Microsoft-hosted solution.  For more information, see [Hosted Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive).
 
 The Test Drive tab has three potential sections: **Test Drive**, **Details**, and **Technical Configuration**.  The last two sections are only displayed after you enable Test Drive functionality.  An asterisk (*) appended to the field name indicates that it’s required. 
 

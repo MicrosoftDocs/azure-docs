@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: A complete API guide for Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
@@ -40,7 +40,7 @@ Insert this snippet into the HTML head of your front page (where a personalized 
 > The callback function must be defined before the call to the Ranking API.
 
 > [!TIP]
-> To improve latency, the Ranking API is exposed via HTTP rather than HTTPS, as in `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
+> To improve latency, the Ranking API is exposed via HTTP rather than HTTPS, as in `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > However, an HTTPS endpoint must be used if the front page is served through HTTPS.
 
 When parameters are not used, the HTTP response from the Ranking API is a JSONP-formatted string:

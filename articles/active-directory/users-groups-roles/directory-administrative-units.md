@@ -1,5 +1,5 @@
 ---
-title: Administrative units management preview in Azure Active Directory
+title: Administrative units management (preview) - Azure Active Directory | Microsoft Docs
 description: Using administrative units for more granular delegation of permissions in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,19 @@ editor: ''
 
 ms.service: active-directory
 ms.topic: article
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/17/2017
+ms.date: 01/31/2019
 ms.author: curtand
 
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 
+ms.collection: M365-identity-device-management
 ---
-# Administrative units management in Azure AD - public preview
-This article describes administrative units – a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users. In Azure Active Directory, administrative units enable central administrators to delegate permissions to regional administrators or to set policy at a granular level.
+# Administrative units management in Azure Active Directory (public preview)
+
+This article describes administrative units – a new Azure Active Directory (Azure AD) container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users. In Azure Active Directory, administrative units enable central administrators to delegate permissions to regional administrators or to set policy at a granular level.
 
 This is useful in organizations with independent divisions, for example, a large university that is made up of many autonomous schools (Business school, Engineering school, and so on) which are independent from each other. Such divisions have their own IT administrators who control access, manage users, and set policies specifically for their division. Central administrators want to be able grant these divisional administrators permissions over the users in their particular divisions. More specifically, using this example, a central administrator can, for instance, create an administrative unit for a particular school (Business school) and populate it with only the Business school users. Then a central administrator can add the Business school IT staff to a scoped role, in other words, grant the IT staff of Business school administrative permissions only over the Business school administrative unit.
 

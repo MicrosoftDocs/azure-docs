@@ -4,11 +4,11 @@ titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
@@ -33,7 +33,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results. 
 
-
+![Conceptual idea of running sample containers](../media/how-tos/container-instance-sample/containers.png)
 
 ## The sample containers
 
@@ -201,7 +201,7 @@ The following steps are needed to get the required information to connect your c
 
     Save the full value for step 3 in this section. 
 
-1. To grant the correct access for the AKS cluster to use images stored in your container registry, create a role assignment. Replace <appId> and <acrId> with the values gathered in the previous two steps.
+1. To grant the correct access for the AKS cluster to use images stored in your container registry, create a role assignment. Replace `<appId>` and `<acrId>` with the values gathered in the previous two steps.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
@@ -320,7 +320,7 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
     |Line 78<br> `image` property|Image location for the language image in your Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Line 95<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
     |Line 91<br> `apiKey` property|Your text analytics resource key|
-    |Line 92<br> `billing` property|The billing endpoint for your text analytics resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |Line 92<br> `billing` property|The billing endpoint for your text analytics resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Because the **apiKey** and **billing endpoint** are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. The website container refers to the language detection container by its orchestrator name `language`. 
 
@@ -402,8 +402,8 @@ az group delete --name cogserv-container-rg
 
 ## Next steps 
 
-> [!div class="nextstepaction"]
-> [Use the Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
+* Use the Text Analytics Connected Service](../vs-text-connected-service.md)
 
 
 <!--

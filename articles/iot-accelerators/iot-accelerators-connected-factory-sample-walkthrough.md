@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
 ---
 
@@ -41,7 +41,7 @@ The following diagram outlines the logical components of the solution accelerato
 
 The solution uses the [OPC UA Pub/Sub specification](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) to send OPC UA telemetry data to IoT Hub in JSON format. The solution uses the [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge module for this purpose.
 
-The solution also has an OPC UA client integrated into a web application that can establish connections with on-premises OPC UA servers. The client uses a [reverse-proxy](https://wikipedia.org/wiki/Reverse_proxy) and receives help from IoT Hub to make the connection without requiring open ports in the on-premises firewall. This communication pattern is called [service-assisted communication](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). The solution uses the [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge module for this purpose.
+The solution also has an OPC UA client integrated into a web application that can establish connections with on-premises OPC UA servers. The client uses a [reverse-proxy](https://wikipedia.org/wiki/Reverse_proxy) and receives help from IoT Hub to make the connection without requiring open ports in the on-premises firewall. This communication pattern is called service-assisted communication. The solution uses the [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge module for this purpose.
 
 
 ## Simulation
@@ -68,7 +68,7 @@ OPC Publisher Module connects to the station OPC UA servers and subscribes to th
 
 1. Converts the node data into JSON format.
 1. Encrypts the JSON.
-1. Sends the JSON to IoT Hub as OPC UA Pub/Sub messages.
+1. Sends the JSON to IoT Hub as OPC UA pub/sub messages.
 
 The OPC Publisher module only requires an outbound https port (443) and can work with existing enterprise infrastructure.
 
@@ -224,7 +224,7 @@ The web app deployed as part of the solution accelerator includes an integrated 
 
 You can continue getting started with IoT solution accelerators by reading the following articles:
 
-* [Permissions on the azureiotsuite.com site][lnk-permissions]
+* [Permissions on the azureiotsolutions.com site][lnk-permissions]
 * [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 

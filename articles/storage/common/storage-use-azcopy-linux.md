@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.component: common
+ms.subservice: common
 ---
 # Transfer data with AzCopy on Linux
 
@@ -97,7 +97,7 @@ azcopy \
 	--source-key <key> 
 ```
 
-If the folder `/mnt/myfiles` does not exist, AzCopy creates it and downloads `abc.txt ` into the new folder. 
+If the folder `/mnt/myfiles` does not exist, AzCopy creates it and downloads `abc.txt` into the new folder. 
 
 ### Download single blob from secondary region
 

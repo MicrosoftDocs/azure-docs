@@ -1,6 +1,6 @@
 ---
 title: Manage classroom labs in Azure Lab Services | Microsoft Docs
-description: Learn how to create and configure a classroom lab, view all the classroom labs, shre the registration link with a lab user, or delete a lab. 
+description: Learn how to create and configure a classroom lab, view all the classroom labs, share the registration link with a lab user, or delete a lab. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 02/07/2019
 ms.author: spelluru
 
 ---
@@ -24,18 +24,18 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
 ## Create a classroom lab
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
-    2. Specify **number of users** allowed into the lab. 
+    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decrease the number of virtual machines in the lab later. 
     6. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
-    1. Select a **size** for virtual machines (VMs) created in the lab. 
+    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **large**, and **GPU** sizes are allowed.
     2. Select the **region** in which you want the VMs to be created. 
-    3. Select the **VM image** to be used to create VMs in the lab. 
+    3. Select the **VM image** to be used to create VMs in the lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
     4. Select **Next**.
 
         ![Specify VM specifications](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -56,7 +56,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. The following steps are optional steps in this tutorial: 
     1. Start the template VM by selecting **Start**.
-    2. Connect to the template VM by selecting **Connect**. 
+    2. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
     3. Install and configure software on your template VM. 
     4. **Stop** the VM.  
     5. Enter a **description** for the template
@@ -68,7 +68,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 
-    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see For details on how to configure and publish after the wizard completes, see [Publish the template](#publish-the-template) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
+    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see For details on how to configure and publish after the wizard completes, see Publish the template section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
 
         ![Publish template](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. You see the **progress of publishing** the template. This process can take up to an hour. 
@@ -103,7 +103,12 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 3. On the **Delete lab** dialog box, select **Delete**. 
 
     ![Delete dialog box](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
- 
+
+## Switch to another classroom lab
+To switch to another classroom lab from the current, select the drop-down list of labs in the lab account at the top.
+
+![Select the lab from drop-down list at the top](../media/how-to-manage-classroom-labs/switch-lab.png)
+
 
 ## Next steps
 See the following articles:

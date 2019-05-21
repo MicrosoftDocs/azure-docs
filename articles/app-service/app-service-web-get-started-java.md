@@ -4,7 +4,7 @@ description: Learn how to run web apps in App Service by deploying a basic Java 
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: mbaldwin
+manager: routlaw
 editor: ''
 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
@@ -23,16 +23,19 @@ ms.custom: seodec18
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the [Eclipse IDE for Java EE Developers](https://www.eclipse.org/).
 
-> [!NOTE]
->
-> The steps in this quickstart show how to use the Eclipse IDE to publish a Java web app to App Service, but you can use the IntelliJ IDEA Ultimate Edition or Community Edition. For more information, see [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
->
+> [!IMPORTANT]
+> Azure App Service on Linux is also an option to host Java web apps natively on Linux using managed Tomcat, Java SE, and WildFly offerings. If you're interested in getting started with App Service on Linux, see [Quickstart: Create a Java app in App Service on Linux](containers/quickstart-java.md).
 
 When you have completed this quickstart, your application will look similar to the following illustration when you view it in a web browser:
 
 !["Hello Azure!" example web app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+>
+> The steps in this quickstart show how to use the Eclipse IDE to publish a Java web app to App Service, but you can use the IntelliJ IDEA Ultimate Edition or Community Edition. For more information, see [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
+>
 
 ## Prerequisites
 
@@ -122,7 +125,7 @@ In the **Create App Service** dialog box:
   * **Location**: Select **West Europe** or a location near you.
   * **Pricing tier**: Select the free option. For features, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-   ![Create App Service dialog box](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+    ![Create App Service dialog box](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 

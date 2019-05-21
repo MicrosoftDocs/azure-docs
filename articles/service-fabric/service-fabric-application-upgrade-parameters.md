@@ -4,7 +4,7 @@ description: Describes parameters related to upgrading a Service Fabric applicat
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
@@ -60,7 +60,7 @@ Use the horizontal scrollbar at the bottom of the table to view the full descrip
 
 | Parameter | Applies To | Description |
 | --- | --- | --- |
-| ApplicationParameter |PS, VS| Specifies the overrides for application parameters.<br>PowerShell applcation parameters are specified as hashtable name/value pairs. For example, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Visual Studio application parameters can be specified in the Publish Service Fabric Application dialog in the **Application Parameters File** field.
+| ApplicationParameter |PS, VS| Specifies the overrides for application parameters.<br>PowerShell application parameters are specified as hashtable name/value pairs. For example, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Visual Studio application parameters can be specified in the Publish Service Fabric Application dialog in the **Application Parameters File** field.
 | Confirm |PS| Allowed values are **True** and **False**. Prompts for confirmation before running the cmdlet. |
 | ConsiderWarningAsError |PS, VS |Allowed values are **True** and **False**. Default value is **False**. Treat the warning health events for the application as errors when evaluating the health of the application during upgrade. By default, Service Fabric does not evaluate warning health events to be failures (errors), so the upgrade can proceed even if there are warning events. |
 | DefaultServiceTypeHealthPolicy | PS, VS |Specifies the health policy for the default service type to use for the monitored upgrade in the format MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices. For example, 5,10,15 indicates the following values: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
@@ -90,11 +90,12 @@ Service Fabric application upgrades using the Service Fabric CLI use the [sfctl 
 
 | Parameter | Description |
 | --- | --- |
-| application-id  |ID of the application that is being upgraded. <br> This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character. For example, if the application name is 'fabric:/myapp/app1', the application identity would be 'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
+| application-id  |ID of the application that is being upgraded. <br> This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '\~' character. For example, if the application name is 'fabric:/myapp/app1', the application identity would be 'myapp\~app1' in 6.0+ and 'myapp/app1' in previous versions.|
 application-version |The version of the application type that the upgrade targets.|
 parameters  |A JSON encoded list of application parameter overrides to be applied when upgrading the application.|
 
 ### Optional parameters
+
 | Parameter | Description |
 | --- | --- |
 default-service-health-policy | [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) encoded specification of the health policy used by default to evaluate the health of a service type. The map is empty by default. |

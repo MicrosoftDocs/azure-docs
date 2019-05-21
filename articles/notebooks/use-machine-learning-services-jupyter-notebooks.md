@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 0dc4fc31-ae1c-422c-ac34-7b025e6651b4
-ms.service: notebooks
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,16 +16,16 @@ ms.date: 12/04/2018
 ms.author: kraigb
 ---
 
-# Use Azure Machine Learning Services in a notebook
+# Use Azure Machine Learning service in a notebook
 
-Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning Services](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of Machine Learning scenarios.
+Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning service](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of Machine Learning scenarios.
 
 ## Clone the sample into your account
 
 1. Sign into [Azure Notebooks](https://notebooks.azure.com/).
 1. Select **My Projects** to navigate to the projects dashboard.
 1. Select the **Upload GitHub Repo** (the up arrow) button open the **Upload GitHub Repository** popup.
-1. In the popup, enter `Azure/MachineLearningNotebooks` in **GitHub repository**, provide a name for the project in **Project Name** like "Azure ML Services", provide an identifier in **Project ID**, clear **Public** if you want, then select **Import**.
+1. In the popup, enter `Azure/MachineLearningNotebooks` in **GitHub repository**, provide a name for the project in **Project Name** like "Azure Machine Learning service", provide an identifier in **Project ID**, clear **Public** if you want, then select **Import**.
 
     ![Import Azure Machine Learning Notebook sample into your Notebooks account](media/azureml-import-project.png)
 

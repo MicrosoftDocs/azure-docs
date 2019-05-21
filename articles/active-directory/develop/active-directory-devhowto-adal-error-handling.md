@@ -7,7 +7,7 @@ author: danieldobalian
 manager: mtillman
 ms.author: CelesteDG
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,6 +15,7 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.author: celested
 ms.custom: 
+ms.collection: M365-identity-device-management
 ---
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients

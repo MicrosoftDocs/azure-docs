@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Azure Diagnostics 1.3 and later configuration schema
 > [!NOTE]
@@ -25,7 +25,7 @@ This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer c
 
 The configuration file described here is used to set diagnostic configuration settings when the diagnostics monitor starts.  
 
-The extension is used in conjunction with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+The extension is used in conjunction with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics.
 
 
 
@@ -688,3 +688,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  *Tree: Root - DiagnosticsConfiguration - IsEnabled*
 
  Boolean. Use `true` to enable the diagnostics or `false` to disable the diagnostics.
+

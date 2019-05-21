@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to page through the news articles that the Bing News Search API returns.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi

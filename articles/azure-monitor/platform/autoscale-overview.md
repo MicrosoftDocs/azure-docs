@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 # Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
@@ -60,15 +60,15 @@ Autoscale use the following terminology and structure.
 
 - An **autoscale setting** is read by the autoscale engine to determine whether to scale up or down. It contains one or more profiles, information about the target resource, and notification settings.
 
-    - An **autoscale profile** is a combination of a:
+  - An **autoscale profile** is a combination of a:
 
-        - **capacity setting**, which indicates the minimum, maximum, and default values for number of instances.
-        - **set of rules**, each of which includes a trigger (time or metric) and a scale action (up or down).
-        - **recurrence**, which indicates when autoscale should put this profile into effect.
+    - **capacity setting**, which indicates the minimum, maximum, and default values for number of instances.
+    - **set of rules**, each of which includes a trigger (time or metric) and a scale action (up or down).
+    - **recurrence**, which indicates when autoscale should put this profile into effect.
 
-        You can have multiple profiles, which allow you to take care of different overlapping requirements. You can have different autoscale profiles for different times of day or days of the week, for example.
+      You can have multiple profiles, which allow you to take care of different overlapping requirements. You can have different autoscale profiles for different times of day or days of the week, for example.
 
-    - A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
+  - A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
 
 
 ![Azure autoscale setting, profile, and rule structure](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
@@ -114,3 +114,4 @@ To learn more about autoscale, use the Autoscale Walkthroughs listed previously 
 * [Use autoscale actions to send email and webhook alert notifications](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Troubleshooting Virtual Machine Scale Sets Autoscale](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

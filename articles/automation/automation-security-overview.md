@@ -4,7 +4,7 @@ description: This article provides an overview of Automation security and the di
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
@@ -43,3 +43,4 @@ The following table summarizes the different authentication methods for each env
 | Azure Classic Run As Account |Azure classic |[Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
 | Windows Authentication |On-Premises Datacenter |[Authenticate Runbooks for Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) |
 | AWS Credentials |Amazon Web Services |[Authenticate Runbooks with Amazon Web Services (AWS)](automation-config-aws-account.md) |
+

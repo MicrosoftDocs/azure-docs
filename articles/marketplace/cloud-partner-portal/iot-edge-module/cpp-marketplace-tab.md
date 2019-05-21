@@ -100,7 +100,7 @@ This section has the following subsections: **Logos**, **Screenshot**, and **Vid
 
 ### Logo guidelines
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 All the logos uploaded to the Cloud Partner Portal should follow the guidelines:

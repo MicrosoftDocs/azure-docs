@@ -3,11 +3,11 @@ title: Translator Text API V2.0
 titleSuffix: Azure Cognitive Services
 description: Reference documentation for the V2.0 Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: v-pawal
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
@@ -41,7 +41,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 |ProfanityAction	|Action	|Example Source (Japanese)	|Example Translation (English)	|
 |:--|:--|:--|:--|
 |NoAction	|Default. Same as not setting the option. Profanity will pass from source to target.		|彼はジャッカスです。		|He is a jackass.	|
-|Marked		|Profane words will be surrounded by XML tags <profanity> and </profanity>.		|彼はジャッカスです。	|He is a <profanity>jackass</profanity>.	|
+|Marked		|Profane words will be surrounded by XML tags \<profanity> and \</profanity>.		|彼はジャッカスです。	|He is a \<profanity>jackass\</profanity>.	|
 |Deleted	|Profane words will be removed from the output without replacement.		|彼はジャッカスです。	|He is a.	|
 
 	
@@ -153,7 +153,7 @@ The format of the response body is as follows.
 
 ```
 <ArrayOfTranslateArrayResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
-  xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <TranslateArrayResponse>
     <From>language-code</From>
     <OriginalTextSentenceLengths xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -201,7 +201,7 @@ The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageN
 The request body includes a string array representing the ISO 639-1 language codes to retrieve the friendly names for. For example:
 
 ```
-<ArrayOfstring xmlns:i="http://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+<ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
     <string>zh</string>
     <string>en</string>
 </ArrayOfstring>
@@ -323,7 +323,7 @@ Response Content Type: application/xml
 |text|(empty)	|Required. A string containing a sentence or sentences of the specified language to be spoken for the wave stream. The size of the text to speak must not exceed 2000 characters.|query|string|
 |language|(empty)	|Required. A string representing the supported language code to speak the text in. The code must be present in the list of codes returned from the method  `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|Optional. A string specifying the content-type ID. Currently,  `audio/wav` and `audio/mp3` are available. The default value is `audio/wav`.|query|string|
-|options|(empty)	|<ul><li>Optional. A string specifying properties of the synthesized speech:<li>`MaxQuality` and `MinSize` are available to specify the quality of the audio signals. With `MaxQuality`, you can get voices with the highest quality, and with `MinSize`, you can get the voices with the smallest size. Default is  `MinSize`.</li><li>`female` and `male` are available to specify the desired gender of the voice. Default is `female`. Use the vertical bar `|` to include multiple options. For example  `MaxQuality|Male`.</li></li></ul>	|query|string|
+|options|(empty)	|<ul><li>Optional. A string specifying properties of the synthesized speech:<li>`MaxQuality` and `MinSize` are available to specify the quality of the audio signals. With `MaxQuality`, you can get voices with the highest quality, and with `MinSize`, you can get the voices with the smallest size. Default is  `MinSize`.</li><li>`female` and `male` are available to specify the desired gender of the voice. Default is `female`. Use the vertical bar <code>\|</code> to include multiple options. For example  `MaxQuality|Male`.</li></li></ul>	|query|string|
 |Authorization|(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
@@ -393,7 +393,7 @@ The size of the text must not exceed 10000 characters.
 The format of the response body is as follows.
 
 ```
-<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <string>language-code-1</string>
   <string>language-code-2</string>
 </ArrayOfstring>
@@ -607,7 +607,7 @@ Request `Content-Type` should be `text/xml`.
 
 ```
 <GetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
-  xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <From>Two character language code</From>
   <State/>
   <Translations>
@@ -719,7 +719,7 @@ Request `Content-Type` should be `text/xml`.
 **Return value:** The format of the response is as follows.
 
 ```
-<ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <GetTranslationsResponse>
     <From>language-code</From>
     <State/>

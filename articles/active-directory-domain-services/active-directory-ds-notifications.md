@@ -4,12 +4,12 @@ description: Notification settings for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
-ms.component: domains
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -43,7 +43,6 @@ The email specifies the managed domain that the alert is present on, as well as 
 
 > [!WARNING]
 > Always make sure that the email is coming from a verified Microsoft sender before clicking links in your emails. The emails always come from the email azure-noreply@microsoft.com
->
 
 
 ## Why would I receive email notifications?

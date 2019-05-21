@@ -1,16 +1,15 @@
 ---
 title: Understand how effects work
 description: Azure Policy definition have various effects that determine how compliance is managed and reported.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ---
-# Understand Policy effects
+# Understand Azure Policy effects
 
 Each policy definition in Azure Policy has a single effect. That effect determines what happens
 when the policy rule is evaluated to match. The effects behave differently if they are for a new
@@ -58,7 +57,8 @@ storage resource.
 Append evaluates before the request gets processed by a Resource Provider during the creation or
 updating of a resource. Append adds fields to the resource when the **if** condition of the policy
 rule is met. If the append effect would override a value in the original request with a different
-value, then it acts as a deny effect and rejects the request.
+value, then it acts as a deny effect and rejects the request. To append a new value to an existing
+array, use the **[\*]** version of the alias.
 
 When a policy definition using the append effect is run as part of an evaluation cycle, it doesn't
 make changes to resources that already exist. Instead, it marks any resource that meets the **if**
@@ -101,8 +101,10 @@ Example 2: Two **field/value** pairs to append a set of tags.
 }
 ```
 
-Example 3: Single **field/value** pair using an [alias](definition-structure.md#aliases) with an
-array **value** to set IP rules on a storage account.
+Example 3: Single **field/value** pair using a non-**[\*]**
+[alias](definition-structure.md#aliases) with an array **value** to set IP rules on a storage
+account. When the non-**[\*]** alias is an array, the effect appends the **value** as the entire
+array. If the array already exists, a deny event occurs from the conflict.
 
 ```json
 "then": {
@@ -113,6 +115,24 @@ array **value** to set IP rules on a storage account.
             "action": "Allow",
             "value": "134.5.0.0/21"
         }]
+    }]
+}
+```
+
+Example 4: Single **field/value** pair using an **[\*]** [alias](definition-structure.md#aliases)
+with an array **value** to set IP rules on a storage account. By using the **[\*]** alias, the
+effect appends the **value** to a potentially pre-existing array. If the array doesn't yet exists,
+it will be created.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
     }]
 }
 ```
@@ -194,9 +214,12 @@ related resources to match.
 
 - **Type** [required]
   - Specifies the type of the related resource to match.
-  - Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
+  - If **details.type** is a resource type underneath the **if** condition resource, the policy
+    queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
+    policy queries within the same resource group as the evaluated resource.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
+  - When the condition values for **if.field.type** and **then.details.type** match, then **Name** becomes _required_ and must be `[field('name')]`. However, an [audit](#audit) effect should be considered instead.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -274,6 +297,7 @@ related resources to match and the template deployment to execute.
   - Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
+  - When the condition values for **if.field.type** and **then.details.type** match, then **Name** becomes _required_ and must be `[field('name')]`.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -294,6 +318,11 @@ related resources to match and the template deployment to execute.
   - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **roleDefinitionIds** [required]
   - This property must include an array of strings that match role-based access control role ID accessible by the subscription. For more information, see [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+- **DeploymentScope** (optional)
+  - Allowed values are _Subscription_ and _ResourceGroup_.
+  - Sets the type of deployment to be triggered. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indicates a deployment to a resource group.
+  - A _location_ property must be specified in the _Deployment_ when using subscription level deployments.
+  - Default is _ResourceGroup_.
 - **Deployment** [required]
   - This property should include the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
 
@@ -330,7 +359,7 @@ not, then a deployment to enable is executed.
             "properties": {
                 "mode": "incremental",
                 "template": {
-                    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
                     "parameters": {
                         "fullDbName": {

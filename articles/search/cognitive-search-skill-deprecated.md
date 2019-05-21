@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/25/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
 
-#	 Deprecated Cognitive Search Skills
+# Deprecated Cognitive Search Skills
 
 This document describes cognitive skills that are considered deprecated. Use the following guide for the contents:
 

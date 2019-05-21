@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Reference for Project URL Preview endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
@@ -27,10 +27,10 @@ You must use only the data from URL Preview to display preview snippets and thum
 To request URL Preview results, send a request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
 Endpoint GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 The request must use the HTTPS protocol and include following query parameter:
 
@@ -52,7 +52,7 @@ For information about permitted use and display of results, see [Use and display
 > Some request headers that are meaningful for other search APIs don’t affect URL Preview
 > - Pragma – the caller does not have control over whether URL Preview uses cache
 > - User-Agent – For now, Url Preview API doesn’t provide different responses for calls emanating from PC, Laptop, or Mobile.
-
+> 
 > Also, some parameters are not currently meaningful for URL Preview API, but may be used in the future for improved globalization.
 
 ## Headers
@@ -71,9 +71,9 @@ The request may include the following query parameters. See the Required column 
 
 |Name|Value|Type|Required|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see [Market Codes](#market-codes).<br /><br /> **NOTE:** The URL Preview API currently only supports US geography and English language.<br /><br />|String|Yes|
+|<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see Market Codes.<br /><br /> **NOTE:** The URL Preview API currently only supports US geography and English language.<br /><br />|String|Yes|
 |<a name="query" />q|The URL to preview|String|Yes|
-|<a name="responseformat" />responseFormat|The media type to use for the response. The following are the possible case-insensitive values.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> The default is JSON. For information about the JSON objects that the response contains, see [Response Objects](#response-objects).<br /><br />If you specify JsonLd, the response body includes JSON-LD objects that contain the search results. For information about the JSON-LD, see [JSON-LD](http://json-ld.org/).|String|No|
+|<a name="responseformat" />responseFormat|The media type to use for the response. The following are the possible case-insensitive values.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> The default is JSON. For information about the JSON objects that the response contains, see [Response Objects](#response-objects).<br /><br />If you specify JsonLd, the response body includes JSON-LD objects that contain the search results. For information about the JSON-LD, see [JSON-LD](https://json-ld.org/).|String|No|
 |<a name="safesearch"/>safeSearch|Illegal adult content, or pirated content, is blocked with error code 400, and the *isFamilyFriendly* flag is not returned. <p>For legal adult content, below is the behavior. Status code returns 200, and the *isFamilyFriendly* flag is set to false.<ul><li>safeSearch=strict: Title, description, URL and image will not be returned.</li><li>safeSearch=moderate; Get title, URL and description but not the descriptive image.</li><li>safeSearch=off; Get all the response objects/elements – title, URL, description, and image.</li></ul> |String|Not required. </br> Defaults to safeSearch=strict.|
 
 ## Response Objects

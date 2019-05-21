@@ -3,7 +3,7 @@ title: Deploy a Service Fabric app to a cluster in Azure | Microsoft Docs
 description: Learn how to deploy an application to a cluster from Visual Studio.
 services: service-fabric
 documentationcenter: .net
-author: rwike77 
+author: aljo-microsoft 
 manager: msfussell 
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/14/2019
-ms.author: ryanwi,mikhegn
+ms.author: aljo,mikhegn
 ms.custom: mvc
 
 ---
@@ -51,7 +51,7 @@ If you didn't build the voting sample application in [part one of this tutorial 
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart 
 ```
 
-Open the application in Visual Studio, running as administor, and build the application.
+Open the application in Visual Studio, running as administrator, and build the application.
 
 ## Create a cluster
 
@@ -82,7 +82,7 @@ In the **Cluster** tab, enter the **Cluster name** (for example, "mytestcluster"
 
 ![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-In the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a PFX file and saved to the specified output path.  The certificate is used for for both node-to-node and client-to-node security.  A self-signed certificate should not be used for production clusters.  This certificate is used by Visual Studio to authenticate with the cluster and deploy applications. Select **Import certificate** to install the PFX in the CurrentUser\My certificate store of your computer.  Click **Next**.
+In the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a PFX file and saved to the specified output path.  The certificate is used for both node-to-node and client-to-node security.  A self-signed certificate should not be used for production clusters.  This certificate is used by Visual Studio to authenticate with the cluster and deploy applications. Select **Import certificate** to install the PFX in the CurrentUser\My certificate store of your computer.  Click **Next**.
 
 ![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

@@ -3,8 +3,8 @@ title: Azure Service Fabric Event Aggregation with EventFlow | Microsoft Docs
 description: Learn about aggregating and collecting events using EventFlow for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
-manager: timlt
+author: srrengar
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
+ms.date: 2/25/2019
+ms.author: srrengar
 
 ---
 
@@ -139,7 +139,7 @@ The name passed as the parameter of the `CreatePipeline` method of the `ServiceF
 
 ### Use Service Fabric settings and application parameters in eventFlowConfig
 
-EventFlow supports using Service Fabric settings and application paremeters to configure EventFlow settings. You can refer to Service Fabric settings parameters using this special syntax for values:
+EventFlow supports using Service Fabric settings and application parameters to configure EventFlow settings. You can refer to Service Fabric settings parameters using this special syntax for values:
 
 ```json
 servicefabric:/<section-name>/<setting-name>
@@ -154,5 +154,5 @@ Start your service and observe the Debug output window in Visual Studio. After t
 ## Next steps
 
 * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Event Analysis and Visualization with Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Event Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow documentation](https://github.com/Azure/diagnostics-eventflow)

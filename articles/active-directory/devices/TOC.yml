@@ -14,7 +14,7 @@
   - name: Configure hybrid Azure AD join for federated domains
     href: hybrid-azuread-join-federated-domains.md
   - name: Configure hybrid Azure AD join manually
-    href: hybrid-azuread-join-manual-steps.md
+    href: hybrid-azuread-join-manual.md
   - name: Configure Azure AD join during Windows 10 first-run experience
     href: azuread-joined-devices-frx.md
 - name: Concepts

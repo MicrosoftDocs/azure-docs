@@ -7,19 +7,15 @@ ms.author: omidm
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2017
+ms.date: 01/24/2019
 ---
-
 # OS patching for HDInsight 
-As a managed Apache Hadoop service, HDInsight takes care of patching the OS of the underlying VMs used by HDInsight clusters. As of August 1, 2016, we have changed the guest OS patching policy for Linux-based HDInsight clusters (version 3.4 or greater). The goal of the new policy is to significantly reduce the number of reboots due to patching. The new policy will continue to patch virtual machines (VMs) on Linux clusters every Monday or Thursday starting at 12AM UTC in a staggered fashion across nodes in any given cluster. However, any given VM will only reboot at most once every 30 days due to guest OS patching. In addition, the first reboot for a newly created cluster will not happen sooner than 30 days from the cluster creation date. Patches will be effective once the VMs are rebooted.
+
+> [!IMPORTANT]
+> Ubuntu images become available for new HDInsight cluster creation within 3 months of being published. As of January 2019, running clusters are **not** auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. Newly created clusters will always have the latest available updates, including the most recent security patches.
 
 ## How to configure the OS patching schedule for Linux-based HDInsight clusters
-The virtual machines in an HDInsight cluster need to be rebooted occasionally so that important security patches can be installed. As of August 1, 2016, new Linux-based HDInsight clusters (version 3.4 or greater,) are rebooted using the following schedule:
-
-1. A virtual machine in the cluster can only reboot for patches at most, once within a 30-day period.
-2. The reboot occurs starting at 12AM UTC.
-3. The reboot process is staggered across virtual machines in the cluster, so the cluster is still available during the reboot process.
-4. The first reboot for a newly created cluster will not happen sooner than 30 days after the cluster creation date.
+The virtual machines in an HDInsight cluster need to be rebooted occasionally so that important security patches can be installed. 
 
 Using the script action described in this article, you can modify the OS patching schedule as follows:
 1. Enable or disable automatic reboots

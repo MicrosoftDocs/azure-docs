@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 
@@ -87,7 +87,7 @@ Use Visual Studio Enterprise to record a web session.
 
     ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
+   * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
 
 2. Open the .webtest file and start recording.
 
@@ -162,11 +162,11 @@ You can apply filters on the test name, location to analyze trends of a particul
 
 ## <a name="edit"></a> Inspect and edit tests
 
-From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test.
+From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test. It may take up to 20 minutes for configuration changes to propagate.
 
 Select **View test details** from a specific test to see its scatter plot and specific test location details.
 
-![View test details,Edit and Disable a web test](./media/monitor-web-app-availability/5viewdetails.png)
+![View test details, Edit and Disable a web test](./media/monitor-web-app-availability/5viewdetails.png)
 
 You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service.
 
@@ -181,15 +181,15 @@ Click a red dot.
 From an availability test result, you can see the transaction details across all components. Here you can:
 
 * Inspect the response received from your server.
-* Diagnose failure with correlated server side telemetry collected while processing the failed availability test.
+* Diagnose failure with correlated server-side telemetry collected while processing the failed availability test.
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
 Learn more about the end to end transaction diagnostics experience [here](../../azure-monitor/app/transaction-diagnostics.md).
 
-Click on the exception row to see the details of the server side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](../../azure-monitor/app/snapshot-debugger.md) for richer code level diagnostics.
+Click on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](../../azure-monitor/app/snapshot-debugger.md) for richer code level diagnostics.
 
-![Server side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
+![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
 ## <a name="alerts"></a> Availability Alerts
 You can have the following types of alert rules on Availability data using the classic alerts experience:
@@ -198,7 +198,7 @@ You can have the following types of alert rules on Availability data using the c
 3. Average test duration increases beyond a threshold
 
 ### Alert on X out of Y locations reporting failures
-The X out of Y locations alert rule is enabled by default in the [new unified alerts experience](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), when you create a new availability test. You can opt-out by selecting the "classic" option or choosing to disable the alert rule.
+The X out of Y locations alert rule is enabled by default in the [new unified alerts experience](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), when you create a new availability test. You can opt out by selecting the "classic" option or choosing to disable the alert rule.
 
 ![Create experience](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
@@ -254,7 +254,7 @@ Here's a sample web test of an Azure web app using an app key:
 2. Extract bearer token from response.
 3. Call API using bearer token in the authorization header.
 
-Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app is reflected in the web test in the “resource” field.
+Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app is reflected in the web test in the resource field.
 
 ### Open Authentication
 An example of open authentication is signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so your first tactic should be to investigate that possibility.
@@ -293,9 +293,9 @@ When the test is complete, you are shown response times and success rates.
 
     * Does your test have "Parse dependent requests" enabled? That results in a strict check on resources such as scripts, images etc. These types of failures may not be noticeable on a browser. Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK. To desensitize the test to such resource failures, simply uncheck the "Parse Dependent Requests" from the test configuration. 
 
-    * To reduce odds of noise from transient network blips etc., ensure "Enable retries for test failures" configuration is checked. You can also test from more locations and manage alert rule threshold accordingly to prevent location specific issues causing undue alerts.
+    * To reduce odds of noise from transient network blips etc., ensure "Enable retries for test failures" configuration is checked. You can also test from more locations and manage alert rule threshold accordingly to prevent location-specific issues causing undue alerts.
 
-    * Click on any of the red dots from the Availability experience, or any availability failure from the Search explorer to see the details of why we reported the failure. The test result, along with the correlated server side telemetry (if enabled) should help understand why the test failed. Common causes of transient issues are network or connection issues. 
+    * Click on any of the red dots from the Availability experience, or any availability failure from the Search explorer to see the details of why we reported the failure. The test result, along with the correlated server-side telemetry (if enabled) should help understand why the test failed. Common causes of transient issues are network or connection issues. 
 
     * Did the test time-out? We abort tests after 2 minutes. If your ping or multi-step test takes longer than 2 minutes, we will report it as a failure. Consider breaking the test into multiple ones that can complete in shorter durations.
 
@@ -325,7 +325,8 @@ When the test is complete, you are shown response times and success rates.
 
 * *Is HTTPS supported?*
 
-    We support TLS 1.1 and TLS 1.2.
+    We support TLS 1.1 and TLS 1.2. We currently do not check for HTTPS certificate errors.  
+
 * *Is there a difference between "web tests" and "availability tests"?*
 
     The two terms may be referenced interchangeably. Availability tests is a more generic term that includes the single URL ping tests in addition to the multi-step web tests.
@@ -353,6 +354,22 @@ When the test is complete, you are shown response times and success rates.
 * *How can I run a test with client certificates?*
 
     We don't support that, sorry.
+
+## Who receives the (classic) alert notifications?
+
+This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md)and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../platform/action-groups.md).
+
+* We recommend the use of specific recipients for classic alert notifications.
+
+* For alerts on failures from X out of Y locations, the **bulk/group** check-box option, if enabled, sends to users with admin/co-admin roles.  Essentially _all_ administrators of the _subscription_ will receive notifications.
+
+* For alerts on availability metrics, (or any Application Insights metrics for that matter) the **bulk/group** check-box option if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+
+> [!NOTE]
+> If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
+
+Use the new alert experience/near-realtime alerts if you need to notify users based on their roles. With [action groups](../platform/action-groups.md), you can configure email notifications to users with any of the contributor/owner/reader roles (not combined together as a single option).
+
 
 
 ## <a name="next"></a>Next steps

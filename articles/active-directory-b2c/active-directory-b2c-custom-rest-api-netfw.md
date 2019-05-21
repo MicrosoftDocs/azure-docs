@@ -3,14 +3,14 @@ title: Integrate REST API claim exchanges in your Azure Active Directory B2C use
 description: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input
@@ -211,7 +211,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
     The **Create App Service** window opens. In it, you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
     > [!NOTE]
-    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. In the **Web App Name** box, type a unique app name (valid characters are a-z, 0-9, and hyphens (-). The URL of the web app is http://<app_name>.azurewebsites.NET, where *app_name* is the name of your web app. You can accept the automatically generated name, which is unique.
 
@@ -245,10 +245,10 @@ A claims provider can have multiple technical profiles for various reasons. For 
 The following XML snippet contains a claims provider node with two technical profiles:
 
 * **TechnicalProfile Id="REST-API-SignUp"**: Defines your RESTful service.
-   * `Proprietary` is described as the protocol for a RESTful-based provider.
-   * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service.
+  * `Proprietary` is described as the protocol for a RESTful-based provider.
+  * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service.
 
-   In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
+    In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user.
 

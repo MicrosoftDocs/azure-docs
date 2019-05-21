@@ -64,6 +64,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
+| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -162,6 +163,17 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremely high |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremely high |
 
+## F-series
+
+
+| Size            | CPU cores | Memory: GiB   | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_F1     | 1         | 2             | 16                   | 2 / 750  |
+| Standard_F2     | 2         | 4             | 32                   | 2 / 1500 |
+| Standard_F4     | 4         | 8             | 64                   | 4 / 3000 |
+| Standard_F8     | 8         | 16            | 128                  | 8 / 6000 |
+| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
+
 
 ## G-series
 | Size            | CPU cores | Memory: GiB  | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
@@ -191,7 +203,7 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 ## Configure sizes for Cloud Services
 You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
 
-Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
+Here is an example for setting the role size to be Standard_D2 for a Web Role instance:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">
@@ -201,7 +213,7 @@ Here is an example for setting the role size to be [Standard_D2](#general-purpos
 
 ## Changing the size of an existing role
 
-As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as shown above), repackage your Cloud Service, and deploy it. It is not possible to change VM sizes directly from the portal or PowerShell.
+As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as shown above), repackage your Cloud Service, and deploy it.
 
 >[!TIP]
 > You may want to use different VM sizes for your role in different environments (eg. test vs production). One way to do this is to create multiple service definition (.csdef) files in your project, then create different cloud service packages per environment during your automated build using the CSPack tool. To learn more about the elements of a cloud services package and how to create them, see [What is the cloud services model and how do I package it?](cloud-services-model-and-package.md)
@@ -209,7 +221,7 @@ As the nature of your workload changes or new VM sizes become available, you may
 >
 
 ## Get a list of sizes
-You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes available for Cloud Services. 
+You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](/previous-versions/azure/reference/dn469422(v=azure.100)). The following code is a PowerShell command that will list all the sizes available for Cloud Services. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel

@@ -73,7 +73,7 @@ For more information on how to construct filter expressions for various data typ
 
 | PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
-| Ben |Smith | Ben@contoso.com| 425-555-0102 |
+| Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
 ## Query by using LINQ 
 You can also query by using LINQ, which translates to the corresponding OData query expressions. Here's an example of how to build queries by using the .NET SDK:

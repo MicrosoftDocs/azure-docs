@@ -25,11 +25,10 @@ This topic shows how to configure a filter for a Video on-Demand asset and use C
 
 ## Prerequisites 
 
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
+
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## Define a filter 
 
@@ -76,13 +75,6 @@ The following [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/a
 
 The command allows you to pass an optional `--tracks` parameter that contains JSON representing the track selections.  Use @{file} to load JSON from a file. If you are using the Azure CLI locally, specify the whole file path:
 
-
-```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
-```
-
-If you are using the Azure Cloud Shell, upload your file to the Cloud Shell (find the upload/download files button at the top of the shell window). Then, you can reference the file like this:
-
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
@@ -92,9 +84,6 @@ Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/
 ## Create asset filters
 
 The following [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
-
-> [!TIP]
-> See the information about specifying the location of the file name in the previous section.
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json

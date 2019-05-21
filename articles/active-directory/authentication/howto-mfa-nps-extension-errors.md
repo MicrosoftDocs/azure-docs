@@ -1,18 +1,19 @@
 ---
-title: Troubleshoot error codes for the Azure MFA NPS extension | Microsoft Docs
+title: Troubleshoot error codes for the Azure MFA NPS extension - Azure Active Directory
 description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/13/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Resolve error messages from the NPS extension for Azure Multi-Factor Authentication
 
@@ -64,7 +65,7 @@ Sometimes, your users may get messages from Multi-Factor Authentication because 
 
 | Error code | Error message | Recommended steps | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect | Not an error,User has entered wrong code. | The user entered the wrong code. Have them try again by requesting a new code or signing in again. | 
+| **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached | The user failed the verification challenge too many times. Depending on your settings, they may need to be unblocked by an admin now.  |
 | **SMSAuthFailedWrongCodeEntered** | Wrong code entered/Text Message OTP Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. |
 

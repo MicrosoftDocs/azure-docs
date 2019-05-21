@@ -3,7 +3,7 @@
 title: 'Create a Terraform base template in Azure using Yeoman'
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, yeoman
 author: tomarchermsft
 manager: jeconnoc
@@ -16,7 +16,7 @@ ms.date: 11/08/2018
 # Create a Terraform base template in Azure using Yeoman
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
-) provides a way to easily create infrastructure on Azure. [Yeoman](http://yeoman.io/) greatly eases the job of the module developer in creating Terraform modules while providing an excellent *best practices* framework.
+) provides a way to easily create infrastructure on Azure. [Yeoman](https://yeoman.io/) greatly eases the job of the module developer in creating Terraform modules while providing an excellent *best practices* framework.
 
 In this article, you learn how to use the Yeoman module generator to create a base Terraform template. You will then learn how to test your new Terraform template using two different methods:
 
@@ -70,8 +70,8 @@ From a command prompt:
 1. Navigate to the parent directory that you want to contain the new, empty directory we are about to create.
 1. Enter `mkdir <new-directory-name>`.
 
-    >[!NOTE]
-    >Replace <new-directory-name> with the name of your new directory. In this example, we named the new directory `GeneratorDocSample`.
+    > [!NOTE]
+    > Replace `<new-directory-name>` with the name of your new directory. In this example, we named the new directory `GeneratorDocSample`.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -247,7 +247,7 @@ All of these items are pre-installed in Cloud Shell.
 
 1. Create the $GOPATH folder, if one does not already exist: Enter `mkdir ~/go`.
 
-1. Create a folder within the $GOPATH folder: Enter `mkdir ~/go/src`. This folder will be used to hold and organize different project folders you may create, such as the <your-module-name> folder we will create in the next step.
+1. Create a folder within the $GOPATH folder: Enter `mkdir ~/go/src`. This folder will be used to hold and organize different project folders you may create, such as the `<your-module-name>` folder we will create in the next step.
 
 1. Create a folder to hold your Terraform module: Enter `mkdir ~/go/src/<your-module-name>`.
 
@@ -280,4 +280,4 @@ All of these items are pre-installed in Cloud Shell.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and use the Azure Terraform Visual Studio Code extenstion.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
+> [Install and use the Azure Terraform Visual Studio Code extension.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)

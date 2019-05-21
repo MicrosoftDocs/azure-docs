@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 31c21cd4-9c00-4cad-9538-a13996dc872f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Picturepark
 
@@ -220,7 +221,7 @@ In order to enable Azure AD users to log into Picturepark, they must be provisio
    
     ![Create User](./media/picturepark-tutorial/ic795069.png "Create User")
    
-    a. In the **Email Address** textbox, type the **email address** of the user **BrittaSimon@contoso.com**.  
+    a. In the **Email Address** textbox, type the **email address** of the user **BrittaSimon\@contoso.com**.  
    
     b. In the **Password** and **Confirm Password** textboxes, type the **password** of BrittaSimon. 
    

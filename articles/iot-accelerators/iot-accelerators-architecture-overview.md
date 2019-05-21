@@ -76,7 +76,7 @@ As the solution ingests telemetry, it's important to understand how the flow of 
 
 Routing can dispatch telemetry to one or more storage endpoints, analysis processes, and actions. A solution might combine the stages in different orders, and process them with concurrent parallel tasks.
 
-The Remote Monitoring solution uses [Azure Stream Analytics](/azure/stream-analytics/) for stream processing. The rules engine in the solution uses Stream Analytics queries to generate alarms and actions. For example, the solution can use a query to identify when the average temperature in a truck's storage compartment over five minutes falls below 36 degrees.
+The Remote Monitoring solution uses [Azure Stream Analytics](/azure/stream-analytics/) for stream processing. The rules engine in the solution uses Stream Analytics queries to generate alerts and actions. For example, the solution can use a query to identify when the average temperature in a truck's storage compartment over five minutes falls below 36 degrees.
 
 ### Storage
 

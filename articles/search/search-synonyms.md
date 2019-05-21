@@ -46,7 +46,7 @@ You can create a new synonym map using HTTP POST, as in the following example:
 	POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
 	api-key: [admin key]
 
-	{  
+	{
 	   "name":"mysynonymmap",
 	   "format":"solr",
 	   "synonyms": "
@@ -59,7 +59,7 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
 	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
 	api-key: [admin key]
 
-    {  
+    {
        "format":"solr",
        "synonyms": "
 	      USA, United States, United States of America\n

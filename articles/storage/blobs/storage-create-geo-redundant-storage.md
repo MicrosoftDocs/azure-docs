@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Make application data highly available in Azure | Microsoft Docs' 
+title: 'Tutorial: Build a highly available application with Blob storage - Azure Storage'
 description: Use read-access geo-redundant storage to make your application data highly available
 services: storage
 author: tamram
@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
-ms.component: blobs
+ms.subservice: blobs
+
 #Customer intent: As a developer, I want to have my data be highly available, so that in the event of a disaster I may retrieve it.
 ---
 
-# Tutorial: Make your application data highly available with Azure storage
+# Tutorial: Build a highly available application with Blob storage
 
 This tutorial is part one of a series. In it, you learn how to make your application data highly available in Azure.
 
@@ -34,24 +35,24 @@ In part one of the series, you learn how to:
 
 To complete this tutorial:
 
-# [.NET] (#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
   - **Azure development**
 
   ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# [Python] (#tab/python)
+# [Python](#tab/python)
 
 * Install [Python](https://www.python.org/downloads/)
 * Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 
-# [Java V7 SDK ] (#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
-* Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
-* Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Install and configure [Maven](https://maven.apache.org/download.cgi) to work from the command line
+* Install and configure a [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# [Java V10 SDK] (#tab/java-v10)
+# [Java V10 SDK](#tab/java-v10)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -88,15 +89,15 @@ Follow these steps to create a read-access geo-redundant storage account:
 
 ## Download the sample
 
-# [.NET] (#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 [Download the sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) and extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a console application.
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# [Python] (#tab/python)
+# [Python](#tab/python)
 
 [Download the sample project](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) and extract (unzip) the storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Python application.
 
@@ -104,7 +105,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# [Java V7 SDK ] (#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
 [Download the sample project](https://github.com/Azure-Samples/storage-java-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
 
@@ -112,7 +113,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 ```
 
-# [Java V10 SDK] (#tab/java-v10)
+# [Java V10 SDK](#tab/java-v10)
 
 [Download the sample project](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
 
@@ -122,7 +123,7 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 
 ---
 
-# [.NET] (#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
 
@@ -131,15 +132,16 @@ In the Azure portal, navigate to your storage account. Select **Access keys** un
 ### Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export storageconnectionstring=\<yourconnectionstring\>
 ```
+
 ### Windows
 
 ```PowerShell
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-# [Python] (#tab/python)
+# [Python](#tab/python)
 
 In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
 
@@ -148,15 +150,16 @@ In the Azure portal, navigate to your storage account. Select **Access keys** un
 ### Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export storageconnectionstring=\<yourconnectionstring\>
 ```
+
 ### Windows
 
 ```PowerShell
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-# [Java V7 SDK ] (#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
 In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
 
@@ -165,15 +168,16 @@ In the Azure portal, navigate to your storage account. Select **Access keys** un
 ### Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export storageconnectionstring=\<yourconnectionstring\>
 ```
+
 ### Windows
 
 ```PowerShell
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-# [Java V10 SDK] (#tab/java-v10)
+# [Java V10 SDK](#tab/java-v10)
 
 This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that will run the sample. Use either the Linux or the Windows example, depending on your operating system, to create the environment variables. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
 
@@ -195,7 +199,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 ## Run the console application
 
-# [.NET] (#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
@@ -205,25 +209,25 @@ A console window launches and the application begins running. The application up
 
 In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
 
-# [Python] (#tab/python)
+# [Python](#tab/python)
 
 To run the application on a terminal or command prompt, go to the **circuitbreaker.py** directory, then enter `python circuitbreaker.py`. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
-In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` file is used to download an image from the storage account using the [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) method. 
+In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` file is used to download an image from the storage account using the [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) method.
 
 The Storage object retry function is set to a linear retry policy. The retry function determines whether to retry a request, and specifies the number of seconds to wait before retrying the request. Set the **retry\_to\_secondary** value to true, if request should be retried to secondary in case the initial request to primary fails. In the sample application, a custom retry policy is defined in the `retry_callback` function of the storage object.
 
-Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.  
+Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.
 
-# [Java V7 SDK] (#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
 You can run the application by opening a terminal or command prompt scoped to the downloaded application folder. From there, enter `mvn compile exec:java` to run the application. The application then uploads the **HelloWorld.png** image from the directory to your storage account and checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Once the check is complete, the application will begin downloading the image repeatedly, while reporting back the endpoint it is downloading from.
 
 The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 
-# [Java V10 SDK] (#tab/java-v10)
+# [Java V10 SDK](#tab/java-v10)
 
 To run the sample, use Maven at the command line.
 
@@ -271,12 +275,12 @@ You control the sample, so enter commands to have it run the code. Inputs are ca
 
 ## Understand the sample code
 
-# [.NET] (#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 ### Retry event handler
 
 The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
- 
+
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -310,7 +314,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {
-        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times, 
+        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
         //    then switch back to the primary and see if it's available now.
         secondaryReadCount++;
         if (secondaryReadCount >= secondaryThreshold)
@@ -322,11 +326,11 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# [Python] (#tab/python) 
+# [Python](#tab/python)
 
 ### Retry event handler
 
-The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.  
+The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
 
 ```python
 def retry_callback(retry_context):
@@ -364,7 +368,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# [Java V7 SDK ] (#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
 With Java, defining callback handlers is unnecessary if the **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 
@@ -377,7 +381,7 @@ With Java, defining callback handlers is unnecessary if the **LocationMode** pro
     blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
 ```
 
-# [Java V10 SDK] (#tab/java-v10)
+# [Java V10 SDK](#tab/java-v10)
 
 With the Java V10 SDK, defining callback handlers is still unnecessary and the SDK now has some fundamental differences from the V7 SDK. Instead of LocationMode, we have a secondary **Pipeline**. You may define a secondary pipeline through the **RequestRetryOptions** and, if defined, will allow the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
 
@@ -388,6 +392,7 @@ myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONE
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
+
 ---
 
 ## Next steps

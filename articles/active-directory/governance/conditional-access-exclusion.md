@@ -1,6 +1,6 @@
 ---
-title: Use Azure AD access reviews to manage users that have been excluded from conditional access policies | Microsoft Docs
-description: Use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from conditional access policies
+title: Use access reviews to manage users excluded from conditional access policies - Azure Active Directory | Microsoft Docs
+description: Learn how to use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from conditional access policies
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
-# Use Azure AD access reviews to manage users that have been excluded from conditional access policies
+# Use Azure AD access reviews to manage users excluded from conditional access policies
 
 In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article describes some examples where exclusions might be required and how you, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) access reviews.
 
@@ -38,7 +39,7 @@ Another example might be that you have a conditional access policy that [blocks 
 
 ## Why are exclusions challenging?
 
-In Azure AD, you can scope a conditional access policy to a set of users. You can also exclude some of these users by selecting directory roles, individual users, or guests of users. It is important to remember that when these exclusions are configured, the policy intent can't be enforced for those users. If these exclusions were configured as either a list of individual users or via a legacy on-premises security group, then it limits the visibility of this exclusion list (users may not know of its existence) and the IT administrator's control over it (users can join the security group to by-pass the policy). Additionally, users that qualified for the exclusion at one time may no longer need it or be eligible for it.
+In Azure AD, you can scope a conditional access policy to a set of users. You can also exclude some of these users by selecting Azure AD roles, individual users, or guests of users. It is important to remember that when these exclusions are configured, the policy intent can't be enforced for those users. If these exclusions were configured as either a list of individual users or via a legacy on-premises security group, then it limits the visibility of this exclusion list (users may not know of its existence) and the IT administrator's control over it (users can join the security group to by-pass the policy). Additionally, users that qualified for the exclusion at one time may no longer need it or be eligible for it.
 
 At the beginning of an exclusion, there is a short list of users who bypass the policy. Over time, more and more users are excluded, and the list grows. At some point, there is a need to review the list and confirm that each of these users should still be excluded. Managing the list from a technical point of view, can be relatively easy, but who makes the business decisions and how do you make sure it is all auditable?
 
@@ -96,7 +97,7 @@ Let's cover two examples where you can use access reviews to manage exclusions i
 Let's say you have a conditional access policy that blocks access from certain countries. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
 
 > [!NOTE]
-> A Global Administrator or User Account Administrator role is required to create access reviews.
+> A Global administrator or User administrator role is required to create access reviews.
 
 1. The review will reoccur every week.
 
@@ -152,5 +153,5 @@ As an IT administrator, you know that managing exclusion groups to your policies
 
 ## Next steps
 
-- [Create an access review of group members or application access with Azure AD](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

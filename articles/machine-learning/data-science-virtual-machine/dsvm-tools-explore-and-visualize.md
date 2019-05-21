@@ -10,7 +10,7 @@ manager: cgronlun
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -30,7 +30,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | What is it?   | Open source SQL query engine on Big data    |
 | Supported DSVM Versions      | Windows, Linux  |
 | How is it configured / installed on the DSVM?      |  Installed in `/dsvm/tools/drill*` in embedded mode only   |
-| Typical Uses      |  In-situ Data exploration without requiring ETL. Query different data sources and formats includign CSV, JSON, relational tables, Hadoop     |
+| Typical Uses      |  In-situ Data exploration without requiring ETL. Query different data sources and formats including CSV, JSON, relational tables, Hadoop     |
 | How to use / run it?      | Desktop Shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Related Tools on the DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
@@ -41,7 +41,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | Supported DSVM Editions     | Windows, Linux     |
 | Typical Uses      | General ML Tool     |
 | How to use / run it?      | On Windows, search for Weka in the Start Menu. On Linux, log in with X2Go, then navigate to Applications -> Development -> Weka. |
-| Links to Samples      | [Weka samples](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Links to Samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Related Tools on the DSVM      |LightGBM, Rattle, Xgboost   |
 
 ## Rattle

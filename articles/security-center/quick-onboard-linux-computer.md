@@ -4,7 +4,7 @@ description: This quickstart shows you how to onboard your Linux computers to Se
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -33,7 +33,7 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
- ![Security Center overview][2]
+   ![Security Center overview][2]
 
 3. Under the Security Center main menu, select **Getting started**.
 4. Select the **Get started** tab.
@@ -43,18 +43,18 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
     ![Add non-Azure computer](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.	On the **Direct Agent** page, under **DOWNLOAD AND ONBOARD AGENT FOR LINUX**, select the **copy** button to copy the *wget* command.
+6. On the **Direct Agent** page, under **DOWNLOAD AND ONBOARD AGENT FOR LINUX**, select the **copy** button to copy the *wget* command.
 
-7.	Open Notepad, and paste this command. Save this file to a location that can be accessible from your Linux computer.
+7. Open Notepad, and paste this command. Save this file to a location that can be accessible from your Linux computer.
 
 ## Install the agent
 
-1.	On your Linux computer, open the file that was previously saved. Select the entire content, copy, open a terminal console, and paste the command.
-2.	Once the installation is finished, you can validate that the *omsagent* is installed by running the *pgrep* command. The command will return the *omsagent* PID (Process ID) as shown below:
+1. On your Linux computer, open the file that was previously saved. Select the entire content, copy, open a terminal console, and paste the command.
+2. Once the installation is finished, you can validate that the *omsagent* is installed by running the *pgrep* command. The command will return the *omsagent* PID (Process ID) as shown below:
 
-  ![Install the agent][5]
+   ![Install the agent][5]
 
-The logs for the Security Center Agent for Linux can be found at: */var/opt/microsoft/omsagent/<workspace id>/log/*
+The logs for the Security Center Agent for Linux can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Logs for agent][6]
 

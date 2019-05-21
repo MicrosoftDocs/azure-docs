@@ -3,9 +3,9 @@ title: Managed identities for Azure resources with Azure Service Bus preview | M
 description: Use managed identities for Azure resources with Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid:
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 

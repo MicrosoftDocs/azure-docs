@@ -3,7 +3,7 @@ title: Quickstart - Create a Linux virtual machine scale set with an Azure templ
 description: Learn how to quickly create a Linux virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/18
-ms.author: zarhoads
+ms.date: 03/27/2018
+ms.author: cynthn
 
 ---
 
@@ -101,7 +101,7 @@ To test your scale set, install a basic web application. When you deploy a scale
 - Location of configuration or install scripts
 - Commands to execute on the VM instances
 
-The [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) template uses the Custom Script Extension to install [Bottle](http://bottlepy.org/docs/dev/), a Python web framework, and a simple HTTP server. 
+The [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) template uses the Custom Script Extension to install [Bottle](https://bottlepy.org/docs/dev/), a Python web framework, and a simple HTTP server. 
 
 Two scripts are defined in **fileUris** - *installserver.sh*, and *workserver.py*. These files are downloaded from GitHub, then *commandToExecute* runs `bash installserver.sh` to install and configure the app:
 
@@ -134,7 +134,7 @@ You can deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-
 
 [![Deploy template to Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-You can also use the Azure CLI to install the Python HTTP server on Linux with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) as follows:
+You can also use the Azure CLI to install the Python HTTP server on Linux with [az group deployment create](/cli/azure/group/deployment) as follows:
 
 ```azurecli-interactive
 # Create a resource group
@@ -150,7 +150,7 @@ Answer the prompts to provide a scale set name, instance count, and admin creden
 
 
 ## Test your scale set
-To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#show) as follows:
+To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip) as follows:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -158,13 +158,13 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Enter the public IP address of the load balancer in to a web browser in the format *http://publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
+Enter the public IP address of the load balancer in to a web browser in the format *http:\//publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
 ![Default web page in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
 
 ## Clean up resources
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

@@ -4,7 +4,10 @@
   expanded: true
   items:
     - name: What is the Bing Custom Search API?
-      href: overview.md 
+      href: overview.md  
+    - name: Compare the Bing Search APIs
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Quickstarts
   expanded: true
   items:
@@ -26,6 +29,8 @@
         items:
           - name: Using C#
             href: sdk-csharp-quick-start.md
+          - name: Using Python
+            href: sdk-python-quickstart.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -65,7 +70,8 @@
     - name: Bing Custom Video Search API Reference
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference
     - name: Bing Search API use and display requirements
-      href: use-and-display-requirements.md
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
     - name: SDKs
       items:
       - name: .NET

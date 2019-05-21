@@ -62,7 +62,7 @@ The following table describes the marketing artifacts.
 
 The next screen capture shows an example of a Marketplace search result.
 
-![Marketplace offer search result ](./media/azureapp-marketplace-example-browse.png)
+![Marketplace offer search result](./media/azureapp-marketplace-example-browse.png)
 
 The following image shows how the offer is displayed in the Marketplace after a customer clicks on the offer’s tile in the search result.
 

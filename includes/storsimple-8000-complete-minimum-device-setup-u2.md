@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 09/28/17-->
 
 #### To complete the minimum StorSimple device setup
 

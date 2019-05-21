@@ -5,9 +5,9 @@ description:  Create a LUIS app that uses the prebuilt domain `HomeAutomation` f
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: diberry

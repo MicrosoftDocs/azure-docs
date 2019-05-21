@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Receive a notification when a metric value meets a condition
 
 Azure Monitor makes metrics available for many Azure resources. These metrics convey the performance and health of those resources. In many cases metric values can point to something being wrong with a resource. You can create metric alerts to monitor for abnormal behavior and be notified if it occurs. This Quickstart steps through creating a Logic App, creating a job, and visualizing the metrics for the logic app. It then goes through creating an alert, and receiving a notification for a metric for the Logic App resource.
 
-For more information on metrics and metric alerts, see  [Azure Monitor metrics overview](../../azure-monitor/platform/data-collection.md) and [Azure Monitor alerts overview](./alerts-overview.md). 
+For more information on metrics and metric alerts, see  [Azure Monitor metrics overview](data-platform.md) and [Azure Monitor alerts overview](alerts-overview.md). 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -111,3 +111,4 @@ In this quickstart, you’ve learned how to create a metric alert for your resou
 
 > [!div class="nextstepaction"]
 > [Azure Monitor subscription action alerts](./../../azure-monitor/platform/quick-audit-notify-action-subscription.md )
+

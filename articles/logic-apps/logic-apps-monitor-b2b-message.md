@@ -1,6 +1,6 @@
 ---
-title: Monitor B2B messages with Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Monitor AS2, X12, and EDIFACT messages for integration accounts and Azure Logic Apps and set up diagnostics logging with Azure Log Analytics
+title: Monitor B2B messages with Azure Monitor logs - Azure Logic Apps | Microsoft Docs
+description: Monitor AS2, X12, and EDIFACT messages for integration accounts and Azure Logic Apps and set up diagnostics logging with Azure Monitor logs
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,24 +11,26 @@ ms.topic: article
 ms.date: 10/23/2018
 ---
 
-# Monitor B2B messages with Azure Log Analytics in Azure Logic Apps
+# Monitor B2B messages with Azure Monitor logs in Azure Logic Apps
 
 After you set up B2B communication between trading partners 
 in your integration account, those partners can exchange 
 messages with each other. To check that this communication 
 works the way you expect, you can monitor AS2, X12, and EDIFACT 
 messages and set up diagnostics logging for your integration account 
-with [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
+with [Azure Monitor logs](../log-analytics/log-analytics-overview.md). 
 This service monitors your cloud and on-premises environments, 
 help you maintain their availability and performance, and collects 
 runtime details and events for richer debugging. You can also 
-[use this data with other services](#extend-diagnostic-data) 
+use this data with other services 
 such as Azure Storage and Azure Event Hubs.
 
 > [!NOTE]
 > This page might still have references to Microsoft Operations Management Suite (OMS), 
 > which is [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > but replaces those steps with Azure Log Analytics where possible. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
@@ -37,7 +39,7 @@ such as Azure Storage and Azure Event Hubs.
 and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * After you meet the previous requirements, you also need a Log Analytics workspace, 
-which you use for monitoring and tracking B2B communication through Log Analytics. 
+which you use for monitoring and tracking B2B communication through Azure Monitor logs. 
 If you don't have a Log Analytics workspace, learn 
 [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -93,9 +95,9 @@ select your Log Analytics workspace and the data you want to log.
 
    For example: 
 
-   ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Set up Azure Monitor logs so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Now [set up tracking for your B2B messages in Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
@@ -141,13 +143,13 @@ select your Log Analytics workspace and the data you want to log.
 
    For example: 
 
-   ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Set up Azure Monitor logs so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. Now [set up tracking for your B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Now [set up tracking for your B2B messages in Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## Use diagnostic data with other services
 
-Along with Azure Log Analytics, you can extend how you use your logic app's 
+Along with Azure Monitor logs, you can extend how you use your logic app's 
 diagnostic data with other Azure services, for example: 
 
 * [Archive Azure Diagnostics Logs in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
@@ -180,6 +182,6 @@ which all have fixed schemas except the Custom type.
 
 ## Next steps
 
-* [Track B2B messages in Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Track B2B messages in Azure Log Analytics")
+* [Track B2B messages in Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Track B2B messages in Azure Monitor logs")
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
 

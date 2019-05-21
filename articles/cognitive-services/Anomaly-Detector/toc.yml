@@ -1,0 +1,44 @@
+- name: Anomaly Detector Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: What is the Anomaly Detector API?
+      href: overview.md  
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Detect Anomalies in your data
+      items:
+        - name: Using C#
+          href: quickstarts/detect-data-anomalies-csharp.md
+        - name: Using Java
+          href: quickstarts/detect-data-anomalies-java.md
+        - name: Using Python
+          href: quickstarts/detect-data-anomalies-python.md
+- name: How-to guides
+  items:
+    - name: Identify anomalies in your data
+      href: how-to/identify-anomalies.md
+- name: Concepts
+  items: 
+    - name: Anomaly Detection API best practices
+      href: concepts/anomaly-detection-best-practices.md
+- name: Reference
+  items:
+    - name: REST API Reference
+      href: https://aka.ms/anomaly-detector-rest-api-ref
+    - name: SDKs
+      items:
+        - name: .NET
+          href: https://aka.ms/anomaly-detector-dotnet-ref
+- name: Resources
+  items:
+    - name: Pricing
+      href: https://aka.ms/anomaly-detector-pricing
+    - name: Regional availability 
+      href: https://aka.ms/anomaly-detector-region
+    - name: Reference solution architecture
+      href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-anomaly-detection

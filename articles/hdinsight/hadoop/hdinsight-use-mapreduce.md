@@ -1,28 +1,17 @@
 ---
 title: MapReduce with Apache Hadoop on HDInsight 
 description: Learn how to run MapReduce jobs on Apache Hadoop in HDInsight clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/20/2019
 ---
 # Use MapReduce in Apache Hadoop on HDInsight
 
-Learn how to run MapReduce jobs on HDInsight clusters. Use the following table to discover the various ways that MapReduce can be used with HDInsight:
-
-| **Use this**... | **...to do this** | ...with this **cluster operating system** | ...from this **client operating system** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** (examples use cURL) |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
-
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+Learn how to run MapReduce jobs on HDInsight clusters. 
 
 ## <a id="whatis"></a>What is MapReduce
 
@@ -156,9 +145,6 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
-
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Next steps
 

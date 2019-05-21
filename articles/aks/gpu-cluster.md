@@ -2,13 +2,15 @@
 title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
-author: lachie83
+author: zr-msft
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/25/2018
-ms.author: laevenso
+ms.date: 02/28/2019
+ms.author: zarhoads
+
+#Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
 
 # Use GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
@@ -22,11 +24,11 @@ Graphical processing units (GPUs) are often used for compute-intensive workloads
 
 This article assumes that you have an existing AKS cluster with nodes that support GPUs. Your AKS cluster must run Kubernetes 1.10 or later. If you need an AKS cluster that meets these requirements, see the first section of this article to [create an AKS cluster](#create-an-aks-cluster).
 
-You also need the Azure CLI version 2.0.49 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create an AKS cluster
 
-If you need an AKS cluster that meets the minimum requirements (GPU-enabled node and Kubernetes version 1.10 or later), complete the following steps. If you already have an AKS cluster that meets these requirements, skip to the next section.
+If you need an AKS cluster that meets the minimum requirements (GPU-enabled node and Kubernetes version 1.10 or later), complete the following steps. If you already have an AKS cluster that meets these requirements, [skip to the next section](#confirm-that-gpus-are-schedulable).
 
 First, create a resource group for the cluster using the [az group create][az-group-create] command. The following example creates a resource group name *myResourceGroup* in the *eastus* region:
 
@@ -34,7 +36,7 @@ First, create a resource group for the cluster using the [az group create][az-gr
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create an AKS cluster using the [az aks create][az-aks-create] command. The following example creates a cluster with a single node of size `Standard_NC6`, and runs Kubernetes version 1.10.8:
+Now create an AKS cluster using the [az aks create][az-aks-create] command. The following example creates a cluster with a single node of size `Standard_NC6`, and runs Kubernetes version 1.11.7:
 
 ```azurecli
 az aks create \
@@ -42,7 +44,7 @@ az aks create \
     --name myAKSCluster \
     --node-vm-size Standard_NC6 \
     --node-count 1 \
-    --kubernetes-version 1.10.8
+    --kubernetes-version 1.11.8
 ```
 
 Get the credentials for your AKS cluster using the [az aks get-credentials][az-aks-get-credentials] command:
@@ -59,7 +61,7 @@ With your AKS cluster created, confirm that GPUs are schedulable in Kubernetes. 
 $ kubectl get nodes
 
 NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-18821093-0   Ready    agent   6m    v1.10.8
+aks-nodepool1-28993262-0   Ready    agent   6m    v1.11.7
 ```
 
 Now use the [kubectl describe node][kubectl-describe] command to confirm that the GPUs are schedulable. Under the *Capacity* section, the GPU should list as `nvidia.com/gpu:  1`. If you do not see the GPUs, see the [Troubleshoot GPU availability](#troubleshoot-gpu-availability) section.
@@ -67,9 +69,9 @@ Now use the [kubectl describe node][kubectl-describe] command to confirm that th
 The following condensed example shows that a GPU is available on the node named *aks-nodepool1-18821093-0*:
 
 ```
-$ kubectl describe node aks-nodepool1-18821093-0
+$ kubectl describe node aks-nodepool1-28993262-0
 
-Name:               aks-nodepool1-18821093-0
+Name:               aks-nodepool1-28993262-0
 Roles:              agent
 Labels:             accelerator=nvidia
 
@@ -80,34 +82,34 @@ Capacity:
  ephemeral-storage:  30428648Ki
  hugepages-1Gi:      0
  hugepages-2Mi:      0
- memory:             57713824Ki
+ memory:             57713780Ki
  nvidia.com/gpu:     1
  pods:               110
 Allocatable:
- cpu:                5940m
+ cpu:                5916m
  ephemeral-storage:  28043041951
  hugepages-1Gi:      0
  hugepages-2Mi:      0
- memory:             53417120Ki
+ memory:             52368500Ki
  nvidia.com/gpu:     1
  pods:               110
 System Info:
- Machine ID:                 688e083d19554d4a9563bd138f4ca98b
- System UUID:                08162568-B987-A84D-8865-98D6EFC64B32
- Boot ID:                    7b440249-8a96-42eb-950f-08c9a3c530b7
- Kernel Version:             4.15.0-1023-azure
+ Machine ID:                 9148b74152374d049a68436ac59ee7c7
+ System UUID:                D599728C-96F3-B941-BC79-E0B70453609C
+ Boot ID:                    a2a6dbc3-6090-4f54-a2b7-7b4a209dffaf
+ Kernel Version:             4.15.0-1037-azure
  OS Image:                   Ubuntu 16.04.5 LTS
  Operating System:           linux
  Architecture:               amd64
  Container Runtime Version:  docker://1.13.1
- Kubelet Version:            v1.10.8
- Kube-Proxy Version:         v1.10.8
+ Kubelet Version:            v1.11.7
+ Kube-Proxy Version:         v1.11.7
 PodCIDR:                     10.244.0.0/24
-ProviderID:                  azure:///subscriptions/19da35d3-9a1a-4f3b-9b9c-3c56ef409565/resourceGroups/MC_myGPUCluster_myGPUCluster_eastus/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-18821093-0
+ProviderID:                  azure:///subscriptions/<guid>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-28993262-0
 Non-terminated Pods:         (9 in total)
-  Namespace                  Name                                    CPU Requests  CPU Limits  Memory Requests  Memory Limits
-  ---------                  ----                                    ------------  ----------  ---------------  -------------
-  gpu-resources              nvidia-device-plugin-9cfcf              0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  Namespace                  Name                                     CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                  ----                                     ------------  ----------  ---------------  -------------  ---
+  gpu-resources              nvidia-device-plugin-97zfc               0 (0%)        0 (0%)      0 (0%)           0 (0%)         2m4s
 
 [...]
 ```
@@ -178,13 +180,13 @@ Now use the [kubectl logs][kubectl-logs] command to view the pod logs. The follo
 ```
 $ kubectl logs samples-tf-mnist-demo-smnr6
 
-2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
-2018-10-25 18:31:10.305937: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
+2019-02-28 23:47:34.749013: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2019-02-28 23:47:34.879877: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
-pciBusID: ccb6:00:00.0
+pciBusID: 3130:00:00.0
 totalMemory: 11.92GiB freeMemory: 11.85GiB
-2018-10-25 18:31:10.305981: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: ccb6:00:00.0, compute capability: 3.7)
-2018-10-25 18:31:14.941723: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
+2019-02-28 23:47:34.879915: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 3130:00:00.0, compute capability: 3.7)
+2019-02-28 23:47:39.492532: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
 Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
 Extracting /tmp/tensorflow/input_data/train-images-idx3-ubyte.gz
 Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
@@ -268,7 +270,7 @@ First, create a namespace using the [kubectl create namespace][kubectl-create] c
 kubectl create namespace gpu-resources
 ```
 
-Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest. Update the `image: nvidia/k8s-device-plugin:1.10` half-way down the manifest to match your Kubernetes version. For example, if your AKS cluster runs Kubernetes version 1.11, update the tag to `image: nvidia/k8s-device-plugin:1.11`.
+Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest. Update the `image: nvidia/k8s-device-plugin:1.11` half-way down the manifest to match your Kubernetes version. For example, if your AKS cluster runs Kubernetes version 1.12, update the tag to `image: nvidia/k8s-device-plugin:1.12`.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -295,7 +297,7 @@ spec:
       - key: CriticalAddonsOnly
         operator: Exists
       containers:
-      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+      - image: nvidia/k8s-device-plugin:1.11 # Update this tag to match your Kubernetes version
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false

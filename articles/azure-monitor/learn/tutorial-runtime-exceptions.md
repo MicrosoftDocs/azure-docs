@@ -91,11 +91,11 @@ The Snapshot Debugger collects snapshots of the most frequent exceptions in your
 ## Use analytics data
 All data collected by Application Insights is stored in Azure Log Analytics, which provides a rich query language that allows you to analyze the data in a variety of ways.  We can use this data to analyze the requests that generated the exception we're researching. 
 
-8. Click the CodeLens information above the code to view telemetry provided by Application Insights.
+1. Click the CodeLens information above the code to view telemetry provided by Application Insights.
 
 	![Code](media/tutorial-runtime-exceptions/codelens.png)
 
-9. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## Add work item
 If you connect Application Insights to a tracking system such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.

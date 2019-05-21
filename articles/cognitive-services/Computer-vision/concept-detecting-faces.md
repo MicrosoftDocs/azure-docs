@@ -1,26 +1,29 @@
 ---
 title: Detecting faces - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to the face detection feature of the Computer Vision API.
+description: Learn concepts related to the face detection feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
 # Face detection with Computer Vision
 
-Computer Vision detects human faces within a picture and generates the age, gender, and rectangle for each detected face. Computer Vision provides a subset of the functionality that can be found in [Face](/azure/cognitive-services/face/), and you can use the Face service for more detailed analysis, such as facial identification and pose detection.  
+Computer Vision can detect human faces within an image and generate the age, gender, and rectangle for each detected face. 
+
+> [!NOTE]
+> This feature is also offered by the Azure [Face](/azure/cognitive-services/face/) service. See this alternative for more detailed face analysis, including face identification and pose detection. 
 
 ## Face detection examples
 
-The first example demonstrates the JSON response returned by Computer Vision for an image containing a single human face.
+The following example demonstrates the JSON response returned by Computer Vision for an image containing a single human face.
 
 ![Vision Analyze Woman Roof Face](./Images/woman_roof_face.png)
 
@@ -47,7 +50,7 @@ The first example demonstrates the JSON response returned by Computer Vision for
 }
 ```
 
-The second example demonstrates the JSON response returned for an image containing multiple human faces.
+The next example demonstrates the JSON response returned for an image containing multiple human faces.
 
 ![Vision Analyze Family Photo Face](./Images/family_photo_face.png)
 
@@ -106,4 +109,4 @@ The second example demonstrates the JSON response returned for an image containi
 
 ## Next steps
 
-Learn concepts about [detecting domain-specific content](concept-detecting-domain-content.md).
+See the [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) reference documentation to learn more about how to use the face detection feature.

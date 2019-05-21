@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Zoho One | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zoho One.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: bbc3038c-0d8b-45dd-9645-368bd3d01a0f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zoho One
 
@@ -219,7 +220,7 @@ To enable Azure AD users to log in to Zoho One, they must be provisioned into Zo
 	
 	a. In **Name** text box, enter the name of user like **Britta simon**.
 	
-	b. In **Email Address** text box, enter the email of user like **brittasimon@contoso.com**.
+	b. In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
 
 	>[!Note]
 	>Select your verified domain from the domain list.

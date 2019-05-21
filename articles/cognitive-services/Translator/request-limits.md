@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: This article lists request limits for the Translator Text API. Charges are incurred based on character count, not request frequency with a limit of 5,000 characters per request. Character limits are subscription based, with F0 limited to 2 million characters per hour.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -38,7 +38,7 @@ These limits are restricted to Microsoft's generic systems. Custom translation s
 
 ## Latency
 
-Translator Text has a maximum latency of 13 seconds. By this time you'll have received a result or a timeout response. Typically, responses are returned in 150 milliseconds to 300 milliseconds. Response times will vary based on the size or the request and language pair.
+The Translator Text API has a maximum latency of 15 seconds using standard models. Translation using custom models has a maximum latency of 25 seconds. By this time you'll have received a result or a timeout response. Typically, responses are returned in 150 milliseconds to 300 milliseconds. Response times will vary based on the size of the request and language pair. If you don’t receive a translation or an [error response](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) within that timeframe, you should check your network connection and retry.
 
 ## Sentence length limits
 

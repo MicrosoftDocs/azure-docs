@@ -7,7 +7,7 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/08/2019
 ---
 
 # Understand event domains for managing Event Grid topics

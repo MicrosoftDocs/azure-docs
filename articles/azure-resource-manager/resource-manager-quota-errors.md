@@ -20,6 +20,8 @@ ms.author: tomfitz
 
 This article describes quota errors you may encounter when deploying resources.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Symptom
 
 If you deploy a template that creates resources that exceed your Azure quotas, you get a deployment error that looks like:
@@ -72,10 +74,10 @@ Which returns:
 
 ### PowerShell
 
-For PowerShell, use the **Get-AzureRmVMUsage** command to find virtual machine quotas.
+For PowerShell, use the **Get-AzVMUsage** command to find virtual machine quotas.
 
 ```powershell
-Get-AzureRmVMUsage -Location "South Central US"
+Get-AzVMUsage -Location "South Central US"
 ```
 
 Which returns:

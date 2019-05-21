@@ -4,8 +4,8 @@ title: Azure Active Directory (Azure AD) audit activity reference | Microsoft Do
 description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 01/24/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD audit activity reference
 
@@ -40,34 +41,36 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 |Audit Category|Activity|
 |---|---|
-|Directory Management|Add administrative unit|
-|Directory Management|Add member to administrative unit|
-|Directory Management|Delete administrative unit|
-|Directory Management|Remove member from administrative unit|
-|Directory Management|Update administrative unit|
-|Directory Management|Administration|
-|User Management|Directory operation|
-|User Management|Export|
-|User Management|Import|
-|User Management|Other|
-|User Management|Process escrow|
-|User Management|Synchronization rule action|
-|User Management|Add application|
-|User Management|Delete application|
-|User Management|Update application|
-|User Management|Update application Single Sign-On Mode|
-|User Management|Automated Password Rollover|
-|User Management|Add V2 application permissions|
-|User Management|Create V1 application|
-|User Management|Create V2 application|
-|User Management|Delete V1 application|
-|User Management|Delete V2 application|
-|User Management|Delete V2 application permission grant|
-|User Management|Get V1 and V2 applications|
-|User Management|Get V1 application|
-|User Management|Get V1 applications|
-|User Management|Get V2 application|
-|User Management|Get V2 applications|
+|Access Reviews|Access review ended|
+|Access Reviews|Add approver to request approval|
+|Access Reviews|Add reviewer to access review|
+|Access Reviews|Apply access review|
+|Access Reviews|Create access review|
+|Access Reviews|Create program|
+|Access Reviews|Create request approval|
+|Access Reviews|Delete access review|
+|Access Reviews|Delete program|
+|Access Reviews|Link program control|
+|Access Reviews|Onboard to Azure AD Access Reviews|
+|Access Reviews|Remove reviewer from access review|
+|Access Reviews|Request Stop Review|
+|Access Reviews|Request apply review result|
+|Access Reviews|Review Rbac Role membership|
+|Access Reviews|Review app assignment|
+|Access Reviews|Review group membership|
+|Access Reviews|Review request approval request|
+|Access Reviews|Unlink program control|
+|Access Reviews|Update Access Review|
+|Access Reviews|Update Azure AD Access Reviews Onboarding status|
+|Access Reviews|Update access review mail notification settings|
+|Access Reviews|Update access review recurrence count setting|
+|Access Reviews|Update access review recurrence duration in days setting|
+|Access Reviews|Update access review recurrence end type setting|
+|Access Reviews|Update access review recurrence type setting|
+|Access Reviews|Update access review reminder settings|
+|Access Reviews|Update program|
+|Access Reviews|Update request approval|
+|Access Reviews|User disabled|
 
 ## Account provisioning
 
@@ -523,23 +526,27 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 |Audit Category|Activity|
 |---|---|
-|Role Management|Update access review reminder settings|
-|Role Management|Update request approval|
-|Role Management|Add app role assignment grant to user|
-|Role Management|Add user|
-|Role Management|Add users strong authentication phone app detail|
-|Role Management|Change user license|
-|Role Management|Change user password|
-|Role Management|Convert federated user to managed|
-|Role Management|Create application password for user|
-|Role Management|Delete application password for user|
-|Role Management|Delete user|
-|Role Management|Disable account|
-|Role Management|Enable Strong Authentication|
-|Role Management|Hard Delete user|
-|Role Management|Remove app role assignment from user|
-|Role Management|Remove users strong authentication phone app detail|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Added|
+|PIM|AddedOutsidePIM|
+|PIM|Assign|
+|PIM|DismissAlert|
+|PIM|Elevate|
+|PIM|ReactivateAlert|
+|PIM|Removed|
+|PIM|RemovedOutsidePIM|
+|PIM|Request Stop Review|
+|PIM|Role Setting changes|
+|PIM|ScanAlertsNow|
+|PIM|Signup|
+|PIM|Unassign|
+|PIM|Unelevate|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## Self-service group management
@@ -577,13 +584,16 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 |Audit Category|Activity|
 |---|---|
-|Policy Management|Change password (self-service)|
-|Policy Management|Reset password (by admin)|
-|Policy Management|Reset password (self-service)|
-|Policy Management|Self-serve password reset flow activity progress|
-|Policy Management|Self-service password reset flow activity progress|
-|Policy Management|Unlock user account (self-service)|
-|Policy Management|User registered for self-service password reset|
+|Terms Of Use|Accept Terms Of Use|
+|Terms Of Use|Create Terms Of Use|
+|Terms Of Use|Decline Terms Of Use|
+|Terms Of Use|Delete Consent|
+|Terms Of Use|Delete Terms Of Use|
+|Terms Of Use|Edit Terms Of Use|
+|Terms Of Use|Expire Terms Of Use|
+|Terms Of Use|Hard Delete Terms Of Use|
+|Terms Of Use|Publish Terms Of Use|
+|Terms Of Use|Unpublish Terms Of Use|
 
 
 ## Next steps

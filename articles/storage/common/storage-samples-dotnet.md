@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
+ms.subservice: common
 ---
 # Azure Storage samples using .NET
 

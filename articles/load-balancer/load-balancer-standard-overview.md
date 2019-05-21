@@ -5,17 +5,18 @@ description: Overview of Azure Standard Load Balancer features
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
 ---
 
-# Azure Standard Balancer overview
+# Azure Standard Load Balancer overview
 
 Azure Load Balancer allows you to scale your applications and create high availability for your services. Load Balancer can be used for inbound as well as outbound scenarios and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications. 
 
@@ -67,6 +68,9 @@ In addition, when the entire backend pool [probes down](load-balancer-custom-pro
 Review [Load Balancer health probes](load-balancer-custom-probe-overview.md) for details.
 
 ### <a name="az"></a>Availability Zones
+
+>[!IMPORTANT]
+>Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
 
 Standard Load Balancer supports additional abilities in regions where Availability Zones are available.  These features are incremental to all Standard Load Balancer provides.  Availability Zones configurations are available for public and internal Standard Load Balancer.
 
@@ -207,7 +211,7 @@ Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard L
 
 Standard Load Balancer usage is charged.
 
-- Number of configured load-balancing and outbound rules rules (inbound NAT rules do not count against the total number of rules)
+- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
 - Amount of data processed inbound and outbound irrespective of rule. 
 
 For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.

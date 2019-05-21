@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to use text decorations and hit highlighting in your search results using the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/17/2019
 ms.author: scottwhi
 ---
 

@@ -1,20 +1,20 @@
 ---
 title: How to monitor Azure Cache for Redis | Microsoft Docs
 description: Learn how to monitor the health and performance your Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to monitor Azure Cache for Redis
@@ -57,7 +57,7 @@ For more information on working with metrics using Azure Monitor, see [Overview 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## Export cache metrics
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-collection.md#metrics) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/platform/archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. 
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/platform/archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. 
 
 To configure a storage account for your cache metrics:
 
@@ -71,7 +71,7 @@ To configure a storage account for your cache metrics:
 ![Redis diagnostics](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
 >
 >
 

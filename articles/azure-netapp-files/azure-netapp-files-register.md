@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
 ---
@@ -56,7 +56,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
     
         az provider show --namespace Microsoft.NetApp
 
-  The command output appears as follows:
+   The command output appears as follows:
    
         {
         "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to filter and display search results from the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
 ---
 
 # Filtering the answers that the search response includes  
 
-When you query the web, Bing returns all content that it thinks is relevant to the search. For example, if the search query is "sailing+dinghies", the response might contain the following answers:
+When you query the web, Bing returns all the relevant content it finds for the search. For example, if the search query is "sailing+dinghies", the response might contain the following answers:
 
 ```json
 {
@@ -39,8 +39,16 @@ When you query the web, Bing returns all content that it thinks is relevant to t
     }
 }    
 ```
+You can filter the types of content you'll receive (for example images, videos, and news) by using the [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) query parameter. If Bing finds relevant content for the specified answers, it will be returned. The response filter is a comma-delimited list of answers. 
 
-If you're interested in specific types of content such as images, videos, and news, you can request only those answers by using the [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) query parameter. If Bing finds relevant content for the specified answers, Bing returns it. The response filter is a comma-delimited list of answers. The following shows how to use `responseFilter` to request images, videos, and news of sailing dinghies. When you encode the query string, the commas change to %2C.  
+To exclude specific types of content, such as images, from the response, you can add a `-` character to the beginning of the `responseFilter` value. You can separate excluded types with a comma (`,`). For example:
+
+```
+&responseFilter=-images,-videos
+```
+
+
+The following shows how to use `responseFilter` to request images, videos, and news of sailing dinghies. When you encode the query string, the commas change to %2C.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -52,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-The following shows the response to the previous query. As you can see Bing didn't find relevant video and news results, so the response doesn't include them.
+The following shows the response to the previous query. Because Bing didn't find relevant video and news results, the response doesn't include them.
 
 ```json
 {
@@ -75,12 +83,6 @@ The following shows the response to the previous query. As you can see Bing didn
         }
     }
 }
-```
-
-If you want to exclude specific types of content, such as images, from the response, you can exclude them with the hyphen (minus) prefix to the responseFilter value. Separate excluded types with a comma:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [page](./paging-webpages.md) through more results, the subsequent pages would likely include them. Also, if you call the [Video Search API](../bing-video-search/search-the-web.md) and [News Search API](../bing-news-search/search-the-web.md) endpoints directly, the response would likely contain results.

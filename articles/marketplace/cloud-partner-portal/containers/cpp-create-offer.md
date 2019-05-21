@@ -31,7 +31,7 @@ This article describes how to create and publish a container offer entry for the
 
 ## New Offer form 
 
-Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **Containers** to display the **New Offer** form and start the process of defining assets for a new container offer.
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **Containers** to display the **New Offer** form and start the process of defining assets for a new container offer.
 
 ![Select containers option for new offer](./media/azure-container-offer.png)
 

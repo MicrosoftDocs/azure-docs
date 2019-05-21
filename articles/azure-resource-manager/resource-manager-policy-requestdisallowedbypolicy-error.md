@@ -39,10 +39,12 @@ To retrieve details about the policy that blocked your deployment, use the follo
 
 ### PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 In PowerShell, provide that policy identifier as the `Id` parameter to retrieve details about the policy that blocked your deployment.
 
-```PowerShell
-(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```powershell
+(Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
 ### Azure CLI
@@ -60,5 +62,5 @@ To resolve this problem, review the resource policies, and determine how to depl
 
 For more information, see the following articles:
 
-- [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)
-- [Create and manage policies to enforce compliance](../azure-policy/create-manage-policy.md)
+- [What is Azure Policy?](../governance/policy/overview.md)
+- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)

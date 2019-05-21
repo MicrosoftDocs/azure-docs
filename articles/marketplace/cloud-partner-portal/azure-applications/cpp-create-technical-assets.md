@@ -23,6 +23,12 @@ This article describes the resources for preparing the technical assets for your
 
 ## Before you begin
 
+Review the following video, [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603), an overview on how to author an Azure Resource Manager template to define an
+Azure application solution and then how to subsequently publish the app offer to the Azure Marketplace.
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
+
+
 Review the following Azure application documentation, which provides Quickstarts, Tutorials, and Samples.
 
 - [Understand Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
@@ -39,11 +45,11 @@ Review the following Azure application documentation, which provides Quickstarts
   - [Create definition files](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Publish marketplace application](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
- - Samples:
+  - Samples:
 
-   - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-   - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-   - [Managed application solutions](https://docs.microsoft.com/azure/managed-applications/sample-projects)
+    - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    - [Managed application solutions](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ## Fundamental technical knowledge
 

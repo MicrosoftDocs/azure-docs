@@ -3,8 +3,8 @@ title: Introduction to microservices on Azure| Microsoft Docs
 description: An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
-ms.author: msfussell
+ms.author: atsenthi
 
 ---
 # Why a microservices approach to building applications?
@@ -177,7 +177,7 @@ Many organizations stop here. They already have the benefits of containers and S
 The addition of new services alongside existing containerized code. If you are going to write new code, it is best to decide to take small steps down the microservices path. This could be adding a new REST API endpoint, or new business logic. This way, you start on the journey of building new microservices and practice developing and deploying them.
 
 **Innovate**  
-A microservices approach accomodates changing business needs. At this stage the decision is whether you need to start splitting the monolithic app into services, or innovating. An example here is when a database being used as a workflow queue becomes a processing bottleneck. As the number of workflow requests increases, the work needs to be distributed for scale. For that particular piece of the application that is not scaling, or that needs to be updated more frequently, split this out into a microservice and innovate.
+A microservices approach accommodates changing business needs. At this stage the decision is whether you need to start splitting the monolithic app into services, or innovating. An example here is when a database being used as a workflow queue becomes a processing bottleneck. As the number of workflow requests increases, the work needs to be distributed for scale. For that particular piece of the application that is not scaling, or that needs to be updated more frequently, split this out into a microservice and innovate.
 
 **Transformed into microservices**  
 This is where your application is fully composed of (or decomposed into) microservices. To reach here, you have made the microservices journey. You can start here, but to do this without a microservices platform to help you is a significant investment. 

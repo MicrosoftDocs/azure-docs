@@ -19,6 +19,8 @@ ms.author: spelluru
 # Test your app in Azure 
 This article provides steps for testing your application in Azure using DevTest Labs. First, you set up a file share within a lab and mount it as a drive on your local development machine and a VM inside a lab. Then, you use Visual Studio 2017 to deploy your app to the file share so that you can run the app on the VM in the lab.  
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites 
 1. [Create an Azure subscription](https://azure.microsoft.com/free/) if you don't already have one, and sign into [Azure portal](https://portal.azure.com).
 2. Follow instructions in [this article](devtest-lab-create-lab.md) to create a lab using Azure DevTest Labs. Pin the lab to your dashboard so that you can easily find it next time you sign in. Azure DevTest Labs enables you to create resources within Azure quickly by minimizing waste and controlling cost. To learn more about DevTest Labs, see [overview](devtest-lab-overview.md). 
@@ -53,8 +55,8 @@ This article provides steps for testing your application in Azure using DevTest 
 
     ![Select the lab VM](media/test-app-in-azure/select-lab-vm.png)
 2. Select **Connect** on the toolbar to connect to the VM. 
-3. [Install Azure PowerShell](https://azure.microsoft.com/downloads/) by using the **Windows install** link in the **Command-line tools** section. For other ways of installing Azure PowerShell, see [this article](/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
-4. Follow instructions in the [Mount the file share](#mount-the-file-share) section. 
+3. [Install Azure PowerShell](/powershell/azure/install-az-ps).
+4. Follow instructions in the Mount the file share section. 
 
 ## Publish your app from Visual Studio
 In this section, you publish your app from Visual Studio to a test VM in the cloud.

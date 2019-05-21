@@ -1,19 +1,18 @@
-﻿---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio | Microsoft Docs"
+---
+title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
-ms.date: "07/09/2018"
+ms.date: 07/09/2018
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Get Started on Azure Dev Spaces with .NET Core and Visual Studio
+# Get started on Azure Dev Spaces with .NET Core and Visual Studio
 
 In this guide, you will learn how to:
 
@@ -23,36 +22,28 @@ In this guide, you will learn how to:
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-1. Sign in to the Azure portal at http://portal.azure.com.
+1. Sign in to the Azure portal at https://portal.azure.com.
 1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
 
-   Complete the following steps under each heading of the create AKS cluster form.
+   Complete the following steps under each heading of the *Create Kubernetes cluster* form and verify your selected [region supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
-    - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
-    - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, EastUS2, Central US, WestEurope, WestUS2, SoutheastAsia, CanadaCentral, or CanadaEast), version, and DNS name prefix for the AKS cluster.
-    - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
-
-   Make sure to choose Kubernetes version 1.9.6 or later.
+   - **PROJECT DETAILS**: select an Azure subscription and a new or existing Azure resource group.
+   - **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
+   - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
 
    ![Kubernetes configuration settings](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    Select **Next: Authentication** when complete.
 
 1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
 
     ![RBAC setting](media/common/k8s-RBAC.PNG)
-
-1. Make sure that Http Application Routing is enabled.
-
-   ![Enable Http Application Routing](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > To enable [Http Application Routing](/azure/aks/http-application-routing) on an existing cluster, use the command: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Select **Review + create** and then **Create** when complete.
 
@@ -64,7 +55,7 @@ In this guide, you will learn how to:
 
 ## Create a web app running in a container
 
-In this section, you'll create a ASP.NET Core web app and get it running in a container in Kubernetes.
+In this section, you'll create an ASP.NET Core web app and get it running in a container in Kubernetes.
 
 ### Create an ASP.NET web app
 
@@ -152,4 +143,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development](team-development-netcore-visualstudio.md)
+> [Learn about multi-service development](multi-service-netcore-visualstudio.md)

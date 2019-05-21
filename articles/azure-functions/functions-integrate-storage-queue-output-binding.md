@@ -117,7 +117,7 @@ A new queue named **outqueue** is created in your Storage account by the Functio
 
 Skip this section if you have already installed Storage Explorer and connected it to the storage account that you're using with this quickstart.
 
-2. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
+1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
 
     ![Run the Storage Account Explorer tool.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -135,13 +135,13 @@ Skip this section if you have already installed Storage Explorer and connected i
  
 1. Click the show/hide icon next to **Account Key** to display the value, and then copy the **Account Key** value and paste it in the **Account key** box in Storage Explorer.
   
-3. Select **Next > Connect**.
+1. Select **Next > Connect**.
 
    ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### Examine the output queue
 
-4. In Storage Explorer, select the storage account that you're using for this quickstart.
+1. In Storage Explorer, select the storage account that you're using for this quickstart.
 
 1. Expand the **Queues** node, and then select the queue named **outqueue**. 
 
@@ -149,7 +149,7 @@ Skip this section if you have already installed Storage Explorer and connected i
 
     ![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Run the function again, and you'll see a new message appear in the queue.  
+1. Run the function again, and you'll see a new message appear in the queue.  
 
 ## Clean up resources
 
@@ -157,6 +157,6 @@ Skip this section if you have already installed Storage Explorer and connected i
 
 ## Next steps
 
-In this quickstart, you added an output binding to an existing function. For more information about binding to Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
+In this quickstart, you added an output binding to an existing function. For more information about binding to Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]

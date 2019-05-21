@@ -4,7 +4,7 @@ description: This article shows you how to implement the Azure Security Center r
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee

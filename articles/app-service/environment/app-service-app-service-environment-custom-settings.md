@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2016
+ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: mvc
 ms.custom: seodec18
 ---
 # Custom configuration settings for App Service Environments
 ## Overview
-Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
+Because App Service Environments (ASEs) are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
 
 If you do not have an App Service Environment, see [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -61,10 +61,11 @@ Alternatively, you can update the App Service Environment by using [Azure Resour
 However you submit the change, it takes roughly 30 minutes multiplied by the number of front ends in the App Service Environment for the change to take effect.
 For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations can take place in the App Service Environment.
 
-## Disable TLS 1.0
-A recurring question from customers, especially customers who are dealing with PCI compliance audits, is how to explicitly disable TLS 1.0 for their apps.
+## Disable TLS 1.0 and TLS 1.1
 
-TLS 1.0 can be disabled through the following **clusterSettings** entry:
+If you want to manage TLS settings on an app by app basis, then you can use the guidance provided with the [Enforce TLS settings](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions) documentation. 
+
+If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the apps in an ASE, you can set the following **clusterSettings** entry:
 
         "clusterSettings": [
             {
@@ -72,6 +73,8 @@ TLS 1.0 can be disabled through the following **clusterSettings** entry:
                 "value": "1"
             }
         ],
+
+The name of the setting says 1.0 but when configured, it disables both TLS 1.0 and TLS 1.1.
 
 ## Change TLS cipher suite order
 Another question from customers is if they can modify the list of ciphers negotiated by their server and this can be achieved by modifying the **clusterSettings** as shown below. The list of cipher suites available can be retrieved from [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).

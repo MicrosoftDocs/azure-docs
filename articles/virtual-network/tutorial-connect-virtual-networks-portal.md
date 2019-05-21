@@ -117,6 +117,7 @@ Create a VM in each virtual network so that you can communicate between them in 
     |Location| Select **East US**.|
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, then select **OK**:
+
     |Setting|Value|
     |---|---|
     |Virtual network| myVirtualNetwork1 - If it's not already selected, select **Virtual network** and then select **myVirtualNetwork1** under **Choose virtual network**.|

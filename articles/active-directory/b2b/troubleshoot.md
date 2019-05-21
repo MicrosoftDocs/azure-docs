@@ -1,18 +1,19 @@
-﻿---
-title: Troubleshooting Azure Active Directory B2B collaboration | Microsoft Docs
+---
+title: Troubleshooting B2B collaboration - Azure Active Directory | Microsoft Docs
 description: Remedies for common problems with Azure Active Directory B2B collaboration
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/25/2017
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshooting Azure Active Directory B2B collaboration
@@ -25,7 +26,7 @@ Here are some remedies for common problems with Azure Active Directory (Azure AD
 In cases where external users are not populated in the list, the object might take a few minutes to replicate.
 
 ## A B2B guest user is not showing up in SharePoint Online/OneDrive people picker 
- 
+ 
 The ability to search for existing guest users in the SharePoint Online (SPO) people picker is OFF by default to match legacy behavior.
 
 You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. You can set the feature using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.
@@ -34,7 +35,7 @@ You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsFor
 
 If you are notified that you do not have permissions to invite users, verify that your user account is authorized to invite external users under User Settings:
 
-![](media/troubleshoot/external-user-settings.png)
+![Screenshot showing the External Users settings](media/troubleshoot/external-user-settings.png)
 
 If you have recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
@@ -46,7 +47,7 @@ Common errors include:
 
 When inviting users whose organization is using Azure Active Directory, but where the specific user’s account does not exist (for example, the user does not exist in Azure AD contoso.com). The administrator of contoso.com may have a policy in place preventing users from being created. The user must check with their admin to determine if external users are allowed. The external user’s admin may need to allow Email Verified users in their domain (see this [article](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) on allowing Email Verified Users).
 
-![](media/troubleshoot/allow-email-verified-users.png)
+![Error stating the tenant does not allow email verified users](media/troubleshoot/allow-email-verified-users.png)
 
 ### External user does not exist already in a federated domain
 
@@ -74,6 +75,10 @@ To comply with privacy laws, our APIs do not include custom messages in the emai
 - When an appservice principal sends the invitation
 
 If this scenario is important to you, you can suppress our API invitation email, and send it through the email mechanism of your choice. Consult your organization’s legal counsel to make sure any email you send this way also complies with privacy laws.
+
+## A guest user with a just-in-time or "viral" tenant is unable to reset their password
+
+If the identity tenant is a just-in-time (JIT) or viral tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password. Sometimes an organization will [take over management of viral tenants](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) that are created when employees use their work email addresses to sign up for services. After the organization takes over a viral tenant, only an administrator in that organization can reset the user's password or enable SSPR. If necessary, as the inviting organization, you can remove the guest user account from your directory and resend an invitation.
 
 ## Next steps
 

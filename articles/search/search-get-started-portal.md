@@ -1,18 +1,24 @@
 ---
-title: Indexing and query quickstart tutorial using Azure portal - Azure Search
-description: In this quickstart tutorial, use the Azure portal and built-in sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
+title: 'Quickstart: Create, load, and query an index in Azure portal - Azure Search'
+description: Build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
 # Quickstart: Use built-in portal tools for Azure Search import, indexing, and queries
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 For a fast ramp up on Azure Search concepts, try the built-in tools in the Azure portal. Wizards and editors do not offer full parity with the .NET and REST APIs, but you can get started quickly with a code-free introduction, writing interesting queries against a sample data within minutes.
 
@@ -29,13 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or find an existing service under your current subscription.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way:
-
-   * In the Jumpbar, click **All services** on the left navigation pane.
-   * In the search box, type *search* to get a list of search-related services for your subscription. Click **Search services**. Your service should appear in the list.
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 
@@ -78,7 +78,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
 
 ### Step 3 - Configure index
 
-Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want auto-complete or suggested queries.
+Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
 
 Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used.
 
@@ -89,15 +89,17 @@ Fields have data types and attributes. The check boxes across the top are *index
 
 Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
 
-By default, the wizard scans the data source for unique identifiers as the basis for the key field. Strings are attributed as retrievable and searchable. Integers are attributed as retrievable, filterable, sortable, and facetable.
+By default, the wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
-1. Accept all of the defaults.
+1. Accept the defaults. 
 
-  ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
+   If you rerun the wizard a second time using an existing realestate data source, the index won't be configured with default attributes. You'll have to manually select attributes on future imports.
+
+   ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
 
 2. Continue to the next page.
 
-  ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### Step 4 - Configure indexer
 
@@ -222,7 +224,7 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 ### <a name="fuzzy-search"></a> Try fuzzy search
 
-By default, misspelled query terms, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
+By default, misspelled query terms, like *samamish* for the Sammamish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
 
 #### Example (misspelled term, unhandled): `search=samamish`
 

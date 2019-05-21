@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Sedgwick CMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sedgwick CMS.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 957931e0-e426-47e7-9904-3ed98d3f504c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Sedgwick CMS
 
@@ -108,12 +109,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Sedgwick CMS Domain and URLs single sign-on information](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
     a. In the **Identifier** textbox, type the URL: 
+
 	| |
 	|--|
 	| `expresspreview.sedgwickcms.net/voe/sso` |
 	| `claimlookup.com/Voe/sso` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<subdomain>.sedgwickcms.net/voe/sso` |

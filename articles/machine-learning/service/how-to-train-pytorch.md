@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to run single-node and distributed training of PyTorch models with the PyTorch estimator
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Train PyTorch models with Azure Machine Learning service
 
-For deep neural network (DNN) training using PyTorch, Azure Machine Learning provides a custom `PyTorch` class of the `Estimator`. The Azure SDK's `PyTorch` estimator enables you to easily submit PyTorch training jobs for both single-node and distributed runs on Azure compute.
+For deep neural network (DNN) training using PyTorch, Azure Machine Learning provides a custom [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class of the `Estimator`. The Azure SDK's `PyTorch` estimator enables you to easily submit PyTorch training jobs for both single-node and distributed runs on Azure compute.
 
 ## Single-node training
 Training with the `PyTorch` estimator is similar to using the [base `Estimator`](how-to-train-ml-models.md), so first read through the how-to article and make sure you understand the concepts introduced there.
@@ -38,10 +38,11 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Here, we specify the following parameters to the PyTorch constructor:
+
 Parameter | Description
 --|--
 `source_directory` |  Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
-`script_params` |  Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
+`script_params` |  Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs.  To specify a verbose flag in `script_params`, use `<command-line argument, "">`.
 `compute_target` |  Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` |  Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 `conda_packages` |  List of Python packages to be installed via conda needed by your training script. The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
@@ -78,6 +79,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 This code exposes the following new parameters to the PyTorch constructor:
+
 Parameter | Description | Default
 --|--|--
 `node_count` |  Number of nodes to use for your training job. | `1`

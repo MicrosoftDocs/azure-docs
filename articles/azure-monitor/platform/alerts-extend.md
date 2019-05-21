@@ -1,5 +1,5 @@
 ---
-title: Extend (copy) Log Analytics alerts into Azure Alerts - Overview
+title: Extend (copy) Log Analytics alerts into Azure Government Cloud 
 description: Overview of process to copy alerts from Log Analytics in OMS portal into Azure Alerts, with details addressing common customer concerns.
 author: msvijayn
 services: azure-monitor
@@ -7,14 +7,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Extend Log Analytics alerts to Azure Alerts
 
 > [!NOTE]
 > Microsoft already completed the process described in this article for the public versions of Azure. However, it still applies to US government versions.  
 
-Until recently, Azure Log Analytics included its own alert functionality, which could proactively notify you of conditions based on Log Analytics data. You managed alert rules in the Microsoft Operations Management Suite portal. The new alerts experience has now integrated alerting across various services in Microsoft Azure. This is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Azure Application Insights. 
+Until recently, Azure Log Analytics included its own alert functionality, which could proactively notify you of conditions based on Log Analytics data. You managed alert rules in the Microsoft Operations Management Suite portal. The new alerts experience has now integrated alerting across various services in Microsoft Azure. This is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Azure Application Insights.
+
+Azure Government cloud customers using OMS portal, can [voluntarily extend their alert rules to Azure](alerts-extend-tool.md) from **Feb 1, 2019**. Starting **Mar 1, 2019** - Microsoft will auto-extend in a systematic manner all existing alert rules in Azure Government - OMS portal to Azure; without any downtime or break to your monitoring. Any new workspace created on or after **Mar 1, 2019** in Azure Government cloud OMS portal will be auto-extended to Azure.
 
 ## Benefits of extending your alerts
 There are several advantages of creating and managing alerts in the Azure portal, such as:
@@ -56,3 +58,4 @@ You can continue to create alerts from the [Log Analytics API](../../azure-monit
 * Learn about the tools to [initiate extending alerts from Log Analytics into Azure](alerts-extend-tool.md).
 * Learn more about the [Azure Alerts experience](../../azure-monitor/platform/alerts-overview.md).
 * Learn how to create [log alerts in Azure Alerts](alerts-unified-log.md).
+

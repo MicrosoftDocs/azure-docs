@@ -21,16 +21,18 @@ Status Monitor is used to instrument a .NET application hosted in IIS either on-
 
 - If your app is deployed into Azure app services, follow [these instructions](azure-web-apps.md).
 - If your app is deployed in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel.
-- (There are also separate articles about instrumenting [live J2EE web apps](java-live.md) and [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (There are also separate articles about instrumenting [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-You have a choice of three routes to apply Application Insights to your .NET web applications:
+You have a choice of two routes to apply Application Insights to your .NET web applications:
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code.
 * **Run time:** Instrument your web app on the server, as described below, without rebuilding and redeploying the code.
-* **Both:** Build the SDK into your web app code, and also apply the run-time extensions. Get the best of both options.
+
+> [!NOTE]
+> If you use build time instrumentation, run time instrumention will not work even if it is turned on.
 
 Here's a summary of what you get by each route:
 
@@ -90,14 +92,14 @@ These are some steps that you can perform to confirm that your installation was 
 - Confirm that the applicationInsights.config file is present in the target app directory and contains your ikey.
 
 - If you suspect that data is missing you can run a simple query in [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
-```Kusto
-union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-```
+  ```Kusto
+  union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+  ```
 
 - If you need to confirm that Application Insights is successfully attached you can run [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
-```cmd
-handle.exe /p w3wp.exe
-```
+  ```cmd
+  handle.exe /p w3wp.exe
+  ```
 
 
 ### Can't connect? No telemetry?
@@ -106,9 +108,10 @@ handle.exe /p w3wp.exe
 
 ### Unable to login
 
-* If Status Monitor cannot login, do a command line install instead. Status Monitor attempts to login to collect your ikey, but you can provide this manually using the command: 
+* If Status Monitor cannot login, do a command line install instead. Status Monitor attempts to login to collect your ikey, but you can provide this manually using the command:
+
 ```powershell
-Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 

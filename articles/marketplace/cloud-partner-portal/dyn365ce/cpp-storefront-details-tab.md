@@ -52,7 +52,7 @@ Where the following table describes the fields in this tab:
 |  App type             | Select the type of trial that is enabled for the app on AppSource. **Free** indicates your app can be used without charge; **Trial** indicates that customers can try your app for a short period without charge; and **Contact me** indicates that customers can request a trial of the app on AppSource.  |
 | Help link for your app | URL for online documentation or other help resource for the app.  |
 | Supported countries/regions | A popup dialog enables the selection of the geographic regions where the app is offered.  Worldwide distribution is the default. |
-| Supported languages   | Select the languages that your app supports. Currently only a few language options are supported.  (If your app supports additional languages that are not on this list, continue to publish your offer and email this information to: appsource@microsoft.com.)  |
+| Supported languages   | Select the languages that your app supports. Currently only a few language options are supported.  (If your app supports additional languages that are not on this list, continue to publish your offer and email this information to: appsource\@microsoft.com.)  |
 | App version           | Version number for the app    |
 | App Release Date      | Release/publishing date of the app |
 | Products your app works with | Products or services that your app inter-operates with. You can list maximum of three products. To list a product, click on **+New** and enter the name of a product in the displayed text box.  |
@@ -72,7 +72,7 @@ Where the following table describes the fields in this tab:
 |      Field            |    Description                 |
 |  ---------------      |  ---------------               |
 | Offer logo (png format, 48x48) | Upload an image that will display on your app's search page. Format is PNG and size must be 48 x 48 pixel. |
-| Offer logo (png format, 216x216) | Upload an image that will disaply on your app's detail page. Format is PNG and size must be 216 x 216 pixel. |
+| Offer logo (png format, 216x216) | Upload an image that will display on your app's detail page. Format is PNG and size must be 216 x 216 pixel. |
 | Videos                | Upload promotional or instructional videos for the app, with a maximum of four.  For each video, fill in the video name, URL (YouTube or Vimeo only), and associated thumbnail in PNG format and sized 1280 x 720 pixel.  | 
 | Documents             | Upload product promotional or instructional documents in PDF format, with a maximum of three.  For each document, provide a document name.  |
 | Screenshots           | Upload a maximum of five images of the app UI in PNG format and sized 1280 x 720 pixels.  These  screenshots will appear on the AppSource detail page for your app. |

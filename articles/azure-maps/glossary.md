@@ -4,7 +4,7 @@ description: A glossary of commonly used terms associated with Azure Maps, Locat
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/18/2018
-ms.topic: resource
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
@@ -192,7 +192,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="heading"></a> **Heading**: The direction something is pointing or facing. See also [Bearing](#heading).
 
-<a name="heatmap"></a> **Heatmap**: A data visualization in which a range of colors represent the density of points in a particular area. See also [Thematic map](#thermatic-map).
+<a name="heatmap"></a> **Heatmap**: A data visualization in which a range of colors represent the density of points in a particular area. See also Thematic map.
 
 <a name="hybrid-imagery"></a> **Hybrid imagery**: Satellite or aerial imagery that has road data and labels overlaid on top of it.
 
@@ -214,7 +214,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="latitude"></a> **Latitude**: The angular distance measured in degrees from equator in a north or south direction.
 
-<a name="level-of-detail"></a> **Level of detail**: See [Zoom level](#zoom-level).
+<a name="level-of-detail"></a> **Level of detail**: See Zoom level.
 
 <a name="lidar"></a> **Lidar**: Acronym for light detection and ranging. A remote-sensing technique that uses lasers to measure distances to reflective surfaces.
 

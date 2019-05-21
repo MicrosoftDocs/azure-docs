@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/28/2018
+ms.date: 03/08/2019
 ms.author: troyhop
 
 # As an IT Pro, I need to create simulated devices to test my IoT solution.
@@ -41,7 +41,7 @@ Select the **Subscription** and **Region** you want to use to deploy the solutio
 
 Check the box to deploy an IoT hub to use with your Device Simulation solution. You can always change the IoT hub your simulation uses later.
 
-Click **Create Solution** to begin provisioning your solution. This process takes at least five minutes to run:
+Click **Create** to begin provisioning your solution. This process takes at least five minutes to run:
 
 ![Device Simulation solution details](./media/quickstart-device-simulation-deploy/createform.png)
 

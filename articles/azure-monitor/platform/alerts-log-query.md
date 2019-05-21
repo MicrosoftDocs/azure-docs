@@ -5,15 +5,15 @@ author: yossi-y
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/19/2019
 ms.author: bwren
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Log alert queries in Azure Monitor
 [Alert rules based on Azure Monitor logs](alerts-unified-log.md) run at regular intervals, so you should ensure that they are written to minimize overhead and latency. This article provides recommendations on writing efficient queries for log alerts and a process for converting existing queries. 
 
 ## Types of log queries
-[Queries in Log Analytics](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) operator.
+[Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) operator.
 
 For example the following query is scoped to the _SecurityEvent_ table and searches for specific event ID. This is the only table that the query must process.
 
@@ -21,20 +21,15 @@ For example the following query is scoped to the _SecurityEvent_ table and searc
 SecurityEvent | where EventID == 4624 
 ```
 
-Queries that start with `search` or `union` allow you to search across multiple multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
+Queries that start with `search` or `union` allow you to search across multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Although `search` and `union` are useful during data exploration, searching terms over the entire data model, they are less efficient than using a table since they must scan across multiple tables. Since queries in alert rules are run at regular intervals, this can result in excessive overhead adding latency to the alert. Because of this overhead, queries for log alert rules in Azure should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
 
@@ -49,7 +44,9 @@ app('Contoso-app1').requests,
 app('Contoso-app2').requests, 
 workspace('Contoso-workspace1').Perf 
 ```
- 
+
+>[!NOTE]
+>[Cross-resource query](../log-query/cross-workspace-query.md) in log alerts is supported in the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). By default, Azure Monitor uses the [legacy Log Analytics Alert API](api-alerts.md) for creating new log alert rules from Azure portal, unless you switch from [legacy Log Alerts API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). After the switch, the new API becomes the default for new alert rules in Azure portal and it lets you create cross-resource query log alerts rules. You can create [cross-resource query](../log-query/cross-workspace-query.md) log alert rules without making the switch by using the [ARM template for scheduledQueryRules API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – but this alert rule is manageable though [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) and not from Azure portal.
 
 ## Examples
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use with alert rules.
@@ -216,3 +213,4 @@ on Hour
 ## Next steps
 - Learn about [log alerts](alerts-log.md) in Azure Monitor.
 - Learn about [log queries](../log-query/log-query-overview.md).
+

@@ -10,11 +10,21 @@ metadata:
   ms.service: azure-monitor
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 09/04/2018
+  ms.date: 01/25/2019
   ms.author: bwren
 abstract:
-  description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
+  description: Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 sections:
+- title: Suggested content
+  items:
+  - type: paragraph
+    text: Use the following links to see a suggested list of content for Log Analytics and Application Insights.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Log Analytics</a>
+    - html: <a href="/azure/azure-monitor/azure-monitor-app-hub">Application Insights</a>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -48,7 +58,7 @@ sections:
       text: Subscription Audit and Alerts
       href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
   - type: paragraph
-    text: Learn how to start monitoring your application with Azure Application Insights.
+    text: Learn how to start monitoring your application with Azure Monitor Application Insights.
   - type: list
     style: icon48
     items: 
@@ -125,6 +135,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/az.operationalinsights">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/loganalytics">REST API Reference</a></p>

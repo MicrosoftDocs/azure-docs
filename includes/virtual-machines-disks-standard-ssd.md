@@ -31,6 +31,8 @@ The following table contains disk sizes, which are currently offered for Standar
 
 |Standard SSD Disk Type  |Disk Size  |IOPS per Disk  |Throughput per disk  |
 |---------|---------|---------|---------|
+|E4     |32 GiB         |Up to 120         |Up to 25 MiB per second         |
+|E6     |64 GiB         |Up to 240         |Up to 50 MiB per second         |
 |E10     |128 GiB         |Up to 500         |Up to 60 MiB per second         |
 |E15     |256 GiB         |Up to 500         |Up to 60 MiB per second         |
 |E20     |512 GiB         |Up to 500         |Up to 60 MiB per second         |

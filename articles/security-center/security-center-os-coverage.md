@@ -3,8 +3,8 @@ title: Features and platforms supported by Azure Security Center | Microsoft Doc
 description: This document provides a list of features and platforms supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2019
-ms.author: rkarlin
+ms.date: 4/17/2019
+ms.author: monhaber
 
 ---
 # Platforms and features supported by Azure Security Center
@@ -33,11 +33,12 @@ This section lists the platforms on which the Azure Security Center agent can ru
 ### Supported platforms for Windows computers and VMs
 The following Windows operating systems are supported:
 
-* Windows Server 2008
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows Server 2008
 
 > [!NOTE]
 > Integration with Windows Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.

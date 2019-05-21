@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Overview of share snapshots for Azure Files 
@@ -86,4 +86,4 @@ Share snapshots provide only file-level protection. Share snapshots don't preven
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-- [Share snapshot FAQ](storage-files-faq.md#share-snapshots)
+    - [Share snapshot FAQ](storage-files-faq.md#share-snapshots)

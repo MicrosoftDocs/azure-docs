@@ -122,9 +122,9 @@ If there is a need to customize the creation of a VM from the backup data, one c
 
 Triggering restore disks is a *POST* request. To know more about the Restore disks operation, refer to the ["trigger restore" REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` is "Azure" and the `{recoveryPointId}` is the `{name}` field of the recovery point mentioned [above](#example-response).
 
@@ -142,7 +142,7 @@ For the complete list of definitions of the request body and other details, refe
 
 The following request body defines properties required to trigger a disk restore.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -158,7 +158,7 @@ The following request body defines properties required to trigger a disk restore
     }
   }
 }
-````
+```
 
 ### Response
 
@@ -238,7 +238,7 @@ Once the long running job is complete, the disks and the configuration of the ba
 
 The following request body defines properties required to trigger a virtual machine restore.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -270,7 +270,7 @@ The following request body defines properties required to trigger a virtual mach
       }
     }
 }
-````
+```
 
 The response should be handled in the same way as [explained above for restoring disks](#response).
 

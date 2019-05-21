@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: cwatson
+ms.author: kfollis
 
 ---
 # Programmatically create Azure Dashboards
@@ -24,7 +24,7 @@ This document walks through the process of programmatically creating and publish
 
 ## Overview
 
-Shared dashboards in Azure are [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) just like virtual machines and storage accounts.  Therefore, they can be managed programmatically via the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), and many [Azure portal](https://portal.azure.com) features build on top of these APIs to make resource management easier.  
+Shared dashboards in Azure are [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) just like virtual machines and storage accounts.  Therefore, they can be managed programmatically via the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/get-started-azureps), and many [Azure portal](https://portal.azure.com) features build on top of these APIs to make resource management easier.  
 
 Each of these APIs and tools offers ways to create, list, retrieve, modify, and delete resources.  Since dashboards are resources, you can pick your favorite API / tool to use.
 

@@ -75,8 +75,8 @@ Set "authenticationType" property to **UserAuthentication**, and specify the fol
                 "value":"<secret of the application used to generate the refresh token>"
             },
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refresh token>"
+                "type": "SecureString",
+                "value": "<refresh token>"
             }
         }
     }
@@ -106,14 +106,14 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
             "requestGoogleDriveScope" : true,
             "authenticationType" : "ServiceAuthentication",
             "email": "<email>",
-	        "keyFilePath": "<.p12 key path on the IR machine>"
+            "keyFilePath": "<.p12 key path on the IR machine>"
         },
         "connectVia": {
             "referenceName": "<name of Self-hosted Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
     }
-} 
+}
 ```
 
 ## Dataset properties

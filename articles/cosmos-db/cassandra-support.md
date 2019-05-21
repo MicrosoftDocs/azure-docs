@@ -142,7 +142,7 @@ var insertResult = await tableInsertStatement.ExecuteAsync();
 foreach (string key in insertResult.Info.IncomingPayload) 
         { 
             byte[] valueInBytes = customPayload[key]; 
-            string value = Encoding.UTF8.GetString(valueInBytes); 
+            double value = Encoding.UTF8.GetString(valueInBytes); 
             Console.WriteLine($“CustomPayload:  {key}: {value}”); 
         } 
 ```
@@ -156,7 +156,6 @@ Azure Cosmos DB Cassandra API provides choice of consistency for read operations
 Azure Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not yet support users and roles for data plane activities. 
 
 ## Planned support 
-* Using timestamp and TTL together  
 * Region name in create keyspace command is ignored at present- Distribution of data is implemented in underlying Cosmos DB platform and exposed via portal or powershell for the account. 
 
 

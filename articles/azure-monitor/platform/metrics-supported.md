@@ -7,9 +7,10 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
+
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
@@ -499,10 +500,10 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |JobEndedSuccess|Successful Jobs|Count|Total|Count of successful jobs.|No Dimensions|
 |JobEndedFailure|Failed Jobs|Count|Total|Count of failed jobs.|No Dimensions|
-|JobEndedCancelled|Cancelled Jobs|Count|Total|Count of cancelled jobs.|No Dimensions|
+|JobEndedCanceled|Canceled Jobs|Count|Total|Count of canceled jobs.|No Dimensions|
 |JobAUEndedSuccess|Successful AU Time|Seconds|Total|Total AU time for successful jobs.|No Dimensions|
 |JobAUEndedFailure|Failed AU Time|Seconds|Total|Total AU time for failed jobs.|No Dimensions|
-|JobAUEndedCancelled|Cancelled AU Time|Seconds|Total|Total AU time for cancelled jobs.|No Dimensions|
+|JobAUEndedCanceled|Canceled AU Time|Seconds|Total|Total AU time for canceled jobs.|No Dimensions|
 
 ## Microsoft.DataLakeStore/accounts
 
@@ -646,14 +647,51 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 ## Microsoft.DocumentDB/databaseAccounts
 
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|MetadataRequests|Metadata Requests|Count|Count|Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.|DatabaseName, CollectionName, Region, StatusCode|
-|MongoRequestCharge|Mongo Request Charge|Count|Total|Mongo Request Units Consumed|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|MongoRequests|Mongo Requests|Count|Count|Number of Mongo Requests Made|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|TotalRequestUnits|Total Request Units|Count|Total|Request Units consumed|DatabaseName, CollectionName, Region, StatusCode|
-|TotalRequests|Total Requests|Count|Count|Number of requests made|DatabaseName, CollectionName, Region, StatusCode|
+### Request metrics
 
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |	Total Requests|	Count	| Count	| Number of requests made|	DatabaseName, CollectionName, Region, StatusCode|	All |	TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second |	Used to monitor requests per status code, collection at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60. |
+| MetadataRequests |	Metadata Requests	|Count|	Count	| Count of metadata requests. Azure Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.	| DatabaseName, CollectionName, Region, StatusCode|	All|  |Used to monitor throttles due to metadata requests.|
+| MongoRequests |	Mongo Requests|	Count |	Count|	Number of Mongo Requests Made	| DatabaseName, CollectionName, Region, CommandName, ErrorCode|	All	|Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|	Used to monitor Mongo request errors, usages per command type. |
+
+### Request Unit metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|	Mongo Request Charge |	Count	|Total	|Mongo Request Units Consumed|	DatabaseName, CollectionName, Region, CommandName, ErrorCode|	All	|Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge|	Used to monitor Mongo resource RUs in a minute.|
+| TotalRequestUnits	|Total Request Units|	Count|	Total|	Request Units consumed|	DatabaseName, CollectionName, Region, StatusCode	|All|	TotalRequestUnits|	Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Total aggregation at minute and divide by 60.|
+| ProvisionedThroughput	|Provisioned Throughput|	Count|	Maximum	|Provisioned throughput at collection granularity|	DatabaseName, CollectionName|	5M|	|	Used to monitor provisioned throughput per collection.|
+
+### Storage metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage|	Available Storage	|Bytes|	Total|	Total available storage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Available Storage|	 Used to monitor available storage capacity (applicable only for fixed storage collections) Minimum granularity should be 5 minutes.|
+| DataUsage	|Data Usage	|Bytes|	Total	|Total data usage  reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M	|Data size	| Used to monitor total data usage at collection and region, minimum granularity should be 5 minutes.|
+| IndexUsage|	Index Usage|	Bytes|	Total	|Total Index usage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Index Size|	Used to monitor total data usage at collection and region, minimum granularity should be 5 minutes. |
+| DocumentQuota|	Document Quota|	Bytes|	Total|	Total storage quota reported at 5 minutes granularity per region. Applicable for fixed storage collections|	DatabaseName, CollectionName, Region|	5M	|Storage Capacity|	Used to monitor total quota at collection and region, minimum granularity should be 5 minutes.|
+| DocumentCount|	Document Count|	Count	|Total	|Totaldocument count reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M	|Document Count|Used to monitor document count at collection and region, minimum granularity should be 5 minutes.|
+
+### Latency metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Usage |
+|---|---|---|---|---|---| ---| ---|
+| ReplicationLatency	| Replication Latency|	MilliSeconds| 	Minimum,Maximum,Average	| P99 Replication Latency across source and target regions for geo-enabled account|	SourceRegion, TargetRegion|	All	| Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
+
+### Availability metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability	| Service Availability|	Percent	|Minimum,Maximum|	Account requests availability at one hour granularity|	| 	1H	| Service Availability	| This is the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
+
+### Cassandra API metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Usage |
+|---|---|---|---|---|---| ---| ---|
+| CassandraRequests	| Cassandra Requests |	Count|	Count|	Number of Cassandra API requests made|	DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|	All| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
+| CassandraRequestCharges|	Cassandra Request Charges| Count|	Sum, Min, Max, Avg|	Request Units consumed by Cassandra API requests|	DatabaseName, CollectionName, Region, OperationType, ResourceType|	All| Used to monitor RUs used per minute by a Cassandra API account.|
+| CassandraConnectionClosures	| Cassandra Connection Closures	|Count|	Count	|Number of Cassandra Connections closed|	ClosureReason, Region|	All	| Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
 
 ## Microsoft.EventGrid/topics
 
@@ -761,6 +799,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ScaleActionsInitiated|Scale Actions Initiated|Count|Total|The direction of the scale operation.|ScaleDirection|
 
 ## Microsoft.Insights/Components
+
 (Public Preview)
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -831,7 +870,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |RunsCompleted|Runs Completed|Count|Total|Number of workflow runs completed.|No Dimensions|
 |RunsSucceeded|Runs Succeeded|Count|Total|Number of workflow runs succeeded.|No Dimensions|
 |RunsFailed|Runs Failed|Count|Total|Number of workflow runs failed.|No Dimensions|
-|RunsCancelled|Runs Cancelled|Count|Total|Number of workflow runs cancelled.|No Dimensions|
+|RunsCanceled|Runs Canceled|Count|Total|Number of workflow runs canceled.|No Dimensions|
 |RunLatency|Run Latency|Seconds|Average|Latency of completed workflow runs.|No Dimensions|
 |RunSuccessLatency|Run Success Latency|Seconds|Average|Latency of succeeded workflow runs.|No Dimensions|
 |RunThrottledEvents|Run Throttled Events|Count|Total|Number of workflow action or trigger throttled events.|No Dimensions|
@@ -1047,8 +1086,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |registration.get|Registration Read Operations|Count|Total|The count of all successful registration queries.|No Dimensions|
 |registration.delete|Registration Delete Operations|Count|Total|The count of all successful registration deletions.|No Dimensions|
 |incoming|Incoming Messages|Count|Total|The count of all successful send API calls. |No Dimensions|
-|incoming.scheduled|Scheduled Push Notifications Sent|Count|Total|Scheduled Push Notifications Cancelled|No Dimensions|
-|incoming.scheduled.cancel|Scheduled Push Notifications Cancelled|Count|Total|Scheduled Push Notifications Cancelled|No Dimensions|
+|incoming.scheduled|Scheduled Push Notifications Sent|Count|Total|Scheduled Push Notifications Canceled|No Dimensions|
+|incoming.scheduled.cancel|Scheduled Push Notifications Canceled|Count|Total|Scheduled Push Notifications Canceled|No Dimensions|
 |scheduled.pending|Pending Scheduled Notifications|Count|Total|Pending Scheduled Notifications|No Dimensions|
 |installation.all|Installation Management Operations|Count|Total|Installation Management Operations|No Dimensions|
 |installation.get|Get Installation Operations|Count|Total|Get Installation Operations|No Dimensions|
@@ -1180,7 +1219,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Update|Update|Count|Average|Update|Computer, Product, Classification, UpdateState, Optional, Approved|
 |Event|Event|Count|Average|Event|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
-
 ## Microsoft.PowerBIDedicated/capacities
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1243,8 +1281,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MessageCount|Message Count|Count|Total|The total amount of messages.|No Dimensions|
 |InboundTraffic|Inbound Traffic|Bytes|Total|The inbound traffic of service|No Dimensions|
 |OutboundTraffic|Outbound Traffic|Bytes|Total|The outbound traffic of service|No Dimensions|
-|UserErrors|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
-|SystemErrors|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
+|UserErrors|User Errors|Percent|Average|The percentage of user errors|No Dimensions|
+|SystemErrors|System Errors|Percent|Average|The percentage of system errors|No Dimensions|
 
 ## Microsoft.Sql/servers/databases
 
@@ -1469,7 +1507,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|FunctionExecutionUnits|Function Execution Units|Count|Total|Function Execution Units|Instance|
+|FunctionExecutionUnits|Function Execution Units|MB / Milliseconds|Total|[Function Execution Units](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
 |FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
 |PrivateBytes|Private Bytes|Bytes|Average|Private Bytes|Instance|
 |IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
@@ -1564,6 +1602,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryPercentage|Memory Percentage|Percent|Average|Memory Percentage|Instance|
 
 ## Next steps
-* [Read about metrics in Azure Monitor](../../azure-monitor/platform/data-collection.md)
-* [Create alerts on metrics](../../azure-monitor/platform/alerts-overview.md)
-* [Export metrics to storage, Event Hub, or Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Read about metrics in Azure Monitor](data-platform.md)
+* [Create alerts on metrics](alerts-overview.md)
+* [Export metrics to storage, Event Hub, or Log Analytics](diagnostic-logs-overview.md)

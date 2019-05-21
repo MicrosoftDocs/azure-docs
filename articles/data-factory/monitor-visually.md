@@ -12,26 +12,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/19/2018
 ms.author: shlo
 
 ---
 # Visually monitor Azure data factories
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.
-In this quickstart, you will learn how to visually monitor data factory v2 pipelines without writing a single line of code.
+
+In this quickstart, you learn how to visually monitor Data Factory pipelines without writing a single line of code.
+
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Monitor Data Factory pipelines
+
+Monitor pipeline and activity runs with a simple list view interface. All the runs are displayed in the local browser time zone. You can change the time zone and all the date time fields snap to the selected time zone.  
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. Log in to the  [Azure portal](https://portal.azure.com/).
 3. Navigate to the created data factory blade in Azure portal and click the 'Monitor & Manage' tile to launch the Data Factory visual monitoring experience.
 
-## List-View Monitoring
-
-Monitor pipeline and activity runs with a simple list view interface. All the runs are displayed in local browser time zone. You can change the time zone and all the date time fields snap to the selected time zone.  
-
-### Monitoring Pipeline Runs
+## Monitor pipeline runs
 List view showcasing each pipeline run for your data factory v2 pipelines. Included columns:
 
 | **Column Name** | **Description** |
@@ -48,7 +48,7 @@ List view showcasing each pipeline run for your data factory v2 pipelines. Inclu
 
 ![Monitor pipeline runs](media/monitor-visually/pipeline-runs.png)
 
-### Monitoring Activity Runs
+## Monitor activity runs
 List view showcasing activity runs corresponding to each pipeline run. Click **'Activity Runs'** icon under the **'Actions'** column to view activity runs for each pipeline run. Included columns:
 
 | **Column Name** | **Description** |
@@ -66,18 +66,17 @@ List view showcasing activity runs corresponding to each pipeline run. Click **'
 
 > [!IMPORTANT]
 > You need to click **'Refresh'** icon on top to refresh the list of pipeline and activity runs. Auto-refresh is currently not supported.
->
 
 ![Refresh](media/monitor-visually/refresh.png)
 
-## Monitoring features
-
-### Select a data factory to monitor
+## Select a data factory to monitor
 Hover on the **Data Factory** icon on the top left. Click on the 'Arrow' icon to see a list of azure subscriptions and data factories that you can monitor.
 
 ![Select data factory](media/monitor-visually/select-datafactory.png)
 
-### Rich ordering and filtering
+## Configure the list view
+
+### Apply rich ordering and filtering
 
 Order pipeline runs in desc/asc by Run Start and filter pipeline runs by following columns:
 
@@ -89,15 +88,15 @@ Order pipeline runs in desc/asc by Run Start and filter pipeline runs by followi
 
 ![Filter](media/monitor-visually/filter.png)
 
-### Add/Remove columns in list view
+### Add or remove columns
 Right-click the list view header and choose columns that you want to appear in the list view
 
 ![Columns](media/monitor-visually/columns.png)
 
-### Reorder column widths in list view
+### Adjust column widths
 Increase and decrease the column widths in list view by hovering over the column header
 
-### User properties
+## Promote user properties to monitor
 
 You can promote any pipeline activity property as a user property so that it becomes an entity that you can monitor. For example, you can promote the **Source** and **Destination** properties of the Copy activity in your pipeline as user properties. You can also select **Auto Generate** to generate the **Source** and **Destination** user properties for a Copy activity.
 
@@ -114,21 +113,43 @@ After you create the user properties, you can then monitor them in the monitorin
 
 ![Activity runs list with columns for user properties](media/monitor-visually/monitor-user-properties-image4.png)
 
-### Guided Tours
+## Rerun activities inside a pipeline
+
+You can now rerun activities inside a pipeline. Click **View activity runs** and select the activity in your pipeline from which point you want to rerun your pipeline.
+
+![View activity runs](media/monitor-visually/rerun-activities-image1.png)
+
+![Select an activity run](media/monitor-visually/rerun-activities-image2.png)
+
+### View rerun history
+
+You can view the rerun history for all the pipeline runs in the list view.
+
+![View history](media/monitor-visually/rerun-history-image1.png)
+
+You can also view rerun history for a particular pipeline run.
+
+![View history for a pipeline run](media/monitor-visually/rerun-history-image2.png)
+
+## Guided Tours
 Click on the 'Information Icon' in lower left and click 'Guided Tours' to get step-by-step instructions on how to monitor your pipeline and activity runs.
 
 ![Guided tours](media/monitor-visually/guided-tours.png)
 
-### Feedback
+## Feedback
 Click on the 'Feedback' icon to give us feedback on various features or any issues that you might be facing.
 
 ![Feedback](media/monitor-visually/feedback.png)
 
 ## Alerts
 
-You can raise alerts on supported metrics in Data Factory. Select Monitor -> Alerts & Metrics on the Data Factory Monitor page to get started.
+You can raise alerts on supported metrics in Data Factory. Select **Monitor -> Alerts & Metrics** on the Data Factory Monitor page to get started.
 
 ![](media/monitor-visually/alerts01.png)
+
+For a seven-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### Create Alerts
 

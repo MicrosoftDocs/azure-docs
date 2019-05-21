@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # View the status of Azure Import/Export jobs
 

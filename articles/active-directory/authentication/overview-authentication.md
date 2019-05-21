@@ -1,19 +1,20 @@
 ---
-title: Azure Active Directory user authentication
+title: Azure Active Directory user authentication - Azure Active Directory
 description: As an Azure AD Administrator how do I protect user authentication while reducing end-user impact?
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
 
 # Customer intent: As an Azure AD administrator, I want to understand which Azure AD features I can use to secure sign-in and make the user authentication process safe and easy. 
+ms.collection: M365-identity-device-management
 ---
 # What methods are available for authentication?
 

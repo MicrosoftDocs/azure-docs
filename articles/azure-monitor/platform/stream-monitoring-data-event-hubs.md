@@ -1,17 +1,17 @@
 ---
 title: Stream Azure monitoring data to Event Hubs
-description: Learn how to stream all of your Azure monitoring data to an event hub to get the data into a partner SIEM or analytics tool.
+description: Learn how to stream your Azure monitoring data to an event hub to get the data into a partner SIEM or analytics tool.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Stream Azure monitoring data to an event hub for consumption by an external tool
 
-Azure Monitor provides a single pipeline for getting access to all of the monitoring data from your Azure environment, enabling you to easily set up partner SIEM and monitoring tools to consume that data. This article walks through setting up different tiers of data from your Azure environment to be sent to a single Event Hubs namespace or event hub, where it can be collected by an external tool.
+This article walks through setting up different tiers of data from your Azure environment to be sent to a single Event Hubs namespace or event hub, where it can be collected by an external tool.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -27,7 +27,7 @@ Within your Azure environment, there are several 'tiers' of monitoring data, and
 - **Azure subscription monitoring data:** Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. The [activity log](./../../azure-monitor/platform/activity-logs-overview.md) contains most subscription monitoring data, such as service health incidents and Azure Resource Manager audits. You can collect this data using a Log Profile.
 - **Azure tenant monitoring data:** Data about the operation of tenant-level Azure services, such as Azure Active Directory. The Azure Active Directory audits and sign-ins are examples of tenant monitoring data. This data can be collected using a tenant diagnostic setting.
 
-Data from any tier can be sent into an event hub, where it can be pulled into a partner tool. The next sections describe how you can configure data from each tier to be streamed to an event hub. The steps assume that you already have assets at that tier to be monitored.
+Data from any tier can be sent into an event hub, where it can be pulled into a partner tool. Some sources can be configured to send data directly to an event hub while another process such as a Logic App may be required to retrieve the required data. The next sections describe how you can configure data from each tier to be streamed to an event hub. The steps assume that you already have assets at that tier to be monitored.
 
 ## Set up an Event Hubs namespace
 
@@ -64,10 +64,10 @@ To send data from the Azure activity log into an Event Hubs namespace, you set u
 ## Azure resource metrics and diagnostics logs
 
 Azure resources emit two types of monitoring data:
-1. [Resource diagnostic logs](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Metrics](../../azure-monitor/platform/data-collection.md)
+1. [Resource diagnostic logs](diagnostic-logs-overview.md)
+2. [Metrics](data-platform.md)
 
-Both types of data are sent to an event hub using a resource diagnostic setting. [Follow this guide](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) to set up a resource diagnostic setting on a particular resource. Set a resource diagnostic setting on each resource from which you want to collect logs.
+Both types of data are sent to an event hub using a resource diagnostic setting. [Follow this guide](diagnostic-logs-stream-event-hubs.md) to set up a resource diagnostic setting on a particular resource. Set a resource diagnostic setting on each resource from which you want to collect logs.
 
 > [!TIP]
 > You can use Azure Policy to ensure that every resource within a certain scope is always set up with a diagnostic setting [by using the DeployIfNotExists effect in the policy rule](../../governance/policy/concepts/definition-structure.md#policy-rule).
@@ -114,4 +114,5 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 * [Archive the Activity Log to a storage account](../../azure-monitor/platform/archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md)
 * [Set up an alert based on an Activity Log event](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

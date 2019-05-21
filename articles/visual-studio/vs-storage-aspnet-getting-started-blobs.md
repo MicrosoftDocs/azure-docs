@@ -409,7 +409,7 @@ This section illustrates how to download a blob. You can either persist it to lo
     }
     ```
     
-    The following shows the completed `ListBlobs` method (with a fully qualified path for the local file being created):
+    The following shows the completed `DownloadBlob` method (with a fully qualified path for the local file being created):
     
     ```csharp
     public string DownloadBlob()

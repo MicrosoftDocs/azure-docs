@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
 
 ---
-# Copy data from Netezza by using Azure Data Factory 
+# Copy data from Netezza by using Azure Data Factory
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Netezza. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
@@ -39,7 +39,7 @@ The following properties are supported for the Netezza linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **Netezza**. | Yes |
-| connectionString | An ODBC connection string to connect to Netezza. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectionString | An ODBC connection string to connect to Netezza. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault and pull the `pwd` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can choose a self-hosted Integration Runtime or the Azure Integration Runtime (if your data store is publicly accessible). If not specified, the default Azure Integration Runtime is used. |No |
 
 A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. The following table describes more properties that you can set:
@@ -58,8 +58,37 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
         "type": "Netezza",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "NetezzaLinkedService",
+    "properties": {
+        "type": "Netezza",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -74,7 +103,7 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 
 This section provides a list of properties that the Netezza dataset supports.
 
-For a full list of sections and properties that are available for defining datasets, see [Datasets](concepts-datasets-linked-services.md). 
+For a full list of sections and properties that are available for defining datasets, see [Datasets](concepts-datasets-linked-services.md).
 
 To copy data from Netezza, set the **type** property of the dataset to **NetezzaTable**. The following properties are supported:
 
@@ -103,7 +132,7 @@ To copy data from Netezza, set the **type** property of the dataset to **Netezza
 
 This section provides a list of properties that the Netezza source supports.
 
-For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
+For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md).
 
 ### Netezza as source
 

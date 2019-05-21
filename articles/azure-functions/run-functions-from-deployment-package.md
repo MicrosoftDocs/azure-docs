@@ -9,7 +9,7 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 02/26/2019
 ms.author: glenga
 
 ---
@@ -17,7 +17,7 @@ ms.author: glenga
 # Run your Azure Functions from a package file
 
 > [!NOTE]
-> The functionality described in this article is not available for Functions on Linux.
+> The functionality described in this article is not available for function apps running on Linux in an [App Service plan](functions-scale.md#app-service-plan).
 
 In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` directory of your function app.
 
@@ -41,8 +41,11 @@ To enable your function app to run from a package, you just add a `WEBSITE_RUN_F
 
 | Value  | Description  |
 |---------|---------|
+| **`1`**  | Recommended for function apps running on Windows. Run from a package file in the `d:\home\data\SitePackages` folder of your function app. If not [deploying with zip deploy](#integration-with-zip-deployment), this option requires the folder to also have a file named `packagename.txt`. This file contains only the name of the package file in folder, without any whitespace. |
 |**`<url>`**  | Location of a specific package file you want to run. When using Blob storage, you should use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) to enable the Functions runtime to access to the package. You can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload package files to your Blob storage account.         |
-| **`1`**  | Run from a package file in the `d:\home\data\SitePackages` folder of your function app. This option requires the folder to also have a file named `packagename.txt`. This file contains only the name of the package file in folder, without any whitespace. |
+
+> [!CAUTION]
+> When running a function app on Windows, the external URL option yields worse cold-start performance. When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
 
 The following shows a function app configured to run from a .zip file hosted in Azure Blob storage:
 

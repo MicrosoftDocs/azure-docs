@@ -3,7 +3,7 @@ title: Use Azure Storage as a Terraform backend
 description: An introduction to storing Terraform state in Azure Storage.
 services: terraform
 author: tomarchermsft
-ms.service: terraform
+ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
@@ -109,7 +109,7 @@ For more information on Azure Storage encryption, see [Azure Storage Service Enc
 
 ## Next steps
 
-Learn more about Terraform backed configuration at the [Terraform backend documentation][terraform-backend].
+Learn more about Terraform backend configuration at the [Terraform backend documentation][terraform-backend].
 
 <!-- LINKS - internal -->
 [azure-key-vault]: ../key-vault/quick-create-cli.md

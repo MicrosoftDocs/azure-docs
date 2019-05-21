@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 This article describes an example C# project you can compile to manage reference data for an Azure Time Series Insights environment.
 
-## Prerequistes
+## Prerequisites
 Complete the following steps before you compile and run the sample code:
 1. [Create a reference data set](time-series-insights-add-reference-data-set.md).
 

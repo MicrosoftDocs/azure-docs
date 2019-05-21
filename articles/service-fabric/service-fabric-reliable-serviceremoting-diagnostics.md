@@ -4,7 +4,7 @@ description: This article describes the performance monitoring features in the S
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
-manager: timlt
+manager: chackdan
 editor: suchiagicha
 
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18

@@ -1,6 +1,6 @@
 ---
-title: A reference guide to the View Designer parts in Azure Log Analytics | Microsoft Docs
-description: By using View Designer in Log Analytics, you can create custom views in the Azure portal that display a variety of data visualizations in your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
+title: A reference guide to the View Designer parts in Azure Monitor | Microsoft Docs
+description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,8 +15,8 @@ ms.date: 03/12/2018
 ms.author: bwren
 ---
 
-# Reference guide to View Designer visualization parts in Log Analytics
-By using View Designer in Azure Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations from your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
+# Reference guide to View Designer visualization parts in Azure Monitor
+By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
 
 For more information about View Designer, see:
 
@@ -28,9 +28,9 @@ The available View Designer tile types are described in the following table:
 
 | View type | Description |
 |:--- |:--- |
-| [List of queries](#list-of-queries-part) |Displays a list of log search queries. You can select each query to display its results. |
-| [Number and list](#number-and-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Two numbers and list](#two-numbers-and-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [List of queries](#list-of-queries-part) |Displays a list of log queries. You can select each query to display its results. |
+| [Number and list](#number-and-list-part) |The header displays a single number that shows a count of records from a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Two numbers and list](#two-numbers-and-list-part) |The header displays two numbers that show counts of records from separate log queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Donut and list](#donut-and-list-part) |The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records. |
 | [Two timelines and list](#two-timelines-and-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Information](#information-part) |The header displays static text and an optional link. The list displays one or more items with a static title and text. |
@@ -40,8 +40,11 @@ The available View Designer tile types are described in the following table:
 
 The next sections describe the tile types and their properties in detail.
 
+> [!NOTE]
+> Parts in views are based on [log queries](../log-query/log-query-overview.md) in your Log Analytics workspace. They do not currently support [cross resource queries](../log-query/cross-workspace-query.md) to retrieve data from Application Insights.
+
 ## List of queries part
-The list of queries part displays a list of log search queries. You can select each query to display its results. The view includes a single query by default, and you can select **+ Query** to add additional queries.
+The list of queries part displays a list of log queries. You can select each query to display its results. The view includes a single query by default, and you can select **+ Query** to add additional queries.
 
 ![List of queries view](media/view-designer-parts/view-list-queries.png)
 
@@ -57,7 +60,7 @@ The list of queries part displays a list of log search queries. You can select e
 | Friendly name | The descriptive name that's displayed. |
 
 ## Number and list part
-The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
+The header displays a single number that shows a count of records from a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
 ![List of queries view](media/view-designer-parts/view-number-list.png)
 
@@ -86,7 +89,7 @@ The header displays a single number that shows a count of records from a log sea
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
 ## Two numbers and list part
-The header has two numbers that display a count of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
+The header has two numbers that display a count of records from separate log queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
 ![Two Numbers & list view](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -317,14 +320,14 @@ The name and value separator is the single-character delimiter to use to parse t
 For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name and value separator and *City-Building* for the name. This approach parses each value into two properties called *City* and *Building*.
 
 ### <a name="click-through-navigation"></a>Click-Through Navigation
-Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Search portal](../../azure-monitor/log-query/portals.md) or launch another view.
+Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Analytics](../../azure-monitor/log-query/portals.md) or launch another view.
 
 The following table describes the settings for click-through navigation.
 
 | Setting           | Description |
 |:--|:--|
-| Log Search (Auto) | Log search to run when you select a header item.  This is the same log search that the item is based on.
-| Log Search        | Log search to run when you select an item in a list.  Type the query into the **Navigation query** box.   Use *{selected item}* to include the syntax for the item that the user selected.  For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* is run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* is run. |
+| Log Search (Auto) | Log query to run when you select a header item.  This is the same log query that the item is based on.
+| Log Search        | Log query to run when you select an item in a list.  Type the query into the **Navigation query** box.   Use *{selected item}* to include the syntax for the item that the user selected.  For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* is run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* is run. |
 | View              | View to open when you select a header item or an item in a list.  Select the name of a view in your workspace in the **View Name** box. |
 
 
@@ -356,4 +359,4 @@ The following table describes the settings for thresholds:
 | Color |The color that indicates the threshold value. |
 
 ## Next steps
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to support the queries in visualization parts.
+* Learn about [log queries](../log-query/log-query-overview.md) to support the queries in visualization parts.

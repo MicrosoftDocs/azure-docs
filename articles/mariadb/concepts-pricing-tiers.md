@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ---
 
 # Azure Database for MariaDB pricing tiers
@@ -15,7 +15,7 @@ You can create an Azure Database for MariaDB server in one of three different pr
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 5 |Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -48,8 +48,7 @@ The storage you provision is the amount of storage capacity available to your Az
 
 You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
-You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are storage limit, storage percentage, storage used, and IO percent.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
 ### Reaching the storage limit
 
@@ -59,7 +58,7 @@ While the service attempts to make the server read-only, all new write transacti
 
 We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+For more information, see the documentation on [how to set up an alert](howto-alert-metric.md).
 
 ## Backup
 

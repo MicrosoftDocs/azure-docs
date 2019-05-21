@@ -3,7 +3,7 @@ title: Azure Automation Overview
 description: Learn how to use Azure Automation to automate the lifecycle of infrastructure and applications.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical
@@ -81,3 +81,4 @@ You can review the price for Azure Automation on the [pricing](https://azure.mic
 
 > [!div class="nextstepaction"]
 > [Create an automation account](automation-quickstart-create-account.md)
+

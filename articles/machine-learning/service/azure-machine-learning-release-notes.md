@@ -4,33 +4,232 @@ titleSuffix: Azure Machine Learning service
 description: Learn about the latest updates to Azure Machine Learning service and the machine learning and data prep Python SDKs.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.author: larryfr
+author: Blackmist
+ms.date: 04/08/2019
 ms.custom: seodec18
 ---
 
 # Azure Machine Learning service release notes
 
-In this article, learn about the Azure Machine Learning service releases. 
+In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit the reference docs for:
++ The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
++ The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+
+## 2019-04-22
+
+### Azure Machine Learning SDK for Python v1.0.30
+
+## 2019-04-17
+
+### Azure Machine Learning Data Prep SDK v1.1.2
+
+Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://aka.ms/aml-data-prep-installation).
+
++ **New features**
+  + You can now use the Pivot transform.
+    + How-to guide: [Pivot notebook](https://aka.ms/aml-data-prep-pivot-nb)
+  + You can now use regular expressions in native functions.
+    + Examples:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + You can now use `to_upper` and `to_lower` functions in expression language.
+  + You can now see the number of unique values of each column in a data profile.
+  + For some of the commonly used reader steps, you can now pass in the `infer_column_types` argument. If it is set to `True`, Data Prep will attempt to detect and automatically convert column types.
+    + `inference_arguments` is now deprecated.
+  + You can now call `Dataflow.shape`.
+
++ **Bug fixes and improvements**
+  + `keep_columns` now accepts an additional optional argument `validate_column_exists`, which checks if the result of `keep_columns` will contain any columns.
+  + All reader steps (which read from a file) now accept an additional optional argument `verify_exists`.
+  + Improved performance of reading from pandas dataframe and getting data profiles.
+  + Fixed a bug where slicing a single step from a Dataflow failed with a single index.
+
+## 2019-04-15
+
+### Azure Portal
++ **New features**
+  + You can now resubmit an existing Script run on an existing remote compute cluster. 
+  + You can now run a published pipeline with new parameters on the Pipelines tab. 
+  + Run details now supports a new Snapshot file viewer. You can view a snapshot of the directory when you submitted a specific run. You can also download the notebook that was submitted to start the run.
+   + You can now cancel parent runs from the Azure Portal.
+
+## 2019-04-08
+
+### Azure Machine Learning SDK for Python v1.0.23
+
++ **New features**
+  + The Azure Machine Learning SDK now supports Python 3.7.
+  + Azure Machine Learning DNN Estimators now provide built-in multi-version support. For example,
+  `TensorFlow` estimator now accepts a `framework_version` parameter, and users can specify
+  version '1.10' or '1.12'. For a list of the versions supported by your current SDK release, call 
+  `get_supported_versions()` on the desired framework class (e.g. `TensorFlow.get_supported_versions()`).
+  For a list of the versions supported by the latest SDK release, see the [DNN Estimator documentation](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+
+### Azure Machine Learning Data Prep SDK v1.1.1
+
++ **New features**
+  + You can read multiple Datastore/DataPath/DataReference sources using read_* transforms.
+  + You can perform the following operations on columns to create a new column: division, floor, modulo, power, length.
+  + Data Prep is now part of the Azure ML diagnostics suite and will log diagnostic information by default.
+    + To turn this off, set this environment variable to true: DISABLE_DPREP_LOGGER
+
++ **Bug fixes and improvements**
+  + Improved code documentation for commonly used classes and functions.
+  + Fixed a bug in auto_read_file that failed to read Excel files.
+  + Added option to overwrite the folder in read_pandas_dataframe.
+  + Improved performance of dotnetcore2 dependency installation, and added support for Fedora 27/28 and Ubuntu 1804.
+  + Improved the performance of reading from Azure Blobs.
+  + Column type detection now supports columns of type Long.
+  + Fixed a bug where some date values were being displayed as timestamps instead of Python datetime objects.
+  + Fixed a bug where some type counts were being displayed as doubles instead of integers.
+
+  
+## 2019-03-25
+
+### Azure Machine Learning SDK for Python v1.0.21
+
++ **New features**
+  + The *azureml.core.Run.create_children* method allows low-latency creation of multiple child runs with a single call.
+
+### Azure Machine Learning Data Prep SDK v1.1.0
+
++ **Breaking changes**
+  + The concept of the Data Prep Package has been deprecated and is no longer supported. Instead of persisting multiple Dataflows in one Package, you can persist Dataflows individually.
+    + How-to guide: [Opening and Saving Dataflows notebook](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **New features**
+  + Data Prep can now recognize columns that match a particular Semantic Type, and split accordingly. The STypes currently supported include: email address, geographic coordinates (latitude & longitude), IPv4 and IPv6 addresses, US phone number, and US zip code.
+    + How-to guide: [Semantic Types notebook](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Data Prep now supports the following operations to generate a resultant column from two numeric columns: subtract, multiply, divide, and modulo.
+  + You can call `verify_has_data()` on a Dataflow to check whether the Dataflow would produce records if executed.
+
++ **Bug fixes and improvements**
+  + You can now specify the number of bins to use in a histogram for numeric column profiles.
+  + The `read_pandas_dataframe` transform now requires the DataFrame to have string- or byte- typed column names.
+  + Fixed a bug in the `fill_nulls` transform, where values were not correctly filled in if the column was missing.
+
+## 2019-03-11
+
+### Azure Machine Learning SDK for Python v1.0.18
+
+ + **Changes**
+   + The azureml-tensorboard package replaces azureml-contrib-tensorboard.
+   + With this release you can setup a user account on your managed compute cluster (amlcompute), while creating it. This can be done by simply passing these properties in the provisoning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
+
+### Azure Machine Learning Data Prep SDK v1.0.17
+
++ **New features**
+  + Now supports adding two numeric columns to generate a resultant column using the expression language.
+
++ **Bug fixes and improvements**
+  + Improved the documentation and parameter checking for random_split.
+  
+## 2019-02-27
+
+### Azure Machine Learning Data Prep SDK v1.0.16
+
++ **Bug fix**
+  + Fixed a Service Principal authentication issue that was caused by an API change.
+
+## 2019-02-25
+
+### Azure Machine Learning SDK for Python v1.0.17
+
++ **New features**
+
+  + Azure Machine Learning now provides first class support for popular DNN framework Chainer. Using [`Chainer`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) class users can easily train and deploy Chainer models.
+    + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + Learn how to [run hyperparameter tuning with Chainer using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
+  + Azure Machine Learning Pipelines added ability trigger a Pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
+
++ **Bug fixes and improvements**
+  + We have added support Azure Machine Learning Pipelines for setting the source_directory_data_store property to a desired datastore (such as a blob storage) on [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) that are supplied to the [PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). By default Steps use Azure File store as the backing datastore which may run into throttling issues when a large number of steps are executed concurrently.
+
+### Azure portal
+
++ **New features**
+  + New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
+  + New Logs file viewer
+  + Links to experiment runs, compute, models, images and deployments from the activities tab
+
+### Azure Machine Learning Data Prep SDK v1.0.15
+
++ **New features**
+  + Data Prep now supports writing file streams from a dataflow. Also provides the ability to manipulate the file stream names to create new file names.
+    + How-to guide: [Working With File Streams notebook](https://aka.ms/aml-data-prep-file-stream-nb)
+
++ **Bug fixes and improvements**
+  + Improved performance of t-Digest on large data sets.
+  + Data Prep now supports reading data from a DataPath.
+  + One hot encoding now works on boolean and numeric columns.
+  + Other miscellaneous bug fixes.
+
+## 2019-02-11
+
+### Azure Machine Learning SDK for Python v1.0.15
+
++ **New features**
+  + Azure Machine Learning Pipelines added AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep ([notebook](https://aka.ms/pl-hyperdrive)) and time-based scheduling functionality ([notebook](https://aka.ms/pl-schedule)).
+  +  DataTranferStep updated to work with Azure SQL Server and Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
+
++ **Changes**
+  + Deprecated `PublishedPipeline.get_published_pipeline` in favor of `PublishedPipeline.get`.
+  + Deprecated `Schedule.get_schedule` in favor of `Schedule.get`.
+
+### Azure Machine Learning Data Prep SDK v1.0.12
+
++ **New features**
+  + Data Prep now supports reading from an Azure SQL database using Datastore.
+ 
++ **Changes**
+  + Significantly improved the memory performance of certain operations on large data.
+  + `read_pandas_dataframe()` now requires `temp_folder` to be specified.
+  + The `name` property on `ColumnProfile` has been deprecated - use `column_name` instead.
+
+## 2019-01-28
+
+### Azure Machine Learning SDK for Python v1.0.10
+
++ **Changes**: 
+  + Azure ML SDK no longer has azure-cli packages as dependency. Specifically, azure-cli-core and azure-cli-profile dependencies have been removed from azureml-core. These are the  user impacting changes:
+  	+ If you are performing "az login" and then using azureml-sdk, the SDK will do the browser or device code login one more time. It won't use any credentials state created by "az login".
+	+ For Azure CLI authentication, such as using "az login", use _azureml.core.authentication.AzureCliAuthentication_ class. For Azure CLI authentication, do  _pip install azure-cli_ in the Python environment where you have installed azureml-sdk.
+	+ If you are doing "az login" using a service principal for automation, we recommend using _azureml.core.authentication.ServicePrincipalAuthentication_ class, as azureml-sdk won't use credentials state created by azure CLI. 
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
+### Azure Machine Learning Data Prep SDK v1.0.8
+
++ **Bug fixes**
+  + Significantly improved the performance of getting data profiles.
+  + Fixed minor bugs related to error reporting.
+  
+### Azure portal: new features
++ New drag and drop charting experience for reports. Users can drag a column or attribute from the well to the chart area where the system will automatically select an appropriate chart type for the user based on the type of data. Users can change the chart type to other applicable types or add additional attributes.
+
+	Supported Chart Types:
+	- Line Chart
+	- Histogram
+	- Stacked Bar Chart
+	- Box Plot
+	- Scatter Plot
+	- Bubble Plot
++ The portal now dynamically generates reports for experiments. When a user submits a run to an experiment, a report will automatically be generated with logged metrics and graphs to allow comparison across different runs. 
 
 ## 2019-01-14
 
 ### Azure Machine Learning SDK for Python v1.0.8
 
-+ **SDK reference docs**: https://aka.ms/aml-sdk
-
 + **Bug fixes**: This release mostly contains minor bug fixes
 
 ### Azure Machine Learning Data Prep SDK v1.0.7
 
-+ **SDK reference docs**: https://aka.ms/data-prep-sdk
-
 + **New features**
-  + Datastore improvements (documented in [Datastore how-to-guide](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+  + Datastore improvements (documented in [Datastore how-to-guide](https://aka.ms/aml-data-prep-datastore-nb))
     + Added ability to read from and write to Azure File Share and ADLS Datastores in scale-up.
     + When using Datastores, Data Prep now supports using service principal authentication instead of interactive authentication.
     + Added support for wasb and wasbs urls.
@@ -39,22 +238,15 @@ In this article, learn about the Azure Machine Learning service releases.
 
 ### Azure Machine Learning Data Prep SDK v1.0.6
 
-+ **SDK reference docs**: https://aka.ms/data-prep-sdk
-
 + **Bug fixes**
   + Fixed bug with reading from public readable Azure Blob containers on Spark
 
 ## 2018-12-20 
 
 ### Azure Machine Learning SDK for Python v1.0.6
-
-+ **SDK reference docs**: https://aka.ms/aml-sdk
-
 + **Bug fixes**: This release mostly contains minor bug fixes
 
 ### Azure Machine Learning Data Prep SDK v1.0.4
-
-+ **SDK reference docs**: https://aka.ms/data-prep-sdk
 
 + **New features**
   + `to_bool` function now allows mismatched values to be converted to Error values. This is the new default mismatch behavior for `to_bool` and `set_column_types`, whereas the previous default behavior was to convert mismatched values to False.

@@ -1,16 +1,16 @@
-﻿---
+---
 title: Set up sign-in with an Amazon account using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Set up sign-in with an Amazon account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Set up sign-in with an Amazon account using custom policies in Azure Active Directory B2C

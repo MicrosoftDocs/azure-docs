@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.component: common
+ms.subservice: common
 ---
 # Using the Azure classic CLI with Azure Storage
 

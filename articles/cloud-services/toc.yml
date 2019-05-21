@@ -12,8 +12,6 @@
     href: cloud-services-dotnet-get-started.md
   - name: Example Python for Visual Studio Cloud Service
     href: cloud-services-python-ptvs.md
-  - name: Set up a hybrid HPC cluster with Microsoft HPC Pack
-    href: cloud-services-setup-hybrid-hpcpack-cluster.md
 - name: How To
   items:
   - name: Plan
@@ -149,6 +147,8 @@
       href: cloud-services-troubleshoot-roles-that-fail-start.md
     - name: Recovery guidance
       href: cloud-services-disaster-recovery-guidance.md
+    - name: Workflow of classic VM architecture
+      href: cloud-services-workflow-process.md
     - name: Cloud Services FAQ
       items:
       - name: Application and service availability FAQ
