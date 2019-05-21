@@ -46,7 +46,3 @@ From the Alerts page, go to **Settings**.
 
 Customize settings on the different alerts to work with your environment and security goals.
 ![Customize settings](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
-
-## Next steps
-
-- [Configure security alerts for Azure resource roles in PIM](pim-resource-roles-configure-alerts.md)
