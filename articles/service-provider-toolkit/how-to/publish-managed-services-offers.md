@@ -63,7 +63,7 @@ Finally, complete the **Manifest Details** section. This creates a manifest with
 - Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers' resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. 
 - Finally, add one or more **Authorization** entries to your plan. Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan. You must provide this info in order to access resources on behalf of the customer using Azure Delegated Resource Management.
   For each authorization, provide the following. You can then select **New authorization** as many times as needed to add more users/role definitions.
-  - **AAD Object Id**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
+  - **AAD Object ID**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
   - **Role Definition**: Select one of the Azure AD built-in roles from the list. This role will determine the permissions that the user in the **AAD Object ID** field will have on your customers' resources. For info about these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 > [!TIP]
