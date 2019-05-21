@@ -8,8 +8,8 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 tags: connectors
-ms.topic: article
-ms.date: 05/10/2019
+ms.topic: conceptual
+ms.date: 05/25/2019
 ---
 
 # Pause workflows with delay actions in Azure Logic Apps

@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 05/25/2019
 ---
 
 # Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger in Azure Logic Apps
