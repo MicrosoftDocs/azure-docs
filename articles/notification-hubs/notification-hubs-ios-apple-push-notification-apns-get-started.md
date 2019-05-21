@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/21/2019
 ms.author: jowargo
 ---
 
