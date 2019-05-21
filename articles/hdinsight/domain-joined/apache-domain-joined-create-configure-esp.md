@@ -68,7 +68,7 @@ Overview: In this section, you will create the users that will have access to th
 
     1. In the **Active Directory Users and Computers** screen, click **Action** > **New** > **User**.
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image018.png)
+        ![Create new Active Directory User](./media/apache-domain-joined-create-configure-esp/create-new-user.png)
 
     1. In the **New Object - User** screen, enter `HDIUser` as the **User logon name** and click **Next**.
 
@@ -82,7 +82,7 @@ Overview: In this section, you will create the users that will have access to th
 
 1. In the **Active Directory Users and Computers** screen, click **Action** > **New** > **Group**. Create `HDIUserGroup` as a new Group.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/create-new-group.png)
+    ![Create new Active Directory Group](./media/apache-domain-joined-create-configure-esp/create-new-group.png)
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image028.png)
 
@@ -175,7 +175,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
     ```powershell
     Connect-AzAccount
     Get-AzSubscription
-    Set-AzContext -Subscription d3f35892-70bb-44c8-a19d-6aa86f765816
+    Set-AzContext -Subscription 'SUBSCRIPTION_ID'
     $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS -Location 'Central US' -Name HDIFabrikam-AADDSVNET -AddressPrefix 10.1.0.0/16
     $subnetConfig = Add-AzVirtualNetworkSubnetConfig -Name -AddressPrefix 10.1.0.0/24 -VirtualNetwork $virtualNetwork
     $virtualNetwork | Set-AzVirtualNetwork
