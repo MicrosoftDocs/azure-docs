@@ -240,7 +240,7 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 > [!IMPORTANT]
 > Check the prerequisites and plan IP addressing for your cluster before proceeding with the steps. For more information, see [Configure advanced networking in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 > 
-
+>
 > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 >
 > Azure Kubernetes Service and the Azure virtual network should be in the same region.
