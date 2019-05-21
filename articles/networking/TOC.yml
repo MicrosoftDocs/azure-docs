@@ -40,7 +40,7 @@
         href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Concepts
     items:
-    - name: How Microsoft builds its fast and reliable global network
+    - name: Azure global network
       href: azure-network.md
     - name: Virtual networks
       href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
@@ -56,7 +56,7 @@
       href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Connect on-premises - dedicated
       href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: Get started
+- name: Quickstart
   items:
   - name: Create your first virtual network
     href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
