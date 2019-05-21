@@ -19,7 +19,7 @@ Generate the Certificate Signing Request (CSR) file, which is used by Apple to g
 2. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
 
     ![Use Keychain Access to request a new certificate](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. Select your **User Email Address** and **Common Name**, make sure that **Saved to disk** is selected, and then click **Continue**. Leave the **CA Email Address** field blank as it is not required.
+3. Select your **User Email Address** and **Common Name**, make sure that **Saved to disk** is selected, and then click **Continue**. Leave the **CA Email Address** field blank as it isn't required.
 
     ![Required certificate information](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
@@ -33,9 +33,9 @@ Next, you register your app with Apple, enable push notifications, and upload th
 
 ## Register your app for push notifications
 
-To be able to push notifications to an iOS app, you must register your application with Apple and also register for push notifications.  
+To push notifications to an iOS app, register your application with Apple and also register for push notifications.  
 
-1. If you have not already registered your app, navigate to the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) at the Apple Developer Center, sign in with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
+1. If you haven't already registered your app, navigate to the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) at the Apple Developer Center, sign in with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
 
     ![iOS Provisioning Portal App IDs page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -98,7 +98,7 @@ To be able to push notifications to an iOS app, you must register your applicati
 
     ![Export certificate as p12 format](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
-    Make a note of the file name and location of the exported .p12 certificate. It is used to enable authentication with APNS.
+    Make a note of the file name and location of the exported .p12 certificate. It's used to enable authentication with APNS.
 
     > [!NOTE]
     > This tutorial creates a QuickStart.p12 file. Your file name and location might be different.
@@ -115,7 +115,7 @@ To be able to push notifications to an iOS app, you must register your applicati
 
     ![Select the App ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 
-4. In the **Select certificates** screen, select your usual development certificate used for code signing, and click **Continue**. This certificate is not the push certificate you created.
+4. In the **Select certificates** screen, select your usual development certificate used for code signing, and click **Continue**. This certificate isn't the push certificate you created.
 
     ![Select the certificate](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 
@@ -143,7 +143,7 @@ In this section, you create a notification hub and configure authentication with
 3. Select the **file icon**.
 4. Select the **.p12** file that you exported earlier.
 5. Specify the correct **password**.
-6. Select **Sandbox** mode. Only use the **Production** if you want to send push notifications to users who purchased your app from the store.
+6. Select **Sandbox** mode. Use the **Production** mode only if you want to send push notifications to users who purchased your app from the store.
 
     ![Configure APNS certification in Azure portal][7]
 
