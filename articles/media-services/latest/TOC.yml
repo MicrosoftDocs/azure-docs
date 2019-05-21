@@ -241,7 +241,7 @@
     items:
     - name: Monitor metrics
       href: media-services-metrics-howto.md
-    - name: View diagnostic logs
+    - name: Monitor diagnostic logs
       href: media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
