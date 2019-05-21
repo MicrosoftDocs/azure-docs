@@ -75,7 +75,7 @@ This article collects the common security attributes for selected Azure services
 |---|---|--|
 | Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. See [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).<br><br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br><br>Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Customers can configure web sites to require and use HTTPS for inbound traffic. See the blog post [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
-| Encryption key handling (CMK, BYOK, etc.)| Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. See [Use Key Vault references for App Service and Azure Functions (preview)](app-service-key-vault-references.md).|
+| Encryption key handling (CMK, BYOK, etc.)| Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. See [Use Key Vault references for App Service and Azure Functions (preview)](../app-service/app-service-key-vault-references.md).|
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Management calls to configure App Service occur via [Azure Resource Manager](../azure-resource-manager/index.yml) calls over HTTPS. |
 
@@ -461,7 +461,7 @@ This article collects the common security attributes for selected Azure services
 |---|---|--|
 | Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](../sql-database/sql-vulnerability-assessment.md). |
 | Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](../sql-database/sql-database-data-discovery-and-classification.md). |
-| Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](sql-database-threat-detection-overview.md). |
+| Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](../sql-database/sql-database-threat-detection-overview.md). |
 
 ## [Azure Storage](../storage/common/storage-security-attributes.md)
 
