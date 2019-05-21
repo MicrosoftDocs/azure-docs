@@ -10,15 +10,15 @@ ms.date: 05/13/2019
 ---
 # Scale HDInsight clusters
 
-HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This allows you to shrink a cluster after hours or on weekends, and expand it during peak business demands.
+HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This elasticity, allows you to shrink a cluster after hours or on weekends, and expand it during peak business demands.
 
-For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so there will be adequate memory and CPU compute power.  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
+If you have batch processing that happens periodically, the HDInsight cluster can be scaled up a few minutes prior to that operation, so that your cluster has adequate memory and CPU power.  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
 
-You can scale a cluster manually using one of the methods outlined below, or use [autoscale](hdinsight-autoscale-clusters.md) options to have the system automatically scale up and down in response to CPU, Memory, and other metrics.
+You can scale a cluster manually using one of the methods outlined below, or use [autoscale](hdinsight-autoscale-clusters.md) options to have the system automatically scale up and down in response to CPU, memory, and other metrics.
 
 ## Impact of scaling operations
 
-When you add nodes to your running HDInsight cluster, any pending or running jobs will not be impacted. In addition, new jobs can be safely submitted while the scaling process is running. If the scaling operations fail for any reason, the failure is gracefully handled, leaving the cluster in a functional state.
+When you add nodes to your running HDInsight cluster, any pending or running jobs will not be affected. New jobs can be safely submitted while the scaling process is running. If the scaling operations fails for any reason, the failure will be handled to leave your cluster in a functional state.
 
 However, if you are scaling down your cluster by removing nodes, any pending or running jobs will fail when the scaling operation completes. This failure is due to some of the services restarting during the process.
 
@@ -60,7 +60,7 @@ To see a list of pending and running jobs, you can use the YARN ResourceManager 
 
 You may directly access the ResourceManager UI with `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
-You  see a list of jobs, along with their current state. In the screenshot, there is  one job currently running:
+You  see a list of jobs, along with their current state. In the screenshot, there's  one job currently running:
 
 ![ResourceManager UI applications](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
@@ -78,11 +78,19 @@ yarn application -kill "application_1499348398273_0003"
 
 ### Scale down a cluster to less than 3 nodes
 
-As HDFS is configured with a dfs.replication setting of 3, when there are not the expected three copies of each file block available, HDFS will enter safe mode and Ambari may generate alerts. We suggest not to scale down a cluster to less than 3 nodes. If you have to, please update the dfs.replication to the number you would like your cluster to scale down to.
+When a scale down attempt happens, HDInsight relies upon the Apache Ambari management interfaces to first decommission the extra unwanted worker nodes, which replicate their HDFS blocks to other online worker nodes, and then safely scale the cluster down. HDFS goes into a safe mode during the maintenance window, and is supposed to come out once the scaling is finished. It is at this point that HDFS can become stuck in safe mode.
+
+HDFS is normally configured with a `dfs.replication` setting of 3, which controls how many copies of each file block are available. Each copy of a file block is stored on a different node of the cluster. When HDFS detects that the expected number of block copies aren't available, HDFS will enter safe mode and Ambari may generate alerts.
+
+For this reason, don't scale down your cluster to fewer than 3 nodes, unless you update the `dfs.replication` configuration property to the number of nodes that will be available in the cluster for file replication.
+
+If you shrink your cluster down to the minimum of one worker node, Apache HDFS may become stuck in safe mode when worker nodes are rebooted because of patching, or immediately after the scaling operation.
+
+For Apache Hive, the primary cause of this is that Hive uses a few `scratchdir` files, and by default expects three replicas of each block, but there is only one replica possible if you scale down to the minimum one worker node. As a consequence, the files in the `scratchdir` become *under-replicated*. This under-replication could cause HDFS to stay in safe mode when the services are restarted after the scale operation.
 
 ### Scale down an Apache HBase cluster
 
-Region servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance region servers, use the following steps:
+Region servers are automatically balanced within a few minutes after completing a scaling operation. To manually balance region servers, complete the following steps:
 
 1. Connect to the HDInsight cluster using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -96,15 +104,7 @@ Region servers are automatically balanced within a few minutes after completion 
 
 ## Troubleshooting when name node goes into safe mode
 
-If you shrink your cluster down to the minimum of one worker node, Apache HDFS may become stuck in safe mode when worker nodes are rebooted due to patching, or immediately after the scaling operation.
-
-The primary cause of this is that Hive uses a few `scratchdir` files, and by default expects three replicas of each block, but there is only one replica possible if you scale down to the minimum one worker node. As a consequence, the files in the `scratchdir` become *under-replicated*. This could cause HDFS to stay in safe mode when the services are restarted after the scale operation.
-
-When a scale down attempt happens, HDInsight relies upon the Apache Ambari management interfaces to first decommission the extra unwanted worker nodes, which replicate their HDFS blocks to other online worker nodes, and then safely scale the cluster down. HDFS goes into a safe mode during the maintenance window, and is supposed to come out once the scaling is finished. It is at this point that HDFS can become stuck in safe mode.
-
-HDFS is configured with a `dfs.replication` setting of 3. Thus, the blocks of the scratch files are under-replicated whenever there are fewer than three worker nodes online, because there are not the expected three copies of each file block available.
-
-You can execute a command  to bring HDFS out of safe mode. For example, if you know that the only reason safe mode is on is because the temporary files are under-replicated, then you can safely leave safe mode. This is  because the under-replicated files are Hive temporary scratch files.
+You can execute a command  to bring HDFS out of safe mode. For example, if you know that the only reason safe mode is on is because the temporary files are under-replicated, then you can safely leave safe mode. The under-replicated files are Hive temporary scratch files.
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -114,8 +114,13 @@ After leaving safe mode, you can manually remove the  temporary files, or wait f
 
 ### Example errors when safe mode is turned on
 
-* org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode. 
-* org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
+```
+org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
+```
+
+```
+org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
+```
 
 You can review the name node logs from the `/var/log/hadoop/hdfs/` folder, near the time when the cluster was scaled, to see when it entered safe mode. The log files are named `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
