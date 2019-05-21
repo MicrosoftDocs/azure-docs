@@ -112,7 +112,9 @@ After your project is set up, you'll need to add the required Flask packages to 
 
     After successful installation, the output window displays the following:
 
-        Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
+    ```output
+    Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
+    ```
 
    > [!NOTE]
    > In rare cases, you might see a failure in the output window. If this happens, check if the error is related to clean up. Sometimes the clean up fails, but the installation will still be successful (scroll up in the output window to verify this). You can check your installation by [Verifying the virtual environment](#verify-the-virtual-environment). If the installation failed but the verification is successful, it's OK to continue.
@@ -125,6 +127,7 @@ Let's make sure that everything is installed correctly.
 2. Once the build succeeds, start the website by pressing **F5**. This launches the Flask development server and starts your web browser. You should see the following page.
 
     ![The empty Python Flask web development project displayed in a browser](./media/sql-api-python-application/image12.png)
+
 3. Stop debugging the website by pressing **Shift**+**F5** in Visual Studio.
 
 ### Create database, collection, and document definitions
@@ -146,6 +149,7 @@ class VoteForm(Form):
 ```
 
 ### Add the required imports to views.py
+
 1. In Solution Explorer, expand the **tutorial** folder, and open the **views.py** file. 
 2. Add the following import statements to the top of the **views.py** file, then save the file. These import Azure Cosmos DB's PythonSDK and the Flask packages.
 
