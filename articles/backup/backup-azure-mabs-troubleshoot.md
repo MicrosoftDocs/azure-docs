@@ -6,13 +6,27 @@ author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 05/21/2019
 ms.author: kasinh
 ---
 
 # Troubleshoot Azure Backup Server
 
 Use the information in the following tables to troubleshoot errors that you encounter while using Azure Backup Server.
+
+## Basic troubleshooting
+
+We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Backup Server (MABS) agent:
+
+- [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
+- Ensure Microsoft Azure Recovery Services is running (in Service console). If required restart and retry the operation
+- [Ensure 5-10% free volume space is available on scratch folder location](https://aka.ms/AB-AA4dwtt)
+- If registration is failing then ensure the server on which you are trying to install Azure Backup Server is not already registered with another vault
+- If Push install fails, check if DPM agent is already present. If yes, then uninstall the agent and retry the installation
+- [Ensure no other process or antivirus software is interfering with Azure Backup](https://aka.ms/AA4nyr4)<br>
+- Ensure that the SQL Agent service is running and set to automatic in MAB server<br>
+- [Consideration when Backup agent is running on an Azure virtual machine](https://aka.ms/AB-AA4dwtr)
 
 ## Invalid vault credentials provided
 
