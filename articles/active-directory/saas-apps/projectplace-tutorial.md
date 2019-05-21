@@ -46,7 +46,7 @@ In this tutorial, you'll configure and test Azure AD single sign-on in a test en
 
 * Projectplace supports SP-initiated SSO.
 
-## Create Projectplace app from a none gallery app.
+## Create Projectplace app from a non gallery app.
 
 To set up the integration of Projectplace into Azure AD, you need to create the app.
 
@@ -62,16 +62,16 @@ To set up the integration of Projectplace into Azure AD, you need to create the 
 
 	![Select New application](common/add-new-app.png)
 
-4.  Select none gallery app. And name it Projectplace.
+4.  Select non gallery app. And name it Projectplace.
     
-    **Note: Do not use the app named "Projectplace", it does not work and was not officialy published by projectplace. Make sure you select the none gallery app.**
+    **Note: Do not use the app named "Projectplace", it does not work and was not officialy published by projectplace. Make sure you select the non gallery app.**
 
-	 ![None gallery app](common/none_gallery_app.png)
+	 ![Non gallery app](common/none_gallery_app.png)
 
 ## Configure and test Azure AD single sign-on
 
 In this section, you'll configure and test Azure AD single sign-on with Projectplace by using a test user named Britta Simon.
-To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Projectplace. Or, and this is the preffered way, ask Projectplace support to enable provisoning for your account. in this way you will only need to create the users in Azure.
+To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Projectplace or, and this is the preffered way, ask Projectplace support to enable provisoning for your account. in this way you will only need to create the users in Azure.
 
 To configure and test Azure AD single sign-on with Projectplace, you need to complete these steps:
 
@@ -92,7 +92,7 @@ To configure Azure AD single sign-on with Projectplace, take these steps:
 
     ![Select Single sign-on](common/select-sso.png)
 
-2. Fill in the fields as desribed below:
+2. Fill in the fields as described below:
     * Identifier (Entity ID): https://service.projectplace.com/saml/metadata.xml
     * Reply URL (Assertion Consumer Service URL)
 https://service.projectplace.com/saml/login
@@ -165,7 +165,7 @@ In this section, you'll enable Britta Simon to use Azure AD single sign-on by gr
 
 **Note: You can skip this step if you have provisioning enabled in Projectplace. You can ask the Projectplace support team to enable provisoning, once done users will be created in Projectplace during the first login.**
 
-To enable Azure AD users to sign in to Projectplace, you need to add them to Projectplace. You need add them manually.
+To enable Azure AD users to sign in to Projectplace, you need to add them to Projectplace. You need to add them manually.
 
 To create a user account, take these steps:
 
