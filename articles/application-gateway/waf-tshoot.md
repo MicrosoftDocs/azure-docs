@@ -4,7 +4,7 @@ description: This article provides troubleshooting information for web applicati
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/18/2019
+ms.date: 5/22/2019
 ms.author: ant
 ms.topic: conceptual
 ---
@@ -19,9 +19,9 @@ First, ensure you’ve looked through the [WAF overview](waf-overview.md) and th
 
 When you have WAF logs available, you can do a few things with them.
 
-For example, say you have a legitimate traffic containing the string “1=1” that you want to pass through your WAF. If you try the request, the WAF blocks traffic that contains your “1=1” string in any parameter or field. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
+For example, say you have a legitimate traffic containing the string “1=1” that you want to pass through your WAF. If you try the request, the WAF blocks traffic that contains your “1=1” string in any parameter or field. This is a string often associated with a SQL injection attack. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
 
-In the following example, you can see that four rules are triggered during the same request (using the TransactionId field). The first one says it matched because the user used a numeric/IP URL for the request, which increases the anomaly score. The next rule that matched is 942130, which is the one you’re looking for. You can see the **1=1** in the `details.data` field. This further increases the anomaly score. Generally, every rule that has the action **Matched** increases the anomaly score. For more information, see [Anomaly scoring mode](waf-overview.md#anomaly-scoring-mode).
+In the following example, you can see that four rules are triggered during the same request (using the TransactionId field). The first one says it matched because the user used a numeric/IP URL for the request, which increases the anomaly score by three since it's a warning. The next rule that matched is 942130, which is the one you’re looking for. You can see the **1=1** in the `details.data` field. This further increases the anomaly score by three again, as it's also a warning. Generally, every rule that has the action **Matched** increases the anomaly score, and at this point the anomaly score would be six. For more information, see [Anomaly scoring mode](waf-overview.md#anomaly-scoring-mode).
 
 The final two log entries show the request was blocked because the anomaly score was high enough. These entries have a different action than the other two. They show they actually *blocked* the request. These rules are mandatory and can’t be disabled. They shouldn’t be thought of as rules, but more as core infrastructure of the WAF internals.
 
