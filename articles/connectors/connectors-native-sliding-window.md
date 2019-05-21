@@ -13,7 +13,7 @@ ms.date: 05/25/2019
 
 # Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or jobs that must handle data in continuous segments, you can start your logic app workflow with the **Sliding Window - Schedule** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+To regularly run tasks, processes, or jobs that must handle data in continuous chunks, you can start your logic app workflow with the **Sliding Window - Schedule** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Here are some patterns that this trigger supports:
 
@@ -49,7 +49,7 @@ For differences between this trigger and the Recurrence trigger or for more info
 
    | Property | Required | JSON name | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Hour", then the recurrence is every 6 hours. |
+   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <p>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Hour", then the recurrence is every 6 hours. |
    | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, or **Hour** |
    ||||||
 

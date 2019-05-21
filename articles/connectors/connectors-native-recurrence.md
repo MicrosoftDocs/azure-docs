@@ -53,7 +53,7 @@ For differences between this trigger and the Sliding Window trigger or for more 
 
    | Property | Required | JSON name | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
+   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
    | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** |
    ||||||
 
@@ -80,7 +80,7 @@ For differences between this trigger and the Sliding Window trigger or for more 
    > [!NOTE]
    > The trigger shows a preview for your specified recurrence only when you select "Day" or "Week" as the frequency.
 
-1. Now build your remaining workflow with other actions. For more actions that you can add, see [Connectors](../connectors/apis-list.md).
+1. Now build your remaining workflow with other actions. For more actions that you can add, see [Connectors for Azure Logic Apps](../connectors/apis-list.md).
 
 ## Workflow definition - Recurrence
 
