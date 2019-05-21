@@ -100,12 +100,12 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 8. Select the **Bar Chart** icon to change the display.  Then select **settings** and make the following changes:
 
-    * **Groups:**  Add **targettemp**.  
-    * **Values:** 1. Remove **date**.  2. Add **temp_diff**.  3.  Change the aggregator from **SUM** to **AVG**.  
+   * **Groups:**  Add **targettemp**.  
+   * **Values:** 1. Remove **date**.  2. Add **temp_diff**.  3.  Change the aggregator from **SUM** to **AVG**.  
 
-    The following screenshot shows the output.
+     The following screenshot shows the output.
 
-    ![Run a Spark SQL statement using the notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Run a Spark SQL statement using the notebook")
+     ![Run a Spark SQL statement using the notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Run a Spark SQL statement using the notebook")
 
 9. Restart the Livy interpreter to exit the application. To do so, open interpreter settings by selecting the logged in user name from the top-right corner, and then select **Interpreter**.  
 

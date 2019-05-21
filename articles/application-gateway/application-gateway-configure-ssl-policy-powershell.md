@@ -157,7 +157,7 @@ $subnet = $vnet.Subnets[0]
 # Create a public IP address
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "East US" -AllocationMethod Dynamic
 
-# Create a ip configuration object
+# Create an ip configuration object
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 # Create a backend pool for backend web servers

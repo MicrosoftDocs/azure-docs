@@ -54,7 +54,7 @@ Overall, the extraction from SAP InfoProviders to Azure Data Factory (ADF) consi
 1. **ADF data copy**
    In this step, the Open Hub table is read by the ADF Connector 
 
-![Delta extraction flow](media\connector-sap-business-warehouse-open-hub\delta-extraction-flow.png)
+![Delta extraction flow](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
 In the first step, a DTP is executed. Each execution creates a new SAP request ID. The request ID is stored in the Open Hub table and is then used by the ADF connector to identify the delta. The two steps run asynchronously: the DTP is triggered by SAP, and the ADF data copy is triggered through ADF. 
 

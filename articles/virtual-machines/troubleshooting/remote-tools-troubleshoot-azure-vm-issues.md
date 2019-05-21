@@ -169,14 +169,14 @@ Run the following command, depending on the client computer location:
 
 * Outside the VNET or deployment
 
-    * For a classic VM, run the following command:
+  * For a classic VM, run the following command:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * For an ARM VM, first add a DNS name to the public IP address. For detailed steps, see [Create a fully qualified domain name in the Azure portal for a Windows VM](../windows/portal-create-fqdn.md). Then, run the following command:
+  * For an ARM VM, first add a DNS name to the public IP address. For detailed steps, see [Create a fully qualified domain name in the Azure portal for a Windows VM](../windows/portal-create-fqdn.md). Then, run the following command:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

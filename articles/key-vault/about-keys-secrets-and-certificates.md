@@ -406,10 +406,10 @@ Certificate contacts contain contact information to send notifications triggered
 
 If a certificate's policy is set to auto renewal, then a notification is sent on the following events.  
 
--   Before certificate renewal
--   After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
+- Before certificate renewal
+- After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
 
- When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
+  When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
 
 ### Certificate Access Control
 

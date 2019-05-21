@@ -123,7 +123,7 @@ In this exercise, you create and execute a basic Terraform configuration file th
     ![Save as main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. Select **Save**.
-- In the menu bar, select **File > Open Folder**. Navigate to and select the new folder you created.
+1. In the menu bar, select **File > Open Folder**. Navigate to and select the new folder you created.
 
 ### Run Terraform *init* command
 

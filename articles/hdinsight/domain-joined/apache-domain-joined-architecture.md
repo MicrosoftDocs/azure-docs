@@ -58,33 +58,33 @@ Using on-premises Active Directory or Active Directory on IaaS VMs alone, withou
 
 If federation is being used and password hashes are synced correctly, but you are getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Azure AD tenant. To check and set the HRD policy:
 
- 1. Install the Azure AD PowerShell module.
+1. Install the Azure AD PowerShell module.
 
- ```
-    Install-Module AzureAD
- ```
+   ```
+   Install-Module AzureAD
+   ```
 
- 2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.
+2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.
 
- 3. Check if the Microsoft Azure PowerShell service principal has already been created.
+3. Check if the Microsoft Azure PowerShell service principal has already been created.
 
- ```
-    $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
- ```
+   ```
+   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```
 
- 4. If it doesn't exist (that is, if `($powershellSPN -eq $null)`), then create the service principal.
+4. If it doesn't exist (that is, if `($powershellSPN -eq $null)`), then create the service principal.
 
- ```
-    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
- ```
+   ```
+   $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+   ```
 
- 5. Create and attach the policy to this service principal.
+5. Create and attach the policy to this service principal.
 
- ```
-    $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```
+   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
-    Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
- ```
+   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+   ```
 
 ## Next steps
 

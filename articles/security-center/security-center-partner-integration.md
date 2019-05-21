@@ -56,7 +56,7 @@ Azure security solutions that are deployed from Security Center are automaticall
 
 3. Under the Security Center menu, select **Security solutions**.
 
-  ![Security Center Overview](./media/security-center-partner-integration/overview.png)
+   ![Security Center Overview](./media/security-center-partner-integration/overview.png)
 
 Under **Security solutions**, you can view information about the health of integrated Azure security solutions and perform basic management tasks. You can also connect other types of security data sources, such as Azure Active Directory Identity Protection alerts and firewall logs in Common Event Format (CEF).
 
@@ -78,12 +78,12 @@ The status of a partner solution can be:
 >
 >
 
-2. Select **VIEW** for additional information and options, which includes:
+1. Select **VIEW** for additional information and options, which includes:
 
-  - **Solution console**. Opens the management experience for this solution.
-  - **Link VM**. Opens the Link Applications blade. Here you can connect resources to the partner solution.
-  - **Delete solution**.
-  - **Configure**.
+   - **Solution console**. Opens the management experience for this solution.
+   - **Link VM**. Opens the Link Applications blade. Here you can connect resources to the partner solution.
+   - **Delete solution**.
+   - **Configure**.
 
    ![Partner solution detail](./media/security-center-partner-solutions/partner-solutions-detail.png)
 

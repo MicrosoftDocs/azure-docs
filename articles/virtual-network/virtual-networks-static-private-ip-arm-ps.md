@@ -87,14 +87,12 @@ You can complete the following steps from your local computer or by using the Az
 
 > [!WARNING]
 > Though you can add private IP address settings to the operating system, we recommend not doing so until after reading [Add a private IP address to an operating system](virtual-network-network-interface-addresses.md#private).
->
->
-<a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
-
+> 
+> 
+> <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
+> 
 > [!IMPORTANT]
 > To access the VM from the internet, you must assign a public IP address to the VM. You can also change a dynamic private IP address assignment to a static assignment. For details, see [Add or change IP addresses](virtual-network-network-interface-addresses.md). Additionally, it's recommended that you limit the network traffic to your VM by associating a network security group to the network interface, the subnet you created the network interface in, or both. For details, see [Manage network security groups](manage-network-security-group.md).
->
->
 
 ## Clean up resources
 

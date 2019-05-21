@@ -55,15 +55,15 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
 
 - **Preset contexts**. With  **PySpark**, **PySpark3**, or the **Spark** kernels, you do not need to set the Spark or Hive contexts explicitly before you start working with your applications. These are available by default. These contexts are:
    
-   * **sc** - for Spark context
-   * **sqlContext** - for Hive context
+  * **sc** - for Spark context
+  * **sqlContext** - for Hive context
    
-   So, you don't have to run statements like the following to set the contexts:
+    So, you don't have to run statements like the following to set the contexts:
    
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+         sc = SparkContext('yarn-client')
+         sqlContext = HiveContext(sc)
    
-   Instead, you can directly use the preset contexts in your application.
+    Instead, you can directly use the preset contexts in your application.
 
 - **Cell magics**. The PySpark kernel provides some predefined "magics", which are special commands that you can call with `%%` (for example, `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, causes an error.     For more information on magics, see [here](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
@@ -83,7 +83,7 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    > [!NOTE]  
    > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
 
-2. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You can choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
+1. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You can choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 
 ## Parameters supported with the %%sql magic
 The `%%sql` magic supports different parameters that you can use to control the kind of output that you receive when you run queries. The following table lists the output.

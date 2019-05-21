@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 04/26/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
@@ -169,15 +169,15 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## Change a user's resource class
 
-Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, if a user is a member of the smallrc or staticrc10 database role, their queries run with small amounts of memory. If a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
+Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, if a user is a member of the staticrc10 database role, their queries run with small amounts of memory. If a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
 
-To increase a user's resource class, use the stored procedure [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+To increase a user's resource class, use [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) to add the user to a database role of a large resource class.  The below code adds a user to the largerc database role.  Each request gets 22% of the system memory.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-To decrease the resource class, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
+To decrease the resource class, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  If 'loaduser' is not a member or any other resource classes, they go into the default smallrc resource class with a 3% memory grant.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

@@ -76,34 +76,34 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
 5. Load sample data into a temporary table using the **HVAC.csv** file you copied to the Data Lake Storage Gen1 account. You can access the data in the Data Lake Storage account using the following URL pattern.
 
-	* If you have Data Lake Storage Gen1 as default storage, HVAC.csv will be at the path similar to the following URL:
+   * If you have Data Lake Storage Gen1 as default storage, HVAC.csv will be at the path similar to the following URL:
 
-			adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+           adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-		Or, you could also use a shortened format such as the following:
+       Or, you could also use a shortened format such as the following:
 
-			adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+           adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-	* If you have Data Lake Storage as additional storage, HVAC.csv will be at the location where you copied it, such as:
+   * If you have Data Lake Storage as additional storage, HVAC.csv will be at the location where you copied it, such as:
 
-			adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+           adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
 
      In an empty cell, paste the following code example, replace **MYDATALAKESTORE** with your Data Lake Storage account name, and press **SHIFT + ENTER**. This code example registers the data into a temporary table called **hvac**.
 
-			# Load the data. The path below assumes Data Lake Storage is default storage for the Spark cluster
-			hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+           # Load the data. The path below assumes Data Lake Storage is default storage for the Spark cluster
+           hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-			# Create the schema
-			hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+           # Create the schema
+           hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
 
-			# Parse the data in hvacText
-			hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+           # Parse the data in hvacText
+           hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
 
-			# Create a data frame
-			hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+           # Create a data frame
+           hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
 
-			# Register the data fram as a table to run queries against
-			hvacdf.registerTempTable("hvac")
+           # Register the data fram as a table to run queries against
+           hvacdf.registerTempTable("hvac")
 
 6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 

@@ -45,11 +45,11 @@ Review the following Azure application documentation, which provides Quickstarts
   - [Create definition files](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Publish marketplace application](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
- - Samples:
+  - Samples:
 
-   - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-   - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-   - [Managed application solutions](https://docs.microsoft.com/azure/managed-applications/sample-projects)
+    - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    - [Managed application solutions](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ## Fundamental technical knowledge
 

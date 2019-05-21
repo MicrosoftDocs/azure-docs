@@ -257,9 +257,9 @@ To create your own regional disaster recovery topology, follow these requirement
 
 10. **Manually reconfigure and reapply access control.**
 
-   If your existing primary workspace is configured to use the Premium tier (SKU), it's likely you also are using the [Access Control feature](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    If your existing primary workspace is configured to use the Premium tier (SKU), it's likely you also are using the [Access Control feature](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   If you do use the Access Control feature, manually reapply the access control to the resources (Notebooks, Clusters, Jobs, Tables).
+    If you do use the Access Control feature, manually reapply the access control to the resources (Notebooks, Clusters, Jobs, Tables).
 
 ## Next steps
 For more information, see [Azure Databricks documentation](https://docs.azuredatabricks.net/user-guide/index.html).

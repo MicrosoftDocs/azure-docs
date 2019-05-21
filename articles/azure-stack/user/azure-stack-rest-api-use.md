@@ -63,25 +63,25 @@ grant_type=password
 
 For each value:
 
- - **grant_type**  
-    The type of authentication scheme you will using. In this example, the value is `password`
+- **grant_type**  
+   The type of authentication scheme you will using. In this example, the value is `password`
 
- - **resource**  
-    The resource the token accesses. You can find the resource by querying the Azure Stack management metadata endpoint. Look at the **audiences** section
+- **resource**  
+   The resource the token accesses. You can find the resource by querying the Azure Stack management metadata endpoint. Look at the **audiences** section
 
- - **Azure Stack management endpoint**  
-    ```
-    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-    ```
+- **Azure Stack management endpoint**  
+   ```
+   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+   ```
 
   > [!NOTE]  
   > If you are an administrator trying to access the tenant API then you must make sure to use tenant endpoint, for example: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   For example, with the Azure Stack Development Kit as an endpoint:
 
-    ```bash
-    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-    ```
+   ```bash
+   curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+   ```
 
   Response:
 
@@ -91,9 +91,9 @@ For each value:
   "graphEndpoint":"https://graph.windows.net/",
   "portalEndpoint":"https://adminportal.local.azurestack.external/",
   "authentication":{
-      "loginEndpoint":"https://login.windows.net/",
-      "audiences":["https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155"]
-      }
+     "loginEndpoint":"https://login.windows.net/",
+     "audiences":["https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155"]
+     }
   }
   ```
 

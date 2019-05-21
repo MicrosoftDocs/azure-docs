@@ -13,7 +13,7 @@ ms.author: absha
 
 This article explains how the application gateway accepts the incoming requests and routes them to the backend.
 
-![how-application-gateway-works](.\media\how-application-gateway-works\how-application-gateway-works.png)
+![how-application-gateway-works](./media/how-application-gateway-works/how-application-gateway-works.png)
 
 ## How a request is accepted
 

@@ -62,16 +62,16 @@ Any errors experienced during the upload and refresh processes are included in t
 
 2. Click the _Microsoft Data Box Gateway folder_. This folder has two subfolders:
 
-    - Upload folder that has log files for upload errors.
-    - Refresh folder for errors during refresh.
+   - Upload folder that has log files for upload errors.
+   - Refresh folder for errors during refresh.
 
-    Here is a sample log file for refresh.
+     Here is a sample log file for refresh.
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. When you see an error in this file (highlighted in the sample), note down the error code, in this case it is 16001. Look up the description of this error code against the following error reference.
 

@@ -48,12 +48,12 @@ You can create a pipeline with a copy activity that moves data from an on-premis
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 - You can also use the following tools to create a pipeline:
-    - Azure portal
-    - Visual Studio
-    - Azure PowerShell
-    - Azure Resource Manager template
-    - .NET API
-    - REST API
+  - Azure portal
+  - Visual Studio
+  - Azure PowerShell
+  - Azure Resource Manager template
+  - .NET API
+  - REST API
 
     See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 

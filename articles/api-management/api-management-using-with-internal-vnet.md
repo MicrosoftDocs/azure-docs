@@ -105,11 +105,11 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 
 ### Access on custom domain names
 
-   1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image:
+1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image:
 
    ![Setting up a custom domain for API Management][api-management-custom-domain-name]
 
-   2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
+2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
 
 ## <a name="routing"> </a> Routing
 + A load balanced private virtual IP address from the subnet range will be reserved and used to access the API Management service endpoints from within the vnet.

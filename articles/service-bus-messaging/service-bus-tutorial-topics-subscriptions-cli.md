@@ -146,7 +146,7 @@ After the namespace and topic/subscriptions are provisioned, and you have the ne
 4. To run the program, issue the following command. Make sure to replace the placeholders with the connection string and topic name you obtained in the previous step:
 
    ```shell
-  java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
+   java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
    ```
 
    Observe 10 messages being sent to the topic, and subsequently received from the individual subscriptions:

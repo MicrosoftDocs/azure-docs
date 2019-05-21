@@ -72,9 +72,9 @@ Next, you create the cache for the app.
 
 #### To edit the *CacheSecrets.config* file
 
-3. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
+1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
 
-4. Edit the *CacheSecrets.config* file. Then add the following content:
+1. Edit the *CacheSecrets.config* file. Then add the following content:
 
     ```xml
     <appSettings>
@@ -82,14 +82,14 @@ Next, you create the cache for the app.
     </appSettings>
     ```
 
-5. Replace `<cache-name>` with your cache host name.
+1. Replace `<cache-name>` with your cache host name.
 
-6. Replace `<access-key>` with the primary key for your cache.
+1. Replace `<access-key>` with the primary key for your cache.
 
     > [!TIP]
     > You can use the secondary access key during key rotation as an alternate key while you regenerate the primary access key.
->
-7. Save the file.
+   >
+1. Save the file.
 
 ## Update the MVC application
 

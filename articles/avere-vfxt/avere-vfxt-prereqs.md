@@ -168,7 +168,7 @@ Create the storage service endpoint from the Azure portal.
 1. Leave the service as ``Microsoft.Storage`` and choose the cluster's subnet.
 1. At the bottom, click **Add**.
 
-  ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
+   ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
 
 
 ## Next step: Create the vFXT cluster

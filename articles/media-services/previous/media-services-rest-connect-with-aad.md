@@ -80,33 +80,33 @@ To get the information, follow these steps:
 
     If you need to create a new AD app, follow these steps:
     
-    1. Press **Create New**.
-    2. Enter a name.
-    3. Press **Create New** again.
-    4. Press **Save**.
+   1. Press **Create New**.
+   2. Enter a name.
+   3. Press **Create New** again.
+   4. Press **Save**.
 
-    ![API access](./media/connect-with-rest/new-app.png)
+      ![API access](./media/connect-with-rest/new-app.png)
 
-    The new app shows up on the page.
+      The new app shows up on the page.
 
 6. Get the **Client ID** (Application ID).
     
-    1. Select the application.
-    2. Get the **Client ID** from the window on the right. 
+   1. Select the application.
+   2. Get the **Client ID** from the window on the right. 
 
-    ![API access](./media/connect-with-rest/existing-client-id.png)
+      ![API access](./media/connect-with-rest/existing-client-id.png)
 
-7.  Get the application's **Key** (client secret). 
+7. Get the application's **Key** (client secret). 
 
-    1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
-    2. Press **Keys**.
+   1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
+   2. Press **Keys**.
     
-        ![API access](./media/connect-with-rest/manage-app.png)
-    3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
+       ![API access](./media/connect-with-rest/manage-app.png)
+   3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
     
-        Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
+       Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
 
-    ![API access](./media/connect-with-rest/connect-with-rest03.png)
+   ![API access](./media/connect-with-rest/connect-with-rest03.png)
 
 You can add values for AD connection parameters to your web.config or app.config file, to later use in your code.
 

@@ -68,9 +68,9 @@ There are three required arguments:
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
-If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
+  > [!NOTE]
+  >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
+  If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
 
 For workflow ID 1001, and config.txt file placed in the same path as the msgen executable, the command will look like this:
 

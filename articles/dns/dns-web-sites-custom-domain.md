@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Tutorial: Create DNS records in a custom domain for a web app 
 
-You can configure Azure DNS to host a custom domain for your web apps. For example, you can create an Azure web app and have your users access it using either www.contoso.com or contoso.com as a fully qualified domain name (FQDN).
+You can configure Azure DNS to host a custom domain for your web apps. For example, you can create an Azure web app and have your users access it using either www\.contoso.com or contoso.com as a fully qualified domain name (FQDN).
 
 > [!NOTE]
 > Contoso.com is used as an example throughout this tutorial. Substitute your own domain name for contoso.com.

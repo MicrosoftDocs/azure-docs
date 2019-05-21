@@ -18,12 +18,12 @@ The [Azure Site Recovery](site-recovery-overview.md) service contributes to your
 This tutorial describes how to fail back a single Azure VM. After you've failed over, you fail back to the primary region when it's available. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Fail back the secondary VM
 > * Re-protect the primary VM back to the secondary region
-
+> 
 > [!NOTE]
->
+> 
 > This tutorial is intended to guide the user through the steps to failover to a target region and back with minimum customization; in case you want to learn more about the various aspects associated with failover, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
 
 ## Prerequisites

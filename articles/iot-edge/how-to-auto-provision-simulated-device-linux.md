@@ -229,17 +229,17 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 
 11. Verify that the override was successful.
 
-   ```bash
-   sudo systemctl cat iotedge.service
-   ```
+    ```bash
+    sudo systemctl cat iotedge.service
+    ```
 
-   Successful output displays the **iotedge** default service variables, and then shows the environment variable that you set in **override.conf**. 
+    Successful output displays the **iotedge** default service variables, and then shows the environment variable that you set in **override.conf**. 
 
 12. Reload the settings.
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+    ```bash
+    sudo systemctl daemon-reload
+    ```
 
 ## Restart the IoT Edge runtime
 

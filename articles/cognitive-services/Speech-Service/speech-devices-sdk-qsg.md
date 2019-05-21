@@ -110,26 +110,26 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 To run the ROOBO tests and validate your development kit setup, build and install the sample application:
 
-1.	Start Android Studio.
+1. Start Android Studio.
 
-1.	Select **Open an existing Android Studio project**.
+1. Select **Open an existing Android Studio project**.
 
-    ![Android Studio - Open an existing project](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio - Open an existing project](media/speech-devices-sdk/qsg-5.png)
 
-1.	Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
+1. Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
 
-1.	Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
+1. Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
 
-    Your keys and application information go in the following lines in the source file MainActivity.java:
+   Your keys and application information go in the following lines in the source file MainActivity.java:
 
-    ```java
-    // Subscription
-    private static final String SpeechSubscriptionKey = "[your speech key]";
-    private static final String SpeechRegion = "westus";
-    private static final String LuisSubscriptionKey = "[your LUIS key]";
-    private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app ID]"
-    ```
+   ```java
+   // Subscription
+   private static final String SpeechSubscriptionKey = "[your speech key]";
+   private static final String SpeechRegion = "westus";
+   private static final String LuisSubscriptionKey = "[your LUIS key]";
+   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
+   private static final String LuisAppId = "[your LUIS app ID]"
+   ```
 
 1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, C:\SDSDK\Android-Sample-Release\keyword\Computer contains the files used for the wake word "Computer".
 
@@ -137,41 +137,41 @@ To run the ROOBO tests and validate your development kit setup, build and instal
 
     To use a new wake word, update the following two lines of MainActivity.java, and copy the wake word package to your app. For example to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
-    * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
-    * Update the MainActivity.java with the keyword and the package name: 
+   * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   * Update the MainActivity.java with the keyword and the package name: 
     
-    ```java
-    private static final String Keyword = "Machine";
-    private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
-    ```
+     ```java
+     private static final String Keyword = "Machine";
+     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+     ```
 
-1.	Update the following lines, which contain the microphone array geometry settings:
+1. Update the following lines, which contain the microphone array geometry settings:
 
-    ```java
-    private static final String DeviceGeometry = "Circular6+1";
-    private static final String SelectedGeometry = "Circular6+1";
-    ```
-    The following table describes the available values:
+   ```java
+   private static final String DeviceGeometry = "Circular6+1";
+   private static final String SelectedGeometry = "Circular6+1";
+   ```
+   The following table describes the available values:
 
-    |Variable|Meaning|Available values|
-    |--------|-------|----------------|
-    |`DeviceGeometry`|Physical mic configuration|For a circular dev kit: `Circular6+1` |
-    |||For a linear dev kit: `Linear4`|
-    |`SelectedGeometry`|Software mic configuration|For a circular dev kit that uses all mics: `Circular6+1`|
-    |||For a circular dev kit that uses four mics: `Circular3+1`|
-    |||For a linear dev kit that uses all mics: `Linear4`|
-    |||For a linear dev kit that uses two mics: `Linear2`|
+   |Variable|Meaning|Available values|
+   |--------|-------|----------------|
+   |`DeviceGeometry`|Physical mic configuration|For a circular dev kit: `Circular6+1` |
+   |||For a linear dev kit: `Linear4`|
+   |`SelectedGeometry`|Software mic configuration|For a circular dev kit that uses all mics: `Circular6+1`|
+   |||For a circular dev kit that uses four mics: `Circular3+1`|
+   |||For a linear dev kit that uses all mics: `Linear4`|
+   |||For a linear dev kit that uses two mics: `Linear2`|
 
 
-1.	To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
+1. To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
 
 1. Select your device, and then select **OK** to deploy the application to the device.
 
     ![Select Deployment Target dialog box](media/speech-devices-sdk/qsg-7.png)
 
-1.	The Speech Devices SDK example application starts and displays the following options:
+1. The Speech Devices SDK example application starts and displays the following options:
 
-    ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
+   ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
 
 1. Experiment!
 

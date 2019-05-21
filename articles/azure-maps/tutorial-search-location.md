@@ -157,7 +157,7 @@ The Map Control API is a convenient client library that allows you to easily int
    });
    ```
 
-  In this code segment a load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case with a dark blue round pin icon that is centered over the results coordinate and which allows other icons to overlap. The result layer is added to the map layers.
+   In this code segment a load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case with a dark blue round pin icon that is centered over the results coordinate and which allows other icons to overlap. The result layer is added to the map layers.
 
 <a id="usesearch"></a>
 

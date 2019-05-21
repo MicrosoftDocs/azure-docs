@@ -70,7 +70,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -206,4 +206,4 @@ az group delete --name tutorial-iot-hub-rg
 In this tutorial, you learned how to implement a firmware update process for your connected devices. Advance to the next tutorial to learn how to use Azure IoT Hub portal tools and Azure CLI commands to test device connectivity.
 
 > [!div class="nextstepaction"]
-[Use a simulated device to test connectivity with your IoT hub](tutorial-connectivity.md)
+> [Use a simulated device to test connectivity with your IoT hub](tutorial-connectivity.md)

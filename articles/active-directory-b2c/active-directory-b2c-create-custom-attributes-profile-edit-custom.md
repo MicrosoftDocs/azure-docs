@@ -255,20 +255,20 @@ The ID token sent back to your application includes the new extension property a
 
 1. Add the new claim to the flows to sign in to social accounts by changing the following **TechnicalProfiles**. Social and federated accounts use these two **TechnicalProfiles** to sign in. They write and read user data by using the **alternativeSecurityId** as the locator of the user object.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. Use the same extension attributes between built-in and custom policies. When you add extension, or custom, attributes via the portal experience, those attributes are registered by using the **b2c-extensions-app** that exists in every B2C tenant. Take the following steps to use extension attributes in your custom policy:
 
-  a. Within your B2C tenant in portal.azure.com, navigate to **Azure Active Directory** and select **App registrations**.  
-  b. Find your **b2c-extensions-app** and select it.  
-  c. Under **Essentials**, enter the **Application ID** and the **Object ID**.  
-  d. Include them in your **AAD-Common** TechnicalProfile metadata:  
+   a. Within your B2C tenant in portal.azure.com, navigate to **Azure Active Directory** and select **App registrations**.  
+   b. Find your **b2c-extensions-app** and select it.  
+   c. Under **Essentials**, enter the **Application ID** and the **Object ID**.  
+   d. Include them in your **AAD-Common** TechnicalProfile metadata:  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -280,14 +280,14 @@ The ID token sent back to your application includes the new extension property a
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. Stay consistent with the portal experience. Create these attributes by using the portal UI before you use them in your custom policies. When you create an attribute **ActivationStatus** in the portal, you must refer to it as follows:
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
 ## Reference
 

@@ -108,35 +108,35 @@ To edit the application properties
 
 4. Use the following tables to help you choose the options that are best for your needs.
 
-    - Behavior for **assigned** users:
+   - Behavior for **assigned** users:
 
-        | Application property settings | | | Assigned-user experience | |
-        |---|---|---|---|---|
-        | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
-        | yes | yes | yes | yes | yes  |
-        | yes | yes | no  | yes | no   |
-        | yes | no  | yes | yes | yes  |
-        | yes | no  | no  | yes | no   |
-        | no  | yes | yes | no  | no   |
-        | no  | yes | no  | no  | no   |
-        | no  | no  | yes | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Application property settings | | | Assigned-user experience | |
+       |---|---|---|---|---|
+       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
+       | yes | yes | yes | yes | yes  |
+       | yes | yes | no  | yes | no   |
+       | yes | no  | yes | yes | yes  |
+       | yes | no  | no  | yes | no   |
+       | no  | yes | yes | no  | no   |
+       | no  | yes | no  | no  | no   |
+       | no  | no  | yes | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    - Behavior for **unassigned** users:
+   - Behavior for **unassigned** users:
 
-        | Application property settings | | | Unassigned-user experience | |
-        |---|---|---|---|---|
-        | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
-        | yes | yes | yes | no  | no   |
-        | yes | yes | no  | no  | no   |
-        | yes | no  | yes | yes | no   |
-        | yes | no  | no  | yes | no   |
-        | no  | yes | yes | no  | no   |
-        | no  | yes | no  | no  | no   |
-        | no  | no  | yes | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Application property settings | | | Unassigned-user experience | |
+       |---|---|---|---|---|
+       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
+       | yes | yes | yes | no  | no   |
+       | yes | yes | no  | no  | no   |
+       | yes | no  | yes | yes | no   |
+       | yes | no  | no  | yes | no   |
+       | no  | yes | yes | no  | no   |
+       | no  | yes | no  | no  | no   |
+       | no  | no  | yes | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    *Can the user see the application in the access panel and the Office 365 app launcher?
+     *Can the user see the application in the access panel and the Office 365 app launcher?
 
 ## Use a custom logo
 

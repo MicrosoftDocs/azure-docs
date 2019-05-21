@@ -98,7 +98,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
     BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
     ```
-## Process and view the results
+   ## Process and view the results
 
 1. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
 

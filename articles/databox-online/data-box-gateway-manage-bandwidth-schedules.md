@@ -38,13 +38,13 @@ Do the following steps in the Azure portal to add a user.
 
 3. In the **Add schedule**: 
 
-    1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule. 
-    2. If this schedule runs all day, then you can check the **All day** option. 
-    3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field. 
-    4. Check **Unlimited** bandwidth if you do not want to throttle the date upload and download. 
-    5. Click **Add**.
+   1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule. 
+   2. If this schedule runs all day, then you can check the **All day** option. 
+   3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field. 
+   4. Check **Unlimited** bandwidth if you do not want to throttle the date upload and download. 
+   5. Click **Add**.
 
-    ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. A schedule is created with the specified parameters. This schedule is then displayed in the list of bandwidth schedules in the portal.
 

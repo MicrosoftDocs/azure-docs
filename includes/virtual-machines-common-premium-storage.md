@@ -58,9 +58,9 @@ Here are some of the features of Premium Storage:
 
     To start using Premium Storage, create a premium storage account for unmanaged disks. In the [Azure portal](https://portal.azure.com), to create a premium storage account, choose the **Premium** performance tier. Select the **Locally-redundant storage (LRS)** replication option. You also can create a premium storage account by setting the performance tier to **Premium_LRS**. To change the performance tier, use one of the following approaches:
      
-    - [PowerShell for Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [Azure CLI for Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments) or one of the Azure Storage resource provider client libraries
+  - [PowerShell for Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [Azure CLI for Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments) or one of the Azure Storage resource provider client libraries
 
     To learn about premium storage account limits, see [Scalability and performance targets](#scalability-and-performance-targets).
 

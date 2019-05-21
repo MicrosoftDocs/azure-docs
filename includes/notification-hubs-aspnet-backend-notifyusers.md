@@ -50,7 +50,7 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
     * Select an app service plan that you've already created.
     * Select **Create a new app service plan**, and then create one.
 
-  You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
+   You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
 
     ![The Configure Microsoft Azure Web App window][B5]
 
@@ -79,9 +79,9 @@ In this section, you create a new message-handler class named **AuthenticationTe
    * The request uses *basic* authentication.
    * The user name string and the password string are the same string.
 
-  Otherwise, the request is rejected. This authentication is not a true authentication and authorization approach. It is only a simple example for this tutorial.
+   Otherwise, the request is rejected. This authentication is not a true authentication and authorization approach. It is only a simple example for this tutorial.
 
-  If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+   If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler

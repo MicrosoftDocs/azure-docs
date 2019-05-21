@@ -294,8 +294,8 @@ Use the following steps to register the client app.
     - Select **Save** to generate the key.
     - Under **VALUE**, copy the key.
 
-     >[!Important]
-     >You won’t be able to see the key value after you exit the **Keys** form.
+      >[!Important]
+      >You won’t be able to see the key value after you exit the **Keys** form.
 
     ![Key value form](./media/stclient-create-key.png)
 

@@ -95,11 +95,11 @@ After the disk is restored, use the template that was generated as part of the r
     - [Learn more](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) about deploying resources from a custom template.
     - [Learn more](../azure-resource-manager/resource-group-authoring-templates.md) about authoring templates.
 
-  ![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
+   ![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
 4. Enter the custom values for the VM, accept the **Terms and Conditions** and click **Purchase**.
 
-  ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template1.png)
+   ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
 
 ## Replace existing disks

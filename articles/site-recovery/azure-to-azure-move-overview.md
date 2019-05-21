@@ -19,7 +19,7 @@ This tutorial describes different scenarios in which you'd want to move your VMs
 In this tutorial, you will learn about:
 
 > [!div class="checklist"]
-
+> 
 > * Reasons to move VMs
 > * Typical architectures
 > * Moving VMs as is to a target region
@@ -94,8 +94,8 @@ Based on the [architectures](#typical-architectures-for-a-multi-tier-deployment)
 ## Next steps
 
 > [!div class="nextstepaction"]
-
+> 
 > * [Move Azure VMs to another region](azure-to-azure-tutorial-migrate.md)
-
+> 
 > * [Move Azure VMs into Availability Zones](move-azure-vms-avset-azone.md)
 

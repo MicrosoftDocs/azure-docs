@@ -50,10 +50,10 @@ A Microsoft account, e.g. *\@outlook.com or \@live.com*, is used to access many 
 
 [! IMPORTANT] Please note that a Microsoft account associated with your work email will not allow you to access the portal.
 
->[!Note]
->If you already have a Microsoft account, review the [Guidelines for creating a Microsoft ID to manage a marketplace account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) to determine if it can be used for marketplace publishing. 
-
->Users with an Azure Active Directory federated corporate account should read [this article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) before attempting to create or use your existing Microsoft Account.
+> [!Note]
+> If you already have a Microsoft account, review the [Guidelines for creating a Microsoft ID to manage a marketplace account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) to determine if it can be used for marketplace publishing. 
+> 
+> Users with an Azure Active Directory federated corporate account should read [this article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) before attempting to create or use your existing Microsoft Account.
 
 *	For help creating or managing your Microsoft account, visit the [Microsoft account help support pages](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

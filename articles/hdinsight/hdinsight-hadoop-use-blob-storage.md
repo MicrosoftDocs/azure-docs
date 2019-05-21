@@ -192,7 +192,7 @@ example/jars/hadoop-mapreduce-examples.jar
 ### <a name="access-blobs-using-azure-powershell"></a> Use Azure PowerShell
 
 > [!NOTE]
-
+> 
 > The commands in this section provide a basic example of using PowerShell to access data stored in blobs. For a more full-featured example that is customized for working with HDInsight, see the [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
 
 Use the following command to list the blob-related cmdlets:

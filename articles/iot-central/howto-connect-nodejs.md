@@ -36,7 +36,7 @@ Add the following telemetry in the **Measurements** page:
 | Pressure     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  The data type of the telemetry measurement is a floating point number.
+>   The data type of the telemetry measurement is a floating point number.
 
 Enter field names exactly as shown in the table into the device template. If the field names do not match the property names in the corresponding device code, the telemetry cannot be displayed in the application.
 
@@ -49,7 +49,7 @@ Add the following state in the **Measurements** page:
 | Fan Mode     | fanmode     | 1       | Running      | 0       | Stopped      |
 
 > [!NOTE]
-  The data type of the State measurement is string.
+>   The data type of the State measurement is string.
 
 Enter field names exactly as shown in the table into the device template. If the field names do not match the property names in the corresponding device code, the state cannot be displayed in the application.
 
@@ -62,7 +62,7 @@ Add the following event in the **Measurements** page:
 | Overheating  | overheat    | Error    |
 
 > [!NOTE]
-  The data type of the Event measurement is string.
+>   The data type of the Event measurement is string.
 
 ### Device properties
 

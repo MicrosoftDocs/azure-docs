@@ -35,7 +35,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with InsideView, you need the following items:
 
 - An Azure AD subscription
-- A InsideView single sign-on enabled subscription
+- An InsideView single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -88,7 +88,7 @@ To configure and test Azure AD single sign-on with InsideView, you need to compl
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a InsideView test user](#creating-a-insideview-test-user)** - to have a counterpart of Britta Simon in InsideView that is linked to the Azure AD representation of user.
+1. **[Creating an InsideView test user](#creating-a-insideview-test-user)** - to have a counterpart of Britta Simon in InsideView that is linked to the Azure AD representation of user.
 1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -188,7 +188,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a InsideView test user
+### Creating an InsideView test user
 
 To enable Azure AD users to log in to InsideView, they must be provisioned in to InsideView. In the case of InsideView, provisioning is a manual task.
 

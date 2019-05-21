@@ -143,7 +143,7 @@ Site Recovery creates default settings and replication policy for the target reg
 1. Click **Settings** to view the target and replication settings.
 2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability**.
 
-  ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 3. Customize target settings as summarized in the table.

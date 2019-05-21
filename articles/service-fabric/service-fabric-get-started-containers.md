@@ -149,7 +149,7 @@ If that command does not return anything, run the following command and inspect 
 docker inspect my-web-site
 ```
 
-Connect to the running container. Open a web browser pointing to the IP address returned, for example "http://172.31.194.61". You should see the heading "Hello World!" display in the browser.
+Connect to the running container. Open a web browser pointing to the IP address returned, for example "<http://172.31.194.61>". You should see the heading "Hello World!" display in the browser.
 
 To stop your container, run:
 

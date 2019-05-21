@@ -193,7 +193,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
 
 10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **my admin**.
 
-   ![Create a database in pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
+    ![Create a database in pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 11. Select **Save** to create a new blank database.
 

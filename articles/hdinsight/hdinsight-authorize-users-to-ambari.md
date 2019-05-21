@@ -48,24 +48,24 @@ Ambari comes with view instances for [Apache Hive](https://hive.apache.org/) and
 **Grant permission to these groups**
     ![Grant permission to these groups](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
 
-4. To add a user, select the **Add User** button.
+1. To add a user, select the **Add User** button.
 
-    * Start typing the user name and you will see a dropdown list of previously defined names.
+   * Start typing the user name and you will see a dropdown list of previously defined names.
 
-    ![User autocompletes](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![User autocompletes](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
 
-    * Select, or finish typing, the user name. To add this user name as a new user, select the **New** button.
+   * Select, or finish typing, the user name. To add this user name as a new user, select the **New** button.
 
-    * To save your changes, select the **blue checkbox**.
+   * To save your changes, select the **blue checkbox**.
 
-    ![User entered](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![User entered](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
 
-5. To add a group, select the **Add Group** button.
+1. To add a group, select the **Add Group** button.
 
-    * Start typing the group name. The process of selecting an existing group name, or adding a new group, is the same as for adding users.
-    * To save your changes, select the **blue checkbox**.
+   * Start typing the group name. The process of selecting an existing group name, or adding a new group, is the same as for adding users.
+   * To save your changes, select the **blue checkbox**.
 
-    ![Group entered](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![Group entered](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
 
 Adding users directly to a view is useful when you want to assign permissions to a user to use that view, but do not want them to be a member of a group that has additional permissions. To reduce the amount of administrative overhead, it may be simpler to assign permissions to groups.
 

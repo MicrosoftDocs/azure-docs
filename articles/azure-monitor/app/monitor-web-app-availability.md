@@ -87,7 +87,7 @@ Use Visual Studio Enterprise to record a web session.
 
     ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
+   * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
 
 2. Open the .webtest file and start recording.
 

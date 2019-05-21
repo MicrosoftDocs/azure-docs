@@ -19,8 +19,8 @@ Computer Vision services require special subscription keys. Every call to the Co
 
 To sign up for subscription keys, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). It's free to sign up. Pricing for these services is subject to change.
 
->[!NOTE]
-Your subscription keys are valid for only one of these [Microsoft Azure Regions](https://azure.microsoft.com/regions/). 
+> [!NOTE]
+> Your subscription keys are valid for only one of these [Microsoft Azure Regions](https://azure.microsoft.com/regions/). 
 
 | Region | Address |
 |---|---|

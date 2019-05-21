@@ -208,9 +208,9 @@ The objective of this section is to create a user called Britta Simon in xMatter
 
 1. Log in to your **XMatters OnDemand** tenant.
 
-1.  Click **Users** tab. and then click **Add User**.
+1. Click **Users** tab. and then click **Add User**.
 
-    ![Users](./media/xmatters-ondemand-tutorial/IC781048.png "Users")
+   ![Users](./media/xmatters-ondemand-tutorial/IC781048.png "Users")
 
 1. In the **Add a User** section, perform the following steps:
 

@@ -26,6 +26,7 @@ Azure IoT Edge needs a container engine to launch modules since they are impleme
 
 <br>
 <center>
+
 ![Moby as container runtime](./media/support/only-moby-for-production.png)
 </center>
 
@@ -42,11 +43,13 @@ The family of the host OS must always match the family of the guest OS used insi
 
 <br>
 <center>
+
 ![Host OS matches guest OS](./media/support/edge-on-device.png)
 </center>
 
 ### Tier 1
 Generally available
+
 | Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Raspbian-stretch | No | Yes|
@@ -54,6 +57,7 @@ Generally available
 | Ubuntu Server 18.04 | Yes | No |
 
 Public preview
+
 | Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core build 17763 | Yes | No |
@@ -81,6 +85,7 @@ Azure IoT Edge can be run in virtual machines. This is common when customers wan
 
 <br>
 <center>
+
 ![Azure IoT Edge in a VM](./media/support/edge-on-vm.png)
 </center>
 

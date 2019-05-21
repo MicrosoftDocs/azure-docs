@@ -172,7 +172,7 @@ To get logs, take the following steps:
     ![Generated logs](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. Retrieve the logs in the folders that were created by the command. The command creates new folders and time stamps them.
+1. Retrieve the logs in the folders that were created by the command. The command creates new folders and time stamps them.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log

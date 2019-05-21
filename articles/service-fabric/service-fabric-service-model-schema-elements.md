@@ -4924,7 +4924,7 @@ Describes a Microsoft Azure Service Fabric Node.
 
 <a id="NodeElementInfrastructureNodeTypeComplexTypeDefinedInNodeListelement"></a>
 ## Node element (type InfrastructureNodeType) 
-Describes a Infrastructure information needed.
+Describes an Infrastructure information needed.
 
 |Attribute|Value|
 |---|---|

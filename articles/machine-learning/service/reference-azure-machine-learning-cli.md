@@ -87,7 +87,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
     
-* Attach an AKS cluster
++ Attach an AKS cluster
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace

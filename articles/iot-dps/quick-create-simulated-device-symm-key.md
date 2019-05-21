@@ -110,15 +110,15 @@ The SDK includes the sample code for a simulated device. This simulated device w
 
 3. On **Add enrollment**, enter the following information, and click the **Save** button.
 
-    - **Mechanism**: Select **Symmetric Key** as the identity attestation *Mechanism*.
+   - **Mechanism**: Select **Symmetric Key** as the identity attestation *Mechanism*.
 
-    - **Auto Generate Keys**: Check this box.
+   - **Auto Generate Keys**: Check this box.
 
-    - **Registration ID**: Enter a registration ID to identify the enrollment. Use only lowercase alphanumeric and dash ('-') characters. For example, `symm-key-device-007`.
+   - **Registration ID**: Enter a registration ID to identify the enrollment. Use only lowercase alphanumeric and dash ('-') characters. For example, `symm-key-device-007`.
 
-    - **IoT Hub Device ID:** Enter a device identifier. For example, **device-007**.
+   - **IoT Hub Device ID:** Enter a device identifier. For example, **device-007**.
 
-    ![Add individual enrollment for symmetric key attestation in the portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Add individual enrollment for symmetric key attestation in the portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. Once you saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Your symmetric key device enrollment appears as **symm-key-device-007** under the *Registration ID* column in the *Individual Enrollments* tab. 
 

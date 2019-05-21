@@ -58,7 +58,7 @@ Start by creating a Batch AI workspace to organize your Batch AI resources. A wo
 
 3. Enter values for **Workspace name** and **Resource group**. If you want to, select different options for the **Subscription** and **Location** for the workspace. Select **Create Workspace**.
 
-  ![Create Batch AI workspace](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Create Batch AI workspace](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 When the **Deployment succeeded** message appears, go the resource you created and select the workspace.
 
@@ -72,7 +72,7 @@ A Batch AI file server is a single-node NFS, which can be automatically mounted 
 
 3. Enter an **Admin username** and copy the contents of your SSH public key file to **SSH key**. Accept defaults for the remaining values and select **Create File server**.
 
-  ![Create Batch AI file server](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Create Batch AI file server](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 It takes a few minutes to deploy the file server.
 

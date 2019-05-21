@@ -68,7 +68,7 @@ When running JavaScript functions on an App Service plan, you should choose a pl
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-###<a name="always-on"></a> Always On
+### <a name="always-on"></a> Always On
 
 If you run on an App Service plan, you should enable the **Always on** setting so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. Always on is available only on an App Service plan. On a Consumption plan, the platform activates function apps automatically.
 

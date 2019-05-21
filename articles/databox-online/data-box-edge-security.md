@@ -117,15 +117,15 @@ For security reasons, many datacenters require key rotation. We recommend that y
 The Data Box Edge/ Data Box Gateway service collects personal information in the following key instances:
 
 - **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
-    - Contact name
-    - Phone number
-    - Email
-    - Street address
-    - City
-    - Zip/postal code
-    - State
-    - Country/Province/Region
-    - Shipping tracking number
+  - Contact name
+  - Phone number
+  - Email
+  - Street address
+  - City
+  - Zip/postal code
+  - State
+  - Country/Province/Region
+  - Shipping tracking number
 
     The order details are encrypted and stored in the service. The service retains the information until you delete the resource or order explicitly. Moreover, the deletion of resource and the corresponding order is blocked from the time the device is shipped until the device returns to Microsoft.
 

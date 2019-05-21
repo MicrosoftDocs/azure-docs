@@ -66,12 +66,12 @@ Create the vault as follows:
     
 3. Set the vault context with [Set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext).
 
-    - The vault context is the type of data protected in the vault.
-    - Once the context is set, it applies to all subsequent cmdlets
+   - The vault context is the type of data protected in the vault.
+   - Once the context is set, it applies to all subsequent cmdlets
 
-    ```powershell
-    Get-AzRecoveryServicesVault -Name "myRSVault" | Set-AzRecoveryServicesVaultContext
-    ```
+     ```powershell
+     Get-AzRecoveryServicesVault -Name "myRSVault" | Set-AzRecoveryServicesVaultContext
+     ```
 
 ## Back up Azure VMs
 

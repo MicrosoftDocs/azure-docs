@@ -32,7 +32,7 @@ To assist you in these modifications, the portal offers the **Compare** and **Hi
 
 ## Unpermitted changes to IoT Edge module offer or SKU
 
-There are attributes of a IoT Edge module offer or SKU that can't be changed after the  offer is live on the Azure Marketplace. You can't change the following settings:
+There are attributes of an IoT Edge module offer or SKU that can't be changed after the  offer is live on the Azure Marketplace. You can't change the following settings:
 
 -  **Offer ID** and **Publisher ID** of the offer
 -  **SKU ID** of existing SKUs
@@ -45,7 +45,7 @@ The following update operations are common.
 
 ### Update the IoT Edge module image version for a SKU
 
-It's common for a IoT Edge module image to be periodically updated with security patches, additional features, and so on. In this scenario, you want to update the IoT Edge module image that your SKU references by using the following steps:
+It's common for an IoT Edge module image to be periodically updated with security patches, additional features, and so on. In this scenario, you want to update the IoT Edge module image that your SKU references by using the following steps:
 
 1.  Sign into the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
@@ -69,7 +69,7 @@ Use the following steps to make a new SKU available for your offer:
 
 3.  Under the **SKUs** tab, select **Add new SKU** and provide a **SKU ID** in the pop-up window.
 
-4.  Republish the IoT Edge module using the steps described in [Publish a IoT Edge module to Azure Marketplace](./cpp-publish-offer.md).
+4.  Republish the IoT Edge module using the steps described in [Publish an IoT Edge module to Azure Marketplace](./cpp-publish-offer.md).
 
 5.  Select **Publish** to start the workflow to publish your new SKU.
 
@@ -82,7 +82,7 @@ Use the following steps to update the marketplace metadata associated with your 
 
 2.  Under **All offers**, find the offer you would like to update.
 
-3.  Go to the **Marketplace** tab. Use the  instructions in the [Publish a IoT Edge module to Azure Marketplace](./cpp-publish-offer.md) article to make metadata changes.
+3.  Go to the **Marketplace** tab. Use the  instructions in the [Publish an IoT Edge module to Azure Marketplace](./cpp-publish-offer.md) article to make metadata changes.
 
 4.  Select **Publish** to start the workflow to publish your changes.
 

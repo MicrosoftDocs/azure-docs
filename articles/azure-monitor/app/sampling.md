@@ -23,8 +23,8 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 
 ## In brief:
 * Sampling retains 1 in *n* records and discards the rest. For example, it might retain one in five events, a sampling rate of 20%. 
-* Adaptive Sampling is enabled by default in all the latest version of Asp.Net and Asp.Net Core Software Development Kits (SDKs).
-* You can also set sampling manually. This can be configured in the portal on the *Usage and estimated costs page*.  In the ASP.NET SDK in the ApplicationInsights.config file. In the Asp.Net Core SDK via code. Or in the Java SDK in the ApplicationInsights.xml file.
+* Adaptive Sampling is enabled by default in all the latest version of Asp.NET and Asp.NET Core Software Development Kits (SDKs).
+* You can also set sampling manually. This can be configured in the portal on the *Usage and estimated costs page*.  In the ASP.NET SDK in the ApplicationInsights.config file. In the Asp.NET Core SDK via code. Or in the Java SDK in the ApplicationInsights.xml file.
 * If you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same OperationId value.
 * The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". `itemCount==1`when sampling is not in operation.
 * If you write Analytics queries, you should [take account of sampling](../../azure-monitor/log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
@@ -245,7 +245,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     </TelemetryProcessors>
    
     ```
-### Alternative: enable fixed-rate sampling in your server code
+   ### Alternative: enable fixed-rate sampling in your server code
 	
 	Instead of setting the sampling parameter in the .config file, you can programmatically set these values. 
 
@@ -285,7 +285,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 	services.AddApplicationInsightsTelemetry(aiOptions);
 	//...
 	}
-	```
+    ```
 
 2. **Enable the fixed-rate sampling module.** Changes can be made in the method ```Configure``` as shown in below snippet:
    
@@ -307,7 +307,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 	// ...
 	}
 
-	```
+    ```
 
 ### Configuring fixed-rate sampling in JAVA ###
 

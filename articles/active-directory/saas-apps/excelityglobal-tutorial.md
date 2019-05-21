@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with ExcelityGlobal, perform the following 
     **For Sandbox Environment** : `https://s6.excelityglobal.com/ACS`
 
 5. Your ExcelityGlobal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. ExcelityGlobal application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
- 
+ 
 	![image](common/edit-attribute.png)
 
 6. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.

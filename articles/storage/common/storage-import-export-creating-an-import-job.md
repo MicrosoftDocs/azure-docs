@@ -13,17 +13,17 @@ ms.subservice: common
 
 Creating an import job for the Microsoft Azure Import/Export service using the REST API involves the following steps:
 
--   Preparing drives with the Azure Import/Export Tool.
+- Preparing drives with the Azure Import/Export Tool.
 
--   Obtaining the location to which to ship the drive.
+- Obtaining the location to which to ship the drive.
 
--   Creating the import job.
+- Creating the import job.
 
--   Shipping the drives to Microsoft via a supported carrier service.
+- Shipping the drives to Microsoft via a supported carrier service.
 
--   Updating the import job with the shipping details.
+- Updating the import job with the shipping details.
 
- See [Using the Microsoft Azure Import/Export service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the [Azure  portal](https://portal.azure.com/) to create and manage import and export jobs.
+  See [Using the Microsoft Azure Import/Export service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the [Azure  portal](https://portal.azure.com/) to create and manage import and export jobs.
 
 ## Preparing drives with the Azure Import/Export Tool
 
@@ -33,21 +33,21 @@ Below is a brief overview of drive preparation. Refer to the [Azure Import-Expor
 
 Preparing your drive involves:
 
--   Identifying the data to be imported.
+- Identifying the data to be imported.
 
--   Identifying the destination blobs in Windows Azure Storage.
+- Identifying the destination blobs in Windows Azure Storage.
 
--   Using the Azure Import/Export Tool to copy your data to one or more hard drives.
+- Using the Azure Import/Export Tool to copy your data to one or more hard drives.
 
- The Azure Import/Export Tool will also generate a manifest file for each of the drives as it is prepared. A manifest file contains:
+  The Azure Import/Export Tool will also generate a manifest file for each of the drives as it is prepared. A manifest file contains:
 
--   An enumeration of all the files intended for upload and the mappings from these files to blobs.
+- An enumeration of all the files intended for upload and the mappings from these files to blobs.
 
--   Checksums of the segments of each file.
+- Checksums of the segments of each file.
 
--   Information about the metadata and properties to associate with each blob.
+- Information about the metadata and properties to associate with each blob.
 
--   A listing of the action to take if a blob that is being uploaded has the same name as an existing blob in the container. Possible options are: a) overwrite the blob with the file, b) keep the existing blob and skip uploading the file, c) append a suffix to the name so that it does not conflict with other files.
+- A listing of the action to take if a blob that is being uploaded has the same name as an existing blob in the container. Possible options are: a) overwrite the blob with the file, b) keep the existing blob and skip uploading the file, c) append a suffix to the name so that it does not conflict with other files.
 
 ## Obtaining your shipping location
 

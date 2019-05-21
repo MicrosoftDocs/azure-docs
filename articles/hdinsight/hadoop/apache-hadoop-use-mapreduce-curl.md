@@ -103,10 +103,10 @@ Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on an Ap
     The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
    * **-d**: `-G` is not used, so the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
-    * **user.name**: The user who is running the command
-    * **jar**: The location of the jar file that contains class to be ran
-    * **class**: The class that contains the MapReduce logic
-    * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
+     * **user.name**: The user who is running the command
+     * **jar**: The location of the jar file that contains class to be ran
+     * **class**: The class that contains the MapReduce logic
+     * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
    This command should return a job ID that can be used to check the status of the job:
 

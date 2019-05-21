@@ -108,20 +108,20 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
 
 ### Configure the TelcoGenerator app
 
-1.	In the editor where you copied the connection string, make a note of the `EntityPath` value, and then remove the `EntityPath` pair (don't forget to remove the semicolon that precedes it). 
+1. In the editor where you copied the connection string, make a note of the `EntityPath` value, and then remove the `EntityPath` pair (don't forget to remove the semicolon that precedes it). 
 
-2.	In the folder where you unzipped the TelcoGenerator.zip file, open the telcodatagen.exe.config file in an editor. (There is more than one .config file, so be sure that you open the right one.)
+2. In the folder where you unzipped the TelcoGenerator.zip file, open the telcodatagen.exe.config file in an editor. (There is more than one .config file, so be sure that you open the right one.)
 
-3.	In the `<appSettings>` element:
+3. In the `<appSettings>` element:
 
-    * Set the value of the `EventHubName` key to the event hub name (that is, to the value of the entity path).
-    * Set the value of the `Microsoft.ServiceBus.ConnectionString` key to the connection string. 
+   * Set the value of the `EventHubName` key to the event hub name (that is, to the value of the entity path).
+   * Set the value of the `Microsoft.ServiceBus.ConnectionString` key to the connection string. 
 
-    The `<appSettings>` section will look like the following example. (For clarity, the lines are wrapped and some characters have been removed from the authorization token.)
+   The `<appSettings>` section will look like the following example. (For clarity, the lines are wrapped and some characters have been removed from the authorization token.)
 
    ![TelcoGenerator config file shows event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.	Save the file. 
+4. Save the file. 
 
 ### Start the app
 1.	Open a command window and change to the folder where the TelcoGenerator app is unzipped.

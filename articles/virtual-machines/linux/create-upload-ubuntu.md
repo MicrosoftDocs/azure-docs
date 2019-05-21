@@ -118,8 +118,8 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	>[!Note]
-	The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
+   > [!Note]
+   >  The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
 For Ubuntu 18.04/18.10, update the Azure Data Source, edit this: /etc/cloud/cloud.cfg.d/90-azure.cfg, add this code to the end of the file:
 
@@ -131,13 +131,13 @@ datasource:
      agent_command: [service, walinuxagent, start]
 ```
 
-8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-9. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+1. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## References
 [Ubuntu hardware enablement (HWE) kernel](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)

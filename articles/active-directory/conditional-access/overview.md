@@ -18,7 +18,7 @@ ms.workload: identity
 ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: calebb
-#Customer intent: As a IT admin, I want to understand conditional access well enough so that I can control how users are accessing my resources.
+#Customer intent: As an IT admin, I want to understand conditional access well enough so that I can control how users are accessing my resources.
 ms.collection: M365-identity-device-management
 ---
 

@@ -193,7 +193,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-MongoDB wire protocol does not request units. To create a new collection with throughput, use the Azure portal or SQL API.
+> MongoDB wire protocol does not request units. To create a new collection with throughput, use the Azure portal or SQL API.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

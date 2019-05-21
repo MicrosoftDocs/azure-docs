@@ -649,11 +649,11 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 
 Remove the # signs if you want to run the additional functions.
 
-9. If your HDinsight cluster is version 2.1, replace "https://$clusterName.azurehdinsight.net:443/oozie/v2/" with "https://$clusterName.azurehdinsight.net:443/oozie/v1/". HDInsight cluster version 2.1 does not supports version 2 of the web services.
-10. Click **Run Script** or press **F5** to run the script. The output will be similar to:
+1. If your HDinsight cluster is version 2.1, replace "https://$clusterName.azurehdinsight.net:443/oozie/v2/" with "https://$clusterName.azurehdinsight.net:443/oozie/v1/". HDInsight cluster version 2.1 does not supports version 2 of the web services.
+1. Click **Run Script** or press **F5** to run the script. The output will be similar to:
 
-     ![Tutorial run workflow output][img-runworkflow-output]
-11. Connect to your SQL Database to see the exported data.
+    ![Tutorial run workflow output][img-runworkflow-output]
+1. Connect to your SQL Database to see the exported data.
 
 **To check the job error log**
 

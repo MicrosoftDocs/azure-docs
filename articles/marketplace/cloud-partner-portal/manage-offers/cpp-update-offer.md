@@ -64,19 +64,19 @@ To implement these changes, follow the following steps.
 
 For Azure Marketplace offers:
 
-2. Select the **SKUs** tab.  Select the SKU to modify.
-3. Click the **Select Countries** button under the **Country/Region availability** field.
-4. In the region availability dialog, add or remove the regions for this SKU.
+1. Select the **SKUs** tab.  Select the SKU to modify.
+1. Click the **Select Countries** button under the **Country/Region availability** field.
+1. In the region availability dialog, add or remove the regions for this SKU.
 
 For AppSource offers:
 
-2. Select the **Storefront Details** tab.
-3. Next to the **Supported countries/regions** label, click **Supported countries/regions**. 
-4. In the supported countries/regions dialog, add or remove the regions for this offer.
+1. Select the **Storefront Details** tab.
+1. Next to the **Supported countries/regions** label, click **Supported countries/regions**. 
+1. In the supported countries/regions dialog, add or remove the regions for this offer.
 
 For either marketplace:
 
-5. Click **Publish** to start the publishing process. 
+1. Click **Publish** to start the publishing process. 
 
 If a SKU is being made available in a new region, you have the ability to specify pricing for that particular region via the **Export Pricing Data** functionality. If you are adding a region back that was previously available, you cannot update its pricing because pricing changes are not permitted.
 

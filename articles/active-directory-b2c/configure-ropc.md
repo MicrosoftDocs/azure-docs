@@ -33,15 +33,15 @@ The following flows are not supported:
 
 ##  Create a resource owner user flow
 
-1.	Sign in to the Azure portal as the global administrator of your Azure AD B2C tenant.
-2.	To switch to your Azure AD B2C tenant, select the B2C directory in the upper-right corner of the portal.
-3.	Click **User flows**, and select **New user flow**.
-4.	Click the **All** tab and select **Sign in using ROPC**.
-5.	Provide a name for the user flow, such as *ROPC_Auth*.
-6.	Under **Application claims**, click **Show more**.
-7.	Select the application claims that you need for your application, such as Display Name, Email Address, and Identity Provider.
-8.	Select **OK**, and then select **Create**.
-9.	Click **Run user flow**.
+1. Sign in to the Azure portal as the global administrator of your Azure AD B2C tenant.
+2. To switch to your Azure AD B2C tenant, select the B2C directory in the upper-right corner of the portal.
+3. Click **User flows**, and select **New user flow**.
+4. Click the **All** tab and select **Sign in using ROPC**.
+5. Provide a name for the user flow, such as *ROPC_Auth*.
+6. Under **Application claims**, click **Show more**.
+7. Select the application claims that you need for your application, such as Display Name, Email Address, and Identity Provider.
+8. Select **OK**, and then select **Create**.
+9. Click **Run user flow**.
 
    You'll then see an endpoint such as this example:
 

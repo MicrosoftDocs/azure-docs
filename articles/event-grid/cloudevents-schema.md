@@ -21,6 +21,8 @@ CloudEvents is being built by several [collaborators](https://github.com/cloudev
 
 This article describes how to use the CloudEvents schema with Event Grid.
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 ## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]

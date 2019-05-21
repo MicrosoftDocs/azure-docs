@@ -128,7 +128,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 ## Common errors when working with runbooks
 
-###<a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
+### <a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
 
 #### Issue
 

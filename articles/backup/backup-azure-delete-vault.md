@@ -122,11 +122,11 @@ This procedure provides an example that shows you how to remove backup data from
 
 3. In **Stop Backup** > **Choose an option**, select **Delete Backup Data**.
 4. Type the name of the item, and click **Stop backup**. 
-    - This verifies that you want to delete the item.
-    - The **Stop Backup** button activates after you verify.
-    - If you retain and don't delete the data, you won't be able to delete the vault.
+   - This verifies that you want to delete the item.
+   - The **Stop Backup** button activates after you verify.
+   - If you retain and don't delete the data, you won't be able to delete the vault.
 
-    ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+     ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
 5. Optionally provide a reason why you're deleting the data, and add comments.
 6. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
@@ -149,11 +149,11 @@ This procedure provides an example that shows you how to remove backup data from
 
 3. . In **Stop Backup** > **Choose an option**, select **Delete Backup Data**.
 4. Type the name of the item, and click **Stop backup**. 
-    - This verifies that you want to delete the item.
-    - The **Stop Backup** button activates after you verify.
-    - If you retain and don't delete the data, you won't be able to delete the vault.
+   - This verifies that you want to delete the item.
+   - The **Stop Backup** button activates after you verify.
+   - If you retain and don't delete the data, you won't be able to delete the vault.
 
-    ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+     ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
 5. Optionally provide a reason why you're deleting the data, and add comments.
 6. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
@@ -181,11 +181,11 @@ This procedure provides an example that shows you how to remove backup data from
     ![delete the selected server](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
 6. On the **Delete** menu, type the name of the item, and click **Delete**.
-    - This verifies that you want to delete the item.
-    - The **Stop Backup** button activates after you verify.
-    - If you retain and don't delete the data, you won't be able to delete the vault.
+   - This verifies that you want to delete the item.
+   - The **Stop Backup** button activates after you verify.
+   - If you retain and don't delete the data, you won't be able to delete the vault.
 
-    ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+     ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
 7. Optionally provide a reason why you're deleting the data, and add comments.
 8. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).

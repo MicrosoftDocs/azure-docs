@@ -27,7 +27,7 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 > [!NOTE]
 > Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the Usage location property on the user.
-
+> 
 > For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, we recommend that you always set usage location as part of your user creation flow in Azure AD (e.g. via AAD Connect configuration) - that ensures the result of license assignment is always correct and users do not receive services in locations that are not allowed.
 
 ## Step 1: Assign the required licenses

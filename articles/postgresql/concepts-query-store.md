@@ -30,8 +30,8 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 4. Set the value to `TOP` and **Save**.
 
 To enable wait statistics in your Query Store: 
-5. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
-6. Set the value to `ALL` and **Save**.
+1. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
+1. Set the value to `ALL` and **Save**.
 
 
 Alternatively you can set these parameters using the Azure CLI.

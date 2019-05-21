@@ -38,16 +38,16 @@ There are several common reasons why you might not see your data in the [Azure T
 
 - Your event source key is missing a required permission.
 
-    * For an IoT hub, you need to provide the key that has **service connect** permission.
+  * For an IoT hub, you need to provide the key that has **service connect** permission.
 
     ![Configuration][3]
 
-    * As shown in the preceding image, both of the policies **iothubowner** and **service** work because they have **service connect** permission.
-    * For an event hub, you need to provide the key that has **Listen** permission.
+  * As shown in the preceding image, both of the policies **iothubowner** and **service** work because they have **service connect** permission.
+  * For an event hub, you need to provide the key that has **Listen** permission.
   
     ![Permissions][4]
 
-    * As shown in the preceding image, both of the **read** and **manage** policies work because they have **Listen** permission.
+  * As shown in the preceding image, both of the **read** and **manage** policies work because they have **Listen** permission.
 
 - Your consumer group provided isn't exclusive to Time Series Insights.
 

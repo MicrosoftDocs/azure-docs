@@ -47,6 +47,7 @@ The Cluster Resource Manager has to track the requirements of each service and t
 Let’s look at the following diagram:
 
 <center>
+
 ![Resource Balancer Architecture][Image1]
 </center>
 
@@ -55,6 +56,7 @@ During runtime, there are many changes that could happen. For example, let’s s
 Let’s look at the following diagram and see what happens next. Let’s say that the Cluster Resource Manager determines that changes are necessary. It coordinates with other system services (in particular the Failover Manager) to make the necessary changes. Then the necessary commands are sent to the appropriate nodes (4). For example, let's say the Resource Manager noticed that Node5 was overloaded, and so decided to move service B from Node5 to Node4. At the end of the reconfiguration (5), the cluster looks like this:
 
 <center>
+
 ![Resource Balancer Architecture][Image2]
 </center>
 

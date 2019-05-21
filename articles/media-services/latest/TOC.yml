@@ -73,7 +73,8 @@
         href: filters-concept.md
     - name: Content protection
       items:
-      - name: Overview      
+      - name: Streaming protocols and encryption types
+        displayName: Dynamic encryption      
         href: content-protection-overview.md  
       - name: Multi-DRM system with access control
         href: design-multi-drm-system-with-access-control.md  

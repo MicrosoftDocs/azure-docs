@@ -132,7 +132,7 @@ The configures are different depending on whether the account is used as the def
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Add service principal to HDInsight cluster")
 
-  By default, __READ__, __WRITE__, AND __EXECUTE__ are all selected.
+   By default, __READ__, __WRITE__, AND __EXECUTE__ are all selected.
 
 3. Click **Select** on the bottom of the page.
 4. Click **Run** to assign permission.

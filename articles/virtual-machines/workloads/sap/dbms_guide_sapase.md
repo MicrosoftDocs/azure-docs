@@ -398,8 +398,6 @@ Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azur
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
 
 In this case you need to make sure to:
 
@@ -555,8 +553,6 @@ Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azur
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
 
 In this case you need to make sure to:
 

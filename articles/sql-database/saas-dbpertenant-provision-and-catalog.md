@@ -20,7 +20,7 @@ In this tutorial, you learn how to provision and catalog SaaS patterns. You also
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Provision a single new tenant.
 > * Provision a batch of additional tenants.
 
@@ -161,7 +161,7 @@ With the auto-provisioning pattern, a client application or script submits a pro
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Provision a single new tenant.
 > * Provision a batch of additional tenants.
 > * Step into the details of provisioning tenants and registering them into the catalog.

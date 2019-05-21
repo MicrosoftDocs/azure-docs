@@ -232,7 +232,8 @@ You only have an access token for Azure Resource Manager - you need a new access
 <a id="app-azure-ad-graph" />
 
 ### Get app-only access token for Azure AD Graph API
-To authenticate your app and get a token to Azure AD Graph API, issue a Client Credential Grant OAuth2.0 flow token request to Azure AD token endpoint (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+
+To authenticate your app and get a token to Azure AD Graph API, issue a Client Credential Grant OAuth2.0 flow token request to Azure AD token endpoint (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) method of the ASP.net MVC sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
 

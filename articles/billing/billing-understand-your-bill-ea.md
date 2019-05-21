@@ -1,6 +1,6 @@
 ---
 title: Understand your bill for Azure Enterprise | Microsoft Docs
-description: Learn how to read and understand your usage and bill for Azure customers with a Enterprise Agreement
+description: Learn how to read and understand your usage and bill for Azure customers with an Enterprise Agreement
 services: ''
 documentationcenter: ''
 author: adpick

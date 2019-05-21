@@ -58,4 +58,4 @@ Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To d
 
 Now that you have a Microsoft app, you can complete one of the v2.0 quickstart2. Here are a few recommendations:
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](~/includes/active-directory-v2-quickstart-table.md)]

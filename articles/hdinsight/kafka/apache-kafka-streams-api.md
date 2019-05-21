@@ -195,13 +195,13 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
 
     The topics are used for the following purposes:
 
-    * `test`: This topic is where records are received. The streaming application reads from here.
-    * `wordcounts`: This topic is where the streaming application stores its output.
-    * `RekeyedIntermediateTopic`: This topic is used to repartition data as the count is updated by the `countByKey` operator.
-    * `wordcount-example-Counts-changelog`: This topic is a state store used by the `countByKey` operation
+   * `test`: This topic is where records are received. The streaming application reads from here.
+   * `wordcounts`: This topic is where the streaming application stores its output.
+   * `RekeyedIntermediateTopic`: This topic is used to repartition data as the count is updated by the `countByKey` operator.
+   * `wordcount-example-Counts-changelog`: This topic is a state store used by the `countByKey` operation
 
-    > [!IMPORTANT]  
-    > Kafka on HDInsight can also be configured to automatically create topics. For more information, see the [Configure automatic topic creation](apache-kafka-auto-create-topics.md) document.
+     > [!IMPORTANT]  
+     > Kafka on HDInsight can also be configured to automatically create topics. For more information, see the [Configure automatic topic creation](apache-kafka-auto-create-topics.md) document.
 
 ## Run the code
 

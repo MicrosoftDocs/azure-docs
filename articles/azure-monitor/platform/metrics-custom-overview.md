@@ -163,13 +163,13 @@ During the public preview, the ability to publish custom metrics is available on
 
 |Azure region|Regional endpoint prefix|
 |---|---|
-|East US|https://eastus.monitoring.azure.com/|
-|South Central US|https://southcentralus.monitoring.azure.com/|
-|West Central US|https://westcentralus.monitoring.azure.com/|
-|West US 2|https://westus2.monitoring.azure.com/|
-|Southeast Asia|https://southeastasia.monitoring.azure.com/|
-|North Europe|https://northeurope.monitoring.azure.com/|
-|West Europe|https://westeurope.monitoring.azure.com/|
+|East US| https://eastus.monitoring.azure.com/ |
+|South Central US| https://southcentralus.monitoring.azure.com/ |
+|West Central US| https://westcentralus.monitoring.azure.com/ |
+|West US 2| https://westus2.monitoring.azure.com/ |
+|Southeast Asia| https://southeastasia.monitoring.azure.com/ |
+|North Europe| https://northeurope.monitoring.azure.com/ |
+|West Europe| https://westeurope.monitoring.azure.com/ |
 
 ## Quotas and limits
 Azure Monitor imposes the following usage limits on custom metrics:

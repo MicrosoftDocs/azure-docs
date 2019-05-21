@@ -69,7 +69,7 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
    * `DROP TABLE`: Deletes the table and the data file, in case the table already exists.
 
    * `CREATE EXTERNAL TABLE`: Creates a new "external" table in Hive.
-   External tables store only the table definition in Hive. The data is left in the original location.
+     External tables store only the table definition in Hive. The data is left in the original location.
 
    * `ROW FORMAT`: Shows how the data is formatted. In this case, the fields in each log are separated by a space.
 
@@ -77,8 +77,8 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
    * `SELECT`: Selects a count of all rows where column t4 contains the value [ERROR].
 
-    > [!IMPORTANT]  
-    > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
+     > [!IMPORTANT]  
+     > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
 
 5. To start the query, use the **Execute** button below the worksheet. The button turns orange and the text changes to **Stop**.
 

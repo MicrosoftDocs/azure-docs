@@ -73,12 +73,12 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 	
 4. In the **Specify Amazon S3 connection** page, do the following steps:
 
-    1. Specify the **Access Key ID** value.
-    2. Specify the **Secret Access Key** value.
-    3. Click **Test connection** to validate the settings, then select **Finish**.
-    4. You will see a new connection gets created. Select **Next**.
+   1. Specify the **Access Key ID** value.
+   2. Specify the **Secret Access Key** value.
+   3. Click **Test connection** to validate the settings, then select **Finish**.
+   4. You will see a new connection gets created. Select **Next**.
    
-    ![Specify Amazon S3 account](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![Specify Amazon S3 account](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. In the **Choose the input file or folder** page, browse to the folder and file that you want to copy over. Select the folder/file, select **Choose**:
 

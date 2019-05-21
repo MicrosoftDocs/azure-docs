@@ -11,13 +11,13 @@ A proper SSL certificate ensures that you're sending encrypted information to th
 1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
 2. Use the `Set-HcsCertificate` cmdlet to upload the certificate. When prompted, provide the following parameters:
 
-    - `CertificateFilePath` - Path to the share that contains the certificate file in *.pfx* format.
-    - `CertificatePassword` - A password used to protect the certificate.
-    - `Credentials` - Username and password to access the share that contains the certificate.
+   - `CertificateFilePath` - Path to the share that contains the certificate file in *.pfx* format.
+   - `CertificatePassword` - A password used to protect the certificate.
+   - `Credentials` - Username and password to access the share that contains the certificate.
 
-    The following example shows the usage of this cmdlet:
+     The following example shows the usage of this cmdlet:
 
-    ```
-    Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credentials "Username/Password"
-    ```
+     ```
+     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credentials "Username/Password"
+     ```
 

@@ -118,26 +118,26 @@ Use the following steps to monitor the topology using the Storm UI:
 
     This page provides the following information:
 
-    * **Topology stats** - Basic information on the topology performance, organized into time windows.
+   * **Topology stats** - Basic information on the topology performance, organized into time windows.
 
-        > [!NOTE]  
-        > Selecting a specific time window changes the time window for information displayed in other sections of the page.
+       > [!NOTE]  
+       > Selecting a specific time window changes the time window for information displayed in other sections of the page.
 
-    * **Spouts** - Basic information about spouts, including the last error returned by each spout.
+   * **Spouts** - Basic information about spouts, including the last error returned by each spout.
 
-    * **Bolts** - Basic information about bolts.
+   * **Bolts** - Basic information about bolts.
 
-    * **Topology configuration** - Detailed information about the topology configuration.
+   * **Topology configuration** - Detailed information about the topology configuration.
 
-    This page also provides actions that can be taken on the topology:
+     This page also provides actions that can be taken on the topology:
 
-    * **Activate** - Resumes processing of a deactivated topology.
+   * **Activate** - Resumes processing of a deactivated topology.
 
-    * **Deactivate** - Pauses a running topology.
+   * **Deactivate** - Pauses a running topology.
 
-    * **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. Rebalancing adjusts parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see [Understanding the parallelism of an Apache Storm topology](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+   * **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. Rebalancing adjusts parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see [Understanding the parallelism of an Apache Storm topology](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    * **Kill** - Terminates a Storm topology after the specified timeout.
+   * **Kill** - Terminates a Storm topology after the specified timeout.
 
 3. From this page, select an entry from the **Spouts** or **Bolts** section. Information about the selected component is displayed.
 

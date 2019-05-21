@@ -36,11 +36,11 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
  Capacity data is recorded daily for a storage account’s Blob service, and two table entities are written. One entity provides statistics for user data, and the other provides statistics about the `$logs` blob container used by Storage Analytics. The *$MetricsCapacityBlob* table includes the following statistics:  
 
--   **Capacity**: The amount of storage used by the storage account’s Blob service, in bytes.  
--   **ContainerCount**: The number of blob containers in the storage account’s Blob service.  
--   **ObjectCount**: The number of committed and uncommitted block or page blobs in the storage account’s Blob service.  
+- **Capacity**: The amount of storage used by the storage account’s Blob service, in bytes.  
+- **ContainerCount**: The number of blob containers in the storage account’s Blob service.  
+- **ObjectCount**: The number of committed and uncommitted block or page blobs in the storage account’s Blob service.  
 
- For more information about the capacity metrics, see [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
+  For more information about the capacity metrics, see [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
 
 ## How metrics are stored  
 

@@ -82,11 +82,11 @@ The Microsoft Azure Recovery Services (MARS) agent creates an association betwee
 
 1. Locate and double-click the downloaded **MARSagentinstaller.exe**.
 2. The **Microsoft Azure Recovery Services Agent Setup Wizard** appears. As you go through the wizard, provide the following information when prompted and click **Register**.
-    - Location for the installation and cache folder.
-    - Proxy server info if you use a proxy server to connect to the internet.
-    - Your user name and password details if you use an authenticated proxy.
+   - Location for the installation and cache folder.
+   - Proxy server info if you use a proxy server to connect to the internet.
+   - Your user name and password details if you use an authenticated proxy.
 
-    ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. At the end of the wizard, click **Proceed to Registration** and provide the **Vault Credentials** file you downloaded in the previous procedure.
  

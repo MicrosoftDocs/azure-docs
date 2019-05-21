@@ -19,7 +19,7 @@ In the REST API, requests include a GET command, path, and query parameters that
 Several code samples include a web frontend interface, which you can find here: [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/) and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. For more inforamtion about request syntax, see [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice).> 
+> A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. For more information about request syntax, see [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice).> 
 > 
 
 ## Total hits and Page Counts

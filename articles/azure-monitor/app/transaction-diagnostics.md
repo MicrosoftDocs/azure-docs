@@ -44,7 +44,7 @@ This chart provides a timeline with horizontal bars for the duration of requests
 * Select any row to see its [details on the right](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Calls to other components have two rows: one row represents the outbound call (dependency) from the caller component, and the other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars help differentiate between them.
+> Calls to other components have two rows: one row represents the outbound call (dependency) from the caller component, and the other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars help differentiate between them.
 
 ## All telemetry with this Operation Id
 

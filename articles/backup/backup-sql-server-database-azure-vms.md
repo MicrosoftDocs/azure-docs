@@ -89,11 +89,11 @@ Discover databases running on the VM.
 
 5. In **Backup Goal** > **Discover DBs in VMs**, select **Start Discovery** to search for unprotected VMs in the subscription. It can take a while, depending on the number of unprotected virtual machines in the subscription.
 
-  - Unprotected VMs should appear in the list after discovery, listed by name and resource group.
-  - If a VM isn't listed as you expect, check whether it's already backed up in a vault.
-  - Multiple VMs can have the same name but they'll belong to different resource groups.
+   - Unprotected VMs should appear in the list after discovery, listed by name and resource group.
+   - If a VM isn't listed as you expect, check whether it's already backed up in a vault.
+   - Multiple VMs can have the same name but they'll belong to different resource groups.
 
-    ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
+     ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
 6. In the VM list, select the VM running the SQL Server database > **Discover DBs**.
 
@@ -116,22 +116,22 @@ Discover databases running on the VM.
 
 Configure backup as follows:
 
-1.  In **Backup Goal** select **Configure Backup**.
+1. In **Backup Goal** select **Configure Backup**.
 
-    ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
+   ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
 2. Click **Configure Backup**, the **Select items to backup** blade appears. This lists all the registered availability groups and standalone SQL Servers. Expand the chevron to the left of the row to see all the unprotected databases in that instance or Always on AG.  
 
     ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
-3.  Select all the databases you want to protect > **OK**.
+3. Select all the databases you want to protect > **OK**.
 
-    ![Protecting the database](./media/backup-azure-sql-database/select-database-to-protect.png)
+   ![Protecting the database](./media/backup-azure-sql-database/select-database-to-protect.png)
 
-    To optimize backup loads, Azure Backup sets a maximum number of databases in one backup job to 50.
+   To optimize backup loads, Azure Backup sets a maximum number of databases in one backup job to 50.
 
-      * To protect more than 50 databases, configure multiple backups.
-      * Alternatively, you can enable [auto-protection](#enable-auto-protection) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](#enable-auto-protection) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+     * To protect more than 50 databases, configure multiple backups.
+     * Alternatively, you can enable [auto-protection](#enable-auto-protection) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](#enable-auto-protection) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
 4. Click **OK** to open the **Backup policy** blade.
 
@@ -139,11 +139,11 @@ Configure backup as follows:
 
 5. In **Choose backup policy**, select a policy, then click **OK**.
 
-    - Select the default policy: HourlyLogBackup.
-    - Choose an existing backup policy previously created for SQL.
-    - [Define a new policy](#configure-a-backup-policy) based on your RPO and retention range.
+   - Select the default policy: HourlyLogBackup.
+   - Choose an existing backup policy previously created for SQL.
+   - [Define a new policy](#configure-a-backup-policy) based on your RPO and retention range.
 
-    ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
+     ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
 6. On **Backup** menu, select **Enable backup**.
 
@@ -173,13 +173,13 @@ To create a backup policy:
 3. In **Policy name**, enter a name for the new policy.
 4. In **Full Backup policy**, select a **Backup Frequency**, choose **Daily** or **Weekly**.
 
-    - For **Daily**, select the hour and time zone when the backup job begins.
-    - You must run a full backup, you can't turn off the **Full Backup** option.
-    - Click **Full Backup** to view the policy.
-    - You can't create differential backups for daily full backups.
-    - For **Weekly**, select the day of the week, hour, and time zone when the backup job begins.
+   - For **Daily**, select the hour and time zone when the backup job begins.
+   - You must run a full backup, you can't turn off the **Full Backup** option.
+   - Click **Full Backup** to view the policy.
+   - You can't create differential backups for daily full backups.
+   - For **Weekly**, select the day of the week, hour, and time zone when the backup job begins.
 
-    ![New backup policy fields](./media/backup-azure-sql-database/full-backup-policy.png)  
+     ![New backup policy fields](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. For **Retention Range**, by default all options are selected. Clear any undesired retention range limits you don't want to use, and set the intervals to use.
 
@@ -207,7 +207,7 @@ To create a backup policy:
 11. In **Log Backup**, select **Enable**, and then set the frequency and retention controls. Log backups can occur as often as every 15 minutes, and can be retained for up to 35 days.
 12. Select **OK** to save the policy and return to the main **Backup policy** menu.
 
-   ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
+    ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
 13. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**.
     - Compression is disabled by default.

@@ -316,7 +316,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
         }
     ]
    ```
-### Remove user-assigned managed identity from an Azure virtual machine scale set
+   ### Remove user-assigned managed identity from an Azure virtual machine scale set
 
 If you have a virtual machine scale set that no longer needs a user-assigned managed identity:
 

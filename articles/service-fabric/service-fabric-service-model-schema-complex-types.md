@@ -4449,7 +4449,7 @@ Contains the infrastructure information for this Microsoft Azure Service Fabric 
 |name|NodeList|
 
 ## InfrastructureNodeType complexType
-Describes a Infrastructure information needed.
+Describes an Infrastructure information needed.
 
 |Attribute|Value|
 |---|---|
@@ -4461,7 +4461,7 @@ Describes a Infrastructure information needed.
 ```xml
 <xs:complexType xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="InfrastructureNodeType">
     <xs:annotation>
-      <xs:documentation>Describes a Infrastructure information needed.</xs:documentation>
+      <xs:documentation>Describes an Infrastructure information needed.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Endpoints" type="FabricEndpointsType" minOccurs="0">

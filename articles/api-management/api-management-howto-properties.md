@@ -46,7 +46,7 @@ Property values can contain literal strings and [policy expressions](https://msd
 2. Select **Named values**.
 3. Press **+Add**.
 
-  Name and Value are required values. If this property value is a secret, check the This is a secret checkbox. Enter one or more optional tags to help with organizing your named values, and click Save.
+   Name and Value are required values. If this property value is a secret, check the This is a secret checkbox. Enter one or more optional tags to help with organizing your named values, and click Save.
 4. Click **Create**.
 
 Once the property is created, you can edit it by clicking on the property. If you change the property name, any policies that reference that property are automatically updated to use the new name.

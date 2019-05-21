@@ -45,15 +45,15 @@ In the following example, we run the built-in notebook to search for deep diving
   
    ![select notebook](./media/notebooks/select-notebook.png)
 
-3.	Click **Import** to clone the GitHub repo into your Azure Notebooks project.
-  ![Import notebook](./media/notebooks/import1.png)
-4.	Each notebook walks you through the steps for performing a hunt or investigation. Models, libraries, and other dependencies and configuration for connectivity to Azure Sentinel is automatically imported to enable one-click execution. All code and libraries necessary to run a notebook are pre-loaded. You can immediately begin running a notebook against your Log Analytics workspace with no configuration.
+3. Click **Import** to clone the GitHub repo into your Azure Notebooks project.
+   ![Import notebook](./media/notebooks/import1.png)
+4. Each notebook walks you through the steps for performing a hunt or investigation. Models, libraries, and other dependencies and configuration for connectivity to Azure Sentinel is automatically imported to enable one-click execution. All code and libraries necessary to run a notebook are pre-loaded. You can immediately begin running a notebook against your Log Analytics workspace with no configuration.
 
    ![Import repo](./media/notebooks/import2.png)
 
-5.	Explore, modify and run all the sample notebooks provided. These can be used as building blocks for many different scenarios.
+5. Explore, modify and run all the sample notebooks provided. These can be used as building blocks for many different scenarios.
 
-  ![select notebook](./media/notebooks/import3.png)
+   ![select notebook](./media/notebooks/import3.png)
 
 
 

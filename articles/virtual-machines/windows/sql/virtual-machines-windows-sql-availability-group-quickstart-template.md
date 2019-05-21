@@ -71,8 +71,8 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
 1. If you agree to the terms and conditions, select the checkbox next to **I Agree to the terms and conditions stated above** and select **Purchase** to finalize the Quickstart template deployment. 
 1. To monitor your deployment, either select the deployment from the **Notifications** bell icon in your top navigation banner or navigate to your **Resource Group** in the Azure portal, select **Deployments** in the **Settings** field, and choose the 'Microsoft.Template' deployment. 
 
-  >[!NOTE]
-  > Credentials provided during template deployment are only stored for the length of the deployment. After deployment completes, those passwords are removed, and you will be asked to provide them again should you add further SQL Server VMs to the cluster. 
+   >[!NOTE]
+   > Credentials provided during template deployment are only stored for the length of the deployment. After deployment completes, those passwords are removed, and you will be asked to provide them again should you add further SQL Server VMs to the cluster. 
 
 
 ## Step 2 - Manually create the availability group 
@@ -145,8 +145,8 @@ To configure the ILB and create the AG listener, do the following:
 1. If you agree to the terms and conditions, select the checkbox next to **I Agree to the terms and conditions stated above** and select **Purchase** to finalize the quickstart template deployment. 
 1. To monitor your deployment, either select the deployment from the **Notifications** bell icon in your top navigation banner or navigate to your **Resource Group** in the Azure portal, select **Deployments** in the **Settings** field, and choose the 'Microsoft.Template' deployment. 
 
-  >[!NOTE]
-  >If your deployment fails half way through, you will need to manually [remove the newly created listener](#remove-availability-group-listener) using PowerShell before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
+   >[!NOTE]
+   >If your deployment fails half way through, you will need to manually [remove the newly created listener](#remove-availability-group-listener) using PowerShell before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
 
 ## Remove availability group listener
 If you later need to remove the availability group listener configured by the template, you must go through the SQL VM resource provider. Since the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. It actually should be deleted through the SQL VM resource provider using PowerShell. Doing so removes the AG listener metadata from the SQL VM resource provider, and physically deletes the listener from the availability group. 
@@ -178,17 +178,17 @@ This error can be caused by one of two reasons. Either the domain account specif
 
  Verify that the account does exist. If it does, you may be running into the second situation. To resolve this, do the following:
 
- 1. On the domain controller, open the **Active Directory Users and Computers** window from the **Tools** option in **Server Manager**. 
- 2. Navigate to the account by selecting **Users** on the left pane.
- 3. Right-click the desired account, and select **Properties**.
- 4. Select the **Account** tab and verify if the **User logon name** is blank. If it is, this is the cause of your error. 
+1. On the domain controller, open the **Active Directory Users and Computers** window from the **Tools** option in **Server Manager**. 
+2. Navigate to the account by selecting **Users** on the left pane.
+3. Right-click the desired account, and select **Properties**.
+4. Select the **Account** tab and verify if the **User logon name** is blank. If it is, this is the cause of your error. 
 
-     ![Blank user account indicates missing UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+    ![Blank user account indicates missing UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
- 5. Fill in the **User logon name** to match the name of the user, and select the proper domain from the drop down. 
- 6. Select **Apply** to save your changes, and close the dialog box by selecting **OK**. 
+5. Fill in the **User logon name** to match the name of the user, and select the proper domain from the drop down. 
+6. Select **Apply** to save your changes, and close the dialog box by selecting **OK**. 
 
- Once these changes are made, attempt to deploy the Azure Quickstart Template once more. 
+   Once these changes are made, attempt to deploy the Azure Quickstart Template once more. 
 
 
 

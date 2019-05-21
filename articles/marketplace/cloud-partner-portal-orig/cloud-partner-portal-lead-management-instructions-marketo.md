@@ -47,7 +47,7 @@ This article describes how to set up Marketo to handle Microsoft sales leads.
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-8.  Copy the values shown in Embed Code so you can configure the **Server Id**, **Munchkin Id**, and **Form Id** in the Marketo fields on the Cloud Partner Portal.
+1. Copy the values shown in Embed Code so you can configure the **Server Id**, **Munchkin Id**, and **Form Id** in the Marketo fields on the Cloud Partner Portal.
 
 Use the next example as a guide for getting the Ids you need from the Marketo Embed Code example.
 

@@ -61,11 +61,11 @@ Security Center can monitor the security posture of your non-Azure computers but
 1. Return to **Getting started**.   
 2. Select the **Get started** tab.
 
-  ![Non-Azure](./media/security-center-onboarding/non-azure.png)
+   ![Non-Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Click **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
-  ![Add non-Azure computer][7]
+   ![Add non-Azure computer][7]
 
 If you have existing workspaces, they are listed under **Add new Non-Azure computers**. You can add computers to an existing workspace or create a new workspace. To create a new workspace, select the link **add a new workspace**.
 
@@ -78,8 +78,8 @@ If you have existing workspaces, they are listed under **Add new Non-Azure compu
    ![Add a new workspace][4]
 
 2. Under **Security and Audit**, select **OMS Workspace** to create a new workspace.
-> [!NOTE]
-> OMS workspaces are now referred to as Log Analytics workspaces.
+   > [!NOTE]
+   > OMS workspaces are now referred to as Log Analytics workspaces.
 3. Under **OMS Workspace**, enter the information for your workspace.
 4. Under **OMS Workspace**, select **OK**.  After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
 5. Under **Security and Audit**, select **OK**.
@@ -101,7 +101,7 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
 
    ![Add computers][7]
 
- The **Direct Agent** blade provides a link for downloading a Windows or Linux agent as well as the workspace ID and keys to use in configuring the agent.   
+   The **Direct Agent** blade provides a link for downloading a Windows or Linux agent as well as the workspace ID and keys to use in configuring the agent.   
 
 ## Next steps
 In this article you learned how to onboard Azure and non-Azure resources in order to benefit from Security Center’s advanced security.  To do more with your onboarded resources, see

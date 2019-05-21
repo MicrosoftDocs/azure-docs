@@ -107,12 +107,12 @@ or as Azure Resource Manager projects with Visual Studio.
 1. Open Cloud Explorer, and find your logic app. 
 
 2. On the logic app's shortcut menu, 
-select **Open with Logic App Editor**.
+   select **Open with Logic App Editor**.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
 
-  ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    After the logic app opens in Logic Apps Designer, 
    at the bottom of the designer, you can choose **Code View** 

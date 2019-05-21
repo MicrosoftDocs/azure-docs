@@ -54,8 +54,7 @@ Run histories are now called **experiments**. You can collect your model's exper
 
 The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Firefox browsers only:
 
-[![Online portal](./media/overview-what-happened-to-workbench/image001.png)]
-(./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Online portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
@@ -79,7 +78,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 Learn how to get started in [Python with the main SDK](quickstart-create-workspace-with-python.md) or using [Azure portal](quickstart-get-started.md).
 
 ## What about my registered models and images?
- 
+
 The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, download the models and re-register them in your new workspace. 
 
 The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can re-create these images by following the [Configure and create image](how-to-deploy-and-where.md#configureimage) sections. 
@@ -104,8 +103,7 @@ By using the new Python SDK in the latest release, you can interact with Azure M
 
 In this latest release, the extension was renamed to Azure Machine Learning for Visual Studio Code and has been expanded and improved to work with the preceding new features.
 
-[![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)]
-(./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## What about domain packages?
 

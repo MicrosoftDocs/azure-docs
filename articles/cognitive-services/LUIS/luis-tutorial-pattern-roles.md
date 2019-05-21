@@ -365,7 +365,7 @@ Cities, like people's names are tricky in that they can be any mix of words and 
         "label": "neutral",
         "score": 0.5
       }
-}
+   }
     ```
 
 The intent score is now much higher and the role names are part of the entity response.

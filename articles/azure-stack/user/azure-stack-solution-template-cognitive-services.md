@@ -64,12 +64,12 @@ Before you get started, you will need to:
 
 Create a Cognitive Service resource on Azure to preview the Face, LUIS, or Recognize Text containers, respectively. You will need to use the subscription key and endpoint URL from the resource to instantiate the cognitive service containers.
 
-1.  Create an Azure resource in the Azure portal. If you want to preview the Face containers, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Create an Azure resource in the Azure portal. If you want to preview the Face containers, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
-    >  [!Note]  
-    >  The Face or Computer Vision resource must use the F0   pricing tier.
+   > [!Note]
+   >  The Face or Computer Vision resource must use the F0   pricing tier.
 
-2.  Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding Face, LUIS, or Recognize Text container for the preview.
+2. Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding Face, LUIS, or Recognize Text container for the preview.
 
 ## Create a Kubernetes secret 
 

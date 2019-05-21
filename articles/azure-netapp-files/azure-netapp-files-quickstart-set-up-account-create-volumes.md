@@ -51,14 +51,14 @@ You need to be part of the Public Preview program and whitelisted for accessing 
      ![Create new NetApp account](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
 3. In the New NetApp Account window, provide the following information: 
-    1. Enter **myaccount1** for the account name. 
-    2. Select your subscription.
-    3. Select **Create new** to create new resource group. Enter **myRG1** for the resource group name. Click **OK**. 
-    4. Select your account location.  
+   1. Enter **myaccount1** for the account name. 
+   2. Select your subscription.
+   3. Select **Create new** to create new resource group. Enter **myRG1** for the resource group name. Click **OK**. 
+   4. Select your account location.  
 
-    ![New NetApp Account window](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
+      ![New NetApp Account window](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
 
-    ![Resource group window](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
+      ![Resource group window](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
 
 4. Click **Create** to create your new NetApp account.
 
@@ -94,22 +94,22 @@ You need to be part of the Public Preview program and whitelisted for accessing 
     ![Click Add volumes](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)  
 
 3. In the Create a Volume window, provide information for the volume: 
-    1. Enter **myvol1** as the volume name. 
-    2. Enter **myfilepath1** as the file path that will be used to create the export path for the volume.
-    3. Select your capacity pool (**mypool1**).
-    4. Use the default value for quota. 
-    5. Under virtual network, click **Create new** to create a new Azure virtual network (Vnet).  Then fill in the following information:
-        * Enter **myvnet1** as the Vnet name.
-        * Specify an address space, for example, 10.7.0.0/16.
-        * Enter **myANFsubnet** as the subnet name.
-        * Specify the subnet address range, for example, 10.7.0.0/24.
-        * Select **Microsoft.NetApp/volumes** for subnet delegation.
-        * Click **OK** to create the Vnet.
-    6. In subnet, select the newly created Vnet (**myvnet1**) as the delegate subnet.
+   1. Enter **myvol1** as the volume name. 
+   2. Enter **myfilepath1** as the file path that will be used to create the export path for the volume.
+   3. Select your capacity pool (**mypool1**).
+   4. Use the default value for quota. 
+   5. Under virtual network, click **Create new** to create a new Azure virtual network (Vnet).  Then fill in the following information:
+       * Enter **myvnet1** as the Vnet name.
+       * Specify an address space, for example, 10.7.0.0/16.
+       * Enter **myANFsubnet** as the subnet name.
+       * Specify the subnet address range, for example, 10.7.0.0/24.
+       * Select **Microsoft.NetApp/volumes** for subnet delegation.
+       * Click **OK** to create the Vnet.
+   6. In subnet, select the newly created Vnet (**myvnet1**) as the delegate subnet.
 
-    ![Create a volume window](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
+      ![Create a volume window](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
 
-    ![Create virtual network window](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+      ![Create virtual network window](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
 4. Click **Review + create**.
 

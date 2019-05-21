@@ -19,7 +19,7 @@ ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 
-#Customer intent: As a IT admin, I need to understand what the location condition is so that I can configure location- based conditional access policies
+#Customer intent: As an IT admin, I need to understand what the location condition is so that I can configure location- based conditional access policies
 
 ms.collection: M365-identity-device-management
 ---
@@ -140,7 +140,7 @@ By default, Azure AD issues a token on an hourly basis. After moving off the cor
 
 ### User IP address
 
-The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. If your device has only a IPv6 address, configuring the location condition is not supported.
+The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. If your device has only an IPv6 address, configuring the location condition is not supported.
 
 ### Bulk uploading and downloading of named locations
 

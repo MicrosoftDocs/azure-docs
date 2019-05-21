@@ -224,13 +224,13 @@ To create a backup policy:
 3. In **Policy name**, enter a name for the new policy. 
 4. In **Full Backup policy**, select a **Backup Frequency**, choose **Daily** or **Weekly**.
 
-    - For **Daily**, select the hour and time zone when the backup job begins.
-    - You must run a full backup, you can't turn off the **Full Backup** option.
-    - Click **Full Backup** to view the policy. 
-    - You can't create differential backups for daily full backups.
-    - For **Weekly**, select the day of the week, hour, and time zone when the backup job begins.
+   - For **Daily**, select the hour and time zone when the backup job begins.
+   - You must run a full backup, you can't turn off the **Full Backup** option.
+   - Click **Full Backup** to view the policy. 
+   - You can't create differential backups for daily full backups.
+   - For **Weekly**, select the day of the week, hour, and time zone when the backup job begins.
 
-    ![New backup policy fields](./media/backup-azure-sql-database/full-backup-policy.png)  
+     ![New backup policy fields](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. For **Retention Range**, by default all options are selected. Clear any undesired retention range limits you don't want to use, and set the intervals to use. 
 
@@ -259,7 +259,7 @@ To create a backup policy:
 11. In **Log Backup**, select **Enable**, and then set the frequency and retention controls. Log backups can occur as often as every 15 minutes, and can be retained for up to 35 days.
 12. Select **OK** to save the policy and return to the main **Backup policy** menu.
 
-   ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
+    ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
 13. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**.
     - Compression is disabled by default.

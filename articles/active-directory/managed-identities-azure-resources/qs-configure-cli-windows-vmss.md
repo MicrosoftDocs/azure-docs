@@ -167,7 +167,7 @@ This section walks you through creation of an VMSS and assignment of a user-assi
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
-The response contains details for the user-assigned managed identity created, similar to the following.
+   The response contains details for the user-assigned managed identity created, similar to the following.
 
    ```json
    {

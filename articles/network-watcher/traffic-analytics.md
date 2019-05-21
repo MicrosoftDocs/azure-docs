@@ -197,7 +197,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - Statistics of blocked traffic.
     - Why is a host blocking a significant volume of benign traffic? This behavior requires further investigation and probably optimization of configuration
 - Statistics of malicious allowed/blocked traffic
-    - Why is a host receiving malicious traffic and why flows from malicious source is allowed? This behavior requires further investigation and probably optimization of configuration.
+  - Why is a host receiving malicious traffic and why flows from malicious source is allowed? This behavior requires further investigation and probably optimization of configuration.
 
     Select **See all**, under **Host**, as shown in the following picture:
 
@@ -256,8 +256,8 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 **Look for**
 
 - Traffic distribution per data center such as top sources of traffic to a datacenter, top rogue networks conversing with the data center, and top conversing application protocols.
-    - If you observe more load on a data center, you can plan for efficient traffic distribution.
-    - If rogue networks are conversing in the data center, then correct NSG rules to block them.
+  - If you observe more load on a data center, you can plan for efficient traffic distribution.
+  - If rogue networks are conversing in the data center, then correct NSG rules to block them.
 
     Select **View map** under **Your environment**, as shown in the following picture:
 
@@ -278,8 +278,8 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 **Look for**
 
 - Traffic distribution per virtual network, topology, top sources of traffic to the virtual network, top rogue networks conversing to the virtual network, and top conversing application protocols.
-    - Knowing which virtual network is conversing to which virtual network. If the conversation is not expected, it can be corrected.
-    - If rogue networks are conversing with a virtual network, you can correct NSG rules to block the rogue networks.
+  - Knowing which virtual network is conversing to which virtual network. If the conversation is not expected, it can be corrected.
+  - If rogue networks are conversing with a virtual network, you can correct NSG rules to block the rogue networks.
  
     Select **View VNets** under **Your environment**, as shown in the following picture:
 
@@ -287,7 +287,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 - The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network’s (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
 - You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
-Flow Type (InterVNet, IntraVNET etc), Flow Direction (Inbound, Outbound), Flow Status ( Allowed, Blocked) VNETs (Targeted and Connected) , Connection Type (Peering or Gateway - P2S and S2S) and NSG. Use these filters to focus on VNets that you want to examine in detail.
+  Flow Type (InterVNet, IntraVNET etc), Flow Direction (Inbound, Outbound), Flow Status ( Allowed, Blocked) VNETs (Targeted and Connected) , Connection Type (Peering or Gateway - P2S and S2S) and NSG. Use these filters to focus on VNets that you want to examine in detail.
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
 
     ![Virtual network topology showcasing traffic distribution and flow details](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -320,7 +320,7 @@ Traffic distribution per Application gateway & Load Balancer, topology, top sour
 **Look for**
 
 - Which open ports are conversing over the internet?
-    - If unexpected ports are found open, you can correct your configuration:
+  - If unexpected ports are found open, you can correct your configuration:
 
     ![Dashboard showcasing ports receiving and sending traffic to the internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -344,9 +344,9 @@ Do you have malicious traffic in your environment? Where is it originating from?
 
 - The following pictures show time trending for hits of NSG rules and source-destination flow details for a network security group:
 
-    - Quickly detect which NSGs and NSG rules are traversing malicious flows and which are the top malicious IP addresses accessing your cloud environment
-    - Identify which NSG/NSG rules are allowing/blocking significant network traffic
-    - Select top filters for granular inspection of an NSG or NSG rules
+  - Quickly detect which NSGs and NSG rules are traversing malicious flows and which are the top malicious IP addresses accessing your cloud environment
+  - Identify which NSG/NSG rules are allowing/blocking significant network traffic
+  - Select top filters for granular inspection of an NSG or NSG rules
 
     ![Showcasing time trending for NSG rule hits and top NSG rules](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

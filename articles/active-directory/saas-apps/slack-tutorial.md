@@ -261,4 +261,4 @@ When you click the Slack tile in the Access Panel, you should be automatically s
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Configure User Provisioning](slack-provisioning-tutorial.md)
+- [Configure User Provisioning](slack-provisioning-tutorial.md)

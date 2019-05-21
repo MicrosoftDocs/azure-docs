@@ -124,11 +124,11 @@ A. The toolset available with the Data Box Disk contains three tools:
  - **Data Box Disk Split Copy tool**: Use this tool when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. This tool is currently available for Windows. This tool is not supported with managed disks. This tool also validates as it copies the data, hence you can skip the validation step when using this tool.
 
 The toolset is available both for Windows and Linux. You can download the toolset here:
- - [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
- - [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
+- [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
+- [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
  
- ### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
- A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
+  ### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
+  A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
 
 
 ## Verify and upload

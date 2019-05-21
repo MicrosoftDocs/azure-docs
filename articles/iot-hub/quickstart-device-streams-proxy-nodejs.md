@@ -77,7 +77,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Make a note of the returned value, which looks like this:
@@ -97,7 +97,7 @@ As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the se
 Assuming that the [device-local proxy](#run-the-device-local-proxy) is running, follow the steps below to run the service-local proxy written in Node.js.
 
 - Provide your service credentials, the target device ID where SSH daemon runs, and the port number for the proxy running on the device as environment variables.
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -107,11 +107,11 @@ Assuming that the [device-local proxy](#run-the-device-local-proxy) is running, 
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
-```
-Change the values above to match your device ID and connection string.
+  ```
+  Change the values above to match your device ID and connection string.
 
 - Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the service-local proxy.
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
 
   # Install the preview service SDK, and other dependencies
@@ -120,7 +120,7 @@ Change the values above to match your device ID and connection string.
 
   # Run the service-local proxy application
   node proxy.js
-```
+  ```
 
 ### SSH to your device via device streams
 In Linux, run SSH using `ssh $USER@localhost -p 2222` on a terminal. In Windows, use your favorite SSH client (e.g., PuTTY).

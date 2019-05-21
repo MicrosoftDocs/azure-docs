@@ -125,7 +125,7 @@ The following steps help you to sign in and set up email actions:
 
 1. Click to sign in to Outlook. You're taken to the Azure portal:
 
-  ![Sign in to Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
+   ![Sign in to Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Click **Authorize**. You're prompted to sign in. The account you use to sign in should be the email address the application uses to send email notifications:
 
@@ -133,7 +133,7 @@ The following steps help you to sign in and set up email actions:
 
 1. If you've successfully configured the email notification, you see this message:
 
-  ![Successful Outlook sign in](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
+   ![Successful Outlook sign in](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Customize the email HTML <a name="htmledit"></a>
 

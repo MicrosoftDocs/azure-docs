@@ -33,7 +33,7 @@ Request parameters passed on the query string are:
   <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
+    <td><em>Required parameter</em>.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
   </tr>
   <tr>
     <td>scope</td>

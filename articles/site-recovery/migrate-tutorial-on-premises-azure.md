@@ -109,10 +109,10 @@ Run a failover for the machines you want to migrate.
 5. Check that the Azure VM appears in Azure as expected.
 6. In **Replicated items**, right-click the VM > **Complete Migration**. This does the following:
 
-    - Finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
-    - This step cleans up the replication data. It doesn't delete the migrated VMs.
+   - Finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+   - This step cleans up the replication data. It doesn't delete the migrated VMs.
 
-    ![Complete migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Complete migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

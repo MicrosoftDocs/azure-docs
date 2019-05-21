@@ -161,19 +161,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 Like keys, secrets are managed with their own commands:
 
 - Delete a secret named SQLPassword: 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - List all deleted secrets in a key vault: 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - Recover a secret in the deleted state: 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - Purge a secret in deleted state: 
 

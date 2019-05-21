@@ -16,7 +16,7 @@ ms.author: v-jansko
 
 > [!NOTE]
 > V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
-
+> 
 > The Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
 
 The Microsoft Translator team has released Version 3 (V3) of the Translator Text API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. 
@@ -103,8 +103,8 @@ Global
 
 ## Compatibility and customization
 
-> [!NOTE] 
-
+> [!NOTE]
+> 
 > The Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub. The Translator Hub only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](custom-translator/overview.md)

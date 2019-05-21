@@ -227,15 +227,15 @@ In addition to the previously mentioned logging capabilities, Network Watcher cu
 
 - [Variable packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuning controls, such as time- and size-limitation settings, provide versatility. The packet data can be stored in a blob store or on the local disk in *.cap* file format.
 
-* [IP flow verification](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Checks to see whether a packet is allowed or denied based on flow information 5-tuple packet parameters (that is, destination IP, source IP, destination port, source port, and protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
+- [IP flow verification](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Checks to see whether a packet is allowed or denied based on flow information 5-tuple packet parameters (that is, destination IP, source IP, destination port, source port, and protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
 
-* [Next hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Determines the next hop for packets being routed in the Azure network fabric, so that you can diagnose any misconfigured user-defined routes.
+- [Next hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Determines the next hop for packets being routed in the Azure network fabric, so that you can diagnose any misconfigured user-defined routes.
 
-* [Security group view](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Gets the effective and applied security rules that are applied on a VM.
+- [Security group view](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Gets the effective and applied security rules that are applied on a VM.
 
-* [Virtual network gateway and connection troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helps you troubleshoot virtual network gateways and connections.
+- [Virtual network gateway and connection troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helps you troubleshoot virtual network gateways and connections.
 
-* [Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Enables you to view network resource usage against limits.
+- [Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Enables you to view network resource usage against limits.
 
 ### Application Insights
 

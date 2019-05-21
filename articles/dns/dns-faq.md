@@ -37,7 +37,7 @@ For more information, see the [Azure DNS SLA page](https://azure.microsoft.com/s
 
 A domain is a unique name in the domain name system. An example is contoso.com.
 
-A DNS zone is used to host the DNS records for a particular domain. For example, the domain contoso.com might contain several DNS records. The records might include mail.contoso.com for a mail server and www.contoso.com for a website. These records are hosted in the DNS zone contoso.com.
+A DNS zone is used to host the DNS records for a particular domain. For example, the domain contoso.com might contain several DNS records. The records might include mail.contoso.com for a mail server and www\.contoso.com for a website. These records are hosted in the DNS zone contoso.com.
 
 A domain name is *just a name*. A DNS zone is a data resource that contains the DNS records for a domain name. You can use Azure DNS to host a DNS zone and manage the DNS records for a domain in Azure. It also provides DNS name servers to answer DNS queries from the Internet.
 

@@ -9,7 +9,6 @@ ms.topic: conceptual
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 01/25/2019
 ---
 # PowerShell modules for Azure Machine Learning Studio

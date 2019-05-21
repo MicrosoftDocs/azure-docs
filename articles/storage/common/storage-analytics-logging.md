@@ -27,23 +27,23 @@ Storage Analytics logs detailed information about successful and failed requests
 
  The following types of authenticated requests are logged:
 
--   Successful requests
--   Failed requests, including timeout, throttling, network, authorization, and other errors
--   Requests using a Shared Access Signature (SAS) or OAuth, including failed and successful requests
--   Requests to analytics data
+- Successful requests
+- Failed requests, including timeout, throttling, network, authorization, and other errors
+- Requests using a Shared Access Signature (SAS) or OAuth, including failed and successful requests
+- Requests to analytics data
 
- Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md) topics.
+  Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md) topics.
 
 ### Logging anonymous requests
 
  The following types of anonymous requests are logged:
 
--   Successful requests
--   Server errors
--   Timeout errors for both client and server
--   Failed GET requests with error code 304 (Not Modified)
+- Successful requests
+- Server errors
+- Timeout errors for both client and server
+- Failed GET requests with error code 304 (Not Modified)
 
- All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md) topics.
+  All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md) topics.
 
 ## How logs are stored
 

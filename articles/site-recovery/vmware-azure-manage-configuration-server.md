@@ -88,26 +88,26 @@ The Open Virtualization Format (OVF) template deploys the configuration server V
 You can reregister the configuration server in the same vault if you need to. If you have an additional process server machine, in addition to the default process server running on the configuration server machine, reregister both machines.
 
 
-  1. In the vault, open **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
-  2. In **Servers**, select **Download registration key** to download the vault credentials file.
-  3. Sign in to the configuration server machine.
-  4. In **%ProgramData%\ASR\home\svsystems\bin**, open **cspsconfigtool.exe**.
-  5. On the **Vault Registration** tab, select **Browse**, and locate the vault credentials file that you downloaded.
-  6. If needed, provide proxy server details. Then select **Register**.
-  7. Open an admin PowerShell command window, and run the following command:
+1. In the vault, open **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+2. In **Servers**, select **Download registration key** to download the vault credentials file.
+3. Sign in to the configuration server machine.
+4. In **%ProgramData%\ASR\home\svsystems\bin**, open **cspsconfigtool.exe**.
+5. On the **Vault Registration** tab, select **Browse**, and locate the vault credentials file that you downloaded.
+6. If needed, provide proxy server details. Then select **Register**.
+7. Open an admin PowerShell command window, and run the following command:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >In order to **pull latest certificates** from configuration server to scale-out process server execute the  command
-      > *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >[!NOTE]
+    >In order to **pull latest certificates** from configuration server to scale-out process server execute the  command
+    > *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
-  8. Finally, restart the obengine by executing the following command.
-  ```
-          net stop obengine
-          net start obengine
+8. Finally, restart the obengine by executing the following command.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 

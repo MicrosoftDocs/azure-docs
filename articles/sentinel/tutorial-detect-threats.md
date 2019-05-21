@@ -39,11 +39,11 @@ To investigate cases, you first have to create detection rules. Detection rules 
 
 1. In the Azure portal under Azure Sentinel, select **Analytics**.
 
-  ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
 
 2. In the top menu bar, click **+Add**.  
 
-  ![Create alert rule](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Create alert rule](./media/tutorial-detect-threats/create-alert-rule.png)
 
 3. Under **Create alert rule**, provide a descriptive name, and set the **Severity** as necessary. 
 
