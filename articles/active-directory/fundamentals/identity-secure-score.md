@@ -47,7 +47,7 @@ By following the improvement actions, you can:
 
 ## How do I get my secure score?
 
-The Identity Secure Score is available in all editions of Azure AD. To access your score, go to the [Azure AD Overview dashboard](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
+The identity secure score is available in all editions of Azure AD. To access your score, go to the [Azure AD Overview dashboard](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
 
 ## How does it work?
 
@@ -85,17 +85,17 @@ The score is calculated once per day (around 1:00 AM PST). If you make a change 
 
 ### My score changed. How do I figure out why?
 
-Head over to the [Microsoft 365 security center](https://security.microsoft.com/), where you’ll find your complete Microsoft Secure Score. You can easily see all the changes to your secure score by reviewing the in-depth changes on the history tab.  
+Head over to the [Microsoft 365 security center](https://security.microsoft.com/), where you’ll find your complete Microsoft secure score. You can easily see all the changes to your secure score by reviewing the in-depth changes on the history tab.  
 
-### Does the Secure Score measure my risk of getting breached?
+### Does the secure score measure my risk of getting breached?
 
-In short, no. The Secure Score does not express an absolute measure of how likely you are to get breached. It expresses the extent to which you have adopted features that can offset the risk of being breached. No service can guarantee that you will not be breached, and the Secure Score should not be interpreted as a guarantee in any way.
+In short, no. The secure score does not express an absolute measure of how likely you are to get breached. It expresses the extent to which you have adopted features that can offset the risk of being breached. No service can guarantee that you will not be breached, and the secure score should not be interpreted as a guarantee in any way.
 
 ### How should I interpret my score?
 
-You're given points for configuring recommended security features or performing security-related tasks (like reading reports). Some actions are scored for partial completion, like enabling multi-factor authentication (MFA) for your users. Your Secure Score is directly representative of the Microsoft security services you use. Remember that security must be balanced with usability. All security controls have a user impact component. Controls with low user impact should have little to no effect on your users' day-to-day operations.
+You're given points for configuring recommended security features or performing security-related tasks (like reading reports). Some actions are scored for partial completion, like enabling multi-factor authentication (MFA) for your users. Your secure score is directly representative of the Microsoft security services you use. Remember that security must be balanced with usability. All security controls have a user impact component. Controls with low user impact should have little to no effect on your users' day-to-day operations.
 
-To see your score history, head over to the [Microsoft 365 security center](https://security.microsoft.com/) and review your overall Microsoft Secure Score. You can review changes to your overall secure score be clicking on View History. Choose a specific date to see which controls were enabled for that day and what points you earned for each one.
+To see your score history, head over to the [Microsoft 365 security center](https://security.microsoft.com/) and review your overall Microsoft secure score. You can review changes to your overall secure score be clicking on View History. Choose a specific date to see which controls were enabled for that day and what points you earned for each one.
 
 ### How does the identity secure score relate to the Office 365 secure score?
 
@@ -111,4 +111,4 @@ The identity secure score represents the identity part of the Microsoft secure s
 
 ## Next steps
 
-[Find out more about Microsoft Secure Score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Find out more about Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
