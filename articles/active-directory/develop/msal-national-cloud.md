@@ -1,6 +1,6 @@
 ---
-title: Use Microsoft Authentication Library (MSAL) in National Clouds - Microsoft identity platform
-description: Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be the Microsoft Graph, other Microsoft APIS, third-party web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
+title: Use Microsoft Authentication Library (MSAL) in national clouds - Microsoft identity platform
+description: Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, partner web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
 documentationcenter: dev-center-name
 author: negoe
@@ -17,34 +17,34 @@ ms.date: 05/07/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about how the Microsoft Authentication Library work in National CLoud scenarios so I can decide if this platform meets my application development needs and requirements in these special cloud environment.
+#Customer intent: As an application developer, I want to learn about how the Microsoft Authentication Library works in national cloud scenarios so I can decide if this platform meets my application development needs.
 ms.collection: M365-identity-device-management
 ---
 
-# Use MSAL in National cloud environment
+# Use MSAL in a national cloud environment
 
-[National clouds](authentication-national-cloud.md) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
+[National clouds](authentication-national-cloud.md) are physically isolated instances of Azure. These regions of Azure help make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
 
-In addition to Microsoft worldwide cloud, Microsoft Authentication Library (MSAL) also enables application developers in national clouds to acquire tokens in order to authenticate and call secured web APIs. These web APIs can be the Microsoft Graph or other Microsoft APIS.
+In addition to the Microsoft worldwide cloud, Microsoft Authentication Library (MSAL) enables application developers in national clouds to acquire tokens in order to authenticate and call secured web APIs. These web APIs can be Microsoft Graph or other Microsoft APIs.
 
-Including global cloud, Azure Active Directory (Azure AD) is deployed in the following National clouds:  
+Including the global cloud, Azure Active Directory (Azure AD) is deployed in the following National clouds:  
 
-- Azure US Government
+- Azure Government
 - Azure China 21Vianet
 - Azure Germany
 
-This guide demonstrates how to sign in work and school accounts, get an access token and call the Microsoft Graph API in [Microsoft cloud for US Government](https://azure.microsoft.com/global-infrastructure/government/) environment.
+This guide demonstrates how to sign in to work and school accounts, get an access token, and call the Microsoft Graph API in [Azure Government cloud](https://azure.microsoft.com/global-infrastructure/government/) environment.
 
 ## Prerequisites
 
-Before starting, make sure you meet these prerequisites.
+Before you start, make sure that you meet these prerequisites.
 
 ### Choose the appropriate identities
 
-[Azure Government](https://docs.microsoft.com/azure/azure-government/) applications can use Azure AD Government identities as well as Azure AD public identities to authenticate users. Since you can use any of these identities, you need to understand and decide which authority endpoint you should choose for your scenario:
+[Azure Government](https://docs.microsoft.com/azure/azure-government/) applications can use Azure AD government identities as well as Azure AD public identities to authenticate users. Because you can use any of these identities, you need to decide which authority endpoint you should choose for your scenario:
 
-- Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
-- Azure AD Government: Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or are creating a new tenant in Azure AD Government.
+- Azure AD public: Commonly used if your organization already has an Azure AD public tenant to support Office 365 (Public or GCC) or another application.
+- Azure AD government: Commonly used if your organization already has an Azure AD government tenant to support Office 365 (GCC High or DoD) or is creating a new tenant in Azure AD government.
 
 Once decided, the special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, you must register the application in your Azure AD Public tenant.
 
