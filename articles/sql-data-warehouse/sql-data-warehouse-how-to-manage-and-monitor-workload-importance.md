@@ -51,7 +51,7 @@ SELECT c.name,cd.classifier_type, classifier_value
   WHERE c.name = 'ExecReportsClassifier'
 ```
 
-![query results](../media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm_queryresults.png)
+![query results](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm_queryresults.png)
 
 To simplify troubleshooting misclassification, we recommended you remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run sp_droprolemember for each ```membername``` returned from the corresponding resource class.
 Below is an example of checking for existence before dropping a workload classifier:
