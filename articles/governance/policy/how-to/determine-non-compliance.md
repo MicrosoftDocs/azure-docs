@@ -255,12 +255,12 @@ triggered when the Resource Manager properties are added, removed, or altered.
 1. Select the **Change History (preview)** tab on the **Resource Compliance** page. A list of
    detected changes, if any exist, are displayed.
 
-   ![Policy Change History tab on Resource Compliance page](../media/determine-non-compliance/change-history-tab.png)
+   ![Azure Policy Change History tab on Resource Compliance page](../media/determine-non-compliance/change-history-tab.png)
 
 1. Select one of the detected changes. The _visual diff_ for the resource is presented on the
    **Change history** page.
 
-   ![Policy Change History Visual Diff on Change history page](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure Policy Change History Visual Diff on Change history page](../media/determine-non-compliance/change-history-visual-diff.png)
 
 The _visual diff_ aides in identifying changes to a resource. The changes detected may not be
 related to the current compliance state of the resource.
@@ -271,7 +271,7 @@ query this information outside of the Azure portal, see [Get resource changes](.
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review the [Policy definition structure](../concepts/definition-structure.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
 - Learn how to [get compliance data](getting-compliance-data.md).
