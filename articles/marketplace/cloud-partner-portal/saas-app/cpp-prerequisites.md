@@ -1,20 +1,12 @@
 ---
-title: Azure SaaS application offer prerequisites | Microsoft Docs
+title: Azure SaaS application offer prerequisites | Azure Marketplace
 description: The prerequisites for publishing a SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # SaaS application publishing prerequisites

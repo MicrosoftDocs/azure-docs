@@ -60,6 +60,8 @@
     items:
     - name: Data collection
       href: security-center-enable-data-collection.md
+    - name: Advanced data security for IaaS
+      href: security-center-iaas-advanced-data.md
     - name: Built-in security policies
       href: security-center-policy-definitions.md
     - name: Email notifications
@@ -172,6 +174,8 @@
     href: https://docs.microsoft.com/rest/api/securitycenter/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=security-center
+  - name: Features and API retirement (July 2019)
+    href: security-center-features-retirement-july2019.md
 
 - name: Resources
   items:

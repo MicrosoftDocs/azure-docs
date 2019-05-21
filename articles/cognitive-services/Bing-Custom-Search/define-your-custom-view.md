@@ -23,7 +23,7 @@ Use the following when defining your slices of the web:
 
 | Slice name | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | A domain slice includes all content found within an internet domain. For example, `www.microsoft.com`. Omitting `www.` causes Bing to also search the domain’s subdomains. For example, if you specify `microsoft.com`, Bing also returns results from `support.microsoft.com` or `technet.microsoft.com`. |
+| Domain     | A domain slice includes all content found within an internet domain. For example, `www.microsoft.com`. Omitting `www.` causes Bing to also search the domain’s subdomains. For example, if you specify `microsoft.com`, Bing also returns results from `support.microsoft.com` or `technet.microsoft.com`. |
 | Subpage    | A subpage slice includes all content found in the subpage and paths below it. You may specify a maximum of two subpages in the path. For example, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Webpage    | A webpage slice can include only that webpage in a custom search. You can optionally specify whether to include subpages.                                                                                                                                                                                  |
 
@@ -114,9 +114,9 @@ The portal also lets you pin URLs to the top of search results for specific sear
 
 You can pin a webpage to the top in two ways:
 
-* In the **Pinned** tab, enter the URL of the webpage to pin to the top, and its corresponding query.
+* In the **Pinned** tab, enter the URL of the webpage to pin to the top, and its corresponding query.
 
-* In the **Preview** pane, enter a search query and click search. Find the webpage you want to pin for your query, and click **Pin to top**. the webpage and query will be added to the **Pinned** list.
+* In the **Preview** pane, enter a search query and click search. Find the webpage you want to pin for your query, and click **Pin to top**. the webpage and query will be added to the **Pinned** list.
 
 ### Specify the pin's match condition
 

@@ -1,7 +1,6 @@
 ---
 title: Monitor cluster performance - Azure HDInsight 
 description: 'How to monitor an HDInsight cluster for capacity and performance.'
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 
@@ -26,7 +25,7 @@ To get a high-level look at the nodes of your cluster and their loading, sign in
 | Color | Description |
 | --- | --- |
 | Red | At least one master component on the host is down. Hover to see a tooltip that lists affected components. |
-| Orange | At least one slave component on the host is down. Hover to see a tooltip that lists affected components. |
+| Orange | At least one secondary component on the host is down. Hover to see a tooltip that lists affected components. |
 | Yellow | Ambari Server has not received a heartbeat from the host for more than 3 minutes. |
 | Green | Normal running state. |
 

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
-ms.author: monhaber
+ms.date: 5/02/2019
+ms.author: v-mohabe
 
 ---
 # Platforms and features supported by Azure Security Center
@@ -76,7 +76,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Security configurations|✔|✔|✔|✔|
 |Endpoint protection|✔|✔|X|X|
 |JIT VM access|✔|X|✔|X|
-|Adaptive application controls|✔|X|X|X|
+|Adaptive application controls|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |Disk encryption|✔|X|✔|X|
 |Third-party deployment|✔|X|✔|X|

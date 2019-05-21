@@ -24,6 +24,8 @@ Azure App Configuration is a managed configuration service in Azure. You can use
 
 You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
+![Quickstart app run](./media/quickstarts/dotnet-core-app-run.png)
+
 ## Prerequisites
 
 To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -33,6 +35,14 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 ## Create an app configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
+
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Leave **Label** and **Content Type** empty for now.
 
 ## Create a .NET Core console app
 
@@ -48,13 +58,13 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. Run the following command to restore packages for your project:
 
         dotnet restore
 
-3. Open *Program.cs*, and add a reference to an App Configuration .NET Core configuration provider.
+3. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -95,8 +105,6 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 3. After the build successfully completes, run the following command to run the app locally:
 
         dotnet run
-
-    ![Quickstart app run](./media/quickstarts/dotnet-core-app-run.png)
 
 ## Clean up resources
 

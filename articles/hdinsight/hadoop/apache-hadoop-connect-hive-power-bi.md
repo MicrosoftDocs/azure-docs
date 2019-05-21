@@ -2,7 +2,6 @@
 title: Visualize Apache Hive data with Power BI - Azure HDInsight
 description: Learn how to use Microsoft Power BI to visualize Hive data processed by Azure HDInsight.
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,odbc 
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -64,7 +63,7 @@ Continue from the last procedure.
 ## Next steps
 In this article, you learned how to visualize data from HDInsight using Power BI.  To learn more, see the following articles:
 
-* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](./apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Apache Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

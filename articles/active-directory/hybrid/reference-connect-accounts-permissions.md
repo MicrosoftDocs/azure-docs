@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 ## Accounts used for Azure AD Connect
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![accounts overview](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect uses 3 accounts in order to synchronize information from on-premises or Windows Server Active Directory to Azure Active Directory.  These accounts are:
 
@@ -106,10 +106,10 @@ The following is a summary of the custom installation wizard pages, the credenti
 | Install synchronization services, Service account option |AD or local user account credentials |User, permissions are granted by the installation wizard |If the admin specifies an account, this account is used as the service account for the sync service. |
 | Connect to Azure AD |Azure AD directory credentials |Global administrator role in Azure AD |<li>Enabling sync in the Azure AD directory.</li>  <li>Creation of the Azure AD Connector account that is used for on-going sync operations in Azure AD.</li> |
 | Connect your directories |On-premises Active Directory credentials for each forest that is connected to Azure AD |The permissions depend on which features you enable and can be found in Create the AD DS Connector account |This account is used to read and write directory information during synchronization. |
-| AD FS Servers |For each server in the list, the wizard collects credentials when the logon credentials of the user running the wizard are insufficient to connect |Domain Administrator |Installation and configuration of the AD FS server role. |
-| Web application proxy servers |For each server in the list, the wizard collects credentials when the logon credentials of the user running the wizard are insufficient to connect |Local admin on the target machine |Installation and configuration of WAP server role. |
+| AD FS Servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect |Domain Administrator |Installation and configuration of the AD FS server role. |
+| Web application proxy servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect |Local admin on the target machine |Installation and configuration of WAP server role. |
 | Proxy trust credentials |Federation service trust credentials (the credentials the proxy uses to enroll for a trust certificate from the FS |Domain account that is a local administrator of the AD FS server |Initial enrollment of FS-WAP trust certificate. |
-| AD FS Service Account page, "Use a domain user account option" |AD user account credentials |Domain user |The AD user account whose credentials are provided is used as the logon account of the AD FS service. |
+| AD FS Service Account page, "Use a domain user account option" |AD user account credentials |Domain user |The Azure AD user account whose credentials are provided is used as the sign-in account of the AD FS service. |
 
 ### Create the AD DS Connector account
 
@@ -234,6 +234,11 @@ The account is created with a long complex password that does not expire. It is 
 There is a limit of 20 sync service accounts in Azure AD. To get the list of existing Azure AD service accounts in your Azure AD, run the following Azure AD PowerShell cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 To remove unused Azure AD service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+>[!NOTE]
+>Before you can use the above PowerShell commands you will need to install the [Azure Active Directory PowerShell for Graph module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) and connect to your instance of Azure AD using [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+
+For additional information on how to manage or reset the password for the Azure AD Connector account see [Manage the Azure AD Connect account](how-to-connect-azureadaccount.md)
 
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md), the following table provides links to related topics.

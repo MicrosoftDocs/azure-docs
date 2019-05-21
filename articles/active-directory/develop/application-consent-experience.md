@@ -3,8 +3,8 @@ title: Understanding Azure AD application consent experiences | Microsoft Docs
 description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
 ---

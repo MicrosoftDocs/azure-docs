@@ -2,12 +2,13 @@
 title: 'Tutorial: Enable custom domain with SSL on a static website using Azure CDN - Azure Storage'
 description: Learn how to configure a custom domain for static website hosting.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: seodec18
 ---
 
@@ -39,8 +40,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 1. In the **New Endpoint** section, fill out the fields to create a new CDN endpoint.
 1. Enter an endpoint name, such as *mystaticwebsiteCDN*.
 1. Enter your website domain as the hostname for your CDN endpoint.
-1. For the origin hostname, enter your the static website endpoint. To find your static website endpoint, navigate to the **Static website** section for your storage account and copy the endpoint. 
+1. For the origin hostname, enter your the static website endpoint. To find your static website endpoint, navigate to the **Static website** section for your storage account and copy the endpoint (remove the preceding https:// )
 1. Test your CDN endpoint by navigating to *mywebsitecdn.azureedge.net* in your browser.
+1. Additionaly verify by navigating to the **New Endpoint** under settings, origin to see if the Origin type is set  to *Custom Origin*
+and *Origin hostname* displays the Static webiste endpoint name.
 
 ## Enable custom domain and SSL
 
