@@ -60,7 +60,7 @@ If federation is being used and password hashes are synced correctly, but you ar
 1. Install the Azure AD PowerShell module.
 
    ```
-   Install-Module AzureAD
+   Install-Module AzureADPreview
    ```
 
 2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.

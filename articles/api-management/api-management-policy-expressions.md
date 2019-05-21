@@ -237,7 +237,8 @@ A variable named `context` is implicitly available in every policy [expression](
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - plaintext to be encrypted<br /><br />alg - encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns encrypted plaintext.|
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - cypher text to be decrypted<br /><br />alg - name of a symmetric encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns plaintext.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - cypher text to be decrypted<br /><br />alg - encryption algorithm<br /><br />Returns plaintext.|
-|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input - cypher text to be decrypted<br /><br />alg - encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns plaintext.|
+|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - cypher text to be decrypted<br /><br />alg - encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns plaintext.|
+|bool VerifyNoRevocation(input: this System.Security.Cryptography.X509Certificates.X509Certificate2)|Performs a X.509 chain validation without checking certificate revocation status.<br /><br />input - certificate object<br /><br />Returns `true` if the validation succeeds; `false` if the validation fails.|
 
 
 ## Next steps

@@ -38,7 +38,7 @@ ms.author: mbullwin
 * Not all types of .NET project are supported by the tools. Web and WCF projects are supported. For other project types such as desktop or service applications, you can still [add an Application Insights SDK to your project manually](../../azure-monitor/app/windows-desktop.md).
 * Make sure you have [Visual Studio 2013 Update 3 or later](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
 * Select **Tools**, **Extensions and Updates** and check that **Developer Analytics Tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
-* Open the New Project dialog and choose ASP.NET Web application. If you see the Application Insights option there, then the tools are installed. If not, try uninstalling and then re-installing the Application Insights Tools.
+* Open the New Project dialog and choose ASP.NET Web application. If you see the Application Insights option there, then the tools are installed. If not, try uninstalling and then re-installing the Developer Analytics Tools.
 
 ## <a name="q02"></a>Adding Application Insights failed
 *When I try to add Application Insights to an existing project, I see an error message.*
@@ -82,7 +82,7 @@ Fix:
 * Select **Tools**, **Extensions and Updates** and check that **Developer Analytics tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
 * Right-click your project in Solution Explorer. If you see the command **Application Insights > Configure Application Insights**, use it to connect your project to the resource in the Application Insights service.
 
-Otherwise, your project type isn't directly supported by the Application Insights tools. To see your telemetry, sign in to the [Azure portal](https://portal.azure.com), choose Application Insights on the left navigation bar, and select your application.
+Otherwise, your project type isn't directly supported by the Developer Analytics tools. To see your telemetry, sign in to the [Azure portal](https://portal.azure.com), choose Application Insights on the left navigation bar, and select your application.
 
 ## 'Access denied' on opening Application Insights from Visual Studio
 *The 'Open Application Insights' menu command takes me to the Azure portal, but I get an 'access denied' error.*
