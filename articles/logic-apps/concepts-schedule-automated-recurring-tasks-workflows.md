@@ -129,4 +129,5 @@ Or, if you can start your logic app with the **When a HTTP request is received -
 ## Next steps
 
 * [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md)
+* [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md)
 * [Pause workflows with delay actions](../connectors/connectors-native-delay.md)
