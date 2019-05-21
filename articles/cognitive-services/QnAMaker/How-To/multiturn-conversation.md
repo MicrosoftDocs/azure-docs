@@ -84,7 +84,7 @@ Reduce the question and answer pairs displayed to just those with contextual con
 
     ![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-    In the preceding image, #1 indicates bold text in the column which signifies the current question. The parent question is the top item in the row. Any questions below are the linked question and answer pairs. 
+    In the preceding image, #1 indicates bold text in the column which signifies the current question. The parent question is the top item in the row. Any questions below are the linked question and answer pairs. These items are selectable so you can immediately go to the other context items. 
 
 ## Add existing QnA pair as follow-up prompt
 
