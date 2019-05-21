@@ -24,19 +24,19 @@ Azure SQL Database includes both [single database](sql-database-single-index.yml
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Referred to as "encryption-in-use", as described in the article [Always Encrypted](sql-database-always-encrypted.md). Service-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md) (TDE).|
-| Encryption in Transit:<ul><li>ExpressRoute encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Using HTTPS. |
-| Encryption Key Handling (CMK, BYOK, etc.)| Yes | Both service-managed and customer-managed key handling are offered (the latter through [Azure Key Vault](../key-vault/index.yml). |
-| Column Level Encryption (Azure Data Services)| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
+| Encryption in transit:<ul><li>ExpressRoute encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Using HTTPS. |
+| Encryption key handling (CMK, BYOK, etc.)| Yes | Both service-managed and customer-managed key handling are offered (the latter through [Azure Key Vault](../key-vault/index.yml). |
+| Column level encryption (Azure Data Services)| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
 | API calls encrypted| Yes | Using HTTPS/SSL. |
 
 ## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Service Endpoint support| Yes | Applies to [single database](sql-database-single-index.yml) only. |
-| vNET Injection support| Yes | Applies to [managed instance](sql-database-managed-instance.md) only. |
-| Network Isolation / Firewalling support| Yes | Firewall at both database- and server-level; network isolation for [managed instance](sql-database-managed-instance.md) only |
-| Support for forced tunneling | Yes | [managed instance](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| Service endpoint support| Yes | Applies to [single database](sql-database-single-index.yml) only. |
+| VNet injection support| Yes | Applies to [managed instance](sql-database-managed-instance.md) only. |
+| Network isolation and firewalling support| Yes | Firewall at both database- and server-level; network isolation for [managed instance](sql-database-managed-instance.md) only |
+| Forced tunneling support| Yes | [managed instance](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
 ## Detection
 
@@ -48,16 +48,16 @@ Azure SQL Database includes both [single database](sql-database-single-index.yml
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Access management - Authentication| Yes | Azure Active Directory. |
-| Access management - Authorization| Yes |  |
+| Authentication| Yes | Azure Active Directory. |
+| Authorization| Yes |  |
 
 
 ## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control/Management Plan Logging and Audit| Yes | Yes for some events only. |
-| Data plane Logging and Audit | Yes | Via [SQL audit](sql-database-auditing.md). |
+| Control and management plane logging and audit| Yes | Yes for some events only. |
+| Data plane logging and audit | Yes | Via [SQL audit](sql-database-auditing.md). |
 
 ## Configuration management
 

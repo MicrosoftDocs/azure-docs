@@ -18,16 +18,16 @@ ms.date: 05/21/2019
 
 In this article, you'll learn how to create Azure Machine Learning datasets (preview) and how to access the data from local and remote experiments.
 
-These managed datasets make it easy to: 
-* **Access data during model training** without reconnecting to underlying stores
+With managed datasets, you can: 
+* **Easily access data during model training** without reconnecting to underlying stores
 
-* **Ensure data consistency** across your workflows: notebooks, pipelines, visual interface
+* **Ensure data consistency & reproducibility** using the same pointer across experiments: notebooks, automated ml, pipelines, visual interface
 
 * **Share data & collaborate** with other users
 
-* **Explore data & manage lifecycle** of data snapshots & versions
+* **Explore data** & manage lifecycle of data snapshots & versions
 
-* **Compare training data to production data**
+* **Compare data** in training to production
 
 
 ## Prerequisites

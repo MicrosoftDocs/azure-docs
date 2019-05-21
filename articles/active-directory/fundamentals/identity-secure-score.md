@@ -1,5 +1,5 @@
 ---
-title: What is identity secure score? - Azure Active Directory (Public preview)
+title: What is identity secure score? - Azure Active Directory
 description: How you can use the identity secure score to improve the security posture of your directory
 
 services: active-directory
@@ -17,7 +17,7 @@ ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# What is the identity secure score in Azure Active Directory? (Public preview)
+# What is the identity secure score in Azure Active Directory?
 
 How secure is your Azure AD tenant? If you don't know how to answer this question, this article explains how the identity secure score helps you to monitor and improve your identity security posture.
 
@@ -75,6 +75,10 @@ The identity secure score can be used by the following roles:
 - Security admin
 - Security readers
 
+### How are controls scored?
+
+Controls can be scored in two ways. Some are scored in a binary fashion - you get 100% of the score if you have the feature or setting configured based on our recommendation. Other scores are calculated as a percentage of the total configuration. For example, if the improvement recommendation states you’ll get 30 points if you protect all your users with MFA and you only have 5 of 100 total users protected, you would be given a partial score around 2 points (5 protected / 100 total * 30 max pts = 2 pts partial score).
+
 ### What does [Not Scored] mean?
 
 Actions labeled as [Not Scored] are ones you can perform in your organization but won't be scored because they aren't hooked up in the tool (yet!). So, you can still improve your security, but you won't get credit for those actions right now.
@@ -85,7 +89,7 @@ The score is calculated once per day (around 1:00 AM PST). If you make a change 
 
 ### My score changed. How do I figure out why?
 
-Head over to the [Microsoft 365 security center](https://security.microsoft.com/), where you’ll find your complete Microsoft secure score. You can easily see all the changes to your secure score by reviewing the in-depth changes on the history tab.  
+Head over to the [Microsoft 365 security center](https://security.microsoft.com/), where you’ll find your complete Microsoft secure score. You can easily see all the changes to your secure score by reviewing the in-depth changes on the history tab.
 
 ### Does the secure score measure my risk of getting breached?
 
