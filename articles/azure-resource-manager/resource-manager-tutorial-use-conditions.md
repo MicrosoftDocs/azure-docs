@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -20,7 +20,7 @@ ms.author: jgao
 
 Learn how to deploy Azure resources based on conditions.
 
-In the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created.
+In the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. A new storage account is only created if the value of the parameter is "new".
 
 ![Resource Manager template use condition diagram](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -31,6 +31,13 @@ This tutorial covers the following tasks:
 > * Modify the template
 > * Deploy the template
 > * Clean up resources
+
+This tutorial only covers a basic scenario of using conditions. For more information, see:
+
+* [Template file structure: Condition](./resource-group-authoring-templates.md#condition).
+* [Conditionally deploy a resource in an Azure Resource Manager template](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md).
+* [Template function: If](./resource-group-template-functions-logical.md#if).
+* [Comparison functions for Azure Resource Manager templates](./resource-group-template-functions-comparison.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -56,6 +63,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Select **Open** to open the file.
 4. There are five resources defined by the template:
 
@@ -131,7 +139,7 @@ Follow the instructions in [Deploy the template](./resource-manager-tutorial-cre
 
 When you deploy the template using Azure PowerShell, you need to specify one additional parameter. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
-```azurepowershell
+```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
@@ -160,10 +168,10 @@ Try making another deployment with **newOrExisting** set to "existing" and speci
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
-1. From the Azure portal, select **Resource group** from the left menu.
-2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
-4. Select **Delete resource group** from the top menu.
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## Next steps
 
