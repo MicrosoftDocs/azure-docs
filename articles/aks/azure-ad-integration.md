@@ -40,10 +40,10 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 
-    - Give the application a name, such as **AKSAzureADServer**.
+    - Give the application a name, such as AKSAzureADServer.
     - For **Supported account types**, choose **Accounts in this organizational directory only**.
     - Select **Web** for the Redirect URI type, and then enter any URI-formatted value such as **https://aksazureadserver**.
-    - When you're done, select **Register**.
+    - Select **Register** when you're finished.
 
 2. Select **Manifest**, and then edit the **"groupMembershipClaims:"** value as **"All"**. When you're finished with the updates, select **Save**.
 
@@ -55,7 +55,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     * Choose **+ New client secret**.
     * Add a key description, such as **AKS Azure AD server**. Choose an expiration time, and then select **Add**.
-    * Remember the key value, which is only displayed during this process. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the Server application secret.
+    * Note the key value, which is only displayed during this process. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the Server application secret.
 
 4. On the left pane of the Azure AD application, select **API permissions**, and then choose to **+ Add a permission**.
 
@@ -68,39 +68,39 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     * Choose **Add permissions** to save the updates.
 
-    * Under the **Grant consent** section, choose to **Grant admin consent**. This button is greyed out and is unavailable if the current account is not a tenant admin.
+    * Under the **Grant consent** section, select **Grant admin consent**. This button is greyed out and unavailable if the current account is not a tenant admin.
 
         When the permissions have been successfully granted, the following notification is displayed in the portal:
 
         ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
-1. On the left-hand navigation of the Azure AD application, select **Expose an API**, and then choose to **+ Add a scope**.
+1. On the left pane of the Azure AD application, select **Expose an API**, and then choose **+ Add a scope**.
     
-    * Set a *Scope name*, *admin consent display name*, and *admin consent description*, such as *AKSAzureADServer*.
-    * Make sure the **State** is set to *Enabled*.
+    * Enter a **Scope name**, **Admin consent display name**, and **Admin consent description** (such as AKSAzureADServer).
+    * Make sure **State** is set to **Enabled**.
 
         ![Expose the server app as an API for use with other services](media/aad-integration/expose-api.png)
 
-    * Choose **Add scope**.
+    * Select **Add scope**.
 
-5. Return to the application **Overview** page and take note of the **Application (client) ID**. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
+5. Return to the application **Overview** page and note of the **Application (client) ID**. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the Server application ID.
 
    ![Get application ID](media/aad-integration/application-id.png)
 
 ## Create client application
 
-The second Azure AD application is used when logging in with the Kubernetes CLI (`kubectl`).
+The second Azure AD application is used when you log in with the Kubernetes CLI (kubectl).
 
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 
-    * Give the application a name, such as *AKSAzureADClient*.
-    * For **Supported account types**, choose *Accounts in this organizational directory only*.
-    * Choose *Web* for the **Redirect URI** type, and enter any URI formatted value such as *https://aksazureadclient*.
-    * Select **Register** when done.
+    * Give the application a name, such as AKSAzureADClient.
+    * For **Supported account types**, select **Accounts in this organizational directory only**.
+    * Choose **Web** for the **Redirect URI** type, and then enter any URI-formatted value such as https://aksazureadclient.
+    * Select **Register** when you're finished.
 
-1. On the left-hand navigation of the Azure AD application, select **API permissions**, and then choose to **+ Add a permission**.
+2. On the left-hand navigation of the Azure AD application, select **API permissions**, and then choose to **+ Add a permission**.
 
-    * Select **My APIs**, and then choose your Azure AD server application created in the previous step, such as *AKSAzureADServer*.
+    * Select **My APIs**, and then choose your Azure AD server application created in the previous step, such as AKSAzureADServer.
     * Choose **Delegated permissions**, and then place a check next to your Azure AD server app.
 
         ![Configure application permissions](media/aad-integration/select-api.png)
@@ -113,11 +113,11 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
 
         ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
-1. On the left-hand navigation of the Azure AD application, select **Authentication**.
+3. On the left pane of the Azure AD application, select **Authentication**.
 
-    * Under **Default client type**, select **Yes** to *Treat the client as a public client*.
+    * Under **Default client type**, select **Yes** to **Treat the client as a public client**.
 
-1. On the left-hand navigation of the Azure AD application, take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Client application ID`.
+4. On the left-hand navigation of the Azure AD application, take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the Client application ID.
 
    ![Get the application ID](media/aad-integration/application-id-client.png)
 
@@ -125,7 +125,7 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
 
 Finally, get the ID of your Azure tenant. This value is used when you create the AKS cluster.
 
-From the Azure portal, select **Azure Active Directory** > **Properties** and take note of the **Directory ID**. When you create an Azure AD-enabled AKS cluster, this value is referred to as the `Tenant ID`.
+From the Azure portal, select **Azure Active Directory** > **Properties** and note the **Directory ID**. When you create an Azure AD-enabled AKS cluster, this value is called the Tenant ID.
 
 ![Get the Azure tenant ID](media/aad-integration/tenant-id.png)
 
@@ -137,7 +137,7 @@ Use the [az group create][az-group-create] command to create a resource group fo
 az group create --name myResourceGroup --location eastus
 ```
 
-Deploy the cluster by using the [az aks create][az-aks-create] command. Replace the values in the sample command below with the values collected when creating the Azure AD applications for the server app ID and secret, client app ID, and tenant ID:
+Deploy the cluster by using the [az aks create][az-aks-create] command. Replace the values in the sample command below with the values collected when creating the Azure AD applications for the server app ID, server app secret, client app ID, and tenant ID.
 
 ```azurecli
 az aks create \
