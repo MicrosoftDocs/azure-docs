@@ -14,7 +14,7 @@ ms.date: 05/13/2019
 > [!NOTE]
 > Managed Identity support for Managed Applications is currently in preview. Please use the 2018-09-01-preview api version to utilize Managed Identity.
 
-Learn how to configure a Managed Application to contain a Managed Identity. This can be used to allow the customer to grant the Managed Application access to additional existing resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure Active Directory (AAD), see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+Learn how to configure a Managed Application to contain a Managed Identity. Managed Identity can be used to allow the customer to grant the Managed Application access to additional existing resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure Active Directory (AAD), see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 
@@ -125,7 +125,7 @@ A basic CreateUIDefinition that takes a **user-assigned identity** resource as i
 }
 ```
 
-This generates a create user experience that has a textbox for a consumer to enter the **user-assigned identity** Azure resource ID. The generated experience would look like:
+The CreateUIDefinition.json above generates a create user experience that has a textbox for a consumer to enter the **user-assigned identity** Azure resource ID. The generated experience would look like:
 
 ![Sample user-assigned identity CreateUIDefinition](./media/publish-managed-identity/user-assigned-identity.png)
 
@@ -204,7 +204,7 @@ Once a Managed Application is granted an identity, it can be granted access to e
 
 ![Add role assignment for Managed Application](./media/publish-managed-identity/identity-role-assignment.png)
 
-## Deploying Managed Applications with linked existing Azure resources
+## Linking existing Azure resources
 
 > [!NOTE]
 > A **user-assigned identity** must be [configured](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) before deploying the Managed Application. In addition, linked resource deployment of Managed Applications is only supported for the **marketplace** kind.
@@ -263,7 +263,7 @@ When linking the deployment of the Managed Application to existing resources, bo
 }
 ```
 
-This generates a create user experience that has two fields. The first field allows the user to enter in the Azure resource ID for the resource being linked to the Managed Application deployment. The second is for a consumer to enter the **user-assigned identity** Azure resource ID, which has access to the linked Azure resource. The generated experience would look like:
+This CreateUIDefinition.json generates a create user experience that has two fields. The first field allows the user to enter in the Azure resource ID for the resource being linked to the Managed Application deployment. The second is for a consumer to enter the **user-assigned identity** Azure resource ID, which has access to the linked Azure resource. The generated experience would look like:
 
 ![Sample CreateUIDefinition with two inputs: a network interface resource ID and a user assigned identity resource ID](./media/publish-managed-identity/network-interface-cuid.png)
 
