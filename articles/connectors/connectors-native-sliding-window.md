@@ -17,11 +17,11 @@ To regularly run tasks, processes, or jobs that must handle data in continuous s
 
 Here are some patterns that this trigger supports:
 
-* Run immediately and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+* Run immediately and repeat every *n* number of seconds, minutes, or hours.
 
-* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, or hours.
 
-* Delay for a specific duration, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+* Delay for a specific duration, then run and repeat every *n* number of seconds, minutes, or hours.
 
 For differences between this trigger and the Recurrence trigger or for more information about scheduling recurring workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
@@ -49,8 +49,8 @@ For differences between this trigger and the Recurrence trigger or for more info
 
    | Property | Required | JSON name | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
-   | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** |
+   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Hour", then the recurrence is every 6 hours. |
+   | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, or **Hour** |
    ||||||
 
    ![Advanced recurrence options](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
@@ -82,7 +82,7 @@ This example shows how a Sliding Window trigger definition might look in an unde
             "delay": "PT5H"
          },
          "recurrence": {
-            "frequency": "Week",
+            "frequency": "Hour",
             "interval": 1,
             "startTime": "2019-05-13T14:00:00Z",
             "timeZone": "Pacific Standard Time"
