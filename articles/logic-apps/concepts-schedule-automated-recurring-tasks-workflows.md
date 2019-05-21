@@ -13,7 +13,7 @@ ms.date: 05/25/2019
 
 # Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps
 
-Logic Apps helps you create and run automated recurring tasks and processes on a schedule. By creating a logic app workflow that starts with a Schedule trigger, you can run tasks immediately, at a later time, or on a recurring interval. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or get files uploaded to a file share. You can also set up complex schedules and advanced recurrences for running tasks.
+Logic Apps helps you create and run automated recurring tasks and processes on a schedule. By creating a logic app workflow that starts with a Schedule trigger, you can run tasks immediately, at a later time, or on a recurring interval. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or get files uploaded to a file share. You can also set up complex schedules and advanced recurrences for running tasks. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Here are some examples that show the kinds of tasks that you can run:
 
@@ -29,7 +29,7 @@ Here are some examples that show the kinds of tasks that you can run:
 
 * Archive data, such as push invoices to a backup service at 1:00 AM every day for the next nine months.
 
-You can also use the Schedule built-in [actions](../logic-apps/logic-apps-overview.md#logic-app-concepts) to pause your workflow before the next action runs, for example:
+You can also use the Schedule built-in actions to pause your workflow before the next action runs, for example:
 
 * Wait until a weekday to send a status update over email.
 
