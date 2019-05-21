@@ -364,7 +364,7 @@ If you added prompts in your knowledge base and tested the flow in the test pane
 
 ## Display order supported in API
 
-The display order, returned in the JSON response, is supported for editing by the API only. 
+The [display text and display order](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
 ## Next steps
 
