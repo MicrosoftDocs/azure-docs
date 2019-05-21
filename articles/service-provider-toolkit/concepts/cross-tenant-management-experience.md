@@ -98,7 +98,7 @@ With all scenarios, please be aware of the following current limitations:
 - While Azure Resource Manager operations are supported, Resource Provider operations (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure Delegated Resource Management.
 - Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
 - Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) aren't supported.
-- You can’t onboard a subscription or resource group for Azure Delegated Resource Management if that scope has any resource locks. For example, Azure managed applications and Azure Databricks automatically create resource locks on resources in the solution. Use this query to check for resource locks on a subscription:  
+- You can’t onboard a subscription or resource group for Azure Delegated Resource Management if that scope has any resource locks. In particular, be aware that Azure managed applications and Azure Databricks automatically create resource locks. Use this query to check for resource locks on a subscription:  
   ```azurecli-interactive
   Get-AzResourceLock -Scope {subscriptionId}
   ```
