@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -223,7 +223,9 @@ By default, you can create 10 circuits in the subscription where the ExpressRout
 
 There are additional circuit bandwidths that can be utilized on ExpressRoute Direct only to support the scenarios outlined above. These are: 40Gbps and 100Gbps.
 
-Standard or premium circuits can be created. Standard circuits are included in the cost, while premium circuits have a cost based on the bandwidth selected. Circuits can only be created as metered, as unlimited is not supported on ExpressRoute Direct.
+**SkuTier** can be Local, Standard or Premium.
+
+**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
 
 Create a circuit on the ExpressRoute Direct resource.
 

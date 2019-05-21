@@ -33,14 +33,14 @@ This document assumes that you are familiar with Azure Virtual Networks, and IP 
 > [!IMPORTANT]
 > You can put the storage account that is attached to Azure Machine Learning service workspace behind the virtual network only while doing experimentation. Inference requires unrestricted access to the storage account. If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks during inference, or model scoring.
 
-To use Azure Machine Learning experimentation capabilities with Azure Storage behind a virtual network follow the steps below:
+To use Azure Machine Learning experimentation capabilities with Azure Storage behind a virtual network, follow the steps below:
 
 1. Create an experimentation compute ex. Machine Learning Compute behind a virtual network or attach an experimentation compute to the workspace ex. HDInsight cluster or virtual machine. For more information, see [Use Machine Learning Compute](#use-machine-learning-compute) and [Use a virtual machine or HDInsight cluster](#use-a-virtual-machine-or-hdinsight-cluster) sections in this document
 2. Go to the storage attached to the workspace. ![Image of the Azure portal showing Azure Storage that is attached to the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-storage.png)
 3. On the Azure Storage page, select __Firewalls and virtual networks__. ![Image of the Azure portal showing Firewalls and virtual networks section on Azure Storage page](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-4. On the __Firewalls and virtual networks__ page select the following:
+4. On the __Firewalls and virtual networks__ page select the following entries:
     - Select __Selected networks__.
-    - Under __Virtual networks__ select __Add existing virtual network__ to add the virtual network where your experimentation compute resides. (See step 1.)
+    - Under __Virtual networks__, select __Add existing virtual network__ to add the virtual network where your experimentation compute resides. (See step 1.)
     - Select __Allow trusted Microsoft services to access this storage account__.
 ![Image of the Azure portal showing Firewalls and virtual networks page under Azure Storage](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png) 
 
@@ -57,10 +57,10 @@ Key Vault instance associated with the workspace is used by Azure Machine Learni
 
 To use Azure Machine Learning experimentation capabilities with Key Vault behind a virtual network follow the steps below:
 1. Go to the Key Vault associated with the workspace. ![Image of the Azure portal showing Key Vault that is associated with the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)
-2. On the Key Vault page select __Firewalls and virtual networks__ section. ![Image of the Azure portal showing Firewalls and virtual networks section on Key Vault page](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
-3. On the __Firewalls and virtual networks__ page select the following:
+2. On the Key Vault page, select __Firewalls and virtual networks__ section. ![Image of the Azure portal showing Firewalls and virtual networks section on Key Vault page](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
+3. On the __Firewalls and virtual networks__ page select the following entries:
     - Select __Selected networks__.
-    - Under the __Virtual networks__ select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
+    - Under the __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
     - Select __Allow trusted Microsoft services to bypass this firewall__.
 ![Image of the Azure portal showing Firewalls and virtual networks page under Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png) 
 
@@ -97,7 +97,7 @@ Machine Learning Compute currently uses the Azure Batch service to provision VMs
 
     ![Image of the Azure portal showing an inbound rule using the BatchNodeManagement service tag](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- (optional) Inbound TCP traffic on port 22 to permit remote access. This is only needed if you want to connect using SSH on the public IP.
+- (optional) Inbound TCP traffic on port 22 to permit remote access. This port is only needed if you want to connect using SSH on the public IP.
  
 - Outbound traffic on any port to the virtual network.
 
@@ -125,8 +125,19 @@ The following screenshot shows how the NSG rule configuration looks in the Azure
 
 ![Screenshot of outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)
 
+### User-defined routes for forced tunneling
 
+If you are using forced tunneling with Azure Machine Learning Compute, you must add [user-defined routes (UDR)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
 
+* A user-defined route for each IP address used by the Azure Batch service in the region where your resources exist. These UDRs enable the batch service to communicate with compute nodes for task scheduling. To get a list of the IP addresses of the Batch service,  contact Azure Support.
+
+* Outbound traffic to Azure Storage (specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`) must not be blocked by your on-premises network appliance.
+
+When you add the user-defined routes, define the route for each related Batch IP address prefix, and set __Next hop type__ to __Internet__. The following image shows an example of this UDR in the Azure portal:
+
+![Example user-defined route for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+For more information, see the [Create an Azure Batch pool in a virtual network](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) article.
 
 ### Create Machine Learning Compute in a virtual network
 
@@ -229,7 +240,7 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 > [!IMPORTANT]
 > Check the prerequisites and plan IP addressing for your cluster before proceeding with the steps. For more information, see [Configure advanced networking in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 > 
-
+>
 > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 >
 > Azure Kubernetes Service and the Azure virtual network should be in the same region.
