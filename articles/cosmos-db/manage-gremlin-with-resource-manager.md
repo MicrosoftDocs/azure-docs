@@ -8,7 +8,7 @@ ms.date: 05/20/2019
 ms.author: mjbrown
 ---
 
-# Manage Azure Cosmos DB Gremlin API resources using Azure Resource Manager (ARM) Templates
+# Manage Azure Cosmos DB Gremlin API resources using Azure Resource Manager Templates
 
 ## Create Azure Cosmos DB API for MongoDB account, database and collection <a id="create-resource"></a>
 

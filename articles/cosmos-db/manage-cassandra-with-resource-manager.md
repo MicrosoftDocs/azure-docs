@@ -8,7 +8,7 @@ ms.date: 05/06/2019
 ms.author: mjbrown
 ---
 
-# Manage Azure Cosmos DB Cassandra API resources using Azure Resource Manager (ARM) Templates
+# Manage Azure Cosmos DB Cassandra API resources using Azure Resource Manager Templates
 
 ## Create Azure Cosmos account, keyspace and table <a id="create-resource"></a>
 
