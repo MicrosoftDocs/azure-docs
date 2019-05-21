@@ -1,11 +1,11 @@
 ---
-title: How To Dump and Restore in Azure Database for PostgreSQL
-description: Describes how to extract a PostgreSQL database into a dump file and restore from a file created by pg_dump in Azure Database for PostgreSQL.
+title: How To Dump and Restore in Azure Database for PostgreSQL - Single Server
+description: Describes how to extract a PostgreSQL database into a dump file and restore from a file created by pg_dump in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2018
+ms.date: 5/6/2019
 ---
 # Migrate your PostgreSQL database using dump and restore
 You can use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) to extract a PostgreSQL database into a dump file and [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) to restore the PostgreSQL database from an archive file created by pg_dump.

@@ -86,7 +86,10 @@ Follow these instructions to create an Azure Cosmos DB account in the Azure port
 1. Find and select **Microsoft.Azure.DocumentDB**, and select **Install** if it's not already installed.
    
    The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   
+
+   > [!NOTE]
+   > If you are using .NET Core, please see [the .NET Core docs](./sql-api-dotnetcore-get-started.md).
+
    ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
    
    If you get a message about previewing changes to the solution, select **OK**. If you get a message about license acceptance, select **I accept**.
@@ -137,6 +140,20 @@ Now, get started writing some code. The complete *Project.cs* file for this tuto
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   If you are using a proxy object to connect to Azure Cosmos DB, you should instead use the following code block to create the DocumentClient object. The sample in this document doesn't use a proxy object, so the example below is just for your reference:
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. Add the following code to the `Main` method to run the `GetStartedDemo` task. The `Main` method catches exceptions and writes them to the console.

@@ -7,7 +7,7 @@ ms.service: azure-dev-spaces
 ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
-ms.topic: "quickstart"
+ms.topic: quickstart
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: jeconnoc
@@ -33,7 +33,7 @@ You need to create an AKS cluster in a [supported region](https://docs.microsoft
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## Enable Azure Dev Spaces on your AKS cluster

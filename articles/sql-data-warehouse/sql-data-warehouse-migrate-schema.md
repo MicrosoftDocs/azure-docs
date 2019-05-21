@@ -2,13 +2,13 @@
 title: Migrate your schema to SQL Data Warehouse | Microsoft Docs
 description: Tips for migrating your schema to Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: jrowlandjones
+author: TwoUnder 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mausher
 ms.reviewer: igorstan
 ---
 

@@ -48,7 +48,7 @@ Sometimes the session affinity issues might occur when you forget to enable “C
 
 You can also check the value of the “**CookieBasedAffinity**” is set to *Enabled*under "**backendHttpSettingsCollection**" by using one of the following methods:
 
-- Run [Get-AzApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsettings) in PowerShell
+- Run [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) in PowerShell
 - Look through the JSON file by using the Azure Resource Manager template
 
 ```
@@ -91,7 +91,7 @@ This issue occurs because Internet Explorer and other browsers may not store or 
 
 #### Resolution
 
-To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](http://website.com/) or [http://appgw.website.com](http://appgw.website.com/) .
+To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](https://website.com/) or [http://appgw.website.com](http://appgw.website.com/) .
 
 ## Additional logs to troubleshoot
 

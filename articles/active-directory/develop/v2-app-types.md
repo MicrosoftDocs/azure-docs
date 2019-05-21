@@ -3,8 +3,8 @@ title: Application types for Microsoft identity platform | Azure
 description: The types of apps and scenarios supported by the Microsoft identity platform (v2.0) endpoint.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

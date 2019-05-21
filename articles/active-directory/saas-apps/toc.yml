@@ -59,6 +59,8 @@
         href: alcumus-info-tutorial.md
       - name: AlertOps
         href: alertops-tutorial.md
+      - name: Alibaba Cloud Service (Role-based SSO)
+        href: alibaba-cloud-service-role-based-sso-tutorial.md
       - name: Allbound SSO
         href: allbound-sso-tutorial.md  
       - name: Allocadia
@@ -67,6 +69,8 @@
         href: amazon-web-service-tutorial.md
       - name: Amazon Web Services (AWS) to connect multiple accounts
         href: aws-multi-accounts-tutorial.md
+      - name: AMMS
+        href: amms-tutorial.md
       - name: Amplitude
         href: amplitude-tutorial.md
       - name: Anaplan
@@ -177,6 +181,8 @@
         href: bpmonline-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
+      - name: Braze
+        href: braze-tutorial.md
       - name: Bridge
         href: bridge-tutorial.md
       - name: Bridgeline Unbound
@@ -209,6 +215,8 @@
         href: cernercentral-tutorial.md
       - name: Certain Admin SSO
         href: certainadminsso-tutorial.md
+      - name: Certent Equity Management
+        href: certent-equity-management-tutorial.md
       - name: Certify
         href: certify-tutorial.md
       - name: Cezanne HR Software
@@ -313,6 +321,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: directions-microsoft-tutorial.md
+      - name: Displayr
+        href: displayr-tutorial.md
       - name: dmarcian
         href: dmarcian-tutorial.md
       - name: DocuSign
@@ -343,6 +353,8 @@
         href: edcor-tutorial.md
       - name: eDigitalResearch
         href: edigitalresearch-tutorial.md
+      - name: EduBrite LMS
+        href: edubrite-lms-tutorial.md
       - name: EFI Digital StoreFront
         href: efidigitalstorefront-tutorial.md
       - name: Egnyte
@@ -425,6 +437,8 @@
         href: foreseecxsuite-tutorial.md
       - name: Form.com
         href: formcom-tutorial.md
+      - name: Freedcamp
+        href: freedcamp-tutorial.md
       - name: FreshDesk
         href: freshdesk-tutorial.md
       - name: FreshGrade
@@ -461,6 +475,8 @@
         href: grape-tutorial.md
       - name: Greenhouse
         href: greenhouse-tutorial.md
+      - name: GreenOrbit
+        href: greenorbit-tutorial.md
       - name: Grovo
         href: grovo-tutorial.md
       - name: GT Nexus Prod System
@@ -719,6 +735,8 @@
         href: mindtickle-tutorial.md
       - name: mindWireless
         href: mindwireless-tutorial.md
+      - name: Mitel Connect
+        href: mitel-connect-tutorial.md
       - name: Mixpanel
         href: mixpanel-tutorial.md
       - name: MOBI
@@ -731,6 +749,8 @@
         href: mobileiron-tutorial.md
       - name: moconavi
         href: moconavi-tutorial.md
+      - name: monday.com
+        href: mondaycom-tutorial.md
       - name: Montage Online
         href: montageonline-tutorial.md
       - name: MOVEit Transfer - Azure AD integration
@@ -811,6 +831,8 @@
       items:
       - name: Pacific Timesheet
         href: pacific-timesheet-tutorial.md
+      - name: PageDNA
+        href: pagedna-tutorial.md
       - name: PagerDuty
         href: pagerduty-tutorial.md
       - name: Palo Alto Networks - Aperture
@@ -905,6 +927,8 @@
         href: rackspacesso-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
+      - name: Real Links
+        href: real-links-tutorial.md
       - name: RealtimeBoard
         href: realtimeboard-tutorial.md
       - name: Recognize
@@ -931,6 +955,8 @@
         href: ringcentral-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
+      - name: RStudio Connect
+        href: rstudio-connect-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md
       - name: Rollbar
@@ -971,6 +997,8 @@
         href: sap-hana-cloud-platform-tutorial.md
       - name: SAP Cloud Platform Identity Authentication
         href: sap-hana-cloud-platform-identity-authentication-tutorial.md
+      - name: SAP Fiori
+        href: sap-fiori-tutorial.md
       - name: SAP HANA
         href: saphana-tutorial.md
       - name: SAP NetWeaver
@@ -995,6 +1023,8 @@
         href: sd-elements-tutorial.md
       - name: Secret Server (On-Premises)
         href: secretserver-on-premises-tutorial.md
+      - name: Sectigo Certificate Manager
+        href: sectigo-certificate-manager-tutorial.md
       - name: SECURE DELIVER
         href: securedeliver-tutorial.md
       - name: SecureW2 JoinNow Connector
@@ -1033,6 +1063,8 @@
         href: silverback-tutorial.md
       - name: SimpleNexus
         href: simplenexus-tutorial.md
+      - name: Simple Sign
+        href: simple-sign-tutorial.md
       - name: Skilljar
         href: skilljar-tutorial.md
       - name: Skillport
@@ -1101,6 +1133,8 @@
         href: sumtotalcentral-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: SurveyMonkey Enterprise
+        href: surveymonkey-enterprise-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-tutorial.md
       - name: Syncplicity
@@ -1133,6 +1167,8 @@
         href: teamseer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
+      - name: Templafy
+        href: templafy-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1231,6 +1267,8 @@
         href: workday-tutorial.md
       - name: Workfront
         href: workfront-tutorial.md
+      - name: Workgrid
+        href: workgrid-tutorial.md
       - name: Workpath
         href: workpath-tutorial.md
       - name: Workplace by Facebook
@@ -1318,6 +1356,8 @@
         href: cisco-spark-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
+      - name: Comeet Recruiting Software
+        href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur
         href: concur-provisioning-tutorial.md
       - name: Cornerstone OnDemand
@@ -1326,6 +1366,8 @@
         href: docusign-provisioning-tutorial.md
       - name: Dropbox for Business
         href: dropboxforbusiness-provisioning-tutorial.md
+      - name: Dynamic Signal
+        href: dynamic-signal-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1334,6 +1376,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
+      - name: Keeper Password Manager & Digital Vault
+        href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator

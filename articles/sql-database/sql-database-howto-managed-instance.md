@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 04/16/2019
 ---
 # How to use a managed instance in Azure SQL Database
 
@@ -30,7 +30,7 @@ In this article you can find various guides, scripts, and explanation that can h
 - [Configure existing VNet and subnet for a managed instance](sql-database-managed-instance-configure-vnet-subnet.md) – if you want to configure your existing VNet and subnet to deploy managed instances inside, here you can find the script that checks the [network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements) and make configures your subnet according to the requirements.
 - [Configure custom DNS](sql-database-managed-instance-custom-dns.md) – you need to configure custom DNS if you want to access external resources on the custom domains from your managed instance via linked server of db mail profiles.
 - [Sync network configuration](sql-database-managed-instance-sync-network-configuration.md) - It might happen that although you [integrated your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), you can&#39;t establish connection to a managed instance. One thing you can try is to refresh networking configuration for your service plan.
-- [Find management endpoint IP address](sql-database-managed-instance-find-management-endpoint-ip-address.md) – Managed instance uses public endpoint for management-purposes only. You can determine IP address of the management endpoint using the script described here.
+- [Find management endpoint IP address](sql-database-managed-instance-find-management-endpoint-ip-address.md) – Managed instance uses public endpoint for management-purposes. You can determine IP address of the management endpoint using the script described here.
 - [Verify built-in firewall protection](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) – Managed instance is protected with built-in firewall that allows the traffic only on necessary ports. You can check and verify the built-in firewall rules using the script described in this guide.
 - [Connect applications](sql-database-managed-instance-connect-app.md) – Managed instance is placed in your own private Azure VNet with private IP address. Learn about different patterns for connecting the applications to your managed instance.
 

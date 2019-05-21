@@ -3,7 +3,7 @@ title: Add a real device to an Azure IoT Central application | Microsoft Docs
 description: As an operator, add a real device to your Azure IoT Central application.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 02/01/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -343,7 +343,7 @@ In this tutorial, you learned how to:
 > * Understand how client code maps to the application
 > * Configure client code for the real device
 
-Now that you've connected a real device to your Azure IoT Central application, here are the suggested next steps:
+Now that you've connected a real device to your Azure IoT Central application, here are some suggested next steps.
 
 As an operator, you can learn how to:
 

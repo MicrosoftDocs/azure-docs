@@ -60,6 +60,13 @@ if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
+### PHP (Using PDO)
+```phppdo
+$options = array(
+	PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+);
+$db = new PDO('mysql:host=mydemoserver.mysql.database.azure.com;port=3306;dbname=databasename', 'username@mydemoserver', 'yourpassword', $options);
+```
 ### Python (MySQLConnector Python)
 ```python
 try:
@@ -154,6 +161,23 @@ url = String.format("jdbc:mariadb://%s/%s?useSSL=true&trustServerCertificate=tru
 properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
+```
+
+### .NET (MySqlConnector)
+```csharp
+var builder = new MySqlConnectionStringBuilder
+{
+    Server = "mydemoserver.mysql.database.azure.com",
+    UserID = "myadmin@mydemoserver",
+    Password = "yourpassword",
+    Database = "quickstartdb",
+    SslMode = MySqlSslMode.VerifyCA,
+    CACertificateFile = "BaltimoreCyberTrustRoot.crt.pem",
+};
+using (var connection = new MySqlConnection(builder.ConnectionString))
+{
+    connection.Open();
+}
 ```
 
 ## Next steps

@@ -29,8 +29,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 In addition, you need:
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
+* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
