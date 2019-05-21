@@ -17,7 +17,7 @@ Logic Apps helps you create and run automated recurring tasks and processes on a
 
 Here are some examples that show the kinds of tasks that you can run:
 
-* Get internal data, such as [run a SQL stored procedure](../connectors/connectors-create-api-sqlazure.md) every day.
+* Get internal data, such as run a SQL stored procedure every day.
 
 * Get external data, such as pull weather reports from NOAA every 15 minutes.
 
