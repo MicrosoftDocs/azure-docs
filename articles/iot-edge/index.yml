@@ -24,7 +24,7 @@ landingContent:
             url: tutorial-node-module.md
           - text: Develop a Python module
             url: tutorial-python-module.md
-      - linkListType: concept
+      - linkListType: learn
         links: 
           - text: Use Visual Studio Code to develop and debug modules
             url: how-to-vs-code-develop-module.md
@@ -42,13 +42,13 @@ landingContent:
             url: tutorial-c-module-windows.md
           - text: Develop a C# module
             url: tutorial-csharp-module-windows.md
-      - linkListType: concept
+      - linkListType: learn
         links: 
           - text: Use Visual Studio 2017 to develop and debug modules
             url: how-to-visual-studio-develop-module.md
   - title: Use IoT Edge devices as gateways
     linkLists: 
-      - linkListType: concept
+      - linkListType: learn
         links: 
           - text: How an IoT Edge device can be used as a gateway
             url: iot-edge-as-gateway.md
@@ -72,7 +72,7 @@ landingContent:
             url: https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services
   - title: Prepare for production scenarios
     linkLists: 
-      - linkListType: concept
+      - linkListType: learn
         links: 
           - text: Understand automatic deployments
             url: module-deployment-monitoring.md
