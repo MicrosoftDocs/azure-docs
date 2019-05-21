@@ -140,8 +140,7 @@ instances might take some time before they completely stop.
 
 ## Integration accounts
 
-Consumption pricing applies to 
-[integration accounts](logic-apps-enterprise-integration-create-integration-account.md) 
+Consumption pricing applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) 
 where you can explore, develop, and test the 
 [B2B and EDI](logic-apps-enterprise-integration-b2b.md) 
 and [XML processing](logic-apps-enterprise-integration-xml.md) 
@@ -152,9 +151,9 @@ Each integration account can store up to specific
 which include trading partners, agreements, maps, schemas, 
 assemblies, certificates, batch configurations, and so on.
 
-Azure Logic Apps also offers Basic and Standard integration 
-accounts with supported Logic Apps SLA. Here are ways you 
-can choose whether to use a Basic or Standard integration account:
+Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA). The Free tier restricts throughput and usage, doesn't include an SLA, and is suitable only for exploratory scenarios, not production scenarios.
+
+To choose between a Basic or Standard integration account:
 
 * Use Basic integration accounts when you just want message 
 handling or act as a small business partner that has a 
