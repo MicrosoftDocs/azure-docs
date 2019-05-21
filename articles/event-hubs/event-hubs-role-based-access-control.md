@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
 
 ---
@@ -24,8 +24,13 @@ For Azure Event Hubs, the management of namespaces and all related resources thr
 An application that uses Azure AD RBAC does not need to handle SAS rules and keys or any other access tokens specific to Event Hubs. The client app interacts with Azure AD to establish an authentication context, and acquires an access token for Event Hubs. With domain user accounts that require interactive login, the application never handles any credentials directly.
 
 ## Event Hubs roles and permissions
+Azure provides the following built-in RBAC roles for authorizing access to an Event Hubs namespace:
 
-For the initial public preview, you can only add Azure AD accounts and service principals to the "Owner" or "Contributor" roles of an Event Hubs namespace. This operation grants the identity full control over all entities in the namespace. Management operations that change the namespace topology are initially only supported though Azure resource management and not through the native Event Hubs REST management interface. This support also means that the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object cannot be used with an Azure AD account.  
+The [Event Hubs Data Owner (Preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) role enables data access to an Event Hubs namespace and its entities (queues, topics, subscriptions, and filters)
+
+>[!IMPORTANT]
+> We earlier supported adding managed identity to the **Owner** or **Contributor** role. However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Event Hubs Data Owner** role.
+
 
 ## Use Event Hubs with an Azure AD domain user account
 
