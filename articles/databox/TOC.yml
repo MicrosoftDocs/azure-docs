@@ -36,6 +36,8 @@
       items:
       - name: Read safety guidelines
         href: data-box-safety.md
+      - name: Tracking and logging
+        href: data-box-logs.md
       - name: Review requirements
         items:
         - name: For Data Box
@@ -47,7 +49,7 @@
       - name: Review security 
         href: data-box-security.md 
       - name: FAQ
-        href: data-box-faq.md  
+        href: data-box-faq.md 
     - name: How to
       items:  
       - name: Manage via Azure portal
