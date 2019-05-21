@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
 ---
 
@@ -87,8 +87,6 @@ Fixed price = 744(hours) * $0.36 = $267.84
 Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 capacity unit for throughput) * $0.0144 = 744 * 8 * 0.0144 = $85.71
 
 Total price = $267.84 + $85.71 = $353.55
-
-The [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
 
 ## Scaling Application Gateway and WAF v2
 
