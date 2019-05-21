@@ -9,20 +9,27 @@
     href: text-analytics-user-scenarios.md
 - name: Quickstarts
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Go
-    href: quickstarts/go.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+    - name: REST API
+      items:
+      - name: Go
+        href: quickstarts/go.md
+      - name: Java
+        href: quickstarts/java.md
+      - name: Node.js
+        href: quickstarts/nodejs.md
+      - name: PHP
+        href: quickstarts/php.md
+      - name: Python
+        href: quickstarts/python.md
+      - name: Ruby
+        href: quickstarts/ruby.md
+    - name: SDK
+      items:
+      - name: C#
+        href: quickstarts/csharp.md
+      - name: Python
+        href: quickstarts/python-sdk.md
+
 - name: Tutorials
   items:
     - name: Integrate Power BI to analyze customer feedback

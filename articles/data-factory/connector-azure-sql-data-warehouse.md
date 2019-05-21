@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: jingwang
 
 ---
@@ -21,11 +21,16 @@ ms.author: jingwang
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Current version](connector-azure-sql-data-warehouse.md)
 
-This article explains how to use Copy Activity in Azure Data Factory to copy data to or from Azure SQL Data Warehouse. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
+This article outlines how to copy data to and from Azure SQL Data Warehouse. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
-You can copy data from Azure SQL Data Warehouse to any supported sink data store. And you can copy data from any supported source data store to Azure SQL Data Warehouse. For a list of data stores that are supported as sources or sinks by Copy Activity, see the [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats) table.
+This Azure Blob connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) table
+- [Mapping data flow](concepts-data-flow-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 Specifically, this Azure SQL Data Warehouse connector supports these functions:
 
@@ -133,12 +138,12 @@ To use service principal-based Azure AD application token authentication, follow
 2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
 3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -183,12 +188,12 @@ To use managed identity authentication, follow these steps:
 1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
 2. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -221,7 +226,7 @@ To use managed identity authentication, follow these steps:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) article. This section provides a list of properties supported by the Azure SQL Data Warehouse dataset.
 
-To copy data from or to Azure SQL Data Warehouse, set the **type** property of the dataset to **AzureSqlDWTable**. The following properties are supported:
+To copy data from or to Azure SQL Data Warehouse, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -240,6 +245,7 @@ To copy data from or to Azure SQL Data Warehouse, set the **type** property of t
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -367,7 +373,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | rejectType | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No |
 | rejectSampleValue | Determines the number of rows to retrieve before PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are 1, 2, etc. | Yes, if the **rejectType** is **percentage**. |
 | useTypeDefault | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default). | No |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). | No. The default is 10000. |
+| writeBatchSize | Number of rows to inserts into the SQL table **per batch**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No |
 
@@ -413,28 +419,15 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Service principal authentication |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication |
 
-2. The **source dataset format** is of **ParquetFormat**, **OrcFormat**, or **TextFormat**, with the following configurations:
+2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
-   1. `folderPath` and `fileName` don't contain wildcard filter.
-   2. `rowDelimiter` must be **\n**.
-   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
-   4. `encodingName` is set to **utf-8**, which is the default value.
-   5. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
-   6. `compression` can be **no compression**, **GZip**, or **Deflate**.
-
-      ```json
-      "typeProperties": {
-        "folderPath": "<path>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8",
-            "firstRowAsHeader": <any>
-        }
-      },
-      ```
+   1. Folder path don't contain wildcard filter.
+   2. File name points to a single file or is `*` or `*.*`.
+   3. `rowDelimiter` must be **\n**.
+   4. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
+   5. `encodingName` is set to **utf-8**, which is the default value.
+   6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
+   7. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 ```json
 "activities":[
@@ -553,6 +546,10 @@ All columns of the table must be specified in the INSERT BULK statement.
 ```
 
 The NULL value is a special form of the default value. If the column is nullable, the input data in the blob for that column might be empty. But it can't be missing from the input dataset. PolyBase inserts NULL for missing values in Azure SQL Data Warehouse.
+
+## Mapping Data Flow properties
+
+Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in Mapping Data Flow.
 
 ## Data type mapping for Azure SQL Data Warehouse
 

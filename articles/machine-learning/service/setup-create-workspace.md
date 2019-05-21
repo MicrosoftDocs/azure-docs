@@ -15,7 +15,7 @@ ms.date: 04/19/2019
 
 # Create an Azure Machine Learning service workspace
 
-To use Azure Machine Learning service, you need an [**Azure Machine Learning service workspace**](concept-azure-machine-learning-architecture.md#workspace).  This workspace is the top-level resource for the service and provides you with a centralized place to work with all the artifacts you create. 
+To use Azure Machine Learning service, you need an [**Azure Machine Learning service workspace**](concept-workspace.md).  This workspace is the top-level resource for the service and provides you with a centralized place to work with all the artifacts you create. 
 
 In this article, you learn how to create a workspace using any of these methods: 
 * The [Azure portal](#portal) interface
@@ -69,7 +69,7 @@ The instructions in this article will install all the packages you need to run t
 
 ### Create an isolated Python environment
 
-1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded.
+1. Open Anaconda Prompt , then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded. 
 
     ```shell
     conda create -n myenv python=3.6.5

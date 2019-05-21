@@ -167,6 +167,8 @@
         href: application-provisioning-config-problem.md
       - name: Problem saving administrator credentials while configuring user provisioning gallery app
         href: application-provisioning-config-problem-storage-limit.md
+      - name: Sync an attribute for mapping - gallery app
+        href: user-provisioning-sync-attributes-for-mapping.md
       - name: Users are not provisioned - gallery app
         href: application-provisioning-config-problem-no-users-provisioned.md
       - name: Wrong users provisioned - gallery app

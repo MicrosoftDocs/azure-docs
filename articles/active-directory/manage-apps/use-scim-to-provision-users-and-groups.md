@@ -3,8 +3,8 @@ title: Automate provisioning of apps using SCIM in Azure Active Directory | Micr
 description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the SCIM protocol specification
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/03/2019
-ms.author: celested
-ms.reviewer: asmalser
+ms.date: 5/06/2019
+ms.author: mimart
+ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 
 
@@ -28,7 +28,7 @@ SCIM is standardized protocol and schema that aims to drive greater consistency 
 
 Many of the applications for which Azure AD supports [pre-integrated automatic user provisioning](../saas-apps/tutorial-list.md) implement SCIM as the means to receive user change notifications.  In addition to these, customers can connect applications that support a specific profile of the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/rfc7644) using the generic "non-gallery" integration option in the Azure portal. 
 
-The main focus of this article is on the profile of SCIM 2.0 that Azure AD implements as part of its generic SCIM connector for non-gallery apps. However, successful testing of an application that supports SCIM with the generic Azure AD connector is a step to getting an app listed in the Azure AD gallery as supporting user provisioning. For more information on getting your application listed in the Azure AD application gallery, see the [Microsoft Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx).
+The main focus of this article is on the profile of SCIM 2.0 that Azure AD implements as part of its generic SCIM connector for non-gallery apps. However, successful testing of an application that supports SCIM with the generic Azure AD connector is a step to getting an app listed in the Azure AD gallery as supporting user provisioning. For more information on getting your application listed in the Azure AD application gallery, see [How to: List your application in the Azure AD application gallery](../develop/howto-app-gallery-listing.md).
  
 
 >[!IMPORTANT]
@@ -125,7 +125,7 @@ Follow these general guidelines when implementing a SCIM endpoint to ensure comp
      - `and`
 * Don't require a case-sensitive match on structural elements in SCIM, in particular PATCH `op` operation values, as defined in https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD emits the values of 'op' as `Add`, `Replace`, and `Remove`.
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
-* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
 ### User provisioning and de-provisioning
 The following illustration shows the messages that Azure Active Directory sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
@@ -457,7 +457,6 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 {
 	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
 	"externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-	"id": "c4d56c3c-bf3b-4e96-9b64-837018d6060e",
 	"displayName": "displayName",
 	"members": [],
 	"meta": {
@@ -1345,6 +1344,9 @@ Group resources are identified by the schema identifier, `urn:ietf:params:scim:s
 | objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 
+## Allow IP addresses used by the Azure AD provisioning service to make SCIM requests
+Certain apps allow inbound traffic to their app. In order for the Azure AD provisioning service to function as expected, the IP addresses used must be allowed. For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). You can download and program these IPs into your firewall as needed. The reserved IP ranges for for Azure AD provisioning can be found under "AzureActiveDirectoryDomainServices."
+ 
 
 ## Related articles
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)

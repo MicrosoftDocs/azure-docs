@@ -105,7 +105,7 @@ Throughout this process, you are notified via email on all status changes. For m
 
 ## Region availability
 
-Data Box can transfer data based on the region in which service is deployed, country to which the device is shipped, and the target Azure storage account where you transfer the data. 
+Data Box can transfer data based on the region in which service is deployed, country/region to which the device is shipped, and the target Azure storage account where you transfer the data. 
 
 - **Service availability** - For this release, the Data Box service is available in the following regions:
     - All regions in the United States - West Central US, West US2, West US, South Central US, Central US, North Central US, East US, and East US2.

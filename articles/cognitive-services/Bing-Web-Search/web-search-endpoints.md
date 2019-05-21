@@ -3,13 +3,13 @@ title: Web search endpoint
 titleSuffix: Azure Cognitive Services
 description: Summary of the Web search API endpoint.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 11/14/2018
-ms.author: v-gedod
+ms.author: aahi
 ---
 
 # Web Search endpoint

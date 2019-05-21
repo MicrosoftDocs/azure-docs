@@ -9,45 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 05/01/2019
 ms.author: sbowles
 ---
 
 # Example: How to use the large-scale feature
 
-This guide is an advanced article on code migration to scale up from existing PersonGroup and FaceList to LargePersonGroup and LargeFaceList respectively.
-This guide demonstrates the migration process with assumption of knowing basic usage of PersonGroup and FaceList.
-For getting familiar with basic operations, please see other tutorials such as [How to identify faces in images](HowtoIdentifyFacesinImage.md),
+This guide is an advanced article on how to scale up from existing **PersonGroup** and **FaceList** to **LargePersonGroup** and **LargeFaceList** respectively. This guide demonstrates the migration process and assumes a basic familiarity with **PersonGroup**, **FaceList**, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. See the [Face recognition](../concepts/face-recognition.md) conceptual guide to learn more about these.
 
-The Face API recently released two features to enable large-scale scenarios,
-LargePersonGroup and LargeFaceList,
-collectively referred to as Large-scale operations.
-LargePersonGroup can contain up to 1,000,000 persons each with a maximum of 248 faces,
-and LargeFaceList can hold up to 1,000,000 faces.
+LargePersonGroup and LargeFaceList are collectively referred to as Large-scale operations. LargePersonGroup can contain up to 1,000,000 persons, each with a maximum of 248 faces, and LargeFaceList can contain up to 1,000,000 faces.The large-scale operations are similar to the conventional PersonGroup and FaceList but have some notable differences due to the new architecture. 
 
-The large-scale operations are similar to the conventional PersonGroup and FaceList,
-but have some notable differences due to the new architecture.
-This guide demonstrates the migration process with assumption of knowing basic usage of PersonGroup and FaceList.
 The samples are written in C# using the Face API client library.
 
-To enable Face search performance for Identification and FindSimilar in the large scale,
-you need to introduce a Train operation to pre-process the LargeFaceList and LargePersonGroup.
-The training time varies from seconds to about half an hour depending on the actual capacity.
-During the training period,
-it is still possible to perform Identification and FindSimilar if a successful training is done before.
-However, the drawback is that the new added persons/faces will not appear in the result until a new post migration to large-scale training is completed.
+> [!NOTE]
+> To enable Face search performance for Identification and FindSimilar in the large scale, you need to introduce a Train operation to pre-process the LargeFaceList and LargePersonGroup. The training time varies from seconds to about half an hour depending on the actual capacity. During the training period, it is still possible to perform Identification and FindSimilar if a successful training is done before. However, the drawback is that the new added persons/faces will not appear in the result until a new post migration to large-scale training is completed.
 
-## Concepts
-
-If you are not familiar with the following concepts in this guide, the definitions can be found in the [glossary](../Glossary.md):
-
-- LargePersonGroup: A collection of Persons with capacity up to 1,000,000.
-- LargeFaceList: A collection of Faces with capacity up to 1,000,000.
-- Train: A pre-process to ensure Identification/FindSimilar performance.
-- Identification: Identify one or more faces from a PersonGroup or LargePersonGroup.
-- FindSimilar: Search similar faces from a FaceList or LargeFaceList.
-
-## Step 1: Authorize the API call
+## Step 1: Initialize the client object
 
 When using the Face API client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceServiceClient class. For example:
 
@@ -61,24 +38,21 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 The subscription key with corresponding endpoint can be obtained from the Marketplace page of your Azure portal.
 See [Subscriptions](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## Step 2: Code Migration in action
+## Step 2: Code migration
 
-This section only focuses on migrating PersonGroup/FaceList implementation to LargePersonGroup/LargeFaceList.
-Although LargePersonGroup/LargeFaceList differs from PersonGroup/FaceList in design and internal implementation,
-the API interfaces are similar for back-compatibility.
+This section only focuses on migrating PersonGroup/FaceList implementation to LargePersonGroup/LargeFaceList. Although LargePersonGroup/LargeFaceList differs from PersonGroup/FaceList in design and internal implementation, the API interfaces are similar for backward-compatibility.
 
 Data migration is not supported, you have to recreate the LargePersonGroup/LargeFaceList instead.
 
-## Step 2.1: Migrate PersonGroup to LargePersonGroup
+### Migrate PersonGroup to LargePersonGroup
 
-The migration from PersonGroup to LargePersonGroup is smooth as they share exactly the same group-level operations.
+The migration from PersonGroup to LargePersonGroup is simple as they share exactly the same group-level operations.
 
-For PersonGroup/Person related implementation,
-it is only necessary to change the API paths or SDK class/module to LargePersonGroup and LargePersonGroup Person.
+For PersonGroup/Person related implementation, it is only necessary to change the API paths or SDK class/module to LargePersonGroup and LargePersonGroup Person.
 
-In terms of data migration, see [How to Add Faces](how-to-add-faces.md) for reference.
+You need to add all of the faces and persons from the PersonGroup to the new LargePersonGroup. See [How to Add Faces](how-to-add-faces.md) for reference.
 
-## Step 2.2: Migrate FaceList to LargeFaceList
+### Migrate FaceList to LargeFaceList
 
 | FaceList APIs | LargeFaceList APIs |
 |:---:|:---:|
@@ -90,12 +64,8 @@ In terms of data migration, see [How to Add Faces](how-to-add-faces.md) for refe
 | - | Train |
 | - | Get Training Status |
 
-The preceding table is a comparison of list-level operations between FaceList and LargeFaceList.
-As is shown, LargeFaceList comes with new operations, Train, and Get Training Status, when compared with FaceList.
-Getting the LargeFaceList trained is a precondition of
-[FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)
-operation while there is no Train required for FaceList.
-The following snippet is a helper function to wait for the training of a LargeFaceList.
+The preceding table is a comparison of list-level operations between FaceList and LargeFaceList. As is shown, LargeFaceList comes with new operations, Train, and Get Training Status, when compared with FaceList. Getting the LargeFaceList trained is a precondition of
+[FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operation while there is no Train required for FaceList. The following snippet is a helper function to wait for the training of a LargeFaceList.
 
 ```CSharp
 /// <summary>
@@ -145,7 +115,7 @@ private static async Task TrainLargeFaceList(
 }
 ```
 
-Previously, a typical usage of FaceList with adding faces and FindSimilar would be
+Previously, a typical usage of FaceList with adding faces and FindSimilar would look like the following:
 
 ```CSharp
 // Create a FaceList.
@@ -178,7 +148,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-When migrating it to LargeFaceList, it should become
+When migrating it to LargeFaceList, it should become the following:
 
 ```CSharp
 // Create a LargeFaceList.
@@ -215,17 +185,12 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-As is shown above, the data management and the FindSimilar part are almost the same.
-The only exception is that a fresh pre-processing Train operation must complete in the LargeFaceList before FindSimilar works.
+As is shown above, the data management and the FindSimilar part are almost the same. The only exception is that a fresh pre-processing Train operation must complete in the LargeFaceList before FindSimilar works.
 
-## Step 3: Train Suggestions
+## Step 3: Train suggestions
 
-Although the Train operation speeds up the
-[FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)
-and
-[Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239),
-the training time suffers especially when coming to large scale.
-The estimated training time in different scales is listed in the following table:
+Although the Train operation speeds up the [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)
+and [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), the training time suffers especially when coming to large scale. The estimated training time in different scales is listed in the following table:
 
 | Scale (faces or persons) | Estimated Training Time |
 |:---:|:---:|
@@ -236,26 +201,15 @@ The estimated training time in different scales is listed in the following table
 
 To better utilize the large-scale feature, some strategies are recommended to take into consideration.
 
-## Step 3.1: Customize Time Interval
+## Step 3.1: Customize time interval
 
-As is shown in the `TrainLargeFaceList()`,
-there is a `timeIntervalInMilliseconds` to delay the infinite training status checking process.
-For LargeFaceList with more faces, using a larger interval reduces the call counts and cost.
-The time interval should be customized according to the expected capacity of the LargeFaceList.
+As is shown in the `TrainLargeFaceList()`, there is a `timeIntervalInMilliseconds` to delay the infinite training status checking process. For LargeFaceList with more faces, using a larger interval reduces the call counts and cost. The time interval should be customized according to the expected capacity of the LargeFaceList.
 
-Same strategy also applies to LargePersonGroup.
-For example, when training a LargePersonGroup with 1,000,000 persons,
-the `timeIntervalInMilliseconds` could be 60,000 (a.k.a. 1-minute interval).
+The same strategy also applies to LargePersonGroup. For example, when training a LargePersonGroup with 1,000,000 persons, the `timeIntervalInMilliseconds` could be 60,000 (1-minute interval).
 
 ## Step 3.2 Small-scale buffer
 
-Persons/Faces in LargePersonGroup/LargeFaceList are searchable only after being trained.
-In a dynamic scenario, new persons/faces are constantly added and need to be immediately searchable,
-yet training could take longer than desired.
-To mitigate this problem, you can use an extra small-scale LargePersonGroup/LargeFaceList as a buffer only for the newly added entries.
-This buffer takes shorter time to train because of much smaller size and the immediate search on this temporary buffer should work.
-Use this buffer in combination with training on the master LargePersonGroup/LargeFaceList by executing the master training on a more sparse interval,
-for example, in the mid-night, and daily.
+Persons/Faces in LargePersonGroup/LargeFaceList are searchable only after being trained. In a dynamic scenario, new persons/faces are constantly added and need to be immediately searchable, yet training could take longer than desired. To mitigate this problem, you can use an extra small-scale LargePersonGroup/LargeFaceList as a buffer only for the newly added entries. This buffer takes shorter time to train because of much smaller size and the immediate search on this temporary buffer should work. Use this buffer in combination with training on the master LargePersonGroup/LargeFaceList by executing the master training on a more sparse interval, for example, in the mid-night, and daily.
 
 An example workflow:
 1. Create a master LargePersonGroup/LargeFaceList (master collection) and a buffer LargePersonGroup/LargeFaceList (buffer collection). The buffer collection is only for newly added Persons/Faces.
@@ -265,18 +219,11 @@ An example workflow:
 1. When buffer collection size increases to a threshold or at a system idle time, create a new buffer collection and trigger the train on master collection.
 1. Delete the old buffer collection after the finish of training on the master collection.
 
-## Step 3.3 Standalone Training
+## Step 3.3 Standalone training
 
-If a relatively long latency is acceptable,
-it is not necessary to trigger the Train operation right after adding new data.
-Instead, the Train operation can be split from the main logic and triggered regularly.
-This strategy is suitable for dynamic scenarios with acceptable latency,
-and can be applied to static scenarios to further reduce the Train frequency.
+If a relatively long latency is acceptable, it is not necessary to trigger the Train operation right after adding new data. Instead, the Train operation can be split from the main logic and triggered regularly. This strategy is suitable for dynamic scenarios with acceptable latency, and can be applied to static scenarios to further reduce the Train frequency.
 
-Suppose there is a `TrainLargePersonGroup` function similar to the `TrainLargeFaceList`.
-A typical implementation of the standalone Training on LargePersonGroup by invoking the
-[`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx)
-class in `System.Timers` would be:
+Suppose there is a `TrainLargePersonGroup` function similar to the `TrainLargeFaceList`. A typical implementation of the standalone Training on LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` would be:
 
 ```CSharp
 private static void Main()
@@ -304,8 +251,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-More information about data management and identification-related implementations,
-see [How to Add Faces](how-to-add-faces.md) and [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md).
+More information about data management and identification-related implementations, see [How to Add Faces](how-to-add-faces.md) and [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md).
 
 ## Summary
 
@@ -314,7 +260,9 @@ In this guide, you have learned how to migrate the existing PersonGroup/FaceList
 - LargePersonGroup and LargeFaceList works similar to the PersonGroup/FaceList, except Train operation is required by LargeFaceList.
 - Take proper train strategy to dynamic data update for large-scale dataset.
 
-## Related Topics
+## Next steps
 
-- [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)
+Follow a how-to guide to learn how to add faces to a PersonGroup or execute the Identify operation on a PersonGroup.
+
 - [How to Add Faces](how-to-add-faces.md)
+- [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)

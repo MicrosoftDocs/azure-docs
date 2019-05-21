@@ -19,7 +19,7 @@ Microsoft Azure Traffic Manager allows you to control how network traffic is dis
 
 There are three types of endpoint supported by Traffic Manager:
 * **Azure endpoints** are used for services hosted in Azure.
-* **External endpoints** are used for IPv4/IPv6 addresses, or, for services hosted outside Azure that can either be on-premises or with a different hosting provider.
+* **External endpoints** are used for IPv4/IPv6 addresses, FQDNs, or for services hosted outside Azure that can either be on-premises or with a different hosting provider.
 * **Nested endpoints** are used to combine Traffic Manager profiles to create more flexible traffic-routing schemes to support the needs of larger, more complex deployments.
 
 There is no restriction on how endpoints of different types are combined in a single Traffic Manager profile. Each profile can contain any mix of endpoint types.
@@ -41,7 +41,7 @@ When using Azure endpoints, Traffic Manager detects when a 'Classic' IaaS VM, cl
 
 ## External endpoints
 
-External endpoints are used for either IPv4/IPv6 addresses, or, for services outside of Azure. Use of IPv4/IPv6 address endpoints allows traffic manager to check the health of endpoints without requiring a DNS name for them. As a result, Traffic Manager can respond to queries with A/AAAA records when returning that endpoint in a response. Services outside of Azure can include a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile except for endpoints specified as IPv4 or IPv6 addresses which can only be external endpoints. Combining Azure endpoints with External endpoints enables various scenarios:
+External endpoints are used for either IPv4/IPv6 addresses, FQDNs, or for services outside of Azure. Use of IPv4/IPv6 address endpoints allows traffic manager to check the health of endpoints without requiring a DNS name for them. As a result, Traffic Manager can respond to queries with A/AAAA records when returning that endpoint in a response. Services outside of Azure can include a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile except for endpoints specified as IPv4 or IPv6 addresses which can only be external endpoints. Combining Azure endpoints with External endpoints enables various scenarios:
 
 * Provide increased redundancy for an existing on-premises application in either an active-active or active-passive failover model using Azure. 
 * Route traffic to endpoints that do not have a DNS name associated with them. In addition, decrease the overall DNS lookup latency by removing the need to run a second DNS query to get an IP address of a DNS name returned. 
@@ -58,7 +58,7 @@ Nested endpoints combine multiple Traffic Manager profiles to create flexible tr
 
 Some additional considerations apply when configuring Web Apps as endpoints in Traffic Manager:
 
-1. Only Web Apps at the 'Standard' SKU or above are eligible for use with Traffic Manager. Attempts to add a Web App of a lower SKU fail. Downgrading the SKU of an existing Web App results in Traffic Manager no longer sending traffic to that Web App. For more information on supported plans see the [App Service Plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+1. Only Web Apps at the 'Standard' SKU or above are eligible for use with Traffic Manager. Attempts to add a Web App of a lower SKU fail. Downgrading the SKU of an existing Web App results in Traffic Manager no longer sending traffic to that Web App. For more information on supported plans see the [App Service Plans](https://azure.microsoft.com/pricing/details/app-service/plans/)
 2. When an endpoint receives an HTTP request, it uses the 'host' header in the request to determine which Web App should service the request. The host header contains the DNS name used to initiate the request, for example 'contosoapp.azurewebsites.net'. To use a different DNS name with your Web App, the DNS name must be registered as a custom domain name for the App. When adding a Web App endpoint as an Azure endpoint, the Traffic Manager profile DNS name is automatically registered for the App. This registration is automatically removed when the endpoint is deleted.
 3. Each Traffic Manager profile can have at most one Web App endpoint from each Azure region. To work around for this constraint, you can configure a Web App as an External endpoint. For more information, see the [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints).
 

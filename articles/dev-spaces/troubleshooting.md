@@ -151,7 +151,7 @@ You might see this error if azds.exe is not installed or configured correctly.
 
 ### Try:
 
-1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (Preview) for azds.exe. If it's there, add that location to the PATH environment variable.
+1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI for azds.exe. If it's there, add that location to the PATH environment variable.
 2. If azds.exe is not installed, run the following command:
 
     ```cmd
@@ -287,6 +287,16 @@ This error occurs if the Helm client can no longer talk to the Tiller pod runnin
 ### Try:
 Restarting the agent nodes in your cluster usually resolves this issue.
 
+## "Error: release azds-\<identifier\>-\<spacename\>-\<servicename\> failed: services '\<servicename\>' already exists" or "Pull access denied for \<servicename\>, repository does not exist or may require 'docker login'"
+
+### Reason
+These errors can occur if you mix running direct Helm commands (such as `helm install`, `helm upgrade`, or `helm delete`) with Dev Spaces commands (such as `azds up` and `azds down`) inside the same dev space. They occur because Dev Spaces has its own Tiller instance, which conflicts with your own Tiller instance running in the same dev space.
+
+### Try:
+It's fine to use both Helm commands and Dev Spaces commands against the same AKS cluster, but each Dev Spaces-enabled namespace should use either one or the other.
+
+For example, suppose you use a Helm command to run your entire application in a parent dev space. You can create child dev spaces off that parent, use Dev Spaces to run individual services inside the child dev spaces, and test the services together. When you're ready to check in your changes, use a Helm command to deploy the updated code to the parent dev space. Don't use `azds up` to run the updated service in the parent dev space, because it will conflict with the service initially run using Helm.
+
 ## Azure Dev Spaces proxy can interfere with other pods running in a dev space
 
 ### Reason
@@ -373,3 +383,18 @@ To update the user's RBAC role for the controller:
     * For *Assign access to* select *Azure AD user, group, or service principal*.
     * For *Select* search for the user you want to give permissions.
 1. Click *Save*.
+
+## Controller create failing due to controller name length
+
+### Reason
+An Azure Dev Spaces controller's name cannot be longer than 31 characters. If your controller's name exceeds 31 characters when you enable Dev Spaces on an AKS cluster or create a controller, you will receive an error like:
+
+*Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
+
+### Try
+
+Create a controller with an alternate name:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```

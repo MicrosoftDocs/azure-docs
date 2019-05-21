@@ -42,15 +42,13 @@ Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT.
 
 For more information, see [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-For examples of using Hadoop streaming with HDInsight, see the following documents:
+For examples of using Hadoop streaming with HDInsight, see the following document:
 
 * [Develop C# MapReduce jobs](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Develop Python MapReduce jobs](apache-hadoop-streaming-python.md)
-
 ## <a id="data"></a>Example data
 
-HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of Leonardo Da Vinci.
+HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of Leonardo da Vinci.
 
 ## <a id="job"></a>Example MapReduce
 
@@ -130,11 +128,9 @@ public class WordCount {
 }
 ```
 
-For instructions to write your own MapReduce applications, see the following documents:
+For instructions to write your own MapReduce applications, see the following document:
 
 * [Develop Java MapReduce applications for HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Develop Python MapReduce applications for HDInsight](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>Run the MapReduce
 
@@ -151,8 +147,6 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 To learn more about working with data in HDInsight, see the following documents:
 
 * [Develop Java MapReduce programs for HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Develop Python streaming MapReduce programs for HDInsight](apache-hadoop-streaming-python.md)
 
 * [Use Apache Hive with HDInsight][hdinsight-use-hive]
 

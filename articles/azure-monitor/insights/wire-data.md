@@ -395,7 +395,7 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 | Direction | Inbound or outbound |
 | MaliciousIP | IP address of a known malicious source |
 | Severity | Suspected malware severity |
-| RemoteIPCountry | Country of the remote IP address |
+| RemoteIPCountry | Country/region of the remote IP address |
 | ManagementGroupName | Name of the Operations Manager management group |
 | SourceSystem | Source where data was collected |
 | SessionStartTime | Start time of session |
