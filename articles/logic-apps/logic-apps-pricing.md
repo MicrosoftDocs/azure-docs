@@ -151,7 +151,7 @@ Each integration account can store up to specific
 which include trading partners, agreements, maps, schemas, 
 assemblies, certificates, batch configurations, and so on.
 
-Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and limits throughput and usage.
+Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and has limits on throughput and usage.
 
 To choose between a Free, Basic, or Standard integration account:
 
