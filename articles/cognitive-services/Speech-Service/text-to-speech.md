@@ -27,7 +27,7 @@ Standard voices are created using Statistical Parametric Synthesis and/or Concat
 
 Neural voices use deep neural networks to overcome the limits of traditional text-to-speech systems in matching the patterns of stress and intonation in spoken language, and in synthesizing the units of speech into a computer voice. Standard text-to-speech breaks down prosody into separate linguistic analysis and acoustic prediction steps that are governed by independent models. That can result in muffled, buzzy voice synthesis. Our neural capability does prosody prediction and voice synthesis simultaneously, which results in a more fluid and natural-sounding voice.
 
-Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural voices significantly reduce listening fatigue when you interact with AI systems. 
+Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural voices significantly reduce listening fatigue when you interact with AI systems.
 
 Neural voices support different styles, such as neutral and cheerful. For example, the Jessa (en-US) voice can speak cheerfully, which is optimized for warm, happy conversation. You can adjust the voice output, like tone, pitch, and speed using [Speech Synthesis Markup Language](speech-synthesis-markup.md). For a full list of available voices, see [supported languages](language-support.md#text-to-speech).
 
@@ -36,6 +36,17 @@ To learn more about the benefits of neural voices, see [Microsoft’s new neural
 ### Custom voices
 
 Voice customization lets you create a recognizable, one-of-a-kind voice for your brand. To create your custom voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use this custom voice font to synthesize speech. For more information, see [custom voices](how-to-customize-voice-font.md).
+
+## Speech Synthesis Markup Language (SSML)
+
+Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled. For more information, see [Speech Synthesis Markup Language](speech-synthesis-markup.md).
+
+### Pricing note
+
+With SSML, you are billed for each character that is converted to speech. Elements used to adjust how the text is converted to speech, like phonemes and pitch, are billable characters.
+
+> [!IMPORTANT]
+> Asian language characters are counted as two characters for billing.
 
 ## Core features
 
