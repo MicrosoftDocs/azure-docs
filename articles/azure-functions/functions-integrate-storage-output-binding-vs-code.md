@@ -157,9 +157,10 @@ Skip this section if you have already installed Storage Explorer and connected i
 
 ## Next steps
 
-In this quickstart, you added an output binding to an existing function. For more information about binding to Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md).
+In this quickstart, you added an output binding to an existing function. For more information about binding to a Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). You may also want to learn more about [local testing and debugging from the Terminal or command prompt](functions-run-local.md) using the Azure Functions Core Tools.
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]
+> [!div class="nextstepaction"]
+> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

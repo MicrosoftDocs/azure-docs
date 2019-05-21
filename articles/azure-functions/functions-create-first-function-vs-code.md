@@ -111,10 +111,10 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. You may also want to learn more about [local testing and debugging from the Terminal or command prompt](functions-run-local.md) using the Azure Functions Core Tools.
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. The next article also shows you how to clean-up these new Azure resources by removing the resource group you created.
 
 > [!div class="nextstepaction"]
-> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Connect your Azure Functions project in VS Code to an Azure Storage queue](functions-integrate-storage-output-binding-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
