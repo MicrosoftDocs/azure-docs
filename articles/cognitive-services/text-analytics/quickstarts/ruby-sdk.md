@@ -340,18 +340,18 @@ The Text Analytics service can extract key-phrases in sentences. The following e
       input_4.text = 'A mi me encanta el fútbol!'
       ```
 
-    3. Within the same function, combine the documents into a list. Add it to the `documents` field of a `MultiLanguageBatchInput` object. 
+3. Within the same function, combine the documents into a list. Add it to the `documents` field of a `MultiLanguageBatchInput` object. 
 
-    4. Call the client's `key_phrases()` function with the `MultiLanguageBatchInput` object as a parameter to send the documents. If any results are returned, print them.
+4. Call the client's `key_phrases()` function with the `MultiLanguageBatchInput` object as a parameter to send the documents. If any results are returned, print them.
 
     ```ruby
       input_documents =  MultiLanguageBatchInput.new
       input_documents.documents = [input_1, input_2, input_3, input_4]
-  
+    
       result = client.key_phrases(
           multi_language_batch_input: input_documents
       )
-  
+    
       if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
         result.documents.each do |document|
           puts "Document Id: #{document.id}"
