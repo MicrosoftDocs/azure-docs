@@ -82,7 +82,7 @@ yarn application -kill "application_1499348398273_0003"
 
 ### Getting stuck in safe mode
 
-When you scale down a cluster, HDInsight uses Apache Ambari management interfaces to first decommission the extra worker nodes, which replicate their HDFS blocks to other online worker nodes. After that, HDInsight safely scales the cluster down. HDFS goes into a safe mode during the scaling operation, and is supposed to come out once the scaling is finished. In some cases, however, HDFS gets stuck in safe mode during a scaling operation because of file block under replication.
+When you scale down a cluster, HDInsight uses Apache Ambari management interfaces to first decommission the extra worker nodes, which replicate their HDFS blocks to other online worker nodes. After that, HDInsight safely scales the cluster down. HDFS goes into safe mode during the scaling operation, and is supposed to come out once the scaling is finished. In some cases, however, HDFS gets stuck in safe mode during a scaling operation because of file block under-replication.
 
 By default, HDFS is configured with a `dfs.replication` setting of 3, which controls how many copies of each file block are available. Each copy of a file block is stored on a different node of the cluster.
 
@@ -101,15 +101,6 @@ org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.server
 You can review the name node logs from the `/var/log/hadoop/hdfs/` folder, near the time when the cluster was scaled, to see when it entered safe mode. The log files are named `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
 The root cause of the previous errors is that Hive depends on temporary files in HDFS while running queries. When HDFS enters safe mode, Hive cannot run queries because it cannot write to HDFS. The temp files in HDFS are located in the local drive mounted to the individual worker node VMs, and replicated amongst other worker nodes at three replicas, minimum.
-
-The `hive.exec.scratchdir` parameter in Hive is configured within `/etc/hive/conf/hive-site.xml`:
-
-```xml
-<property>
-    <name>hive.exec.scratchdir</name>
-    <value>hdfs://mycluster/tmp/hive</value>
-</property>
-```
 
 ### How to prevent HDInsight from getting stuck in safe mode
 
@@ -132,9 +123,17 @@ Stopping the Hive jobs before scaling, helps minimize the number of scratch file
 
 If Hive has left behind temporary files, then you can manually clean up those files before scaling down to avoid safe mode.
 
-1. Stop Hive services and be sure all queries and jobs are completed.
+1. Check which location is being used for Hive temporary files by looking at the `hive.exec.scratchdir` configuration property. This parameter is set within `/etc/hive/conf/hive-site.xml`:
 
-2. List the contents of the `hdfs://mycluster/tmp/hive/` directory to see if it contains any files:
+    ```xml
+    <property>
+        <name>hive.exec.scratchdir</name>
+        <value>hdfs://mycluster/tmp/hive</value>
+    </property>
+    ```
+
+1. Stop Hive services and be sure all queries and jobs are completed.
+2. List the contents of the scratch directory found above, `hdfs://mycluster/tmp/hive/` to see if it contains any files:
 
     ```
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
@@ -183,11 +182,15 @@ Region servers are automatically balanced within a few minutes after completing 
 
 2. Start the HBase shell:
 
-        hbase shell
+    ```bash
+    hbase shell
+    ```
 
 3. Use the following command to manually balance the region servers:
 
-        balancer
+    ```bash
+    balancer
+    ```
 
 ## Next steps
 
