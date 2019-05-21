@@ -12,9 +12,11 @@ ms.author: iainfou
 
 # Integrate Azure Active Directory with Azure Kubernetes Service
 
-Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can sign in to an AKS cluster by using your Azure AD authentication token. Also, cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
+Azure Kubernetes Service (AKS) can be set up to use Azure Active Directory (AD) for user authentication. In this configuration, sign in to an AKS cluster by using your Azure AD authentication token.
 
-This article shows you how to deploy the prerequisites for AKS and Azure AD, and then how to deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster by using the Azure portal. You can also complete these steps by using the [Azure CLI][azure-ad-cli].
+Also, cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
+
+This article explains how to deploy the prerequisites for AKS and Azure AD. It also shows how to deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster by using the Azure portal. You can complete these steps by using the [Azure CLI][azure-ad-cli].
 
 > [!NOTE]
 > Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
@@ -25,9 +27,9 @@ Azure AD authentication is provided to AKS clusters that have OpenID Connect. Op
 
 For more information about OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
-From inside of the Kubernetes cluster, webhook token authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
+Inside a Kubernetes cluster, webhook token authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
-For more information about webhook token authentication, see the [Webhook Token Authentication section in Kubernetes Documenation][kubernetes-webhook].
+For more information about webhook token authentication, see the [Webhook Token Authentication section in Kubernetes Documentation][kubernetes-webhook].
 
 To provide Azure AD authentication for an AKS cluster, two Azure AD applications are created. The first application is a server component that provides user authentication. The second application is a client component that's used when you're prompted by the CLI for authentication. This client application uses the server application for the actual authentication of the credentials provided by the client.
 
@@ -89,7 +91,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
 ## Create client application
 
-The second Azure AD application is used when you log in with the Kubernetes CLI (kubectl).
+The second Azure AD application is used when you sign in with the Kubernetes CLI (kubectl).
 
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 
@@ -137,7 +139,7 @@ Use the [az group create][az-group-create] command to create a resource group fo
 az group create --name myResourceGroup --location eastus
 ```
 
-Deploy the cluster by using the [az aks create][az-aks-create] command. Replace the values in the sample command below with the values collected when creating the Azure AD applications for the server app ID, server app secret, client app ID, and tenant ID.
+Deploy the cluster by using the [az aks create][az-aks-create] command. Replace the values in the following sample command with the values collected when creating the Azure AD applications for the server app ID, server app secret, client app ID, and tenant ID.
 
 ```azurecli
 az aks create \
@@ -150,29 +152,29 @@ az aks create \
   --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
 
-It takes a few minutes to create the AKS cluster.
+It takes a few minutes to create an AKS cluster.
 
 ## Create RBAC binding
 
-Before an Azure Active Directory account can be used with the AKS cluster, a role binding or cluster role binding needs to be created. *Roles* define the permissions to grant, and *bindings* apply them to desired users. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization][rbac-authorization].
+Before an Azure Active Directory account can be used with the AKS cluster, a role binding or cluster role binding must be created. Roles define the permissions to grant, and bindings apply them to desired users. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization][rbac-authorization].
 
-First, use the [az aks get-credentials][az-aks-get-credentials] command with the `--admin` argument to sign in to the cluster with admin access.
+First, use the [az aks get-credentials][az-aks-get-credentials] command with the --admin argument to sign in to the cluster with admin access.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Next, create a ClusterRoleBinding for an Azure AD account that you want to grant access to the AKS cluster. The following example gives the account full access to all namespaces in the cluster.
+Next, create ClusterRoleBinding for an Azure AD account that you want to grant access to the AKS cluster. The following example gives the account full access to all namespaces in the cluster.
 
 - If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the user principal name (UPN). Move on to the step to create the YAML manifest for the ClusterRuleBinding.
 
-- If the user is in a different Azure AD tenant, query for and use the *objectId* property instead. If needed, get the *objectId* of the required user account by using the [az ad user show][az-ad-user-show] command. Provide the user principal name (UPN) of the required account:
+- If the user is in a different Azure AD tenant, query for and use the **objectId** property instead. If needed, get the objectId of the required user account by using the **[az ad user show][az-ad-user-show]** command. Provide the user principal name (UPN) of the required account:
 
     ```azurecli-interactive
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
     ```
 
-Create a file, such as *rbac-aad-user.yaml*, and paste the following contents. On the last line, replace *userPrincipalName_or_objectId*  with the UPN or object ID depending on if the user is the same Azure AD tenant or not.
+Create a file, such as rbac-aad-user.yaml, and paste the following contents. On the last line, replace **userPrincipalName_or_objectId**  with the UPN or object ID depending on if the user is the same Azure AD tenant or not.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -189,13 +191,15 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-Apply the binding by using the [kubectl apply][kubectl-apply] command as shown in the following example:
+Apply the binding by using the **[kubectl apply][kubectl-apply]** command as shown in the following example:
 
 ```console
 kubectl apply -f rbac-aad-user.yaml
 ```
 
-A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified by using the group object ID, as shown in the following example. Create a file, such as *rbac-aad-group.yaml*, and paste the following contents. Update the group object ID with one from your Azure AD tenant:
+A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified by using the group object ID, as shown in the following example. 
+
+Create a file, such as **rbac-aad-group.yaml**, and then paste the following contents. Update the group object ID with one from your Azure AD tenant:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -212,7 +216,7 @@ subjects:
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
-Apply the binding by using the [kubectl apply][kubectl-apply] command as shown in the following example:
+Apply the binding by using the **[kubectl apply][kubectl-apply]** command as shown in the following example:
 
 ```console
 kubectl apply -f rbac-aad-group.yaml
@@ -228,12 +232,12 @@ Next, pull the context for the non-admin user by using the [az aks get-credentia
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-After you run a `kubectl` command, you are prompted to authenticate with Azure. Follow the on-screen instructions to finish the process, as shown in the following example:
+After you run the **kubectl** command, you'll be prompted to authenticate with Azure. Follow the on-screen instructions to finish the process, as shown in the following example:
 
 ```console
 $ kubectl get nodes
 
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
+To sign in, use a web browser to open the following page: https://microsoft.com/devicelogin. Next, enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
 aks-nodepool1-79590246-0   Ready     agent     1h        v1.13.5
@@ -241,7 +245,7 @@ aks-nodepool1-79590246-1   Ready     agent     1h        v1.13.5
 aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 ```
 
-When the process is finished, the authentication token is cached. You're only prompted to sign in again when the token has expired or the Kubernetes config file is re-created.
+When the process is finished, the authentication token is cached. You're only prompted to sign in again when the token expires or the Kubernetes config file is re-created.
 
 If you see an authorization error message after you successfully sign in, check the following criteria:
 
@@ -252,7 +256,7 @@ error: You must be logged in to the server (Unauthorized)
 
 1. You defined the appropriate object ID or UPN, depending on if the user account is in the same Azure AD tenant or not.
 2. The user is not a member of more than 200 groups.
-3. Secret defined in the application registration for server matches the value configured by using `--aad-server-app-secret`
+3. Secret defined in the application registration for server matches the value configured by using **--aad-server-app-secret**.
 
 ## Next steps
 
@@ -260,7 +264,7 @@ To use Azure AD users and groups to control access to cluster resources, see [Co
 
 For more information about how to secure Kubernetes clusters, see [Access and identity options for AKS)][rbac-authorization].
 
-For best practices on identity and resource control, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
+To learn more about identity and resource control, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
