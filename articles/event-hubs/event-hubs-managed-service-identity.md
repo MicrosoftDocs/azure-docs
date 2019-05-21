@@ -24,7 +24,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 Once it is associated with a managed identity, an Event Hubs client can do all authorized operations. Authorization is granted by associating a managed identity with Event Hubs roles. 
 
 ## Event Hubs roles and permissions
-You can add a managed identity to the **Event Hubs Data Owner** role of an Event Hubs namespace. It grants the identity, full control (for management and data operations) on all entities in the namespace.
+You can add a managed identity to the **Event Hubs Data Owner** role of an Event Hubs namespace. This role grants the identity, full control (for management and data operations) on all entities in the namespace.
 
 >[!IMPORTANT]
 > We earlier supported adding managed identity to the **Owner** or **Contributor** role. However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Event Hubs Data Owner** role.
@@ -32,8 +32,8 @@ You can add a managed identity to the **Event Hubs Data Owner** role of an Event
 To use the new built-in role, follow these steps: 
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
-2. Navigate to the Event Hubs namespace where you have currently setup the **Owner** or **Contributor** role.
-3. Select **Access Control(IAM)** from the left menu.
+2. Navigate to the Event Hubs namespace.
+3. On the **Event Hubs Namespace** page, select **Access Control(IAM)** from the left menu.
 4. On the **Access Control (IAM)** page, select **Add** in the **Add a role assignment** section. 
 
     ![Add a role assignment button](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
