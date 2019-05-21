@@ -2,7 +2,7 @@
 title: Azure Kinect Sensor SDK download
 description: Download links for the Sensor SDK
 author: Brent-A
-ms.author: Brent-A
+ms.author: brenta
 ms.prod: kinect-dk
 ms.date: 06/16/2019
 ms.topic: conceptual
