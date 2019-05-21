@@ -3,7 +3,7 @@ title: Use the Graph API in Azure Active Directory B2C | Microsoft Docs
 description: How to call the Graph API for a B2C tenant by using an application identity to automate the process.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -16,7 +16,7 @@ ms.subservice: B2C
 # Azure AD B2C: Use the Azure AD Graph API
 
 >[!NOTE]
-> You must use the [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) to manage users in an Azure AD B2C directory. This is different from the Microsoft Graph API. Learn more [here](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
+> You must use the [Azure AD Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) to manage users in an Azure AD B2C directory. This is different from the Microsoft Graph API. Learn more [here](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 Azure Active Directory (Azure AD) B2C tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in your Azure AD B2C directory behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
 
@@ -235,7 +235,7 @@ Content-Length: 338
 }
 ```
 
-Most of these properties in this request are required to create consumer users. To learn more, click [here](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Note that the `//` comments have been included for illustration. Do not include them in an actual request.
+Most of these properties in this request are required to create consumer users. To learn more, click [here](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Note that the `//` comments have been included for illustration. Do not include them in an actual request.
 
 To see the request, run one of the following commands:
 
@@ -244,7 +244,7 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-The `Create-User` command takes a .json file as an input parameter. This contains a JSON representation of a user object. There are two sample .json files in the sample code: `usertemplate-email.json` and `usertemplate-username.json`. You can modify these files to suit your needs. In addition to the required fields above, several optional fields that you can use are included in these files. Details on the optional fields can be found in the [Azure AD Graph API entity reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
+The `Create-User` command takes a .json file as an input parameter. This contains a JSON representation of a user object. There are two sample .json files in the sample code: `usertemplate-email.json` and `usertemplate-username.json`. You can modify these files to suit your needs. In addition to the required fields above, several optional fields that you can use are included in these files. Details on the optional fields can be found in the [Azure AD Graph API entity reference](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity).
 
 You can see how the POST request is constructed in `B2CGraphClient.SendGraphPostRequest(...)`.
 
@@ -253,7 +253,7 @@ You can see how the POST request is constructed in `B2CGraphClient.SendGraphPost
 * It includes the JSON user object in the body of the request.
 
 > [!NOTE]
-> If the accounts that you want to migrate from an existing user store has lower password strength than the [strong password strength enforced by Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), you can disable the strong password requirement using the `DisableStrongPassword` value in the `passwordPolicies` property. For instance, you can modify the create user request provided above as follows: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> If the accounts that you want to migrate from an existing user store has lower password strength than the [strong password strength enforced by Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), you can disable the strong password requirement using the `DisableStrongPassword` value in the `passwordPolicies` property. For instance, you can modify the create user request provided above as follows: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 > 
 > 
 
@@ -314,7 +314,7 @@ B2C Delete-User <object-id-of-user>
 Inspect the `B2CGraphClient.SendGraphDeleteRequest(...)` method for details on how to send this request.
 
 You can perform many other actions with the Azure AD Graph API in addition to user management. The
-[Azure AD Graph API reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) provides details on each action, along with sample requests.
+[Azure AD Graph API reference](/previous-versions/azure/ad/graph/api/api-catalog) provides details on each action, along with sample requests.
 
 ## Use custom attributes
 Most consumer applications need to store some type of custom user profile information. One way you can do this is to define a custom attribute in your B2C tenant. You can then treat that attribute the same way you treat any other property on a user object. You can update the attribute, delete the attribute, query by the attribute, send the attribute as a claim in sign-in tokens, and more.

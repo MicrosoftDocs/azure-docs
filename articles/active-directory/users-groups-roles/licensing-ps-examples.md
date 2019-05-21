@@ -1,7 +1,7 @@
 ---
 
-title: PowerShell and Graph examples for group-based licensing - Azure Active Directory | Microsoft Docs
-description: PowerShell scenarios for Azure Active Directory group-based licensing
+title: PowerShell and Graph examples for licensing groups - Azure Active Directory | Microsoft Docs
+description: PowerShell + Graph examples and scenarios for Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
@@ -24,16 +24,15 @@ Full functionality for group-based licensing is available through the [Azure por
 cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) and Microsoft Graph. This document provides examples of what is possible.
 
 > [!NOTE]
-> Before you begin running cmdlets, make sure you connect to your tenant first, by running the `Connect-MsolService` cmdlet.
+> Before you begin running cmdlets, make sure you connect to your organization first, by running the `Connect-MsolService` cmdlet.
 
 > [!WARNING]
 > This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test tenant. You may have to adjust the code to meet the specific needs of your environment.
 
 ## View product licenses assigned to a group
-The
-[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)
-cmdlet can be used to retrieve the group object and check the *Licenses*
-property: it lists all product licenses currently assigned to the group.
+
+The [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet can be used to retrieve the group object and check the *Licenses* property: it lists all product licenses currently assigned to the group.
+
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
@@ -49,7 +48,7 @@ EMSPREMIUM
 > [!NOTE]
 > The data is limited to product (SKU) information. It is not possible to list the service plans disabled in the license.
 
-Use following to get the same data from Microsoft Graph
+Use the following sample to get the same data from Microsoft Graph.
 
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
@@ -117,7 +116,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $licenseAssignedCount = 0;
     $licenseErrorCount = 0;
 
-    Get-MsolGroupMember -All -GroupObjectId $groupId
+    Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full info about each user in the group
     Get-MsolUser -ObjectId {$_.ObjectId} |     Foreach {
         $user = $_;
@@ -566,10 +565,8 @@ $servicePlansFromGroups = ("EXCHANGE_S_ENTERPRISE", "SHAREPOINTENTERPRISE", "OFF
 
 $expectedDisabledPlans = GetDisabledPlansForSKU $skuId $servicePlansFromGroups
 
-#process all members in the group
-Get-MsolGroupMember -All -GroupObjectId $groupId
-    #get full info about each user in the group
-    Get-MsolUser -ObjectId {$_.ObjectId} | Foreach {
+#process all members in the group and get full info about each user in the group looping through group members. 
+Get-MsolGroupMember -All -GroupObjectId $groupId | Get-MsolUser -ObjectId {$_.ObjectId} | Foreach {
         $user = $_;
         $operationResult = "";
 
@@ -620,6 +617,8 @@ UserId                               OperationResult
 0ddacdd5-0364-477d-9e4b-07eb6cdbc8ea User has extra plans that may be lost - license removal was skipped. Extra plans: SHAREPOINTWAC
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
+> [!NOTE]
+> Please update the values for the variables `$skuId` and `$groupId` which is being targeted for removal of Direct Licenses as per your test environment before running the above script. 
 
 ## Next steps
 

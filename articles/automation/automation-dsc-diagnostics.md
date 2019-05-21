@@ -39,7 +39,7 @@ To start sending your Automation State Configuration reports to Azure Monitor lo
 
 To begin importing data from Azure Automation DSC into Azure Monitor logs, complete the following steps:
 
-1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
 1. Get the _ResourceId_ of your automation account by running the following PowerShell command:
    (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
 

@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: load & move data
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
@@ -29,7 +29,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Clean up deployment
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+Use the following command to remove  the resource group and all resources associated with it.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

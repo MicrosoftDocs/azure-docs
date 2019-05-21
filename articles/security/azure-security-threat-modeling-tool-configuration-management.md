@@ -82,7 +82,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [ASP.NET Debugging Overview](https://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET Tracing Overview](https://msdn2.microsoft.com/library/bb386420.aspx), [How to: Enable Tracing for an ASP.NET Application](https://msdn2.microsoft.com/library/0x5wc973.aspx), [How to: Enable Debugging for ASP.NET Applications](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **References**              | [ASP.NET Debugging Overview](https://msdn.microsoft.com/library/ms227556.aspx), [ASP.NET Tracing Overview](https://msdn.microsoft.com/library/bb386420.aspx), [How to: Enable Tracing for an ASP.NET Application](https://msdn.microsoft.com/library/0x5wc973.aspx), [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Steps** | When tracing is enabled for the page, every browser requesting it also obtains the trace information that contains data about internal server state and workflow. That information could be security sensitive. When debugging is enabled for the page, errors happening on the server result in a full stack trace data presented to the browser. That data may expose security-sensitive information about the server's workflow. |
 
 ## <a id="js-trusted"></a>Access third-party javascripts from trusted sources only

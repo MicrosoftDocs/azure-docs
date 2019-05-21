@@ -13,12 +13,15 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/3/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
 # Integrate security solutions in Azure Security Center
 This document helps you to manage security solutions already connected to Azure Security Center and add new ones.
+
+> [!NOTE]
+> A subset of security solutions will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## Integrated Azure security solutions
 Security Center makes it easy to enable integrated security solutions in Azure. Benefits include:
@@ -226,8 +229,6 @@ Here is a couple of Splunk queries that you can use to pull alert data:
 
 In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following articles:
 
-* [Connecting Microsoft Advanced Threat Analytics to Azure Security Center](security-center-ata-integration.md)
-* [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md)
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Monitor partner solutions with Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.

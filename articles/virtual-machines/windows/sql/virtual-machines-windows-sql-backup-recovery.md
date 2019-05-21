@@ -53,7 +53,7 @@ For more information on how to configure Automated Backup for SQL VMs, see one o
 - **SQL Server 2016/2017**: [Automated Backup v2 for Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [Automated Backup for SQL Server 2014 Virtual Machines](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Azure Backup for SQL VMs (Public Preview)
+## <a id="azbackup"></a> Azure Backup for SQL VMs
 
 [Azure Backup](/azure/backup/) provides an Enterprise class backup capability for SQL Server running in Azure VMs. All backups are stored and managed in a Recovery Services vault. There are several advantages that this solution provides, especially for Enterprises:
 
@@ -70,9 +70,9 @@ For more information on how to configure Automated Backup for SQL VMs, see one o
 
 For a quick overview of how it works along with a demo, watch the following video:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2dNbw]
+> [!VIDEO https://www.youtube.com/embed/wmbANpHos_E]
 
-This Azure Backup solution for SQL VMs is currently in public preview. For more information, see [Back up SQL Server database to Azure](../../../backup/backup-azure-sql-database.md).
+This Azure Backup solution for SQL VMs is generally available. For more information, see [Back up SQL Server database to Azure](../../../backup/backup-azure-sql-database.md).
 
 ## <a id="manual"></a> Manual backup
 

@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
-ms.author: subsarma
+ms.date: 3/25/2019
+ms.author: rohink
 ---
 
 # Name resolution for resources in Azure virtual networks
@@ -69,6 +69,7 @@ Points to consider when you are using Azure-provided name resolution:
 * Host names must be DNS-compatible. Names must use only 0-9, a-z, and '-', and cannot start or end with a '-'.
 * DNS query traffic is throttled for each VM. Throttling shouldn't impact most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [DNS client configuration](#dns-client-configuration).
 * Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit does not apply to virtual networks in Azure Resource Manager.
+* The Azure DNS IP address is 168.63.129.16. This is a static IP address and will not change.
 
 ## DNS client configuration
 
@@ -90,7 +91,7 @@ There are a number of different DNS caching packages available (such as dnsmasq)
   * Start the dnsmasq service with `systemctl start dnsmasq.service`. 
   * Edit **/etc/sysconfig/network/config**, and change *NETCONFIG_DNS_FORWARDER=""* to *dnsmasq*.
   * Update resolv.conf with `netconfig update`, to set the cache as the local DNS resolver.
-* **OpenLogic (uses NetworkManager)**:
+* **CentOS (uses NetworkManager)**:
   * Install the dnsmasq package with `sudo yum install dnsmasq`.
   * Enable the dnsmasq service with `systemctl enable dnsmasq.service`.
   * Start the dnsmasq service with `systemctl start dnsmasq.service`.
@@ -123,7 +124,7 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
 * **SUSE** (uses netconf):
   1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**.
   2. Run `netconfig update` to update.
-* **OpenLogic** (uses NetworkManager):
+* **CentOS** (uses NetworkManager):
   1. Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Update with `service network restart`.
 
@@ -141,7 +142,7 @@ DNS forwarding also enables DNS resolution between virtual networks, and allows 
 
 > [!NOTE]
 > A role instance can perform name resolution of VMs within the same virtual network. It does so by using the FQDN, which consists of the VM's host name and **internal.cloudapp.net** DNS suffix. However, in this case, name resolution is only successful if the role instance has the VM name defined in the [Role Schema (.cscfg file)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Role instances that need to perform name resolution of VMs in another virtual network (FQDN by using the **internal.cloudapp.net** suffix) have to do so by using the method described in this section (custom DNS servers forwarding between the two virtual networks).
 >
@@ -163,7 +164,7 @@ If forwarding queries to Azure doesn't suit your needs, you should provide your 
 * Be secured against access from the internet, to mitigate threats posed by external agents.
 
 > [!NOTE]
-> For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled. A [public IP address](virtual-network-public-ip-address.md) should be assigned to each DNS server VM. For additional performance analysis and optimizations when you are using Windows Server as your DNS server, see [Name resolution performance of a recursive Windows DNS Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled. A [public IP address](virtual-network-public-ip-address.md) should be assigned to each DNS server VM. For additional performance analysis and optimizations when you are using Windows Server as your DNS server, see [Name resolution performance of a recursive Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 

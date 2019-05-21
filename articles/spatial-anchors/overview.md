@@ -29,7 +29,7 @@ Some example use cases enabled by Spatial Anchors include:
 
 - [Way-finding](concepts/anchor-relationships-way-finding.md). Developers can also connect Spatial Anchors together creating relationships between them. For example, an app may include an experience that has two or more points of interest that a user must interact with to complete a task. Those points of interest can be created in a connected fashion. Later, when the user is completing the multi-step task, the app can ask for anchors that are nearby the current one to direct the user towards the next step in the task.
 
-- [Persisting virtual content in the real-world](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). An app can let a user place a virtual calendar on a conference room wall, that people can see using a phone app or a HoloLens device. In an industrial setting, a user could receive contextual information about a machine by pointing a supported device camera at it.
+- [Persisting virtual content in the real-world](how-tos/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). An app can let a user place a virtual calendar on a conference room wall, that people can see using a phone app or a HoloLens device. In an industrial setting, a user could receive contextual information about a machine by pointing a supported device camera at it.
 
 Azure Spatial Anchors is composed of a managed service and client SDKs for supported device platforms. The following
 sections provide information about getting started with building apps using Azure Spatial Anchors.

@@ -21,7 +21,7 @@ When you create a virtual machine (VM), restart stopped (deallocated) VMs, or re
 
 **Error code**: AllocationFailed or ZonalAllocationFailed
 
-**Error message**: "Allocation failed. We do not have sufficient capacity for the requested VM size in this region. Read more about improving likelihood of allocation success at `https://aka.ms/allocation-guidance`"
+**Error message**: "Allocation failed. We do not have sufficient capacity for the requested VM size in this region. Read more about improving likelihood of allocation success at https:\//aka.ms/allocation-guidance"
 
 This article explains the causes of some of the common allocation failures and suggests possible remedies.
 

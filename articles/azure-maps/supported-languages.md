@@ -1,26 +1,30 @@
 ---
-title: Supported languages in Azure Maps | Microsoft Docs
+title: Localization support in Azure Maps | Microsoft Docs
 description: Learn about supported languages for the services in Azure Maps
-author: juliekohler
-ms.author: julieko
-ms.date: 03/30/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
 ---
 
-# Azure Maps supported languages
-Azure Maps have been localized in a variety
-of languages across the services.  The following
-table provides the supported language codes for each service.  
+# Localization support in Azure Maps
+
+Azure Maps supports various languages and views based on country/region. This article provides the supported languages and views to help guide your Azure Maps implementation.
+
+
+## Azure Maps supported languages
+
+Azure Maps have been localized in a variety of languages across the services. The following table provides the supported language codes for each service.  
   
 
 | ID         | Name                   |  Maps | Search | Routing | Traffic incidents | JS map control | Time zone |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabic                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| eu-ES      | Basque                 |       |        |         |                   |                |     ✓     |
+| eu-ES      | Basque                 |       |    ✓   |         |                   |                |     ✓     |
 | bg-BG      | Bulgarian              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | ca-ES      | Catalan                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Chinese (Simplified)   |       |  zh-CN |         |                   |                |     ✓     |
@@ -30,21 +34,24 @@ table provides the supported language codes for each service. 
 | da-DK      | Danish                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-NL      | Dutch                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Dutch (belgian)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | English                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-AU      | English (Australia)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-NZ      | English (New Zealand)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-GB      | English (Great Britain) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | English (USA)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estonian               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finnish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | French                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | French (Canadian)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | Galician               |       |        |         |                   |                |     ✓     |
+| gl-ES      | Galician               |       |    ✓   |         |                   |                |     ✓     |
 | de-DE      | German                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | Greek                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | Hebrew                 |       |        |         |         ✓         |                |     ✓     |
+| he-IL      | Hebrew                 |       |    ✓   |         |         ✓         |                |     ✓     |
 | hi-IN      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Hungarian              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | Indonesian             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| id-ID      | Indonesian             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
 | it-IT      | Italian                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japanese               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Kazakh                 |       |        |         |                   |                |     ✓     |
+| kk-KZ      | Kazakh                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | Korean                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | Latin American Spanish |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Latvian                |       |    ✓   |         |         ✓         |                |     ✓     |
@@ -56,16 +63,43 @@ table provides the supported language codes for each service. 
 | pl-PL      | Polish                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portuguese (Brazil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portuguese (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ro-RO      | Romanian               |       |        |         |         ✓         |                |     ✓     |
+| ro-RO      | Romanian               |       |    ✓    |         |         ✓         |                |     ✓     |
 | ru-RU      | Russian                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Serbian (Cyrillic)     |       |        |         |                   |                |     ✓     |
+| sr-Cyrl-RS | Serbian (Cyrillic)     |       |    Serbian (Cyrillic) (sr-RS)   |         |                   |                |     ✓     |
 | sr-Latn-RS | Serbian (Latin)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | Slovakian              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | Slovenian              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | Spanish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | Spanish (Mexico)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | sv -SE     | Swedish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| th-TH      | Thai                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| th-TH      | Thai                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | tr-TR      | Turkish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Ukranian               |       |        |         |                   |                |     ✓     |
-| vi-VN      | Vietnamese             |       |        |         |                   |                |     ✓     |
+| uk-UA      | Ukrainian               |       |    ✓   |         |                   |                |     ✓     |
+| vi-VN      | Vietnamese             |       |    ✓   |         |                   |                |     ✓     |
+
+
+## Azure Maps supported views
+
+Azure Maps View parameter (also referred to as “user region parameter”) is a 2-letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed borders and labels are displayed on the map.  By default View parameter is set to **“Unified”**.  Country/Regions that are not on the view list will default to the “Unified” View. It is your responsibility to determine the location of your users, and then set the View parameter correctly for that location. The View parameter in Azure Maps must be used in compliance with applicable laws, including those regarding mapping of the country where maps, images, and other data and third-party content that you are authorized to access via Azure Maps is made available.
+
+The following table provides supported Views.
+
+| View         | Description                            |  Maps | Search | JS Map Control |
+|--------------|----------------------------------------|:-----:|:------:|:--------------:|
+| AE           | United Arab Emirates (Arabic View)    |   ✓   |        |     ✓          |
+| AR           | Argentina (Argentinian View)           |   ✓   |    ✓   |     ✓          |
+| BH           | Bahrain (Arabic View)                 |   ✓   |        |     ✓          |
+| IN           | India (Indian View)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Iraq (Arabic View)                    |   ✓   |        |     ✓          |
+| JO           | Jordan (Arabic View)                  |   ✓   |        |     ✓          |
+| KW           | Kuwait (Arabic View)                  |   ✓   |        |     ✓          |
+| LB           | Lebanon (Arabic View)                 |   ✓   |        |     ✓          |
+| MA           | Morocco (Moroccan View)                |   ✓   |   ✓     |     ✓          |
+| OM           | Oman (Arabic View)                    |   ✓   |        |     ✓          |
+| PK           | Pakistan (Pakistani View)              |   ✓   |    ✓    |     ✓          |
+| PS           | Palestinian Authority (Arabic View)    |   ✓   |        |     ✓          |
+| QA           | Qatar (Arabic View)                   |   ✓   |        |     ✓          |
+| SA           | Saudi Arabia (Arabic View)            |   ✓   |        |     ✓          |
+| SY           | Syria (Arabic View)                   |   ✓   |        |     ✓          |
+| YE           | Yemen (Arabic View)                   |   ✓   |        |     ✓          |
+| Unified      | Unified View (Others)                  |   ✓   |   ✓     |     ✓          |

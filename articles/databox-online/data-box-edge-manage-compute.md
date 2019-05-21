@@ -6,17 +6,13 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
-ms.date: 03/13/2019
+ms.topic: article
+ms.date: 05/20/2019
 ms.author: alkohli
 ---
 # Manage compute on your Azure Data Box Edge
 
 This article describes how to manage compute on your Azure Data Box Edge. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
-
 
 In this article, you learn how to:
 
@@ -27,7 +23,7 @@ In this article, you learn how to:
 
 ## Manage triggers
 
-Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers are response to those events. Triggers can help execute a function whenever the event is fired. For your Data Box Edge, triggers can be in response to file events or a schedule.
+Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers raise the events. For your Data Box Edge, triggers can be in response to file events or a schedule.
 
 - **File**: These triggers are in response to file events such as creation of a file, modification of a file.
 - **Scheduled**: These triggers are in response to a schedule that you can define with a start date, start time, and the repeat interval.
@@ -128,7 +124,6 @@ Take the following steps in the Azure portal to sync the access keys for your de
 
 3. Exit out of the dialog once the sync is complete.
 
-
 ## Next steps
 
-- Learn how to [Manage users via Azure portal](data-box-edge-manage-users.md).
+- Learn how to [Manage Edge compute network via Azure portal](data-box-edge-extend-compute-access-modules.md).

@@ -13,7 +13,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-
 ---
 
 # Azure PowerShell samples for Azure Notification Hubs

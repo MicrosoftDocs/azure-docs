@@ -93,7 +93,7 @@ The default value is false. If enabled, your node application can connect to a n
 
 ### idlePageOutTimePeriod
 
-The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
+The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
 
 > [!WARNING]
 > Use caution when enabling the following configuration settings on production applications. The recommendation is to not enable them on live production applications.

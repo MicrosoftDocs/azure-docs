@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ---
@@ -121,7 +121,7 @@ Another option is to provision [reserved IPs](../virtual-network/virtual-network
 
 ### What port do I connect to SQL Database on
 
-Port 1433. SQL Database communicates over this port. To connect from within a corporate network, you have to add an outbound rule in the firewall settings of your organization. As a guideline, avoid exposing port 1433 outside the Azure boundary. You can run SSMS in Azure using [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). This does not require you to open outgoing connections to port 1433, the IP is static, so the DB can be open to only the RemoteApp and it supports Multi Factor Authentication (MFA).
+Port 1433. SQL Database communicates over this port. To connect from within a corporate network, you have to add an outbound rule in the firewall settings of your organization. As a guideline, avoid exposing port 1433 outside the Azure boundary.
 
 ### How can I monitor and regulate activity on my server and database in SQL Database
 
@@ -154,7 +154,7 @@ For protecting your sensitive data in-flight and at rest, SQL Database provides 
 
 ### How can I limit access to sensitive data in my database
 
-Every application has a certain bit of sensitive data in the database that needs to be protected from being visible to everyone. Certain personnel within the organization need to view this data, however others shouldn’t be able to view this data. One example is employee wages. A manager would need access to the wage information of his/her direct reports however, the individual team members shouldn’t have access to the wage information of their peers. Another scenario is data developers who might be interacting with sensitive data during development stages or testing, for example, SSNs of customers. This information again doesn’t need to be exposed to the developer. In such cases, your sensitive data either needs to be masked or not be exposed at all. SQL Database offers two such approaches to prevent unauthorized users from being able to view sensitive data:
+Every application has a certain bit of sensitive data in the database that needs to be protected from being visible to everyone. Certain personnel within the organization need to view this data, however others shouldn’t be able to view this data. One example is employee wages. A manager would need access to the wage information for their direct reports however, the individual team members shouldn’t have access to the wage information of their peers. Another scenario is data developers who might be interacting with sensitive data during development stages or testing, for example, SSNs of customers. This information again doesn’t need to be exposed to the developer. In such cases, your sensitive data either needs to be masked or not be exposed at all. SQL Database offers two such approaches to prevent unauthorized users from being able to view sensitive data:
 
 [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) is a data masking feature that enables you to limit sensitive data exposure by masking it to non-privileged users on the application layer. You define a masking rule that can create a masking pattern (for example, to only show last four digits of a national ID SSN: XXX-XX-0000 and mark most of it as Xs) and identify which users are to be excluded from the masking rule. The masking happens on-the-fly and there are various masking functions available for various data categories. Dynamic data masking allows you to automatically detect sensitive data in your database and apply masking to it.
 
@@ -201,7 +201,7 @@ Express Route also allows you to burst up to 2x the bandwidth limit you purchase
 
 ### Is SQL Database compliant with any regulatory requirements, and how does that help with my own organization's compliance
 
-SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
+SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met by SQL Database, visit the [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
 
 ## Intelligent database monitoring and maintenance after migration
 

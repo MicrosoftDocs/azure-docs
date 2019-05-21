@@ -232,7 +232,6 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -463,10 +462,10 @@ Minimum configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
-| /oracle/<SID>/origlogaB & mirrlogA | Premium | None | Not needed |
-| /oracle/<SID>/sapdata1...n | Premium | Read-only | Can be used |
-| /oracle/<SID>/oraarch | Standard | None | Not needed |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | None | Not needed |
+| /oracle/\<SID>/sapdata1...n | Premium | Read-only | Can be used |
+| /oracle/\<SID>/oraarch | Standard | None | Not needed |
 | Oracle Home, saptrace, ... | OS disk | | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
@@ -477,13 +476,13 @@ Performance configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA | Premium | None | Can be used  |
-| /oracle/<SID>/origlogaB | Premium | None | Can be used |
-| /oracle/<SID>/mirrlogAB | Premium | None | Can be used |
-| /oracle/<SID>/mirrlogBA | Premium | None | Can be used |
-| /oracle/<SID>/sapdata1...n | Premium | Read-only | Recommended  |
-| /oracle/SID/sapdata(n+1)* | Premium | None | Can be used |
-| /oracle/<SID>/oraarch* | Premium | None | Not needed |
+| /oracle/\<SID>/origlogaA | Premium | None | Can be used  |
+| /oracle/\<SID>/origlogaB | Premium | None | Can be used |
+| /oracle/\<SID>/mirrlogAB | Premium | None | Can be used |
+| /oracle/\<SID>/mirrlogBA | Premium | None | Can be used |
+| /oracle/\<SID>/sapdata1...n | Premium | Read-only | Recommended  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | None | Can be used |
+| /oracle/\<SID>/oraarch* | Premium | None | Not needed |
 | Oracle Home, saptrace, ... | OS disk | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0

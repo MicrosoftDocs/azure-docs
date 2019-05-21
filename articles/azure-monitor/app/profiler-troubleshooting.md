@@ -61,9 +61,15 @@ Submit a support ticket in the portal. Be sure to include the correlation ID fro
 For Profiler to work properly:
 * Your web app service plan must be Basic tier or higher.
 * Your web app must have Application Insights enabled.
-* Your web app must have the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting configured with the same instrumentation key that's used by the Application Insights SDK.
-* Your web app must have the **APPINSIGHTS_PROFILERFEATURE_VERSION** app setting defined and set to 1.0.0.
-* Your web app must have the **DiagnosticServices_EXTENSION_VERSION** app setting defined and the value set to ~3.
+* Your web app must have the following app settings:
+
+    |App Setting    | Value    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for your Application Insights resource    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * The **ApplicationInsightsProfiler3** webjob must be running. To check the webjob:
    1. Go to [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
    1. In the **Tools** menu, select **WebJobs Dashboard**.  
@@ -71,7 +77,7 @@ For Profiler to work properly:
    
       ![profiler-webjob]   
    
-   1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler2** link.  
+   1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler3** link.  
      The **Continuous WebJob Details** pane opens.
 
       ![profiler-webjob-log]
@@ -80,19 +86,20 @@ If you can't figure out why Profiler isn't working for you, you can download the
     
 ### Manual installation
 
-When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for PowerApps. To apply updates manually, do the following:
+When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for PowerApps. To apply updates manually:
 
 1. In the **Web App Control** pane, open **Settings**.
 
 1. Set **.NET Framework version** to **v4.6**.
 
 1. Set **Always On** to **On**.
+1. Create these app settings:
 
-1. Add the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting, and set the value to the same instrumentation key that's used by the SDK.
-
-1. Add the **APPINSIGHTS_PROFILERFEATURE_VERSION** app setting, and set the value to 1.0.0.
-
-1. Add the **DiagnosticServices_EXTENSION_VERSION** app setting, and set the value to ~3.
+    |App Setting    | Value    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for your Application Insights resource    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### Too many active profiling sessions
 
@@ -118,7 +125,7 @@ Profiler runs as a continuous webjob in the web app. You can open the web app re
 
 ## Troubleshoot problems with Profiler and Azure Diagnostics
 
-  >**There is a bug in the profiler that ships in the latest version of WAD for Cloud Services.** In order to use profiler with a cloud service, it only supports AI SDK up to version 2.7.2. If you are using a newer version of the AI SDK, you'll have to go back to 2.7.2 in order to use the profiler. If you use Visual Studio to downgrade the version of the App Insights SDK, you may get a binding redirect error at runtime. This is because the "newVersion" in the web.config file for Microsoft.ApplicationInsights should be set to "2.7.2.0" after downgrading the AI SDK, but it doesn't get updated automatically.
+>**The bug in the profiler that ships in the WAD for Cloud Services has been fixed.** The latest version of WAD (1.12.2.0) for Cloud Services works with all recent versions of the App Insights SDK. Cloud Service hosts will upgrade WAD automatically, but it isn't immediate. To force an upgrade, you can redeploy your service or reboot the node.
 
 To see whether Profiler is configured correctly by Azure Diagnostics, do the following three things: 
 1. First, check to see whether the contents of the Azure Diagnostics configuration that are deployed are what you expect. 

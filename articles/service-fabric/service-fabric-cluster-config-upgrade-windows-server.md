@@ -4,7 +4,7 @@ description: Learn how to upgrade the configuration that runs a standalone Servi
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
