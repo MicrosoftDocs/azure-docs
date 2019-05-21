@@ -29,7 +29,7 @@ It is recommended that you use a python [virtual environment](https://docs.pytho
 ```console
 python -m venv mytestenv
 ```
-   
+
 Install the Bing Video Search SDK with:
 
 ```console
@@ -46,8 +46,9 @@ python -m pip install azure-cognitiveservices-search-videosearch
     from azure.cognitiveservices.search.videosearch.models import VideoPricing, VideoLength, VideoResolution, VideoInsightModule
     from msrest.authentication import CognitiveServicesCredentials
     ```
+
 2. Create a variable for your subscription key. 
-    
+
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
     ```
@@ -88,5 +89,5 @@ Create an instance of the `CognitiveServicesCredentials`, and instantiate the cl
 
 ## See also 
 
-* [What is the Bing Video Search API?](../overview.md)
-* [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+- [What is the Bing Video Search API?](../overview.md)
+- [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
