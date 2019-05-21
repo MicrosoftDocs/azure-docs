@@ -76,7 +76,7 @@ At this point, it's a good time to decide on a naming standard for your policies
  
 ![Naming standard](./media/plan-conditional-access/11.png)
 
-While a descriptive name helps you to keep an overview of your conditional access implementation, the sequence number is helpful if you need to reference a policy in a conversation. For example, if you talk a fellow administrator on the phone, you can ask him to open policy EM063 to solve an issue.
+While a descriptive name helps you to keep an overview of your conditional access implementation, the sequence number is helpful if you need to reference a policy in a conversation. For example, if you talk a fellow administrator on the phone, you can ask them to open policy EM063 to solve an issue.
 
 
 

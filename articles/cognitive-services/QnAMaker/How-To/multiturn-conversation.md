@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
 #
 ---
@@ -49,7 +49,7 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 
 ![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## Filter questions and answers by context
+## Show questions and answers with context
 
 1. Reduce the question and answer pairs displayed to just those with contextual conversations. Select **View options**, then select **Show context (PREVIEW)**. The list will be empty until you add the first question and answer pair with a follow-up prompt. 
 
@@ -61,22 +61,36 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 1. Enter the new question text, `Give feedback.` with an answer of `What kind of feedback do you have?`.
 
 1. In the **Answer** column for this question, select **Add follow-up prompt**. 
-1. The **Follow-up prompt** pop-up dialog allows you to search for an existing question or enter a new question. In this procedure, enter the text `Feedback on an QnA Maker service`, for the **Display text**. 
-1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
-1. In the **Link to answer** text box, enter the answer, `How would you rate QnA Maker?`.
-1. Select **Create new** then select **Save**. 
+1. The **Follow-up prompt (PREVIEW)** pop-up window allows you to search for an existing question or enter a new question. Create a new prompt by entering the following values: 
+
+    |Text field|Value|
+    |--|--|
+    |**Display Text**|`Feedback on an QnA Maker service`|
+    |**Link to answer**|`How would you rate QnA Maker??`|
+    |||
 
     ![Create new prompt QnA](../media/conversational-context/create-child-prompt-from-parent.png)
 
-    This created a new question-and-answer pair and linked the selected question as a follow-up prompt. The **Context** column, for both questions, indicate a follow-up prompt relationship. 
+1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
+1. Select **Create new** then select **Save**. 
+
+    This created a new question-and-answer pair and linked the selected question as a follow-up prompt. The **Context** column, for both questions, indicates a follow-up prompt relationship. 
 
     ![![The Context column, for both questions, indicates a follow-up prompt relationship.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Select **Add follow-up prompt** for the `Give feedback` question to add another follow-up prompt. 
-1. Create a new question by entering  `Feedback on an existing feature`, with the answer `Which feature would you like to give feedback on?`.  
+1. Select **Add follow-up prompt** for the `Give feedback` question to add another follow-up prompt. This opens the **Follow-up prompt (PREVIEW)** pop-up window.
 
-1.  Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
-1.  Select **Save**. 
+1. Create a new prompt by entering the following values:
+
+    |Text field|Value|
+    |--|--|
+    |**Display Text**|`Feedback on an existing feature`|
+    |**Link to answer**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
+
+1. Select **Save**. 
 
     This created a new question and linked the question as a follow-up prompt question to the `Give feedback` question.
     
@@ -90,11 +104,17 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 
 1. If you want to link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair.
 1. Select **Add follow-up prompt** in that row.
-1. In the pop-up dialog, enter the question text in the search box. All matches are returned. Select the question you want as the follow-up, and check **Context-only**, then select **Save**. 
+1. In the **Follow-up prompt (PREVIEW)** pop-up window, enter the answer text in the search box. All matches are returned. Select the answer you want as the follow-up, and check **Context-only**, then select **Save**. 
 
-    Once ou have added the follow-up prompt, remember to select **Save and train**.
+    ![Search the Follow-up prompt's Link to Answer dialog for an existing answer, using the text of the answer.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    Once you have added the follow-up prompt, remember to select **Save and train**.
   
-## Add metadata to follow-up prompts 
+<!--
+
+## To find best prompt answer, add metadata to follow-up prompts 
+
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
 In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
 
@@ -110,6 +130,8 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 1. Save and train. 
 
     When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## Test the QnA set to get all the follow-up prompts
 
@@ -142,7 +164,7 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -266,15 +288,11 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
 
 ## Displaying prompts and sending context in the client application 
 
-The client application displays all the questions with an option for the user to display the prompts as suggested actions or buttons.
-The client application then stores the current QnA pair and user query as context to be passed on with the next user query. 
+If you have added prompts in your knowledge base and have tested the flow in the test pane, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query.
 
-Use this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) to see multi-turn dialog working end-to-end in a QnA Maker bot.
+## Display order supported in API
 
-
-## Prompt order supported in API
-
-The prompt order, returned in the JSON response, is supported for editing by the API only. 
+The display order, returned in the JSON response, is supported for editing by the API only. 
 
 ## Next steps
 
