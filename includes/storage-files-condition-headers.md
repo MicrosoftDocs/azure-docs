@@ -24,4 +24,4 @@ Conditional headers are not yet supported, applications implementing them will n
 
 When a new file is uploaded, the cache-control property by default is “no-cache”. To force the application to request the file every time, the file's cache-control property needs to be updated from “no-cache” to “no-cache, no-store, must-revalidate”. This can be achieved using [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
 
-![Storage explorer content cache update](media/storage-files-condition-headers/storage-explorer-content-cache.png)
+![Storage explorer content cache modification](media/storage-files-condition-headers/Explorer-cache.png)
