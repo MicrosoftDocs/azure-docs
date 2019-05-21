@@ -1,8 +1,8 @@
 ---
 title: Telemetry channels in Azure Application Insights | Microsoft Docs
-description: How to customize telemetry channel in Azure Application Insights.
+description: How to customize telemetry channel in Azure Application Insights SDKs for .NET/.NET Core.
 services: application-insights
-documentationcenter: windows
+documentationcenter: .net
 author: cijothomas
 manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
@@ -16,11 +16,11 @@ ms.author: cithomas
 ---
 # TelemetryChannel in Application Insights
 
-TelemetryChannel is an integral part of [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). It manages buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs has two in-built TelemetryChannels - `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how users can customize channel behavior.
+TelemetryChannel is an integral part of [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). It manages buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs has two built-in TelemetryChannels - `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how users can customize channel behavior.
 
 ## What is a TelemetryChannel?
 
-TelemetryChannel is any class implementing the interface Microsoft.ApplicationInsights.ITelemetryChannel. `ITelemetryChannel` is defined as follows.
+`TelemetryChannel` is responsible for buffering, and sending telemetry items to Application Insights service, where it is stored for querying and analysis. It is any class implementing the interface `Microsoft.ApplicationInsights.ITelemetryChannel`. `ITelemetryChannel` is defined as follows.
 
 ```csharp
 public interface ITelemetryChannel
@@ -36,18 +36,23 @@ public interface ITelemetryChannel
 }
 ```
 
-The `Send(ITelemetry item)` method of TelemetryChannel is called after all `TelemetryInitializer`s and `TelemetryProcessor`s are called. This means that any items dropped by `TelemetryProcessor` won't reach channel. Channel is responsible for buffering, and sending telemetry items to Application Insights service, where it is stored for querying and analysis.
+The `Send(ITelemetry item)` method of TelemetryChannel is called after all `TelemetryInitializer`s and `TelemetryProcessor`s are called. This means that any items dropped by `TelemetryProcessor` won't reach channel. `Send()` does not typically send the items instantly to the backend. They are typically buffered in-memory, and send in batches,for efficient transmission.
+
+[LiveMetrics](live-stream.md) also has a custom channel, which powers the live streaming of telemetry. This channel is independent of the regular telemetry channel, and this document does not apply to the channel used by `LiveMetrics`.
 
 ## Built-in TelemetryChannels
 
 Application Insights .NET/.NET Core SDK ships with two built-in channels:
 
 * **InMemoryChannel**
-`InMemoryChannel` is a light-weight channel, which buffers items in memory until it's sent. Items are buffered in memory and flushed once every 30 seconds or whenever 500 items have buffered. This channel offers minimal reliability guarantees as it doesn't retry sending telemetry upon failures. This channel doesn't keep items in disk, so any unsent items are lost permanently upon application shutdown (gracefully or not). There's a `Flush()` method implemented by this channel, which can be used to force-flush any in-memory telemetry items synchronously.
-This channel is shipped as part of the `Microsoft.ApplicationInsights` nuget package itself, and is the default channel SDK uses when nothing else is configured.
+`InMemoryChannel` is a light-weight channel, which buffers items in memory until it's sent. Items are buffered in memory and flushed once every 30 seconds or whenever 500 items have buffered. This channel offers minimal reliability guarantees as it doesn't retry sending telemetry upon failures. This channel doesn't keep items in disk, so any unsent items are lost permanently upon application shutdown (gracefully or not). There's a `Flush()` method implemented by this channel, which can be used to force-flush any in-memory telemetry items synchronously. This is well suited for short-running applications where a synchronous flush is ideal.
+
+    This channel is shipped as part of the `Microsoft.ApplicationInsights` nuget package itself, and is the default channel SDK uses when nothing else is configured.
 
 * **ServerTelemetryChannel**
-`ServerTelemetryChannel` is a more advanced channel, which has retry policies and capability to store data in local disk. This channel retries telemetry sending, if transient errors occur. This channel also uses a local disk storage to keep items in disk to survive application restarts. Because of these retry mechanisms and local disk storage, this channel is considered more reliable, and is recommended for all production scenarios. This channel is the default for [Asp.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [Asp.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, which are configured as per the linked official docs. This channel is shipped as the nuget package `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`, and is brought automatically when using either of the nuget packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
+`ServerTelemetryChannel` is a more advanced channel, which has retry policies and capability to store data in local disk. This channel is optimized for server scenarios of long running processes with relatively high load of telemetry and stable internet connection. This channel retries telemetry sending, if transient errors occur. This channel also uses a local disk storage to keep items in disk to survive application restarts. Because of these retry mechanisms and local disk storage, this channel is considered more reliable, and is recommended for all production scenarios. This channel is the default for [Asp.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [Asp.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, which are configured as per the linked official docs. 
+
+    This channel is shipped as the nuget package `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`, and is brought automatically when using either of the nuget packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
 
 ## Configuring TelemetryChannel
 
@@ -57,7 +62,7 @@ Following shows an example where user is configuring the `StorageFolder` for the
 
 ## Configuring TelemetryChannel using ApplicationInsights.Config for ASP.NET Applications
 
-The following section from [ApplicationInsights.config](https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config) shows ServerTelemetryChannel configured with `StorageFolder` set to a custom location.
+The following section from [ApplicationInsights.config](configuration-with-applicationinsights-config.md) shows ServerTelemetryChannel configured with `StorageFolder` set to a custom location.
 
 ```xml
     <TelemetrySinks>
