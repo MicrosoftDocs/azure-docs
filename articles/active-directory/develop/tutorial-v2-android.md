@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
@@ -14,7 +13,8 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev 
 ms.collection: M365-identity-device-management
 ---
