@@ -65,7 +65,7 @@ print(model.name, model.id, model.version, sep='\t')
 
 **Using VS Code**
 
-Register models using any model files or folders with the [VS Code](how-to-vscode-tool.md#deploy-and-manage-models) extension.
+Register models using any model files or folders with the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
 
 ### Register an externally created model
 
