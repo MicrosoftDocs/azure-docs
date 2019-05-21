@@ -1,6 +1,6 @@
 ---
-title: How to request real time arrivals data for transit services in Azure Maps | Microsoft Docs
-description: Request real time arrivals data for transit services using the Azure Maps Mobility service.
+title: How to request real-time arrivals data for transit services in Azure Maps | Microsoft Docs
+description: Request real-time arrivals data for transit services using the Azure Maps Mobility service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/21/2019
@@ -11,9 +11,9 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Request real time arrivals transit data using the Azure Maps Real time arrivals API
+# Request real-time arrivals transit data using the Azure Maps Real-time arrivals API
 
-This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService), [Real time arrivals API](https://docs.microsoft.com/en-us/rest/api/mobility/getrealtimearrivalspreview) to request real time arrivals transit data, including number of line arrivals at a particular stop or arrivals of a particular line at stops near a user's location. You will also learn how to request real time arrival data for one or multiple types of public transit such as bus, tram and subway.
+This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService), [Real time arrivals API](https://docs.microsoft.com/en-us/rest/api/mobility/getrealtimearrivalspreview) to request real-time arrivals transit data, including number of line arrivals at a particular stop or arrivals of a particular line at stops near a user's location. You will also learn how to request real-time arrival data for one or multiple types of public transit such as bus, tram, and subway.
 
 
 ## Prerequisites
@@ -23,11 +23,11 @@ To make any calls to the Azure Maps public transit APIs, you need a Maps account
 This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
 
 
-## Request real time arrivals for a stop
+## Request real-time arrivals for a stop
 
-In order to request real time arrivals data for a particular stop, you will need the **MetroID** and **stopID** for the stop. To learn more about how to get the metro ID, see [Get metro area ID](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-request-transit-data#get-metro-area-id). And for information on how to request nearby transit stops, you can take a look at [Request nearby transit stops](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-request-transit-data#request-nearby-transit-stops). 
+In order to request real-time arrivals data for a particular stop, you will need the **MetroID** and **stopID** for the stop. To learn more about how to get the metro ID, see [Get metro area ID](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-request-transit-data#get-metro-area-id). And for information on how to request nearby transit stops, you can take a look at [Request nearby transit stops](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-request-transit-data#request-nearby-transit-stops). 
 
-Let's use "522" as our metro ID which is the metro ID for "Seattle–Tacoma–Bellevue, WA" area and also use the stop ID "2060603", which is a transit stop at "Ne 24th St & 162nd Ave Ne" in Bellevue,WA. To request real time arrivals data for all busses at a stop, complete the following steps:
+Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–Bellevue, WA" area and also use the stop ID "2060603", which is a transit stop at "Ne 24th St & 162nd Ave Ne" in Bellevue, WA. To request real-time arrivals data for all busses at a stop, complete the following steps:
 
 1. Create a collection in which to store the requests. In the Postman app, select **New**. In the **Create New** window, select **Collection**. Name the collection and select the **Create** button.
 
