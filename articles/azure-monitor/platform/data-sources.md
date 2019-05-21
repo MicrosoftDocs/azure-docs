@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 05/21/2019
 ms.author: bwren
 
 ---
@@ -168,14 +168,14 @@ When you enable Application Insights for an application by installing an instrum
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Application Insights stores multiple kinds of data in Azure Monitor Logs: | |
-|                    | Operational data about your application including page views, application requests, and exceptions. | [Analyze log data in Azure Monitor](../log-query/log-query-overview.md) |
+| Azure Monitor Logs | Operational data about your application including page views, application requests, exceptions, and traces. | [Analyze log data in Azure Monitor](../log-query/log-query-overview.md) |
 |                    | Dependency information between application components to support Application Map and telemetry correlation. | [Telemetry correlation in Application Insights](../app/correlation.md) <br> [Application Map](../app/app-map.md) |
-|            | Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. |[Monitor availability and responsiveness of any web site](../app/monitor-web-app-availability.md) |
+|            | Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. | [Monitor availability and responsiveness of any web site](../app/monitor-web-app-availability.md) |
 | Azure Monitor Metrics | Application Insights collects metrics describing the performance and operation of the application in addition to custom metrics that you define in your application into the Azure Monitor metrics database. | [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md) |
 | Azure Storage | Send application data to Azure Storage for archiving. | [Export telemetry from Application Insights](/../app/export-telemetry.md) |
-
-| | Debug snapshot data that is captured for a subset of exceptions.  |
+|            | Details of availability tests are stored in Azure Storage that's not accessible outside of Application Insights in the Azure portal. Results of availability tests are stored in Azure Monitor Logs. | [Monitor availability and responsiveness of any web site](../app/monitor-web-app-availability.md) |
+|            | Profiler trace data is stored in Azure Storage that's not accessible outside of Application Insights in the Azure portal.  | [Profile production applications in Azure with Application Insights](/app/profiler-overview..md) 
+|            | Debug snapshot data that is captured for a subset of exceptions is stored in Azure Storage that's not accessible outside of Application Insights in the Azure portal.  | [How snapshots work](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## Monitoring Solutions and Insights
 [Monitoring solutions](../insights/solutions.md) and [Insights](../insights/insights.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
