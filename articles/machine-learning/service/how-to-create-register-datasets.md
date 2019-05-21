@@ -16,20 +16,19 @@ ms.date: 05/21/2019
 
 # Create and access datasets (Preview) in Azure Machine Learning
 
-In this article, you'll learn how to create Azure Machine Learning datasets (preview) and how to access them across your local and remote experiments.
+In this article, you'll learn how to create Azure Machine Learning datasets (preview) and how to access the data from local and remote experiments.
 
 These managed datasets make it easy to: 
-* Access data during model training without needing to know how to reconnect to underlying stores
+* **Access data during model training** without reconnecting to underlying stores
 
-* Ensure data consistency across and among notebooks, pipelines, automated ml, and the visual interface based on the same dataset entity
+* **Ensure data consistency** across your workflows: notebooks, pipelines, visual interface
 
-* Share data and collaborate with other users
+* **Share data & collaborate** with other users
 
-* Explore data and manage lifecycle of data snapshots & versions
+* **Explore data & manage lifecycle** of data snapshots & versions
 
-* Compare training data to production data
+* **Compare training data to production data**
 
-You'll learn to create and register a dataset in your workspace and how to access the data.
 
 ## Prerequisites
 
