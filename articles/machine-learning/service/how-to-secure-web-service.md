@@ -41,7 +41,7 @@ This is the general process to secure a web service:
 4. Update your DNS to point to the web service.
 
 > [!IMPORTANT]
-> If you're deploying to Azure Kubernetes Service (AKS), you can provide your own certificate or use a certificate that's provided by Microsoft. If you use a certificate from Microsoft, you don't need to get a domain name or SSL certificate. For more information, see the [Enable SSL and deploy](#enable-ssl-and-deploy) section of this article.
+> If you're deploying to Azure Kubernetes Service (AKS), you can purchase your own certificate or use a certificate that's provided by Microsoft. If you use a certificate from Microsoft, you don't need to get a domain name or SSL certificate. For more information, see the [Enable SSL and deploy](#enable-ssl-and-deploy) section of this article.
 
 There are slight differences when you secure web services across [deployment targets](how-to-deploy-and-where.md).
 
@@ -77,7 +77,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
 -  If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)**.
 - If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)**. Both return a configuration object that has an **enable_ssl** method.
 
-  The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you supply.
+  The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you purchase.
 
   * When you use a certificate from Microsoft, you must use the *leaf_domain_label* parameter. This parameter generates the DNS name for the service. For example, a value of "myservice" creates a domain name of "myservice\<six-random-characters>.\<azureregion>.cloudapp.azure.com", where \<azureregion> is the region that contains the service. Optionally, you can use the *overwrite_existing_domain* parameter to overwrite the existing *leaf_domain_label*.
 
@@ -99,7 +99,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
     attach_config.enable_ssl(leaf_domain_label = "myservice")
     ```
 
-  * When you use *a certificate that you purchased*, use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example shows how to use *.pem* files to create configurations that use an SSL certificate that you provide:
+  * When you use *a certificate that you purchased*, use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example shows how to use *.pem* files to create configurations that use an SSL certificate that you purchase:
 
     ```python
     from azureml.core.compute import AksCompute
