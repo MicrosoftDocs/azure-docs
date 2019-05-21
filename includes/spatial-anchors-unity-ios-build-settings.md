@@ -5,8 +5,6 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ---
-In Unity, open the project in the `Unity` folder.
-
 Open **Build Settings** by selecting **File** > **Build Settings**.
 
 In the **Platform** section, select **iOS**.

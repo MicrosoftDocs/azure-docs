@@ -28,7 +28,7 @@ You can use any code editor to do the steps in this quickstart. [Visual Studio C
 
 ## Prerequisites
 
-To do this quickstart, install [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Make sure that the **Azure development** workload is also installed. Also install the [latest Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+To do this quickstart, install [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Make sure that the **Azure development** workload is also installed. Also install the [latest Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,19 +36,33 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
+6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
+
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Leave **Label** and **Content Type** empty for now.
+
 ## Create a function app
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## Connect to an app configuration store
 
-1. Open *Function1.cs*, and add a reference to an App Configuration .NET Core configuration provider.
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. Open *Function1.cs*, and add a reference to the .NET Core App Configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. Update the `Run` method to use App Configuration by calling `builder.AddAzureAppConfiguration()`.
+3. Update the `Run` method to use App Configuration by calling `builder.AddAzureAppConfiguration()`.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -105,4 +119,4 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 In this quickstart, you created a new app configuration store and used it with an Azure function. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources integration](./integrate-azure-managed-service-identity.md)
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

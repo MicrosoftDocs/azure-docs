@@ -3,7 +3,7 @@ title: Translator Text API V3.0 Reference
 titlesuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Text API V3.0.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 
 ms.service: cognitive-services
@@ -157,7 +157,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 405000| The request method is not supported for the requested resource.|
 | 408001| The custom translation system requested is not yet available. Please retry in a few minutes.|
 | 415000| The Content-Type header is missing or invalid.|
-| 429000, 429001, 429002| The server rejected the request because the client is sending too many requests. Reduce the frequency of requests to avoid throttling.|
+| 429000, 429001, 429002| The server rejected the request because the client has exceeded request limits.|
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 | 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 

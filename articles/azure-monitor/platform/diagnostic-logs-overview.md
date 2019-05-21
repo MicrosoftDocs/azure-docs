@@ -1,12 +1,12 @@
 ---
 title: Overview of Azure Diagnostic Logs
 description: Learn what Azure diagnostic logs are and how you can use them to understand events occurring within an Azure resource.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
 ---
 # Collect and consume log data from your Azure resources
@@ -43,11 +43,6 @@ You can use a storage account or Event Hubs namespace that is not in the same su
 > [!NOTE]
 >  You cannot currently archive network flow logs to a storage account that is behind a secured virtual network.
 
-> [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## Diagnostic settings
 
 Resource diagnostic logs are configured using resource diagnostic settings. Tenant diagnostic logs are configured using a tenant diagnostic setting. **Diagnostic settings** for a service control:
@@ -55,7 +50,7 @@ Resource diagnostic logs are configured using resource diagnostic settings. Tena
 * Where diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or Azure Monitor).
 * Which log categories are sent and whether metric data is also sent.
 * How long each log category should be retained in a storage account
-    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
+    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 365.
     - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 

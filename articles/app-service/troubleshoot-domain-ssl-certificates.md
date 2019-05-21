@@ -24,6 +24,9 @@ This article lists common problems that you might encounter when you configure a
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Certificate problems
 
 ### You can't add an SSL certificate binding to an app 
@@ -263,8 +266,8 @@ This problem occurs for one of the following reasons:
     |Record type|Host|Point to|
     |------|------|-----|
     |A|@|IP address for an app|
-    |TXT|@|<app-name>.azurewebsites.net|
-    |CNAME|www|<app-name>.azurewebsites.net|
+    |TXT|@|`<app-name>.azurewebsites.net`|
+    |CNAME|www|`<app-name>.azurewebsites.net`|
 
 ## FAQ
 
@@ -274,7 +277,7 @@ When you purchase a domain from the Azure portal, the App Service application is
 
 **Can I use a domain purchased in the Azure portal to point to an Azure VM instead?**
 
-Yes, you can point the domain to a VM, Storage etc. For more information, see [Create a custom FQDN in the Azure portal for a Windows VM](../virtual-machines/windows/portal-create-fqdn.md).
+Yes, you can point the domain to a VM. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md).
 
 **Is my domain hosted by GoDaddy or Azure DNS?**
 
@@ -310,7 +313,7 @@ Yes. When you access the Custom Domains and SSL blade in the Azure portal, you s
 
 **Can I transfer a domain from one subscription to another subscription?**
 
-You can move a domain to another subscription/resource group using the [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet.
+You can move a domain to another subscription/resource group using the [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
 
 **How can I manage my custom domain if I don’t currently have an Azure App Service app?**
 

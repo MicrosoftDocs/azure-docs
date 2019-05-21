@@ -1,5 +1,5 @@
 ---
-title: Set up Microsoft Azure Data Box Disk| Microsoft Docs
+title: Tutorial to unpack, connect to, unlock Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to set up your Azure Data Box Disk
 services: databox
 author: alkohli
@@ -85,7 +85,7 @@ Perform the following steps to connect and unlock your disks.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#Connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
+6. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -199,16 +199,16 @@ Perform the following steps to connect and unlock your disks.
      OpenSSL is already installed.
      ```
 
-6. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#Connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes. 
+6. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes. 
 
     Type the following command.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
     The sample output is shown below. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 

@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/26/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -146,6 +146,9 @@ RDP | TCP 3389 |
 
 ## Collected metadata
 
+> [!NOTE]
+> Metadata discovered by the Azure Migrate collector appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
+
 The collector appliance discovers the following configuration metadata for each VM. The configuration data for the VMs is available an hour after you start discovery.
 
 - VM display name (on vCenter Server)
@@ -230,7 +233,7 @@ We recommend the following steps to secure the Collector appliance:
 
 ## OS license in the collector VM
 
-The collector comes with a Windows Server 2012 R2 evaluation license which is valid for 180 days. If the evaluation period is expiring for your collector VM, it is recommended to download a new OVA and create a new appliance.
+The collector comes with a Windows Server 2016 evaluation license which is valid for 180 days. If the evaluation period is expiring for your collector VM, it is recommended to download a new OVA and create a new appliance.
 
 ## Updating the OS of the Collector VM
 

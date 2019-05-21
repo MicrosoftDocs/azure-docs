@@ -12,32 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/02/2019
 ms.author: spelluru
 
 ---
 # Create and manage virtual machines with DevTest Labs using the Azure CLI
-This quick start will guide you through creating, starting, connecting, updating and cleaning up a development machine in your lab. 
+This quickstart will guide you through creating, starting, connecting, updating, and cleaning up a development machine in your lab. 
 
 Before you begin:
 
 * If a lab has not been created, instructions can be found [here](devtest-lab-create-lab.md).
 
-* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
+* [Install the Azure CLI](/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
 
 ## Create and verify the virtual machine 
-Create a VM from a marketplace image with ssh authentication.
+Before you execute DevTest Labs related commands, set the appropriate Azure context by using the `az account set` command:
+
+```azurecli
+az account set --subscription 11111111-1111-1111-1111-111111111111
+```
+
+The command to create a virtual machine is: `az lab vm create`. The resource group for the lab, lab name, and virtual machine name are all required. The rest of the arguments change depending on the type of virtual machine.
+
+The following command creates a Windows-based image from Azure Market Place. The name of the image is the same as you would see when creating a virtual machine using the Azure portal. 
+
+```azurecli
+az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3’ --admin-username 'AdminUser' --admin-password 'Password1!'
+```
+
+The following command creates a virtual machine based on a custom image available in the lab:
+
+```azurecli
+az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "My Custom Image" --image-type custom --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
+```
+
+The **image-type** argument has changed from **gallery** to **custom**. The name of the image matches what you see if you were to create the virtual machine in the Azure portal.
+
+The following command creates a VM from a marketplace image with ssh authentication:
+
 ```azurecli
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
-> [!NOTE]
-> Put the **lab's resource group** name in the --resource-group parameter.
->
 
-If you want to create a VM using a formula, use the --formula parameter in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
+You can also create virtual machines based on formulas by setting the **image-type** parameter to **formula**. If you need to choose a specific virtual network for your virtual machine, use the **vnet-name** and **subnet** parameters. For more information, see [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
 
+## Verify that the VM is available.
+Use the `az lab vm show` command to verify that the VM is available before you start and connect to it. 
 
-Verify that the VM is available.
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
 ```
@@ -50,13 +71,11 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 ```
 
 ## Start and connect to the virtual machine
-Start a VM.
+The following example command starts a VM:
+
 ```azurecli
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
-> [!NOTE]
-> Put the **lab's resource group** name in the --resource-group parameter.
->
 
 Connect to a VM: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) or [Remote Desktop](../virtual-machines/windows/connect-logon.md).
 ```bash
@@ -64,7 +83,8 @@ ssh userName@ipAddressOrfqdn
 ```
 
 ## Update the virtual machine
-Apply artifacts to a VM.
+The following sample command applies artifacts to a VM:
+
 ```azurecli
 az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resource-group sampleResourceGroup  --artifacts @/artifacts.json
 ```
@@ -111,7 +131,8 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 ```
 
 ## Stop and delete the virtual machine    
-Stop a VM.
+The following sample command stops a VM.
+
 ```azurecli
 az lab vm stop --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
@@ -121,4 +142,5 @@ Delete a VM.
 az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+## Next steps
+See the following content: [Azure CLI documentation for Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 

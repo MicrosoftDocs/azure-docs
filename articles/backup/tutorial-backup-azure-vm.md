@@ -77,7 +77,7 @@ Create the vault as follows:
 
 Backups run in accordance with the schedule specified in the backup policy. When you create a Recovery Services vault, it comes with default protection and retention policies.
 
-- The default protection policy triggers a backup job one a day at a specified time.
+- The default protection policy triggers a backup job once a day at a specified time.
 - The default retention policy retains the daily recovery point for 30 days. 
 
 To enable and backup up the Azure VM in this tutorial, we do the following:

@@ -130,7 +130,8 @@ The portal enables you to save a template to your Azure account, and redeploy it
    ![Deploy saved template](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## Next steps
-* To view audit logs, see [Audit operations with Resource Manager](./resource-group-audit.md).
-* To troubleshoot deployment errors, see [View deployment operations](./resource-manager-deployment-operations.md).
-* To export a template from a deployment or resource group, see [Export Azure Resource Manager templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-* To safely rollout your service across multiple regions, see [Azure Deployment Manager](./deployment-manager-overview.md).
+
+- To view audit logs, see [Audit operations with Resource Manager](./resource-group-audit.md).
+- To troubleshoot deployment errors, see [View deployment operations](./resource-manager-deployment-operations.md).
+- To export a template from a deployment or resource group, see [Export Azure Resource Manager templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- To safely rollout your service across multiple regions, see [Azure Deployment Manager](./deployment-manager-overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Tutorial to order Microsoft Azure Data Box Disk | Microsoft Docs
+title: Tutorial to order Azure Data Box Disk | Microsoft Docs
 description: Use this tutorial to learn how to sign up and order an Azure Data Box Disk to import data into Azure.
 services: databox
 author: alkohli
@@ -60,7 +60,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
     |---|---|
     |Subscription|Select the subscription for which Data Box service is enabled.<br> The subscription is linked to your billing account. |
     |Transfer type| Import to Azure|
-    |Source country | Select the country where your data currently resides.|
+    |Source country | Select the country/region where your data currently resides.|
     |Destination Azure region|Select the Azure region where you want to transfer data.|
 
   

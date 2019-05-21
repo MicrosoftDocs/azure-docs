@@ -1,6 +1,6 @@
 ---
-title: Host pool load-balancing methods (preview)  - Azure
-description: Host pool load-balancing methods for a Windows Virtual Desktop environment.
+title: Windows Virtual Desktop Preview host pool load-balancing methods - Azure
+description: Host pool load-balancing methods for a Windows Virtual Desktop Preview environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Host pool load-balancing methods
 
-Windows Virtual Desktop (preview) supports two load-balancing methods. Each method determines which session host will host a user’s session when they connect to a resource in a host pool.
+Windows Virtual Desktop Preview supports two load-balancing methods. Each method determines which session host will host a user’s session when they connect to a resource in a host pool.
 
 The following load-balancing methods are available in Windows Virtual Desktop:
 

@@ -1,17 +1,17 @@
 ---
-title: Create a host pool with Azure Marketplace (preview)  - Azure
-description: How to create a Windows Virtual Desktop host pool with Azure Marketplace.
+title: Create a Windows Virtual Desktop Preview host pool with Azure Marketplace  - Azure
+description: How to create a Windows Virtual Desktop Preview host pool with Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
 ---
-# Tutorial: Create a host pool with Azure Marketplace (Preview)
+# Tutorial: Create a host pool with Azure Marketplace
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant (preview) environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 This article describes how to create a host pool within a Windows Virtual Desktop tenant using a Microsoft Azure Marketplace offering. This includes creating a host pool in Windows Virtual Desktop, creating a resource group with VMs in an Azure subscription, joining those VMs to the Active Directory domain, and registering the VMs with Windows Virtual Desktop.
 
@@ -54,18 +54,21 @@ For the Configure virtual machines blade:
 
 For the Virtual machine setting blade:
 
+>[!NOTE]
+> If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 1. Select the **Image source** and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account containing the .vhd file.
 2. Enter the user principal name and password for the domain account that will join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
 3. Select the virtual network that has connectivity to the Active Directory server, then choose a subnet to host the virtual machines.
 4. Select **OK**.
 
-### Windows Virtual Desktop tenant information
+### Windows Virtual Desktop Preview tenant information
 
 For the Windows Virtual Desktop tenant information blade:
 
-1. Enter the **Windows Virtual Desktop tenant group name** for the tenant group that contains your tenant. If you don't have a specific tenant group name planned, leave it as the default.
+1. Enter the **Windows Virtual Desktop tenant group name** for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
 2. Enter the **Windows Virtual Desktop tenant name** for the tenant you'll be creating this host pool in.
-3. Specify the type of credentials you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
+3. Specify the type of credentials you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you completed the [Create service principals and role assignments with PowerShell tutorial](./create-service-principal-role-powershell.md), select **Service principal**. You will now need to enter the **Azure AD tenant ID** of the Azure Active Directory that contains the service principal.
 4. Enter either the credentials for the tenant admin account. Only service principals with a password credential are supported.
 5. Select **OK**.
 
@@ -91,12 +94,6 @@ Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Set the context to the Windows Virtual Desktop tenant group you specified in the Azure Marketplace offering with the following cmdlet. If you left the Windows Virtual Desktop tenant group value as the default value in the Azure Marketplace offering, you can skip this step.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
-```
-
 Once you've done those two things, you can add users to the desktop application group with this cmdlet:
 
 ```powershell
@@ -111,6 +108,9 @@ Here are the current supported clients:
 
 - [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-and-10.md)
 - [Windows Virtual Desktop web client](connect-web.md)
+
+>[!IMPORTANT]
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## Next steps
 

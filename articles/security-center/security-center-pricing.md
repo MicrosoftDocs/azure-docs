@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
-ms.author: monhaber
+ms.author: v-mohabe
 ---
 # Upgrade to Security Center's Standard tier for enhanced security
 Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber attacks.
@@ -41,10 +41,11 @@ To get the Standard tier:
 4. Select **Standard** to upgrade.
 5. Click **Save**.
 
+(Prices in the image are for example purposes only.)
 ![Security Center Pricing](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> To enable all Security Center features, you must apply the Standard pricing tier to the subscription or resource group containing the applicable virtual machines. Configuring pricing for a workspace does not enable just in time VM access, adaptive application controls, and network detections for Azure resources.
+> To enable all Security Center features, you must apply the Standard pricing tier to the subscription containing the applicable virtual machines. Configuring pricing for a workspace does not enable just in time VM access, adaptive application controls, and network detections for Azure resources.
 >
 >
 

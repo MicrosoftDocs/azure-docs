@@ -7,13 +7,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 1/25/2019
+ms.date: 04/08/2019
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: celestedg
 ms.reviewer: mal
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management
 ---
 
@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 | Email one-time passcode is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-The Email one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Azure AD, a Microsoft account (MSA), or Google federation. With one-time passcode authentication, there's no need to create a Microsoft account. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in.
+This article describes how to enable Email one-time passcode authentication for B2B guest users. The Email one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Azure AD, a Microsoft account (MSA), or Google federation. With one-time passcode authentication, there's no need to create a Microsoft account. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in.
 
 This feature is currently available for preview (see [Opting in to the preview](#opting-in-to-the-preview) below). After preview, this feature will be turned on by default for all tenants.
 
@@ -62,7 +62,7 @@ You can view guest users who authenticate with one-time passcodes in the Azure p
 > When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
 
 ### Example
-Guest user alexdoe@gmail.com is invited to Fabrikam, which does not have Google federation set up. Alex does not have a Microsoft account. He'll receive a one-time passcode for authentication.
+Guest user alexdoe@gmail.com is invited to Fabrikam, which does not have Google federation set up. Alex does not have a Microsoft account. They'll receive a one-time passcode for authentication.
 
 ## Opting in to the preview 
 It might take a few minutes for the opt-in action to take effect. After that, only newly invited users who meet the conditions above will use one-time passcode authentication. Guest users who previously redeemed an invitation will continue to use their same authentication method.

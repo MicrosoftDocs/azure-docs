@@ -34,8 +34,6 @@
       href: custom-script-linux.md
     - name: Windows
       href: custom-script-windows.md
-    - name: Azure Service Management (Classic)
-      href: custom-script-classic.md
   - name: IaaS antimalware for Windows
     href: iaas-antimalware-windows.md
   - name: VM snapshot
@@ -62,6 +60,12 @@
       href: oms-linux.md
     - name: Windows
       href: oms-windows.md
+  - name: Azure Monitor for VMs
+    items:
+    - name: Linux Dependency agent
+      href: agent-dependency-linux.md
+    - name: Windows Dependency agent
+      href: agent-dependency-windows.md
   - name: PowerShell DSC 
     href: dsc-overview.md
     items:

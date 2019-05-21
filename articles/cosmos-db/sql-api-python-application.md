@@ -418,7 +418,7 @@ Azure Cosmos DB locally, we're going to create a web.config file, update the fil
     ![Results of publishing Bottle, Flask, and Django apps to App Service](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > If the web page does not appear, or you still get the "The page cannot be displayed because an internal server error has occurred." message, open the web.config file in Kudo and add ` <httpErrors errorMode="Detailed"></httpErrors>` to the system.webServer section, then refresh the page. This will provided detailed error output to the browser. 
+    > If the web page does not appear, or you still get the "The page cannot be displayed because an internal server error has occurred." message, open the web.config file in Kudo and add `<httpErrors errorMode="Detailed"></httpErrors>` to the system.webServer section, then refresh the page. This will provided detailed error output to the browser. 
 
 ## Troubleshooting
 If this is the first Python app you've run on your computer, ensure that the following folders (or the equivalent installation locations) are included in your PATH variable:

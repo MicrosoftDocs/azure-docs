@@ -1,7 +1,6 @@
 ---
 title: Use Grafana on Azure HDInsight
 description: Learn how to access Grafana in Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed

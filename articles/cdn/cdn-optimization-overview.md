@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
 ---
 # Optimize Azure CDN for the type of content delivery
@@ -33,6 +33,8 @@ This article provides an overview of various optimization features and when you 
 
 * [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
 
+> [!NOTE]
+> Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles support the following optimizations:
 
@@ -115,6 +117,9 @@ For more information about large file optimization, see [Large file optimization
 ### Dynamic site acceleration
 
  Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles. This optimization involves an additional fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+
+> [!NOTE]
+> Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) which is a global [anycast](https://en.wikipedia.org/wiki/Anycast) service leveraging Microsoft's private global network to deliver your app workloads.
 
 DSA includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more. 
 
