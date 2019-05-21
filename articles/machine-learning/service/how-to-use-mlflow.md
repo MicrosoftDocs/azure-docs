@@ -24,9 +24,9 @@ This article demonstrates how to use MLflow's tracking URI and logging API, coll
 
  The below table summarizes the different clients that can use Azure Machine Learning service, and their respective function capabilities.
 
- MLflow Tracking offers logging, as well as metric and artifact storage functionalities that were only previously available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-| | MLflow | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure portal|
+| | MLflow Tracking | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure portal|
 |-|-|-|-|-|
 | Manage workspace |   | ✓ |  ✓ | ✓  |
 | Use data stores  |   | ✓ |  ✓ |    |
@@ -41,7 +41,7 @@ This article demonstrates how to use MLflow's tracking URI and logging API, coll
 * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Install the Azure Machine Learning Python SDK on your local computer and create an Azure Machine Learning Workspace](setup-create-workspace.md#sdk). The SDK provides the connectivity for MLflow to access your workspace.
 
-## Use MLflow Tracking on local runs
+## Track local runs
 
 Install the `azureml-contrib-run` package to use MLflow Tracking with Azure Machine Learning on your experiments locally run in a Jupyter Notebook or code editor.
 
@@ -78,7 +78,7 @@ with mlflow.start_run():
     mlflow.log_metric('alpha', 0.03)
 ```
 
-## Use MLflow Tracking with remote runs
+## Track remote runs
 
 Remote runs let you train your models on more powerful computes, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Set up compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
