@@ -145,7 +145,7 @@ An alternate method for Asp.Net Web apps is to instantiate the initializer in co
     }
 ```
 
-For [Asp.Net Core](asp-net-core#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+For [Asp.Net Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
