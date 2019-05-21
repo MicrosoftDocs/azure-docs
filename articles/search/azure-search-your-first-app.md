@@ -791,7 +791,7 @@ You should consider the following takeaways from this project:
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## Next Steps
+## Next steps
 
 In order to provide the best user experience using Azure search, we need to add more features, notably better paging (page numbers or perhaps infinite paging, depending on the application) and autocomplete/suggestions. We should also consider more sophisticated search parameters (conditional searches, for example - all hotels with a room price less than $N, and geo-spatial searches on hotels within a specified radius of a given point).
 
