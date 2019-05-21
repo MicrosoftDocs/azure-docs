@@ -47,4 +47,5 @@ Similar to other entities, Notification Hub operations are allowed for three sec
 
 Notification Hubs accept claims granted by Microsoft Azure Access Control tokens, and by signature tokens generated with shared keys configured directly on the Notification Hub.
 
-It is not possible to send a notification to more than one namespace. Namespaces are logical container for notification hubs and are not involved with sending notifications.The namespace-level access policies (credentials) can be used for namespace-level operations, for example: listing notification hubs, creating or deleting notification hubs, etc. Only the hub-level access policies would let you send notifications.
+It is not possible to send a notification to more than one namespace. Namespaces are logical container for notification hubs and are not involved with sending notifications.
+The namespace-level access policies (credentials) can be used for namespace-level operations, for example: listing notification hubs, creating or deleting notification hubs, etc. Only the hub-level access policies would let you send notifications.

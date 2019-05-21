@@ -13,9 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2019
-ms.author: monhaber
-
+ms.date: 03/13/2019
+ms.author: v-mohabe
 ---
 # Adaptive Network Hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.

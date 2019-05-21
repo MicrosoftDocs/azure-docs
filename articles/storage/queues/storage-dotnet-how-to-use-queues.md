@@ -7,7 +7,7 @@ author: mhopkins-msft
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/13/2018
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
@@ -26,7 +26,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 **Estimated time to complete:** 45 minutes
 
-**Prerequisites:**
+###Prerequisites:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -54,7 +54,7 @@ The sample code needs to authorize access to your storage account. To authorize,
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Locate your storage account.
-3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.   
+3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 4. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step.
 
     ![Screenshot showing how to copy a connection string from the Azure portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
@@ -63,7 +63,7 @@ The sample code needs to authorize access to your storage account. To authorize,
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Queue service client
-The **CloudQueueClient** class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
+The [CloudQueueClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -90,8 +90,7 @@ queue.CreateIfNotExists();
 ```
 
 ## Insert a message into a queue
-To insert a message into an existing queue, first create a new
-**CloudQueueMessage**. Next, call the **AddMessage** method. A
+To insert a message into an existing queue, first create a new [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet). Next, call the [AddMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet) method. A
 **CloudQueueMessage** can be created from either a string (in UTF-8
 format) or a **byte** array. Here is code which creates a queue (if it
 doesn't exist) and inserts the message 'Hello, World':
@@ -117,7 +116,7 @@ queue.AddMessage(message);
 
 ## Peek at the next message
 You can peek at the message in the front of a queue without removing it
-from the queue by calling the **PeekMessage** method.
+from the queue by calling the [PeekMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet) method.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -138,18 +137,7 @@ Console.WriteLine(peekedMessage.AsString);
 ```
 
 ## Change the contents of a queued message
-You can change the contents of a message in-place in the queue. If the
-message represents a work task, you could use this feature to update the
-status of the work task. The following code updates the queue message
-with new contents, and sets the visibility timeout to extend another 60
-seconds. This saves the state of work associated with the message, and
-gives the client another minute to continue working on the message. You
-could use this technique to track multi-step workflows on queue
-messages, without having to start over from the beginning if a
-processing step fails due to hardware or software failure. Typically,
-you would keep a retry count as well, and if the message is retried more
-than *n* times, you would delete it. This protects against a message
-that triggers an application error each time it is processed.
+You can change the contents of a message in-place in the queue. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds. This saves the state of work associated with the message, and gives the client another minute to continue working on the message. You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than *n* times, you would delete it. This protects against a message that triggers an application error each time it is processed.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -171,16 +159,7 @@ queue.UpdateMessage(message,
 ```
 
 ## De-queue the next message
-Your code de-queues a message from a queue in two steps. When you call
-**GetMessage**, you get the next message in a queue. A message returned
-from **GetMessage** becomes invisible to any other code reading messages
-from this queue. By default, this message stays invisible for 30
-seconds. To finish removing the message from the queue, you must also
-call **DeleteMessage**. This two-step process of removing a message
-assures that if your code fails to process a message due to hardware or
-software failure, another instance of your code can get the same message
-and try again. Your code calls **DeleteMessage** right after the message
-has been processed.
+Your code de-queues a message from a queue in two steps. When you call [GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet), you get the next message in a queue. A message returned from **GetMessage** becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet). This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **DeleteMessage** right after the message has been processed.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -231,16 +210,8 @@ Console.WriteLine("Deleted message");
 ```
     
 ## Leverage additional options for de-queuing messages
-There are two ways you can customize message retrieval from a queue.
-First, you can get a batch of messages (up to 32). Second, you can set a
-longer or shorter invisibility timeout, allowing your code more or less
-time to fully process each message. The following code example uses the
-**GetMessages** method to get 20 messages in one call. Then it processes
-each message using a **foreach** loop. It also sets the invisibility
-timeout to five minutes for each message. Note that the 5 minutes starts
-for all messages at the same time, so after 5 minutes have passed since
-the call to **GetMessages**, any messages which have not been deleted
-will become visible again.
+There are two ways you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message. The following code example uses the [GetMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet) method to get 20 messages in one call. Then it processes each message using a **foreach** loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since
+the call to **GetMessages**, any messages which have not been deleted will become visible again.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -261,11 +232,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## Get the queue length
-You can get an estimate of the number of messages in a queue. The
-**FetchAttributes** method asks the Queue service to
-retrieve the queue attributes, including the message count. The **ApproximateMessageCount**
-property returns the last value retrieved by the
-**FetchAttributes** method, without calling the Queue service.
+You can get an estimate of the number of messages in a queue. The [FetchAttributes](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) method asks the Queue service to retrieve the queue attributes, including the message count. The [ApproximateMessageCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) property returns the last value retrieved by the **FetchAttributes** method, without calling the Queue service.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -289,8 +256,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## Delete a queue
-To delete a queue and all the messages contained in it, call the
-**Delete** method on the queue object.
+To delete a queue and all the messages contained in it, call the [Delete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) method on the queue object.
 
 ```csharp
 // Retrieve storage account from connection string.

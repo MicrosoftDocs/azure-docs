@@ -74,7 +74,7 @@ To deploy the Start/Stop VMs during off hours solution to an Automation Account 
 To deploy the Start/Stop VMs during off hours solution to a new Automation Account and Log Analytics workspace the user deploying the solution needs the permissions defined in the preceding section as well as the following permissions:
 
 - Co-administrator on subscription - This is needed to create the Classic Run As Account
-- Be part of the **Application Developer** role. For more details on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
+- Be part of the Azure Active Directory **Application Developer** role. For more details on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
 
 | Permission |Scope|
 | --- | --- |
@@ -427,7 +427,9 @@ If you decide you no longer need to use the solution, you can delete it from the
 
 To delete the solution, perform the following steps:
 
-1. From your Automation account, select **Workspace** from the left page.
+1. From your Automation account, under **Related resources**, select **Linked workspace**.
+1. Select **Go to workspace**.
+1. Under **General**, select **Solutions**. 
 1. On the **Solutions** page, select the solution **Start-Stop-VM[Workspace]**. On the **VMManagementSolution[Workspace]** page, from the menu, select **Delete**.<br><br> ![Delete VM Mgmt Solution](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. In the **Delete Solution** window, confirm that  you want to delete the solution.
 1. While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu. You are returned to the **Solutions** page after the process to remove the solution starts.
