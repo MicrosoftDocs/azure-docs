@@ -217,4 +217,4 @@ You can reach us at absiotfeedback@microsoft.com
 
 ## Next steps
 
-Learn more about [How to Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
+Learn more about [Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
