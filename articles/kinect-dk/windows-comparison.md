@@ -57,7 +57,12 @@ The Azure Kinect SDK feature set is different from Kinect for Windows v2, as det
 
 | **Kinect v2 Feature** | **Kinect v2 Data Type** | **Azure Kinect SDK/Service** |
 |--------|--------|------|
-| Sensor Data Access |DepthFrame| [Sensor SDK - Retrieve images](retrieve-images.md) |InfraredFrame | [Sensor SDK - Retrieve images](retrieve-images.md) | ColorFrame | [Sensor SDK - Retrieve images](retrieve-images.md) | | AudioBeamFrame |Not currently supported |    Body Tracking | BodyFrame | Body Tracking SDK | BodyIndexFrame | Body Tracking SDK  |
+| Sensor Data Access |DepthFrame| [Sensor SDK - Retrieve images](retrieve-images.md) 
+| |InfraredFrame | [Sensor SDK - Retrieve images](retrieve-images.md) 
+| | ColorFrame | [Sensor SDK - Retrieve images](retrieve-images.md) | 
+| | AudioBeamFrame |Not currently supported 
+| Body Tracking | BodyFrame | Body Tracking SDK |
+| | BodyIndexFrame | Body Tracking SDK  |
 | Coordinate Mapping|CoordinateMapper| [Sensor SDK - Image transformations](use-image-transformation.md) |
 |Face Tracking | FaceFrame | [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)       |
 |    Speech   Recognition    |    N/A                      |    [Cognitive Services: Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)     |
