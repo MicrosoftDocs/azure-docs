@@ -21,7 +21,7 @@ In this article, you'll learn how to create Azure Machine Learning datasets (pre
 These managed datasets make it easy to: 
 * **Access data during model training** without reconnecting to underlying stores
 
-* **Ensure data consistency** across your workflows: notebooks, pipelines, visual interface
+* **Ensure data consistency** using a pointer across your workflows: notebooks, pipelines, visual interface
 
 * **Share data & collaborate** with other users
 
