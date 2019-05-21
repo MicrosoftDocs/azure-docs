@@ -90,17 +90,22 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
     ```
 
     Alternately, the instrumentation key can also be specified in either of the following environment variables.
+
     APPINSIGHTS_INSTRUMENTATIONKEY
+
     ApplicationInsights:InstrumentationKey
 
     Example:
+
     `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
+    `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
+
     `APPINSIGHTS_INSTRUMENTATIONKEY` is typically used to specify instrumentation key for applications deployed to Azure Web Apps.
-    
+
     > [!NOTE]
     > An instrumentation key specified in code wins over environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
-    
+
 ## Run your application
 
  Run your application, and make requests to it. Telemetry should now start flowing to Application Insights. The following telemetry is automatically collected by the Application Insights SDK.
@@ -118,6 +123,7 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
 ### Performance Counters
 
 Support for [Performance Counters](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) in ASP.NET Core is limited to the following
+
    * SDK version 2.4.1 and above collects performance counters if the application is running in Azure Web App (Windows)
    * SDK version 2.7.0-beta3 and above collects performance counters if the application is running in Windows, and targeting `NETSTANDARD2.0` or higher.
    * For applications targeting the .NET Framework, performance counters are supported in all versions of SDK.
