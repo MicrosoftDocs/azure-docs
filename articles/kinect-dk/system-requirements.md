@@ -32,11 +32,7 @@ The PC host hardware requirement is very dependent on application/algorithm/sens
 - 4GB Memory
 - Dedicated USB3 port
 
-<<<<<<< HEAD
 Lower end and older CPUs may also work depending on your use-case scenario. Body Tracking minimum hardware requirements are greater than those of the Sensor SDk.
-=======
-Lower end and older CPUs may also work depending on your use-case scenario. Body Tracking minimum hardware requirements are greater than those of the Sensor SDk and will be available soon.
->>>>>>> bc671265e5a2f09f9e5fa720fc6b5e7aaeae94be
 
 Performance differs also between Windows/Linux operating systems and graphics drivers in use.
 

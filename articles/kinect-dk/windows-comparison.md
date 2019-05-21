@@ -66,8 +66,4 @@ The Azure Kinect SDK feature set is different from Kinect for Windows v2, as det
 
 [Body Tracking SDK](https://aka.ms/support)
 
-<<<<<<< HEAD
 [Kinect for Windows developer pages](https://developer.microsoft.com/windows/kinect)
-=======
-[Kinect for Windows developer pages](https://developer.microsoft.com/en-us/windows/kinect)
->>>>>>> bc671265e5a2f09f9e5fa720fc6b5e7aaeae94be
