@@ -125,12 +125,12 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 1 \
+    --enable-addons monitoring \
     --kubernetes-version 1.14.0 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
     --enable-vmss \
-    --enable-addons monitoring \
     --network-plugin azure
 ```
 
