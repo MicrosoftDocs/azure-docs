@@ -12,11 +12,11 @@ ms.author: v-chjenk
 
 # FSLogix Profile containers and Azure files
 
-The Windows Virtual Desktop Preview service recommends FSLogix profile containers as a user profile solution. FSLogix is specifically designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. A complete user profile is stored in a single container and, at logon, the container is dynamically attached to the computing environment using native, in-guest Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX) Microsoft services. The user profile is immediately available and appears in the system exactly like a native user profile.
+The Windows Virtual Desktop Preview service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. A complete user profile is stored in a single container and, at sign in, the container is dynamically attached to the computing environment using native, in-guest Virtual Hard Disk (VHD), and Hyper-V Virtual Hard disk (VHDX) Microsoft services. The user profile is immediately available and appears in the system exactly like a native user profile.
 
 In this article, we'll describe FSLogix profile containers used with Azure Files. The information is in the context of Windows Virtual Desktop, which was [announced on 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
-Key issues we cover:
+Key issues:
 - Why we need user profiles and user profile challenges
 - FSLogix profile containers
 - The advantages of using Azure files
@@ -25,7 +25,7 @@ Key issues we cover:
 
 ## User profiles
 
-A user profile is information about individuals that contains any of a variety of business-specific data elements, including configuration information for a specific user, such as desktop settings, persistent network connections, and application settings, or personally-identifiable information. By default, Windows creates a local user profile that is tightly integrated with the operating system.
+A user profile is information about individuals that contains any of a variety of data elements, including configuration information for a specific user, such as desktop settings, persistent network connections, and application settings. By default, Windows creates a local user profile that is tightly integrated with the operating system.
 
 A remote user profile was introduced to provide a partition between user data and the operating system, which allows the operating system to be replaced without effecting user data. In Remote Desktop Session Host (RDSH) and Virtual Desktop Infrastructures (VDI), the operating system may be replaced for the following reasons:
 
@@ -48,7 +48,7 @@ Existing and legacy Microsoft solutions around user profiles came with various c
 
 The table below shows  benefits and limitations of previous user profile technologies.
 
-| Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-prem | Verison support | Subsequent logon time |
+| Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-premises | Version support | Subsequent sign in time |
 | ---------- | --------------- | -------------- | ----------- | --------- | ----------------------- | ------------------------- | ------------------------ | --------------- | --------------------- |
 | **UPD** | Yes | Yes | Yes | Yes | Yes | No | Yes | Win 7+ | Yes |
 | **RUP** 1 | No | Yes | Yes | Yes | Yes| No | Yes | Win 7+ | No |
@@ -68,7 +68,7 @@ The table below shows  benefits and limitations of previous user profile technol
 
 #### Performance
 
-UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. This is due to UPD using Server Message Block (SMB) protocol and copying the profile to the VM in which the user is being logged. UPD on top of S2D was the solution that the RDS team recommended for Windows Virtual Desktop during the private preview of the service.  
+UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. This is due to UPD using Server Message Block (SMB) protocol and copying the profile to the VM in which the user is being logged. UPD on top of S2D was the solution that the RDS team recommended for Windows Virtual Desktop during the preview of the service.  
 
 #### Cost
 
@@ -109,19 +109,19 @@ Azure Files permissions should match those outlined here (link).
 (Needs intro; all bullets below have links:)
 - Create Windows Virtual Desktop tenant
 - Create session host pool VMs
-- Follow this guide to setup Azure Files share
+- Follow this guide to set up Azure Files share
 - Follow steps here to configure FSLogix
 - Assign users to host pool
 - Connect to Windows Virtual Desktop as outlined here
 
 ### Best practices
 
-Each host pool must be built of same type and size VMs based on the same master image.
+Each host pool must be built of the same type and size VM based on the same master image.
 
-Each host pool VMs must be in the same resource group to aid management, scaling and updating.
+Each host pool VM must be in the same resource group to aid management, scaling and updating.
 
-The storage solution that will be used for FSLogix profile location should be in the same data center for optimal performance. 
+The storage solution that will be used for FSLogix profile location should be in the same data center for optimal performance.
 
-The storage account containing the master image must be in the same region and subscription where the VMs are being provisioned. 
+The storage account containing the master image must be in the same region and subscription where the VMs are being provisioned.
 
 ## Next steps
