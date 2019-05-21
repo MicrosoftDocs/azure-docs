@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: shvija
 
 ---
@@ -26,6 +26,28 @@ Once it is associated with a managed identity, an Event Hubs client can do all a
 ## Event Hubs roles and permissions
 
 You can only add a managed identity to the "Owner" or "Contributor" roles of an Event Hubs namespace, which grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager. It's not through the native Event Hubs REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object within a managed identity. 
+
+
+## Event Hubs roles and permissions
+
+You can add a managed identity to the "Service Bus Data Owner" role of a Service Bus namespace. It grants the identity, full control (for management and data operations) on all entities in the namespace.
+
+>[!IMPORTANT]
+> We earlier supported adding managed identity to the **"Owner"** or **"Contributor"** role.
+>
+> However, data access privileges for **"Owner"** and **"Contributor"** role will no longer be honored. If you were using the **"Owner"** or **"Contributor"** role, then those will need to be adapted to utilize the **"Service Bus Data Owner"** role.
+
+To use the new built-in role, please complete the below steps -
+
+1. proceed to the [Azure portal](https://portal.azure.com)
+2. Navigate to the Service Bus namespace where you have currently setup the "Owner" or "Contributor" role.
+3. Click on "Access Control(IAM)" from the left pane menu.
+4. Proceed to add a new role assignment as below
+
+    ![Service Bus RBAC Data Owner](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Hit "Save" to save the new role assignment.
+
  
 ## Use Event Hubs with managed identities for Azure Resources
 
