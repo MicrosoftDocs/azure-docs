@@ -241,7 +241,7 @@ To enable Azure AD users to sign in to Rollbar, they must be provisioned into Ro
 
 	![Invite People](./media/rollbar-tutorial/user3.png)
 
-1. User receives an invitation and after accepting it he/she created in the system.
+1. User receives an invitation and after accepting it they are created in the system.
 
 ### Test single sign-on
 

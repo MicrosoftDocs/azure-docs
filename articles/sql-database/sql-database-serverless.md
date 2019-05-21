@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
+ms.date: 05/20/2019
 ---
 # SQL Database serverless (preview)
 
@@ -75,7 +75,22 @@ In general, databases are run on a machine with sufficient capacity to satisfy r
 
 ### Memory management
 
-Memory for serverless databases is reclaimed more frequently than for provisioned databases. This behavior is important to control costs in serverless. Unlike provisioned compute, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low.
+Memory for serverless databases is reclaimed more frequently than for provisioned compute databases. This behavior is important to control costs in serverless and can impact performance.
+
+#### Cache reclaiming
+
+Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low.
+
+- Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
+- When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
+- When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
+- The cache size is never reduced below the minimum memory as defined by minimum vCores, which can be configured.
+
+In both serverless and provisioned compute databases, cache entries may be evicted if all available memory is used.
+
+#### Cache hydration
+
+The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. When the database is busy, the cache is allowed to grow unconstrained up to the max memory limit.
 
 ## Autopause and autoresume
 
@@ -109,7 +124,7 @@ Autoresume is triggered if any of the following conditions are true at any time:
 
 ### Connectivity
 
-If a serverless databases is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
+If a serverless database is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
 
 ### Latency
 
@@ -261,7 +276,7 @@ The amount of compute billed is the maximum of CPU used and memory used each sec
 - **Amount billed ($)**: vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3) 
 - **Billing frequency**: Per second
 
-The vcore unit price in the cost per vcore per second. Refer to the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) for specific unit prices in a given region.
+The vCore unit price in the cost per vCore per second. Refer to the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) for specific unit prices in a given region.
 
 The amount of compute billed is exposed by the following metric:
 
@@ -271,21 +286,21 @@ The amount of compute billed is exposed by the following metric:
 
 This quantity is calculated each second and aggregated over 1 minute.
 
-Consider a serverless database configured with 1 min vcore and 4 max vcores.  This corresponds to around 3 GB min memory and 12 GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24 hour period and otherwise inactive.    
+Consider a serverless database configured with 1 min vCore and 4 max vCores.  This corresponds to around 3 GB min memory and 12-GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24-hour period and otherwise inactive.    
 
-In this case, the database is billed for compute and storage during the first 8 hours.  Even though the database is inactive starting after the 2nd hour, it is still billed for compute in the subsequent 6 hours based on the minimum compute provisioned while the database is online.  Only storage is billed during the remainder of the 24 hour period while the database is paused.
+In this case, the database is billed for compute and storage during the first 8 hours.  Even though the database is inactive starting after the second hour, it is still billed for compute in the subsequent 6 hours based on the minimum compute provisioned while the database is online.  Only storage is billed during the remainder of the 24-hour period while the database is paused.
 
 More precisely, the compute bill in this example is calculated as follows:
 
 |Time Interval|vCores used each second|GB used each second|Compute dimension billed|vCore seconds billed over time interval|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores used|4 vCores * 3600 seconds = 14400 vCore seconds|
-|1:00-2:00|1|12|Memory used|12Gb * 1/3 * 3600 seconds = 14400 vCore seconds|
-|2:00-8:00|0|0|Min memory provisioned|3Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
+|1:00-2:00|1|12|Memory used|12 Gb * 1/3 * 3600 seconds = 14400 vCore seconds|
+|2:00-8:00|0|0|Min memory provisioned|3 Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
 |8:00-24:00|0|0|No compute billed while paused|0 vCore seconds|
 |Total vCore seconds billed over 24 hours||||50400 vCore seconds|
 
-Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24 hour period is the product of the compute unit price and vcore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
+Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
 
 ## Available regions
 

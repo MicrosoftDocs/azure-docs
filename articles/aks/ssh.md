@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/20/2019
 ms.author: iainfou
 
 #Customer intent: As a cluster operator, I want to learn how to use SSH to connect to VMs in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -22,11 +22,11 @@ This article shows you how to create an SSH connection with an AKS node using th
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Add your public SSH key
 
-By default, SSH keys are obtained, or generated, then added to nodes when you create an AKS cluster. If you need to specify different SSH keys than those used when you created your AKS cluster, add your public SSH key to the Linux AKS nodes.
+By default, SSH keys are obtained, or generated, then added to nodes when you create an AKS cluster. If you need to specify different SSH keys than those used when you created your AKS cluster, add your public SSH key to the Linux AKS nodes. If needed, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. If you use PuTTY Gen to create the key pair, save the key pair in an OpenSSH format rather than the default PuTTy private key format (.ppk file).
 
 > [!NOTE]
 > SSH keys can currently only be added to Linux nodes using the Azure CLI. If you use Windows Server nodes, use the SSH keys provided when you created the AKS cluster and skip to the step on [how to get the AKS node address](#get-the-aks-node-address). Or, [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp].
@@ -195,3 +195,5 @@ If you need additional troubleshooting data, you can [view the kubelet logs][vie
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-windows-rdp]: rdp.md
+[ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
+[ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
