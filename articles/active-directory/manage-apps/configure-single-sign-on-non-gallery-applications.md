@@ -2,14 +2,14 @@
 title: Single sign-on - non-gallery applications - Microsoft identity platform | Microsoft Docs
 description: Configure single sign-on (SSO) to non-gallery applications in Microsoft identity platform (Azure AD)
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
 ---

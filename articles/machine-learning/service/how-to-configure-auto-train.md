@@ -153,11 +153,9 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 
 You can specify separate train and validation set either through get_data() or directly in the `AutoMLConfig`  method.
 
-## Cross validation split options
-
 ### K-Folds Cross Validation
 
-Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set. 
+Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
 ### Monte Carlo Cross Validation (Repeated Random Sub-Sampling)
 
@@ -183,7 +181,7 @@ See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/mas
 
 ## Configure your experiment settings
 
-There are several options that you can use to configure your automated machine learning experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) for a full list of parameters.  
+There are several options that you can use to configure your automated machine learning experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) for a full list of parameters.
 
 Some examples include:
 
@@ -216,7 +214,7 @@ Some examples include:
 
 The three different `task` parameter values determine the list of algorithms to apply.  Use the `whitelist` or `blacklist` parameters to further modify iterations with the available algorithms to include or exclude. The list of supported models can be found on [SupportedAlgorithms Class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
 
-## Primary Metric
+### Primary Metric
 The primary metric; as shown in the examples above determines the metric to be used during model training for optimization. The primary metric you can select is determined by the task type you choose. Below is a list of available metrics.
 
 |Classification | Regression | Time Series Forecasting
@@ -227,15 +225,15 @@ The primary metric; as shown in the examples above determines the metric to be u
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-## Data preprocessing & featurization
+### Data preprocessing & featurization
 
-In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help algorithms perform well.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). 
+In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help algorithms perform well.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess).
 
 To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
-## Time Series Forecasting
+### Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
-1. time_column_name - This is a required parameter which defines the name of the column in your training data containing date/time series. 
+1. time_column_name - This is a required parameter which defines the name of the column in your training data containing date/time series.
 1. max_horizon - This defines the length of time you want to predict out based on the periodicity of the training data. For example if you have training data with daily time grains, you define how far out in days you want the model to train for.
 1. grain_column_names - This defines the name of columns which contain individual time series data in your training data. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your grain columns.
 
@@ -282,60 +280,16 @@ run = experiment.submit(automl_config, show_output=True)
 >Dependencies are first installed on a new machine.  It may take up to 10 minutes before output is shown.
 >Setting `show_output` to `True` results in output being shown on the console.
 
-## Exit Criteria 
+### Exit Criteria
 There a few options you can define to complete your experiment.
-1. No Criteria - If you do not define any exit parameters the experiment will continue until no further progress is made on your primary metric. 
+1. No Criteria - If you do not define any exit parameters the experiment will continue until no further progress is made on your primary metric.
 1. Number of iterations - You define the number of iterations for the experiment to run. You can optional add iteration_timeout_minutes to define a time limit in minutes per each iteration.
 1. Exit after a length of time - Using experiment_timeout_minutes in your settings you can define how long in minutes should an experiment continue in run.
 1. Exit after a score has been reached - Using experiment_exit_score you can choose to complete the experiment after a score based on your primary metric has been reached.
 
-## Explore model metrics
-You can view your results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
+### Explore model metrics
 
-
-### Classification metrics
-The following metrics are saved in each iteration for a classification task.
-
-|Metric|Description|Calculation|Extra Parameters
---|--|--|--|
-AUC_Macro| AUC is the Area under the Receiver Operating Characteristic Curve. Macro is the arithmetic mean of the AUC for each class.  | [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
-AUC_Micro| AUC is the Area under the Receiver Operating Characteristic Curve. Micro is computed globally by combining the true positives and false positives from each class| [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
-AUC_Weighted  | AUC is the Area under the Receiver Operating Characteristic Curve. Weighted is the arithmetic mean of the score for each class, weighted by the number of true instances in each class| [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
-accuracy|Accuracy is the percent of predicted labels that exactly match the true labels. |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |None|
-average_precision_score_macro|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. Macro is the arithmetic mean of the average precision score of each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="macro"|
-average_precision_score_micro|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. Micro is computed globally by combing the true positives and false positives at each cutoff|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="micro"|
-average_precision_score_weighted|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. Weighted is the arithmetic mean of the average precision score for each class, weighted by the number of true instances in each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="weighted"|
-balanced_accuracy|Balanced accuracy is the arithmetic mean of recall for each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
-f1_score_macro|F1 score is the harmonic mean of precision and recall. Macro is the arithmetic mean of F1 score for each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
-f1_score_micro|F1 score is the harmonic mean of precision and recall. Micro is computed globally by counting the total true positives, false negatives, and false positives|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
-f1_score_weighted|F1 score is the harmonic mean of precision and recall. Weighted mean by class frequency of F1 score for each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|This is the loss function used in (multinomial) logistic regression and extensions of it such as neural networks, defined as the negative log-likelihood of the true labels given a probabilistic classifier’s predictions. For a single sample with true label yt in {0,1} and estimated probability yp that yt = 1, the log loss is -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp))|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|None|
-norm_macro_recall|Normalized Macro Recall is Macro Recall normalized so that random performance has a score of 0 and perfect performance has a score of 1. This is achieved by norm_macro_recall := (recall_score_macro - R)/(1 - R), where R is the expected value of recall_score_macro for random predictions (i.e., R=0.5 for binary classification and R=(1/C) for C-class classification problems)|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "macro" and then (recall_score_macro - R)/(1 - R), where R is the expected value of recall_score_macro for random predictions (i.e., R=0.5 for binary classification and R=(1/C) for C-class classification problems)|
-precision_score_macro|Precision is the percent of elements labeled as a certain class that actually are in that class. Macro is the arithmetic mean of precision for each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
-precision_score_micro|Precision is the percent of elements labeled as a certain class that actually are in that class. Micro is computed globally by counting the total true positives and false positives|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
-precision_score_weighted|Precision is the percent of elements labeled as a certain class that actually are in that class. Weighted is the arithmetic mean of precision for each class, weighted by number of true instances in each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
-recall_score_macro|Recall is the percent of elements actually in a certain class that are correctly labeled. Macro is the arithmetic mean of recall for each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
-recall_score_micro|Recall is the percent of elements actually in a certain class that are correctly labeled. Micro is computed globally by counting the total true positives, false negatives|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
-recall_score_weighted|Recall is the percent of elements actually in a certain class that are correctly labeled. Weighted is the arithmetic mean of recall for each class, weighted by number of true instances in each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
-weighted_accuracy|Weighted accuracy is accuracy where the weight given to each example is equal to the proportion of true instances in that example's true class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight is a vector equal to the proportion of that class for each element in the target|
-
-### Regression and time series forecasting metrics
-The following metrics are saved in each iteration for a regression or forecasting task.
-
-|Metric|Description|Calculation|Extra Parameters
---|--|--|--|
-explained_variance|Explained variance is  the proportion to which a mathematical model accounts for the variation of a given data set. It is the percent decrease in variance of the original data to the variance of the errors. When the mean of the errors is 0, it is equal to explained variance.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
-r2_score|R2 is the coefficient of determination or the percent reduction in squared errors compared to a baseline model that outputs the mean. When the mean of the errors is 0, it is equal to explained variance.|[Calculation](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|
-spearman_correlation|Spearman correlation is a nonparametric measure of the monotonicity of the relationship between two datasets. Unlike the Pearson correlation, the Spearman correlation does not assume that both datasets are normally distributed. Like other correlation coefficients, this one varies between -1 and +1 with 0 implying no correlation. Correlations of -1 or +1 imply an exact monotonic relationship. Positive correlations imply that as x increases, so does y. Negative correlations imply that as x increases, y decreases.|[Calculation](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|None|
-mean_absolute_error|Mean absolute error is the expected value of absolute value of difference between the target and the prediction|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|None|
-normalized_mean_absolute_error|Normalized mean absolute error is mean Absolute Error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Divide by range of the data|
-median_absolute_error|Median absolute error is the median of all absolute differences between the target and the prediction. This loss is robust to outliers.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|None|
-normalized_median_absolute_error|Normalized median absolute error is median absolute error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Divide by range of the data|
-root_mean_squared_error|Root mean squared error is the square root of the expected squared difference between the target and the prediction|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|None|
-normalized_root_mean_squared_error|Normalized root mean squared error is root mean squared error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divide by range of the data|
-root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
-normalized_root_mean_squared_log_error|Normalized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data|
-
+You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
 
 ## Understand automated ML models
 
@@ -353,7 +307,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### Automated feature engineering
 
-See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when preprocess=True.  
+See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when preprocess=True.
 
 Consider this example:
 + There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
@@ -365,7 +319,7 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
 
 + API 1: `get_engineered_feature_names()` returns a list of engineered feature names.
 
-  Usage: 
+  Usage:
   ```python
   fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
   ```
@@ -377,11 +331,11 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
   This list includes all engineered feature names.
 
   >[!Note]
-  >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task. 
+  >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task.
 
 + API 2: `get_featurization_summary()` returns featurization summary for all the input features.
 
-  Usage: 
+  Usage:
   ```python
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
@@ -412,16 +366,16 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
     'EngineeredFeatureCount': 11,
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
-  
+
    Where:
-   
+
    |Output|Definition|
    |----|--------|
-   |RawFeatureName|Input feature/column name from the dataset provided.| 
+   |RawFeatureName|Input feature/column name from the dataset provided.|
    |TypeDetected|Detected datatype of the input feature.|
    |Dropped|Indicates if the input feature was dropped or used.|
    |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
-   |Transformations|List of transformations applied to input features to generate engineered features.|  
+   |Transformations|List of transformations applied to input features to generate engineered features.|
 
 ### Scaling/Normalization and algorithm with hypermeter values:
 
@@ -446,108 +400,36 @@ def print_model(model, prefix=""):
         else:
             pprint(step[1].get_params())
             print()
-                
+
 print_model(fitted_model)
 ```
 
-Here is sample output:
+The following is sample output for a pipeline using a specific algorithm (LogisticRegression with RobustScalar, in this case).
 
-+ Pipeline using a specific algorithm (LogisticRegression with RobustScalar in this case):
+```
+RobustScaler
+{'copy': True,
+'quantile_range': [10, 90],
+'with_centering': True,
+'with_scaling': True}
 
-  ```
-  RobustScaler
-  {'copy': True,
-   'quantile_range': [10, 90],
-   'with_centering': True,
-   'with_scaling': True}
-  
-  LogisticRegression
-  {'C': 0.18420699693267145,
-   'class_weight': 'balanced',
-   'dual': False,
-   'fit_intercept': True,
-   'intercept_scaling': 1,
-   'max_iter': 100,
-   'multi_class': 'multinomial',
-   'n_jobs': 1,
-   'penalty': 'l2',
-   'random_state': None,
-   'solver': 'newton-cg',
-   'tol': 0.0001,
-   'verbose': 0,
-   'warm_start': False}
-  ```
-  
-+ Pipeline using ensemble approach: In this case, it is an ensemble of 2 different pipelines
+LogisticRegression
+{'C': 0.18420699693267145,
+'class_weight': 'balanced',
+'dual': False,
+'fit_intercept': True,
+'intercept_scaling': 1,
+'max_iter': 100,
+'multi_class': 'multinomial',
+'n_jobs': 1,
+'penalty': 'l2',
+'random_state': None,
+'solver': 'newton-cg',
+'tol': 0.0001,
+'verbose': 0,
+'warm_start': False}
+```
 
-  ```
-  prefittedsoftvotingclassifier
-  {'estimators': ['1', '18'],
-  'weights': [0.6666666666666667,
-              0.3333333333333333]}
-
-  1 - RobustScaler
-  {'copy': True,
-   'quantile_range': [25, 75],
-   'with_centering': True,
-   'with_scaling': False}
-  
-  1 - LightGBMClassifier
-  {'boosting_type': 'gbdt',
-   'class_weight': None,
-   'colsample_bytree': 0.2977777777777778,
-   'importance_type': 'split',
-   'learning_rate': 0.1,
-   'max_bin': 30,
-   'max_depth': 5,
-   'min_child_samples': 6,
-   'min_child_weight': 5,
-   'min_split_gain': 0.05263157894736842,
-   'n_estimators': 200,
-   'n_jobs': 1,
-   'num_leaves': 176,
-   'objective': None,
-   'random_state': None,
-   'reg_alpha': 0.2631578947368421,
-   'reg_lambda': 0,
-   'silent': True,
-   'subsample': 0.8415789473684211,
-   'subsample_for_bin': 200000,
-   'subsample_freq': 0,
-   'verbose': -10}
-  
-  18 - StandardScalerWrapper
-  {'class_name': 'StandardScaler',
-   'copy': True,
-   'module_name': 'sklearn.preprocessing.data',
-   'with_mean': True,
-   'with_std': True}
-  
-  18 - LightGBMClassifier
-  {'boosting_type': 'goss',
-   'class_weight': None,
-   'colsample_bytree': 0.2977777777777778,
-   'importance_type': 'split',
-   'learning_rate': 0.07894947368421053,
-   'max_bin': 30,
-   'max_depth': 6,
-   'min_child_samples': 47,
-   'min_child_weight': 0,
-   'min_split_gain': 0.2631578947368421,
-   'n_estimators': 400,
-   'n_jobs': 1,
-   'num_leaves': 14,
-   'objective': None,
-   'random_state': None,
-   'reg_alpha': 0.5789473684210527,
-   'reg_lambda': 0.7894736842105263,
-   'silent': True,
-   'subsample': 1,
-   'subsample_for_bin': 200000,
-   'subsample_freq': 0,
-   'verbose': -10}
-  ```
-  
 <a name="explain"></a>
 
 ## Explain the model (interpretability)
