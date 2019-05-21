@@ -8,18 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
 
+## Speech SDK 1.5.1
+
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
+
+**Bug fixes**
+
+* Fix FromSubscription when used with Conversation Transcription.
+* Fix bug in keyword spotting for voice-first virtual assistant.
+
+
 ## Speech SDK 1.5.0: 2019-May release
 
 **New features**
 
-* Keyword spotting functionality (KWS) is available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
+* Wake word (Keyword spotting/KWS) functionality is now available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
 * Phrase hint functionality is available through the SDK. For more information, see [here](how-to-phrase-lists.md).
 * Conversation transcription functionality is available through the SDK. See [here](conversation-transcription-service.md).
 * Add support for voice-first virtual assistants using the Direct Line Speech channel.
@@ -53,7 +63,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 **New features** 
 
 * The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++ and C#. For more information, check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
-* The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta (more details [here](how-to-use-compressed-audio-input-streams.md)).
+* The SDK now supports MP3 and Opus/OGG audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta (more details [here](how-to-use-codec-compressed-audio-input-streams.md)).
 * The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support for macOS is currently in beta.
 * iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
 * JavaScript: Support for non-default microphone as an input device.

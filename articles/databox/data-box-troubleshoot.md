@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: alkohli
 ---
 
@@ -32,7 +32,7 @@ All the errors that are seen during data copy are summarized in the following se
     - The names can only have letters, numbers, and hyphens.
     - The names can’t start or end with hyphens.
     - The names can’t have consecutive hyphens.
-    - Examples of valid names: `my-folder-1`, `my-really-extra-long-folder-111`</li><li>
+    - Examples of valid names: `my-folder-1`, `my-really-extra-long-folder-111`.
     - Examples of names that aren’t valid: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
     For more information, see the Azure naming conventions for [container names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).

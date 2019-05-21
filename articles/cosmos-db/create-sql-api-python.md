@@ -23,7 +23,7 @@ ms.author: sngun
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query documents, key/value, and graph databases. All of these operations benefit from the distribution and scale of Azure Cosmos DB.
 
-This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and container using the Azure portal. You then build and run a console app built with the Python SDK for [SQL API](sql-api-sdk-python.md). This quickstart uses version 3.0 of the [Python SDK].(https://pypi.org/project/azure-cosmos)
+This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and container using the Azure portal. You then build and run a console app built with the Python SDK for [SQL API](sql-api-sdk-python.md). This quickstart uses version 3.0 of the [Python SDK](https://pypi.org/project/azure-cosmos).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -55,14 +55,19 @@ Now let's clone a SQL API app from GitHub, set the connection string, and run it
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
-    ```bash
-    md "C:\git-samples"
+    ```cmd
+    md "git-samples"
     ```
+   If you are using a bash prompt, you should instead use the following command:
+
+   ```bash
+   mkdir "git-samples"
+   ```
 
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
 
     ```bash
-    cd "C:\git-samples"
+    cd "git-samples"
     ```
 
 3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
@@ -79,7 +84,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
-2. Open the `CosmosGetStarted.py` file in C:\git-samples\azure-cosmos-db-python-getting-started in Visual Studio Code.
+2. Open the `CosmosGetStarted.py` file in \git-samples\azure-cosmos-db-python-getting-started in Visual Studio Code.
 
 3. Copy your **URI** value from the portal (using the copy button) and make it the value of the **endpoint** key in ``CosmosGetStarted.py``. 
 
@@ -175,7 +180,7 @@ The following snippets are all taken from the `CosmosGetStarted.py` file.
 4. In the integrated terminal window, ensure you are in the azure-cosmos-db-python-getting-started folder. If not, run the following command to switch to the sample folder. 
 
     ```
-    cd "C:\git-samples\azure-cosmos-db-python-getting-started"`
+    cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. Run the following command to install the azure-cosmos package. 

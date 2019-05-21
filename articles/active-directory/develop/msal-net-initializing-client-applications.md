@@ -4,7 +4,7 @@ description: Learn about initializing public client and confidential client appl
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

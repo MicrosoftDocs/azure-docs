@@ -3,10 +3,10 @@ title: Developer guidance for Azure Active Directory conditional access
 description: Developer guidance and scenarios for Azure AD conditional access
 services: active-directory
 keywords: 
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.date: 02/28/2019
 ms.service: active-directory

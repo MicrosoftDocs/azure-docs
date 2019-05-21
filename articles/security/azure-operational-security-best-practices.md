@@ -151,14 +151,14 @@ You can use [Azure Resource Manager](https://azure.microsoft.com/documentation/a
 **Detail**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Azure Pipelines, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
 
 **Best practice**: Check your app's performance before you launch it or deploy updates to production.  
-**Detail**: Run cloud-based [load tests](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) to:
+**Detail**: Run cloud-based [load tests](/azure/devops/test/load-test/overview#alternatives) to:
 
 - Find performance problems in your app.
 - Improve deployment quality.
 - Make sure that your app is always available.
 - Make sure that your app can handle traffic for your next launch or marketing campaign.
 
-[Apache JMeter](http://jmeter.apache.org/) is a free, popular open source tool with a strong community backing.
+[Apache JMeter](https://jmeter.apache.org/) is a free, popular open source tool with a strong community backing.
 
 **Best practice**: Monitor application performance.  
 **Detail**: [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.

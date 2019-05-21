@@ -64,7 +64,7 @@ To troubleshoot performance problems, select **investigate performance**.
 
 ### Go to details
 
-Select **go to details** to explore the end-to-end transaction experience, which can offer views done to the call stack level.
+Select **go to details** to explore the end-to-end transaction experience, which can offer views down to the call stack level.
 
 ![Screenshot of go-to-details button](media/app-map/go-to-details.png)
 
@@ -106,7 +106,7 @@ namespace CustomInitializer.Telemetry
             {
                 //set custom role name here
                 telemetry.Context.Cloud.RoleName = "Custom RoleName";
-                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }

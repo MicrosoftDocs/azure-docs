@@ -52,7 +52,7 @@ This guide uses the following authentication library:
 
 |Library|Description|
 |---|---|
-|[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
+|[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
 
 ## Set up your project
 

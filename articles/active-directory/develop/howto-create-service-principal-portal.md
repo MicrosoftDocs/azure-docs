@@ -3,8 +3,8 @@ title: Create identity for Azure app in portal | Microsoft Docs
 description: Describes how to create a new Azure Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
@@ -102,18 +102,18 @@ You also need the ID for your application and an authentication key. To get thos
 
    ![Client ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Select **Settings**.
+1. Select **Certificates & secrets**.
 
-   ![Select settings](./media/howto-create-service-principal-portal/select-settings.png)
+   ![Select settings](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. Select **Keys**.
-1. Provide a description of the key, and a duration for the key. When done, select **Save**.
+1. Select **Client secrets -> New client secret**.
+1. Provide a description of the secret, and a duration. When done, select **Add**.
 
-   ![Save key](./media/howto-create-service-principal-portal/save-key.png)
+   ![Save secret](./media/howto-create-service-principal-portal/save-secret.png)
 
-   After saving the key, the value of the key is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
+   After saving the client secret, the value of the client secret is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
-   ![Saved key](./media/howto-create-service-principal-portal/copy-key.png)
+   ![Copy secret](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## Required permissions
 
@@ -142,7 +142,7 @@ In your Azure subscription, your account must have `Microsoft.Authorization/*/Wr
 
 To check your subscription permissions:
 
-1. Select your account in the upper right corner, and select **My permissions**.
+1. Select your account in the upper right corner, and select **... -> My permissions**.
 
    ![Select user permissions](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -150,7 +150,7 @@ To check your subscription permissions:
 
    ![Find user](./media/howto-create-service-principal-portal/view-details.png)
 
-1. View your assigned roles, and determine if you have adequate permissions to assign an AD app to a role. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned to the Owner role, which means that user has adequate permissions.
+1. Select **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign an AD app to a role. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned to the Owner role, which means that user has adequate permissions.
 
    ![Show permissions](./media/howto-create-service-principal-portal/view-user-role.png)
 

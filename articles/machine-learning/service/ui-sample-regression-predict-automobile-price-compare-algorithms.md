@@ -1,7 +1,7 @@
 ---
 title: "Regression: Predict price and compare algorithms"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to compare the performance of two regression models that predict an automobile's price. The process includes training, testing, and evaluating the model on the Automobile price data (Raw) dataset.
+description: This article shows you how to build a complex machine learning experiment without writing a single line of code using the visual interface. Learn how to train and compare multiple regression models to predict a car's price based on technical features
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,18 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ---
- 
+
 # Sample 2 - Regression: Predict price and compare algorithms
 
-This visual interface sample experiment shows how to compare the performance of two regression models that predict an automobile's price. The process includes training, testing, and evaluating the model by using the **Automobile price data (Raw)** dataset.
+Learn how to build a complex machine learning experiment without writing a single line of code using the visual interface. This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this experiment so you can tackle your own machine learning problems.
+
+If you're just getting started with machine learning, you can take a look at the [basic version](ui-sample-regression-predict-automobile-price-basic.md) of this experiment to see a basic regression experiment.
+
+Here's the completed graph for this experiment:
+
+[![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 
@@ -24,10 +30,6 @@ This visual interface sample experiment shows how to compare the performance of 
 
     ![Open the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## Related sample
-
-[Sample 1 - Regression: Automobile Price Prediction (Basic)](ui-sample-regression-predict-automobile-price-basic.md) provides a simpler experiment that solves the same problem as this experiment but that uses only one regression model. Refer to it if you're looking for a basic sample of regression.
-
 ## Experiment summary
 
 We use these steps to build the experiment:
@@ -36,11 +38,6 @@ We use these steps to build the experiment:
 1. Pre-process the data.
 1. Train the model.
 1. Test, evaluate, and compare the models.
-
-Here's the complete graph of the experiment:
-
-[ ![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## Get the data
 

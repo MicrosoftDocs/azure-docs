@@ -26,7 +26,7 @@ Azure App Configuration is a managed configuration service in Azure. You can use
 
 ## Prerequisites
 
-To do this quickstart, install [Visual Studio 2017](https://visualstudio.microsoft.com/vs) and [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) or later if you haven’t already.
+To do this quickstart, install [Visual Studio 2019](https://visualstudio.microsoft.com/vs) and [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) or later if you haven’t already.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|

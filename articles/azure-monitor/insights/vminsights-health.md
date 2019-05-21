@@ -23,7 +23,7 @@ Viewing the overall health state of the Azure VM and underlying operating system
 
 This article will help you understand how to quickly assess, investigate, and resolve health issues detected.
 
-For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-onboard.md).
+For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
 
 ## Monitoring configuration details
 

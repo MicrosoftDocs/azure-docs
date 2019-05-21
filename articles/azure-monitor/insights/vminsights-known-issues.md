@@ -30,4 +30,4 @@ The following are known issues with the current release of the Health feature:
 - After removing the solution components from your workspace, you may continue to see health state from your Azure VMs; specifically performance and map data when you navigate to either view in the portal. Data will eventually stop appearing from the Performance and Map view after sometime; however the Health view will continue to show health status for your VMs. The **Try now** option will be available to re-onboard from Performance and Map views only.
 
 ## Next steps
-To understand the requirements and methods for enabling monitoring of your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-onboard.md).
+To understand the requirements and methods for enabling monitoring of your virtual machines, review [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
