@@ -2,7 +2,6 @@
 title: Overview of the Azure Activity Log
 description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
 author: bwren
-![View Activity Log](./media/activity-logs-overview/view-activity-log.png)
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual

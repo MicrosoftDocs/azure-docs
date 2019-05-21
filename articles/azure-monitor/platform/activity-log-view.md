@@ -154,7 +154,7 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 
 ## Next Steps
 
-* [Read an overview of the Activity Log](activity-log-overview.md)
+* [Read an overview of the Activity Log](activity-logs-overview.md)
 * [Archive the Activity Log to storage or stream it to Event Hubs](activity-log-export.md)
 * [Stream the Azure Activity Log to Event Hubs](activity-logs-stream-event-hubs.md)
 * [Archive the Azure Activity Log to storage](archive-activity-log.md)

@@ -77,6 +77,10 @@
       href: platform/data-platform-logs.md
     - name: Log data ingestion time
       href: platform/data-ingestion-time.md         
+  - name: Insights
+    href: insights/insights.md
+  - name: Monitoring solutions
+    href: insights/solutions-inventory.md
   - name: Data security
     items:
     - name: Log data
@@ -85,24 +89,6 @@
       href: platform/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
       href: app/data-retention-privacy.md
-  - name: Insights
-    items:
-    - name: Application Insights
-      items:
-      - name: Overview
-        href: app/app-insights-overview.md
-      - name: DevOps
-        href: app/detect-triage-diagnose.md
-      - name: Distributed tracing
-        href: app/distributed-tracing.md
-      - name: Log-based & pre-aggregated metrics
-        href: app/pre-aggregated-metrics-log-metrics.md
-    - name: Containers
-      href: insights/container-insights-overview.md
-    - name: Virtual Machines
-      href: insights/vminsights-overview.md
-    - name: Monitoring solutions
-      href: insights/solutions-inventory.md
   - name: Respond to incidents
     items:
     - name: Alerts 
@@ -510,6 +496,16 @@
     items:
     - name: Monitor applications
       items:
+      - name: Application Insights overview
+        items:
+        - name: Overview
+          href: app/app-insights-overview.md
+        - name: DevOps
+          href: app/detect-triage-diagnose.md
+        - name: Distributed tracing
+          href: app/distributed-tracing.md
+        - name: Log-based & pre-aggregated metrics
+          href: app/pre-aggregated-metrics-log-metrics.md
       - name: Application Insights portal
         items:
         - name: Search

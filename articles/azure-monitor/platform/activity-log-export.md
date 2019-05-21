@@ -37,7 +37,7 @@ The shared access policy defines the permissions that the streaming mechanism ha
 
 To update the Activity Log log profile to include streaming, you must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
 
-Stream the Activity Log to an Event Hub by creating a [Log Profile](#log-profile).
+Stream the Activity Log to an Event Hub by [creating a Log Profile](#create-a-log-profile).
 
 ## Create a log profile
 You define how your Azure Activity log is exported using a **log profile**. Each Azure subscription can only have one log profile. These settings can be configured via the **Export** option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI.
