@@ -8,8 +8,16 @@
     href: Welcome.md
   - name: Language support
     href: language-support.md
+- name: Container support
+  items:
   - name: Container support
     href: cognitive-services-container-support.md
+  - name: Container recipes
+    items:
+    - name: Container Reuse
+      href: container-reuse-recipe.md
+    - name: Deploy to Azure Container Instance
+      href: azure-container-instance-recipe.md
 - name: Quickstarts
   items:
   - name: Create an account
