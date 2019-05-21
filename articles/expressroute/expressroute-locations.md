@@ -45,7 +45,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **India** | 2 |India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | 2 |Japan West, Japan East |Osaka, Tokyo |
 | **South Korea** | 2 |Korea Central, Korea South |Busan, Seoul|
-| **UAE** | 3 | UAE Central, UAE North | Dubai |
+| **UAE** | 3 | UAE Central, UAE North | Dubai, Dubai2 |
 | **South Africa** | 3 |South Africa West, South Africa North |Cape Town, Johannesburg |
 | **South America** | 3 |Brazil South |Sao Paulo |
 
@@ -90,7 +90,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Supported |Supported |Amsterdam2, Frankfurt|
 | **du datamena** |Supported |Supported | Dubai2 |
 | **eir** |Supported |Supported |Dublin|
-| **Epsilon Global Communications** |Supported |Supported |Singapore, Singapore2 |
+| **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Supported |Supported |Singapore, Singapore2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Dublin,  Hong Kong SAR, London, London2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **Etisalat UAE** |Supported |Supported |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supported |Supported |Amsterdam, Dublin, London |

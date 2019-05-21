@@ -308,6 +308,9 @@
       - name: ASP.NET Core 
         displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
         href: app/asp-net-core.md
+        items:
+        - name: ILogger
+          href: app/ilogger.md
       - name: ASP.NET apps
         items:
         - name: Web apps
@@ -351,9 +354,7 @@
         - name: Exceptions
           href: app/asp-net-exceptions.md
         - name: Log traces
-          href: app/asp-net-trace-logs.md
-        - name: ILogger
-          href: app/ilogger.md
+          href: app/asp-net-trace-logs.md        
         - name: Performance counters
           href: app/performance-counters.md
         - name: Dependencies
