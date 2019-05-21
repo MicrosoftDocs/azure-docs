@@ -34,7 +34,7 @@ In this section, you create three simulated devices that send data to an instanc
 
    Select **Try Now**.
 
-1. On the **Create Device Simulation solution** page, enter or select values for the following parameters:
+1. On the **Create Device Simulation solution** page, set the following parameters:
 
     | Parameter | Action |
     | --- | --- |
@@ -55,7 +55,7 @@ In this section, you create three simulated devices that send data to an instanc
 
     [![Azure IoT simulation page](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
 
-1. In the **Simulation setup** pane, enter or select the following parameters:
+1. In the **Simulation setup** pane, set the following parameters:
 
     | Parameter | Action |
     | --- | --- |
@@ -65,7 +65,7 @@ In this section, you create three simulated devices that send data to an instanc
     | **Device model** | **Name**: Enter **Chiller**. <br />**Amount**: Enter **3**. |
     | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
 
-    [![Parameters to enter](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+    [![Parameters to set](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
 
     Select **Start simulation**.
 
@@ -97,7 +97,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
    [![Select Internet of Things, and then select Time Series Insights](media/v2-update-provision/payg-one-azure.png)](media/v2-update-provision/payg-one-azure.png#lightbox)
 
-1. In the **Create Time Series Insights environment** pane, on the **Basics** tab, enter or select values for the following parameters:
+1. In the **Create Time Series Insights environment** pane, on the **Basics** tab, set the following parameters:
 
     | Parameter | Action |
     | --- | ---|
@@ -113,7 +113,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
    [![Pane for creating a Time Series Insights environment](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
 
-1. On the **Event Source** tab, enter or select values for the following parameters:
+1. On the **Event Source** tab, set the following parameters:
 
    | Parameter | Action |
    | --- | --- |
@@ -195,14 +195,14 @@ In this section, you apply a model to structure your data. To complete the model
 
    [![The Add button for types](media/v2-update-provision/define-two-add.png)](media/v2-update-provision/define-two-add.png#lightbox)
 
-1. Next, you define three variables for the type: *pressure*, *temperature*, and *humidity*. In the **Add a Type** pane, enter or select the following parameters:
+1. Next, you define three variables for the type: *pressure*, *temperature*, and *humidity*. In the **Add a Type** pane, set the following parameters:
 
     | Parameter | Action |
     | --- | ---|
     | **Name** | Enter **Chiller**. |
     | **Description** | Enter **This is a type definition of Chiller**. |
 
-   * To define *pressure*, under **Variables**, enter or select the following parameters:
+   * To define *pressure*, under **Variables**, set the following parameters:
 
      | Parameter | Action |
      | --- | ---|
@@ -246,7 +246,7 @@ In this section, you apply a model to structure your data. To complete the model
 
     [![Hierarchies tab with Add button](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
 
-1. In the **Edit Hierarchy** pane, enter the following parameters:
+1. In the **Edit Hierarchy** pane, set the following parameters:
 
    | Parameter | Action |
    | --- | ---|
@@ -267,7 +267,7 @@ In this section, you apply a model to structure your data. To complete the model
 
     [![Selecting the Edit button for an instance](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
 
-1. In the **Edit instances** pane, add or select values for the following parameters:
+1. In the **Edit instances** pane, set the following parameters:
 
     | Parameter | Action |
     | --- | --- |
