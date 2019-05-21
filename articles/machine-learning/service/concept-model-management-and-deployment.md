@@ -21,13 +21,25 @@ In this article, you can learn how to use Azure Machine Learning Service to depl
 
 ### Convert training to an Azure Pipeline
 
-for CICD stuff
+You can use Azure Pipelines to create a continuous integration process that trains a model. The pipeline can run the training process whenever a change is checked in to your code repository. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
+
+For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article.
 
 ### Convert and optimize models
 
+Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
+
+For more information on ONNX with Azure Machine Learning service, see the [Create and accelerate ML models](concept-onnx.md) article.
+
 ### Package and debug models
 
+Before deploying a model into production, it is packaged into a Docker image. In most cases, this happens automatically in the background during deployment. For advanced scenarios you can manually specify the image.
+
+If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
+
 ### Validate and profile models
+
+
 
 ### Deploy models
 
