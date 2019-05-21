@@ -65,7 +65,7 @@ The Data Box Heavy device has the following features in this release.
 |Power                                                    | 4 built-in power supply units (PSUs) shared across both the device nodes|
 | Storage capacity                                        | ~ 1-PB raw, 70 disks of 14 TB each <br> 770-TB usable capacity|
 |Number of nodes                                          | 2 independent nodes per device (500 TB each) |
-| Network interfaces per node                             | 4 network interfaces per node <br> MGMT, DATA3 <ul><li> 2 X 1-GbE interfaces </li><li> MGMT is for management, not user configurable, used for initial setup </li><li> DATA3 is a user-configurable data interface, DHCP by default</li><li>1-GbE network interfaces can also be configured as 10-GbE interfaces</li></ul>DATA1, DATA2 data interfaces <ul><li>2 X 40-GbE interfaces </li><li> DHCP (default) or static, user configurable data interfaces</li>|
+| Network interfaces per node                             | 4 network interfaces per node <br> MGMT, DATA3 <ul><li> 2 X 1-GbE interfaces </li><li> MGMT is for management, not user configurable, used for initial setup </li><li> DATA3 is a user-configurable data interface, Dynamic Host Configuration Protocol (DHCP) by default</li><li>1-GbE network interfaces can also be configured as 10-GbE interfaces</li></ul>DATA1, DATA2 data interfaces <ul><li>2 X 40-GbE interfaces </li><li> DHCP by default or static, user configurable data interfaces</li>|
 
 
 ## Components
