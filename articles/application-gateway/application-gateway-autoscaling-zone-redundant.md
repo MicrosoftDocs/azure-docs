@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
 ---
 
@@ -88,8 +88,6 @@ Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/s
 
 Total price = $267.84 + $85.71 = $353.55
 
-The [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
-
 ## Scaling Application Gateway and WAF v2
 
 Application Gateway and WAF can be configured to scale in two modes:
@@ -133,7 +131,7 @@ The following table compares the features available with each SKU.
 |User Defined Route (UDR) on Application Gateway subnet|Not supported|
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
-|Billing|Billing scheduled to start on June 1, 2019.|
+|Billing|Billing scheduled to start on July 1, 2019.|
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Netwatcher integration|Not supported.|

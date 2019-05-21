@@ -157,8 +157,8 @@
         href: ../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
   - name: Manage
     items:
-    - name: Configure
-      href: ../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Configure common settings
+      href: ../app-service/configure-common.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
     - name: Custom domains
       items:
       - name: Buy and configure custom domains
