@@ -154,6 +154,13 @@ Most commonly used settings for `ServerTelemetryChannel` are listed below:
 
 * Despite the name of the package/namespace being WindowsServer, this channel is supported in non-windows system with the following exception. In non-windows, channel doesn't create a local storage folder by default. Users must create a local storage folder and configure channel to use it. Once local storage is configured, channel works same in windows and non-windows systems.'
 
+*Does the SDK create temporary local storage? Is the data encrypted at storage?*
+
+* SDK stores telemetry items in local storage during network issues or during throttling. This data is not encrypted locally.
+For Windows systems, SDK automatically creates a temporary local folder in TEMP or APPDATA directory, and restricts access to administrators and current user only.
+For Non-Windows, no local storage is created automatically by the SDK, and hence no data is stored locally by default. Users can create a storage directory themselves, and configure channel to use it. In this case, user is responsible for ensuring this directory is secured.
+Read more about data protection and privacy [here](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
+
 ## Open-source SDK
 Like every Application Insights SDKs, channels are also open-source. Read and contribute to the code, or report issues [here](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
