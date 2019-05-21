@@ -258,9 +258,9 @@
     - name: Analyze your workload
       href: analyze-your-workload.md 
     - name: Manage and monitor Workload Importance
-      href: sql-data-warehouse-how-to-manage-and-monitor-importance.md 
+      href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md 
     - name: Configure Workload Importance
-      href: sql-data-warehouse-how-to-set-request-level-importance.md 
+      href: sql-data-warehouse-how-to-configure-workload-importance.md 
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2

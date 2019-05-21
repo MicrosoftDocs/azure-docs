@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Manage and monitor Workload Importance in Azure SQL Data Warehouse
 
-This article shows you how to use DMVs and catalog views to manage and monitor request level importance in Azure SQL Data Warehouse.
+Manage and monitor request level importance in Azure SQL Data Warehouse using DMVs and catalog views.
 
 ## Monitor Importance
 
@@ -33,8 +33,7 @@ To look further into how queries are being schedule, use the catalog views.
 
 ## Manage Importance with catalog views
 
-The sys.workload_management_workload_classifiers catalog view contains basic information on the classifiers that exist in your SQL Data Warehouse instance.
-To exclude the system-defined classifiers that map to resource classes execute the following code:
+The sys.workload_management_workload_classifiers catalog view contains information on classifiers in your Azure SQL Data Warehouse instance. To exclude the system-defined classifiers that map to resource classes execute the following code:
 
 ```sql
 SELECT *
@@ -42,7 +41,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-The catalog view, [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest), contains information on the parameters used in creation of the classifier.  The below query shows that ExecReportsClassifier was created on the membername parameter for values with ExecutiveReports:
+The catalog view, [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest), contains information on the parameters used in creation of the classifier.  The below query shows that ExecReportsClassifier was created on the ```membername``` parameter for values with ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -52,9 +51,9 @@ SELECT c.name,cd.classifier_type, classifier_value
   WHERE c.name = 'ExecReportsClassifier'
 ```
 
-![query results](/media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm_queryresults.png)
+![query results]../media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm_queryresults.png)
 
-To simplify troubleshooting misclassification, we recommended you remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run sp_droprolemember for each membername returned from the corresponding resource class.
+To simplify troubleshooting misclassification, we recommended you remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run sp_droprolemember for each ```membername``` returned from the corresponding resource class.
 Below is an example of checking for existence before dropping a workload classifier:
 
 ```sql
