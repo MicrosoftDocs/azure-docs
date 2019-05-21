@@ -6,8 +6,16 @@
   items:
   - name: Set up Azure Kinect DK
     href: set-up-azure-kinect-dk.md
-  - name: Record sensor streams to file
+  - name: Record sensor streams to a file
     href: record-sensor-streams-file.md
+  - name: Build your first application
+    href: setup.md
+- name: Concepts
+  items:
+   - name: Azure Kinect DK depth camera
+     href: azure-kinect-dk-depth-camera.md
+   - name: Azure Kinect DK coordinate systems
+     href: azure-kinect-dk-coordinate-systems.md
 - name: How-to guides
   items: 
    - name: Using Sensor SDK
@@ -30,26 +38,20 @@
          href: capture-device-synchronization.md
        - name: Record and playback API
          href: record-playback-api.md
-   - name: Tools
-     items:
-       - name: Azure Kinect sensor viewer
-         href: azure-kinect-sensor-viewer.md
-       - name: Azure Kinect Recorder
-         items:
-          - name: Azure Kinect recorder
-            href: azure-kinect-dk-recorder.md
-          - name: Azure Kinect DK record external synchronized units
-            href: azure-kinect-dk-record-external-synchronized-units.md
-       - name: Azure Kinect firmware tool
-         href: azure-kinect-firmware-tool.md
    - name: Update Azure Kinect firmware
      href: azure-kinect-dk-update-device-firmware.md
-- name: Concepts
+- name: Tools
   items:
-   - name: Azure Kinect DK depth camera
-     href: azure-kinect-dk-depth-camera.md
-   - name: Azure Kinect DK coordinate systems
-     href: azure-kinect-dk-coordinate-systems.md
+    - name: Azure Kinect sensor viewer
+      href: azure-kinect-sensor-viewer.md
+    - name: Azure Kinect Recorder
+      items:
+        - name: Azure Kinect recorder
+          href: azure-kinect-dk-recorder.md
+        - name: Azure Kinect DK record external synchronized units
+          href: azure-kinect-dk-record-external-synchronized-units.md
+    - name: Azure Kinect firmware tool
+      href: azure-kinect-firmware-tool.md
 - name: Resources
   items:  
    - name: Download the Sensor SDK

@@ -1,5 +1,5 @@
 ---
-title: Record sensor streams to Azure Kinect file
+title: Record Azure Kinect sensor streams to a file
 description: Quickstart instructions how to use Azure Kinect recording tool
 author: joylital
 ms.author: jawirth, joylital
@@ -18,7 +18,7 @@ This page provides information about how you can use the `k4arecorder` command p
 This quickstart assumes:
 
 * You have the Azure Kinect DK connected to your host PC and powered properly.
-* You have finished [setting up](set-up-azure-kinect-dk) the hardware.
+* You have finished [setting up](set-up-azure-kinect-dk.md) the hardware.
 
 ## Create recording
 
