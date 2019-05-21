@@ -16,7 +16,7 @@ Here's how to resolve errors you might see during configuration, registration, b
 
 ## Basic troubleshooting
 
-We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Recovery Services (MARS) agent issues:
+We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Recovery Services (MARS) agent:
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
