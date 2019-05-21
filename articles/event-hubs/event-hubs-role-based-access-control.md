@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
 
 ---
@@ -26,12 +26,10 @@ An application that uses Azure AD RBAC does not need to handle SAS rules and key
 ## Event Hubs roles and permissions
 Azure provides the following built-in RBAC roles for authorizing access to an Event Hubs namespace:
 
-* [Event Hubs Data Owner (preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Enables data access to an Event Hubs namespace and its entities (Queues, Topics, Subscriptions and Filters)
+The [Event Hubs Data Owner (preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) role enables data access to an Event Hubs namespace and its entities (queues, topics, subscriptions, and filters)
 
 >[!IMPORTANT]
-> We earlier supported adding managed identity to the **Owner** or **Contributor** role.
->
-> However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Event Hubs Data Owner** role.
+> We earlier supported adding managed identity to the **Owner** or **Contributor** role. However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Event Hubs Data Owner** role.
 
 
 ## Use Event Hubs with an Azure AD domain user account

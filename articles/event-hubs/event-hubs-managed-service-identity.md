@@ -24,17 +24,10 @@ With managed identities, the Azure platform manages this runtime identity. You d
 Once it is associated with a managed identity, an Event Hubs client can do all authorized operations. Authorization is granted by associating a managed identity with Event Hubs roles. 
 
 ## Event Hubs roles and permissions
-
-You can only add a managed identity to the "Owner" or "Contributor" roles of an Event Hubs namespace, which grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager. It's not through the native Event Hubs REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object within a managed identity. 
-
-
-## Event Hubs roles and permissions
 You can add a managed identity to the **Event Hubs Data Owner** role of an Event Hubs namespace. It grants the identity, full control (for management and data operations) on all entities in the namespace.
 
 >[!IMPORTANT]
-> We earlier supported adding managed identity to the **Owner** or **Contributor** role.
->
-> However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Event Hubs Data Owner** role.
+> We earlier supported adding managed identity to the **Owner** or **Contributor** role. However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Event Hubs Data Owner** role.
 
 To use the new built-in role, follow these steps: 
 
