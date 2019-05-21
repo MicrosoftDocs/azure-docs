@@ -51,13 +51,6 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 Because the **Require MFA for service management** policy applies to all Azure Resource Manager users, several considerations need to be made to ensure a smooth deployment. These considerations include identifying users and service principles in Azure AD that cannot or should not perform MFA, as well as applications and clients used by your organization that do not support modern authentication.
 
-### Legacy Protocols
-
-Legacy authentication protocols (IMAP, SMTP, POP3, etc.) are used by mail clients to make authentication requests. These protocols do not support MFA. Most of the account compromises seen by Microsoft are caused by bad actors performing attacks against legacy protocols attempting to bypass MFA. To ensure that MFA is required when logging into an account accessing Azure Resource Manager and bad actors aren’t able to bypass MFA, this policy blocks all authentication requests made to accounts from legacy protocols.
-
-> [!WARNING]
-> Before you enable this policy, make sure your users aren’t using legacy authentication protocols. See the article [How to: Block legacy authentication to Azure AD with conditional access](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) for more information.
-
 ### User exclusions
 
 This baseline policy provides you the option to exclude users. Before enabling the policy for your tenant, we recommend excluding the following accounts:
@@ -65,7 +58,7 @@ This baseline policy provides you the option to exclude users. Before enabling t
 * **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
    * More information can be found in the article, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
 * **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
-   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md) or [service principals](../develop/howto-authenticate-service-principal-powershell.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
+   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
 * Users who do not have or will not be able to use a smart phone.
    * This policy requires users to register for MFA using the Microsoft Authenticator app.
 

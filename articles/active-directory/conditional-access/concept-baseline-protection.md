@@ -49,7 +49,7 @@ Due to the power and access that administrator accounts have, you should treat t
 * Billing administrator
 * User administrator
 
-If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md) or [service principals](../develop/howto-authenticate-service-principal-powershell.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy.
+If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy.
 
 ### End user protection (preview)
 
