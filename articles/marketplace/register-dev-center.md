@@ -160,7 +160,7 @@ The bank and tax information is required for all commercial offers using the tra
   > Check to make sure the zip code is correctly entered too. There is a city, zip code validation.
 
 * **How can I get a promo code?**
-  > Complete the [Marketplace Registration](https://azuremarketplace.microsoft.com/en-us/sell/signup) form to receive a Dev Center promotional code.
+  > Complete the [Marketplace Registration](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) form to receive a Dev Center promotional code. See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
  
 * **What should I expect after I complete the registration?**
   > Look for an email from verify@microsoft.com with subject line “Action needed: Verify your email account with Microsoft”. Click on the time sensitive verification link to complete registration. *If you have not received an email within 24hrs, please check the spam folder.*

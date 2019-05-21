@@ -173,7 +173,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 | Name | Limit |
 | ---- | ----- |
-| Number of logic apps with system-assigned managed identities per Azure subscription | 10 |
+| Number of logic apps with system-assigned managed identities per Azure subscription | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -269,7 +269,7 @@ These addresses appear under the **Outbound** heading in this section,
 and are sorted by region.
 
 For [Azure Government](../azure-government/documentation-government-overview.md) 
-and [Azure China 21Vianet](/azure/china/china-welcome), 
+and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), 
 reserved IP addresses for connectors aren't currently available.
 
 > [!IMPORTANT]
