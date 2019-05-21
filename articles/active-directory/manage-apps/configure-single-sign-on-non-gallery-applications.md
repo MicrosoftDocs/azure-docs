@@ -10,7 +10,7 @@ ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019
 ms.author: mimart
-ms.reviewer: asmalser,luleon
+ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---
 

@@ -6,7 +6,7 @@ ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 05/21/2019
 ms.reviewer: sngun
 ---
 
