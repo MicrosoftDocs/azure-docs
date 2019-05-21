@@ -131,7 +131,7 @@ The following table compares the features available with each SKU.
 |User Defined Route (UDR) on Application Gateway subnet|Not supported|
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
-|Billing|Billing scheduled to start on June 1, 2019.|
+|Billing|Billing scheduled to start on July 1, 2019.|
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Netwatcher integration|Not supported.|
