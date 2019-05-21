@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 05/21/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -150,9 +150,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Configuration](./media/oracle-cloud-tutorial/config09.png)
 
-	f. For the **IDENTITY PROVIDER GROUP field**, enter a group name and group id that will be passed from Azure portal and select a corresponding group from the **OCI GROUP** dropdown list.
+	f. For **IDENTITY PROVIDER GROUP** fields, enter the group name and group id that are setup in Azure portal. The group needs to be mapped with corresponding group in **OCI GROUP** field.
 
-	g. If you use **Administrators** for the Azure portal group name and that need to be mapped to the corresponding **Administrators** group for the **OCI GROUP**. In the same way you can create different groups by using **+ Add Mapping** option and set a mapping for each group.
+	g. You can map multiple groups as per your setup in Azure portal and your organization need. Click on **+ Add mapping** to add as many groups as you need.
 
 	h. Click **Submit**.
 
@@ -213,7 +213,7 @@ To enable Azure AD users to sign in to Oracle Cloud, they must be provisioned in
 
 ### Test SSO
 
-When you select the Oracle Cloud tile in the Access Panel, you should redirect to the Oracle Cloud sign in page then select the **IDENTITY PROVIDER** from the drop down menu and click **Continue** as shown below to set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Oracle Cloud tile in the Access Panel, you will be redirected to the Oracle Cloud sign in page. Select the **IDENTITY PROVIDER** from the drop down menu and click **Continue** as shown below to sign in. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ![Configuration](./media/oracle-cloud-tutorial/config10.png)
 
