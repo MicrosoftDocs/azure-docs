@@ -1,7 +1,7 @@
 ---
 title: "Regression: Predict price"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to build a regression model to predict an automobile's price. The process includes training, testing, and evaluating the model on the Automobile price data (Raw) dataset.
+description: Learn how to build a machine learning model to predict an automobile's price without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ---
 
 # Sample 1 - Regression: Predict price
 
-This visual interface sample experiment shows how to build a regression model to predict an automobile's price. The process includes training, testing, and evaluating the model by using the **Automobile price data (Raw)** dataset.
+Learn how to build a machine learning regression model without writing a single line of code using the visual interface.
+
+This experiment trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because we're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+
+The fundamental steps of a training machine learning model are:
+
+1. Get the data
+1. Pre-process the data
+1. Train the model
+1. Evaluate the model
+
+Here's the final, completed graph of the experiment we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
+
+![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## Prerequisites
 
@@ -23,23 +36,6 @@ This visual interface sample experiment shows how to build a regression model to
 4. Select the **Open** button for the Sample 1 experiment:
 
     ![Open the experiment](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
-
-## Related sample
-
-[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms. Check it out if you're looking for a more advanced sample.
-
-## Experiment summary
-
-We use these steps to build the experiment:
-
-1. Get the data.
-1. Pre-process the data.
-1. Train the model.
-1. Test, evaluate, and compare the models.
-
-Here's the complete graph of the experiment:
-
-![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## Get the data
 
@@ -54,6 +50,7 @@ We use the **Select Columns in Dataset** module to exclude normalized-losses tha
 ![Data pre-processing](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## Train the model
+
 Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
 
 Because the goal of this experiment is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear. So we use **Decision Forest Regression** for this experiment.

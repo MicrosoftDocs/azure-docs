@@ -28,7 +28,7 @@ Videos are typically delivered to devices and applications by [progressive downl
 
 The following diagram shows the workflow for on-demand encoding with dynamic packaging.
 
-![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 This topic gives you guidance on how to encode your content with Media Services v3.
 

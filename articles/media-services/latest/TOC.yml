@@ -39,7 +39,7 @@
   - name: Encrypt dynamically with DRM 
     items:
     - name: With .NET
-      displayName: PlayReady, Widevine
+      displayName: PlayReady, Widevine, FairPlay
       href: protect-with-drm.md    
 - name: Concepts
   items:
@@ -48,7 +48,8 @@
   - name: Cloud upload and storage
     items:    
     - name: Storage
-      href: storage-account-concept.md    
+      href: storage-account-concept.md  
+      displayName: Storage side encryption
     - name: Assets API
       href: assets-concept.md    
   - name: Encoding
@@ -99,7 +100,7 @@
   - name: Dynamic encryption and key delivery
     items:
     - name: Streaming protocols and encryption types
-      displayName: dynamic, encryption, content protection     
+      displayName: dynamic, encryption, content protection, PlayReady, Widevine, FairPlay     
       href: content-protection-overview.md  
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md  
@@ -169,6 +170,7 @@
     items:
     - name: Create an account - CLI
       href: create-account-cli-how-to.md  
+      displayName: storage
     - name: Reset the account credentials - CLI
       href: cli-reset-account-credentials.md      
     - name: Access APIs - CLI
@@ -182,7 +184,6 @@
       - name: Connect with Postman
         href: media-rest-apis-with-postman.md       
     - name: Develop with SDKs
-      href: developers-guide.md
       items:
       - name: Connect with Java
         href: configure-connect-java-howto.md
@@ -209,7 +210,7 @@
     items:
     - name: Create transforms - CLI
       href: cli-create-transform.md
-    - name: Crate jobs - CLI
+    - name: Create jobs - CLI
       href: cli-create-jobs.md
   - name: Encode content
     items:
@@ -222,10 +223,13 @@
     - name: Encode with a custom Transform
       items:
       - name: With .NET
+        displayName: encode, encoding, custom, transform  
         href: customize-encoder-presets-how-to.md
       - name: With CLI
+        displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
       - name: With REST
+        displayName: encode, encoding, custom, transform
         href: custom-preset-rest-howto.md      
   - name: Use Event Grid
     items:

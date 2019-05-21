@@ -44,6 +44,9 @@ Application gateway supports the following types of certificates:
 
 For more information, see [configure SSL termination with application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
+### Size of the certificate
+The Personal Information Exchange (PFX) file with the SSL certificate information should not be more than 10 KB in size.
+
 ## End to end SSL encryption
 
 Some customers may not desire unencrypted communication to the backend servers. This could be due to security requirements, compliance requirements, or the application may only accept a secure connection. For such applications, application gateway supports end to end SSL encryption.

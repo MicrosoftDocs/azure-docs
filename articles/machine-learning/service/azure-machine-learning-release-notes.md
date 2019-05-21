@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 05/06/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 
@@ -19,6 +19,12 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2019-05-14
+
+### Azure Machine Learning SDK for Python v1.0.39
++ **Changes**
+  + Run configuration auto_prepare_environment option is being deprecated, with auto prepare becoming the default.
 
 ## 2019-05-06
 
@@ -359,7 +365,7 @@ Azure Machine Learning service is now generally available.
 With this release, we are announcing a new managed compute experience through the [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute target replaces Azure Batch AI compute for Azure Machine Learning. 
 
 This compute target:
-+ Is used for model training and batch inferencing
++ Is used for model training and batch inference/scoring
 + Is single- to multi-node compute
 + Does the cluster management and job scheduling for the user
 + Autoscales by default
