@@ -43,7 +43,7 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that let
 
 ### Pricing note
 
-With SSML, you are billed for each character that is converted to speech. Elements used to adjust how the text is converted to speech, like phonemes and pitch, are billable characters.
+With SSML, you are billed for each character that is converted to speech. Elements used to adjust how the text is converted to speech, like phonemes and pitch, are billable characters. For more information, see [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > Asian language characters are counted as two characters for billing.
