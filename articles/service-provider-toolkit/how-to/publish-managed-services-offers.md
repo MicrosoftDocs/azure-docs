@@ -4,7 +4,7 @@ description: Azure Service Provider Management Toolkit lets service providers ma
 author: JnHs
 ms.author: jenhayes
 ms.service: service-provider-toolkit
-ms.date: 04/03/2019
+ms.date: 05/21/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -54,7 +54,7 @@ Next, complete the following sections in the **Plan Details** section:
 |**Title**     | Friendly name for the plan for display. Maximum length of 50 characters.        |
 |**Summary**     | Succinct description of the plan for display under the title. Maximum length of 100 characters.        |
 |**Description**     | Description text that provides a more detailed explanation of the plan.         |
-|**Billing model**     | There are 2 billing models supported for managed services offers. Choose **Bring your own license** if you don't want to use the Microsoft commerce platform and will bill your customers directly. Choose **% of Azure consumption** if you want to charge your customers a percentage of their monthly Azure consumption.   |
+|**Billing model**     | There are 2 billing models shown here, but you must choose **Bring your own license** for managed services offers. This means that you will bill your customers directly for costs related to this offer.   |
 |**Is this a private Plan?**     | Indicates whether the SKU is private or public. The default is No (public). If you leave this selection, your plan will not be restricted to specific customers; after you publish a public plan, you can't later change it to private. If you want this plan to be available only to specific customers, select Yes. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for up to 20,000 subscriptions). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
 
 Finally, complete the **Manifest Details** section. This creates a manifest with authorization information for managing customer resources. The info you provide here is necessary to onboard your customers for Azure Delegated Resource Management.
