@@ -34,7 +34,7 @@ This article shows you how to rout data to the storage account and then view the
 * [Create a Media Services account](create-account-cli-how-to.md)
 * Review [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
 
-## Route data to the storage account using Azure CLI
+## Route data to the storage account using CLI
 
 To enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` CLI command: 
 
@@ -64,7 +64,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## Route data to the storage account using Azure portal
+## Route data to the storage account using portal
 
 1. Log in to the Azure portal at https://portal.azure.com.
 1. Navigate to your Media Services account in and click **Diagnostic Settings** under **Monitor**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. 
@@ -86,7 +86,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 Monitoring data from your resource is now flowing into the storage account.
 
-## View the monitoring data in the storage account
+## View data in the storage account using portal
 
 If you have followed the preceding steps, data has begun flowing to your storage account.
 
