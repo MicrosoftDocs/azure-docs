@@ -139,7 +139,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. Under **Identity Provider** section, click **Import Metadata**.
 
-5. Select the **Federation Metadata** file downloaded from Azure Portal from **SAML Signing Certificate** section.
+5. Select the **Federation Metadata** file downloaded from the Azure portal from the **SAML Signing Certificate** section.
 
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
