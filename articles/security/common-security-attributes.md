@@ -17,7 +17,7 @@ This article collects the common security attributes for selected Azure services
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## [Azure API Management](../api=management/api-management-security-attributes.md)
+## [Azure API Management](../api-management/api-management-security-attributes.md)
 
 ### Preventative
 
@@ -83,22 +83,22 @@ This article collects the common security attributes for selected Azure services
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes | Currently available in preview for App Service. See [Azure App Service Access Restrictions](app-service-ip-restrictions.md). |
-| VNet injection support| Yes | App Service Environments are private implementations of App Service dedicated to a single customer injected into a customer's virtual network. See [Introduction to the App Service Environments](environment/intro.md). |
-| Network Isolation and Firewalling support| Yes | For the public multi-tenant variation of App Service, customers can configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.  See [Azure App Service Access Restrictions](app-service-ip-restrictions.md).  App Service Environments are deployed directly into virtual networks and hence can be secured with NSGs. |
-| Forced tunneling support| Yes | App Service Environments can be deployed into a customer's virtual network where forced tunneling is configured. Customers need to follow the directions in [Configure your App Service Environment with forced tunneling](environment/forced-tunnel-support.md). |
+| Service endpoint support| Yes | Currently available in preview for App Service. See [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md). |
+| VNet injection support| Yes | App Service Environments are private implementations of App Service dedicated to a single customer injected into a customer's virtual network. See [Introduction to the App Service Environments](../app-service/environment/intro.md). |
+| Network Isolation and Firewalling support| Yes | For the public multi-tenant variation of App Service, customers can configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.  See [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md).  App Service Environments are deployed directly into virtual networks and hence can be secured with NSGs. |
+| Forced tunneling support| Yes | App Service Environments can be deployed into a customer's virtual network where forced tunneling is configured. Customers need to follow the directions in [Configure your App Service Environment with forced tunneling](../app-service/environment/forced-tunnel-support.md). |
 
 ### Detection
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | App Service integrates with Application Insights for languages that support Application Insights (Full .NET Framework, .NET Core, Java and Node.JS).  See [Monitor Azure App Service performance](../azure-monitor/app/azure-web-apps.md). App Service also sends application metrics into Azure Monitor. See [Monitor apps in Azure App Service](web-sites-monitor.md). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | App Service integrates with Application Insights for languages that support Application Insights (Full .NET Framework, .NET Core, Java and Node.JS).  See [Monitor Azure App Service performance](../azure-monitor/app/azure-web-apps.md). App Service also sends application metrics into Azure Monitor. See [Monitor apps in Azure App Service](../app-service/web-sites-monitor.md). |
 
 ### Identity and access management
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.md) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles. |
+| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.md) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](../app-service/overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles. |
 | Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles.  |
 
 
@@ -155,7 +155,7 @@ This article collects the common security attributes for selected Azure services
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](resource-group-audit.md). |
+| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md). |
 | Data plane logging and audit| N/A | |
 
 ### Configuration management
@@ -413,26 +413,26 @@ This article collects the common security attributes for selected Azure services
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Referred to as "encryption-in-use", as described in the article [Always Encrypted](sql-database-always-encrypted.md). Service-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md) (TDE).|
+| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Referred to as "encryption-in-use", as described in the article [Always Encrypted](../sql-database/sql-database-always-encrypted.md). Service-side encryption uses [transparent data encryption](../sql-database/transparent-data-encryption-azure-sql.md) (TDE).|
 | Encryption in transit:<ul><li>ExpressRoute encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Using HTTPS. |
 | Encryption key handling (CMK, BYOK, etc.)| Yes | Both service-managed and customer-managed key handling are offered (the latter through [Azure Key Vault](../key-vault/index.yml). |
-| Column level encryption (Azure Data Services)| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
+| Column level encryption (Azure Data Services)| Yes | Through [Always Encrypted](../sql-database/sql-database-always-encrypted.md). |
 | API calls encrypted| Yes | Using HTTPS/SSL. |
 
 ### Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes | Applies to [single database](sql-database-single-index.yml) only. |
-| VNet injection support| Yes | Applies to [managed instance](sql-database-managed-instance.md) only. |
-| Network isolation and firewalling support| Yes | Firewall at both database- and server-level; network isolation for [managed instance](sql-database-managed-instance.md) only |
-| Forced tunneling support| Yes | [managed instance](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| Service endpoint support| Yes | Applies to [single database](../sql-database/sql-database-single-index.yml) only. |
+| VNet injection support| Yes | Applies to [managed instance](../sql-database/sql-database-managed-instance.md) only. |
+| Network isolation and firewalling support| Yes | Firewall at both database- and server-level; network isolation for [managed instance](../sql-database/sql-database-managed-instance.md) only |
+| Forced tunneling support| Yes | [Managed instance](../sql-database/sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
 ### Detection
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | The third-party SIEM solution from Imperva (SecureSphere) is also supported, through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL audit](sql-database-auditing.md). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | The third-party SIEM solution from Imperva (SecureSphere) is also supported, through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL audit](../sql-database/sql-database-auditing.md). |
 
 ### Identity and access management
 
@@ -447,7 +447,7 @@ This article collects the common security attributes for selected Azure services
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Control and management plane logging and audit| Yes | Yes for some events only. |
-| Data plane logging and audit | Yes | Via [SQL audit](sql-database-auditing.md). |
+| Data plane logging and audit | Yes | Via [SQL audit](../sql-database/sql-database-auditing.md). |
 
 ### Configuration management
 
@@ -459,8 +459,8 @@ This article collects the common security attributes for selected Azure services
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md). |
-| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](sql-database-data-discovery-and-classification.md). |
+| Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](../sql-database/sql-vulnerability-assessment.md). |
+| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](../sql-database/sql-database-data-discovery-and-classification.md). |
 | Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](sql-database-threat-detection-overview.md). |
 
 ## [Azure Storage](../storage/common/storage-security-attributes.md)
