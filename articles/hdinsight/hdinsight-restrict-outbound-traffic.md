@@ -21,7 +21,7 @@ There are several dependencies that require inbound traffic. The inbound managem
 
 The HDInsight outbound traffic dependencies are almost entirely defined with FQDNs, which don't have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) can't be used to lock down the outbound traffic from a cluster. The addresses change often enough that one can't set up rules based on the current name resolution and use that to set up NSG rules.
 
-The solution to securing outbound addresses is to use a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.
+The solution to securing outbound addresses is to use a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination or [FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags).
 
 ## Configuring Azure Firewall with HDInsight
 
@@ -74,7 +74,7 @@ On the **Add application rule collection** screen, complete the following steps:
         1. Enter `https:443` under **Protocol:Port** and `sqm.telemetry.microsoft.com` under **Target FQDNS**.
     1. If your cluster is backed by WASB and you are not using the service endpoints above, then add a rule for WASB:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Enter `wasb` under **Protocol:Port** and `*` under **Target FQDNS**.
+        1. Enter `http` or [https] depending on if you are using wasb:// or wasbs:// under **Protocol:Port** and the storage account url under **Target FQDNS**.
 1. Click **Add**.
 
 ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
