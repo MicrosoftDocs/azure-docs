@@ -13,7 +13,7 @@ ms.date: 05/15/2019
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or jobs on specific schedule, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for repeating that workflow. If recurrences are missed for any reason, this trigger restarts recurrences at the next scheduled interval.
+To regularly run tasks, processes, or jobs on specific schedule, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for repeating that workflow. If recurrences are missed for any reason, this trigger restartports recurrences at the next scheduled interval.
 
 Here are some patterns that this trigger supports along with more advanced recurrences and complex schedules:
 
@@ -49,7 +49,7 @@ For differences between this trigger and the Sliding Window trigger or for more 
 
    | Property | Required | JSON name | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>The default interval is 1. Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
+   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
    | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** |
    ||||||
 
