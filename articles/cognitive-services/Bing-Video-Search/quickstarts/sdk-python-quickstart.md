@@ -13,7 +13,7 @@ ms.date: 01/31/2019
 ms.author: aahi
 ---
 
-#  Quickstart: Perform a video search with the Bing Video Search SDK for Python
+# Quickstart: Perform a video search with the Bing Video Search SDK for Python
 
 Use this quickstart to begin searching for news with the Bing Video Search SDK for Python. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py). It contains more annotations and features.
 
