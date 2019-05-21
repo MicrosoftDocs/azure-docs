@@ -35115,7 +35115,7 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-data-sources.md",
-      "redirect_url": "/azure/azure-monitor/platform/data-sources-reference",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources",
       "redirect_document_id": true
     },
     {
@@ -36815,7 +36815,7 @@
     },
     {
       "source_path": "articles/azure-monitor/platform/data-sources-reference.md",
-      "redirect_url": "/azure/azure-monitor/platform/data-platform",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources",
       "redirect_document_id": false
     },
     {
