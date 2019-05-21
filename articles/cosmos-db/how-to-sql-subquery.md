@@ -10,40 +10,38 @@ ms.author: tisande
 ---
 # SQL subquery examples for Azure Cosmos DB
 
-A subquery is a query nested within another query. A subquery is also called an inner query or inner select and the statement containing a subquery is typically called an outer query.
+A subquery is a query nested within another query. A subquery is also called an inner query or inner select. The statement that contains a subquery is typically called an outer query.
 
-There are two types of subqueries:
-
-* Correlated - A Correlated subquery is a subquery that references values from the outer query. The subquery is evaluated once for each row that is processed by the outer query.
-
-* Non-Correlated - A Non-Correlated subquery is a subquery that is independent of the outer query and it can be executed on its own without relying on the outer query.
-
-> [!NOTE]
-> Azure Cosmos DB supports correlated subqueries only.
+This article describes SQL subqueries and their common use cases in Azure Cosmos DB.
 
 ## Types of subqueries
 
-Subqueries can be further classified based on the number of rows and columns that they return. There are three different types:
-1.	**Table**: Returns multiple rows and multiple columns
-2.	**Multi-Value**: Returns multiple rows and a single column
-3.	**Scalar**: Returns a single row and single column
+There are two main types of subqueries:
+
+* **Correlated**: A subquery that references values from the outer query. The subquery is evaluated once for each row that the outer query processes.
+* **Non-correlated**: A subquery that's independent of the outer query. It can be run on its own without relying on the outer query.
 
 > [!NOTE]
-> Azure Cosmos DB supports Multi-Value and Scalar subqueries
+> Azure Cosmos DB supports only correlated subqueries.
 
-Azure Cosmos DB SQL queries always return a single column (either a simple value or a complex document). Therefore, only Multi-Value and Scalar subqueries from above are applicable in Azure Cosmos DB. A Multi-Value subquery can only be used in the FROM clause as a relational expression, while a Scalar subquery can be used as a scalar expression in the SELECT or WHERE clause or as a relational expression in the FROM clause.
+Subqueries can be further classified based on the number of rows and columns that they return. There are three types:
+* **Table**: Returns multiple rows and multiple columns.
+* **Multi-value**: Returns multiple rows and a single column.
+* **Scalar**: Returns a single row and a single column.
+
+SQL queries in Azure Cosmos DB always return a single column (either a simple value or a complex document). Therefore, only multi-value and scalar subqueries are applicable in Azure Cosmos DB. You can use a multi-value subquery only in the FROM clause as a relational expression. You can use a scalar subquery as a scalar expression in the SELECT or WHERE clause, or as a relational expression in the FROM clause.
 
 
-## Multi-Value subqueries
+## Multi-value subqueries
 
-Multi-Value subqueries return a set of documents and are always used within the FROM clause. They are used for:
+Multi-value subqueries return a set of documents and are always used within the FROM clause. They're used for:
 
-* Optimizing JOIN expressions 
-* Evaluating expensive expressions once and referencing multiple times
+* Optimizing JOIN expressions. 
+* Evaluating expensive expressions once and referencing multiple times.
 
 ### Optimize JOIN expressions
 
-Multi-Value subqueries can optimize JOIN expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause.
+Multi-value subqueries can optimize JOIN expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause.
 
 Consider the following query:
 
@@ -57,9 +55,11 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-For this query, the index will match any document that has a tag with the name ‘infant formula’, a nutrient item with a value between 0 and 10 and a serving item with an amount greater than 1. However, the JOIN expression here will perform the cross product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The WHERE clause will then apply the filter predicate on each <c, t, n, s> tuple. For instance, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (i.e. 1,000) tuples. Using subqueries here, can help filtering out joined array items before joining with the next expression.
+For this query, the index will match any document that has a tag with the name "infant formula." It's a nutrient item with a value between 0 and 10, and a serving item with an amount greater than 1. The JOIN expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. 
 
-This query is equivalent to the one above but utilizes subqueries:
+The WHERE clause will then apply the filter predicate on each <c, t, n, s> tuple. For instance, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. Using subqueries here can help in filtering out joined array items before joining with the next expression.
+
+This query is equivalent to the preceding one but uses subqueries:
 
 ```sql
 SELECT Count(1) AS Count
@@ -69,13 +69,13 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-Assuming only one item in the tags array matches the filter, and five items for both nutrients and servings arrays, the JOIN expressions will expand to 1 x 1 x 5 x 5 = 25 items as opposed to 1,000 items in the first query.
+Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The JOIN expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
 ### Evaluate once and reference many times
 
-Subqueries can help optimize queries with expensive expressions such as user-defined functions (UDF) or complex string or arithmetic expressions. You can use a subquery along with a JOIN expression to evaluate the expression once but reference it many times.
+Subqueries can help optimize queries with expensive expressions such as user-defined functions (UDFs), complex strings, or arithmetic expressions. You can use a subquery along with a JOIN expression to evaluate the expression once but reference it many times.
 
-The following query executes the UDF GetMaxNutritionValue twice:
+The following query runs the UDF `GetMaxNutritionValue` twice:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -83,7 +83,7 @@ FROM c
 WHERE udf.GetMaxNutritionValue(c.nutrients) > 100
 ```
 
-Here is an equivalent query that only executes the UDF once:
+Here's an equivalent query that runs the UDF only once:
 
 ```sql
 SELECT TOP 1000 c.id, MaxNutritionValue
@@ -93,11 +93,10 @@ WHERE MaxNutritionValue > 100
 ``` 
 
 > [!NOTE] 
-> Given the cross-product behavior of JOIN expressions, if the UDF expression could evaluate to undefined, you should ensure that the JOIN expression always produces a single row by returning an object from
-> the subquery rather than the value directly.
+> Keep in mind the cross-product behavior of JOIN expressions. If the UDF expression can evaluate to undefined, you should ensure that the JOIN expression always produces a single row by returning an object from the subquery rather than the value directly.
 >
 
-Here is a similar example that returns an object rather than a value:
+Here's a similar example that returns an object rather than a value:
 
 ```sql
 SELECT TOP 1000 c.id, m.MaxNutritionValue
@@ -106,7 +105,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-The approach is not limited to UDFs, but rather, to any potentially expensive expression. For example, we could take the same approach with the mathematical function avg:
+The approach is not limited to UDFs. It applies to any potentially expensive expression. For example, you can take the same approach with the mathematical function `avg`:
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -117,10 +116,11 @@ WHERE AvgNutritionValue > 80
 
 ### Mimic join with external reference data
 
-We often need to reference static data that rarely changes, such as units of measurements or country codes. For such data, it’s preferable not to duplicate it for each document. Avoiding this duplication will save on storage and improve write performance by keeping document size smaller. A subquery can be used here to mimic inner-join semantics with a collection of reference data.
-For instance, consider this set of reference data.
+You might often need to reference static data that rarely changes, such as units of measurement or country codes. It’s better not to duplicate such data for each document. Avoiding this duplication will save on storage and improve write performance by keeping the document size smaller. You can use a subquery to mimic inner-join semantics with a collection of reference data.
 
-| **Unit** | **Name**            | **Multiplier** | **Base Unit** |
+For instance, consider this set of reference data:
+
+| **Unit** | **Name**            | **Multiplier** | **Base unit** |
 | -------- | ------------------- | -------------- | ------------- |
 | ng       | Nanogram            | 1.00E-09       | Gram          |
 | µg       | Microgram           | 1.00E-06       | Gram          |
@@ -141,7 +141,7 @@ For instance, consider this set of reference data.
 | IU       | International units |                |               |
 
 
-The following query mimics joining with this data so that we add the name of the unit to the output:
+The following query mimics joining with this data so that you add the name of the unit to the output:
 
 ```sql
 SELECT TOP 10 n.id, n.description, n.nutritionValue, n.units, r.name
@@ -173,16 +173,17 @@ WHERE n.units = r.unit
 
 ## Scalar subqueries
 
-A scalar subquery expression is a subquery that evaluates to a single value. The value of the scalar subquery expression is the value of the projection (SELECT clause) of the subquery.  A scalar subquery expression can be used in many places a scalar expression is valid. For instance, a scalar subquery can be used in any expression in both the SELECT and WHERE clauses.
-However, using a scalar subquery does not always help optimize. For example, passing a scalar subquery as an argument to either a system or user-defined functions provides no benefit in RU consumption or latency.
+A scalar subquery expression is a subquery that evaluates to a single value. The value of the scalar subquery expression is the value of the projection (SELECT clause) of the subquery.  You can use a scalar subquery expression in many places where a scalar expression is valid. For instance, you can use a scalar subquery in any expression in both the SELECT and WHERE clauses.
+
+Using a scalar subquery doesn't always help optimize, though. For example, passing a scalar subquery as an argument to either a system or user-defined functions provides no benefit in resource unit (RU) consumption or latency.
 
 Scalar subqueries can be further classified as:
-* Simple-Expression Scalar Subqueries
-* Aggregate Scalar Subqueries
+* Simple-expression scalar subqueries
+* Aggregate scalar subqueries
 
-### Simple-Expression scalar subqueries
+### Simple-expression scalar subqueries
 
-A simple-expression scalar subquery is a correlated subquery which has a SELECT clause that does not contain any aggregate expressions. These subqueries provide no optimization benefits because the compiler converts them into one larger simple expression. There is no correlated context between the inner and outer query.
+A simple-expression scalar subquery is a correlated subquery that has a SELECT clause that doesn't contain any aggregate expressions. These subqueries provide no optimization benefits because the compiler converts them into one larger simple expression. There's no correlated context between the inner and outer queries.
 
 Here are few examples:
 
@@ -192,7 +193,7 @@ Here are few examples:
 SELECT 1 AS a, 2 AS b
 ```
 
-This query could be rewritten, using a simple-expression scalar subquery to:
+You can rewrite this query, by using a simple-expression scalar subquery, to:
 
 ```sql
 SELECT (SELECT VALUE 1) AS a, (SELECT VALUE 2) AS b
@@ -213,14 +214,14 @@ SELECT TOP 5 Concat('id_', f.id) AS id
 FROM food f
 ```
 
-This query could be rewritten, using a simple-expression scalar subquery to:
+You can rewrite this query, by using a simple-expression scalar subquery, to:
 
 ```sql
 SELECT TOP 5 (SELECT VALUE Concat('id_', f.id)) AS id
 FROM food f
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -239,14 +240,14 @@ SELECT TOP 5 f.id, Contains(f.description, 'fruit') = true ? f.description : und
 FROM food f
 ```
 
-This query could be rewritten, using a simple-expression scalar subquery to:
+You can rewrite this query, by using a simple-expression scalar subquery, to:
 
 ```sql
 SELECT TOP 10 f.id, (SELECT f.description WHERE Contains(f.description, 'fruit')).description
 FROM food f
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -258,13 +259,13 @@ Query Output:
 ]
 ```
 
-## Aggregate scalar subqueries
+### Aggregate scalar subqueries
 
 An aggregate scalar subquery is a subquery that has an aggregate function in its projection or filter that evaluates to a single value.
 
 **Example 1:**
 
-Here is a subquery with a single aggregate function expression in its projection:
+Here's a subquery with a single aggregate function expression in its projection:
 
 ```sql
 SELECT TOP 5 
@@ -274,7 +275,7 @@ SELECT TOP 5
 FROM food f
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -288,7 +289,7 @@ Query Output:
 
 **Example 2**
 
-A subquery with multiple aggregate function expressions:
+Here's a subquery with multiple aggregate function expressions:
 
 ```sql
 SELECT TOP 5 f.id, (
@@ -299,7 +300,7 @@ SELECT TOP 5 f.id, (
 FROM food f
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -313,7 +314,7 @@ Query Output:
 
 **Example 3**
 
-A query with an aggregate subquery in both the projection and the filter:
+Here's a query with an aggregate subquery in both the projection and the filter:
 
 ```sql
 SELECT TOP 5 
@@ -323,7 +324,7 @@ FROM food f
 WHERE (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') > 20
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -335,7 +336,7 @@ Query Output:
 ]
 ```
 
-A more optimal way to write this query is to join on the subquery and reference the subquery alias in both the SELECT and WHERE clauses. This query is more efficient because we will need to execute the subquery only within the join statement and not in both the projection and filter.
+A more optimal way to write this query is to join on the subquery and reference the subquery alias in both the SELECT and WHERE clauses. This query is more efficient because you need to execute the subquery only within the join statement, and not in both the projection and filter.
 
 ```sql
 SELECT TOP 5 f.id, count_mg
@@ -344,27 +345,28 @@ JOIN (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') AS count
 WHERE count_mg > 20
 ```
 
-### EXISTS expression
+#### EXISTS expression
 
-Azure Cosmos DB supports EXISTS expressions. This is an aggregate scalar subquery built into the Azure Cosmos DB SQL API. EXISTS is a Boolean expression that takes a subquery expression and returns true if the subquery returns any rows; otherwise, it returns false.
-Since Azure Cosmos DB SQL API does not differentiate between Boolean expressions and any other scalar expressions, EXISTS can be used in both SELECT and WHERE clauses. This is unlike T-SQL, where a Boolean expression (e.g. EXISTS, BETWEEN, and IN) is restricted to the filter.
+Azure Cosmos DB supports EXISTS expressions. This is an aggregate scalar subquery built into the Azure Cosmos DB SQL API. EXISTS is a Boolean expression that takes a subquery expression and returns true if the subquery returns any rows. Otherwise, it returns false.
 
-If the EXISTS subquery returns a single value that is undefined, then EXISTS will evaluate to false. For instance, consider the following query that evaluates to false:
+Because the Azure Cosmos DB SQL API doesn't differentiate between Boolean expressions and any other scalar expressions, you can use EXISTS in both SELECT and WHERE clauses. This is unlike T-SQL, where a Boolean expression (for example, EXISTS, BETWEEN, and IN) is restricted to the filter.
+
+If the EXISTS subquery returns a single value that's undefined, EXISTS will evaluate to false. For instance, consider the following query that evaluates to false:
 ```sql
 SELECT EXISTS (SELECT VALUE undefined)
 ```   
 
 
-However, if the VALUE keyword in the subquery above is omitted then the query will evaluate to true:
+If the VALUE keyword in the preceding subquery is omitted, the query will evaluate to true:
 ```sql
 SELECT EXISTS (SELECT undefined) 
 ```
 
-The subquery will enclose the list of values in the select list in an object. If the selected list has no values, the subquery will return the single value ‘{}’ which is defined and thus EXISTS evaluates to true.
+The subquery will enclose the list of values in the selected list in an object. If the selected list has no values, the subquery will return the single value ‘{}’. This value is defined, so EXISTS evaluates to true.
 
-### Example: Rewriting ARRAY_CONTAINS and JOIN as EXISTS
+#### Example: Rewriting ARRAY_CONTAINS and JOIN as EXISTS
 
-A common use case of ARRAY_CONTAINS is to filter a document by the existence of an item in an array. In this case, we are checking to see if the tags array contains an item named orange.
+A common use case of ARRAY_CONTAINS is to filter a document by the existence of an item in an array. In this case, we're checking to see if the tags array contains an item named "orange."
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -372,7 +374,7 @@ FROM food f
 WHERE ARRAY_CONTAINS(f.tags, {name: 'orange'})
 ```
 
-The same query could be rewritten to use EXISTS:
+You can rewrite the same query to use EXISTS:
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -380,9 +382,9 @@ FROM food f
 WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 ```
 
-Additionally, ARRAY_CONTAINS is only able to check if a value is equal to any element within an array. If more complex filters are needed on array properties, a JOIN is required.
+Additionally, ARRAY_CONTAINS can only check if a value is equal to any element within an array. If you need more complex filters on array properties, use JOIN.
 
-Consider the following query that filters based on the units and nutritionValue properties in the array: 
+Consider the following query that filters based on the units and `nutritionValue` properties in the array: 
 
 ```sql
 SELECT VALUE c.description
@@ -391,9 +393,9 @@ JOIN n IN c.nutrients
 WHERE n.units= "mg" AND n.nutritionValue > 0
 ```
 
-For each of the documents in the collection, a cross-product is performed with its array elements. This JOIN operation makes it possible to filter on properties within the array. However, this query’s RU consumption will be significant. For instance, if 1,000 documents had 100 items in each array, it will expand to 1,000 x 100 (i.e. 100,000) tuples.
+For each of the documents in the collection, a cross-product is performed with its array elements. This JOIN operation makes it possible to filter on properties within the array. However, this query’s RU consumption will be significant. For instance, if 1,000 documents had 100 items in each array, it will expand to 1,000 x 100 (that is, 100,000) tuples.
 
-Using `EXISTS` can help to avoid this expensive cross-product:
+Using EXISTS can help to avoid this expensive cross-product:
 
 ```sql
 SELECT VALUE c.description
@@ -405,9 +407,9 @@ WHERE EXISTS(
 )
 ```
 
-In this case, we filter on array elements within the EXISTS subquery. If an array element matches the filter, then we project it and `EXISTS` evaluates to true.
+In this case, you filter on array elements within the EXISTS subquery. If an array element matches the filter, then you project it and EXISTS evaluates to true.
 
-We can also alias EXISTS and reference it in the projection:
+You can also alias EXISTS and reference it in the projection:
 
 ```sql
 SELECT TOP 1 c.description, EXISTS(
@@ -417,7 +419,7 @@ SELECT TOP 1 c.description, EXISTS(
 FROM c
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -428,16 +430,16 @@ Query Output:
 ]
 ```
 
-### ARRAY expression
+#### ARRAY expression
 
-The `ARRAY` expression can be used to project the results of a query as an array. This expression can only be used within the SELECT clause of the query.
+You can use the ARRAY expression to project the results of a query as an array. You can use this expression only within the SELECT clause of the query.
 
 ```sql
 SELECT TOP 1   f.id, ARRAY(SELECT VALUE t.name FROM t in f.tags) AS tagNames
 FROM  food f
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -453,14 +455,14 @@ Query Output:
 ]
 ```
 
-As with other subqueries, filters with the `ARRAY` expression are possible.
+As with other subqueries, filters with the ARRAY expression are possible.
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t FROM t in c.tags WHERE t.name != 'infant formula') AS tagNames
 FROM c
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -495,7 +497,7 @@ FROM c
 JOIN n IN (SELECT VALUE ARRAY(SELECT t FROM t in c.tags WHERE t.name != 'infant formula'))
 ```
 
-Query Output:
+Query output:
 
 ```json
 [
@@ -513,6 +515,6 @@ Query Output:
 
 ## Next steps
 
-- [SQL Query Examples](how-to-sql-query.md)
+- [SQL query examples](how-to-sql-query.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Model Document Data](modeling-data.md)
+- [Model document data](modeling-data.md)
