@@ -99,7 +99,7 @@ The name of this setting is `ttlSettings`
 | ttlOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
 | timeToLiveInMinutes | `<minutes>` | Specify the TTL in minutes. The module will automatically delete your blobs from local storage when TTL expires |
 
-## Configure log files for your blob storage module
+## Configure log files
 
 For information on configuring log files for your module, see these [production best practices](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics).
 
@@ -217,4 +217,4 @@ You can reach us at absiotfeedback@microsoft.com
 
 ## Next steps
 
-Learn more about [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
+Learn more about [Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
