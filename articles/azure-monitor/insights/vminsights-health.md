@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/21/2019
 ms.author: magoedte
 ---
 
@@ -91,11 +91,11 @@ On the **Health** tab, under the section **Guest VM health**, the table shows th
 The health states defined for a VM are described in the following table: 
 
 |Icon |Health state |Meaning |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |Healthy |Health state is healthy if it is within the defined health conditions, indicating no issues detected for the VM and it is functioning as required. With a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Critical |Health state is critical if it is not within the defined health condition, indicating that one or more critical issues were detected, which need to be addressed in order to restore normal functionality. With a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Warning |Health state is warning if it is between two thresholds for the defined health condition, where one indicates a *Warning* state and the other indicates a *Critical* state (three health state thresholds can be configured), or when a non-critical issue is detected which may cause critical problems if not resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect *warning* state. If there is a child that is in a *Critical* and another child in a *Warning* state, the parent rollup will show a health state of *Critical*.|
-| |Unknown |Health state is in an *Unknown* state when the health state cannot be computed for several reasons, such as not able to collect data, service uninitialized, etc. This health state is not configurable.| 
+| |Unknown |Health state is in an *Unknown* state when it cannot be computed for several reasons, such as:<br> - Agent is disconnected or reconfigured<br> - VM has been deleted<br> - Workspace associated with Azure Monitor for VMs is deleted<br> - Solution dependencies have been deleted<br> - VM has been shutdown<br> - Azure VM service is unavailable or maintenance is being performed<br> - Workspace daily data or retention limit met| 
 
 Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes, and other significant issues encountered by monitoring components related to the VM. For more information, see [Health diagnostics](#health-diagnostics). 
 
@@ -338,7 +338,7 @@ To enable or disable an alert for a specific health criteria, the health criteri
 Azure Monitor for VMs Health supports SMS and email notifications when alerts are generated when health criteria becomes unhealthy. To configure notifications, you need to note the name of the Action group that is configured to send SMS or email notifications. 
 
 >[!NOTE]
->This action needs to be performed against each VM monitored that you want to receive a notification for.
+>This action needs to be performed against each VM monitored that you want to receive a notification for, it does not apply to all VMs in the resource group.  
 
 1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
 
