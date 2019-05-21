@@ -15,7 +15,7 @@ ms.author: erhopf
 
 # Quickstart: Run the Speech Devices SDK sample app on Android
 
-In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product.
+In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device.
 
 This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -32,6 +32,8 @@ Before you start using the Speech Devices SDK, you'll need to:
    > The .zip file includes the Android sample app.
 
 * To get an [Azure subscription key for Speech Services](get-started.md)
+
+* If you plan to use the Conversation Transcription you must use a [circular microphone device](get-speech-devices-sdk.md). As it is currently available only in "en-US" and "zh-CN" in the following regions, centralus and eastasia, you must have a speech key in one of those regions.
 
 * If you plan to use the Speech Services to identify intents (or actions) from user utterances, you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
@@ -76,18 +78,25 @@ To validate your development kit setup, build and install the sample application
 
 1. Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
 
-1. Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
+1. Add your speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
 
-   Your keys and application information go in the following lines in the source file MainActivity.java:
+   For speech and LUIS your information goes into MainActivity.java:
 
    ```java
-   // Subscription
-   private static final String SpeechSubscriptionKey = "[your speech key]";
-   private static final String SpeechRegion = "westus";
-   private static final String LuisSubscriptionKey = "[your LUIS key]";
-   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-   private static final String LuisAppId = "[your LUIS app ID]"
+    // Subscription
+    private static String SpeechSubscriptionKey = "<enter your subscription info here>";
+    private static String SpeechRegion = "westus"; // You can change this if your speech region is different.
+    private static String LuisSubscriptionKey = "<enter your subscription info here>";
+    private static String LuisRegion = "westus2"; // you can change this, if you want to test the intent, and your LUIS region is different.
+    private static String LuisAppId = "<enter your LUIS AppId>";
    ```
+
+    If you are using conversation transcription your speech key and region information are also needed in conversation.java:
+
+   ```java
+    private static final String CTSKey = "<Conversation Transcription Service Key>";
+    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
+    ```
 
 1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, C:\SDSDK\Android-Sample-Release\keyword\Computer contains the files used for the wake word "Computer".
 
@@ -131,6 +140,10 @@ To validate your development kit setup, build and install the sample application
 1. The Speech Devices SDK example application starts and displays the following options:
 
    ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
+
+1. Newly added is the Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest, however if you have participant’s voice signatures they can be put into a file /video/participants.properties on the device. To generate the voice signature look at Enrollment.java or [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
+
+   ![Demo Conversation Transcription application](media/speech-devices-sdk/qsg-15.png)
 
 1. Experiment!
 
