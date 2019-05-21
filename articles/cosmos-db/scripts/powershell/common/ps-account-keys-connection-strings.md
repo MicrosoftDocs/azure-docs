@@ -8,7 +8,7 @@ ms.date: 05/20/2019
 ms.author: mjbrown
 ---
 
-# Connection string and acount key operations for an Azure Cosmos account using PowerShell
+# Connection string and account key operations for an Azure Cosmos account using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
