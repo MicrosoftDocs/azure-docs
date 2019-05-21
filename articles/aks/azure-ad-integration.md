@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Integrate Azure Active Directory with Azure Kubernetes Service
 
-Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can sign in to an AKS cluster using your Azure AD authentication token. Also, cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
+Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can sign in to an AKS cluster by using your Azure AD authentication token. Also, cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
 
 This article shows you how to deploy the prerequisites for AKS and Azure AD, and then how to deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster by using the Azure portal. You can also complete these steps by using the [Azure CLI][azure-ad-cli].
 
@@ -21,7 +21,7 @@ This article shows you how to deploy the prerequisites for AKS and Azure AD, and
 
 ## Authentication details
 
-Azure AD authentication is provided to AKS clusters that have OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. 
+Azure AD authentication is provided to AKS clusters that have OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol.
 
 For more information about OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
@@ -29,40 +29,40 @@ From inside of the Kubernetes cluster, webhook token authentication is used to v
 
 For more information about webhook token authentication, see the [Webhook Token Authentication section in Kubernetes Documenation][kubernetes-webhook].
 
-To provide Azure AD authentication for an AKS cluster, two Azure AD applications are created. The first application is a server component that provides the user authentication. The second application is a client component that is used when you are prompted by the CLI for authentication. This client application uses the server application for the actual authentication of the credentials provided by the client.
+To provide Azure AD authentication for an AKS cluster, two Azure AD applications are created. The first application is a server component that provides user authentication. The second application is a client component that's used when you're prompted by the CLI for authentication. This client application uses the server application for the actual authentication of the credentials provided by the client.
 
 > [!NOTE]
 > When configuring Azure AD for AKS authentication, two Azure AD applications are configured. The steps to delegate permissions for each of the applications must be completed by an Azure tenant administrator.
 
 ## Create server application
 
-The first Azure AD application is used to get a users Azure AD group membership. Create this application in the Azure portal.
+The first Azure AD application is applied to get a user's Azure AD group membership. To create this application in the Azure portal:
 
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 
-    - Give the application a name, such as AKSAzureADServer.
-    - For Supported account types, choose **Accounts in this organizational directory only**.
-    - Select **Web** for the Redirect URI type, and then enter any URI formatted value such as https://aksazureadserver.
-    - Select **Register** when done.
+    - Give the application a name, such as **AKSAzureADServer**.
+    - For **Supported account types**, choose **Accounts in this organizational directory only**.
+    - Select **Web** for the Redirect URI type, and then enter any URI-formatted value such as **https://aksazureadserver**.
+    - When you're done, select **Register**.
 
-1. Select **Manifest**, and then edit the **"groupMembershipClaims":** value to `"All"`.
+2. Select **Manifest**, and then edit the **"groupMembershipClaims:"** value as **"All"**. When you're finished with the updates, select **Save**.
 
     ![Update group membership to all](media/aad-integration/edit-manifest.png)
 
-    **Save** the updates after complete.
+    
 
-1. On the left-hand navigation of the Azure AD application, select **Certificates & secrets**.
+3. On the left pane of the Azure AD application, select **Certificates & secrets**.
 
     * Choose **+ New client secret**.
-    * Add a key description, such as *AKS Azure AD server*. Choose an expiration time, and then select **Add**.
-    * Take note of the key value. It's only displayed this initial time. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the `Server application secret`.
+    * Add a key description, such as **AKS Azure AD server**. Choose an expiration time, and then select **Add**.
+    * Remember the key value, which is only displayed during this process. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the Server application secret.
 
-1. On the left-hand navigation of the Azure AD application, select **API permissions**, and then choose to **+ Add a permission**.
+4. On the left pane of the Azure AD application, select **API permissions**, and then choose to **+ Add a permission**.
 
-    * Under **Microsoft APIs**, choose *Microsoft Graph*.
-    * Choose **Delegated permissions**, and then place a check next to **Directory > Directory.Read.All (Read directory data)**.
-        * If a default delegated permission for **User > User.Read (Sign in and read user profile)** doesn't exist, place a check this permission.
-    * Choose **Application permissions**, and then place a check next to **Directory > Directory.Read.All (Read directory data)**.
+    * Under **Microsoft APIs**, choose **Microsoft Graph**.
+    * Select **Delegated permissions**, and then place a check next to **Directory > Directory.Read.All (Read directory data)**.
+        * If a default delegated permission for **User > User.Read (Sign in and read user profile)** doesn't exist, add a check next to this permission.
+    * Select **Application permissions**, and then add a check next to **Directory > Directory.Read.All (Read directory data)**.
 
         ![Set graph permissions](media/aad-integration/graph-permissions.png)
 
@@ -83,7 +83,7 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
     * Choose **Add scope**.
 
-1. Return to the application **Overview** page and take note of the **Application (client) ID**. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
+5. Return to the application **Overview** page and take note of the **Application (client) ID**. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
 
    ![Get application ID](media/aad-integration/application-id.png)
 
