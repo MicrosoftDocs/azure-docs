@@ -22,22 +22,28 @@ Cost Management processes the AWS Cost and Usage report stored in an S3 bucket b
 
 Using a Cost and Usage report is the AWS-recommended way to collect and process AWS costs. For more information, see the [AWS Cost and Usage Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) documentation.
 
-Use the **Reports** page of the Billing and Cost Management console in AWS to create a Cost and Usage report with the following steps:
+Use the **Cost & Usage Reports** page of the Billing and Cost Management console in AWS to create a Cost and Usage report with the following steps:
 
 1. Sign in to the AWS Management Console and open the [Billing and Cost Management console](https://console.aws.amazon.com/billing).
-2. In the navigation pane, select **Reports**.
+2. In the navigation pane, select **Cost & Usage Reports**.
 3. Select **Create report**.
 4. For **Report name**, enter a name for your report.
-5. For **Time unit**, choose  **Hourly**.
-6. For **Include**, add the ID of each resource in the report and select  **Resource IDs**.
-7. For **Enable support for**, no selection is required.
-8. For **Data refresh settings**, select **Automatically refresh your Cost &amp; Usage Report when charges are detected for previous months with closed bills**.
-9. Select **Next**.
-10. For **Amazon S3 bucket**, enter the name of the Amazon S3 bucket where you want reports delivered to, and select **Verify**. The bucket must have appropriate permissions to be valid. For more information about adding permissions to the bucket, see [Setting Bucket and Object Access Permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
-11. For **Report path prefix**, enter the report path prefix that you want to add to the name of your report.
-12. For **Compression**, select **GZIP**.
-13. Select **Next**.
-14. After you've reviewed the settings for your report, select **Review and Complete**.
+5. For **Additional report details** ,to include the IDs of each resource in the report and select **Include Resource IDs**.
+6. For **Data refresh settings**, select whether you want the AWS Cost and Usage report to refresh if AWS applies refunds, credits, or support fees to your account after finalizing your bill. When a report refreshes, a new report is uploaded to Amazon S3. It is recommended to leave this setting on.
+7. Select **Next**.
+8. For **S3 bucket**, choose **Configure**.
+9. In the Configure S3 Bucket dialog box, do one of the following:
+    1. Select an existing bucket from the drop-down list and choose **Next**.
+    2. Enter a bucket name and the Region where you want to create a new bucket and choose **Next**.
+10.	Select I have confirmed that this policy is correct and choose Save.
+11.	(Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
+If you don't specify a prefix, the default prefix is the name that you specified for the report in step 4 and the date range for the report, in the following format: `/report-name/date-range/`
+12. For **Time unit**, choose  **Hourly**.
+13.	For **Report versioning**, choose whether you want each version of the report to overwrite the previous version of the report or to be delivered in addition to the previous versions.
+14. For **Enable data integration for**, no selection is required.
+15. For **Compression**, select **GZIP**.
+16. Select **Next**.
+17. After you've reviewed the settings for your report, select **Review and Complete**.
     
     Note the report name. You'll use it in later steps.
 
