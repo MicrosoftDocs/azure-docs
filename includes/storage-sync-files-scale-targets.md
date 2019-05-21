@@ -25,4 +25,4 @@
 | Concurrent sync sessions | V4 agent and later: The limit varies based on available system resources. <BR> V3 agent: Two active sync sessions per processor or a maximum of eight active sync sessions per server. | Yes
 
 > [!Note]  
-> An Azure File Sync endpoint can scale up to the size of an Azure file share. If your Azure file share fills up, sync will not be able to operate.
+> An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync will not be able to operate.
