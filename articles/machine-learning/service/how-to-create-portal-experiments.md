@@ -224,7 +224,7 @@ Automated ML helps you with deploying the model without writing code:
     ![Create image](media/how-to-create-portal-experiments/create-image.png)
 
 1. Select the "Create" button to start the image creation. This will take a few minutes to complete, once done, you will see a message on the top bar.
-1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment". [Learn more about deployments](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where).
+1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment". [Learn more about deployments](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
     There are 2 options for deployment.
      + Azure Container Instance (ACI) - This is used more for testing purpose rather than operational deployment at scale. Make sure to fill in the values for at least one core for  _CPU Reserve Capacity_, and at least one gigabyte (GB) for _Memory Reserve Capacity_
@@ -239,4 +239,4 @@ Automated ML helps you with deploying the model without writing code:
 ## Next steps
 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
-* [Learn how to consume a web service](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-consume-web-service).
+* [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
