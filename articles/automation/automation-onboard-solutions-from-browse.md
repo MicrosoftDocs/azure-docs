@@ -14,9 +14,9 @@ ms.custom: mvc
 
 Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), from your [Automation account](automation-onboard-solutions-from-automation-account.md), when browsing virtual machines, or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions when browsing virtual machines in Azure.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com
 
 ## Enable solutions
 
@@ -129,7 +129,7 @@ When onboarding multiple machines, there may be machines that show as **Cannot e
 
 **Cause**: Virtual machines that use the classic deployment model are not supported.
 
-**Solution**: Migrate the virtual machine to the resource manager deployment model. To learn how to do this, see [Migrate classic deployment model resources](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solution**: Migrate the virtual machine to the Resource Manager deployment model. To learn how to do this, see [Migrate classic deployment model resources](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### VM is stopped. (deallocated)
 

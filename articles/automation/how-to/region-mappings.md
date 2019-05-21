@@ -14,6 +14,8 @@ manager: carmonm
 
 When enabling solutions like Update Management, Change Tracking and Inventory, or the Start/Stop VMs during off-hours solution, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
 
+## Supported mappings
+
 The following table shows the supported mappings:
 
 |**Log Analytics Workspace Region**|**Azure Automation Region**|
@@ -39,7 +41,7 @@ The following table shows the supported mappings:
 
 <sup>2</sup> Due to capacity restraints the region is not available when creating new resources. This includes Automation Accounts and Log Analytics workspaces. However, preexisting linked resources in the region should continue to work.
 
-### Next steps
+## Next steps
 
 Learn how to onboard the following solutions:
 
