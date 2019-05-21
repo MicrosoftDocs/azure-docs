@@ -15,10 +15,8 @@ ms.subservice: common
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer files.
 
 > [!NOTE]
-> AzCopy V10 is the currently supported version of AzCopy. However, if you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
->
-> - [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
-> - [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+> AzCopy **V10** is the currently supported version of AzCopy.
+> If you need to use AzCopy **v8.1**, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 <a id="download-and-install-azcopy" />
 
@@ -120,6 +118,15 @@ In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload a
 
 > [!NOTE]
 > You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
+
+<a id="previous-version" />
+
+## Use the previous version of AzCopy
+
+If you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
+
+- [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## Next steps
 

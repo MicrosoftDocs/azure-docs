@@ -73,14 +73,14 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 | **Syntax** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true` |
 | **Example** | `azcopy cp "https://s3.amazonaws.com/mybucket" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true` |
 
-### Copy all buckets
+### Copy all buckets in all regions
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy cp "https://s3.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
 | **Example** | `azcopy cp "https://s3.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
 
-### Copy all buckets in an S3 region
+### Copy all buckets in a specific S3 region
 
 |    |     |
 |--------|-----------|
@@ -91,15 +91,15 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 
 AWS S3 has a different set of naming conventions for bucket names as compared to Azure blob containers. You can read about them [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules). If you choose to copy a group of buckets to an Azure storage account, the copy operation might fail because of naming differences.
 
-AzCopy handles two of the most popular issues that can arise; buckets that contain periods and buckets that contain consecutive hyphens. AWS S3 bucket names can contain periods and consecutive hyphens, but a container in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (For example: a bucket named `my----bucket` becomes `my-4-bucket`. A
+AzCopy handles two of the most common issues that can arise; buckets that contain periods and buckets that contain consecutive hyphens. AWS S3 bucket names can contain periods and consecutive hyphens, but a container in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (For example: a bucket named `my----bucket` becomes `my-4-bucket`. 
 
 Also, as AzCopy copies over files, it checks for naming collisions and attempts to resolve them. For example, if there are buckets with the name `bucket-name` and `bucket.name`, AzCopy resolves a bucket named `bucket.name` first to `bucket-name` and then to `bucket-name-2`.
 
-If you experience other issues not automatically handled by AzCopy, you can copy buckets individually and specify a name for the destination container which conforms with Azure naming rules.
-
 ## Handle differences in object metadata
 
-AWS S3 and Azure allow different sets of characters in the names of object keys. You can read about the characters that AWS S3 uses [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). As part of an AzCopy `copy` command, you can provide a value for optional the `s2s-invalid-metadata-handle` flag that specifies how you would like to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
+AWS S3 and Azure allow different sets of characters in the names of object keys. You can read about the characters that AWS S3 uses [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). On the Azure side, blob object keys adhere to the naming rules for [C# identifiers](https://docs.microsoft.com/dotnet/csharp/language-reference/).
+
+As part of an AzCopy `copy` command, you can provide a value for optional the `s2s-invalid-metadata-handle` flag that specifies how you would like to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
 
 | Flag value | Description  |
 |--------|-----------|

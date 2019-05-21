@@ -21,8 +21,6 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 > - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-
-
 ## Configure proxy settings
 
 To configure the proxy settings for AzCopy, set the `https_proxy` environment variable.
@@ -33,9 +31,11 @@ To configure the proxy settings for AzCopy, set the `https_proxy` environment va
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
+Currently, AzCopy doesn't support proxies that require authentication with NTLM or Kerberos.
+
 ## Optimize throughput
 
-Set the `AZCOPY_CONCURRENCY_VALUE` environment variable to configure the number of concurrent requests, and to control the throughput performance and resource consumption. The value is set to `300` by default. Reducing this value will limit the bandwidth and the number of CPU cycles that are used by AzCopy.
+Set the `AZCOPY_CONCURRENCY_VALUE` environment variable to configure the number of concurrent requests, and to control the throughput performance and resource consumption. If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
 
 | Operating system | Command  |
 |--------|-----------|
@@ -78,8 +78,16 @@ By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` fo
 
 The following command will get all errors with `UPLOADFAILED` status from the `04dc9ca9-158f-7945-5933-564021086c79` log:
 
+**Windows**
+
 ```
-cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
+Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
+```
+
+**Linux**
+
+```
+grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 ```
 
 ### View and resume jobs
@@ -108,3 +116,5 @@ Use the following command to resume a failed/canceled job. This command uses its
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
+
+When you resume a job, AzCopy looks at the job plan file. The plan file lists all the files that were identified for processing when the job was first created. When you resume a job, AzCopy will attempt to transfer all of the files that are listed in the plan file which weren't already transferred.
