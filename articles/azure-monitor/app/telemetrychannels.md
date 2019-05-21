@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/14/2019
-ms.reviewer: vitalyg
+ms.reviewer: mbullwin
 ms.author: cithomas
 ---
 # TelemetryChannel in Application Insights
