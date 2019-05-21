@@ -53,7 +53,7 @@ For example, let’s say the existing NSG rule is to allow traffic from 140.20.3
 
 1. From the **Unhealthy resources** tab, select a VM. The alerts and recommended hardening rules are listed.
 
-     ![hardening rules](./media/security-center-adaptive-network-hardening/hardening-rules.png)
+     ![hardening rules](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > The **Rules** tab lists the rules that Adaptive Network Hardening recommends you add. The **Alerts** tab lists the alerts that were generated due to traffic, flowing to the resource, which is not within the IP range allowed in the recommended rules.
