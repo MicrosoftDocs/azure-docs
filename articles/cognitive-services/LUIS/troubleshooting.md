@@ -286,6 +286,16 @@ Yes, you can use the LUIS [container](luis-container-howto.md) for these scenari
 
 See [API v2 to v3 Migration guide for LUIS apps](luis-migration-api-v3.md)
 
+## Build 2019 Conference announcements
+
+The following features were released at the Build 2019 Conference:
+
+* [Preview of V3 API migration guide](luis-migration-api-v3.md)
+* [Improved analytics dashboard](luis-how-to-use-dashboard.md)
+* [Improved prebuilt domains](luis-reference-prebuilt-domains.md) 
+* [Dynamic list entities](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [External entities](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
 ## Next steps
 
 To learn more about LUIS, see the following resources:
