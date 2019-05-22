@@ -1,5 +1,5 @@
 ---
-title: Configure Workload Importance in Azure SQL Data Warehouse | Microsoft Docs
+title: Configure workload importance in Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how to set request level importance
 services: sql-data-warehouse
 author: ronortloff
