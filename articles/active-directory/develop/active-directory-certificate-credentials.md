@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
@@ -94,11 +94,10 @@ You can associate the certificate credential with the client application in Azur
 ### Uploading the certificate file
 
 In the Azure app registration for the client application:
-1. Select **Settings > Keys** and then select **Upload Public Key**. 
-2. Select the certificate file you want to upload.
-3. Select **Save**. 
-   
-   Once you save, the certificate is uploaded and the thumbprint, start date, and expiration values are displayed. 
+1. Select **Certificates & secrets**. 
+2. Click on **Upload certificate** and select the certificate file to upload.
+3. Click **Add**.
+  Once the certificate is uploaded, the thumbprint, start date, and expiration values are displayed. 
 
 ### Updating the application manifest
 
@@ -110,7 +109,7 @@ Having hold of a certificate, you need to compute:
 You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
 
 In the Azure app registration for the client application:
-1. Open the application manifest.
+1. Select **Manifest** to open the application manifest.
 2. Replace the *keyCredentials* property with your new certificate information using the following schema.
 
    ```
