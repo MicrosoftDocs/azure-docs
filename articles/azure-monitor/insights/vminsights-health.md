@@ -95,7 +95,7 @@ The health states defined for a VM are described in the following table:
 | |Healthy |Health state is healthy if it is within the defined health conditions, indicating no issues detected for the VM and it is functioning as required. With a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Critical |Health state is critical if it is not within the defined health condition, indicating that one or more critical issues were detected, which need to be addressed in order to restore normal functionality. With a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Warning |Health state is warning if it is between two thresholds for the defined health condition, where one indicates a *Warning* state and the other indicates a *Critical* state (three health state thresholds can be configured), or when a non-critical issue is detected which may cause critical problems if not resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect *warning* state. If there is a child that is in a *Critical* and another child in a *Warning* state, the parent rollup will show a health state of *Critical*.|
-| |Unknown |Health state is *Unknown* when it cannot be computed for several reasons. See the following <sup>1</sup> footnote for additional details and possible solutions to solve them. |
+| |Unknown |Health state is *Unknown* when it cannot be computed for several reasons. See the following footnote <sup>1</sup> for additional details and possible solutions to solve them. |
 
 <sup>1</sup>
 The Unknown health state is caused by the following issues:
