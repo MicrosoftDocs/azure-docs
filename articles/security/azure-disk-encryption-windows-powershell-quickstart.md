@@ -37,7 +37,7 @@ New-AzVM -Name MyWinVm -Credential $cred -ResourceGroupName MyResourceGroup -Ima
 
 It will take a few minutes for your VM to be deployed. 
 
-# Create a Key Vault
+## Create a Key Vault
 
 Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). To enable the Key Vault to store encryption keys, use the -EnabledForDiskEncryption parameter.
 
