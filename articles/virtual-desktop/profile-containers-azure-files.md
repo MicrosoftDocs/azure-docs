@@ -10,7 +10,7 @@ ms.date: 05/16/2019
 ms.author: v-chjenk
 ---
 
-# FSLogix Profile containers and Azure files
+# FSLogix profile containers and Azure files
 
 The Windows Virtual Desktop Preview service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. A complete user profile is stored in a single container and, at sign in, the container is dynamically attached to the computing environment using native, in-guest Virtual Hard Disk (VHD), and Hyper-V Virtual Hard disk (VHDX) Microsoft services. The user profile is immediately available and appears in the system exactly like a native user profile.
 
