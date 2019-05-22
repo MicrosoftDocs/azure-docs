@@ -347,7 +347,7 @@ In this article you learned how to create and manage multiple node pools in an A
 To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
