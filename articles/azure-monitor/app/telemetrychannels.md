@@ -52,7 +52,7 @@ Application Insights .NET/.NET Core SDK ships with two built-in channels:
 * **ServerTelemetryChannel**
 `ServerTelemetryChannel` is a more advanced channel, which has retry policies and capability to store data in local disk. This channel is optimized for server scenarios of long running processes with relatively high load of telemetry and stable internet connection. This channel retries telemetry sending, if transient errors occur. This channel also uses a local disk storage to keep items in disk to survive application restarts. Because of these retry mechanisms and local disk storage, this channel is considered more reliable, and is recommended for all production scenarios. This channel is the default for [Asp.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [Asp.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, which are configured as per the linked official docs. 
 
-    This channel is shipped as the nuget package `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`, and is brought automatically when using either of the nuget packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
+    This channel is shipped as the NuGet package `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`, and is brought automatically when using either of the NuGet packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
 
 ## Configuring TelemetryChannel
 
