@@ -58,11 +58,11 @@ Use this table as a guide:
 
 ### Option 1: Use Azure AD
 
-Make sure that your identity has authorization that it needs to perform operations on your storage account.
+The level of authorization that you need is based on whether you plan to upload files or just download them.
 
 #### Authorization to upload files
 
-First, verify that one of these roles has been assigned to your identity:
+Verify that one of these roles has been assigned to your identity:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -80,9 +80,13 @@ To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs
 
 #### Authorization to download files
 
-First, verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
+Verify that one of these roles has been assigned to your identity:
 
-This role can be assigned to your identity in any of these scopes:
+- [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
+- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+
+These roles can be assigned to your identity in any of these scopes:
 
 - Container (file system)
 - Storage account
@@ -95,7 +99,7 @@ To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs
 
 #### Authenticate your identity
 
-After you've verified that your identity has one of these role assignments, open a command prompt. Then, type the following command, and press the ENTER key.
+After you've verified that your identity has been given the necessary authorization level, open a command prompt. Then, type the following command, and press the ENTER key.
 
 ```azcopy
 azcopy login

@@ -46,6 +46,9 @@ This section contains the following examples:
 > * Upload a folder
 > * Upload files by using wildcard characters
 
+> [!NOTE]
+> AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the blob is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash.
+
 ### Upload a file
 
 |    |     |
@@ -56,9 +59,6 @@ This section contains the following examples:
 
 > [!NOTE]
 > AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
-
-> [!NOTE]
-> AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to the command. That way, when you download the blob, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash. 
 
 ### Upload a folder
 
@@ -79,9 +79,6 @@ To copy to a folder within the container, just specify the name of that folder i
 
 If you specify the name of a folder that does not exist in the container, AzCopy creates a new folder by that name.
 
-> [!NOTE]
-> AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to the command. That way, when you download the blob, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash.
-
 ### Upload the contents of a folder
 
 You can upload the contents of a folder without copying the containing folder itself by using the wildcard symbol (*).
@@ -95,9 +92,6 @@ You can upload the contents of a folder without copying the containing folder it
 > [!NOTE]
 > Append the `--recursive` flag to upload files in all sub-folders.
 
-> [!NOTE]
-> AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to the command. That way, when you download the blob, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash.
-
 ## Download files
 
 You can use the AzCopy `copy` command to download blobs, folders, and containers to your local computer.
@@ -110,7 +104,7 @@ This section contains the following examples:
 > * Download files by using wildcard characters
 
 > [!NOTE]
-> If the `Content-md5` property value of a blob contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash. If these values don't match, the download fails.
+> If the `Content-md5` property value of a blob contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash. If these values don't match, the download fails unless you override this behavior by appending `--check-md5=NoCheck` or `--check-md5=LogOnly` to the copy command.
 
 ### Download a file
 
@@ -213,8 +207,6 @@ In this case, the local file system becomes the source and the container is the 
 | **Example** | `azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
 | **Example** (hierarchical namespace) | `azcopy sync "C:\myFolder" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
 
-> [!NOTE]
-> AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to the command. That way, when you download the blob, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash.
 
 ### Synchronize a local file system to a container
 
