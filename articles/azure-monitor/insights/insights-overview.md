@@ -40,7 +40,7 @@ See [Monitor resource groups with Azure Monitor (preview)](../insights/resource-
 
 ![Azure Monitor for Resource Groups](media/insights-overview/resource-group-insights.png)
 
-## Azure Monitor for VMs? (preview)
+## Azure Monitor for VMs (preview)
 Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes.
 
 See [What is Azure Monitor for VMs?](vminsights-overview.md)
