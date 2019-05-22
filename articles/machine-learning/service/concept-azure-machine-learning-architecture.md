@@ -34,7 +34,6 @@ The machine learning workflow generally follows this sequence:
 You perform these steps with any of the following:
 + [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-+ [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
 +  The [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)
 
 > [!NOTE]
@@ -151,6 +150,10 @@ A run is a record that contains the following information:
 You produce a run when you submit a script to train a model. A run can have zero or more child runs. For example, the top-level run might have two child runs, each of which might have its own child run.
 
 For an example of viewing runs that are produced by training a model, see [Quickstart: Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
+
+## GitHub tracking and integration
+
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
 
 ## Snapshot
 
