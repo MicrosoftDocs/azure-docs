@@ -1,15 +1,14 @@
 ---
 title: Azure Data Factory Mapping Data Flow Column Patterns
-description: Azure Data Factory Mapping Data Flow Column Patterns are used to create generalized template patterns for transforming fields in a data flow without regard to the underlying schema metadata
+description: Learn how to use Azure Data Factory Column Patterns in Mapping Dta Flow to create generalized template patterns for transforming fields in a data flow without regard to the underlying schema metadata
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ---
 
-# Azure Data Factory Mapping Data Flow Concepts
+# Azure data factory mapping data flows column patterns
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
