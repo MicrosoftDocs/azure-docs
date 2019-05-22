@@ -4,10 +4,10 @@ description: 'In this topic, you learn to create a an Azure Data Explorer proxy 
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/22/2019
 
 #Customer intent: I want to use create an Azure Data Explorer proxy for cross product queries with Log Analytics and Application Insights 
 ---
@@ -82,35 +82,34 @@ The following flow depicts how to connect to the proxy, add a proxy cluster to A
 
 ### Connect to the proxy
 
-1. Verify your Azure Data Explorer native cluster appears on the left menu before you connect to your Log Analytics or Application Insights cluster.
+1. Verify your Azure Data Explorer native cluster *help* appears on the left menu before you connect to your Log Analytics or Application Insights cluster.
 
     ![ADX native cluster](media/adx-proxy/example1.png)
 
-1. In the Azure Data Explorer UI, select **Add connections** icon
+1. In the Azure Data Explorer UI (https://dataexplorer.azure.com/clusters), select **Add Cluster**.
 
-1. In the **Add connection** window:
+1. In the **Add Cluster** window:
 
-    * **Cluster connection**: add the URL to the LA or AI cluster. For example: `https://ade.loganalytics.io/subscriptions/<Subscription ID>/workspaces/<Workspace name>`
-    * **Connection Alias**: enter the name of the LA or AI cluster. For example: **Ade-LAProxyTest**
-    * Select **OK**.
+    * Add the URL to the LA or AI cluster. For example: `https://ade.loganalytics.io/subscriptions/<Subscription ID>/workspaces/<Workspace name>`
+    * Select **Add**.
 
-    ![Add connection](media/adx-proxy/add-connection.png)
+    ![Add cluster](media/adx-proxy/add-cluster.png)
 
 1. After the connection is established, your LA or AI cluster will appear in the left pane with your native ADX cluster. 
 
-    ![LA cluster](media/adx-proxy/example2.png)
+    ![Log Analytics and Azure Data Explorer clusters](media/adx-proxy/la-adx-clusters.png)
 
 ### Run queries
 
 #### Query against the native Azure Data Explorer cluster 
 
-Run queries against your Azure Data Explorer cluster (such as *StormEvents table). When running the query, verify that your native Azure Data Explorer cluster is selected in the left pane.
+Run queries against your Azure Data Explorer cluster (such as *StormEvents* table). When running the query, verify that your native Azure Data Explorer cluster is selected in the left pane.
 
 ```kusto
 StormEvents | take 10 // Demonstrate query through the native ADX cluster
 ```
 
-![sfsd](media/adx-proxy/example3.png)
+![Query StormEvents table](media/adx-proxy/query-adx.png)
 
 #### Query against your LA or AI cluster** 
 
@@ -120,7 +119,7 @@ When you run queries against your LA or AL cluster (such as on *Perf* table), ve
 Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 ```
 
-![sgs](media/adx-proxy/example4.png)
+![Query LA workspace](media/adx-proxy/query-la.png)
 
 #### Query against your LA or AI cluster from the ADX proxy  
 
@@ -131,7 +130,7 @@ cluster(`https://ade.loganalytics.io/subscriptions/<subscription ID>/workspaces/
 | take 10 // Demonstrate query of the LA workspace through the native DX cluster
 ```
 
-![sgs](media/adx-proxy/example5.png)
+![Query from Azure Data Explorer proxy](media/adx-proxy/query-adx-proxy.png)
 
 #### Cross query of LA or AI cluster and the ADX cluster from the ADX proxy 
 
@@ -143,7 +142,7 @@ unionStormEvents, cluster(`https://ade.loganalytics.io/subscriptions/<subscripti
 | take 10 // union tables from both the ADX cluster and the LA workspace
 ```
 
-![sgs](media/adx-proxy/example6.png)
+![Cross query from the Azure Data Explorer proxy](media/adx-proxy/cross-query-adx-proxy.png)
 
 ## Additional syntax examples
 
