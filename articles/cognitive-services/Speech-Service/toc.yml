@@ -195,14 +195,14 @@
       href: how-to-migrate-from-custom-speech-service.md
     - name: From the Translator Speech API
       href: how-to-migrate-from-translator-speech-api.md
-  - name: Use on-premises containers
+  - name: Use containers
     items:
-    - name: Install and run on-premises containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+    - name: Install and run containers
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises 
       href: speech-container-howto.md
     - name: Configure containers
       href: speech-container-configuration.md
-      displayName: docker, container, billing, apikey, pull, logging
+      displayName: docker, container, billing, apikey, pull, logging, on-premises 
 - name: Samples
   items:
   - name: Speech SDK
