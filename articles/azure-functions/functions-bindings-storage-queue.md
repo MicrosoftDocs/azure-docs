@@ -562,7 +562,7 @@ This section describes the global configuration settings available for this bind
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxPollingInterval|00:00:02|The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). |
+|maxPollingInterval|00:00:01|The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). |
 |visibilityTimeout|00:00:00|The time interval between retries when processing of a message fails. |
 |batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. |
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.|
