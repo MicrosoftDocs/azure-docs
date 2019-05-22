@@ -27890,6 +27890,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/governance/manage-programs-controls.md",
+      "redirect_url": "/azure/active-directory/governance/create-access-review",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md",
       "redirect_url": "/azure/active-directory/governance/manage-user-access-with-access-reviews",
       "redirect_document_id": true
@@ -27903,6 +27908,11 @@
       "source_path": "articles/active-directory/active-directory-azure-ad-controls-retrieve-access-review.md",
       "redirect_url": "/azure/active-directory/governance/retrieve-access-review",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/governance/retrieve-access-review.md",
+      "redirect_url": "/azure/active-directory/governance/complete-access-review",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-tou.md",

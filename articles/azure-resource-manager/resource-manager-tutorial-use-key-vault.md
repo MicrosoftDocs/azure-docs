@@ -199,7 +199,7 @@ New-AzResourceGroupDeployment `
 
 When you deploy the template, use the same resource group as the key vault. It makes easier when you clean up the resources. You only need to delete one resource group instead of two.
 
-## Valid the deployment
+## Validate the deployment
 
 After you have successfully deployed the virtual machine, test the login using the password stored in the key vault.
 

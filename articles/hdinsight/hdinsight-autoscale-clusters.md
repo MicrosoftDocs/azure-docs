@@ -12,9 +12,7 @@ ms.author: hrasheed
 # Automatically scale Azure HDInsight clusters (preview)
 
 > [!Important]
-> The Autoscale feature is still in preview and should not be used for production workloads.
->
-> The Autoscale feature only works for clusters created after the public availability of the feature in May 2019. It won't work for pre-existing clusters.
+> The Autoscale feature only works for Spark, Hive and MapReduce clusters created after May 8th 2019. 
 
 Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster can't be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down. There's no additional charge for this feature.
 
