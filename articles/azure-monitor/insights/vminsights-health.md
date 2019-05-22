@@ -80,7 +80,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Before diving into using the Health feature for a single virtual machine or group of VMs, it's important we provide a brief introduction so you understand how the information is presented and what the visualizations represent.  
 
-## View health directly from a virtual machine 
+### View health directly from a virtual machine 
 
 To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM insights page, **Health** is open by default and shows the health view of the VM.  
 
