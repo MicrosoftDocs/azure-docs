@@ -264,12 +264,13 @@ conceptualContent:
         text: See more
 
 additionalContent:
-  items:
-    - title: Microsoft 365
-      summary: Explore Microsoft 365, a complete solution that includes Azure AD.
-      url: https://docs.microsoft.com/microsoft-365/
-    - title: Azure AD PowerShell
-      summary: Learn how to install and use the Azure AD PowerShell module. 
-      url: https://docs.microsoft.com/powershell/module/azuread/
-    - title: Azure CLI commands for Azure AD
-      summary: Find the Azure AD commands in the CLI reference.
+  sections:
+    - items:
+      - title: Microsoft 365
+        summary: Explore Microsoft 365, a complete solution that includes Azure AD.
+        url: https://docs.microsoft.com/microsoft-365/
+      - title: Azure AD PowerShell
+        summary: Learn how to install and use the Azure AD PowerShell module. 
+        url: https://docs.microsoft.com/powershell/module/azuread/
+      - title: Azure CLI commands for Azure AD
+        summary: Find the Azure AD commands in the CLI reference.
