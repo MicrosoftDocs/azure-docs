@@ -148,7 +148,7 @@ Most commonly used settings for `ServerTelemetryChannel` are listed below:
 
 ### *Does ServerTelemetryChannel work in non-windows systems?*
 
-* Despite the name of the package/namespace being WindowsServer, this channel is supported in non-windows system with the following exception. In non-windows, the channel doesn't create a local storage folder by default. Users must create a local storage folder and configure the channel to use it. Once local storage is configured, the channel works same in windows and non-windows systems.
+* Despite the name of the package/namespace being WindowsServer, this channel is supported in non-windows systems with the following exception. In non-windows, the channel doesn't create a local storage folder by default. Users must create a local storage folder and configure the channel to use it. Once local storage is configured, the channel works same in windows and non-windows systems.
 
 ### *Does the SDK create temporary local storage? Is the data encrypted at storage?*
 
