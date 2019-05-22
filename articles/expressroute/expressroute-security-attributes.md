@@ -53,7 +53,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 ## Audit trail
 
-| Security Attribute | Yes/No | Notes|
+| Security Attribute | Yes/No | Notes| 
 |---|---|--|
 | Control and management plane logging and audit| Yes |  |
 | Data plane logging and audit| No |   |
