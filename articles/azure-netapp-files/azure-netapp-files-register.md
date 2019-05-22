@@ -40,7 +40,6 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 >
 > `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
-To use the service, you must register the Azure Resource Provider for Azure NetApp Files. 
 
 1. From the Azure portal, click the Azure Cloud Shell icon on the upper right-hand corner:
 
