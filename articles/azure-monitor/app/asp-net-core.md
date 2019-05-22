@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 05/21/2019
 ms.author: mbullwin
 ---
 
@@ -374,6 +374,10 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## Open-source SDK
 [Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates).
+
+## Video
+
+- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
 
 ## Next steps
 * [Explore User Flows](../../azure-monitor/app/usage-flows.md) to understand how users navigate through your app.
