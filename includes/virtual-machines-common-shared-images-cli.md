@@ -79,16 +79,19 @@ az sig image-version create \
 
 ## Share the gallery
 
-We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig list](/cli/azure/sig#az-sig-list).
+We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
 
 ```azurecli-interactive
-az sig list -o table
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
 ```
 
 Use the object ID as a scope, along with an email address and [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to give a user access to the shared image gallery.
 
 ```azurecli-interactive
-az role assignment create --role "Reader" --assignee <email address> --resource-group myGalleryRG --scope <gallery ID>
+az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>
 ```
 
 

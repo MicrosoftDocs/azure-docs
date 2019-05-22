@@ -80,7 +80,7 @@ We recommend that you share access at the image gallery level. The following wal
 1. In the menu on the left of the **myGalleryRG** page, select **Access control (IAM)**. 
 1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
 1. Under **Role**, select **Reader**.
-1. Under **assign access to**, leave the default of **Azure AD user, group, or serivce principal**.
+1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.
 1. Under **Select**, type in the email address of the person that you would like to invite.
 1. If the user is outside of your organization, you will see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
 
