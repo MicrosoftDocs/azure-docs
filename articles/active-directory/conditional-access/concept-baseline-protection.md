@@ -21,7 +21,7 @@ Baseline policies are a set of predefined policies that help protect organizat
 
 Managing customized conditional access policies requires an Azure AD Premium license.
 
-## Baseline Policies
+## Baseline policies
 
 ![Conditional access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
@@ -82,9 +82,9 @@ To protect privileged actions, this **Require MFA for service management (previe
 To enable a baseline policy:
 
 1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
-1. Browse to **Azure Active Directory** > **Conditional Access**
-1. In the list of policies, select a baseline policy you’d like to enable
-1. Set **Enable policy** to **On**
+1. Browse to **Azure Active Directory** > **Conditional Access**.
+1. In the list of policies, select a baseline policy you’d like to enable.
+1. Set **Enable policy** to **On**.
 1. Click Save.
 
 ## Next steps
