@@ -27,13 +27,13 @@ highlightedContent:
       itemType: guide
       url: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md
     - title: Create a group and add members 
-      itemType: guide
+      itemType: how-to-guide
       url: /azure/active-directory/fundamentals/add-users-azure-active-directory.md
     - title: Azure AD deployment checklist 
       itemType: concept
       url: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2.md
     - title: Secure your Azure resources with conditional access
-      itemType: microsoft-learn 
+      itemType: learn 
       url: /learn/modules/secure-azure-resources-with-conditional-access/
 
 conceptualContent: 
@@ -74,7 +74,7 @@ conceptualContent:
           itemType: overview
           text: What is Azure AD B2B? 
         - url: /azure/active-directory/b2b/add-users-administrator
-          itemType: guide
+          itemType: how-to-guide
           text: Add guest users in the portal
         - url: /azure/active-directory/b2b/o365-external-user
           itemType: concept
@@ -92,7 +92,7 @@ conceptualContent:
           itemType: tutorial
           text:  Create an Azure AD B2C tenant
         - url: /azure/active-directory-b2c/active-directory-b2c-get-started-custom
-          itemType: guide
+          itemType: how-to-guide
           text:  Custom policies in Azure AD B2C
       footerLink: 
         url: /azure/active-directory-b2c/index
@@ -134,10 +134,10 @@ conceptualContent:
           itemType: overview
           text:  What is device management?
         - url: /azure/active-directory/devices/hybrid-azuread-join-plan
-          itemType: guide
+          itemType: how-to-guide
           text:  Plan a hybrid Azure AD join
         - url: /azure/active-directory/devices/azureadjoin-plan
-          itemType: guide
+          itemType: how-to-guide
           text:  Plan an Azure AD join
       footerLink: 
         url: /azure/active-directory/devices/index
@@ -152,7 +152,7 @@ conceptualContent:
           itemType: quickstart
           text:  Enable Azure AD Domain Services
         - url: /azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy
-          itemType: guide
+          itemType: how-to-guide
           text:  Administer group policy
       footerLink: 
         url: /azure/active-directory-domain-services/index
@@ -161,10 +161,10 @@ conceptualContent:
     - title: Enterprise users 
       links: 
         - url: /azure/active-directory/users-groups-roles/groups-create-rule
-          itemType: guide
+          itemType: how-to-guide
           text:  Create a dynamic group
         - url: /azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets
-          itemType: guide
+          itemType: how-to-guide
           text:  PowerShell for Azure AD groups
         - url: /azure/active-directory/users-groups-roles/directory-service-limits-restrictions
           itemType: reference
@@ -179,10 +179,10 @@ conceptualContent:
           itemType: overview
           text:  What is hybrid identity?
         - url: /azure/active-directory/hybrid/how-to-connect-sso
-          itemType: guide
+          itemType: how-to-guide
           text:  Single sign-on with Azure AD Connect
         - url: /azure/active-directory/hybrid/how-to-connect-install-custom
-          itemType: guide
+          itemType: how-to-guide
           text:  Azure AD Connect custom install
       footerLink: 
         url: /azure/active-directory/hybrid/index
@@ -191,13 +191,13 @@ conceptualContent:
     - title: Identity governance 
       links: 
         - url: /azure/active-directory/governance/create-access-review
-          itemType: guide
+          itemType: how-to-guide
           text:  Create an access review
         - url: /azure/active-directory/governance/perform-access-review
-          itemType: guide
+          itemType: how-to-guide
           text:  Start an access review
         - url: /azure/active-directory/conditional-access/terms-of-use
-          itemType: guide
+          itemType: how-to-guide
           text:  Using Terms of use
       footerLink: 
         url: /azure/active-directory/governance/index
@@ -212,7 +212,7 @@ conceptualContent:
           itemType: quickstart
           text:  Block access when session risk is detected
         - url: /azure/active-directory/identity-protection/howto-unblock-user
-          itemType: guide
+          itemType: how-to-guide
           text:  How to unblock users
       footerLink: 
         url: /azure/active-directory/identity-protection/index
@@ -224,7 +224,7 @@ conceptualContent:
           itemType: tutorial
           text:  Use Windows VM to access Azure SQL
         - url: /azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token
-          itemType: guide
+          itemType: how-to-guide
           text:  Use Azure VM for token acquisition
         - url: /azure/active-directory/managed-identities-azure-resources/services-support-managed-identities
           itemType: concept
@@ -236,13 +236,13 @@ conceptualContent:
     - title: Privileged identity management (PIM) 
       links: 
         - url: /azure/active-directory/privileged-identity-management/pim-getting-started
-          itemType: guide
+          itemType: how-to-guide
           text:  Start using PIM
         - url: /azure/active-directory/privileged-identity-management/pim-how-to-activate-role
-          itemType: guide
+          itemType: how-to-guide
           text:  Activate my directory roles
         - url: /azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user
-          itemType: guide
+          itemType: how-to-guide
           text:  Assign directory roles
       footerLink: 
         url: /azure/active-directory/privileged-identity-management/index
