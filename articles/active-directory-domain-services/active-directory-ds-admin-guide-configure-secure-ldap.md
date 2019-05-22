@@ -59,6 +59,7 @@ The first task involves obtaining a certificate used for secure LDAP access to t
 
 ### Option A (Recommended) - Obtain a secure LDAP certificate from a certification authority
 If your organization obtains its certificates from a public CA, obtain the secure LDAP certificate from that public CA. If you deploy an enterprise CA, obtain the secure LDAP certificate from the enterprise CA.
+Certificate must be a Wild Card certificates in order to match the Fully Qualified Domain Name (FQDN) of the host Domain Controller machines created behind the AzureAD Domain Services. Given that our DC names are random and we can add/remove DCs as needed to ensure we meet SLA,  Wild Card certificates requirement is by design right now.
 
 > [!TIP]
 > **Use self-signed certificates for managed domains with '.onmicrosoft.com' domain suffixes.**
