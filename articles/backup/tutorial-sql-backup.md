@@ -57,7 +57,7 @@ Azure Backup does a number of things when you configure backup for a SQL Server 
 - To discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore, and requires SQL sysadmin permissions.
 - Azure Backup leverages the **NT AUTHORITY\SYSTEM** account for database discovery/inquiry, so this account need to be a public login on SQL.
 
-If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow this instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### Verify database naming guidelines for Azure Backup
 
