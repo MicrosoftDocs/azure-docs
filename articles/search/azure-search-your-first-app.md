@@ -570,7 +570,7 @@ The first of these two methods is created by default. Add the following method a
                 // Ensure search string is stored for next call, as TempData only stored for one call.
                 TempData["searchfor"] = model.searchText;
 
-                await runQueryAsync(model, 0);
+                await RunQueryAsync(model, 0);
             }
 
             catch
@@ -602,7 +602,7 @@ As mentioned before a subsequent tutorial has a good look at paging. For this fi
 
                 // Recover the search text and search for the data for the new page.
                 model.searchText = TempData["searchfor"].ToString();
-                await runQueryAsync(model, page);
+                await RunQueryAsync(model, page);
 
                 // Ensure search string is stored for next call, as TempData only stored for one call.
                 TempData["searchfor"] = model.searchText;
@@ -625,7 +625,7 @@ As mentioned before a subsequent tutorial has a good look at paging. For this fi
 
                 // Recover the search text and search for the data for the new page.
                 model.searchText = TempData["searchfor"].ToString();
-                await runQueryAsync(model, page);
+                await RunQueryAsync(model, page);
 
                 // Ensure search string is stored for next call, as TempData only stored for one call.
                 TempData["searchfor"] = model.searchText;
@@ -701,7 +701,7 @@ The Azure search itself is encapsulated in our **RunQueryAsync** method.
                 // Record the total number of results.
                 model.resultCount = (int)results.Results.Count;
 
-                // Calcuate the range of current page results.
+                // Calculate the range of current page results.
                 int start = page * GlobalVariables.ResultsPerPage;
                 int end = Math.Min(model.resultCount, (page + 1) * GlobalVariables.ResultsPerPage);
 
@@ -788,10 +788,6 @@ You should consider the following takeaways from this project:
 * This app performed an elementary search, defined by what is set up in **searchParameters**. This one class can be populated with many members that add sophistication to a search. All that is needed is to add these parameters to the code you have just written, so not much additional work is needed.
 * The Model-View-Controller architecture takes a bit of getting used to, if you are new to it, but it does cleanly define what runs on the client, what on the server, and how to cleanly communicate (with good scalability) data between the two.
 
-
-## Clean up resources
-
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
