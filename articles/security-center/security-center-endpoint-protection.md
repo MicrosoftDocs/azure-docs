@@ -118,7 +118,7 @@ The **Install endpoint protection solutions on virtual machine** recommendation 
 
 * **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-The **Resolve endpoint protection health issues on your machines** recommendation is generated if following checks are not met:
+The **Resolve endpoint protection health issues on your machines** recommendation is generated if the following checks are not met:
 
 * McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
