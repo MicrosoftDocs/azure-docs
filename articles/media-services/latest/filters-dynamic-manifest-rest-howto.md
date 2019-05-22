@@ -23,7 +23,7 @@ When delivering your content to customers (streaming Live events or Video on Dem
 This topic shows how to define a filter for a Video on Demand asset and use REST APIs to create [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
 > [!NOTE]
-> Make sure to review (filters-concept.md#presentationtimerange).
+> Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## Prerequisites 
 
