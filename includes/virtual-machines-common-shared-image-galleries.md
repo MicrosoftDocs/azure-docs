@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Shared Image Gallery is a service that helps you build structure and organization around your custom managed VM images. Shared Image Galleries provide:
+Shared Image Gallery is a service that helps you build structure and organization around your managed images. Shared Image Galleries provide:
 
 - Managed global replication of images.
 - Versioning and grouping of images for easier management.
@@ -98,18 +98,18 @@ For more information, see [Check resource usage against limits](https://docs.mic
 ## Scaling
 Shared Image Gallery allows you to specify the number of replicas you want Azure to keep of the images. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.
 
-With Shared Image Gallery, you can now deploy up to a 1,000 VM instances in a VM scale set (up from 600 with managed images). We also introduced a concept of image replicas for better deployment performance, reliability and consistency.  You can set a different replica count in each target region based on your regional scale needs. Since each replica is a deep copy of your image, this helps scale your deployments linearly with each extra replica versus a managed image. While we understand no two images or no two regions are the same, here’s our general guideline on how to use replicas in a region:
+With Shared Image Gallery, you can now deploy up to a 1,000 VM instances in a virtual machine scale set (up from 600 with managed images). We also introduced a concept of image replicas for better deployment performance, reliability, and consistency.  You can set a different replica count in each target region based on your regional scale needs. Since each replica is a deep copy of your image, this helps scale your deployments linearly with each extra replica versus a managed image. While we understand no two images or no two regions are the same, here’s our general guideline on how to use replicas in a region:
 - For every 20 single VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image. 
-- For every VM scale set deployment with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating 5 scale sets concurrently with 600 VM instances each using the same image in a region, we suggest you keep at least 5 replicas of your image. 
+- For every virtual machine scale set deployment with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating 5 scale sets concurrently with 600 VM instances each using the same image in a region, we suggest you keep at least 5 replicas of your image. 
 
-We always recommend you to overprovision the number of replicas due to various factors such as image size, content and OS type.
+We always recommend you to overprovision the number of replicas due to various factors such as image size, content, and OS type.
 
 ![Graphic showing how you can scale images](./media/shared-image-galleries/scaling.png)
 
 
 
 ## Make your images highly available
-In January 2018, we launched the [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/en-us/blog/azure-zone-redundant-storage-in-public-preview/), which provides resilience against an Availability Zone failure in the region. With the general availability of Shared Image Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
+In January 2018, we launched the [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/), which provides resilience against an Availability Zone failure in the region. With the general availability of Shared Image Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
 
 You can also choose to specify storage account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs).
 
