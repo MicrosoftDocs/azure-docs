@@ -22,7 +22,7 @@ Azure Data Lake Storage Gen2 implements an access control model that supports bo
 
 RBAC uses role assignments to effectively apply sets of permissions to *security principals*. A *security principal* is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD) that is requesting access to Azure resources.
 
-Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
+Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the container (file system) resource.
 
 To learn how to assign roles to security principals in the scope of your storage account, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
