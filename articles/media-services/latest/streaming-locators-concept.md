@@ -31,7 +31,7 @@ If you want to specify encryption options on your stream, create the [Content Ke
 
 ## Associate filters with Streaming Locators
 
-For more information, see [Filters](filters-concept.md#associate-filters-with-streaming-locator).
+See [Filters: associate with Streaming Locators](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## Filter, order, page Streaming Locator entities
 
