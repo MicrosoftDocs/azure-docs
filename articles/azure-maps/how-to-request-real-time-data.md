@@ -172,7 +172,7 @@ Follow the steps below to make a request to the Get Transit Dock Info API to get
     https://atlas.microsoft.com/mobility/transit/dock/json?subscription-key={subscription-key}&api-version=1.0&query=121---4640799
     ```
 
-3. After a successful request, you will receive the response of the following structure:
+3. After a successful request, you will receive a response of the following structure:
 
     ```JSON
     {
