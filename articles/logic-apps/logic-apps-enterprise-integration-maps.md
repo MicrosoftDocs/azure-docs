@@ -74,7 +74,7 @@ If you don't have a logic app yet, learn [how to create logic apps](../logic-app
 
 ## Add referenced assemblies
 
-1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+1. Sign in to the [Azure portal] 
    with your Azure account credentials.
 
 1. To find and open your integration account, 
@@ -141,7 +141,7 @@ you're uploading, for example:
 
 To add larger assemblies, you can upload your assembly to 
 an Azure blob container in your Azure storage account. 
-Your steps for adding assemblies differs based whether 
+Your steps for adding assemblies differ based whether 
 your blob container has public read access. So first, 
 check whether or not your blob container has public 
 read access by following these steps: 
@@ -249,7 +249,7 @@ After you upload any assemblies that your map references,
 you can now upload your map.
 
 1. If you haven't signed in already, sign in to the 
-   <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+   <a href="h" target="_blank">Azure portal</a> 
    with your Azure account credentials. 
 
 1. If your integration account isn't already open, 
@@ -402,7 +402,7 @@ To update an existing map, you have to upload a new
 map file that has the changes you want. However, 
 you can first download the existing map for editing.
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
 find and open your integration account, if not already open.
 
 1. On the main Azure menu, select **All services**. 
@@ -427,7 +427,7 @@ Select **Integration accounts**.
 
 ## Delete maps
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
    find and open your integration account, if not already open.
 
 1. On the main Azure menu, select **All services**. 
