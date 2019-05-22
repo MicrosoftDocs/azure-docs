@@ -6,7 +6,7 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/22/2019
 ms.author: anuragm
 ---
 
@@ -167,6 +167,66 @@ These symptoms may arise due to one or more of the following reasons:
    
 In the above scenarios, it is recommended to trigger re-register operation on the VM. This option is only available through PowerShell and will soon be available in the Azure portal as well.
 
+## Files size limit beyond which restore happens to default path
+
+The total string size of files not only depends on the number of files but also on their names and paths. For each of the database files, get the logical file name and physical path. You can use the SQL query given below:
+
+  `SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
+                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
+                 WHERE db.name = N'<Database Name>'" `
+
+Now arrange them in the format given below:
+
+  `[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]} `
+
+Example:
+
+  `[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]} `
+
+If the string size of the content given above exceeds 20,000 bytes, the database files are stored differently, and during recovery you will not be able to set the target file path for restore. The files will be restored to the Default SQL path provided by SQL Server.
+
+### Override the default target restore file path
+
+You can override the target restore file path during the restore operation by placing a JSON file which contains the mapping of the database file to target restore path. For this create a file `database_name.json` and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
+
+The content of the file should be of the format:
+  `[
+    {
+      "Path": "<Restore_Path>",
+      "LogicalName": "<LogicalName>",
+      "IsDir": "false"
+    },
+    {
+      "Path": "<Restore_Path>",
+      "LogicalName": "LogicalName",
+      "IsDir": "false"
+    },  
+  ] `
+
+Example:
+
+  `[
+      {
+        "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
+        "LogicalName": "testdb7",
+       "IsDir": "false"
+      },
+      {
+        "Path": "F:\\Log\\testdb2_log_1546408741449456.ldf",
+        "LogicalName": "testdb7_log",
+        "IsDir": "false"
+      },  
+    ] `
+
+ 
+In the above content you can get the Logical name of the database file using the SQL query given below:
+
+`SELECT mf.name AS LogicalName FROM sys.master_files mf
+                INNER JOIN sys.databases db ON db.database_id = mf.database_id
+                WHERE db.name = N'<Database Name>'" `
+
+
+  This file should be placed before you trigger the restore operation.
 
 ## Next steps
 
