@@ -29,7 +29,7 @@ It is recommended to let Media Services to autogenerate content keys. Typically,
 
 > [!IMPORTANT]
 > * Properties of **Content Key Policies** that are of the Datetime type are always in UTC format.
-> * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options are needed. 
+> * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
 
 ## Example
 
