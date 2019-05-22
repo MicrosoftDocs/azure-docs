@@ -127,7 +127,7 @@ To make a request to the [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNe
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
     ```HTTP
-    https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=47.63096,-122.126&radius=300&filter=stop
+    https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=47.63096,-122.126&radius=300&objectType=stop
     ```
 
 3. After a successful request, the response structure should look like the one below:

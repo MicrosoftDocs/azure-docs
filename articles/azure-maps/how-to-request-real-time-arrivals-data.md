@@ -1,6 +1,6 @@
 ---
-title: How to request real-time arrivals data for transit services in Azure Maps | Microsoft Docs
-description: Request real-time arrivals data for transit services using the Azure Maps Mobility service.
+title: How to request real-time transit data in Azure Maps | Microsoft Docs
+description: Request real-time transit using the Azure Maps Mobility service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/21/2019
@@ -11,9 +11,9 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Request real-time arrivals transit data using the Azure Maps Real-time arrivals API
+# Request real-time data using the Azure Maps Mobility Service
 
-This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService), [Real time arrivals API](https://docs.microsoft.com/en-us/rest/api/mobility/getrealtimearrivalspreview) to request real-time arrivals transit data, including number of line arrivals at a particular stop or arrivals of a particular line at stops near a user's location. You will also learn how to request real-time arrival data for one or multiple types of public transit such as bus, tram, and subway.
+This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService) to request real-time transit data such as real-time arrivals at a transit stop, including number of line arrivals or arrivals of a particular line and requesting real-time information for a given bike or scooter docking station.
 
 
 ## Prerequisites
@@ -25,7 +25,7 @@ This article uses the [Postman app](https://www.getpostman.com/apps) to build RE
 
 ## Request real-time arrivals for a stop
 
-In order to request real-time arrivals data for a particular stop, you will need the **MetroID** and **stopID** for the stop. To learn more about how to get the metro ID, see [Get metro area ID](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-request-transit-data#get-metro-area-id). And for information on how to request nearby transit stops, you can take a look at [Request nearby transit stops](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-request-transit-data#request-nearby-transit-stops). 
+In order to request real-time arrivals data for a particular stop, you will need to make a request to the [real time arrivals API](https://docs.microsoft.com/en-us/rest/api/mobility/getrealtimearrivalspreview) of the Azure Maps [mobility service](https://aka.ms/AzureMapsMobilityService). You will also need the **MetroID** and **stopID** for the stop to complete the request. To learn more about how to get the metro ID, see [Get metro area ID](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-request-transit-data#get-metro-area-id). And for information on how to request nearby transit stops, you can take a look at [Request nearby transit stops](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-request-transit-data#request-nearby-transit-stops).
 
 Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–Bellevue, WA" area and also use the stop ID "2060603", which is a transit stop at "Ne 24th St & 162nd Ave Ne" in Bellevue, WA. To request real-time arrivals data for all busses at a stop, complete the following steps:
 
@@ -102,3 +102,120 @@ Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–B
             }
         ]
     }
+
+
+## Request real-time dock data
+
+The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes. 
+
+In order to make a request to the Get Transit Dock Info API for a docking station, you will need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) and setting the **objectType** parameter to "dockedBike". Follow the steps below to get real-time data for a bike docking station.
+
+
+### Get dock ID
+
+To get **dockID**, follow the steps below to make a request to the Get Nearby Transit API:
+
+1. In Postman, click **New Request** | **GET request** and name it **Get dock ID**.
+
+2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
+ 
+    ```HTTP
+    ttps://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=dockedBike
+    ```
+
+3. After a successful request, you will receive the following response. Notice that we now have the **id** in the response, which we will use later as a query parameter in the request to the Get Transit Dock Info API.
+
+    ```JSON
+    {
+        "results": [
+            {
+                "id": "121---4640799",
+                "type": "dockedBike",
+                "objectDetails": {
+                    "availableVehicles": 0,
+                    "vacantLocations": 30,
+                    "lastUpdated": "2019-05-21T20:06:59-04:00",
+                    "operatorInfo": {
+                        "id": "80",
+                        "name": "Citi Bike"
+                    }
+                },
+                "position": {
+                    "latitude": 40.767128,
+                    "longitude": -73.962243
+                },
+                "viewport": {
+                    "topLeftPoint": {
+                        "latitude": 40.768039,
+                        "longitude": -73.963413
+                    },
+                    "btmRightPoint": {
+                        "latitude": 40.766216,
+                        "longitude": -73.961072
+                    }
+                }
+            },
+            ...
+            ...,
+            ...,
+            {
+                "id": "121---4640799",
+                "type": "dockedBike",
+                "objectDetails": {
+                    "availableVehicles": 0,
+                    "vacantLocations": 30,
+                    "lastUpdated": "2019-05-21T20:06:59-04:00",
+                    "operatorInfo": {
+                        "id": "80",
+                        "name": "Citi Bike"
+                    }
+                },
+                "position": {
+                    "latitude": 40.767128,
+                    "longitude": -73.962243
+                },
+                "viewport": {
+                    "topLeftPoint": {
+                        "latitude": 40.768039,
+                        "longitude": -73.963413
+                    },
+                    "btmRightPoint": {
+                        "latitude": 40.766216,
+                        "longitude": -73.961072
+                    }
+                }
+            }
+        ]
+    }
+    ```
+
+
+### Get real-time dock data
+
+Follow the steps below to make a request to the Get Transit Dock Info API to get real-time data for the selected dock.
+
+1. In Postman, click **New Request** | **GET request** and name it **Get real-time dock data**.
+
+2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
+ 
+    ```HTTP
+    https://atlas.microsoft.com/mobility/transit/dock/json?api-version=1.0&query=121---4640799&subscription-key={subscription-key}
+    ```
+
+3. After a successful request, you will receive the response with the following structure:
+
+    ```JSON
+    {
+        "availableVehicles": 1,
+        "vacantLocations": 29,
+        "position": {
+            "latitude": 40.767128,
+            "longitude": -73.962246
+        },
+        "lastUpdated": "2019-05-21T20:26:47-04:00",
+        "operatorInfo": {
+            "id": "80",
+            "name": "Citi Bike"
+        }
+    }
+    ```
