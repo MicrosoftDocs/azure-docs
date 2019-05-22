@@ -302,7 +302,7 @@ namespace FirstAzureSearch.Models
             hotel.Rooms = new Room[1];
             hotel.Rooms[0] = room;
 
-            hotels.Add((object)hotel);
+            hotels.Add(hotel);
         }
 
         public Hotel getHotel(int index)
@@ -465,7 +465,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
    <h1 class="sampleTitle">
     <img src="~/images/azure-logo.png" width="80" />
      Your first app in Azure Search
-</h1>
+    </h1>
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
@@ -497,7 +497,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 6. Finally we complete the view with paging buttons. We keep this simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and infinite paging.
 
 ```cs
-@if (Model != null && Model.pageCount > 1)
+    @if (Model != null && Model.pageCount > 1)
     {
         // If there is more than one page of results, show the paging buttons.
         <table>
@@ -521,6 +521,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 
                 <!-- Aid navigation by showing the current page and how many pages of results there are. -->
                 <td>&nbsp;&nbsp;Page @(Model.currentPage + 1) of @Model.pageCount&nbsp;&nbsp;</td>
+
                 <td>
                     @using (Html.BeginForm("Next", "Home", FormMethod.Post))
                     {
@@ -571,17 +572,18 @@ We need two **Index** methods, one taking no parameters (the app-first-opened ca
         {
             try
             {
-                // A new search so set the current page to zero and ensure a valid search string.
-                TempData["page"] = (object)0;
+                // Ensure the search string is valid.
                 if (model.searchText == null)
                 {
                     model.searchText = "";
                 }
-                
-                // Ensure search string is stored for next call, as TempData is only stored for one call.
-                TempData["searchfor"] = model.searchText;
 
+                // Make the Azure Search call for the first page.
                 await RunQueryAsync(model, 0);
+                
+                // Ensure temporary data is stored for the next call.
+                TempData["page"] = 0;
+                TempData["searchfor"] = model.searchText;
             }
 
             catch
@@ -611,13 +613,15 @@ As mentioned before a subsequent tutorial has a good look at paging. For this fi
             {
                 // Increment the current page.
                 int page = 1 + (int)TempData["page"];
-                TempData["page"] = (object)page;
 
-                // Recover the search text and search for the data for the new page.
+                // Recover the search text.
                 model.searchText = TempData["searchfor"].ToString();
+
+                // Make the Azure Search call.
                 await RunQueryAsync(model, page);
 
-                // Ensure search string is stored for next call, as TempData only stored for one call.
+                // Ensure temporary data is stored for the next call.
+                TempData["page"] = page;
                 TempData["searchfor"] = model.searchText;
             }
 
@@ -632,22 +636,23 @@ As mentioned before a subsequent tutorial has a good look at paging. For this fi
         {
             try
             {
-
                 // Decrement the current page.
                 int page = (int)TempData["page"] - 1;
-                TempData["page"] = (object)page;
 
-                // Recover the search text and search for the data for the new page.
+                // Recover the search text.
                 model.searchText = TempData["searchfor"].ToString();
+
+                // Make the Azure Search call.
                 await RunQueryAsync(model, page);
 
-                // Ensure search string is stored for next call, as TempData only stored for one call.
+                // Ensure temporary data is stored for the next call.
+                TempData["page"] = page;
                 TempData["searchfor"] = model.searchText;
             }
 
             catch
             {
-                return View("Error", new ErrorViewModel { RequestId = "3" } );
+                return View("Error", new ErrorViewModel { RequestId = "3" });
             }
             return View("Index", model);
         }
@@ -655,7 +660,9 @@ As mentioned before a subsequent tutorial has a good look at paging. For this fi
 
 ### Note the Error handling and other default views and methods
 
-Depending on which version of .NET Core you are using, a slightly different set of default views are created by default. For .NET Core 2.1 the default views are Index, About, Contact and Privacy and Error. For .NET Core 2.2, for example, the default views are just Index, Privacy and Error. In either case, you can view these default pages when running the app and just examine how simply they are handled in the controller here.
+Depending on which version of .NET Core you are using, a slightly different set of default views are created by default. For .NET Core 2.1 the default views are Index, About, Contact, Privacy and Error. For .NET Core 2.2, for example, the default views are just Index, Privacy and Error. In either case, you can view these default pages when running the app and just examine how simply they are handled in the controller here.
+
+We will be testing the Error view later on in this tutorial.
 
 ### Add the RunQueryAsync method
 
