@@ -105,33 +105,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Oracle Cloud application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	a. Click the **pen** next to **Name identifier value**.
+	1. Click the **pen** next to **Name identifier value**.
+
+	1. 	Select **Persistent** as **Choose name identifier format**.
+ 
+	1. 	Click **Save**.
 
 	![image](./media/oracle-cloud-tutorial/config07.png)
-
+	
 	![image](./media/oracle-cloud-tutorial/config11.png)
 
-	b. Select **Persistent** as **Choose name identifier format**.
-
-	c. Click **Save**.
-
-	d. Click the **pen** next to **Groups returned in claim**.
-
-	![image](./media/oracle-cloud-tutorial/config12.png)
+	1. Click the **pen** next to **Groups returned in claim**.
 
 	![image](./media/oracle-cloud-tutorial/config08.png)
 
-	e. Select **Security groups** from the radio list.
+	1. Select **Security groups** from the radio list.
 
-	f. Select **Source Attribute** of **Group ID**.
+	1. Select **Source Attribute** of **Group ID**.
 
-	g. Check **Customize the name of the group claim**.
+	1. Check **Customize the name of the group claim**.
 
-	h. In the **Name** text box, type **groupName**.
+	1. In the **Name** text box, type **groupName**.
 
-	i. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
+	1. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
 
-	j. Click **Save**.
+	1. Click **Save**.
 
 1. On the **Set up Oracle Cloud** section, copy the appropriate URL(s) based on your requirement.
 
