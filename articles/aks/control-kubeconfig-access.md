@@ -149,4 +149,4 @@ For enhanced security on access to AKS clusters, [integrate Azure Active Directo
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
 [aad-integration]: azure-ad-integration.md
-[az-ad-group-show: /cli/azure/ad/group#az-ad-group-show
+[az-ad-group-show:] /cli/azure/ad/group#az-ad-group-show
