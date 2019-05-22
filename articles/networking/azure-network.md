@@ -31,10 +31,6 @@ Say you’re in London and the service is in Tokyo: Internet traffic enters one 
 
 Azure traffic between our datacenters stays on our network and does not flow over the Internet. This includes all traffic between Microsoft services anywhere in the world. For example, within Azure, traffic between virtual machines, storage, and SQL communication traverses only the Microsoft network, regardless of the source and destination region. [Intra-region VNet-to-VNet traffic](../virtual-network/virtual-network-peering-overview.md), as well as [cross-region VNet-to-VNet traffic](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), stays on our secure Microsoft network. 
 
-![Microsoft Global WAN](./media/azure-network/microsoft-global-wan.png)
-
-*Figure 1: Microsoft global WAN*
-
 To support the tremendous growth of our cloud services and maintain consistent service level agreements, we have invested massively in fiber capacity and diversity in metro, terrestrial and submarine paths. Our [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) submarine cable, industry’s first Open Line System (OLS) over subsea, between Bilbao, Spain and Virginia Beach, Virginia, USA is live as well as [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) between New York, USA and Dublin, Ireland and [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) between Tokyo, Japan, and Portland, Oregon, USA.
 
 ## Empower our customers to leverage our backbone
