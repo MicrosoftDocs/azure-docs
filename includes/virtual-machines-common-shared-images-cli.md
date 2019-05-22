@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/30/2019
+ ms.date: 05/21/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -19,6 +19,8 @@ To complete the example in this article, you must have an existing managed image
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+
+If you prefer to install and use the CLI locally, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create an image gallery 
 
