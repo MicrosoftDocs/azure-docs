@@ -16,7 +16,7 @@ Download the certificate needed to communicate over SSL with your Azure Database
 
 ## Step 2: Bind SSL
 
-For specific programming language connection strings, please refer to the [sample Code](howto-configure-ssl.md#sample-code) section below.
+For specific programming language connection strings, please refer to the [sample code](howto-configure-ssl.md#sample-code) below.
 
 ### Connecting to server using the MySQL Workbench over SSL
 Configure the MySQL Workbench to connect securely over SSL. From the Setup New Connection dialogue, navigate to the **SSL** tab. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**. 
