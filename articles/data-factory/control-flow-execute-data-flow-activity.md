@@ -66,6 +66,9 @@ You have control over the Spark execution environment for your Data Flow activit
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
+> [!NOTE]
+> The Integration Runtime selection in the Data Flow activity only applies to *triggered executions* of your pipeline. Debugging your pipeline with Data Flows with Debug will execute against the 8-core default Spark cluster.
+
 ### Staging area
 
 If you are sinking your data into Azure Data Warehouse, you must choose a staging location for your Polybase batch load.
