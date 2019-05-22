@@ -84,7 +84,7 @@ Reduce the question and answer pairs displayed to just those with contextual con
 
     ![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-    In the preceding image, #1 indicates bold text in the column which signifies the current question. The parent question is the top item in the row. Any questions below are the linked question and answer pairs. These items are selectable so you can immediately go to the other context items. 
+    In the preceding image, #1 indicates bold text in the column, which signifies the current question. The parent question is the top item in the row. Any questions below are the linked question and answer pairs. These items are selectable so you can immediately go to the other context items. 
 
 ## Add existing QnA pair as follow-up prompt
 
@@ -112,6 +112,21 @@ Add a follow-up prompt to an existing QnA pair that isn't currently linked. Beca
 
 1. Once you have added the follow-up prompt, remember to select **Save and train** in the top navigation.
   
+### Edit the display text 
+
+When a follow-up prompt is created, and an existing QnA pair is selected as the **Link to Answer**, you can enter new **Display text**. This text does not replace the existing question, and it does not add a new alternate question. It is separate from those values. 
+
+1. To edit the display text, search for and select the question in the **Context** field.
+1. On that question's row, select the follow-up prompt in the answer column. 
+1. Select the display text you want to edit, then select **Edit**.
+
+    ![Select the display text you want to edit, then select Edit.](../media/conversational-context/edit-existing-display-text.png)
+
+1. The **Follow-up prompt** pop-up allows you to change the existing display text. 
+1. When you are done editing the display text, select **Save**. 
+1. Remember to select **Save and train** in the top navigation.
+
+
 <!--
 
 ## To find best prompt answer, add metadata to follow-up prompts 
@@ -170,11 +185,13 @@ Add a new QnA pair to the knowledge base. The QnA pair should be linked to an ex
 
 1. Once you have added the follow-up prompt, remember to select **Save and train** in the top navigation.
 
-## Test the QnA set to get all the follow-up prompts
+## Enable multi-turn when testing follow-up prompts
 
 When testing the question with follow-up prompts in the **Test** pane, select **Enable multi-turn**, and enter your question. The response includes the follow-up prompts.
 
 ![When testing the question in the Test pane, the response includes the follow-up prompts.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
+
+If you don't enable multi-turn, the answer will be returned but follow-up prompts are not returned.
 
 ## JSON request to return initial answer and follow-up prompts
 
@@ -183,7 +200,7 @@ Use the empty `context` object to request the answer to the user's question and 
 ```JSON
 {
   "question": "accounts and signing in",
-  "top": 3,
+  "top": 10,
   "userId": "Default",
   "isTest": false,
   "context": {}
@@ -207,7 +224,7 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": false,
+                "isContextOnly": true,
                 "prompts": [
                     {
                         "displayOrder": 0,
@@ -246,7 +263,7 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": false,
+                "isContextOnly": true,
                 "prompts": [
                     {
                         "displayOrder": 0,
@@ -267,12 +284,11 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": false,
+                "isContextOnly": true,
                 "prompts": []
             }
         }
-    ],
-    "debugInfo": null
+    ]
 }
 ```
 
@@ -287,9 +303,10 @@ In the following JSON request, the current question is `Use Windows Hello to sig
 ```JSON
 {
   "question": "Use Windows Hello to sign in",
-  "top": 3,
+  "top": 10,
   "userId": "Default",
-  "isTest": true,
+  "isTest": false,
+  "qnaId": 17,
   "context": {
     "previousQnAId": 15,
     "previousUserQuery": "accounts and signing in"
@@ -314,7 +331,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": false,
+                "isContextOnly": true,
                 "prompts": []
             }
         },
@@ -328,7 +345,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": false,
+                "isContextOnly": true,
                 "prompts": [
                     {
                         "displayOrder": 0,
@@ -349,22 +366,27 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "source": "product-manual.pdf",
             "metadata": [],
             "context": {
-                "isContextOnly": false,
+                "isContextOnly": true,
                 "prompts": []
             }
         }
-    ],
-    "debugInfo": null
+    ]
 }
 ```
 
+## Query the knowledge base with the QnA ID
+
+In the initial question's response, any follow-up prompts and its associated `qnaId` is returned. Now that you have the ID, you can pass this in the follow-up prompt's request body. If the request body contains the `qnaId`, and the context object (which contains the previous QnA properties), then GenerateAnswer will return the exact question by ID, instead of using the ranking algorithm to find the answer by the question text. 
+
 ## Displaying prompts and sending context in the client application 
 
-If you added prompts in your knowledge base and tested the flow in the test pane, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query.
+You have added prompts in your knowledge base and tested the flow in the test pane. Now you need to use these prompts in the client application. For Bot Framework, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query. 
 
 ## Display order supported in API
 
 The [display text and display order](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
+
+FIX - Need to go to parent, then answer column, then edit answer. 
 
 ## Next steps
 
