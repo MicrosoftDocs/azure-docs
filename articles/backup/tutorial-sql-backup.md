@@ -2,11 +2,11 @@
 title: Back up SQL Server databases to Azure | Microsoft Docs
 description: This tutorial explains how to back up SQL Server to Azure.
 services: backup
-author: dacurwin
+author: dcurwin
 manager: 
 ms.service: backup
 ms.topic: tutorial
-ms.date: 05/13/2019
+ms.date: 05/22/2019
 ms.author: dacurwin
 
 
@@ -21,6 +21,7 @@ This article shows you how to back up a SQL Server database running on an Azure 
 > * Create and configure a vault.
 > * Discover databases, and set up backups.
 > * Set up auto-protection for databases.
+> * Run an ad-hoc backup.
 
 
 ## Prerequisites
@@ -131,8 +132,8 @@ Configure backup as follows:
 
    To optimize backup loads, Azure Backup sets a maximum number of databases in one backup job to 50.
 
-     * To protect more than 50 databases, configure multiple backups.
-     * Alternatively, you can enable [auto-protection](#enable-auto-protection) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](#enable-auto-protection) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+    
+     * Alternatively, you can enable auto-protection on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
 4. Click **OK** to open the **Backup policy** blade.
 
@@ -226,6 +227,19 @@ To create a backup policy:
 6. Monitor the backup job by going to your Recovery Services vault and choosing "Backup Jobs".
 
 
+## Next steps
 
+In this tutorial you used the Azure portal to:
+
+> [!div class="checklist"]
+> * Create and configure a vault.
+> * Discover databases, and set up backups.
+> * Set up auto-protection for databases.
+> * Run an ad-hoc backup.
+
+Continue to the next tutorial to restore an Azure virtual machine from disk.
+
+> [!div class="nextstepaction"]
+> [Restore SQL Server databases on Azure VMs](./restore-sql-database-azure-vm.md)
  
 
