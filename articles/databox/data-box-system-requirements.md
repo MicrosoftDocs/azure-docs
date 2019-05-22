@@ -48,6 +48,6 @@ The software requirements include the information on the supported operating sys
 
 Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used to copy data but the copy speeds are impacted.
 
-## Next step
+## Next steps
 
 * [Deploy your Azure Data Box](data-box-deploy-ordered.md)
