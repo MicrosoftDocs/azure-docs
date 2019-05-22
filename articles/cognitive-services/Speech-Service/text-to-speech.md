@@ -47,7 +47,7 @@ With SSML, you are billed for each character that is converted to speech, includ
 
 * Text passed to the text-to-speech service in the SSML body of the request
 * All markup within the text field of the request body in the SSML format, except for `<speak>` and `<voice>` tags
-* Letters, punctuation, spaces, tabs, markup, and all white space characters
+* Letters, punctuation, spaces, tabs, markup, and all white-space characters
 * Every code point defined in Unicode
 
 For more information, see [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
