@@ -141,7 +141,7 @@ To validate your development kit setup, build and install the sample application
 
    ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
 
-1. Newly added is the Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest, however if you have participant’s voice signatures they can be put into a file /video/participants.properties on the device. To generate the voice signature look at Enrollment.java or [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Newly added is the Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest, however if you have participant’s voice signatures they can be put into a file /video/participants.properties on the device. To generate the voice signature look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Demo Conversation Transcription application](media/speech-devices-sdk/qsg-15.png)
 
