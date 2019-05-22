@@ -125,6 +125,8 @@
         href: data-box-heavy-overview.md
     - name: Concepts
       items:
+      - name: Review requirements
+        href: data-box-heavy-system-requirements.md
       - name: Understand limits
         href: data-box-heavy-limits.md
   - name: Resources
