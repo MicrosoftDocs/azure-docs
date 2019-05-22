@@ -273,12 +273,12 @@ To see quota and region availability for ACI, see the [Quotas and region availab
   az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
-
 
 + **Using VS Code**
 
   To [deploy your models with VS Code](how-to-vscode-tools.md#deploy-and-manage-models) you don't need to create an ACI container to test in advance, because ACI containers are created on the fly.
+
+For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
 ### <a id="aks"></a>Azure Kubernetes Service (PRODUCTION)
 
@@ -287,7 +287,6 @@ You can use an existing AKS cluster or create a new one using the Azure Machine 
 <a id="deploy-aks"></a>
 
 If you already have an AKS cluster attached, you can deploy to it. If you haven't created or attached an AKS cluster, follow the process to <a href="#create-attach-aks">create a new AKS cluster</a>.
-
 
 + **Using the SDK**
 
@@ -299,16 +298,18 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
   print(service.state)
   print(service.get_logs())
   ```
+
 + **Using the CLI**
 
   ```azurecli-interactive
   az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
-+ **Using VS Code** 
+
++ **Using VS Code**
 
   You can also [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models), but you'll need to configure AKS clusters in advance.
 
-  Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
+Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 #### Create a new AKS cluster<a id="create-attach-aks"></a>
 **Time estimate:** Approximately 5 minutes.
