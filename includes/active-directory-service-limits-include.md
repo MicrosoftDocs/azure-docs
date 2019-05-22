@@ -5,7 +5,7 @@
  author: curtand
  ms.service: active-directory
  ms.topic: include
- ms.date: 02/21/2019
+ ms.date: 05/22/2019
  ms.author: curtand
  ms.custom: include file
 ---
@@ -19,6 +19,7 @@ Here are the usage constraints and other service limits for the Azure Active Dir
 | Schema extensions |<ul><li>String-type extensions can have a maximum of 256 characters. </li><li>Binary-type extensions are limited to 256 bytes.</li><li>Only 100 extension values, across *all* types and *all* applications, can be written to any single object.</li><li>Only User, Group, TenantDetail, Device, Application, and ServicePrincipal entities can be extended with string-type or binary-type single-valued attributes.</li><li>Schema extensions are available only in the Graph API version 1.21 preview. The application must be granted write access to register an extension.</li></ul> |
 | Applications |A maximum of 100 users can be owners of a single application. |
 | Groups |<ul><li>A maximum of 100 users can be owners of a single group.</li><li>Any number of objects can be members of a single group.</li><li>A user can be a member of any number of groups.</li><li>The number of members in a group that you can synchronize from your on-premises Active Directory to Azure Active Directory by using Azure AD Connect is limited to 50,000 members.</li></ul> |
+| Application Proxy | <ul><li>A maximum of 500 transactions per second per App Proxy application</li><li>A maximum of 750 transactions per second for the tenant</li></ul><br/>A transaction is defined as a single http request and response for a unique resource. When throttled, clients will receive a 429 response (too many requests). |
 | Access Panel |<ul><li>There's no limit to the number of applications that can be seen in the Access Panel per user. This applies to users assigned licenses for Azure AD Premium or the Enterprise Mobility Suite.</li><li>A maximum of 10 app tiles can be seen in the Access Panel for each user. This limit applies to users who are assigned licenses for Free or Azure AD Basic editions of Azure Active Directory. Examples of app tiles include Box, Salesforce, or Dropbox. This limit doesn't apply to administrator accounts.</li></ul> |
 | Reports | A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated. |
 | Administrative units | An object can be a member of no more than 30 administrative units. |
