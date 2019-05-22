@@ -50,23 +50,24 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 
 * Even if you don't have your data partitioned in your destination Azure SQL DB tables, go to the Optimize tab and set partitioning.
 * Very often, simply telling ADF to use Round Robin partitioning on the Spark execution clusters results in much faster data loading instead of forcing all connections from a single node/partition.
-Increase size of your compute engine in Azure Integration Runtime
+
+### Increase size of your compute engine in Azure Integration Runtime
 
 
-Increase the number of cores, which will increase the number of nodes, and provide you with more processing power to query and write to your Azure SQL DB.
-Try "Compute Optimized" and "Memory Optimized" options
-Disable indexes on write
-Use an ADF pipeline stored procedure activity prior to your Data Flow activity that disables indexes on your target tables that are being written to from your Sink.
-After your Data Flow activity, add another stored proc activity that enabled those indexes.
-Increase the size of your Azure SQL DB
-Schedule a resizing of your source and sink Azure SQL DB before your run your pipeline to increase the throughput and minimize Azure throttling once you reach DTU limits.
-After your pipeline execution is complete, you can resize your databases back to their normal run rate.
+* Increase the number of cores, which will increase the number of nodes, and provide you with more processing power to query and write to your Azure SQL DB.
+* Try "Compute Optimized" and "Memory Optimized" options
 
+### Disable indexes on write
+* Use an ADF pipeline stored procedure activity prior to your Data Flow activity that disables indexes on your target tables that are being written to from your Sink.
+* After your Data Flow activity, add another stored proc activity that enabled those indexes.
 
+### Increase the size of your Azure SQL DB
+* Schedule a resizing of your source and sink Azure SQL DB before your run your pipeline to increase the throughput and minimize Azure throttling once you reach DTU limits.
+* After your pipeline execution is complete, you can resize your databases back to their normal run rate.
 
 ## Next steps
-See the other Copy Activity articles:
+See the other Data Flow articles:
 
-- [Copy activity overview](copy-activity-overview.md)
-- [Copy Activity schema mapping](copy-activity-schema-and-type-mapping.md)
-- [Copy activity fault tolerance](copy-activity-fault-tolerance.md)
+- [Data Flow overview](data-flow-overview.md)
+- [Data Flow activity ](control-flow-execute-data-flow-activity.md)
+
