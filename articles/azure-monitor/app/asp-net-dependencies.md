@@ -30,11 +30,20 @@ Application Insights SDKs for .NET and .NET Core, has a built-in `TelemetryModul
 * WCF services that use HTTP-based bindings
 * Azure Cosmos DB (only if using http/https), Azure Table, Azure Blob, and Azure Queue
 
+## Setup automatic dependency tracking in Console Apps
+
+To automatically track dependencies from .NET/.NET Core console apps, install the Nuget package `Microsoft.ApplicationInsights.DependencyCollector`, and initialize `DependencyTrackingTelemetryModule` as follows:
+
+```csharp
+    DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
+    depModule.Initialize(TelemetryConfiguration.Active);
+```
+
 ### How automatic dependency monitoring works ?
 
 Dependencies are automatically collected by using one of the following techniques:
 
-* Using byte code instrumentation around select methods. (only if using StatusMonitor or InstrumentationEngine)
+* Using byte code instrumentation around select methods. (InstrumentationEngine either from StatusMonitor or Azure Web App Extension)
 * EventSource callbacks
 * DiagnosticSource callbacks (in the latest .NET/.NET Core SDKs)
 
@@ -73,16 +82,20 @@ For web pages, Application Insights JavaScript SDK automatically collects AJAX c
 
 ## Advanced SQL tracking to get full SQL Query
 
+For SQL calls, the name of the server and database is always collected and stored as name of the collected `DependencyTelemetry`. There is an additional field called 'data', which can contain the full SQL query text.
 
-## Set up dependency monitoring
-Dependency collection is enabled automatically for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, which are configured as per the linked official docs.
+For ASP.NET Core applications there is no additional step required to get the full SQL Query.
 
+For ASP.NET applications, full SQL query is collected with the help of byte code instrumentation, which require instrumentation engine. Additional steps, as described below, are required.
 
-| Platform | Install |
+| Platform | Step(s) Needed to get full SQL Query |
 | --- | --- |
-| IIS Server |Either [install Status Monitor on your server](../../azure-monitor/app/monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](https://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](asp-net.md)  in your app. |
-| Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](../../azure-monitor/app/azure-web-apps.md) and choose Install if prompted. |
-| Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) or [Install .NET framework 4.6+](../../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET |
+| IIS Server (Azure VM, On-Prem etc.) | [Install Status Monitor on your server where application is running](../../azure-monitor/app/monitor-performance-live-website-now.md) and restart IIS.
+| Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) to [Install Status Monitor](monitor-performance-live-website-now.md#download) |
+| IIS Express | Not supported
+
+In all the above cases, the correct way of validating that instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is 'rddp'. 'rdddsd' or 'rddf' indicates dependencies are collected via DiagnosticSource or EventSource callbacks, and hence full SQL query will not be captured.
 
 ## Where to find dependency data
 
@@ -214,21 +227,6 @@ You can track dependencies in the [Kusto query language](/azure/kusto/query/). H
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## Troubleshooting
-
-*Dependency success flag always shows either true or false.*
-
-*SQL query not shown in full.*
-
-Consult the table below and insure you have chosen the correct configuration to enable dependency monitoring for your application.
-
-| Platform | Install |
-| --- | --- |
-| IIS Server |Either [install Status Monitor on your server](../../azure-monitor/app/monitor-performance-live-website-now.md). Or [Upgrade your application to .NET framework 4.6 or later](https://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](asp-net.md)  in your app. |
-| IIS Express |Use IIS Server instead. |
-| Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](../../azure-monitor/app/azure-web-apps.md) and choose Install if prompted. |
-| Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) or [Install .NET framework 4.6+](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## Video
 
