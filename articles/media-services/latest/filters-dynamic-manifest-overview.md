@@ -120,7 +120,7 @@ For more information, see [this](https://azure.microsoft.com/blog/azure-media-se
 
 ## Associate filters with Streaming Locator
 
-For more information, see [Filters](filters-concept.md#associate-filters-with-streaming-locator).
+See [Filters: associate with Streaming Locators](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## Considerations and limitations
 
