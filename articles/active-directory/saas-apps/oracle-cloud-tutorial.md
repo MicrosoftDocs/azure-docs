@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -54,15 +54,15 @@ To configure the integration of Oracle Cloud into Azure AD, you need to add Orac
 
 ## Configure and test Azure AD single sign-on
 
-Configure and test Azure AD SSO with Oracle Cloud using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Oracle Cloud.
+Configure and test Azure AD SSO with Oracle Cloud using a test user called **B. Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Oracle Cloud.
 
 To configure and test Azure AD SSO with Oracle Cloud, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 2. **[Configure Oracle Cloud](#configure-oracle-cloud)** to configure the SSO settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Oracle Cloud test user](#create-oracle-cloud-test-user)** to have a counterpart of Britta Simon in Oracle Cloud that is linked to the Azure AD representation of user.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
+5. **[Create Oracle Cloud test user](#create-oracle-cloud-test-user)** to have a counterpart of B. Simon in Oracle Cloud that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
 	 In the **Sign-on URL** text box, type a URL using the following pattern:
-    ` https://<SUBDOMAIN>.<REGION>.oraclecloud.com/`
+    ` https://console.<REGIONNAME>.oraclecloud.com/`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Oracle Cloud Client support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -105,9 +105,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Oracle Cloud application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	1. Click the **pen** next to **Groups returned in claim**.
+	1. Click the **pen** next to **Name identifier value**.
 
 	![image](./media/oracle-cloud-tutorial/config07.png)
+
+	![image](./media/oracle-cloud-tutorial/config11.png)
+
+	1. Select **Persistent** as **Choose name identifier format**.
+
+	1. Click **Save**.
+
+	1. Click the **pen** next to **Groups returned in claim**.
+
+	![image](./media/oracle-cloud-tutorial/config12.png)
 
 	![image](./media/oracle-cloud-tutorial/config08.png)
 
@@ -158,19 +168,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B. Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `Britta Simon`.  
+   1. In the **Name** field, enter `B. Simon`.  
    1. In the **User name** field, enter the username@companydomain.extension. For example, `BrittaSimon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable Britta Simon to use Azure single sign-on by granting access to Oracle Cloud.
+In this section, you'll enable B. Simon to use Azure single sign-on by granting access to Oracle Cloud.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Oracle Cloud**.
@@ -182,34 +192,13 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 	![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **Britta Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Users and groups** dialog, select **B. Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Oracle Cloud test user
 
-To enable Azure AD users to sign in to Oracle Cloud, they must be provisioned into Oracle Cloud. In Oracle Cloud, provisioning is a manual task.
-
-**To provision a user account, perform the following steps:**
-
-1. Sign in to Oracle Cloud as an Administrator.
-
-2. Click on the left side of the menu and click on **Identity** then navigate to **Users**.
-
-	![Configuration](./media/oracle-cloud-tutorial/config06.png)
-
-3. Click on **Create User**.
-
-	![Configuration](./media/oracle-cloud-tutorial/config04.png)
-
-4. On the **Create User** pop-up, perform the following steps:
-
-	![Configuration](./media/oracle-cloud-tutorial/config05.png)
-
-	1. In the **NAME** text box, enter the name of user like **Brittasimon**.
-	1. In the **DESCRIPTION** text box, enter your description.
-	1. In **EMAIL** text box, enter the email of user like `Brittasimon@contoso.com`.
-	1. Click **Create**.
+ Oracle Cloud supports just-in-time provisioning, which is by default. There is no action item for you in this section. A new user do not get created during an attempt to access and also no need to create the user.
 
 ### Test SSO
 
