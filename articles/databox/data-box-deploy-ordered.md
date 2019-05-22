@@ -1,5 +1,5 @@
 ---
-title: Order Microsoft Azure Data Box | Microsoft Docs
+title: Tutorial to order Azure Data Box | Microsoft Docs
 description: Learn the deployment prerequisites and how to order an Azure Data Box
 services: databox
 author: alkohli
@@ -62,7 +62,7 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Transfer type     | Select **Import to Azure**.        |
-    |Source country     |	Select the country where your data currently resides.         |
+    |Source country     |	Select the country/region where your data currently resides.         |
     |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
 
 5. Select Data **Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.

@@ -105,6 +105,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Azure Blockchain Service
+    tocHref: /azure/blockchain/service
+    topicHref: /azure/blockchain/service
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
@@ -139,9 +142,6 @@
   - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
-  - name: Azure China 21Vianet
-    tocHref: /azure/china/
-    topicHref: /azure/china/
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
@@ -345,6 +345,9 @@
   - name: AKS
     tocHref: /azure/aks/
     topicHref: /azure/aks/
+  - name: OpenShift
+    tocHref: /azure/openshift/
+    topicHref: /azure/openshift/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -507,6 +510,10 @@
       - name: Service
         tocHref: /azure/machine-learning/service
         topicHref: /azure/machine-learning/service/
+        items:
+        - name: Algorithm and Module Reference
+          tocHref: /azure/machine-learning/algorithm-module-reference
+          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference.md
       - name: Studio
         tocHref: /azure/machine-learning/studio
         topicHref: /azure/machine-learning/studio/
@@ -563,6 +570,9 @@
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
+  - name: Open Datasets
+    tocHref: /azure/open-datasets/
+    topicHref: /azure/open-datasets/
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
@@ -686,14 +696,14 @@
         items:
           - name: Linux classic deployments
             tocHref: /azure/virtual-machines/linux/classic/
-            topicHref: /azure/virtual-machines/linux/classic/
+            topicHref: /previous-versions/azure/virtual-machines/linux/classic/
       - name: Windows
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/
         items:
           - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
-            topicHref: /azure/virtual-machines/windows/classic/
+            topicHref: /previous-versions/azure/virtual-machines/windows/classic/
           - name: SQL VM
             tocHref: /azure/virtual-machines/windows/sql
             topicHref: /azure/virtual-machines/windows/sql

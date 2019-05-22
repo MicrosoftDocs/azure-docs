@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/10/2019
+ms.date: 05/07/2019
 ---
 # Quickstart: Create an Azure SQL Database managed instance
 
@@ -22,7 +22,9 @@ This quickstart walks you through how to create an Azure SQL Database [managed i
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/). 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a managed instance
 
@@ -46,6 +48,8 @@ The following steps show you how to create a managed instance.
    |**Collation**|The collation that you want to use for your managed instance.|If you migrate databases from SQL Server, check the source collation by using `SELECT SERVERPROPERTY(N'Collation')` and use that value. For information about collations, see [Set or change the server collation](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Location**|The location in which you want to create the managed instance.|For information about regions, see [Azure regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|Select either **Create new virtual network** or a valid virtual network and subnet.| If a network or subnet is unavailable, it must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new managed instance. For information about the requirements for configuring the network environment for a managed instance, see [Configure a virtual network for a managed instance](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Enable public endpoint**   |Check this option to enable public endpoint   |For managed instance to be accessible through the public data endpoint, **Enable public endpoint** needs to be checked.| 
+   |**Allow access from**   |Select one of the options: <ul> <li>**Azure services**</li> <li>**Internet**</li> <li>**No access**</li></ul>   |Portal experience enables configuring security group with public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>Azure services - recommended when connecting from Power BI or other multi-tenant service. </li> <li> Internet - use for test purposes when you want to quickly spin up a managed instance. It’s not recommended for use in production environments. </li> <li> No access - this option creates a deny security rule. You’ll need to modify this rule in order to make managed instance accessible through public endpoint. </li> </ul> </br> For more information on public endpoint security, see [using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).|
    |**Connection type**|Choose between a Proxy and a Redirect connection type.|For more information about connection types, see [Azure SQL Database connection policy](sql-database-connectivity-architecture.md#connection-policy).|
    |**Resource group**|A new or existing resource group.|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
@@ -85,7 +89,7 @@ After the deployment is successful, review the resources that were created and r
 
    ![Network security group](./media/sql-database-managed-instance-get-started/network-security-group.png)
 
-5. Review the inbound and outbound security rules. 
+5. Review the inbound and outbound security rules. If you have configured public endpoints for your managed instance, see the article [Configure public endpoint](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) for more information.
 
    ![Security rules](./media/sql-database-managed-instance-get-started/security-rules.png)
 

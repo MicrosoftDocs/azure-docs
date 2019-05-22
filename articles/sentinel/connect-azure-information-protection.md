@@ -4,7 +4,7 @@ description: Learn how to connect Azure Information Protection data in Azure Sen
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd

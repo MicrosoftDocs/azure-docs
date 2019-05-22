@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -46,13 +46,15 @@ When performing a subsequent scale-out operation, for example, increasing the nu
 
 ### Separate processing from query pool
 
-For maximum performance for both processing and query operations, you can choose to separate your processing server from the query pool. When separated, existing and new client connections are assigned to query replicas in the query pool only. If processing operations only take up a short amount of time, you can choose to separate your processing server from the query pool only for the amount of time it takes to perform processing and synchronization operations, and then include it back into the query pool. 
+For maximum performance for both processing and query operations, you can choose to separate your processing server from the query pool. When separated, new client connections are assigned to query replicas in the query pool only. If processing operations only take up a short amount of time, you can choose to separate your processing server from the query pool only for the amount of time it takes to perform processing and synchronization operations, and then include it back into the query pool. When separating the processing server from the query pool, or adding it back into the query pool can take up to five minutes for the operation to complete.
 
 ## Monitor QPU usage
 
 To determine if scale-out for your server is necessary, monitor your server in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. 
 
 Another good metric to watch is average QPU by ServerResourceType. This metric compares average QPU for the primary server with that of the query pool. 
+
+![Query scale out metrics](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### To configure QPU by ServerResourceType
 1. In a Metrics line chart, click **Add metric**. 

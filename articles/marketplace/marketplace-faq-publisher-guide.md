@@ -1,22 +1,14 @@
 ---
-title: Marketplace FAQ | Azure
+title: Azure Marketplace FAQ 
 description: Answers to common questions about the Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: qianw211
-manager: Patrick.Butler
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-
 ---
+
 # Marketplace FAQs
 
 Answers to common questions about the Microsoft Azure Marketplace.
@@ -130,7 +122,7 @@ Azure subscription is included with the publisher’s Independent Software Vendo
 
 *Monthly Fee:* Rates are charged or billed a fixed monthly fee for a subscription to the offering (from the start date of the subscription for that plan). The monthly fee may be prorated for mid-month cancellations or unused services.
 
-Offer specific pricing details can be found on the solution details page on [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/) or within the [Microsoft Azure Management portal](https://portal.azure.com/).
+Offer specific pricing details can be found on the solution details page on [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) or within the [Microsoft Azure Management portal](https://portal.azure.com/).
 
 >[!Note]
 > Except for monthly fees, Azure usage charges are applicable to all pricing models unless otherwise stated.
@@ -313,7 +305,7 @@ Review the [Publisher Guide](https://docs.microsoft.com/azure/marketplace/market
 
 **How do I begin to publish in Azure Marketplace?**
 
-Start your Azure Marketplace listing by reviewing the [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Next, submit your application by completing the [Azure Marketplace Nomination Form](https://azuremarketplace.microsoft.com/sell/signup).
+Start your Azure Marketplace listing by reviewing the [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Next, submit your application by [submitting your offer](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
 **Do I have to be a member of the Microsoft Partner Network (MPN) to list my applications and services in the Azure Marketplace?**
 
@@ -541,7 +533,7 @@ Pricing varies based on product types and publisher specifications. Software lic
 
 * **Monthly Fee**: You are charged or billed a fixed monthly fee for a subscription to the offering, from start of that particular plan. The monthly fee may be prorated for mid-month cancellations or unused services.
 
-Pricing details can be found on the solution details page on [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/), or within the Microsoft Azure Management portal.
+Pricing details can be found on the solution details page on [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/), or within the Microsoft Azure Management portal.
 
 >[!Note]
 >Except for monthly fees, Azure usage charges are applicable to all pricing models unless otherwise stated.

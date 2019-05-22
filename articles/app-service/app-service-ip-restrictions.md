@@ -28,7 +28,7 @@ When a request is made to your app, the FROM address is evaluated against the IP
 
 The access restrictions capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. Therefore, access restrictions are effectively network ACLs.
 
-The ability to restrict access to your web app from an Azure Virtual Network (VNet) is called [service endpoints][serviceendpoints]. Service endpoints enable you to restrict access to a multi-tenant service from selected subnets. It must be enabled on both the networking side as well as the service that it is being enabled with. 
+The ability to restrict access to your web app from an Azure Virtual Network (VNet) is called [service endpoints][serviceendpoints]. Service endpoints enable you to restrict access to a multi-tenant service from selected subnets. It must be enabled on both the networking side as well as the service that it is being enabled with. It does not work to restrict traffic to apps that are hosted in an App Service Environment.  If you are in an App Service Environment, you can control access to your app with IP address rules.
 
 ![access restrictions flow](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -55,6 +55,8 @@ To set an IP address based rule, select a type of IPv4 or IPv6. IP Address notat
 ![add a VNet access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 To restrict access to selected subnets, select a type of Virtual Network. Below that you will be able to pick the subscription, VNet, and subnet you wish to allow or deny access with. If service endpoints are not already enabled with Microsoft.Web for the subnet that you selected, it will automatically be enabled for you unless you check the box asking not to do that. The situation where you would want to enable it on the app but not the subnet is largely related to if you have the permissions to enable service endpoints on the subnet or not. If you need to get somebody else to enable service endpoints on the subnet, you can check the box and have your app configured for service endpoints in anticipation of it being enabled later on the subnet. 
+
+Service endpoints cannot be used to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to your app with IP access rules. 
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
 

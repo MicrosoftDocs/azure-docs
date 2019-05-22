@@ -34,13 +34,15 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 **What are the expected values for the Startup File section when I configure the runtime stack?**
 
-| Stack     | Expected Value                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | a command to start your `.jar` application                                    |
-| Tomcat    | the location of a script to execute any  configurations for your app          |
-| Node.js   | the PM2 configuration file or your script file                                |
-| .Net Core | the compiled DLL name as `dotnet <myapp>.dll`                                 |
-| Ruby      | the Ruby script that you want to initialize your app with                     |
+| Stack           | Expected Value                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | the command to start your JAR app (for example, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | the PM2 configuration file or your script file                                |
+| .Net Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
+| Ruby            | the Ruby script that you want to initialize your app with                     |
+
+These commands or scripts are executed after the built-in Docker container is started, but before your application code is started.
 
 ## Management
 
