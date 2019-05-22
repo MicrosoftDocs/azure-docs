@@ -164,6 +164,9 @@ To use managed identities for Azure resources authentication, follow these steps
 >- **Data Factory UI** to test connection and navigating folders during authoring. 
 >If you have concern on granting permission at account level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the managed identity is granted with proper permission at the files to be copied.
 
+>[!IMPORTANT]
+>If you use PolyBase to load data from ADLS Gen2 into SQL DW, when using ADLS Gen2 managed identity authentication, make sure you also configure SQL DW properly to use MSI to ADLS Gen2 storage, follow the steps #1 to #3.b in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). If your ADLS Gen2 is configured with VNet service endpoint, to use PolyBase to load data from it, you must use managed identity authentication.
+
 These properties are supported in linked service:
 
 | Property | Description | Required |
