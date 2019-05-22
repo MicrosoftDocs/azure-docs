@@ -63,10 +63,9 @@ Then add the following plugin definition inside the `<build>` element of the `po
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
             <!-- App information -->
-            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
-            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-            <appName>${WEBAPP_NAME}</appName>
-            <region>${REGION}</region>
+            <resourceGroup>RESOURCEGROUP_NAME</resourceGroup>
+            <appName>WEBAPP_NAME</appName>
+            <region>REGION</region>
    
             <!-- Java Runtime Stack for App on Linux-->
             <runtime>
