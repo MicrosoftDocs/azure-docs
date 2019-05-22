@@ -52,12 +52,11 @@ Examples: `https://myapp.com/terms-of-service` and `https://myapp.com/privacy-st
 
 When the terms of service and privacy statement are ready, you can add links to these documents in your app using one of these methods:
 
-* [Through the Azure portal](#registered-in-azure-portal)
-* [In the Application Registration Portal, or Dev Center](#registered-in-app-reg-portal)
+* [Through the Azure portal](#azure-portal)
 * [Using the app object JSON](#app-object-json)
 * [Using the MSGraph beta REST API](#msgraph-beta-rest-api)
 
-### Using the Azure portal
+### <a name="azure-portal"></a>Using the Azure portal
 Follow these steps in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
