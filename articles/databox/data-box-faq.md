@@ -178,7 +178,7 @@ A. If your device has arrived damaged or there is evidence of tampering, do not 
 ### Q. Can I use my own shipping carrier to ship Data Box?
 A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
 
-### Q. Where does my Data Box device ship to?
+### Q. Where does my Data Box device ship to? Can the device cross country borders?
 A. Your Data Box device is shipped to an address in the country within the region where you ordered this device. For devices ordered in US and Canada, the devices stay within the country. For EU, the devices stay within EU. 
 
 ### Q. E-ink display is not showing the return shipment label. What should I do?
