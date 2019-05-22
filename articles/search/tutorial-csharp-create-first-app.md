@@ -1,6 +1,6 @@
 ---
-title: Tutorial on building your first Azure search app
-description: This tutorial provides a step-by-step guide to building an Azure search app. The tutorial provides both a link to a working app on GitHub and the complete process to building the app from scratch. Learn about all the essential components of Azure search.
+title: Tutorial on building your first Azure Search app
+description: This tutorial provides a step-by-step guide to building an Azure Search app. The tutorial provides both a link to a working app on GitHub and the complete process to building the app from scratch. Learn about all the essential components of Azure Search.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,20 +9,20 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# Build your first Azure search app
+# C# Tutorial: Create your first app in Azure Search
 
-Complete this tutorial to learn about building Azure search apps in C#.
+Learn how to create a simple web interface to query and present search results from an Azure Search index. In this tutorial, you’ll start with an existing, hosted index so that you can focus on building a search page. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create the right project and setup the development environment for building Azure search apps
-> * Setup an Azure search to access a publicly available data source
+> * Create the right project and setup the development environment for building Azure Search apps
+> * Setup an Azure Search to access a publicly available data source
 > * Use asynchronous search calls to emphasize efficiency
 > * Use the Model-View-Controller (MVC) client-server architecture to render a client and communicate with the server
 > * Implement a basic paging system to handle large collections of search results
 > * Use temporary storage to persist data from one call to the next
 
-You will also learn just how simple an Azure search call is. The key statements in the code you will develop are the following:
+You will also learn just how simple an Azure Search call is. The key statements in the code you will develop are the following:
 
 ```cs
 SearchParameters parameters;
@@ -33,7 +33,9 @@ results = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, para
 
 This one call initiates a search of Azure data and returns the results. Simple as that. Notice that we are going to use the asynchronous versions of the search APIs right from the start. Both the synchronous and asynchronous versions of the API call work very similarly, there are some differences in declaring the methods and calling the APIs but no additional lines of code are needed. For best practices in avoiding blocking threads on a server, best to get used to using the asynchronous versions.
 
-You should be both impressed and relieved at the power and brevity of Azure search API calls. Azure search is a thoroughly designed system that does not require screeds of code to be written, nor does it involve extensive commitments to a trial and error approach to programming.
+![Searching for 24-hour](media/azure-search-24-hour.png)
+
+You should be both impressed and relieved at the power and brevity of Azure Search API calls. Azure Search is a thoroughly designed system that does not require screeds of code to be written, nor does it involve extensive commitments to a trial and error approach to programming.
 
 
 
@@ -41,24 +43,30 @@ You should be both impressed and relieved at the power and brevity of Azure sear
 
 To complete this tutorial, you need:
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A development computer running Microsoft Windows and Visual Studio 2017 or later. The screen shots in the tutorial come from Visual Studio 2017. The appearance is different, but the same project options are available, in Visual Studio 2019.
-* C# programming skills.
-* HTML development skills.
+[Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
 
-## Instal and run the project from GitHub
+## Install and run the project from GitHub
 
 1. Locate the sample app at the following location xxxxx.
 1. Select **Clone or download** and make your private local copy of the project.
 1. Using Visual Studio open the solution and select **Start without debugging** (or press F5).
 1. Type in some words (for example "wifi", "view", "bar", "parking") and page through the results!
 
+_Search for "wifi"_
+ ![Searching for wifi](media/azure-search-wifi.png)
+
+_Note how no paging options are displayed if there is less than one page worth of results._
+ ![Searching for town](media/azure-search-town.png)
+
+_The last page of results may contain less than a full page_
+ ![Searching for pool](media/azure-search-pool-last-page.png)
+
 Hopefully this will all run smoothly and you have an Azure app running. It is a simple search, but as almost all of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
 
 
 ## Build the project from scratch
 
-To create this project from scratch, and hence help reinforce the components of Azure search in your mind, go through the following steps.
+To create this project from scratch, and hence help reinforce the components of Azure Search in your mind, go through the following steps.
 
 ## Create the project and set up the environment
 
@@ -69,7 +77,7 @@ To create this project from scratch, and hence help reinforce the components of 
 
 ![Creating an MVC project](media/azure-search-your-first-app/azure-search-project2.png)
 
-3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There are two packages we need to install. Select the **Browse** tab then type "Azure search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list. You will have to click through a few additional dialogs.
+3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There are two packages we need to install. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list. You will have to click through a few additional dialogs.
 
 ![Using NuGet to add Azure libraries](media/azure-search-your-first-app/azure-search-nuget-azure.png)
 
@@ -78,7 +86,7 @@ To create this project from scratch, and hence help reinforce the components of 
 ![Using NuGet to add MVC libraries](media/azure-search-your-first-app/azure-search-nuget-mvc.png)
 
 
-## Initialize the Azure search service
+## Initialize the Azure Search service
 
 For this sample we are using publicly available hotel data. This data is just an arbitrary collection of 60 or so fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data you need to specify a name and key for it. 
 
@@ -231,7 +239,7 @@ namespace FirstAzureSearch.Models
 }
 ```
 
-1. The set of **Hotel**, **Address** and **Room** classes are what is known in Azure as "complex types", a new and important feature of Azure search. Complex types can be many levels deep of classes and sub-classes, and enable far more complex data systems to be searched than using "simple types" (simply, a class containing only primitive members). We do need one more model, go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
+1. The set of **Hotel**, **Address** and **Room** classes are what is known in Azure as "complex types", a new and important feature of Azure Search. Complex types can be many levels deep of classes and sub-classes, and enable far more complex data systems to be searched than using "simple types" (simply, a class containing only primitive members). We do need one more model, go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
 
 ```cs
 using System.Collections;
@@ -327,7 +335,7 @@ namespace FirstAzureSearch.Models
 
 This time we have a bit more to look at than simply members. Note first the static class entitled **GlobalVariables**. As the name implies this is how global variables are declared when using MVC architecture. We only have one global variable here, **ResultsPerPage**, determining quite simply how many results to display on the client in one page. In other components of this project, this variable is accessed as **GlobalVariables.ResultsPerPage**.
 
-The **SearchData** class itself critically contains a method to add a hotel to an **ArrayList** of hotels. This list is of course those that have been returned from an Azure search. 
+The **SearchData** class itself critically contains a method to add a hotel to an **ArrayList** of hotels. This list is of course those that have been returned from an Azure Search. 
 
 Another critical bit of data in this class is **searchText**, this is the text entered by the user. The other members provide control data such as the number of results in total and the current page that is being displayed on the client. We will revisit these when looking at the client code (the **Index** view).
 
@@ -455,7 +463,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 ```cs
    <h1 class="sampleTitle">
     <img src="~/images/azure-logo.png" width="80" />
-    Hotels demo search app
+     Your first app in Azure Search
 </h1>
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -645,7 +653,7 @@ Depending on which version of .NET Core you are using, a slightly different set 
 
 ### Add the RunQueryAsync method
 
-The Azure search itself is encapsulated in our **RunQueryAsync** method. 
+The Azure Search itself is encapsulated in our **RunQueryAsync** method. 
 
 1. First add some static variables to set up the Azure service and a call to initiate them.
 
@@ -750,17 +758,21 @@ Now, will all this good effort be worthwhile and your app runs!
 
 !index view
 
-1. Enter text such as "wifi" (or any text that comes to mind) and click the search icon. You should get some results.
+1. Enter text such as "beach" (or any text that comes to mind) and click the search icon. You should get some results.
+_Search for "beach"_
 
-!wifi results
+ ![Searching for beach](media/azure-search-beach.png)
 
 1. Test the next and previous page buttons. Check that when they are not relevant they are grayed out.
 
+1. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search.
+ 
+_Search for "five star"_
+ ![Searching for beach](media/azure-search-five-star.png)
+
 1. Try entering "hot" as search text. Note that it does _not_ return entries with the word "hotel" in them. Our simple search is only locating whole words.
 
-1. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure search.
- 
-1. Try other words: "pool", "sunshine", "view" and whatever. You will see Azure search working at its simplest but still convincing level.
+1. Try other words: "pool", "sunshine", "view" and whatever. You will see Azure Search working at its simplest but still convincing level.
 
 ## Edge conditions and errors
 
@@ -768,21 +780,24 @@ It is important to verify that our error handling features work as they should, 
 
 1. In the **Prev** method, just after the **try {** call, enter the line **Throw new Exception()**. This will force an error when we select the previous (<<) button.
 
-1. Run the app, enter "bar" as search text, select the next page, then select the previous page. You should get the error page appearing in your view.
+2. Run the app, enter "bar" as search text, select the next page, then select the previous page. You should get the error page appearing in your view.
+
+_Forcing an error_
+ ![Force an error](media/azure-search-error.png)
 
 > Note
 > It is considered a security risk to return internal error numbers in error pages. If your app is intended for general use, do some investigation into secure and best practices of what to return when an error occurs.
 
-1. Remove the  **Throw new Exception()** line when you are satisfied the error handling works as it should.
+3. Remove the  **Throw new Exception()** line when you are satisfied the error handling works as it should.
 
 
 ## Takeaways
 
-First and foremost, congratulations on getting your first Azure search app up and running. Great job.
+First and foremost, congratulations on getting your first Azure Search app up and running. Great job.
 
 You should consider the following takeaways from this project:
 
-* Azure search involves just a few API calls to set up and carry out and it is easy to interpret the results.
+* Azure Search involves just a few API calls to set up and carry out and it is easy to interpret the results.
 * Temporary storage really does persist for only one call and needs to be reset to survive additional calls.
 * Asynchronous calls add just a small amount of complexity to the controller but is the best practice if you intend developing industrial quality apps. Best to start on the right footing.
 * This app performed an elementary search, defined by what is set up in **searchParameters**. This one class can be populated with many members that add sophistication to a search. All that is needed is to add these parameters to the code you have just written, so not much additional work is needed.
@@ -791,10 +806,10 @@ You should consider the following takeaways from this project:
 
 ## Next steps
 
-In order to provide the best user experience using Azure search, we need to add more features, notably better paging (page numbers or perhaps infinite paging, depending on the application) and autocomplete/suggestions. We should also consider more sophisticated search parameters (conditional searches, for example - all hotels with a room price less than $N, and geo-spatial searches on hotels within a specified radius of a given point).
+In order to provide the best user experience using Azure Search, we need to add more features, notably better paging (page numbers or perhaps infinite paging, depending on the application) and autocomplete/suggestions. We should also consider more sophisticated search parameters (conditional searches, for example - all hotels with a room price less than $N, and geo-spatial searches on hotels within a specified radius of a given point).
 
-These next steps are addressed in the following tutorials:
+These next steps are addressed are in a series of tutorials. Let's start with paging.
 
-1. Link to Modern paging of Azure search results
-1. LInk to Enabling suggestions, hit highlighting and autocompletion in Azure searches
+1. Link to Paging of Azure Search results
+
 
