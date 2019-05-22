@@ -17,16 +17,16 @@ ms.collection: M365-identity-device-management
 ---
 # How to require two-step verification for a user
 
-You can take one of two approaches for requiring two-step verification, both of which require using a global administrator account. The first option is to enable each user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they perform two-step verification each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remembered devices_ feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
+You can take one of two approaches for requiring two-step verification, both of which require using a global administrator account. The first option is to enable each user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they perform two-step verification each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remembered devices_ feature is turned on). The second option is to set up a Conditional Access policy that requires two-step verification under certain conditions.
 
 > [!TIP]
-> Choose one of these methods to require two-step verification, not both. Enabling a user for Azure Multi-Factor Authentication overrides any conditional access policies.
+> Choose one of these methods to require two-step verification, not both. Enabling a user for Azure Multi-Factor Authentication overrides any Conditional Access policies.
 
 ## Choose how to enable
 
-**Enabled by changing user state** - This is the traditional method for requiring two-step verification and is discussed in this article. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method requires users to perform two-step verification **every time** they sign in and overrides conditional access policies. This is the method used for those with either Office 365 or Microsoft 365 Business licenses as they do not include conditional access features.
+**Enabled by changing user state** - This is the traditional method for requiring two-step verification and is discussed in this article. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method requires users to perform two-step verification **every time** they sign in and overrides Conditional Access policies. This is the method used for those with either Office 365 or Microsoft 365 Business licenses as they do not include Conditional Access features.
 
-Enabled by conditional access policy - This is the most flexible means to enable two-step verification for your users. Enabling using conditional access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD. More information on this method can be found in [Deploy cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md).
+Enabled by Conditional Access policy - This is the most flexible means to enable two-step verification for your users. Enabling using Conditional Access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD. More information on this method can be found in [Deploy cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md).
 
 Enabled by Azure AD Identity Protection - This method uses the Azure AD Identity Protection risk policy to require two-step verification based only on sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. More information on this method can be found in [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
@@ -130,6 +130,23 @@ which can also be shortened to:
    ```PowerShell
    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
    ```
+
+### Convert users from per-user MFA to Conditional Access based MFA
+
+The following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
+
+```PowerShell
+# Save current StrongAuthenticationMethods
+$Methods= (Get-MsolUser-UserPrincipalName<UPN>).StrongAuthenticationMethods
+  
+# Disable MFA by setting the StrongAuthenticationRequirements to an empty array
+# This will also remove the StrongAuthenticationMethods
+Set-MsolUser-UserPrincipalName<UPN>-StrongAuthenticationRequirements @()
+  
+# Restore the StrongAuthenticationMethods value that was saved
+Set-MsolUser-UserPrincipalName<UPN>-StrongAuthenticationMethods$Methods
+# From here you can create a function on a loop to perform against all users. ( Test first of course.. )  
+```
 
 ## Next steps
 
