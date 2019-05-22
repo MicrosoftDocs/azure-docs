@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure FXT Edge Filer overview 
-description: Describes Azure FXT Edge Filer Hybrid Storage Cache, an active archive and file access accelerator solution for high performance computing 
+description: Describes Azure FXT Edge Filer hybrid storage cache, an active archive and file access accelerator solution for high performance computing 
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
@@ -19,7 +19,7 @@ Three or more FXT Edge Filer hardware devices work together as a clustered files
 To learn more, read the product information and data sheet on [Azure FXT Edge Filer](https://azure.microsoft.com/services/fxt-edge-filer/).
 
 > [!IMPORTANT]
-> Azure FXT Edge Filer is in *preview*. You must contact Microsoft's HPC team or the FXT Edge Filer team to access this service. Contact information is available in the [Azure FXT Edge Filer Hybrid Storage Cache data sheet](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-fxt-edge-filer-hybrid-storage-cache-software-defined-networking-fast-file-access-and-active-archive-for-hpc/FXT%20Edge%20Filer%20datasheet-032219.pdf). 
+> Azure FXT Edge Filer is in *preview*. You must contact Microsoft's HPC team or the FXT Edge Filer team to access this service. Contact information is available in the [Azure FXT Edge Filer hybrid storage cache data sheet](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-fxt-edge-filer-hybrid-storage-cache-software-defined-networking-fast-file-access-and-active-archive-for-hpc/FXT%20Edge%20Filer%20datasheet-032219.pdf). 
 
 ## Use cases
 
@@ -54,4 +54,4 @@ Two hardware models are available.
 ## Next steps
 
 * Continue learning about the Azure FXT Edge Filer by reading the [specifications](fxt-specs.md) or [installation tutorial](fxt-install.md).
-* Learn how to qualify for the product preview: Contact the FXT Edge Filer team at the address provided in the data sheet. Learn more on the [Azure FXT Edge Filer product page](https://azure.microsoft.com/services/fxt-edge-filer/).
+* Learn how to qualify for the product preview: Contact the FXT Edge Filer team at the address provided in the [data sheet](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-fxt-edge-filer-hybrid-storage-cache-software-defined-networking-fast-file-access-and-active-archive-for-hpc/FXT%20Edge%20Filer%20datasheet-032219.pdf). Learn more on the [Azure FXT Edge Filer product page](https://azure.microsoft.com/services/fxt-edge-filer/).

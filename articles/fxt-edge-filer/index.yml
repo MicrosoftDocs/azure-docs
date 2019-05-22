@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure FXT Edge Filer Documentation
 metadata:
-  title: Azure FXT Edge Filer Documentation
+  title: Azure FXT Edge Filer (PREVIEW) Documentation 
   description: Use Avere vFXT Edge Filer as a caching layer for read-intensive high-performance computing (HPC) tasks
   author: ekpgh
   ms.service: fxt-edge-filer 
@@ -11,6 +11,7 @@ metadata:
   ms.author: v-erkell
 abstract:
   description: The Microsoft Azure FXT Edge Filer hybrid storage cache is a hardware/software hybrid system that speeds up data access for file-based, read-intensive high-performance computing (HPC) workflows. A cluster of three or more FXT Edge Filer devices can accelerate storage performance for on-premises NAS systems (NetApp or Dell EMC Isilon), cloud storage, or a combination of solutions. 
+
   
 sections:
 - title: Step-by-step tutorials  

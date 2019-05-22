@@ -11,18 +11,20 @@ ms.author: v-erkell
 
 # Tutorial: Install Azure FXT Edge Filer 
 
-This tutorial describes how to install a hardware node for the Azure FXT Edge Filer. The installation procedure involves unpacking and rack mounting the device, and attaching the cable management arm (CMA) and front bezel. Attaching network cables and applying power are covered in separate tutorials. 
+This tutorial describes how to install a hardware node for the Azure FXT Edge Filer hybrid storage cache. Multiple hardware devices are needed to create an Azure FXT Edge Filer cluster.
 
-Multiple hardware devices are needed to create an Azure FXT Edge Filer cluster. 
+The installation procedure involves unpacking and rack mounting the device, and attaching the cable management arm (CMA) and front bezel. Separate tutorials explain attaching network cables and connecting power. 
 
 It takes approximately one hour to install an Azure FXT Edge Filer node. 
 
-This tutorial explains how to complete these setup steps: 
+This tutorial includes these setup steps: 
 
 > [!div class="checklist"]
 > * Unpack the device
 > * Mount the device in a rack
 > * Install the front bezel (optional)
+
+## Installation prerequisites 
 
 Before you begin, make sure that the data center and rack you will use has these features:
 

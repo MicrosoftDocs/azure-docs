@@ -19,7 +19,7 @@ In this tutorial, you will learn:
 > * How to power on individual nodes
 > * How to shut down and safely power off a node
 
-## Prerequisites:
+## Prerequisites
 
 Before starting this tutorial, the Edge Filer node should be installed in a standard equipment rack. 
 
@@ -48,7 +48,7 @@ After an Edge Filer node is in use as part of a cluster, you should use the clus
 
 Follow these instructions to safely power off an FXT Edge Server node:
 
-1. Sign in to the Avere Control Panel.
+1. Sign in to the cluster Control Panel. <!-- add link to directions for this -->
 1. Click the **Settings** tab, then load the **Cluster** > **FXT Nodes** page. 
 1. In the list of cluster nodes, find the one you want to shut down. Click the **Power down** button in its **Actions** column. 
 1. Wait a few moments. The node will shut down and power itself off. 

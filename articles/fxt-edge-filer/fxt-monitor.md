@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Monitor FXT Edge Server hardware status
 
-The Azure FXT Edge Filer Hybrid Storage Cache system has multiple status lights built in to the chassis to help administrators understand how the hardware is functioning.
+The Azure FXT Edge Filer hybrid storage cache system has multiple status lights built in to the chassis to help administrators understand how the hardware is functioning.
 
 ## System health status
 

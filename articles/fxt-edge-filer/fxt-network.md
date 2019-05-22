@@ -124,7 +124,7 @@ Follow these instructions to route the cables through the CMA:
 
 ## About IP address requirements
 
-For hardware nodes in an Azure FXT Edge Filer Hybrid Storage Cache, IP addresses are managed by the cluster software.
+For hardware nodes in an Azure FXT Edge Filer hybrid storage cache, IP addresses are managed by the cluster software.
 
 Each node requires at least one IP address, but node addresses are assigned when nodes are added to or removed from the cluster. 
 
