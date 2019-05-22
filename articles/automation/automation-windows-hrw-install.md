@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -54,8 +54,10 @@ Perform the following steps to automate the installation and configuration of th
    * *SubscriptionID* (mandatory): The Azure subscription ID that your Automation account is in.
    * *WorkspaceName* (optional): The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one.
 
-     > [!NOTE]
-     > Currently, the only Automation regions supported for integration with Azure Monitor logs are **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates a Log Analytics workspace but warns you that it can't link them together.
+   > [!NOTE]
+   > When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+   >
+   > For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
 2. On your computer, open **Windows PowerShell** from the **Start** screen in Administrator mode.
 3. From the PowerShell command-line shell, browse to the folder that contains the script that you downloaded. Change the values for the parameters *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*. Then run the script.

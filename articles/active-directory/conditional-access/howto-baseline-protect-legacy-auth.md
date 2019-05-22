@@ -34,7 +34,7 @@ The best way to protect your account from malicious authentication requests made
 
 Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you’re using legacy authentication.
 
-1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**
+1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
 1. Add the Client App column if it is not shown by clicking on **Columns** > **Client App**.
 1. Filter by **Client App** > **Other Clients** and click **Apply**.
 
@@ -42,13 +42,13 @@ Filtering will only show you sign-in attempts that were made by legacy authentic
 
 These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that do not appear in these logs and are confirmed to not be using legacy authentication, implement a conditional access policy or enable the **Baseline policy: block legacy authentication** for these users only.
 
-## Moving Away from Legacy Authentication
+## Moving away from legacy authentication
 
 Once you have a better idea of who is using legacy authentication in your directory and which applications depend on it, the next step is upgrading your users to use modern authentication. Modern authentication is a method of identity management that offers more secure user authentication and authorization. If you have an MFA policy in place on your directory, modern authentication ensures that the user is prompted for MFA when required. It is the more secure alternative to legacy authentication protocols.
 
 This section gives a step-by-step overview on how to update your environment to modern authentication. Read through the steps below before enabling a legacy authentication blocking policy in your organization.
 
-### Step 1: Enable Modern Authentication in your directory
+### Step 1: Enable modern authentication in your directory
 
 The first step in enabling modern authentication is making sure your directory supports modern authentication. Modern authentication is enabled by default for directories created on or after August 1, 2017. If your directory was created prior to this date, you’ll need to manually enable modern authentication for your directory using the following steps:
 
@@ -57,7 +57,7 @@ The first step in enabling modern authentication is making sure your directory s
 
 Be sure to complete this step before moving forward. It’s critical that your directory configurations are changed first because they dictate which protocol will be used by all Office clients. Even if you’re using Office clients that support modern authentication, they will default to using legacy protocols if modern authentication is disabled on your directory.
 
-### Step 2: Enable Modern authentication for Office Applications
+### Step 2: Office applications
 
 Once you have enabled modern authentication in your directory, you can start updating applications by enabling modern authentication for Office clients. Office 2016 or later clients support modern authentication by default. No extra steps are required.
 
@@ -67,7 +67,7 @@ Office 2010 does not support modern authentication. You will need to upgrade any
 
 If you are using MacOS, we recommend upgrading to Office for Mac 2016 or later. If you are using the native mail client, you will need to have MacOS version 10.14 or later on all devices.
 
-### Step 3: Enabling modern authentication for Exchange and SharePoint
+### Step 3: Exchange and SharePoint
 
 For Windows-based Outlook clients to use modern authentication, Exchange Online must be modern authentication enabled as well. If modern authentication is disabled for Exchange Online, Windows-based Outlook clients that support modern authentication (Outlook 2013 or later) will use basic authentication to connect to Exchange Online mailboxes.
 
@@ -81,13 +81,13 @@ To enable modern authentication in Skype for Business, we suggest you transition
 
 In addition to enabling modern authentication for Skype for Business Online, we recommend modern authentication be enabled for Exchange Online when enabling modern authentication for Skype for Business. This process will help synchronize the state of modern authentication in Exchange Online and Skype for Business online and will prevent multiple sign-in prompts for Skype for Business clients.
 
-### Step 5: Using Mobile Devices
+### Step 5: Using mobile devices
 
 Applications on your mobile device need to block legacy authentication as well. We recommend using Outlook for Mobile. Outlook Mobile supports modern authentication by default and will satisfy other MFA baseline protection policies.
 
 In order to use the native iOS mail client, you will need to be running iOS version 11.0 or later to ensure the mail client has been updated to block legacy authentication.
 
-### Step 6: Enable Modern Authentication for On-Premises Clients
+### Step 6: On-premises clients
 
 If you are a hybrid customer using Exchange Server on-premises and Skype for Business on-premises, both services will need to be updated to enable modern authentication. When using modern authentication in a hybrid environment, you’re still authenticating users on-premises. The story of authorizing their access to resources (files or emails) changes.
 
@@ -105,9 +105,9 @@ The policy **Baseline policy: Block legacy authentication (preview)** comes pre-
 To enable this policy and protect your administrators:
 
 1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
-1. Browse to **Azure Active Directory** > **Conditional Access**
-1. In the list of policies, select **Baseline policy: Block legacy authentication (preview)**
-1. Set **Enable policy** to **Use policy immediately**
+1. Browse to **Azure Active Directory** > **Conditional Access**.
+1. In the list of policies, select **Baseline policy: Block legacy authentication (preview)**.
+1. Set **Enable policy** to **Use policy immediately**.
 1. Add any user exclusions by clicking on **Users** > **Select excluded users** and choosing the users that need to be excluded. Click **Select** then **Done**.
 1. Click **Save**.
 

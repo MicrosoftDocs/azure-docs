@@ -16,7 +16,7 @@ Use the information in the following tables to troubleshoot errors that you enco
 
 ## Basic troubleshooting
 
-We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Backup Server (MABS) agent:
+We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Backup Server (MABS):
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
@@ -26,7 +26,7 @@ We recommend you perform the below validation, before you start troubleshooting 
 - If Push install fails, check if DPM agent is already present. If yes, then uninstall the agent and retry the installation
 - [Ensure no other process or antivirus software is interfering with Azure Backup](https://aka.ms/AA4nyr4)<br>
 - Ensure that the SQL Agent service is running and set to automatic in MAB server<br>
-- [Consideration when Backup agent is running on an Azure virtual machine](https://aka.ms/AB-AA4dwtr)
+
 
 ## Invalid vault credentials provided
 

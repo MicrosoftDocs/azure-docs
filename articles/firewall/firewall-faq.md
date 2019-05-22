@@ -82,7 +82,7 @@ You can use Azure PowerShell *deallocate* and *allocate* methods.
 For example:
 
 ```azurepowershell
-# Stop an exisitng firewall
+# Stop an existing firewall
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
