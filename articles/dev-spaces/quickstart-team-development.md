@@ -152,8 +152,8 @@ Use the `azds list-uris` to display the URLs for the sample application in the c
 $ azds list-uris
 Uri                                                             Status
 --------------------------------------------------              ---------
-http:\//azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
-http:\//azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
+http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
+http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
 Confirm that the URLs displayed by the `azds list-uris` command have the *azureuser2.s.dev* prefix. This prefix confirms that the current space selected is *azureuser2*, which is a child of *dev*.
@@ -183,7 +183,7 @@ $ azds up
 Using dev space 'dev/azureuser2' with target 'MyAKS'
 Synchronizing files...2s
 ...
-Service 'bikesharingweb' port 'http' is available at http:\//azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/
+Service 'bikesharingweb' port 'http' is available at http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/
 Service 'bikesharingweb' port 80 (http) is available at http://localhost:54256
 ...
 ```
@@ -202,12 +202,12 @@ If the `azds up` command is still running, press *Ctrl+c*.
 $ azds list-uris --all
 Uri                                                             Status
 --------------------------------------------------              ---------
-http:\//azureuser1.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
-http:\//azureuser1.s.dev.gateway.fedcab0987.eus.azds.io/         Available
-http:\//azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
-http:\//azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
-http:\//dev.bikesharingweb.fedcab0987.eus.azds.io/               Available
-http:\//dev.gateway.fedcab0987.eus.azds.io/                      Available
+http://azureuser1.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
+http://azureuser1.s.dev.gateway.fedcab0987.eus.azds.io/         Available
+http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
+http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
+http://dev.bikesharingweb.fedcab0987.eus.azds.io/               Available
+http://dev.gateway.fedcab0987.eus.azds.io/                      Available
 ```
 
 Navigate to the *dev* version of *bikesharingweb* in your browser, choose *Aurelia Briggs (customer)* as the user, and verify you see the original text in the upper right corner. Repeat these steps with the *dev/azureuser1* URL. Notice the changes are only applied to the *dev/azureuser2* version of *bikesharingweb*. This isolation of changes to *dev/azureuser2* allows for *azureuser2* to make changes without affecting *azureuser1*.
