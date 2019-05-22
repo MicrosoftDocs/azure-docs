@@ -29,11 +29,11 @@ Before you start using the Speech Devices SDK, you'll need to:
 
 * Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download), and extract the .zip to your working directory.
    > [!NOTE]
-   > The .zip file includes the Android sample app.
+   > The .zip file includes the Android sample app and this quickstart assumes that the app is extracted to C:\SDSDK\Android-Sample-Release
 
 * To get an [Azure subscription key for Speech Services](get-started.md)
 
-* If you plan to use the Conversation Transcription you must use a [circular microphone device](get-speech-devices-sdk.md)and the service is currently only available for "en-US" and "zh-CN" in regions, “centralus” and “eastasia”. You must have a speech key in one of those regions to use Conversation Transcription.
+* If you plan to use the Conversation Transcription you must use a [circular microphone device](get-speech-devices-sdk.md) and the service is currently only available for "en-US" and "zh-CN" in regions, “centralus” and “eastasia”. You must have a speech key in one of those regions to use Conversation Transcription.
 
 * If you plan to use the Speech Services to identify intents (or actions) from user utterances, you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
