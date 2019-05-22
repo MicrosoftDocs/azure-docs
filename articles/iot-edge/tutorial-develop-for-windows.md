@@ -44,7 +44,7 @@ The following table lists the supported development scenarios for **Windows cont
 | - | ------------------ | ------------------ |
 | **Azure services** | Azure Functions <br> Azure Stream Analytics |   |
 | **Languages** | C# (debugging not supported) | C <br> C# |
-| **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
 This tutorial teaches the development steps for Visual Studio 2017. If you would rather use Visual Studio Code, refer to the instructions in [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
 
