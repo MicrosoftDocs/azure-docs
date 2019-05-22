@@ -71,19 +71,19 @@ To create this project from scratch, and hence help reinforce the components of 
 ## Create the project and set up the environment
 
 1. In Visual Studio 2017, or later, select **New** then **Project** then **ASP.NET Core Web Application**. Give the project a name such as "FirstAzureSearch".
-![Creating a cloud project](./media/tutorial-csharp-create-first-app/azure-search-your-first-app/azure-search-project1.png)
+![Creating a cloud project](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
 
 2. After you have clicked **OK** for this project type, you will be given a second set of options that apply to this project. Select **Web Application (Model-View-Controller)**.
 
-![Creating an MVC project](./media/tutorial-csharp-create-first-app/azure-search-your-first-app/azure-search-project2.png)
+![Creating an MVC project](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
 3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There are two packages we need to install. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list. You will have to click through a few additional dialogs.
 
-![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-your-first-app/azure-search-nuget-azure.png)
+![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
 4. Now type "MVC" into the **Browse** search box and install **Microsoft.AspNet.Mvc** when it is located.
 
-![Using NuGet to add MVC libraries](./media/tutorial-csharp-create-first-app/azure-search-your-first-app/azure-search-nuget-mvc.png)
+![Using NuGet to add MVC libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-mvc.png)
 
 
 ## Initialize the Azure Search service
@@ -107,7 +107,7 @@ For this sample we are using publicly available hotel data. This data is just an
 
 2. We are not quite done with this file yet, select the properties for this file and change the **Copy to Output Directory** setting to **Copy if newer**.
 
-![Copying the app settings to the output](./media/tutorial-csharp-create-first-app/azure-search-your-first-app/azure-search-copy-if-newer.png)
+![Copying the app settings to the output](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
 
 ## Create MVC models to communicate data
 
@@ -769,7 +769,7 @@ _Search for "beach"_
 1. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search.
  
 _Search for "five star"_
- ![Searching for five star](media/tutorial-csharp-create-first-app/azure-search-five-star.png)
+ ![Searching for five star](./media/tutorial-csharp-create-first-app/azure-search-five-star.png)
 
 1. Try entering "hot" as search text. Note that it does _not_ return entries with the word "hotel" in them. Our simple search is only locating whole words.
 
