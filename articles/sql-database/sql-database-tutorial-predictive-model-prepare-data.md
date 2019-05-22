@@ -21,9 +21,7 @@ In part one of this three-part tutorial series, you'll prepare the data from an 
 
 For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
 
-This tutorial is **part one of a three-part tutorial series**.
-
-In part one, you'll learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Import a sample database into an Azure SQL database
@@ -42,7 +40,7 @@ In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn 
 
 * Azure SQL Database Server with Machine Learning Services enabled - During the public preview, Microsoft will onboard you and enable machine learning for your existing or new databases. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
-* RevoScaleR package - See [RevoScaleR](https://docs.microsoft.com/en-us/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) for options to install this package locally.
+* RevoScaleR package - See [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) for options to install this package locally.
 
 * R IDE - This tutorial uses [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
 
@@ -58,7 +56,7 @@ The sample dataset used in this tutorial has been saved to a **.bacpac** databas
 
 1. Download the file [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac).
 
-1. Follow the directions in [Import a BACPAC file to create an Azure SQL database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-import), using these details:
+1. Follow the directions in [Import a BACPAC file to create an Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-import), using these details:
 
    * Import from the **TutorialDB.bacpac** file you downloaded
    * During the public preview, choose the **Gen5/vCore** configuration for the new database
@@ -151,7 +149,7 @@ From the Azure portal, follow these steps:
 1. Select your TutorialDB database.
 1. On the **Overview** page, select **Delete**.
 
-## Next Steps
+## Next steps
 
 In part one of this tutorial series, you completed these steps:
 
