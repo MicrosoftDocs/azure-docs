@@ -79,7 +79,7 @@ az sig image-version create \
 
 ## Share the gallery
 
-We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use
+We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig list](/cli/azure/sig#az-sig-list).
 
 ```azurecli-interactive
 az sig list -o table
