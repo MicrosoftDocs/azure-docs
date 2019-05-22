@@ -14,7 +14,6 @@ ms.author: gracez
 ---
 
 # Release notes of Cognitive Services Speech Devices SDK
-
 The following sections list changes in the most recent releases.
 
 ## Cognitive Services Speech Devices SDK 1.5.0: 2019-May release

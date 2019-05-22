@@ -48,15 +48,7 @@
   - name: Analyze
     items: 
     - name: Offline evaluation
-      href: how-to-offline-evaluation.md
-  - name: Use containers
-    items:
-    - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey
-      href: personalizer-container-howto.md
-    - name: Configure containers
-      href: personalizer-container-configuration.md
-      displayName: docker, run, apikey      
+      href: how-to-offline-evaluation.md    
 - name: Reference
   items:
   - name: Samples
