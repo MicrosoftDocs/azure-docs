@@ -2,7 +2,7 @@
 title: Azure Table | Azure Marketplace
 description: Configure lead management for Azure Table.
 services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley; v-miclar
+author: dan-wesley, v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
