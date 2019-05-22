@@ -18,17 +18,7 @@ ms.custom: seoapril2019
 
 Learn how to deploy your machine learning model as a web service in the Azure cloud, or to IoT Edge devices. 
 
-The following compute targets, or compute resources, can be used to host your service deployment. 
-
-| Compute target | Deployment type | Description |
-| ----- | ----- | ----- |
-| [Local web service](#local) | Test/debug | Good for limited testing and troubleshooting.
-| [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| [Azure Container Instances (ACI)](#aci) | Testing | Good for low scale, CPU-based workloads. |
-| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
-| [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
-
-The workflow is similar for all compute targets:
+The workflow is similar regardless of [where you deploy](#target) your model:
 
 1. Register the model.
 1. Prepare to deploy (specify assets, usage, compute target)
@@ -86,6 +76,21 @@ You can register an externally created model by providing a **local path** to th
 **Time estimate**: Approximately 10 seconds.
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+
+<a name="target"></a>
+
+## Choose a compute target
+
+The following compute targets, or compute resources, can be used to host your web service deployment. 
+
+| Compute target | Usage | Description |
+| ----- | ----- | ----- |
+| [Local web service](#local) | Testing/debug | Good for limited testing and troubleshooting.
+| [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
+| [Azure Container Instances (ACI)](#aci) | Testing | Good for low scale, CPU-based workloads. |
+| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
+| [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
+
 
 ## Prepare to deploy
 
