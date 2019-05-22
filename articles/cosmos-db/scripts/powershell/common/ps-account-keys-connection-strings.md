@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Get connection strings for an Azure Cosmos account
-description: Azure PowerShell script sample - Get connection strings for an Azure Cosmos account
+title: Azure PowerShell script - Account key and connection string operations for an Azure Cosmos account
+description: Azure PowerShell script sample - Account key and connection string operations for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
 ---
 
-# Get connection strings for an Azure Cosmos account using PowerShell
+# Connection string and account key operations for an Azure Cosmos account using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,9 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-connection-string-get.ps1 "Get connection strings for an Azure Cosmos account")]
+This samples requires the resource group and account to exist. Use an existing PowerShell create sample to provision an account first.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 
 ## Clean up deployment
 

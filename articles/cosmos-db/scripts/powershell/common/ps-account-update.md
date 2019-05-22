@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell script - List all databases in an Azure Cosmos account
-description: Azure PowerShell script sample - List all databases in an Azure Cosmos account
+title: Azure PowerShell script - Update an Azure Cosmos account
+description: Azure PowerShell script sample - Update an Azure Cosmos account with added regions
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
@@ -8,7 +8,7 @@ ms.date: 05/06/2019
 ms.author: mjbrown
 ---
 
-# List all databases in an Azure Cosmos account using PowerShell
+# Update an Azure Cosmos account and add a region using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-database-list.ps1 "List all databases in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-update.ps1 "Update and add regions to an Azure Cosmos account")]
 
 ## Clean up deployment
 
@@ -34,7 +34,9 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 |**Azure Resources**| |
 | [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Gets a resource. |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Updates a resource. |
 |**Azure Resource Groups**| |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 

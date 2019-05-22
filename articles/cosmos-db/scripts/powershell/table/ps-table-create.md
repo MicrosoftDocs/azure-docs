@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create a container with conflict resolution policy in an Azure Cosmos account
-description: Azure PowerShell script sample - Create a container with conflict resolution policy in an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB create Table API table
+description:  Azure PowerShell script - Azure Cosmos DB create Table API table
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Create a container with conflict resolution policy in an Azure Cosmos account using PowerShell
+# Create a table for Azure Cosmos DB - Table API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-conflict-policy.ps1 "Create a container with conflict resolution policy in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-create.ps1 "Create a table for Table API")]
 
 ## Clean up deployment
 

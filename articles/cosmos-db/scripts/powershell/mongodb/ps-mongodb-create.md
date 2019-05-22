@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create a container with unique key policy and TTL in an Azure Cosmos account
-description: Azure PowerShell script sample - Create a container with unique key policy and TTL in an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB create MongoDB API database and collection
+description: Azure PowerShell script - Azure Cosmos DB create MongoDB API database and collection
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Create a container with unique key policy and TTL in an Azure Cosmos account using PowerShell
+# Create a database and collection for Azure Cosmos DB - MongoDB API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-unique-key-ttl.ps1 "Create a container with unique key policy and TTL in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/mongodb/ps-mongodb-create.ps1 "Create a database and collection for MongoDB API")]
 
 ## Clean up deployment
 

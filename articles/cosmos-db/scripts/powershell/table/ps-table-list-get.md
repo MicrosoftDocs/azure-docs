@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Delete a database in an Azure Cosmos account
-description: Azure PowerShell script sample - Delete a database in an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB list and get operations for Table API
+description: Azure PowerShell script - Azure Cosmos DB list and get operations for Table API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/08/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Delete a database in an Azure Cosmos account in an Azure Cosmos account using PowerShell
+# List and get tables for Azure Cosmos DB - Table API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-database-delete.ps1 "Delete a database in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-list-get.ps1 "List or get tables for Table API")]
 
 ## Clean up deployment
 
@@ -34,12 +34,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 |**Azure Resources**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Gets a resource. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Updates a resource. |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invokes an action on a resource. |
-| [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource) | Deletes a resource. |
 |**Azure Resource Groups**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 

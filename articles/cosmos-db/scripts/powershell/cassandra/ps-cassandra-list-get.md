@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create an Azure Cosmos database
-description: Azure PowerShell script sample - Create an Azure Cosmos database
+title: Azure PowerShell script - Azure Cosmos DB list and get operations for Cassandra API
+description: Azure PowerShell script - Azure Cosmos DB list and get operations for Cassandra API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Create an Azure Cosmos database using PowerShell
+# List and get keyspaces and tables for Azure Cosmos DB - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-database-create.ps1 "Create an Azure Cosmos database")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-list-get.ps1 "List or get keyspace or table for Cassandra API")]
 
 ## Clean up deployment
 

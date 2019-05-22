@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create a container in an Azure Cosmos account
-description: Azure PowerShell script sample - Create a container in an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB create Cassandra API keyspace and table
+description:  Azure PowerShell script - Azure Cosmos DB create Cassandra API keyspace and table
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Create a container in an Azure Cosmos account using PowerShell
+# Create a keyspace and table for Azure Cosmos DB - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create.ps1 "Create a container in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-create.ps1 "Create a keyspace and table for Cassandra API")]
 
 ## Clean up deployment
 

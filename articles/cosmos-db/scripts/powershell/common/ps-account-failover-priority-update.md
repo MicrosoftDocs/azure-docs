@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell script - Regenerate keys for an Azure Cosmos account
-description: Azure PowerShell script sample - Regenerate keys for an Azure Cosmos account
+title: Azure PowerShell script - Change failover priority for an Azure Cosmos account
+description: Azure PowerShell script sample - Change failover priority for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
@@ -8,7 +8,7 @@ ms.date: 05/06/2019
 ms.author: mjbrown
 ---
 
-# Regenerate keys for an Azure Cosmos account using PowerShell
+# Change failover priority for an Azure Cosmos account using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-key-regenerate.ps1 "Regenerate keys for an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account")]
 
 ## Clean up deployment
 

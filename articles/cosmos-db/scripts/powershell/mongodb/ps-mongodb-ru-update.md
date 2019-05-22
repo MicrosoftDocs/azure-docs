@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Delete a container in an Azure Cosmos account
-description: Azure PowerShell script sample - Delete a container in an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB Update RU/s for MongoDB API
+description: Azure PowerShell script - Azure Cosmos DB Update RU/s for MongoDB API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: mjbrown
 ---
 
-# Delete a container in an Azure Cosmos account using PowerShell
+# Update RU/s for a database or collection for Azure Cosmos DB - MongoDB API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-delete.ps1 "Delete a container in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/mongodb/ps-mongodb-ru-update.ps1 "Update throughput on a database or collection for MongoDB API")]
 
 ## Clean up deployment
 
@@ -33,7 +33,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Resources**| |
-| [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource) | Deletes a resource. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
