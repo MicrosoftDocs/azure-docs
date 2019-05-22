@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples for Azure Cosmos DB - Cassandra API
-description: Azure PowerShell Samples for Azure Cosmos DB - Cassandra API
+title: Azure PowerShell samples for Azure Cosmos DB - Cassandra API
+description: Azure PowerShell samples for Azure Cosmos DB - Cassandra API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample

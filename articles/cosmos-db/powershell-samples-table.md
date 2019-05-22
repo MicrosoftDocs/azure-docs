@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples for Azure Cosmos DB - Table API
-description: Azure PowerShell Samples for Azure Cosmos DB - Table API
+title: Azure PowerShell samples for Azure Cosmos DB - Table API
+description: Azure PowerShell samples for Azure Cosmos DB - Table API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
