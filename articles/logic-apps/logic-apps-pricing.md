@@ -163,11 +163,7 @@ For specific pricing information, see
 
 ## Data retention
 
-All inputs and outputs that are stored in your logic 
-app's run history get billed based on a logic app's 
-[run retention period](logic-apps-limits-and-config.md#run-duration-retention-limits). 
-For specific pricing information, see 
-[Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+Except for logic apps that run in an integration service environment (ISE), all inputs and outputs that are stored in your logic app's run history get billed based on a logic app's [run retention period](logic-apps-limits-and-config.md#run-duration-retention-limits). Logic apps that run in an ISE don't incur data retention costs. For specific pricing information, see [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 To help you monitor your logic app's storage consumption, you can:
 
