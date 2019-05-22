@@ -5,7 +5,6 @@ services: security- center
 documentationcenter: na
 author: monhaber 
 manager: barbkess 
-editor: ****
 
 ms.assetid: 2730a2f5-20bc-4027-a1c2-db9ed0539532
 ms.service: security-center
