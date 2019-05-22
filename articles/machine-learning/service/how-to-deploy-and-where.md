@@ -31,7 +31,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 - A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
 ## <a id="registermodel"></a> Register your model
 
@@ -48,6 +48,11 @@ Register your machine learning models in your Azure Machine Learning workspace. 
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
+
+
++ **Using VS Code**
+
+  Register models using any model files or folders with the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
 
 ### Register an externally created model
 
@@ -270,6 +275,11 @@ To see quota and region availability for ACI, see the [Quotas and region availab
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
+
++ **Using VS Code**
+
+  To [deploy your models with VS Code](how-to-vscode-tools.md#deploy-and-manage-models) you don't need to create an ACI container to test in advance, because ACI containers are created on the fly.
+
 ### <a id="aks"></a>Azure Kubernetes Service (PRODUCTION)
 
 You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
@@ -289,14 +299,16 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
   print(service.state)
   print(service.get_logs())
   ```
-
-  Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
-
 + **Using the CLI**
 
   ```azurecli-interactive
   az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
++ **Using VS Code** 
+
+  You can also [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models), but you'll need to configure AKS clusters in advance.
+
+  Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 #### Create a new AKS cluster<a id="create-attach-aks"></a>
 **Time estimate:** Approximately 5 minutes.
