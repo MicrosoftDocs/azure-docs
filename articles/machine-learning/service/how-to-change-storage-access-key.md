@@ -28,6 +28,8 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 * The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
+<a id="whattoupdate"></a>
+
 ## What needs to be updated
 
 Storage accounts can be used by the Azure Machine Learning service workspace (storing logs, models, snapshots, etc.) and as a datastore. The process to update the workspace is a single Azure CLI command, and can be ran after updating the storage key. The process of updating datastores is more involved, and requires discovering what datastores are currently using the storage account and then re-registering them.
@@ -85,7 +87,7 @@ To update Azure Machine Learning service to use the new key, use the following s
 
         This command automatically syncs the new keys for the Azure storage account used by the workspace.
 
-1. To re-register datastore(s) that use the storage account, use the values from the [What needs to be updated](#what_needs_to_be_updated) section and the key from step 1 with the following code:
+1. To re-register datastore(s) that use the storage account, use the values from the [What needs to be updated](#whattoupdate) section and the key from step 1 with the following code:
 
     ```python
     ds = Datastore.register_azure_blob_container(workspace=ws, 
