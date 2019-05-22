@@ -21,7 +21,7 @@ To make videos in the output Asset available to clients for playback, you have t
 
 The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a **Streaming Locator**, you must specify the **Asset** name and the **Streaming Policy** name. For more information, see the following topics:
+When creating a **Streaming Locator**, you must specify an **Asset** name and a **Streaming Policy** name. For more information, see the following topics:
 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
