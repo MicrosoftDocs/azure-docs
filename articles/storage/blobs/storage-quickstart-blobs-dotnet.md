@@ -148,14 +148,16 @@ namespace blob_quickstart
     {
         public static void Main()
         {
+            Console.WriteLine("Azure Blob Storage - .NET quickstart sample");
+            Console.WriteLine();
             ProcessAsync().GetAwaiter().GetResult();
+
             Console.WriteLine("Press any key to exit the sample application.");
             Console.ReadLine();
         }
 
         private static async Task ProcessAsync()
         {
-
         }
     }
 }
