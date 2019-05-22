@@ -71,6 +71,6 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 ## Next steps
 See the other Data Flow articles:
 
-- [Data Flow overview](data-flow-overview.md)
-- [Data Flow activity ](control-flow-execute-data-flow-activity.md)
+- [Data Flow overview](concepts-data-flow-overview.md)
+- [Data Flow activity](control-flow-execute-data-flow-activity.md)
 
