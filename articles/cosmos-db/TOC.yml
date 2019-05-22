@@ -218,6 +218,8 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
+    - name: Limits
+      href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
@@ -514,6 +516,8 @@
         href: data-explorer.md
       - name: Manage indexing policies
         href: how-to-manage-indexing-policy.md
+      - name: Define unique keys
+        href: how-to-define-unique-keys.md
       - name: SQL subquery examples
         displayName: subquery, exists
         href: how-to-sql-subquery.md

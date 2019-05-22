@@ -46,7 +46,7 @@ If a data asset is already owned, other users cannot simply take ownership. They
 ### Remove owners
 Just as any asset owner can add co-owners, any asset owner can remove any co-owner.
 
-An asset owner who removes him or herself as an owner can no longer manage the asset. If the asset owner removes him or herself as an owner and there are no other co-owners, the asset reverts to an unowned state.
+An asset owner who removes themself as an owner can no longer manage the asset. If the asset owner removes themself as an owner and there are no other co-owners, the asset reverts to an unowned state.
 
 ## Control visibility
 Data-asset owners can control the visibility of the data assets they own. To restrict visibility as the default, where all Data Catalog users can discover and view the data asset, the asset owner can toggle the visibility setting from **Everyone** to **Owners & These Users** in the properties for the asset. Owners can then add specific users and security groups.

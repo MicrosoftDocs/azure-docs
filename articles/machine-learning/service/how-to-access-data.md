@@ -27,7 +27,7 @@ This how-to shows examples of the following tasks:
 
 ## Prerequisites
 
-To use datastores, you first need a [workspace](concept-azure-machine-learning-architecture.md#workspace).
+To use datastores, you first need a [workspace](concept-workspace.md).
 
 Start by either [creating a new workspace](setup-create-workspace.md#sdk) or retrieving an existing one:
 

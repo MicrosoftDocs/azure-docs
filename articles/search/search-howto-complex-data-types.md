@@ -8,7 +8,7 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
 ---
 # How to model complex data types in Azure Search
@@ -30,26 +30,26 @@ The following JSON document is composed of simple fields and complex fields. Com
 
 ```json
 {
-	"HotelId": "1",
-	"HotelName": "Secret Point Motel",
-	"Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
-	"Address": {
-		"StreetAddress": "677 5th Ave",
-		"City": "New York",
-		"StateProvince": "NY"
-	},
-	"Rooms": [
-		{
-			"Description": "Budget Room, 1 Queen Bed (Cityside)",
-			"Type": "Budget Room",
-			"BaseRate": 96.99,
-		},
-		{
-			"Description": "Deluxe Room, 2 Double Beds (City View)",
-			"Type": "Deluxe Room",
-			"BaseRate": 150.99,
-		},
-	]
+  "HotelId": "1",
+  "HotelName": "Secret Point Motel",
+  "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Address": {
+    "StreetAddress": "677 5th Ave",
+    "City": "New York",
+    "StateProvince": "NY"
+  },
+  "Rooms": [
+    {
+      "Description": "Budget Room, 1 Queen Bed (Cityside)",
+      "Type": "Budget Room",
+      "BaseRate": 96.99,
+    },
+    {
+      "Description": "Deluxe Room, 2 Double Beds (City View)",
+      "Type": "Deluxe Room",
+      "BaseRate": 150.99,
+    },
+  ]
 }
 ```
 
@@ -67,62 +67,29 @@ Indexers are a different story. When defining an indexer, in particular one used
 
 ```json
 {
-	"name": "hotels",
-	"fields": [
-		{	"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true 	},
-		{	"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
-		{ "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
-		{	"name": "Address", "type": "Edm.ComplexType",
-			"fields": [{
-					"name": "StreetAddress",
-					"type": "Edm.String",
-					"filterable": false,
-					"sortable": false,
-					"facetable": false,
-					"searchable": true 	},
-				{
-					"name": "City",
-					"type": "Edm.String",
-					"searchable": true,
-					"filterable": true,
-					"sortable": true,
-					"facetable": true
-				},
-				{
-					"name": "StateProvince",
-					"type": "Edm.String",
-					"searchable": true,
-					"filterable": true,
-					"sortable": true,
-					"facetable": true
-				}
-			]
-		},
-		{
-			"name": "Rooms",
-			"type": "Collection(Edm.ComplexType)",
-			"fields": [{
-					"name": "Description",
-					"type": "Edm.String",
-					"searchable": true,
-					"analyzer": "en.lucene"
-				},
-				{
-					"name": "Type",
-					"type": "Edm.String",
-					"searchable": true
-				},
-				{
-					"name": "BaseRate",
-					"type": "Edm.Double",
-					"filterable": true,
-					"facetable": true
-				},
-			]
-		}
-	]
+  "name": "hotels",
+  "fields": [
+    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true 	},
+    { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+    { "name": "Address", "type": "Edm.ComplexType",
+      "fields": [
+        { "name": "StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true },
+        { "name": "City", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+        { "name": "StateProvince", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true }
+      ]
+    },
+    { "name": "Rooms", "type": "Collection(Edm.ComplexType)",
+      "fields": [
+        { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+        { "name": "Type", "type": "Edm.String", "searchable": true },
+        { "name": "BaseRate", "type": "Edm.Double", "filterable": true, "facetable": true }
+      ]
+    }
+  ]
 }
 ```
+
 ## Updating complex fields
 
 All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main rules here, adding a field does not require an index rebuild, but most modifications do.

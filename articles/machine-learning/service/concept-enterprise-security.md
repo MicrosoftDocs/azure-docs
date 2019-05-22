@@ -96,7 +96,7 @@ Azure Machine Learning service creates an additional application (name starts wi
 
 The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. These compute targets can be created inside a virtual network. For example, you can use the Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS).  
 
-For more information, see [How to run experiments and inferencing in a virtual network](how-to-enable-virtual-network.md).
+For more information, see [How to run experiments and inference in a virtual network](how-to-enable-virtual-network.md).
 
 ## Data encryption
 
@@ -152,7 +152,7 @@ The following diagram shows the create workspace workflow.
 User logs into Azure AD from any of the supported Azure Machine Learning service clients (CLI, Python SDK, Azure portal) and requests the appropriate Azure Resource Manager token.  User then calls Azure Resource Manager to create the workspace.  Azure Resource Manager contacts the Azure Machine Learning service Resource Provider to provision the workspace.  Additional resources are created in the customer’s subscription during workspace creation:
 * KeyVault (to store secrets)
 * An Azure Storage account (including Blob & FileShare)
-* Azure Container Registry (to store docker images for inferencing and experimentation)
+* Azure Container Registry (to store docker images for inference/scoring and experimentation)
 * Application Insights (to store telemetry)
 
 Other computes attached to a workspace (Azure Kubernetes Service, VM etc.) can also be provisioned by customers as needed. 
@@ -188,7 +188,7 @@ This step is shown in the flow where training compute writes the *Run Metrics* b
 ![Screenshot showing create workspace workflow](./media/enterprise-readiness/training-and-metrics.png)
 
 ### Creating web services
-The following diagram shows the inferencing workflow in which model is deployed as a web service.
+The following diagram shows the inference workflow. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 See details below:
 * User registers a model using a client like Azure ML SDK
 * User creates image using model, score file, and other model dependencies
