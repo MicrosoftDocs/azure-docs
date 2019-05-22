@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/02/2019
+ms.date: 05/21/2019
 
 ms.custom: seoapril2019
 ---
 
 # Deploy models with the Azure Machine Learning service
 
-Learn how to deploy your machine learning model as a web service in the Azure cloud, or to IoT Edge devices. The information in this document teaches you how to deploy to the following compute targets:
+Learn how to deploy your machine learning model as a web service in the Azure cloud, or to IoT Edge devices. 
+
+The following compute targets, or compute resources, can be used to host your service deployment. 
 
 | Compute target | Deployment type | Description |
 | ----- | ----- | ----- |
@@ -26,25 +28,24 @@ Learn how to deploy your machine learning model as a web service in the Azure cl
 | [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
 
-## Deployment workflow
+The workflow is similar for all compute targets:
 
-The process of deploying a model is similar for all compute targets:
-
-1. Register model(s).
-1. Deploy model(s).
-1. Test deployed model(s).
+1. Register the model.
+1. Prepare to deploy (specify assets, usage, compute target)
+1. Deploy the model to the compute target.
+1. Test the deployed model, also called web service.
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
-## Prerequisites for deployment
+## Prerequisites
 
 - A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
-## <a id="registermodel"></a> Register a machine learning model
+## <a id="registermodel"></a> Register ML models
 
-The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or imported from a model trained elsewhere. The following examples demonstrate how to register a model from file:
+Register your machine learning models in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
 
 ### Register a model from an Experiment Run
 
@@ -86,7 +87,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## How to deploy
+## Prepare to deploy
 
 To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. In the inference config, you specify the scripts and dependencies needed to serve your model. In the deployment config you specify details of how to serve the model on the compute target.
 
