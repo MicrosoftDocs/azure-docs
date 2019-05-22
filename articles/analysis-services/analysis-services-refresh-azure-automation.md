@@ -143,7 +143,7 @@ The **body** is a JSON document which should contain the following properties:
 |Property  |Value  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |The name of the Azure Analysis Services database <br/> Example: AdventureWorksDB         |
-|**AnalysisServicesServer**     |The Azure Analysis Services server name. <br/> Example: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**AnalysisServicesServer**     |The Azure Analysis Services server name. <br/> Example: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |The type of refresh to perform. <br/> Example: Full         |
 
 Example JSON body:
