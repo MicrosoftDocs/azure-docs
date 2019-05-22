@@ -693,6 +693,8 @@
     items:
     - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
+    - name: Diagnose common termination errors
+      href: service-fabric-diagnostics-common-termination-errors.md
     - name: Monitor applications
       items:
       - name: Add logging to your application
