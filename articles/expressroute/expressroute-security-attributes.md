@@ -41,14 +41,14 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [ExpressRoute monitoring, metrics, and alerts](expressroute-monitoring-metrics-alerts.md).|
 
 ## Identity and access management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Service account for GWM (controller); JIT for Dev and ER Ops |
-| Authorization|  Yes | Service account for GWM (controller); JIT for Dev and ER Ops  |
+| Authentication| Yes | Service account for Gateway for Microsoft (GWM) (controller); Just in Time (JIT) access for Dev and OP. |
+| Authorization|  Yes |Service account for Gateway for Microsoft (GWM) (controller); Just in Time (JIT) access for Dev and OP. |
 
 
 ## Audit trail
@@ -62,4 +62,4 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration, etc.)| Yes | Via NRP |
+| Configuration management support (versioning of configuration, etc.)| Yes | Via the Network Resource Provider (NRP). |
