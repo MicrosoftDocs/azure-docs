@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -114,7 +114,7 @@ To enable access reviews, follow these steps.
 
 ## License requirements for using Azure AD access reviews
 
-[!INCLUDE [GDPR-related guidance](../../../includes/active-directory-p2-license.md)]
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## Next steps
 
