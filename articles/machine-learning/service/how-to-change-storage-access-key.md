@@ -57,7 +57,7 @@ This code looks for any registered datastores that use Azure Storage and lists t
 
 If an entry exists for the storage account that you plan on regenerating access keys for, save the datastore name, storage account name, and container name.
 
-## Update the key in Azure Machine Learning
+## Update the access key
 
 To update Azure Machine Learning service to use the new key, use the following steps:
 
