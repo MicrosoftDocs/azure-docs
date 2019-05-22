@@ -25,7 +25,8 @@ For more information about Application Proxy, see:
 
 - [Remote access to on-premises applications through Application Proxy](application-proxy.md)
 - [Application Proxy connectors](application-proxy-connectors.md)
-- [Install and register a connector](application-proxy-add-on-premises-application.md) 
+- [Install and register a connector](application-proxy-add-on-premises-application.md)
+- [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)
 
 ## Flowchart for application issues
 
@@ -35,7 +36,7 @@ This flowchart walks you through the steps for debugging some of the more common
 
 |  | Action | Description | 
 |---------|---------|---------|
-|1 | Open a browser, access the app, and enter your credentials | Try using your credentials to sign in to the app, and check for any user-related errors, like [This corporate app can't be accessed](application-proxy-sign-in-bad-gateway-timeout-error.md). To learn more about preparing for remote application access, see  [Tutorial: Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md). |
+|1 | Open a browser, access the app, and enter your credentials | Try using your credentials to sign in to the app, and check for any user-related errors, like [This corporate app can't be accessed](application-proxy-sign-in-bad-gateway-timeout-error.md). |
 |2 | Verify user assignment to the app | Make sure your user account has permission to access the app from inside the corporate network, and then test signing in to the app by following the steps in [Test the application](application-proxy-add-on-premises-application.md#test-the-application). If sign-in issues persist, see [How to troubleshoot sign-in errors](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-troubleshoot-sign-in-errors).  |
 |3 | Open a browser and try to access the app | If an error appears immediately, check to see that Application Proxy is configured correctly. For details about specific error messages, see [Troubleshoot Application Proxy problems and error messages](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot).  |
 |4 | Check your custom domain setup or troubleshoot the error | If the page doesn't display at all, make sure your custom domain is configured correctly by reviewing [Working with custom domains](application-proxy-configure-custom-domain.md).<br></br>If the page doesn't load and an error message appears, troubleshoot the error by referring to  [Troubleshoot Application Proxy problems and error messages](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot). <br></br>If it takes longer than 20 seconds for an error message to appear, there could be connectivity issue. Go to the [Debug Application Proxy connectors](application-proxy-debug-connectors.md) troubleshooting article.  |

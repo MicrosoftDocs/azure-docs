@@ -26,7 +26,8 @@ For more information about Application Proxy and using its connectors, see:
 
 - [Remote access to on-premises applications through Application Proxy](application-proxy.md)
 - [Application Proxy connectors](application-proxy-connectors.md)
-- [Install and register a connector](application-proxy-add-on-premises-application.md) 
+- [Install and register a connector](application-proxy-add-on-premises-application.md)
+- [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)
 
 ## Flowchart for connector issues
 
@@ -45,7 +46,7 @@ This flowchart walks you through the steps for debugging some of the more common
 |7 | Load the app's internal URL on the connector server | On the connector server, load the app's internal URL. |
 |8 | Check internal network connectivity | There's a connectivity issue in your internal network that this debugging flow is unable to diagnose. The application must be accessible internally for the connectors to work. You can enable and view connector event logs as described in [Application Proxy connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). |
 |9 | Lengthen the time-out value on the back end | In the **Additional Settings** for your application, change the **Backend Application Timeout** setting to **Long**. See [Add an on-premises app to Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad). |
-|10 | Target specific flow issues, review app and SSO debugging flows. | Use the [Debug Application Proxy application issues](application-proxy-debug-apps.md) troubleshooting flow. |
+|10 | If issues persist, target specific flow issues, review app and SSO debugging flows | Use the [Debug Application Proxy application issues](application-proxy-debug-apps.md) troubleshooting flow. |
 
 ## Next steps
 
