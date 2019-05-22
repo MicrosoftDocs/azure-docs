@@ -107,9 +107,8 @@ For information about when recommendations are generated for each of these prote
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
 >
->
 
-## Supported PaaS features 
+## Supported PaaS features
 
 
 |Service|Recommendations|Threat detection|
