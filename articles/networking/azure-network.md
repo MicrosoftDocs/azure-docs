@@ -22,14 +22,18 @@ Every day, customers around the world connect to Microsoft Azure, Bing, Dynamics
 
 The Microsoft global wide-area network (WAN) plays an important part in delivering a great cloud service experience. Connecting hundreds of datacenters in 54 regions around the world, our global network offers the availability, high capacity, and the flexibility to respond to unpredictable demand spikes. 
 
-## Best network experience out of the box 
+## Best network experience out of the box
+ 
 You want a fast, reliable response when you use Microsoft services. Data travels over our network at nearly the speed of light; network speed, or latency, is a function of distance from the customer to the datacenter. 
 
 Customer traffic enters our global network through strategically placed Microsoft Edge nodes, our points of presence. These edge nodes are directly interconnected to more than 3500 unique Internet partners through thousands of connections in more than 145 locations. Our rich interconnection strategy optimizes the paths that data travels on our global network. Customers get a better network experience with less latency, jitter, and packet loss with more throughput. Direct interconnections give customers better quality of service compared to transit links, because there are fewer hops, fewer parties, and better networking paths. 
 
-Say you’re in London and the service is in Tokyo: Internet traffic enters one of our edges in London, goes over Microsoft WAN through France, our Trans-Arabia paths between Europe and India and then to Japan where the service is hosted. Response traffic is symmetric. This is sometimes referred to as [cold-potato routing, which means that traffic stays on Microsoft network as long as possible before we hand it off. 
+Say you’re in London and the service is in Tokyo: Internet traffic enters one of our edges in London, goes over Microsoft WAN through France, our Trans-Arabia paths between Europe and India and then to Japan where the service is hosted. Response traffic is symmetric. This is sometimes referred to as [cold-potato routing](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), which means that traffic stays on Microsoft network as long as possible before we hand it off. 
 
-Azure traffic between our datacenters stays on our network and does not flow over the Internet. This includes all traffic between Microsoft services anywhere in the world. For example, within Azure, traffic between virtual machines, storage, and SQL communication traverses only the Microsoft network, regardless of the source and destination region. [Intra-region VNet-to-VNet traffic](../virtual-network/virtual-network-peering-overview.md), as well as [cross-region VNet-to-VNet traffic](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), stays on our secure Microsoft network. 
+Azure traffic between our datacenters stays on our network and does not flow over the Internet. This includes all traffic between Microsoft services anywhere in the world. For example, within Azure, traffic between virtual machines, storage, and SQL communication traverses only the Microsoft network, regardless of the source and destination region. [Intra-region VNet-to-VNet traffic](../virtual-network/virtual-network-peering-overview.md), as well as [cross-region VNet-to-VNet traffic](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), stays on our secure Microsoft network.
+
+![Microsoft global WAN](./media/azure-network/microsoft-global-wan.png)
+*Figure 1: Microsoft global WAN*
 
 To support the tremendous growth of our cloud services and maintain consistent service level agreements, we have invested massively in fiber capacity and diversity in metro, terrestrial and submarine paths. Our [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) submarine cable, industry’s first Open Line System (OLS) over subsea, between Bilbao, Spain and Virginia Beach, Virginia, USA is live as well as [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) between New York, USA and Dublin, Ireland and [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) between Tokyo, Japan, and Portland, Oregon, USA.
 
