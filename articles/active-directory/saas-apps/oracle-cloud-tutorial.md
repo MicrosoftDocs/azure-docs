@@ -105,28 +105,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Oracle Cloud application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	1. Click the **pen** next to **Name identifier value**.
+	a. Click the **pen** next to **Name identifier value**.
 
 	![image](./media/oracle-cloud-tutorial/config07.png)
 
 	![image](./media/oracle-cloud-tutorial/config11.png)
 
-	1. Select **Persistent** as **Choose name identifier format**.
-
-	1. Click **Save**.
-
-	1. Click the **pen** next to **Groups returned in claim**.
+	b. Select **Persistent** as **Choose name identifier format**.
+	c. Click **Save**.
+	d. Click the **pen** next to **Groups returned in claim**.
 
 	![image](./media/oracle-cloud-tutorial/config12.png)
 
 	![image](./media/oracle-cloud-tutorial/config08.png)
 
-	1. Select **Security groups** from the radio list.
-	1. Select **Source Attribute** of **Group ID**.
-	1. Check **Customize the name of the group claim**.
-	1. In the **Name** text box, type **groupName**.
-	1. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
-	1. Click **Save**.
+	e. Select **Security groups** from the radio list.
+	f. Select **Source Attribute** of **Group ID**.
+	g. Check **Customize the name of the group claim**.
+	h. In the **Name** text box, type **groupName**.
+	i. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
+	j. Click **Save**.
 
 1. On the **Set up Oracle Cloud** section, copy the appropriate URL(s) based on your requirement.
 
@@ -160,7 +158,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Configuration](./media/oracle-cloud-tutorial/config09.png)
 
-	f. For **IDENTITY PROVIDER GROUP** fields, enter the group name and group id that are setup in Azure portal. The group needs to be mapped with corresponding group in **OCI GROUP** field.
+	f. For **IDENTITY PROVIDER GROUP** fields, enter the group name and group id that are set up in Azure portal. The group needs to be mapped with corresponding group in **OCI GROUP** field.
 
 	g. You can map multiple groups as per your setup in Azure portal and your organization need. Click on **+ Add mapping** to add as many groups as you need.
 
@@ -198,11 +196,11 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 ### Create Oracle Cloud test user
 
- Oracle Cloud supports just-in-time provisioning, which is by default. There is no action item for you in this section. A new user do not get created during an attempt to access and also no need to create the user.
+ Oracle Cloud supports just-in-time provisioning, which is by default. There is no action item for you in this section. A new user does not get created during an attempt to access and also no need to create the user.
 
 ### Test SSO
 
-When you select the Oracle Cloud tile in the Access Panel, you will be redirected to the Oracle Cloud sign in page. Select the **IDENTITY PROVIDER** from the drop down menu and click **Continue** as shown below to sign in. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Oracle Cloud tile in the Access Panel, you will be redirected to the Oracle Cloud sign in page. Select the **IDENTITY PROVIDER** from the drop-down menu and click **Continue** as shown below to sign in. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ![Configuration](./media/oracle-cloud-tutorial/config10.png)
 
