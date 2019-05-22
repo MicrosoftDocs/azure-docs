@@ -106,7 +106,7 @@ For limits on assembly quantities in integration accounts, see
 [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
 > [!NOTE]
-> If you change your assembly, you must also update your map despite whether or not the map has changes.
+> If you change your assembly, you must also update your map whether or not the map has changes.
 
 <a name="smaller-assembly"></a>
 
