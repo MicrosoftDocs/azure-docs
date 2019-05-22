@@ -22,7 +22,8 @@ Every day, customers around the world connect to Microsoft Azure, Bing, Dynamics
 
 The Microsoft global wide-area network (WAN) plays an important part in delivering a great cloud service experience. Connecting hundreds of datacenters in 54 regions around the world, our global network offers the availability, high capacity, and the flexibility to respond to unpredictable demand spikes. 
 
-## Best network experience out of the box 
+## Best network experience out of the box
+ 
 You want a fast, reliable response when you use Microsoft services. Data travels over our network at nearly the speed of light; network speed, or latency, is a function of distance from the customer to the datacenter. 
 
 Customer traffic enters our global network through strategically placed Microsoft Edge nodes, our points of presence. These edge nodes are directly interconnected to more than 3500 unique Internet partners through thousands of connections in more than 145 locations. Our rich interconnection strategy optimizes the paths that data travels on our global network. Customers get a better network experience with less latency, jitter, and packet loss with more throughput. Direct interconnections give customers better quality of service compared to transit links, because there are fewer hops, fewer parties, and better networking paths. 
