@@ -1,6 +1,6 @@
 ---
 title: Tutorial for using feature flags in a .NET Core app | Microsoft Docs
-description: In this tutorial, you learn how to implement feature flags in .NET Core apps
+description: In this tutorial, you learn how to implement feature flags in .NET Core apps.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -16,23 +16,24 @@ ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
 
-#Customer intent: I want to control feature availability in my app using .NET Core Feature Manager library.
+#Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
 ---
+
 # Tutorial: Use feature flags in a .NET Core app
 
-The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in an .NET or ASP.NET Core application. They allow you to add feature flags to your code more declaratively so that you do not have to write all the `if` statements for them manually. They manage feature flag lifecycles (for example, refresh and cache flag states, guarantee a flag state to be immutable during a request call) behind the scene. In addition, the ASP.NET Core library offers out-of-the-box integrations including MVC controller actions, views, routes, and middleware.
+The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in a .NET or ASP.NET Core application. These libraries allow you to add feature flags to your code more declaratively so that you don't have to write all the `if` statements for them manually. These libraries manage feature flag lifecycles (for example, they refresh and cache flag states, or guarantee a flag state to be immutable during a request call) behind the scenes. In addition, the ASP.NET Core library offers out-of-the-box integrations, including MVC controller actions, views, routes, and middleware.
 
-The [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) quickstart shows a number of ways to add feature flags in an ASP.NET Core application. This tutorial explains these in more details. See the [ASP.NET Core feature management documentation](https://go.microsoft.com/fwlink/?linkid=2091410) for a complete reference.
+The [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) Quickstart shows a number of ways to add feature flags in an ASP.NET Core application. This tutorial explains these methods in more detail. See the [ASP.NET Core feature management documentation](https://go.microsoft.com/fwlink/?linkid=2091410) for a complete reference.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add feature flags in key parts of your application to control feature availability.
-> * Integrate with App Configuration when using it to manage feature flags.
+> * Integrate with App Configuration when you're using it to manage feature flags.
 
 ## Setup
 
-The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. Feature manager relies on .NET Core dependency injection. You can register the feature management services using standard conventions.
+The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. Feature manager relies on .NET Core dependency injection. You can register the feature management services by using standard conventions.
 
 ```csharp
 using Microsoft.FeatureManagement;
