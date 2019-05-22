@@ -5992,7 +5992,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Stack</h3>
-                                                    <p>Extended Azure services and capabilities on-premises, to build and deploy hybrid cloud and edge applications across cloud boundaries</p>
+                                                    <p>Extend Azure services and capabilities on-premises, to build and deploy hybrid cloud and edge applications across cloud boundaries</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6011,7 +6011,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Stack Operator</h3>
-                                                    <p>Deliver Azure services from your own datacenter with this new hybrid cloud platform</p>
+                                                    <p>Learn how to manage the Azure Stack integrated systems infrastructure and how to offer services</p>
                                                 </div>
                                             </div>
                                         </div>
