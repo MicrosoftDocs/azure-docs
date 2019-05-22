@@ -26,7 +26,7 @@ Use the Azure Blob Storage client library for .NET to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * NET Core 2.1 for your operating system - If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer.
 
    # [Windows](#tab/windows)
@@ -50,7 +50,7 @@ Use the Azure Blob Storage client library for .NET to:
 
 ## Create the app
 
-Create a .NET Core application named **blob-quickstart**. For simplicity, this app will both send and receive messages through the queue.
+Create a .NET Core application named **blob-quickstart**.
 
 1. In a console window (such as CMD, PowerShell, or Azure CLI), use the `dotnet new` command to create a new console app with the name **blob-quickstart**. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
@@ -70,7 +70,7 @@ Create a .NET Core application named **blob-quickstart**. For simplicity, this a
 
 ## Install the package
 
-Navigate to your application directory and install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
+While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
 
 ```console
 dotnet add package Microsoft.Azure.Storage.Blob
@@ -114,6 +114,7 @@ After you add the environment variable, run `source .bash_profile` from your con
 
 You'll learn how to:
 
+   * [Setup up the app framework](#setup-up-the-app-framework)
    * [Try parsing the connection string](#try-parsing-the-connection-string)
    * [Create a container](#create-a-container)
    * [Set permissions on a container](#set-permissions-on-a-container)
@@ -122,9 +123,49 @@ You'll learn how to:
    * [Download blobs](#download-blobs)
    * [Clean up resources](#clean-up-resources)
 
+### Setup up the app framework
+
+From the project directory:
+
+1. Open the Program.cs file in your editor
+2. Remove the **Console.WriteLine** statement
+3. Add **using** directives
+4. Create a **ProcessAsync** method where the main code for the example will reside
+5. Asynchronously call the **ProcessAsync** method from **Main**
+
+Your app should look like the following C# code:
+
+```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+
+namespace blob_quickstart
+{
+    class Program
+    {
+        public static void Main()
+        {
+            ProcessAsync().GetAwaiter().GetResult();
+            Console.WriteLine("Press any key to exit the sample application.");
+            Console.ReadLine();
+        }
+
+        private static async Task ProcessAsync()
+        {
+
+        }
+    }
+}
+```
+
 ### Try parsing the connection string
 
-The first thing that the example does is to check that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
+The code below checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
+
+Add this code inside the **ProcessAsync** method:
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -151,6 +192,8 @@ else
     Console.ReadLine();
 }
 ```
+
+All the rest of the code in this article replaces the ellipses (**...**) in the code above.
 
 ### Create a container
 
@@ -185,13 +228,13 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### Upload blobs to a container
 
-The code example gets a reference to a **CloudBlockBlob** object by calling the [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) method on the container created in the previous section. It then uploads the selected local file to the blob by calling the [​Upload​From​FileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+The following code snippet gets a reference to a **CloudBlockBlob** object by calling the [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) method on the container created in the previous section. It then uploads the selected local file to the blob by calling the [​Upload​From​FileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
 string localPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 string localFileName = "QuickStart_" + Guid.NewGuid().ToString() + ".txt";
-sourceFile = Path.Combine(localPath, localFileName);
+string sourceFile = Path.Combine(localPath, localFileName);
 // Write text to the file.
 File.WriteAllText(sourceFile, "Hello, World!");
 
@@ -234,14 +277,14 @@ Download the blob created previously to your local file system by using the [​
 ```csharp
 // Download the blob to a local file, using the reference created earlier.
 // Append the string "_DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
-destinationFile = sourceFile.Replace(".txt", "_DOWNLOADED.txt");
+string destinationFile = sourceFile.Replace(".txt", "_DOWNLOADED.txt");
 Console.WriteLine("Downloading blob to {0}", destinationFile);
 await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);  
 ```
 
 ### Clean up resources
 
-The example cleans up the resources that it created by deleting the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
+The following code cleans up the resources the app created by deleting the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the example files, example container, and exit the application.");
@@ -263,7 +306,11 @@ This app creates a test file in your local **MyDocuments** folder and uploads it
 
 If you are using Visual Studio as your editor, you can press **F5** to run.
 
-Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
+Otherwise, navigate to your application directory, then build and run the application.
+
+```console
+dotnet build
+```
 
 ```console
 dotnet run
