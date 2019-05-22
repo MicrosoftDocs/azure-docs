@@ -418,9 +418,12 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
     | Supported source data store type | Supported source authentication type |
     |:--- |:--- |
-    | [Azure Blob](connector-azure-blob-storage.md) | Account key authentication |
+    | [Azure Blob](connector-azure-blob-storage.md) | Account key authentication, managed identity authentication |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Service principal authentication |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication, managed identity authentication |
+
+    >[!IMPORTANT]
+    >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication. Refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview?)
 
 2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
