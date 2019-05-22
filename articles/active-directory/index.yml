@@ -274,3 +274,4 @@ additionalContent:
         url: https://docs.microsoft.com/powershell/module/azuread/
       - title: Azure CLI commands for Azure AD
         summary: Find the Azure AD commands in the CLI reference.
+        url: https://docs.microsoft.com/cli/azure/ad
