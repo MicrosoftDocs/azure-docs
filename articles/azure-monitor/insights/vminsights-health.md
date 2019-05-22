@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
 ---
 
@@ -80,7 +80,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Before diving into using the Health feature for a single virtual machine or group of VMs, it's important we provide a brief introduction so you understand how the information is presented and what the visualizations represent.  
 
-## View health directly from a virtual machine 
+### View health directly from a virtual machine 
 
 To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM insights page, **Health** is open by default and shows the health view of the VM.  
 
@@ -91,11 +91,22 @@ On the **Health** tab, under the section **Guest VM health**, the table shows th
 The health states defined for a VM are described in the following table: 
 
 |Icon |Health state |Meaning |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |Healthy |Health state is healthy if it is within the defined health conditions, indicating no issues detected for the VM and it is functioning as required. With a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Critical |Health state is critical if it is not within the defined health condition, indicating that one or more critical issues were detected, which need to be addressed in order to restore normal functionality. With a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Warning |Health state is warning if it is between two thresholds for the defined health condition, where one indicates a *Warning* state and the other indicates a *Critical* state (three health state thresholds can be configured), or when a non-critical issue is detected which may cause critical problems if not resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect *warning* state. If there is a child that is in a *Critical* and another child in a *Warning* state, the parent rollup will show a health state of *Critical*.|
-| |Unknown |Health state is in an *Unknown* state when the health state cannot be computed for several reasons, such as not able to collect data, service uninitialized, etc. This health state is not configurable.| 
+| |Unknown |Health state is *Unknown* when it cannot be computed for several reasons. See the following footnote <sup>1</sup> for additional details and possible solutions to solve them. |
+
+<sup>1</sup>
+The Unknown health state is caused by the following issues:
+
+- Agent has been reconfigured and no longer reports to the workspace specified when Azure Monitor for VMs was enabled. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- VM has been deleted.
+- Workspace associated with Azure Monitor for VMs is deleted. To recover the workspace, if you have Premier support benefits you can open a support request with [Premier](https://premier.microsoft.com/).
+- Solution dependencies have been deleted. To reenable the ServiceMap and InfrastructureInsights solutions in your Log Analytics workspace, you can reinstall using an [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) that's provided or by using the Configure Workspace option found on the Get Started tab.
+- VM has been shutdown.
+- Azure VM service is unavailable or maintenance is being performed.
+- Workspace [daily data or retention limit](../platform/manage-cost-storage.md) is met.
 
 Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes, and other significant issues encountered by monitoring components related to the VM. For more information, see [Health diagnostics](#health-diagnostics). 
 
@@ -103,7 +114,7 @@ Under the **Component health** section, the table shows a health rollup status o
 
 When accessing Health from an Azure VM running the Windows operating system, the health state of the top five core Windows services are shown under the section **Core services health**.  Selecting any one of the services opens a page listing the health criteria monitoring that component and its health state.  Clicking on the name of the health criteria will open the property pane, and from here you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert defined. To learn more, see [Health Diagnostics and working with health criteria](#health-diagnostics).  
 
-## Aggregate virtual machine perspective
+### Aggregate virtual machine perspective
 
 To view health collection for all of your virtual machines in a resource group, from the navigation list in the portal, select **Azure Monitor** and then select **Virtual Machines (preview)**.  
 
@@ -149,7 +160,7 @@ You can drill further down to see which instances are unhealthy by clicking on a
 
 ## Health diagnostics
 
-Thge **Health Diagnostics** page allows you to visualize the Health Model of a VM, listing all the components of the VM, associated health criteria, state changes, and other significant issues identified by monitored components related to the VM.
+The **Health Diagnostics** page allows you to visualize the Health Model of a VM, listing all the components of the VM, associated health criteria, state changes, and other significant issues identified by monitored components related to the VM.
 
 ![Example of Health Diagnostics page for a VM](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -338,7 +349,7 @@ To enable or disable an alert for a specific health criteria, the health criteri
 Azure Monitor for VMs Health supports SMS and email notifications when alerts are generated when health criteria becomes unhealthy. To configure notifications, you need to note the name of the Action group that is configured to send SMS or email notifications. 
 
 >[!NOTE]
->This action needs to be performed against each VM monitored that you want to receive a notification for.
+>This action needs to be performed against each VM monitored that you want to receive a notification for, it does not apply to all VMs in the resource group.  
 
 1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
 
