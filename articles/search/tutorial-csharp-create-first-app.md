@@ -784,7 +784,7 @@ It is important to verify that our error handling features work as they should, 
 2. Run the app, enter "bar" as search text, select the next page, then select the previous page. You should get the error page appearing in your view.
 
 _Forcing an error_
- ![Force an error](./media/azure-search-error.png)
+ ![Force an error](../media/azure-search-error.png)
 
 > Note
 > It is considered a security risk to return internal error numbers in error pages. If your app is intended for general use, do some investigation into secure and best practices of what to return when an error occurs.
