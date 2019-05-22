@@ -45,17 +45,17 @@ Azure Time Series Insights captures and stores every new event as a row, and cha
 
    At its core, Time Series Insights has a database designed with time series data in mind. Because it's scalable and fully managed, Time Series Insights handles the work of storing and managing events.
 
-- Explore data in near real-time. 
+- Explore data in near real time. 
 
    Time Series Insights provides an explorer that visualizes all data that streams into an environment. Shortly after you connect to an event source, you can view, explore, and query event data within Time Series Insights. The data helps you to validate whether a device emits data as expected and to monitor an IoT asset for health, productivity, and overall effectiveness. 
 
 - Perform root-cause analysis and detect anomalies.
 
-   Time Series Insights has tools like patterns and perspective views to conduct and save multistep root-cause analysis. Time Series Insights also works with alerting services like Azure Stream Analytics so that you can view alerts and detected anomalies in near real-time in the Time Series Insights explorer. 
+   Time Series Insights has tools like patterns and perspective views to conduct and save multistep root-cause analysis. Time Series Insights also works with alerting services like Azure Stream Analytics so that you can view alerts and detected anomalies in near real time in the Time Series Insights explorer. 
 
 - Gain a global view of time series data that streams from disparate locations for multi-asset or site comparison.
 
-   You can connect multiple event sources to a Time Series Insights environment. This way you can view data that streams in from multiple, disparate locations together in near real-time. Users can take advantage of this visibility to share data with business leaders. They can collaborate better with domain experts who can apply their expertise to help solve problems, apply best practices, and share learnings.
+   You can connect multiple event sources to a Time Series Insights environment. This way you can view data that streams in from multiple, disparate locations together in near real time. Users can take advantage of this visibility to share data with business leaders. They can collaborate better with domain experts who can apply their expertise to help solve problems, apply best practices, and share learnings.
 
 - Build a customer application on top of Time Series Insights. 
 
@@ -69,7 +69,7 @@ Azure Time Series Insights captures and stores every new event as a row, and cha
 
 - **Build custom solutions**: Embed Azure Time Series Insights data into your existing applications. You also can create new custom solutions with the Time Series Insights REST APIs. Create personalized views you can share for others to explore your insights.
 
-- **Scalability**: Time Series Insights is designed to support IoT at scale. It can ingress from 1 million to 100 million events per day, with a default retention span of 31 days. You can visualize and analyze live data streams in near real-time, alongside historical data. Moving forward, ingress and retention rates will increase to accommodate enterprise scale.
+- **Scalability**: Time Series Insights is designed to support IoT at scale. It can ingress from 1 million to 100 million events per day, with a default retention span of 31 days. You can visualize and analyze live data streams in near real time, alongside historical data. Moving forward, ingress and retention rates will increase to accommodate enterprise scale.
 
 ## Get started
 
