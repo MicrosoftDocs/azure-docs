@@ -74,25 +74,27 @@ To update Azure Machine Learning service to use the new key, use the following s
 
     Since `overwrite=True` is specified, this code overwrites the existing registration and updates it to use the new key.
 
-1. To sign in to the Azure subscription that contains your workspace by using the following Azure CLI command:
+1. To update the workspace to use the new key for experiments, run logs, snapshots, and registering models, use the following stes from the Azure CLI:
 
-    ```azurecli-interactive
-    az login
-    ```
+    1. To sign in to the Azure subscription that contains your workspace by using the following Azure CLI command:
 
-1. To install the Azure Machine Learning extension, use the following command:
+        ```azurecli-interactive
+        az login
+        ```
 
-    ```azurecli-interactive
-    az extension add -n azure-cli-ml 
-    ```
+    1. To install the Azure Machine Learning extension, use the following command:
 
-1. To update the workspace to use the new key to log information on experiments, snapshots, and trained models, use the following Azure CLI command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
+        ```azurecli-interactive
+        az extension add -n azure-cli-ml 
+        ```
 
-    ```azurecli-interactive
-    az ml workspace sync-keys -w myworkspace -g myresourcegroup
-    ```
+    1. To update the workspace to use the new key, use the following command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 
-    This command automatically syncs the new keys for the Azure storage account used for experiments, runs, models, and images.
+        ```azurecli-interactive
+        az ml workspace sync-keys -w myworkspace -g myresourcegroup
+        ```
+
+        This command automatically syncs the new keys for the Azure storage account used for experiments, runs, models, and images.
 
 ## Next steps
 
