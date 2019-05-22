@@ -24,7 +24,7 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 
 ![Debug Button](media/data-flow/debugb1.png "Debug")
 
-## Optimizing for Azure SQL DB
+## Optimizing for Azure SQL Database
 
 ![Source Part](media/data-flow/sourcepart2.png "Source Part")
 
