@@ -23,13 +23,13 @@ In addition, Cognitive Vision services can be used with the device RGB camera.
 
    ![Azure Kinect SDK diagram](./media/quickstarts/sdk-diagram.jpg)
 
-## Azure Kinect Sensor SDK
+## Azure Kinect sensor SDK
 
 The Azure Kinect Sensor SDK provides low-level sensor access for Azure Kinect DK hardware sensors and device configuration.
 
 To learn more about Azure Kinect Sensor SDK, see [Using Sensor SDK](overview-sensor-sdk.md).
 
-### Azure Kinect Sensor SDK features
+### Azure Kinect sensor SDK features
 
 The Sensor SDK has the following features that work once installed and run on the Kinect DK:
 
@@ -41,7 +41,7 @@ The Sensor SDK has the following features that work once installed and run on th
 * Camera-frame metadata access for image resolution, timestamp, and temperature recognition.
 * Device calibration to allow data access.
 
-### Azure Kinect Sensor SDK tools
+### Azure Kinect sensor SDK tools
 
 The following tools are available in the Sensor SDK:
 
@@ -49,11 +49,11 @@ The following tools are available in the Sensor SDK:
 * A Sensor recording tool and playback reader API which uses the Matroska container format.
 * An Azure Kinect DK firmware update tool.
 
-## Azure Kinect Body Tracking SDK
+## Azure Kinect body tracking SDK
 
 The Body Tracking SDK includes a Windows library and runtime to track bodies in 3D when used with the Azure Kinect DK hardware.
 
-### Azure Kinect Body Tracking features
+### Azure Kinect body tracking features
 
 The following body-tracking features are available on the accompanying SDK:
 
@@ -62,15 +62,15 @@ The following body-tracking features are available on the accompanying SDK:
 * Offers a unique identity for each body.
 * Can track bodies over time.
 
-### Azure Kinect Body Tracking tools
+### Azure Kinect body tracking tools
 
 * Body Tracker has a viewer tool to track bodies in 3D.
 
-## Azure Kinect Speech SDK
+## Azure Kinect speech SDK
 
 The Speech SDK enables Azure-connected speech services.
 
-### Speech Services
+### Speech services
 
 * Speech-to-text
 * Speech translation
@@ -85,11 +85,11 @@ For additional details and information, visit [Speech Service documentation](htt
 
 The following [Azure Cognitive Vision Services](https://azure.microsoft.com/services/cognitive-services/directory/vision/) provide Azure services that can identify and analyze content within images and videos.
 
-* [Computer vision](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/)
-* [Face](https://azure.microsoft.com/en-us/services/cognitive-services/face/)
-* [Video indexer](https://azure.microsoft.com/en-us/services/media-services/video-indexer/)
-* [Content moderator](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/)
-* [Custom vision](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/)
+* [Computer vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
+* [Face](https://azure.microsoft.com/services/cognitive-services/face/)
+* [Video indexer](https://azure.microsoft.com/services/media-services/video-indexer/)
+* [Content moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
+* [Custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)
 
 Services evolve and improve constantly, so remember to check regularly for new or additional [Cognitive services](https://azure.microsoft.com/services/cognitive-services/) to improve your application. For an early look on emerging new services, check out the [Cognitive services labs](https://labs.cognitive.microsoft.com/).
 
@@ -103,4 +103,6 @@ You now have an overview of Azure Kinect DK. The next step is to dive in and set
 
 > [!div class="nextstepaction"]
 >[Using Azure Kinect sensor SDK](overview-sensor-sdk.md)
+
+> [!div class="nextstepaction"]
 >[Review the Azure Kinect DK Hardware Specification](hardware-specification.md)

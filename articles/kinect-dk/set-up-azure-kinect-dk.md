@@ -1,6 +1,6 @@
 ---
 title: Set up Azure Kinect
-description: Quick start instructions how to set up Azure Kinect DK hardware
+description: Instructions how to set up Azure Kinect DK hardware
 author: joylital
 ms.author: joylital
 ms.prod: kinect-dk
@@ -21,8 +21,8 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 
 1. Connect the power cable to your device and plug the power supply into a wall outlet or power strip.
 2. Connect the USB data cable into your device and PC.
->[!NOTE]
->Use connectors from the PC to the the back of device, as they work better than connectors such as a dongle.
+   >[!NOTE]
+   >Use connectors from the PC to the the back of device, as they work better than connectors  such as a dongle.
 
 3. Verify the power indicator LED next to the USB cable is solid white.
 4. Device power on takes a few seconds and is ready to use when the front-facing LED streaming indicator turns off.

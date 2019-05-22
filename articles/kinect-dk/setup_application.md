@@ -1,19 +1,19 @@
 ---
 title: Build new Azure Kinect application
-description: Guide how to build new application using Azure Kinect SDK
+description: This article guides Azure Kinect DK user through new application creation
 author: joylital
 ms.author: joylital
 ms.prod: kinect-dk
-ms.date: 10/26/2019
+ms.date: 05/26/2019
 ms.topic: conceptual 
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 ---
 
-# Set Up First Azure Kinect DK Application
+# Set Up First Azure Kinect DK application
 
 Getting started with the Azure Kinect DK API? Look no further! This document will get you up and running with access to the device!
 
-First, download and install the [Azure Kinect DK API](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK) from Github.
+First, download and install the [Azure Kinect DK API](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK) from GitHub.
 
 Here are the functions we'll use:
 
@@ -30,7 +30,7 @@ There's only one header that you will need, and that's k4a.h! Make sure your com
 
 `#include <k4a/k4a.h>`
 
-## Finding a Kinect Device
+## Finding a Kinect device
 
 Multiple Azure Kinect DK devices can be connected to your computer. We'll first start by finding out how many, or if any are connected at all using the `k4a_device_get_installed_count` function. This function should work right away, without any additional setup.
 
@@ -63,7 +63,7 @@ printf("Opened device: %s\n", serial);
 free(serial);
 ```
 
-## Starting the Cameras
+## Starting the cameras
 
 Once you've opened the device, you'll need to configure the camera with a `k4a_device_configuration_t` object. Camera configuration has a number of different options, and you'll need to choose the settings that best fit your own scenario.
 
@@ -83,7 +83,7 @@ k4a_device_start_cameras(device, &config)
 k4a_device_stop_cameras(device);
 ```
 
-## Error Handling
+## Error handling
 
 For the sake of brevity and clarity, we don't show error handling in some inline examples. However, error handling is always important! Many functions will return a general success/failure type `k4a_result_t`, or a more specific variant with detailed information such as `k4a_wait_result_t`. Be sure to check the docs or intellisense of a specific function to see what error messages you might expect to see from it!
 
@@ -99,7 +99,7 @@ if ( K4A_FAILED( k4a_device_open(K4A_DEVICE_DEFAULT, &device) ) )
 }
 ```
 
-## Full Source
+## Full source
 
 ```C
 #pragma comment(lib, "k4a.lib")
