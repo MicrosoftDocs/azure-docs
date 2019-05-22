@@ -18,7 +18,7 @@ Some resources outside of this docs.microsoft.com website might help you underst
 
 ## Legacy hardware documentation 
 
-Much of this technology was previously used in products from Avere Systems. User documentation for those older products is available on the [Avere Legacy Documentation website](https://azure.github.io/Avere/). 
+This technology was previously used in products from Avere Systems. User documentation for those older products is available on the [Avere Legacy Documentation website](https://azure.github.io/Avere/). 
 
 Specifically, these documents might have helpful details:
 
