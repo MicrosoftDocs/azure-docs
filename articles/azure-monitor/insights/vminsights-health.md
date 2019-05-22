@@ -100,9 +100,9 @@ The health states defined for a VM are described in the following table:
 <sup>1</sup>
 The Unknown health state is caused by the following issues:
 
-- Agent has been reconfigured and no longer reports to the workspace specified when enabling Azure Monitor for VMs. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- Agent has been reconfigured and no longer reports to the workspace specified when Azure Monitor for VMs was enabled. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - VM has been deleted.
-- Workspace associated with Azure Monitor for VMs is deleted. To recover the workspace, with Premier support benefits you can open a support request with [Premier](https://premier.microsoft.com/).
+- Workspace associated with Azure Monitor for VMs is deleted. To recover the workspace, if you have Premier support benefits you can open a support request with [Premier](https://premier.microsoft.com/).
 - Solution dependencies have been deleted. To reenable the ServiceMap and InfrastructureInsights solutions in your Log Analytics workspace, You can complete this installation by using an [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) that's provided or by using the Configure Workspace option found on the Get Started tab.
 - VM has been shutdown.
 - Azure VM service is unavailable or maintenance is being performed.
