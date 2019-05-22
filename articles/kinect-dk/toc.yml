@@ -1,6 +1,6 @@
 - name: Overview 
   items: 
-  - name: What is Azure Kinect DK?
+  - name: About Azure Kinect DK
     href: what-is-azure-kinect-dk.md
 - name: Quickstarts
   items:

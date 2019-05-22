@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 ---
 
-# Setting Up
+# Set Up First Azure Kinect DK Application
 
 Getting started with the Azure Kinect DK API? Look no further! This document will get you up and running with access to the device!
 
@@ -99,7 +99,7 @@ if ( K4A_FAILED( k4a_device_open(K4A_DEVICE_DEFAULT, &device) ) )
 }
 ```
 
-# Full Source
+## Full Source
 
 ```C
 #pragma comment(lib, "k4a.lib")
