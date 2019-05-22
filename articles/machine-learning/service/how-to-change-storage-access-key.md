@@ -28,7 +28,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 * The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
-<a id="whattoupdate"></a>
+<a id="whattoupdate"></a> 
 
 ## What needs to be updated
 
