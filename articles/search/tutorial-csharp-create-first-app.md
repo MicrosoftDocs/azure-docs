@@ -47,18 +47,19 @@ To complete this tutorial, you need:
 
 ## Install and run the project from GitHub
 
-1. Locate the sample app at the following location xxxxx.
+1. Locate the sample app at the following location TBD.
 1. Select **Clone or download** and make your private local copy of the project.
 1. Using Visual Studio open the solution and select **Start without debugging** (or press F5).
 1. Type in some words (for example "wifi", "view", "bar", "parking") and page through the results!
 
-_Search for "wifi"_
  ![Searching for wifi](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
 
-_Note how no paging options are displayed if there is less than one page worth of results_
+Note how no paging options are displayed if there is less than one page worth of results.
+
  ![Searching for town](./media/tutorial-csharp-create-first-app/azure-search-town.png)
 
-_The last page of results may contain less than a full page_
+The last page of results may contain less than a full page.
+
  ![Searching for pool](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
 Hopefully this will all run smoothly, and you have an Azure app running. It is a simple search, but as almost all of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
@@ -115,7 +116,7 @@ Models (C# classes) are used to communicate data between the client (the view), 
 
 1. Open up the **Models** folder of your project, using Solution Explorer, and you will see one default model in there: **ErrorViewModel.cs**.
 
-1. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Note in particular the **Address** and **Room** members of the class, these are classes themselves and we will need models for these too.
+2. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Note in particular the **Address** and **Room** members of the class, these are classes themselves and we will need models for these too.
 
 ```cs
 using System;
@@ -169,7 +170,7 @@ namespace FirstAzureSearch.Models
 }
 ```
 
-1. Follow the same process of creating a model for the **Address** class, except of course name the .cs file Address.cs. Replace the contents with the following.
+3. Follow the same process of creating a model for the **Address** class, except of course name the .cs file Address.cs. Replace the contents with the following.
 
 ```cs
 using Microsoft.Azure.Search;
@@ -196,7 +197,7 @@ namespace FirstAzureSearch.Models
 }
 ```
 
-1. And again, follow the same process to create the **Room** class, naming the file Room.cs. Again, replace the contents with the following.
+4. And again, follow the same process to create the **Room** class, naming the file Room.cs. Again, replace the contents with the following.
 
 ```cs
 using Microsoft.Azure.Search;
@@ -239,7 +240,7 @@ namespace FirstAzureSearch.Models
 }
 ```
 
-1. The set of **Hotel**, **Address** and **Room** classes are what is known in Azure as "complex types", a new and important feature of Azure Search. Complex types can be many levels deep of classes and sub-classes, and enable far more complex data systems to be searched than using "simple types" (simply, a class containing only primitive members). We do need one more model, go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
+5. The set of **Hotel**, **Address** and **Room** classes are what is known in Azure as "complex types", a new and important feature of Azure Search. Complex types can be many levels deep of classes and sub-classes, and enable far more complex data systems to be searched than using "simple types" (simply, a class containing only primitive members). We do need one more model, go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
 
 ```cs
 using System.Collections;
@@ -347,13 +348,13 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 
 1. We use two small images in the view. You can use your own or copy across the images from the GitHub project: azure-logo.png and search.png. These two images should be placed in the **wwwroot/images** folder.
 
-1. The first line of Index.cshtml should reference the model we will be using to communicate data between the client (the view) and the server (the controller), which is the **searchData** model we just created. Add this line to the Index.cshtml file.
+2. The first line of Index.cshtml should reference the model we will be using to communicate data between the client (the view) and the server (the controller), which is the **searchData** model we just created. Add this line to the Index.cshtml file.
 
 ```cs
 @model FirstAzureSearch.Models.SearchData
 ```
 
-1. It is standard practice to enter a title for the View, so the next lines should be:
+3. It is standard practice to enter a title for the View, so the next lines should be:
 
 ```cs
 @{
@@ -361,7 +362,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 }
 ```
 
-1. Following this let's enter some HTML styling. No need to go into this in detail, this is just standard html.
+4. Following this let's enter some HTML styling. No need to go into this in detail, this is just standard html.
 
 ```cs
 <style>
@@ -458,7 +459,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 </style>
 ```
 
-1. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of a single page of results in addition to the search text boxes for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
+5. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of a single page of results in addition to the search text boxes for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
 
 ```cs
    <h1 class="sampleTitle">
@@ -493,7 +494,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 }
 ```
 
-1. Finally we complete the view with paging buttons. We keep this simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and infinite paging.
+6. Finally we complete the view with paging buttons. We keep this simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and infinite paging.
 
 ```cs
 @if (Model != null && Model.pageCount > 1)
@@ -543,7 +544,9 @@ That completes our view. We are making good progress, the models and views are c
 
 ## Create the MVC controller
 
-We need to add to the contents of the one controller (**Home Controller**) which is created by default. Open the HomeController.cs file and replace the **using** statements with the following. 
+We need to add to the contents of the one controller (**Home Controller**) which is created by default. 
+
+1. Open the HomeController.cs file and replace the **using** statements with the following. 
 
 ```cs
 using System;
@@ -558,9 +561,9 @@ using Microsoft.Azure.Search.Models;
 
 ### Add Index methods
 
-We need two **Index** methods, one taking no parameters (the app-first-opened case) and one taking a model as a parameter (user has entered search text).
+We need two **Index** methods, one taking no parameters (the app-first-opened case) and one taking a model as a parameter (user has entered search text). The first of these methods is created by default. 
 
-The first of these methods is created by default. Add the following method after the default **Index()** method.
+1. Add the following method after the default **Index()** method.
 
 ```cs
         [HttpPost]
@@ -597,7 +600,9 @@ Finally note the **catch** block uses the error model that was created for us by
 
 ### Add Paging methods
 
-As mentioned before a subsequent tutorial has a good look at paging. For this first tutorial we are going to make things simple for ourselves by adding **Next** and **Prev** controller methods. Add the following two methods.
+As mentioned before a subsequent tutorial has a good look at paging. For this first tutorial we are going to make things simple for ourselves by adding **Next** and **Prev** controller methods. 
+
+1. Add the following two methods after your **Index(SearchData model)** method.
 
 ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -674,7 +679,7 @@ The Azure Search itself is encapsulated in our **RunQueryAsync** method.
         }
 ```
 
-1. Now add the **RunQueryAsync** method itself.
+2. Now add the **RunQueryAsync** method itself.
 
 ```cs       
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page)
@@ -759,21 +764,19 @@ Now, will all this good effort be worthwhile and your app runs!
 
  ![Opening the app](./media/tutorial-csharp-create-first-app/azure-search-index.png)
 
-1. Enter text such as "beach" (or any text that comes to mind) and click the search icon. You should get some results.
-_Search for "beach"_
+2. Enter text such as "beach" (or any text that comes to mind) and click the search icon. You should get some results.
 
  ![Searching for beach](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
-1. Test the next and previous page buttons. Check that when they are not relevant, they are grayed out.
+3. Test the next and previous page buttons. Check that when they are not relevant, they are grayed out.
 
-1. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search.
+4. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search.
  
-_Search for "five star"_
  ![Searching for five star](./media/tutorial-csharp-create-first-app/azure-search-five-star.png)
 
-1. Try entering "hot" as search text. Note that it does _not_ return entries with the word "hotel" in them. Our simple search is only locating whole words.
+5. Try entering "hot" as search text. Note that it does _not_ return entries with the word "hotel" in them. Our simple search is only locating whole words.
 
-1. Try other words: "pool", "sunshine", "view" and whatever. You will see Azure Search working at its simplest but still convincing level.
+6. Try other words: "pool", "sunshine", "view" and whatever. You will see Azure Search working at its simplest but still convincing level.
 
 ## Edge conditions and errors
 
@@ -783,7 +786,6 @@ It is important to verify that our error handling features work as they should, 
 
 2. Run the app, enter "bar" as search text, select the next page, then select the previous page. You should get the error page appearing in your view.
 
-_Forcing an error_
  ![Force an error](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
 > Note
@@ -811,6 +813,6 @@ In order to provide the best user experience using Azure Search, we need to add 
 
 These next steps are addressed are in a series of tutorials. Let's start with paging.
 
-1. Link to Paging of Azure Search results
+> TBD Link to Paging of Azure Search results
 
 
