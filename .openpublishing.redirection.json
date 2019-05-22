@@ -1413,7 +1413,7 @@
     {
       "source_path": "articles/cosmos-db/scripts/ps-account-failover-priority-update.md",
       "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-failover-priority-update",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
