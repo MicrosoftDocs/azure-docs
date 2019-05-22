@@ -665,10 +665,10 @@ The Azure search itself is encapsulated in our **RunQueryAsync** method.
         }
 ```
 
-1. Now add the method itself.
+1. Now add the **RunQueryAsync** method itself.
 
 ```cs       
-        private async Task<ActionResult> runQueryAsync(SearchData model, int page)
+        private async Task<ActionResult> RunQueryAsync(SearchData model, int page)
         {
             // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
             _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
