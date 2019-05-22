@@ -1,6 +1,6 @@
 ---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
-description: Analyze usage, availability, and performance of your on-premises or Microsoft Azure web application with Application Insights.
+description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -15,28 +15,68 @@ ms.date: 12/06/2018
 ms.author: mbullwin
 
 ---
-# Set up Application Insights: Dependency tracking
+# Dependency Tracking in Azure Application Insights 
+
 A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures how long your application waits for dependencies and how often a dependency call fails. You can investigate specific calls, and relate them to requests and exceptions.
 
-The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:
+## Automatically tracked dependencies
 
-* Server
-  * SQL databases
-  * ASP.NET web and WCF services that use HTTP-based bindings
-  * Local or remote HTTP calls
-  * Azure Cosmos DB, table, blob storage, and queue 
-* Web pages
-  * AJAX calls
+Application Insights SDKs for .NET and .NET Core, has a built-in `TelemetryModule`, named `DependencyTrackingTelemetryModule` which automatically collects dependencies. This dependency collection is enabled automatically for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, when configured as per the linked official docs. `DependencyTrackingTelemetryModule` is shipped as the NuGet package `Microsoft.ApplicationInsights.DependencyCollector`, and is brought automatically when using either of the NuGet packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
 
-Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) around select methods or based on DiagnosticSource callbacks (in the latest .NET SDKs) from the .NET Framework. Performance overhead is minimal.
+ `DependencyTrackingTelemetryModule` currently tracks the following dependencies out-of-the-box:
 
-You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+* Local or remote HTTP calls
+* SQL calls
+* WCF services that use HTTP-based bindings
+* Azure Cosmos DB (only if using http/https), Azure Table, Azure Blob, and Azure Queue
 
-> [!NOTE]
-> Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../../cosmos-db/performance-tips.md#networking) is used. TCP mode won't be captured by Application Insights.
+### How automatic dependency monitoring works ?
+
+Dependencies are automatically collected by using one of the following techniques:
+
+* Using byte code instrumentation around select methods. (only if using StatusMonitor or InstrumentationEngine)
+* EventSource callbacks
+* DiagnosticSource callbacks (in the latest .NET/.NET Core SDKs)
+
+## Manually tracking dependencies
+
+The following are some examples of dependencies which are not automatically collected, and hence require manual tracking.
+
+* Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../../cosmos-db/performance-tips.md#networking) is used. TCP mode won't be captured by Application Insights.
+* Redis
+
+For those dependencies not automatically collected by SDK, you can track them manually using the [TrackDependency API](api-custom-events-metrics.md#trackdependency) that is used by the standard auto collection modules.
+
+For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
+
+```csharp
+
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                // making dependency call
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependencyType", "myDependencyCall", "myDependencyData",  startTime, timer.Elapsed, success);
+            }
+```
+
+If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) for ASP.NET applications. For ASP.NET Core applications, follow instructions [here](asp-net-core.md#configuring-or-removing-default-telemetryModules).
+
+## Tracking AJAX calls from Web Pages
+
+For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies as described [here](javascript.md#ajax-performance). This document focuses on dependencies from server components.
+
+## Advanced SQL tracking to get full SQL Query
+
 
 ## Set up dependency monitoring
-Partial dependency information is collected automatically by the [Application Insights SDK](asp-net.md). To get complete data, install the appropriate agent for the host server.
+Dependency collection is enabled automatically for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, which are configured as per the linked official docs.
+
 
 | Platform | Install |
 | --- | --- |
@@ -45,16 +85,18 @@ Partial dependency information is collected automatically by the [Application In
 | Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) or [Install .NET framework 4.6+](../../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## Where to find dependency data
+
 * [Application Map](#application-map) visualizes dependencies between your app and neighboring components.
-* [Performance, browser, and failure blades](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance) show server dependency data.
+* [Performance, browser, and failure blades](#performance-and-failure-blades) show server dependency data.
 * [Browsers blade](#ajax-calls) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#analytics) can be used to query dependency data.
 
 ## Application Map
+
 Application Map acts as a visual aid to discovering dependencies between the components of your application. It is automatically generated from the telemetry from your app. This example shows AJAX calls from the browser scripts and REST calls from the server app to two external services.
 
-![Application Map](./media/asp-net-dependencies/cloud-rolename.png)
+![Application Map](./media/asp-net-dependencies/08.png)
 
 * **Navigate from the boxes** to relevant dependency and other charts.
 * **Pin the map** to the [dashboard](../../azure-monitor/app/app-insights-dashboards.md), where it will be fully functional.
@@ -62,7 +104,14 @@ Application Map acts as a visual aid to discovering dependencies between the com
 [Learn more](../../azure-monitor/app/app-map.md).
 
 ## Performance and failure blades
-The performance blade shows the duration of dependency calls made by the server app.
+
+The performance blade shows the duration of dependency calls made by the server app. There's a summary chart and a table segmented by call.
+
+![Performance blade dependency charts](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
+
+Click through the summary charts or the table items to search raw occurrences of these calls.
+
+![Dependency call instances](./media/asp-net-dependencies/dependency-call-instance.png)
 
 **Failure counts** are shown on the **Failures** blade. A failure is any return code that is not in the range 200-399, or unknown.
 
@@ -72,16 +121,63 @@ The performance blade shows the duration of dependency calls made by the server 
 >
 
 ## AJAX Calls
+
 The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](../../azure-monitor/app/javascript.md). They are shown as Dependencies.
 
 ## <a name="diagnosis"></a> Diagnose slow requests
-Each request event is associated with the dependency calls, exceptions, and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency.
+
+Each request event is associated with the dependency calls, exceptions and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency.
+
+Let's walk through an example of that.
+
+### Tracing from requests to dependencies
+
+Open the Performance blade, and look at the grid of requests:
+
+![List of requests with averages and counts](./media/asp-net-dependencies/02-reqs.png)
+
+The top one is taking very long. Let's see if we can find out where the time is spent.
+
+Click that row to see individual request events:
+
+![List of request occurrences](./media/asp-net-dependencies/03-instances.png)
+
+Click any long-running instance to inspect it further, and scroll down to the remote dependency calls related to this request:
+
+![Find Calls to Remote Dependencies, identify unusual Duration](./media/asp-net-dependencies/04-dependencies.png)
+
+It looks like most of the time servicing this request was spent in a call to a local service.
+
+Select that row to get more information:
+
+![Click through that remote dependency to identify the culprit](./media/asp-net-dependencies/05-detail.png)
+
+Looks like this is where the problem is. We've pinpointed the problem, so now we just need to find out why that call is taking so long.
+
+### Request timeline
+
+In a different case, there is no dependency call that is particularly long. But by switching to the timeline view, we can see where the delay occurred in our internal processing:
+
+![Find Calls to Remote Dependencies, identify unusual Duration](./media/asp-net-dependencies/04-1.png)
+
+There seems to be a large gap after the first dependency call, so we should look at our code to see why that is.
 
 ### Profile your live site
 
-No idea where the time goes? The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows which functions in your code took the longest time.
+No idea where the time goes? The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
+
+## Failed requests
+
+Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.
+
+![Click the failed requests chart](./media/asp-net-dependencies/06-fail.png)
+
+Click through to an occurrence of a failed request, and look at its associated events.
+
+![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## Analytics
+
 You can track dependencies in the [Kusto query language](/azure/kusto/query/). Here are some examples.
 
 * Find any failed dependency calls:
@@ -119,35 +215,8 @@ You can track dependencies in the [Kusto query language](/azure/kusto/query/). H
       on operation_Id
 ```
 
-
-
-## Custom dependency tracking
-The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs. But you might want some additional components to be treated in the same way.
-
-You can write code that sends dependency information, using the same [TrackDependency API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency) that is used by the standard modules.
-
-For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
-
-```csharp
-
-            var startTime = DateTime.UtcNow;
-            var timer = System.Diagnostics.Stopwatch.StartNew();
-            try
-            {
-                success = dependency.Call();
-            }
-            finally
-            {
-                timer.Stop();
-                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
-                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
-            }
-```
-
-If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
-
 ## Troubleshooting
+
 *Dependency success flag always shows either true or false.*
 
 *SQL query not shown in full.*
@@ -161,7 +230,12 @@ Consult the table below and insure you have chosen the correct configuration to 
 | Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](../../azure-monitor/app/azure-web-apps.md) and choose Install if prompted. |
 | Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) or [Install .NET framework 4.6+](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## Next steps
+
 * [Exceptions](../../azure-monitor/app/asp-net-exceptions.md)
 * [User & page data](../../azure-monitor/app/javascript.md)
 * [Availability](../../azure-monitor/app/monitor-web-app-availability.md)
