@@ -21,8 +21,6 @@ ms.author: cynthn
 # How to install MySQL on Azure
 In this article, you will learn how to install and configure MySQL on an Azure virtual machine running Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 
 > [!NOTE]
 > You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial. Please see the
@@ -31,8 +29,6 @@ In this article, you will learn how to install and configure MySQL on an Azure v
 > 
 
 In this case, use 3306 port as the MySQL port.  
-
-Connect to the Linux VM you created via putty. If this is the first time you use Azure Linux VM, see how to use putty connect to a Linux VM [here](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 We will use repository package to install MySQL5.6 as an example in this article. Actually, MySQL5.6 has more improvement in performance than MySQL5.5.  More information [here](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 
@@ -58,11 +54,11 @@ apt-get -y install mysql-server-5.6
   
 During installation, you will see a dialog window appear to ask you to set MySQL root password below, and you need set the password here.
   
-    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
 Input the password again to confirm.
 
-    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
 ### Sign in
   
@@ -102,7 +98,7 @@ service mysql restart
 ## Install MySQL on Red Hat OS, CentOS, Oracle Linux
 We will use Linux VM with CentOS or Oracle Linux here.
 
-### Add the MySQL Yum repository
+### Add the MySQL yum repository
     
 Switch to `root` user:
 
