@@ -24,7 +24,7 @@ This article documents the common security attributes built into Azure Event Hub
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes | |
 | Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | |
-| Encryption key handling (CMK, BYOK, etc.)| No | ExpressRoute does not support encryption. |
+| Encryption key handling (CMK, BYOK, etc.)| No |  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes |  |
 
