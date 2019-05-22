@@ -52,17 +52,25 @@ Endpoint Protection assessment and recommendations in Azure Security Center dete
 
 * The **Resolve endpoint protection health issues on your machines** recommendation is generated when **Get-MprotComputerStatus** runs and either or both of the following occurs:
 
-* At least one of the following properties is false:
-   **AMServiceEnabled**
-   **AntispywareEnabled**
-   **RealTimeProtectionEnabled**
-   **BehaviorMonitorEnabled**
-   **IoavProtectionEnabled**
-   **OnAccessProtectionEnabled**
-      
-* If one or both of the following Signature Updates is greater or equal to 7. 
-AntispywareSignatureAge
-AntivirusSignatureAge 
+    * At least one of the following properties is false:
+
+       **AMServiceEnabled**
+    
+       **AntispywareEnabled**
+    
+       **RealTimeProtectionEnabled**
+    
+       **BehaviorMonitorEnabled**
+    
+       **IoavProtectionEnabled**
+    
+       **OnAccessProtectionEnabled**
+          
+    * If one or both of the following Signature Updates is greater or equal to 7. 
+
+       **AntispywareSignatureAge**
+    
+       **AntivirusSignatureAge**
 
 ## Trend Micro
 
