@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: magoedte
 ---
 
@@ -95,7 +95,18 @@ The health states defined for a VM are described in the following table:
 | |Healthy |Health state is healthy if it is within the defined health conditions, indicating no issues detected for the VM and it is functioning as required. With a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Critical |Health state is critical if it is not within the defined health condition, indicating that one or more critical issues were detected, which need to be addressed in order to restore normal functionality. With a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Warning |Health state is warning if it is between two thresholds for the defined health condition, where one indicates a *Warning* state and the other indicates a *Critical* state (three health state thresholds can be configured), or when a non-critical issue is detected which may cause critical problems if not resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect *warning* state. If there is a child that is in a *Critical* and another child in a *Warning* state, the parent rollup will show a health state of *Critical*.|
-| |Unknown |Health state is in an *Unknown* state when it cannot be computed for several reasons, such as:<br> - Agent [no longer reporting to the workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).<br> - VM has been deleted.<br> - Workspace associated with Azure Monitor for VMs is deleted.<br> - Solution dependencies have been deleted.<br> - VM has been shutdown.<br> - Azure VM service is unavailable or maintenance is being performed.<br> - Workspace [daily data or retention limit](../platform/manage-cost-storage.md) is met.| 
+| |Unknown |Health state is *Unknown* when it cannot be computed for several reasons. See the following <sup>1</sup> footnote for additional details and possible solutions to solve them. |
+
+<sup>1</sup>
+The Unknown health state is caused by the following issues:
+
+- Agent has been reconfigured and no longer reports to the workspace specified when enabling Azure Monitor for VMs. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- VM has been deleted.
+- Workspace associated with Azure Monitor for VMs is deleted. To recover the workspace, with Premier support benefits you can open a support request with [Premier](https://premier.microsoft.com/).
+- Solution dependencies have been deleted. To reenable the ServiceMap and InfrastructureInsights solutions in your Log Analytics workspace, You can complete this installation by using an [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) that's provided or by using the Configure Workspace option found on the Get Started tab.
+- VM has been shutdown.
+- Azure VM service is unavailable or maintenance is being performed.
+- Workspace [daily data or retention limit](../platform/manage-cost-storage.md) is met.
 
 Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes, and other significant issues encountered by monitoring components related to the VM. For more information, see [Health diagnostics](#health-diagnostics). 
 
