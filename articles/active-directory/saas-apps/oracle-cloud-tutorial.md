@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
-   >[!NOTE]
+   	>[!NOTE]
 	>You will get the Service Provider metadata file from the **Configure Oracle Cloud Single Sign-On** section of the tutorial.
 	
 	a. Click **Upload metadata file**.
@@ -117,8 +117,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	1. Click the **pen** next to **Groups returned in claim**.
 
-	![image](./media/oracle-cloud-tutorial/config08.png)
-
 	1. Select **Security groups** from the radio list.
 
 	1. Select **Source Attribute** of **Group ID**.
@@ -130,6 +128,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	1. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
 
 	1. Click **Save**.
+
+	![image](./media/oracle-cloud-tutorial/config08.png)
 
 1. On the **Set up Oracle Cloud** section, copy the appropriate URL(s) based on your requirement.
 
