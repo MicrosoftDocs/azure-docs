@@ -87,7 +87,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="troubleshooting.md">Troubleshooting guide</a>
+    - html: <a href="troubleshoot.md">Troubleshooting guide</a>
     - html: <a href="troubleshoot-alerts.md">Troubleshooting alerts on your managed domain</a>
     - html: <a href="faqs.md">Frequently Asked Questions</a>
     - html: <a href="https://azure.microsoft.com/support/options/">Get support</a>

@@ -4067,7 +4067,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-troubleshooting.md",
-      "redirect_url": "/azure/active-directory-domain-services/troubleshooting",
+      "redirect_url": "/azure/active-directory-domain-services/troubleshoot",
       "redirect_document_id": false
     },
     {

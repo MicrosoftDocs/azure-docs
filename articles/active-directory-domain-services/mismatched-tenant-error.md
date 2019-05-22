@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/22/2019
 ms.author: mstephen
 
 ---
@@ -60,4 +60,4 @@ You have two options to resolve the mismatched directory error. You may:
 
 ## Related content
 * [Azure AD Domain Services - Getting Started guide](create-instance.md)
-* [Troubleshooting guide - Azure AD Domain Services](troubleshooting.md)
+* [Troubleshooting guide - Azure AD Domain Services](troubleshoot.md)

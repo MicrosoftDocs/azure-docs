@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/22/2019
 ms.author: mstephen
 
 ---
 # Azure AD Domain Services - Contact Us
 ## Contact the product team
-If you have issues with your managed domain, check to see if the steps outlined in the [Troubleshooting Guide](troubleshooting.md) resolve the issue. If you're still having trouble, feel free to contact us.
+If you have issues with your managed domain, check to see if the steps outlined in the [Troubleshooting Guide](troubleshoot.md) resolve the issue. If you're still having trouble, feel free to contact us.
 
 You may email us at: [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com).
 

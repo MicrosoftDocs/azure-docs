@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/22/2019
 ms.author: mstephen
 
 ---
@@ -22,7 +22,7 @@ ms.author: mstephen
 This page answers frequently asked questions about the Azure Active Directory Domain Services. Keep checking back for updates.
 
 ## Troubleshooting guide
-Refer to the [Troubleshooting guide](troubleshooting.md) for solutions to common issues with configuring or administering Azure AD Domain Services.
+Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common issues with configuring or administering Azure AD Domain Services.
 
 ## Configuration
 ### Can I create multiple managed domains for a single Azure AD directory?
