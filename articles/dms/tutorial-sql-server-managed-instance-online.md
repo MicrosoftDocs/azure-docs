@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 > [!IMPORTANT]
 > For online migrations from SQL Server to an Azure SQL Database managed instance using Azure Database Migration Service, you must provide the full database backup and subsequent log backups in the SMB network share that the service can use to migrate your databases. Azure Database Migration Service does not initiate any backups, but rather uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
-> Be sure that you take backups using the CHECKSUM option. In addition, make sure not to append multiple backups (i.e. full and t-log) into a single backup media; take each backup on a separate backup file.
+> Be sure that you take [backups using the WITH CHECKSUM option](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). In addition, make sure not to append multiple backups (i.e. full and t-log) into a single backup media; take each backup on a separate backup file.
 
 > [!NOTE]
 > Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
