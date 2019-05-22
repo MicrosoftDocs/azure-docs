@@ -34,15 +34,21 @@ Endpoint Protection assessment and recommendations in Azure Security Center dete
   * At least one of the following properties is false:
 
      **AMServiceEnabled**
+
      **AntispywareEnabled**
+
      **RealTimeProtectionEnabled**
+
      **BehaviorMonitorEnabled**
+
      **IoavProtectionEnabled**
+
      **OnAccessProtectionEnabled**
 
   * If one or both of the following properties is greater or equal to 7.
 
      **AntispywareSignatureAge**
+
      **AntivirusSignatureAge**
 
 ## Microsoft System Center Endpoint Protection
