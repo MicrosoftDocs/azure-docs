@@ -25,7 +25,7 @@ This article is the first of two quickstarts for Azure Functions. After you comp
 
 Before you start, you must have the following:
 
-+ Install [Python 3.6](https://www.python.org/downloads/).
++ Install [Python 3.6.8](https://www.python.org/downloads/release/python-368/).
 
 + Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
 
