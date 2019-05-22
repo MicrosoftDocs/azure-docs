@@ -126,7 +126,7 @@ To simplify the sign-in experience of your users, you might want to allow them t
 
 Common use cases to require MFA are access:
 
-- [By admins](baseline-protection.md#require-mfa-for-admins)
+- [By admins](howto-baseline-protect-administrators.md)
 - [To specific apps](app-based-mfa.md) 
 - [From network locations, you don't trust](untrusted-networks.md).
 

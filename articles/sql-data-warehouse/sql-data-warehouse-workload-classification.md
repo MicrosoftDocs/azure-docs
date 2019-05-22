@@ -76,4 +76,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## Next steps
 
-To get started with creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  For more information about SQL Data Warehouse workload classification, and importance, see [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md) and [SQL Data Warehouse Importance](sql-data-warehouse-workload-importance.md). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+- For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- See the Quickstart on how to create a workload classifier [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md).
+- See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
