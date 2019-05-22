@@ -15,7 +15,7 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Planning a cloud-based Azure Multi-Factor Authentication
+# Planning a cloud-based Azure Multi-Factor Authentication deployment
 
 People are connecting to organizational resources in increasingly complicated scenarios. People connect from organization-owned, personal, and public devices on and off the corporate network using smart phones, tablets, PCs, and laptops, often on multiple platforms. In this always-connected, multi-device and multi-platform world, the security of user accounts is more important than ever. Passwords, no matter their complexity, used across devices, networks, and platforms are no longer sufficient to ensure the security of the user account, especially when users tend to reuse passwords across accounts. Sophisticated phishing and other social engineering attacks can result in usernames and passwords being posted and sold across the dark web.
 
@@ -37,13 +37,13 @@ Before starting a deployment of Azure Multi-Factor Authentication, there are pre
 
 Your MFA rollout plan should include a pilot deployment followed by deployment waves that are within your support capacity. Begin your rollout by applying your Conditional Access policies to a small group of pilot users. After evaluating the effect on the pilot users, process used, and registration behaviors, you can either add more groups to the policy or add more users to the existing groups.
 
-### User Communications
+### User communications
 
 It is critical to inform users, in planned communications, about upcoming changes, Azure MFA registration requirements, and any necessary user actions. We recommend communications are developed in concert with representatives from within your organization, such as a Communications, Change Management, or Human Resources departments.
 
 Microsoft provides [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](../user-help/security-info-setup-signin.md) to help draft your communications. You can send users to [https://myprofile.microsoft.com](https://myprofile.microsoft.com) to register directly by selecting the **Security Info** links on that page.
 
-## Deployment Considerations
+## Deployment considerations
 
 Azure Multi-factor Authentication is deployed by enforcing policies with Conditional Access. A [Conditional Access policy](../conditional-access/overview.md) can require users to perform multi-factor authentication when certain criteria are met such as:
 
@@ -58,7 +58,7 @@ Azure Multi-factor Authentication is deployed by enforcing policies with Conditi
 * Hybrid Azure AD joined device
 * Approved client application
 
-Use the customizable posters and email templates in [multi-factor authentication rollout materials] to roll out multi-factor authentication to your organization. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+Use the customizable posters and email templates in [multi-factor authentication rollout materials](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) to roll out multi-factor authentication to your organization.
 
 ## Enable Multi-Factor Authentication with Conditional Access
 
@@ -140,7 +140,7 @@ Administrators must determine how users will register their methods. Organizatio
 
 If your organization is using Azure Active Directory Identity Protection, [configure the MFA registration policy](../identity-protection/howto-mfa-policy.md) to prompt your users to register the next time they sign in interactively.
 
-### Registration without identity Protection
+### Registration without Identity Protection
 
 If your organization does not have licenses that enable Identity Protection, users are prompted to register the next time that MFA is required at sign-in. Users may not be registered for MFA if they don't use applications protected with MFA. It's important to get all users registered so that bad actors cannot guess the password of a user and register for MFA on their behalf, effectively taking control of the account.
 
@@ -241,7 +241,7 @@ The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA cap
 
 The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication to protect [VPN](howto-mfa-nps-extension-vpn.md), [Remote Desktop Gateway connections](howto-mfa-nps-extension-rdg.md), or other RADIUS capable applications. Users that register for Azure MFA in this environment will be challenged for all authentication attempts, the lack of Conditional Access policies mean MFA is always required.
 
-#### Implementing Your NPS Server
+#### Implementing your NPS server
 
 If you have an NPS instance deployed and in use already, reference [Integrate your existing NPS Infrastructure with Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). If you are setting up NPS for the first time, refer to [Network Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) for instructions. Troubleshooting guidance can be found in the article [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
@@ -274,7 +274,7 @@ When using Azure MFA with AD FS 2016 and the target application is subject to Co
 * Conditional Access is not available when the application is a relying party to AD FS 2016 and is managed or federated with AD FS 2016.
 * Conditional Access is also not available when AD FS 2016 is configured to use Azure MFA as the primary authentication method.
 
-#### AD FS Logging
+#### AD FS logging
 
 Standard AD FS 2016 logging in both the Windows Security Log and the AD FS Admin log, contains information about authentication requests and their success or failure. Event log data within these events will indicate whether Azure MFA was used. For example, an AD FS Auditing Event ID 1200 may contain:
 
@@ -283,7 +283,7 @@ Standard AD FS 2016 logging in both the Windows Security Log and the AD FS Admin
 <MfaMethod>MFA</MfaMethod>
 ```
 
-#### Renew and manage Certificates
+#### Renew and manage certificates
 
 On each AD FS server, in the local computer My Store, there will be a self-signed Azure MFA certificate titled OU=Microsoft AD FS Azure MFA, which contains the certificate expiration date. Check the validity period of this certificate on each AD FS server to determine the expiration date.
 
@@ -291,7 +291,7 @@ If the validity period of your certificates is nearing expiration, [generate and
 
 The following guidance details how to manage the Azure MFA certificates on your AD FS servers. When you configure AD FS with Azure MFA, the certificates generated via the `New-AdfsAzureMfaTenantCertificate` PowerShell cmdlet are valid for 2 years. Renew and install the renewed certificates prior to expiration to ovoid disruptions in MFA service.
 
-## Implement your Plan
+## Implement your plan
 
 Now that you have planned your solution, you can implement by following the steps below:
 
@@ -320,7 +320,7 @@ Azure Multi-Factor Authentication provides reports through the Azure portal:
 | --- | --- | --- |
 | Usage and fraud alerts | Azure AD > Sign-ins | Provides information on overall usage, user summary, and user details; as well as a history of fraud alerts submitted during the date range specified. |
 
-## Troubleshoot MFA Issues
+## Troubleshoot MFA issues
 
 Find solutions for common issues with Azure MFA at the [Troubleshooting Azure Multi-Factor Authentication article](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) on the Microsoft Support Center.
 
