@@ -22,6 +22,9 @@ When Debug mode is on, you will interactively build your data flow with an activ
 
 In most cases, it is a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work in Azure Data Factory. You should also use the "Debug" button on the pipeline panel to test your data flow inside of a pipeline.
 
+> [!NOTE]
+> While the debug mode light is green on the Data Factory toolbar, you will be charged at the Data Flow debug rate of 8 cores/hr of general compute with a 60 minute time-to-live 
+
 ## Debug mode on
 When you switch on debug mode, you will be prompted with a side-panel form that will request you to point to your interactive Azure Databricks cluster and select options for the source sampling. You must use an interactive cluster from Azure Databricks and select either a sampling size from each your Source transforms, or pick a text file to use for your test data.
 
@@ -36,7 +39,7 @@ Debug settings can be Each Source from your Data Flow will appear in the side pa
 ## Cluster status
 There is a cluster status indicator at the top of the design surface that will turn green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster was not already running when you entered debug mode, then you will have to wait 5-7 minutes for the cluster to spin up. The indicator light will be yellow until it is ready. Once your cluster is ready for Data Flow debug, the indicator light will turn green.
 
-When you are finished with your debugging, turn the Debug switch off so that your Azure Databricks cluster can terminate.
+When you are finished with your debugging, turn the Debug switch off so that your Azure Databricks cluster can terminate and you will no longer be billed for debug activity.
 
 <img src="media/data-flow/datapreview.png" width="400">
 
