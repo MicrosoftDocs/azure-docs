@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -43,7 +43,7 @@ It is recommended to use a separate Automation Account for the Start/Stop VM sol
 
 ### Permissions needed to deploy
 
-There are certain permissions that a user must have to deploy the Start/Stop VMs during off hours solution. These permissions are different if using a pre-created Automation Account and Log Analytics workspace or creating new ones during deployment.
+There are certain permissions that a user must have to deploy the Start/Stop VMs during off hours solution. These permissions are different if using a pre-created Automation Account and Log Analytics workspace or creating new ones during deployment. If you are a Contributor on the subscription and a Global Administrator in your Azure Active Directory tenant, you do not need to configure the following permissions. If you do not have those rights or need to configure a custom role, see the permissions required below.
 
 #### Pre-existing Automation Account and Log Analytics account
 
@@ -73,13 +73,17 @@ To deploy the Start/Stop VMs during off hours solution to an Automation Account 
 
 To deploy the Start/Stop VMs during off hours solution to a new Automation Account and Log Analytics workspace the user deploying the solution needs the permissions defined in the preceding section as well as the following permissions:
 
-- Co-administrator on subscription - This is needed to create the Classic Run As Account
-- Be part of the Azure Active Directory **Application Developer** role. For more details on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
+- Co-administrator on subscription - This is only needed to create the Classic Run As Account
+- Be part of the [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **Application Developer** role. For more details on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
+- Contributor on the subscription or the following permissions.
 
 | Permission |Scope|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/roleAssignments/delete | Subscription |
 | Microsoft.Automation/automationAccounts/connections/read | Resource Group |
 | Microsoft.Automation/automationAccounts/certificates/read | Resource Group |
 | Microsoft.Automation/automationAccounts/write | Resource Group |

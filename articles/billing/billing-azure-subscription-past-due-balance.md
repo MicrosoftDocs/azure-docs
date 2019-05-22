@@ -14,27 +14,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 05/20/2019
 ms.author: banders
 
 ---
-# Resolve past due balance for your Azure subscription after getting an email from Azure
+# Resolve past due balance for your Azure subscription
 
-If your payment isn't received or if we can't process your payment, you might get an email or see an alert in the Account Center or Azure portal. The message might be like:
+If your payment isn't received or if we can't process your payment, you might get an email or see an alert in the Azure portal or Account Center.
+If you are the [Account Administrator](billing-subscription-transfer.md#whoisaa), you can settle the outstanding charges in the [Azure portal](https://portal.azure.com). If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice.
 
-**We have been unable to charge your credit card for your subscription. To prevent any service interruptions, please update your payment information.**
+> [!IMPORTANT]
+> * If you have multiple subscriptions using the same credit card and they are all past due, you must pay the entire outstanding balance at once.
+> * The payment instrument you use to settle the outstanding charges will become the new active payment method for all subscriptions that were using the failed payment method.
 
-Follow the steps in the article to resolve the past due balance.
+## Resolve past due balance in the Azure portal
 
-## Resolve the past due balance
-
-* If the credit card on file is declined or expired, [change the credit card used to pay for the subscription](billing-how-to-change-credit-card.md) or contact your bank to resolve the issue. When you update the payment method, Azure immediately processes the payment for all outstanding charges. Payment is also processed for any other Microsoft services where you have outstanding charges.
-
-* If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice. If you need help, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-* If you didn't see a bill because the Account Administrator has left the company or changed roles, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.
-
-* If you know your payment has been processed but your subscription is still disabled, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Admin.
+1. Search on **Cost Management + Billing**.
+1. In the Overview page, you'll see a list of your subscriptions. If your subscription status is past due, click the **Settle balance** link.
+    ![Screenshot that shows settle balance link](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
+1. The total outstanding balance reflects outstanding charges across all Microsoft services using the failed payment method.
+1. Select a payment method to pay the balance. This payment method will become the active payment method for all subscriptions currently using the failed payment method.
+    ![Screenshot that shows select payment method link](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
+1. If the selected payment method also has outstanding charges for Microsoft services, this will be reflected in the total outstanding balance. You must pay those outstanding charges, too.
+1. Click **Pay**.
 
 ## Not getting billing email notifications?
 
@@ -43,6 +46,8 @@ If you're the Account Administrator, [check what email address is used for notif
 ## If I forget to pay, what happens?
 
 The service is canceled and your resources are no longer available. Your Azure data is deleted 90 days after the service is terminated. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+
+If you know your payment has been processed but your subscription is still disabled, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Need help? Contact us.
 
