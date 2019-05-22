@@ -49,6 +49,8 @@
       href: power-bi-imported-query.md
     - name: Power BI - SQL query
       href: power-bi-sql-query.md
+    - name: Sisense
+      href: sisense.md
 - name: Tutorials
   items:
   - name: Ingest data without using code
