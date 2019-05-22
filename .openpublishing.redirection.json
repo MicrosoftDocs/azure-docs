@@ -14941,6 +14941,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
+      "redirect_url": "/azure/networking/networking-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-plan-design.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpngateways",
       "redirect_document_id": false
@@ -39076,6 +39081,16 @@
 	   {
       "source_path": "articles/azure-monitor/app/asp-net-core-no-visualstudio.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-use-azcopy.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-use-azcopy-linux.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
       "redirect_document_id": false
     }
   ]
