@@ -10,7 +10,7 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/22/2019
 ms.author: bwren
 ---
 # Office 365 management solution in Azure (Preview)
@@ -24,6 +24,9 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
 - Perform operational troubleshooting by using [log queries](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
+
+> [!NOTE]
+> The recommended method to install and configure the Office 365 solution for most users is enabling the [Office 365 connector](../sentinel/connect-office-365.md) in [Azure Sentinel](../sentinel/overview.md). This is an updated version of the Office 365 solution with an improved configuration experience. Azure Sentinel can be enabled in your Azure subscription at no cost. Specify the Log Analytics workspace when you [onboard Sentinel](../sentinel/quickstart-onboard.md) that you want the Office 365 solution installed in. Once you enable the connector, the solution will be available in the workspace and used exactly the same as any other monitoring solutions you have installed.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
