@@ -44,6 +44,7 @@ You need to meet the following prerequisites before beginning your implementatio
      * Connector machines must [be enabled for TLS 1.2](application-proxy-add-on-premises-application.md) before installing the connectors.
 
      * If possible, deploy connectors in the [same network](application-proxy-network-topology.md) and segment as the back-end web application servers. It's best to deploy connectors after you complete a discovery of applications.
+     * We recommend that each connector group has at least two connectors to provide high availability and scale. Having three connectors is optimal in case you may need to service a machine at any point. Review the [connector capacity](application-proxy-connectors#capacity-planning) to help with deciding what type of machine to install connectors on. The larger the machine the more buffer and performant the connector will be.
 
 * **Network access settings**: Azure AD Application Proxy connectors [connect to Azure via HTTPS (TCP Port 443) and HTTP (TCP Port 80)](application-proxy-add-on-premises-application.md). 
 
@@ -61,7 +62,7 @@ The following core requirements must be met in order to configure and implement 
 
 * **Conditional access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and conditional access policies for remote access from the internet.  An  approach to provide conditional access for intranet use is to modernize applications so they can diretly authenticate with AAD. Refer to [Resources for migrating applications to AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) for more information. 
 
-* **Service limits**: To protect against overconsumption of resources by individual tenants there are throttling limits set per application and subscription. To see these limits refer to [Azure AD service limits and restrictions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). These throttling limits are based on a benchmark far above typical usage volume and provides ample buffer for large deployments.
+* **Service limits**: To protect against overconsumption of resources by individual tenants there are throttling limits set per application and tenant. To see these limits refer to [Azure AD service limits and restrictions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). These throttling limits are based on a benchmark far above typical usage volume and provides ample buffer for a majority of deployments.
 
 * **Public certificate**: If you are using custom domain names, you must procure a public certificate issued by a non-Microsoft trusted certificate authority. Depending on your organizational requirements, getting a certificate can take some time and we recommend beginning the process as early as possible. Azure Application Proxy supports standard, [wildcard](application-proxy-wildcard.md), or SAN-based certificates.
 
@@ -176,7 +177,7 @@ You can also publish applications by using [PowerShell](https://docs.microsoft.c
 
 Below are some best practices to follow when publishing an application:
 
-* **Use Connector Groups**: Assign a connector group that has been designated for publishing each respective application. We recommend that each connector group has at least two connectors to provide high availability and scale. Having three connectors is optimal in case you may need to service a machine at any point. [See Publish applications on separate networks and locations using connector groups](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-connector-groups) to see how you can also use connector groups to segment your connectors by network or location.
+* **Use Connector Groups**: Assign a connector group that has been designated for publishing each respective application. We recommend that each connector group has at least two connectors to provide high availability and scale. Having three connectors is optimal in case you may need to service a machine at any point. Additionally, see [Publish applications on separate networks and locations using connector groups](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-connector-groups) to see how you can also use connector groups to segment your connectors by network or location.
 
 * **Set Backend Application Timeout**: This setting is useful in scenarios where the application might require more than 75 seconds to process a client transaction. For example when a client sends a query to a web application that acts as a front end to a database. The front end sends this query to its back-end database server and waits for a response, but by the time it receives a response, the client side of the conversation times out. Setting the timeout to Long provides 180 seconds for longer transactions to complete.
 
