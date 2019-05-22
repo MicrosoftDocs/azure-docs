@@ -167,7 +167,7 @@ For Non-Windows, no local storage is created automatically by the SDK, and hence
 Read more about data protection and privacy [here](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## Open-source SDK
-Like every Application Insights SDKs, channels are also open-source. Read and contribute to the code, or report issues [here](https://github.com/Microsoft/ApplicationInsights-dotnet).
+Like every Application Insights SDKs, channels are also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
 ## Related documentation
 
