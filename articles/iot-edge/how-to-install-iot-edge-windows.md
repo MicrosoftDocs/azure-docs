@@ -71,6 +71,13 @@ This example demonstrates a manual installation with Windows containers:
 
 2. Run PowerShell as an administrator.
 
+   >[!NOTE]
+   >Use the 64 bit version of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which version you're using, run the following command:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers. 
 
    ```powershell
@@ -112,6 +119,13 @@ The following example demonstrates an automatic installation with Windows contai
    >Keep the window that's running the TPM simulator open during your installation and testing. 
 
 2. Run PowerShell as an administrator.
+
+   >[!NOTE]
+   >Use the 64 bit version of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which version you're using, run the following command:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers. 
 
