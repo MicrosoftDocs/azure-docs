@@ -138,8 +138,8 @@ Define the input and output sample formats in the `input_sample` and `output_sam
 
 The following example demonstrates how to accept and return JSON data:
 
-**Scikit-learn example with Swagger generation:**
 ```python
+#example: scikit-learn and Swagger
 import json
 import numpy as np
 from sklearn.externals import joblib
