@@ -74,6 +74,8 @@ These roles can be assigned to your identity in any of these scopes:
 - Resource group
 - Subscription
 
+See [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+
 You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or folder. In the ACL, your identity needs write permission on the target folder, and execute permission on container and each parent folder.
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
@@ -93,13 +95,15 @@ These roles can be assigned to your identity in any of these scopes:
 - Resource group
 - Subscription
 
+See [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+
 You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or folder. In the ACL, your identity needs read permission on the target folder, and execute permission on container and each parent folder.
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
 
 #### Authenticate your identity
 
-After you've verified that your identity has been given the necessary authorization level, open a command prompt. Then, type the following command, and press the ENTER key.
+After you've verified that your identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login
