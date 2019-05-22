@@ -248,6 +248,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Reuse of previous results (`allow_reuse`) is key when using pipelines in a collaborative environment since eliminating unnecessary re-runs offers agility. This is the default behavior when the script_name, inputs, and the parameters of a step remain the same. When the output of the step is reused, the job is not submitted to the compute, instead, the results from the previous run are immediately available to the next step's run. If set to false, a new run will always be generated for this step during pipeline execution. 
+
 After you define your steps, you build the pipeline by using some or all of those steps.
 
 > [!NOTE]
@@ -370,11 +372,11 @@ See the list of all your pipelines and their run details:
 ## Caching & reuse  
 
 In order to optimize and customize the behavior of your pipelines you can do a few things around caching and reuse. For example, you can choose to:
-+ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of this.
 + **Extend hashing beyond the script**, to also include an absolute path or relative paths to the source_directory to other files and directories using the `hash_paths=['<file or directory']` 
 + **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-By default, step re-use is enabled and only the main script file is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.  
+By default, `allow-reuse` for steps is enabled and only the main script file is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

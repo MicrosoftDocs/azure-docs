@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: mmccrory
+ms.author: memccror
 
 ---
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services
