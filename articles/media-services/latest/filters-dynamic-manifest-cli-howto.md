@@ -24,7 +24,7 @@ When delivering your content to customers (streaming Live events or Video on Dem
 This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 > [!NOTE]
-> Make sure to review (filters-concept.md#presentationtimerange).
+> Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## Prerequisites 
 
