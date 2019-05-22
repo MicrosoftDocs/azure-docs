@@ -32,7 +32,7 @@ Use the information in the following tables to troubleshoot issues and errors en
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup is possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
+| Warning | Current settings for this database do not support certain type of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup is possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
 
 
 ## Backup failures
@@ -103,7 +103,7 @@ The following error codes are shown when restore jobs fail.
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time as per the SQL guidelines. | When a database is in bulk logged recovery mode, the data between a bulk logged transaction and next log transaction cannot be recovered. | Please choose a different Point in Time for Recovery. [Learn more](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time as per the SQL guidelines. | When a database is in bulk logged recovery mode, the data between a bulk logged transaction and next log transaction cannot be recovered. | Choose a different Point in Time for Recovery. [Learn more](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## Registration failures
@@ -169,7 +169,8 @@ In the above scenarios, it is recommended to trigger re-register operation on th
 
 ## File's size limit beyond which restore happens to default path
 
-The total string size of files not only depends on the number of files but also on their names and paths. For each of the database files, get the logical file name and physical path. You can use the SQL query given below:
+The total string size of files not only depends on the number of files but also on their names and paths. For each of the database files, get the logical file name and physical path.
+You can use the SQL query given below:
 
   ```
   SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
@@ -179,23 +180,21 @@ The total string size of files not only depends on the number of files but also 
 
 Now arrange them in the format given below:
 
-  ```
-  [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
+  ```[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
   ```
 
 Example:
 
-  ```
-  [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
+  ```[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
   ```
 
-If the string size of the content given above exceeds 20,000 bytes, the database files are stored differently, and during recovery you will not be able to set the target file path for restore. The files will be restored to the Default SQL path provided by SQL Server.
+If the string size of the content given above exceeds 20,000 bytes, then the database files are stored differently, and during recovery you will not be able to set the target file path for restore. The files will be restored to the Default SQL path provided by SQL Server.
 
 ### Override the default target restore file path
 
 You can override the target restore file path during the restore operation by placing a JSON file which contains the mapping of the database file to target restore path. For this create a file `database_name.json` and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
-The content of the file should be of the format:
+The content of the file should be of the format given below:
   ```[
     {
       "Path": "<Restore_Path>",

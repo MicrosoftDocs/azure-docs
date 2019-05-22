@@ -92,9 +92,8 @@ Avoid using the following elements in database names:
   * Trailing and leading spaces
   * Trailing exclamation marks (!)
   * Closing square brackets (])
-  * Starting with F:\
   * Semicolon ';'
-  * Forward slash '/' 
+  * Forward slash '/'
 
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
