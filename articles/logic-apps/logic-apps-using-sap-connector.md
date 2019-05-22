@@ -115,6 +115,8 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
+   1. Although optional, selecting **Safe Typing** can help you detect issues early. Learn more about the [**Safe Typing** option](#safe-typing).
+
    1. When you're done, choose **Create**.
 
       Logic Apps sets up and tests your connection, making sure that the connection works properly.
@@ -311,7 +313,11 @@ On the designer toolbar, choose **Save**.
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. When you're done, choose **Create**. Logic Apps sets up and tests your connection, making sure that the connection works properly.
+   1. Although optional, selecting **Safe Typing** can help you detect issues early. Learn more about the [**Safe Typing** option](#safe-typing).
+
+   1. When you're done, choose **Create**. 
+   
+      Logic Apps sets up and tests your connection, making sure that the connection works properly.
 
 1. Provide the path to the artifact for which you want to generate the schema.
 
@@ -418,7 +424,7 @@ To enable SNC for your requests to or from SAP system, select the **Use SNC** ch
 
 ## Safe typing
 
-When you create your connection to SAP, choose the **Safe Typing** option so that the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time` where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. This strong typing can help you detect issues early and affects the behavior for all schema generation, send message for both the "been sent" payload and the "been received" response, and trigger. 
+When you create your connection to SAP, choose the **Safe Typing** option so that the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time` where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing can help you detect issues early and affects the behavior for all schema generation, send message for both the "been sent" payload and the "been received" response, and trigger. 
 
 When **Safe Typing** is enabled, the schema maps the DATS and TIMS types to XML string fields with length restrictions only, for example:
 
@@ -458,6 +464,7 @@ When sending messages with **Safe Typing** not enabled, the DATS and TIMS respon
 ```xml
 <DATE>9999-12-31</DATE>
 <TIME>23:59:59</TIME>
+```
 
 ## Known issues and limitations
 
