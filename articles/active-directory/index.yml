@@ -19,19 +19,19 @@ highlightedContent:
   items: 
     - title: What is Azure AD? 
       itemType: overview # controls the icon image and super-title text 
-      url: /azure/active-directory/fundamentals/active-directory-whatis.md
+      url: /azure/active-directory/fundamentals/active-directory-whatis
     - title: What's new in Azure AD? 
       itemType: overview ## change to whats-new
-      url: /azure/active-directory/fundamentals/whats-new.md
+      url: /azure/active-directory/fundamentals/whats-new
     - title: Assign roles to users 
       itemType: how-to-guide
-      url: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md
+      url: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
     - title: Create a group and add members 
       itemType: how-to-guide
-      url: /azure/active-directory/fundamentals/add-users-azure-active-directory.md
+      url: /azure/active-directory/fundamentals/add-users-azure-active-directory
     - title: Azure AD deployment checklist 
       itemType: overview ## change to concept
-      url: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2.md
+      url: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
     - title: Secure your Azure resources with conditional access
       itemType: learn 
       url: /learn/modules/secure-azure-resources-with-conditional-access/
@@ -43,10 +43,10 @@ conceptualContent:
         - url: /azure/active-directory/manage-apps/what-is-single-sign-on
           itemType: overview ## change to concept
           text: What is single sign-on (SSO)? 
-        - url: /azure/active-directory/manage-apps/what-is-single-sign-on
+        - url: /azure/active-directory/manage-apps/user-provisioning
           itemType: tutorial
           text: Automatic user provisioning 
-        - url: /azure/active-directory/manage-apps/user-provisioning
+        - url: /azure/active-directory/manage-apps/application-proxy
           itemType: overview ## change to concept
           text: Application Proxy for on-premises apps
       footerLink: 
