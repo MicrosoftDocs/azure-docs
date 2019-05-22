@@ -291,8 +291,9 @@ While you need to pay egress data transfer for your Standard or Premium ExpressR
 
 ### What features are available and what are not on ExpressRoute Local?
 Compared to a Standard ExpressRoute circuit, a Local circuit has the same set of features except:
-* scope of access to Azure regions as described above
+* Scope of access to Azure regions as described above
 * ExpressRoute Global Reach is not available on Local
+
 ExpressRoute Local also has the same limits on resources (e.g. the number of VNets per circuit) as Standard. 
 
 ### How to configure ExpressRoute Local? 

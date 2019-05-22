@@ -125,12 +125,12 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 1 \
-    --kubernetes-version 1.13.5 \
+    --enable-addons monitoring \
+    --kubernetes-version 1.14.0 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
     --enable-vmss \
-    --enable-addons monitoring \
     --network-plugin azure
 ```
 
@@ -147,7 +147,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.13.5
+    --kubernetes-version 1.14.0
 ```
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
@@ -176,8 +176,8 @@ The following example output shows the single node created in the previous steps
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.13.5
-aksnpwin987654                      Ready    agent   108s   v1.13.5
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.0
+aksnpwin987654                      Ready    agent   108s   v1.14.0
 ```
 
 ## Run the application
