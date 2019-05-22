@@ -47,6 +47,6 @@ The software requirements include the information on the supported operating sys
 
 Your datacenter needs to have high-speed network. For fastest copy speeds, two 40-GbE connections can be utilized in parallel (one per node). If you do not have 40-GbE available, we recommend that you have at least two 10-GbE connections (one per node).
 
-## Next step
+## Next steps
 
 * [Deploy your Azure Data Box](data-box-deploy-ordered.md)
