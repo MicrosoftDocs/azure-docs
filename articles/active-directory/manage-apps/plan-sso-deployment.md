@@ -20,35 +20,35 @@ ms.collection: M365-identity-device-management
 
 ### What is SSO?
 
-Single sign-on means being able to access all the applications and resources that a user needs to do business, by signing in only once using a single user account. Once signed in, the user can access all needed applications without being required to authenticate a second time.
+Single sign-on means being able to access all the applications and resources that a user needs to do business. By signing in only once using a single user account, by the user can access all needed applications without being required to authenticate a second time.
 
 ### Benefits of SSO
 
 Single sign-on (SSO) adds security and convenience when users sign-on to applications in Azure Active Directory (Azure AD). 
 
-Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each. 
+Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each.
 
-The Azure Marketplace has over 3000 applications with pre-integrated SSO connections, making it easy to integrate them in your tenant. 
+The Azure Marketplace has over 3000 applications with pre-integrated SSO connections, making it easy to integrate them in your tenant.
 
 ### Azure Active Directory licensing
 
-Single Sign On for pre-integrated Software as a service (SaaS) applications is free! However, the number of objects in your directory and the features you wish to deploy may require additional licenses. You can refer to [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of license requirements. 
+Single sign on for pre-integrated SaaS applications is free! However, the number of objects in your directory and the features you wish to deploy may require additional licenses. You can refer to [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of license requirements.
 
 ### Application licensing
 
-You will need the appropriate licenses for your SaaS applications to meet your business needs. 
+You will need the appropriate licenses for your SaaS applications to meet your business needs.
 
-Work with the application owner to determine whether the users assigned to the application have the appropriate licenses for their roles within the application. If Azure AD manages the automatic provisioning based on roles, the roles that are assigned in Azure AD must align with the correct number of licenses owned within the application; improper number of licenses owned in the application may lead to errors during the provisioning/updating of a user.
+Work with the application owner to determine whether the users assigned to the application have the appropriate licenses for their roles within the application. If Azure AD manages the automatic provisioning based on roles, the roles that are assigned in Azure AD must align with the correct number of licenses owned within the application. Improper number of licenses owned in the application may lead to errors during the provisioning/updating of a user.
 
 ## Plan your SSO Team
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, it's typically due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood.
 
 ### Plan communications
 
-Communication is critical to the success of any new service. You should proactively communicate with your users, how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/end-user-experiences), and craft your communications to match your selection. 
+Communication is critical to the success of any new service. Proactively communicate with your users about how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/end-user-experiences), and craft your communications to match your selection. 
 
 ## Plan your SSO protocol
 
@@ -58,13 +58,13 @@ There are two primary ways in which you can enable your users to single sign-on 
 
 * **With federated single sign-on** Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on. We recommend using Federated SSO with Azure AD when an application supports it, instead of password-based SSO and ADFS.
 
-* **With password-based single sign-on** users sign on to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This option leverages the existing sign-in process provided by the application, enables an administrator to manage the passwords, and does not require the user to know the password.
+* **With password-based single sign-on users sign on to the application with a username and password the first time, they access it. After the first sign-on, Azure AD supplies the username and password to the application. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This option leverages the existing sign-in process provided by the application, enables an administrator to manage the passwords, and doesn't require the user to know the password.
 
 ### Considerations for federation-based SSO
 
 #### Using OpenID Connect and OAuth
 
-If the application you are connecting to supports it, you should use this method to enable your SSO to that application. Using OIDC/OAuth 2.0 requires less configuration and enables a richer user experience.
+If the application you are connecting to supports it, use the OIDC/OAuth 2.0 method to enable your SSO to that application. This method requires less configuration and enables a richer user experience.
 
 For more information, see:
 
@@ -78,31 +78,31 @@ If you have chosen to use SAML, your developers will need specific information p
 
 #### Certificate management for SAML-based SSO
 
-When you enable Federated SSO for your application, Azure AD creates a certificate that is by default valid for three years. You can, however, customize the expiration date for that certificate if desired. Ensure that you have processes in place to renew certificates prior to their expiration.
+When you enable Federated SSO for your application, Azure AD creates a certificate that is by default valid for three years. You can customize the expiration date for that certificate if desired. Ensure that you have processes in place to renew certificates prior to their expiration.
 
 Learn more: [Azure AD Managing Certificates](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### Considerations for password-based SSO
 
-Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. You must define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include: 
+Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
 * [Group Policy for Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 * [System Center Configuration Manager (SCCM) for Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-* [User driven download and configuration for Chrome, Firefox, Edge, or IE ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Learn more: [How to configure password single sign on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
-Capturing Login forms metadata for applications that are not in the gallery   
-‎Microsoft supports capturing metadata on a web application for password vaulting (e.g. capturing the username and password fields). You must navigate to the login URL during the process of configuring the application to capture the forms metadata. Ask the application owner for the exact login URL. This information is used during the sign on process, mapping Azure AD credentials to the application during log on. 
+**Capturing Login forms metadata for applications that are not in the gallery**
+‎Microsoft supports capturing metadata on a web application for password vaulting (capturing the username and password fields). You must navigate to the login URL during the process of configuring the application to capture the forms metadata. Ask the application owner for the exact login URL. This information is used during the sign on process, mapping Azure AD credentials to the application during sign on.
 
 Learn more: [What is application access and SSO with Azure AD? – Password-based SSO](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/)
 
 #### Indications that metadata in forms needs to be recaptured
 
-‎When applications change their HTML layout, you might need to re-capture the metadata to adjust for the changes. Common symptoms that indicate that the HTML layout has change include:
+‎When applications change their HTML layout, you might need to recapture the metadata to adjust for the changes. Common symptoms that indicate that the HTML layout has change include:
 * Users reporting that clicking on the application gets “stuck” in the login page
 
-* Users reporting that the username is populated, but not the password or vice versa
+* Users reporting that the username or password is not populated
 
 #### Shared accounts
 
@@ -113,11 +113,11 @@ Learn more: [What is application access and SSO with Azure AD? – Password-base
    1. Existing set of credentials in the application associated with the set of users 
 1. For each combination of user set and credentials, create a security group in the cloud or on-premises based on your requirements.
 1. Reset the shared credentials. Once the app is deployed in Azure AD, individuals do not need the password of the shared account. Since Azure AD will store the password, consider setting it to be very long and complex. 
-1. Configure automatic rollover of the password if the application supports it. That way, not even the administrator who did the initial set up will know the password of the shared account. 
+1. Configure automatic rollover of the password if the application supports it. That way, not even the administrator who did the initial setup will know the password of the shared account. 
 
 ## Plan your authentication method
 
-Choosing the correct authentication method is a crucial first decision in setting up an Azure AD hybrid identity solution. Implement the authentication method that is configured by using Azure AD Connect, which also provisions users in the cloud. 
+Choosing the correct authentication method is a crucial first decision in setting up an Azure AD hybrid identity solution. Implement the authentication method that is configured by using Azure AD Connect, which also provisions users in the cloud.
 
 To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. You should choose the one that most closely matches your specific scenario. For more information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
 
@@ -170,7 +170,7 @@ For information about MCAS, see the [Microsoft Cloud App Security overview](http
 
 With conditional access, you can automate criteria-based access control decisions for your cloud apps.
 
-Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (e.g. the sign-in risk level, location of the request, and so on) to determine access. For more information on Conditional Access, see [the overview](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) and the [Conditional Access deployment plan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (for example the sign-in risk level, location of the request, and so on) to determine access. For more information on Conditional Access, see [the overview](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) and the [Conditional Access deployment plan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
 ## Azure Single Sign-on technical requirements
 
@@ -188,7 +188,7 @@ For all pre-integrated SaaS apps, Microsoft provides a tutorial and you will not
 
 #### Attribute requirements
 
-There is a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects such as groups. You need to plan the mapping of user attributes from Azure AD to your application and [customize the default attribute-mappings](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) according to your business needs. 
+There is a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects such as groups. Plan the mapping of user attributes from Azure AD to your application and [customize the default attribute-mappings](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) according to your business needs. 
 
 #### Certificate requirements
 
@@ -198,7 +198,7 @@ There are two ways to manage your certificates.
 
 * **Automatic certificate rollover**: Microsoft supports [Signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). While this is our preferred method for managing certificates, not all ISV’s supports this scenario.
 
-* **Manually updating**: Every application has its own certificate that expires based on how they are defined. Before the application’s certificate expires, you must create a new certificate and send it to the ISV. Alternatively, this can be pulled from the federation metadata. [Read more on federation metadata here.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata)
+* **Manually updating**: Every application has its own certificate that expires based on how they are defined. Before the application’s certificate expires, you must create a new certificate and send it to the ISV. This information can be pulled from the federation metadata. [Read more on federation metadata here.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata)
 
 ## Implement SSO
 
@@ -216,7 +216,7 @@ Create the user in Azure AD either manually as a cloud-based user or sync the us
 
 From the [list of applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), locate and open the SSO tutorial for your application, then follow the tutorial’s steps on to successfully configure your SaaS application.
 
-If you can’t locate your application, navigate to our [Custom Application documentation](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). This will walk you through on how to add an application that is not located in the Azure AD gallery.
+If you can’t locate your application, see [Custom Application documentation](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). This will walk you through on how to add an application that is not located in the Azure AD gallery.
 
 Optionally, you can use claims issued in the SAML token for the enterprise application using [Microsoft’s guidance documentation](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Ensure this maps to what you expect to receive in the SAML response for your application. If you encounter issues during configuration, use our guidance on [how to Debug SSO integration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
 
@@ -239,17 +239,17 @@ Note: The scenarios below assume that a user is navigating to an application URL
 | Login to application with IE while on corpnet| Integrated Windows Authentication (IWA) occurs with no additional prompts |
 | Login to application with IE while off corpnet with new login attempt| Forms-based prompt at AD FS Sever. User successfully logs in and browser prompts for MFA. |
 | Login to application with IE while off corpnet with a current session and has never performed MFA| User does not receive prompt for first factor. User receives prompt for MFA. |
-| Login to application with IE while off corpnet with a current session and has already performed MFA in this session| User does not receive prompt for first factor. User does not receive MFA. User SSO’s into application |
+| Login to application with IE while off corpnet with a current session and has already performed MFA in this session| User does not receive prompt for first factor. User does not receive MFA. User SSOs into application |
 | Login to application with Chrome/Firefox/Safari while off corpnet with a current session and has already performed MFA in this session| User does not receive prompt for first factor. User does not receive MFA. User SSO’s into application |
-| Login to into application with Chrome/Firefox/Safari while off corpnet with new login attempt| Forms-based prompt at AD FS Sever. User successfully logs in and browser prompts for MFA. |
+| Login to into application with Chrome/Firefox/Safari while off corpnet with new login attempt| Forms-based prompt at AD FS Server. User successfully logs in and browser prompts for MFA. |
 | Login to application with Chrome/Firefox while on corporate network with a current session| User does not receive prompt for first factor. User does not receive MFA. User SSO’s into application |
 | Login to application with application mobile app with a new login attempt| Forms-based prompt at AD FS Sever. User successfully logs in and ADAL client prompts for MFA. |
 | Unauthorized user attempts to log into application with login URL| Forms-based prompt at AD FS Sever. User fails to login with first factor |
 | Authorized user attempts to log in but enters an incorrect password| User navigates to application URL and receives bad username/password error. |
 | Authorized user clicks on link in an email and is already authenticated| User clicks on URL and is signed into the application with no additional prompts |
 | Authorized user clicks on link in an email and is not yet authenticated| User clicks on URL and is prompt to authenticate with first factor. |
-| Authorized User logs into application with application mobile app (SP-initiated) with a new login attempt| Forms-based prompt at AD FS Sever. User successfully logs in and ADAL client prompts for MFA. |
-| Unauthorized User attempts to log into application with login URL (SP-initiated)| Forms-based prompt at AD FS Sever. User fails to login with first factor |
+| Authorized User logs into application with application mobile app (SP-initiated) with a new login attempt| Forms-based prompt at AD FS Server. User successfully logs in and ADAL client prompts for MFA. |
+| Unauthorized User attempts to log into application with login URL (SP-initiated)| Forms-based prompt at AD FS Server. User fails to login with first factor |
 | Authorized user attempts to log in but enters an incorrect password| User navigates to application URL and receives bad username/password error. |
 | Authorized user logs out and then logs in again| If Sign-out URL is configured, user is logged out of all services and prompt to authenticate. |
 | Authorized user logs out and then logs in again| ‎If Sign-out URL is not configured, user will be automatically logged back in using existing token from the existing Azure AD browser session. |
@@ -282,7 +282,7 @@ Following are some of the key roles we recommend having in place:
 
 * Owner On-Call for application break/fix support
 
-* Closely monitored email distribution list for certificate related change notifications
+* Closely monitored email distribution list for certificate-related change notifications
 
 The maximum lifetime of a certificate is three years. We recommend establishing a process on how you will handle a certificate change between Azure AD and your application. This can help prevent or minimize an outage due to a certificate expiring or force certificate rollover.
 
