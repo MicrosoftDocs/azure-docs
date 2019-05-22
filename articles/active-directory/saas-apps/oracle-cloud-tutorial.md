@@ -112,7 +112,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image](./media/oracle-cloud-tutorial/config11.png)
 
 	b. Select **Persistent** as **Choose name identifier format**.
+
 	c. Click **Save**.
+
 	d. Click the **pen** next to **Groups returned in claim**.
 
 	![image](./media/oracle-cloud-tutorial/config12.png)
@@ -120,10 +122,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image](./media/oracle-cloud-tutorial/config08.png)
 
 	e. Select **Security groups** from the radio list.
+
 	f. Select **Source Attribute** of **Group ID**.
+
 	g. Check **Customize the name of the group claim**.
+
 	h. In the **Name** text box, type **groupName**.
+
 	i. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
+
 	j. Click **Save**.
 
 1. On the **Set up Oracle Cloud** section, copy the appropriate URL(s) based on your requirement.
