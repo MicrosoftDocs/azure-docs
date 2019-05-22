@@ -151,34 +151,6 @@ The initial backup will run in accordance with the schedule, but you can run it 
 5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
 
-## Verify Backup job status
-
-The Backup job details for each VM backup consists of 2 phases, the **Snapshot** phase followed by the **Transfer data to vault** phase.<br/>
-The snapshot phase guarantees the availability of a recovery point stored along with the disks for **Instant Restores** and are available for a maximum of 5 days depending on the snapshot retention configured by the user. Transfer data to vault creates a recovery point in the vault for long term retention. Transfer data to vault only starts after the snapshot phase is completed.
-
-  ![Backup Job Status](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
-
-There are two **Sub Tasks** running at the backend, one for front end backup job which can be checked from the **Backup Job** details blade as given below:
-
-  ![Backup Job Status](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
-
-The **Transfer data to vault** phase can take multiple days to complete depending on the size of the disks, churn per disk and several other factors.
-
-Job status can vary depending on the following scenarios:
-
-**Snapshot** | **Transfer data to vault ** | **Job Status**
---- | --- | ---
-Completed | In progress | In progress
-Completed | Skipped | Completed
-Completed | Completed | Completed
-Completed | Failed | Completed with warning
-Failed | Failed | Failed
-
-
-Now with this capability, for the same VM, two backups can run in parallel, but in either phase (snapshot, transfer data to vault) only one sub task can be running. So in scenarios were a backup job in progress resulted in the next day’s backup to fail will be avoided with this decoupling functionality. Subsequent day’s backups can have snapshot completed while **Transfer data to vault** skipped if an earlier day’s backup job is in progress state.
-The incremental recovery point created in the vault will capture all the churn from the last recovery point created in the vault. There is no cost impact on the user.
-
-
 ## Optional steps (install agent/allow outbound)
 ### Install the VM agent
 
