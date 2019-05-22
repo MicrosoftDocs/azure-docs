@@ -6,7 +6,7 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 04/26/2019
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want learn how to create a Time Series Insights environment, so I can use Time Series Insights queries to understand device behavior.
