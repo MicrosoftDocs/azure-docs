@@ -1,5 +1,5 @@
 ---
-title: Create a new Azure Kinect application
+title: Build a new Azure Kinect application
 description: This article guides the Azure Kinect DK user through the process of creating a new application.
 author: joylital
 ms.author: joylital
