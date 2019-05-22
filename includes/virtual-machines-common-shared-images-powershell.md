@@ -105,19 +105,18 @@ $job.State
 
 ## Share the gallery
 
-In this example, we are going to give access to someone outside our company using their e-mail address. The person we are going to share with is *Alinne Montes*, and her e-mail address is *alinne_montes@contoso.com*.
+We recommend that you share access at the image gallery level. The following walks you through sharing the gallery that you just created.
 
-```azurepowershell-interactive
-# Get the object ID for the user
-$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
-# Grant access to the user for our gallery
-New-AzRoleAssignment `
-   -ObjectId $user.Id `
-   -RoleDefinitionName Reader `
-   -ResourceName $gallery.Name `
-   -ResourceType Microsoft.Compute/galleries `
-   -ResourceGroupName $resourceGroup.ResourceGroupName
-```
+1. Open the [Azure portal](https://portal.azure.com).
+1. In the menu at the left, select **Resource groups**. 
+1. In the list of resource groups, select **myGalleryRG**. The blade for your resource group will open.
+1. In the menu on the left of the **myGalleryRG** page, select **Access control (IAM)**. 
+1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
+1. Under **Role**, select **Reader**.
+1. Under **assign access to**, leave the default of **Azure AD user, group, or serivce principal**.
+1. Under **Select**, type in the email address of the person that you would like to invite.
+1. If the user is outside of your organization, you will see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
 
-When complete, Alinne should be able to see the gallery as a resource in the [Azure portal](https://portal.azure.com).
+The user will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
+
 
