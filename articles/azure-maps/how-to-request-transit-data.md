@@ -38,7 +38,7 @@ Let's make a Get Metro Area request for Seattle-Tacoma metroa area ID. To reques
 
 1. Create a collection in which to store the requests. In the Postman app, select **New**. In the **Create New** window, select **Collection**. Name the collection and select the **Create** button.
 
-2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the pushpins, select the collection you created in the previous step as the location in which to save the request, and then select **Save**.
+2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request, select the collection you created in the previous step as the location in which to save the request, and then select **Save**.
     
     ![Create a request in Postman](./media/how-to-request-transit-data/postman-new.png)
 
@@ -221,7 +221,7 @@ For the purpose of understanding we will use the `id` of one of the bus stops as
 
 ## Request a transit route
 
-The Azure Maps [Get Transit Routes API](https://aka.ms/AzureMapsMobilityTransitRoute) allows trip planning returning the best possible route options between an origin and destination. Service provides a variety of travel modes, including walking, biking, and public transit. Next we will search a route from closest bus stop to Space Needle in Seattle. 
+The Azure Maps [Get Transit Routes API](https://aka.ms/AzureMapsMobilityTransitRoute) allows trip planning returning the best possible route options between an origin and destination. Service provides a variety of travel modes, including walking, biking, and public transit. Next we will search a route from closest bus stop to Space Needle in Seattle.
 
 ### Get location coordinates for destination
 
@@ -336,12 +336,12 @@ To make a route request, complete the steps below:
 
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
-    We will request public transit routes for bus by specifying the `modeType` and `transitType` parameters. The request URL contains the locations retrieved in the previous sections. As `originType` we now have **stopID** and as `destionationType` we have the **position**.
+    We will request public transit routes for bus by specifying the `modeType` and `transitType` parameters. The request URL contains the locations retrieved in the previous sections. As `originType` we now have **stopId** and as `destionationType` we have the **position**.
 
     See the [list of URI parameters](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) you can use in your request to the [Get Transit Routes API](https://aka.ms/AzureMapsMobilityTransitRoute). 
   
     ```HTTP
-    https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&originType=stopID&origin=47.63096,-122.126&destionationType=position&destination=47.62039,-122.34928&modeType=publicTransit&transitType=bus
+    https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&originType=stopId&origin=2060603&destionationType=position&destination=47.62039,-122.34928&modeType=publicTransit&transitType=bus
     ```
 
 3. Upon a successful request, the response structure should look like the one below:
@@ -354,8 +354,8 @@ To make a route request, complete the steps below:
                 "departureTime": "2019-04-03T14:21:34-07:00",
                 "arrivalTime": "2019-04-03T15:15:53-07:00",
                 "travelTimeInSeconds": 3259,
-                "legs": 10,
-                "itinerarySummary": [
+                "numberOfLegs": 10,
+                "legs": [
                     {
                         "legType": "Walk",
                         "legStartTime": "2019-04-03T14:21:34-07:00",
@@ -431,8 +431,8 @@ To make a route request, complete the steps below:
                 "departureTime": "2019-04-03T14:21:34-07:00",
                 "arrivalTime": "2019-04-03T15:19:18-07:00",
                 "travelTimeInSeconds": 3464,
-                "legs": 10,
-                "itinerarySummary": [
+                "numberOfLegs": 10,
+                "legs": [
                     {
                         "legType": "Walk",
                         "legStartTime": "2019-04-03T14:21:34-07:00",
