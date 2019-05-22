@@ -414,6 +414,51 @@ To enable SNC for your requests to or from SAP system, select the **Use SNC** ch
    > and SNC library. If set, they would take precedence 
    > over the SNC Library value passed through the connector.
 
+<a name="safe-typing"></a>
+
+## Safe typing
+
+When you create your connection to SAP, choose the **Safe Typing** option so that the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time` where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. This strong typing can help you detect issues early and affects the behavior for all schema generation, send message for both the "been sent" payload and the "been received" response, and trigger. 
+
+When **Safe Typing** is enabled, the schema maps the DATS and TIMS types to XML string fields with length restrictions only, for example:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+When sending messages with **Safe Typing** enabled, the DATS and TIMS response looks like this example:
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
+When **Safe Typing** is not enabled (strong typing), the schema maps the DATS and TIMS types to more straightforward XML types:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+When sending messages with **Safe Typing** not enabled, the DATS and TIMS response complies to the matching XML type format:
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+
 ## Known issues and limitations
 
 Here are the currently known issues and limitations for the SAP connector:
