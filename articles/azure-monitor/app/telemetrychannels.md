@@ -163,7 +163,7 @@ Most commonly used settings for `ServerTelemetryChannel` are listed below:
 
 * SDK stores telemetry items in local storage during network issues or during throttling. This data is not encrypted locally.
 For Windows systems, SDK automatically creates a temporary local folder in TEMP or APPDATA directory, and restricts access to administrators and current user only.
-For Non-Windows, no local storage is created automatically by the SDK, and hence no data is stored locally by default. Users can create a storage directory themselves, and configure channel to use it. In this case, user is responsible for ensuring this directory is secured.
+For Non-Windows, no local storage is created automatically by the SDK, and hence no data is stored locally by default. Users can create a storage directory themselves, and configure the channel to use it. In this case, the user is responsible for ensuring this directory is secured.
 Read more about data protection and privacy [here](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## Open-source SDK
