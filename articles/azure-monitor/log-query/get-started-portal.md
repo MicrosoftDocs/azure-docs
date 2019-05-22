@@ -58,6 +58,17 @@ Run a query by clicking the **Run** button or pressing **Shift+Enter**. Consider
 - Cursor: Place your cursor somewhere inside the query to execute it. The current query is considered to be the code up until a blank line is found.
 - Time range - A time range of _last 24 hours_ is set by default. To use a different range, use the time-picker or add an explicit time range filter to your query.
 
+## Understand the query scope
+The scope of the query is displayed at the top left of the Log Analytics window. Only records within the scope are included in any query results. The scope is defined by one of three different types of Azure resource:
+
+- **Log Analytics workspace:** All records in that workspace regardless of how they were created.
+- **Resource type other than Log Analytics workspace:** All records created by that resource in all Log Analytics workspaces that you can access. 
+- **Resource **
+
+If you select a resource type that contains other resources such as a subscription or a resource group, then the scope is all records created by all contained resources in all Log Analytics workspaces that you can access. For example, if you select a resource group, then the scope will be all records created by the resources in that resource group. 
+
+
+
 
 ## Understand the schema
 The schema is a collection of tables visually grouped under a logical category. Several of the categories are from monitoring solutions. The _LogManagement_ category contains common data such as Windows and Syslog events, performance data, and client heartbeats.
