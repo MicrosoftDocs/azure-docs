@@ -37,9 +37,9 @@ The following table shows the supported mappings:
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 
-<sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation Accounts are not an exact region to region mapping but is the correct mapping.
+<sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation Accounts is not an exact region to region mapping but is the correct mapping.
 
-<sup>2</sup> Due to capacity restraints the region is not available when creating new resources. This includes Automation Accounts and Log Analytics workspaces. However, preexisting linked resources in the region should continue to work.
+<sup>2</sup> Due to capacity restraints the region isn't available when creating new resources. This includes Automation Accounts and Log Analytics workspaces. However, preexisting linked resources in the region should continue to work.
 
 ## Unlink workspace
 
@@ -52,7 +52,7 @@ After you remove these solutions, you can perform the following steps to unlink 
 
 1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
 
-2. On the Unlink workspace page, click **Unlink workspace**. You will receive a prompt verifying you wish to proceed.
+2. On the Unlink workspace page, click **Unlink workspace**. You'll receive a prompt verifying you wish to continue.
 
 3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
@@ -68,7 +68,7 @@ If you used the Start/Stop VMs during off-hours solution, optionally you may wan
 * Start and stop VM runbooks
 * Variables
 
-Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
+Alternatively, you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
 
 ## Next steps
 
