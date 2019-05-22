@@ -17,6 +17,12 @@ ms.author: bwren
 
 ![Office 365 logo](media/solution-office-365/icon.png)
 
+
+> [!NOTE]
+> The recommended method to install and configure the Office 365 solution for most users is enabling the [Office 365 connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) instead of using the steps in this article. This is an updated version of the Office 365 solution with an improved configuration experience. Azure Sentinel can be enabled in your Azure subscription at no cost. When you [onboard Sentinel](../../sentinel/quickstart-onboard.md), specify the Log Analytics workspace  that you want the Office 365 solution installed in. Once you enable the connector, the solution will be available in the workspace and used exactly the same as any other monitoring solutions you have installed.
+>
+> Users of the Azure government cloud must install the Office 365 using the steps in this article since Azure Sentinel is not yet available in the government cloud.
+
 The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
 
 - Monitor user activities on your Office 365 accounts to analyze usage patterns as well as identify behavioral trends. For example, you can extract specific usage scenarios, such as files that are shared outside your organization or the most popular SharePoint sites.
@@ -25,10 +31,6 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
 - Perform operational troubleshooting by using [log queries](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
 
-> [!NOTE]
-> The recommended method to install and configure the Office 365 solution for most users is enabling the [Office 365 connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) instead of using the steps in this article. This is an updated version of the Office 365 solution with an improved configuration experience. Azure Sentinel can be enabled in your Azure subscription at no cost. Specify the Log Analytics workspace when you [onboard Sentinel](../../sentinel/quickstart-onboard.md) that you want the Office 365 solution installed in. Once you enable the connector, the solution will be available in the workspace and used exactly the same as any other monitoring solutions you have installed.
->
-> Users of the Azure government cloud must install the Office 365 using the steps in this article since Azure Sentinel is not yet available in the government cloud.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
