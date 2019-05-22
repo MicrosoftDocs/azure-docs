@@ -1,39 +1,39 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a CentOS VM to a managed domain | Microsoft Docs'
-description: Join a CentOS Linux virtual machine to Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Join a RHEL VM to a managed domain | Microsoft Docs'
+description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
-ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
+ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: mstephen
 
 ---
-# Join a CentOS Linux virtual machine to a managed domain
-This article shows you how to join a CentOS Linux virtual machine in Azure to an Azure AD Domain Services managed domain.
+# Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
+This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual machine to an Azure AD Domain Services managed domain.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Before you begin
-To perform the tasks listed in this article, you need:
+To perform the tasks listed in this article, you need:  
 1. A valid **Azure subscription**.
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](active-directory-ds-getting-started.md).
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
 4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
 5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](active-directory-ds-getting-started-password-sync.md).
 
 
-## Provision a CentOS Linux virtual machine
-Provision a CentOS virtual machine in Azure, using any of the following methods:
+## Provision a Red Hat Enterprise Linux virtual machine
+Provision a RHEL 7 virtual machine in Azure, using any of the following methods:
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
@@ -45,7 +45,7 @@ Provision a CentOS virtual machine in Azure, using any of the following methods:
 
 
 ## Connect remotely to the newly provisioned Linux virtual machine
-The CentOS virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
+The RHEL 7.2 virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
 
 Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -60,16 +60,16 @@ sudo vi /etc/hosts
 In the hosts file, enter the following value:
 
 ```
-127.0.0.1 contoso-centos.contoso100.com contoso-centos
+127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
 ```
-Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-centos' is the hostname of the CentOS virtual machine you are joining to the managed domain.
+Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-rhel' is the hostname of the RHEL virtual machine you are joining to the managed domain.
 
 
 ## Install required packages on the Linux virtual machine
 Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 
@@ -84,15 +84,15 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
    > [!NOTE]
    > **Troubleshooting:**
-   > If *realm discover* is unable to find your managed domain:  
-   >    * Ensure that the domain is reachable from the virtual machine (try ping).  
-   >    * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-   >    * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.  
+   > If *realm discover* is unable to find your managed domain:
+   >   * Ensure that the domain is reachable from the virtual machine (try ping).
+   >   * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+   >   * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
 
 2. Initialize Kerberos. In your SSH terminal, type the following command:
 
     > [!TIP]
-    > * Specify a user who belongs to the 'AAD DC Administrators' group.
+    > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group.
     > * Specify the domain name in capital letters, else kinit fails.
     >
 
@@ -114,11 +114,11 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 
 
 ## Verify domain join
-Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined CentOS VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
+Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined RHEL VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your SSH terminal, type the following command to connect to the domain joined CentOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
     ```
-    ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
+    ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
@@ -136,7 +136,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-joining-a-domain) article.
 
 ## Related Content
-* [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
+* [Azure AD Domain Services - Getting Started guide](create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)

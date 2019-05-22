@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Contact Us | Microsoft Docs'
 description: Contact the Azure AD Domain Services product team
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/23/2017
-ms.author: ergreenl
+ms.date: 05/22/2019
+ms.author: mstephen
 
 ---
 # Azure AD Domain Services - Contact Us
 ## Contact the product team
-If you have issues with your managed domain, check to see if the steps outlined in the [Troubleshooting Guide](active-directory-ds-troubleshooting.md) resolve the issue. If you're still having trouble, feel free to contact us.
+If you have issues with your managed domain, check to see if the steps outlined in the [Troubleshooting Guide](troubleshoot.md) resolve the issue. If you're still having trouble, feel free to contact us.
 
 You may email us at: [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com).
 

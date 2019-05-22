@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/20/2019
 ms.author: mstephen
 
 ---
@@ -66,7 +66,7 @@ This monitors whether regular backups of your managed domain are being performed
 Microsoft monitors how often your managed domain is synchronized with Azure Active Directory. The number of objects (users & groups) and the number of changes made in your Azure AD directory since the last sync can both affect how long a synchronization period can take. If your managed domain was last synchronized over three days ago, [contact support](contact-us.md).
 
 ## Alerts
-Alerts are generated for issues on your managed domain that need to be addressed in order for Azure AD Domain Services to run. Each alert explains the issue and provides a resolution URL that outlines specific steps to resolve the issue. To view all alerts and their resolutions, visit the [Troubleshoot alerts](active-directory-ds-troubleshoot-alerts.md) article.
+Alerts are generated for issues on your managed domain that need to be addressed in order for Azure AD Domain Services to run. Each alert explains the issue and provides a resolution URL that outlines specific steps to resolve the issue. To view all alerts and their resolutions, visit the [Troubleshoot alerts](troubleshoot-alerts.md) article.
 
 ### Alert severity
 Alerts are categorized into three different levels of severity: critical, warning, and informational.
@@ -76,6 +76,6 @@ Alerts are categorized into three different levels of severity: critical, warnin
  * **Informational alerts** are notifications that are not negatively impacting your domain. Informational alerts are designed to keep you knowledgeable about what is happening in your domain and Azure AD Domain Services.
 
 ## Next steps
-- [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
-- [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
+- [Resolve alerts on your managed domain](troubleshoot-alerts.md)
+- [Read more about Azure AD Domain Services](overview.md)
 - [Contact the product team](contact-us.md)

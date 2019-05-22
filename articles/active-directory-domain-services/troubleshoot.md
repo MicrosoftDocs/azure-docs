@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/22/2019
 ms.author: mstephen
 
 ---
@@ -28,10 +28,10 @@ Pick the troubleshooting steps that correspond to the error message you encounte
 
 | **Error Message** | **Resolution** |
 | --- |:--- |
-| *The name contoso100.com is already in use on this network. Specify a name that is not in use.* |[Domain name conflict in the virtual network](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* |[Domain Services does not have adequate permissions to the Azure AD Domain Services Sync application](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* |[The Domain Services application is not configured properly in your tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* |[The Microsoft Graph application is disabled in your Azure AD tenant](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *The name contoso100.com is already in use on this network. Specify a name that is not in use.* |[Domain name conflict in the virtual network](troubleshoot.md#domain-name-conflict) |
+| *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* |[Domain Services does not have adequate permissions to the Azure AD Domain Services Sync application](troubleshoot.md#inadequate-permissions) |
+| *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* |[The Domain Services application is not configured properly in your tenant](troubleshoot.md#invalid-configuration) |
+| *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* |[The Microsoft Graph application is disabled in your Azure AD tenant](troubleshoot.md#microsoft-graph-disabled) |
 
 ### Domain Name conflict
 **Error message:**
@@ -146,7 +146,7 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 
 ## There are one or more alerts on your managed domain
 
-See how to resolve alerts on your managed domain by visiting the [Troubleshoot Alerts](active-directory-ds-troubleshoot-alerts.md) article.
+See how to resolve alerts on your managed domain by visiting the [Troubleshoot Alerts](troubleshoot-alerts.md) article.
 
 ## Users removed from your Azure AD tenant are not removed from your managed domain
 Azure AD protects you from accidental deletion of user objects. When you delete a user account from your Azure AD tenant, the corresponding user object is moved to the Recycle Bin. When this delete operation is synchronized to your managed domain, it causes the corresponding user account to be marked disabled. This feature helps you recover or undelete the user account later.

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/20/2019
 ms.author: mstephen
 
 ---
@@ -53,7 +53,7 @@ Azure AD Domain Services does not send emails to this list for advertisement, up
 
 ## When will I receive email notifications?
 
-A notification will be sent immediately when a [new alert](active-directory-ds-troubleshoot-alerts.md) is found on your managed domain. If the alert is not resolved, an email notification will be sent as a reminder every four days.
+A notification will be sent immediately when a [new alert](troubleshoot-alerts.md) is found on your managed domain. If the alert is not resolved, an email notification will be sent as a reminder every four days.
 
 ## Who should receive the email notifications?
 
@@ -90,8 +90,8 @@ If you are unable to access the notification settings page in the Azure portal, 
 Check your spam or junk folder in your email for the notification and make sure to whitelist the sender (azure-noreply@microsoft.com).
 
 ## Next steps
-- [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
-- [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
+- [Resolve alerts on your managed domain](troubleshoot-alerts.md)
+- [Read more about Azure AD Domain Services](overview.md)
 - [Contact the product team](contact-us.md)
 
 ## Contact us

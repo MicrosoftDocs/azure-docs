@@ -77,5 +77,5 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 >
 
 ## Related Content
-* [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
+* [Azure AD Domain Services - Getting Started guide](create-instance.md)
 * [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx)

@@ -3,7 +3,7 @@ title: 'Resolve mismatched directory errors for existing Azure AD Domain Service
 description: Understand and resolve mismatched directory errors for existing Azure AD Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/11/2017
-ms.author: ergreenl
+ms.date: 05/22/2019
+ms.author: mstephen
 
 ---
 # Resolve mismatched directory errors for existing Azure AD Domain Services managed domains
@@ -59,5 +59,5 @@ You have two options to resolve the mismatched directory error. You may:
 
 
 ## Related content
-* [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
-* [Troubleshooting guide - Azure AD Domain Services](active-directory-ds-troubleshooting.md)
+* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Troubleshooting guide - Azure AD Domain Services](troubleshoot.md)

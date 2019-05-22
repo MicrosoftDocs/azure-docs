@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/20/2019
 ms.author: mstephen
 
 ---
@@ -90,9 +90,9 @@ With Azure AD Domain Services, you can enjoy the following benefits:
 ## Next steps
 ### Learn more about Azure AD Domain Services
 * [Features](active-directory-ds-features.md)
-* [Deployment scenarios](active-directory-ds-scenarios.md)
+* [Deployment scenarios](scenarios.md)
 * [Find out if Azure AD Domain Services suits your use-cases](comparison.md)
-* [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](active-directory-ds-synchronization.md)
+* [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](synchronization.md)
 
 ### Get started with Azure AD Domain Services
-* [Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started.md)
+* [Enable Azure AD Domain Services using the Azure portal](create-instance.md)

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/22/2019
 ms.author: mstephen
 
 ---
@@ -123,6 +123,6 @@ As described in a preceding section of this article, there is no synchronization
 
 ## Related Content
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)
-* [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md)
-* [Get started with Azure AD Domain Services](active-directory-ds-getting-started.md)
+* [Deployment scenarios - Azure AD Domain Services](scenarios.md)
+* [Networking considerations for Azure AD Domain Services](network-considerations.md)
+* [Get started with Azure AD Domain Services](create-instance.md)

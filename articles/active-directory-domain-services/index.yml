@@ -8,7 +8,7 @@ metadata:
   author: MikeStephens-MS
   ms.author: mstephen
   manager: daveba
-  ms.date: 05/14/2019
+  ms.date: 05/22/2019
   ms.topic: landing-page
   ms.devlang: na
   ms.service: active-directory
@@ -23,12 +23,12 @@ sections:
     className: cardsM
     columns: 2
     items:
-    - href: active-directory-ds-overview.md
+    - href: overview.md
       html: <p>Read about what Azure AD Domain Services can do for you.</p>
       image:
         src: https://docs.microsoft.com/media/common/i_investigate.svg
       title: What is Azure AD Domain Services?
-    - href: active-directory-ds-getting-started.md
+    - href: create-instance.md
       html: <p>Create your own managed domain with this simple walkthrough.</p>
       image:
         src: https://docs.microsoft.com/media/common/i_deploy.svg
@@ -56,8 +56,8 @@ sections:
     items: 
     - html: <a href="comparison.md">Decide if the service is right for you?</a>
     - html: <a href="active-directory-ds-features.md">Features of Azure AD Domain Services</a>
-    - html: <a href="active-directory-ds-scenarios.md">How can you use the service?</a>
-    - html: <a href="active-directory-ds-synchronization.md">Understand how synchronization works in Azure AD Domain Services</a>
+    - html: <a href="scenarios.md">How can you use the service?</a>
+    - html: <a href="synchronization.md">Understand how synchronization works in Azure AD Domain Services</a>
     - html: <a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Pricing of Azure AD Domain Services</a>
 
 - title: Applications and Azure AD Domain Services 
@@ -66,7 +66,7 @@ sections:
     style: unordered
     items: 
     - html: <a href="deploy-azure-app-proxy.md">Deploy Azure AD App Proxy</a>
-    - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">Profile synchronization for SharePoint Server</a>
+    - html: <a href="deploy-sp-profile-sync.md">Profile synchronization for SharePoint Server</a>
     - html: <a href="deploy-kcd.md">Configure Kerberos Constrained Delegation</a>
 
 - title: How-to articles
@@ -77,7 +77,7 @@ sections:
     - html: <a href="check-health.md">Check a managed domain’s health </a>
     - html: <a href="csp.md">Azure CSP Subscriptions and Azure AD Domain Services</a>
     - html: <a href="manage-dns.md">Manage DNS</a>
-    - html: <a href="active-directory-ds-networking.md">Select a Virtual network</a>
+    - html: <a href="network-considerations.md">Select a Virtual network</a>
     - html: <a href="configure-ldaps.md">Configure Secure LDAP</a>
     - html: <a href="create-ou.md">Create an OU</a>
     - html: <a href="manage-group-policy.md">Manage Group Policy</a>
@@ -87,9 +87,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="active-directory-ds-troubleshooting.md">Troubleshooting guide</a>
-    - html: <a href="active-directory-ds-troubleshoot-alerts.md">Troubleshooting alerts on your managed domain</a>
-    - html: <a href="active-directory-ds-faqs.md">Frequently Asked Questions</a>
+    - html: <a href="troubleshoot.md">Troubleshooting guide</a>
+    - html: <a href="troubleshoot-alerts.md">Troubleshooting alerts on your managed domain</a>
+    - html: <a href="faqs.md">Frequently Asked Questions</a>
     - html: <a href="https://azure.microsoft.com/support/options/">Get support</a>
 
 - title: Other resources

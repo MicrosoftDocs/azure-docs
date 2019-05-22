@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/22/2019
 ms.author: mstephen
 
 ---
@@ -22,7 +22,7 @@ ms.author: mstephen
 This page answers frequently asked questions about the Azure Active Directory Domain Services. Keep checking back for updates.
 
 ## Troubleshooting guide
-Refer to the [Troubleshooting guide](active-directory-ds-troubleshooting.md) for solutions to common issues with configuring or administering Azure AD Domain Services.
+Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common issues with configuring or administering Azure AD Domain Services.
 
 ## Configuration
 ### Can I create multiple managed domains for a single Azure AD directory?
@@ -44,10 +44,10 @@ No. Azure AD Domain Services needs access to the password hashes of user account
 The service itself does not directly support this scenario. Your managed domain is available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. See how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ### Can I enable Azure AD Domain Services using PowerShell?
-Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
+Yes. See [how to enable Azure AD Domain Services using PowerShell](powershell-create-instance.md).
 
 ### Can I enable Azure AD Domain Services using a Resource Manager Template?
-No, it is not currently possible to enable Azure AD Domain Services using a template. Instead use PowerShell, see [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
+No, it is not currently possible to enable Azure AD Domain Services using a template. Instead use PowerShell, see [how to enable Azure AD Domain Services using PowerShell](powershell-create-instance.md).
 
 ### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure, or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you cannot add additional domain controllers (read-write or read-only) for the managed domain.
