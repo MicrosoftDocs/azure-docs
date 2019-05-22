@@ -45,7 +45,7 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
 ### Visual Studio
 
-1. Go to the [Azure portal].
+1. Go to the [Azure portal](https://portal.azure.com/).
 
 2. On the settings blade for your Mobile App, click **Quickstart** (under Deployment) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
 
@@ -53,21 +53,15 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
 3. Extract the project that you downloaded, and then open it in Visual Studio.
 
-   ![Extracted project in Visual Studio][8]
-
 4. Follow the instructions below to run the Android or Windows projects; and if there is a networked Mac computer available, the iOS project.
 
 ### Visual Studio for Mac
 
-1. Go to the [Azure portal].
+1. Go to the [Azure portal](https://portal.azure.com/) and navigate to the mobile app that you created. On the `Overview` blade, look for the URL which is the public endpoint for your mobile app. Example - the sitename for my app name "test123" will be https://test123.azurewebsites.net.
 
-1. Open the downloaded client project in Visual Studio.
+2. Open the file `Constants.cs` in this folder - xamarin.forms/ZUMOAPPNAME. The application name is `ZUMOAPPNAME`.
 
-2. Go to the [Azure portal](https://portal.azure.com/) and navigate to the mobile app that you created. On the `Overview` blade, look for the URL which is the public endpoint for your mobile app. Example - the sitename for my app name "test123" will be https://test123.azurewebsites.net.
-
-3. Open the file `Constants.cs` in this folder - xamarin.forms/ZUMOAPPNAME. The application name is `ZUMOAPPNAME`.
-
-4. In `Constants.cs` class, replace `ZUMOAPPURL` variable with public endpoint above.
+3. In `Constants.cs` class, replace `ZUMOAPPURL` variable with public endpoint above.
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 
@@ -75,7 +69,7 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
     `public static string ApplicationURL = @"https://test123.azurewebsites.net";`
     
-5. Follow the instructions below to run the Android or Windows projects; and if there is a networked Mac computer available, the iOS project.
+4. Follow the instructions below to run the Android or Windows projects; and if there is a networked Mac computer available, the iOS project.
 
 ## (Optional) Run the Android project
 

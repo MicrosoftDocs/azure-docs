@@ -22,4 +22,4 @@ ms.author: crdun
 5. Press the **Run 'app'** button to build the project and start the app in the Android simulator.
 
 4. In the app, type meaningful text, such as *Complete the tutorial* and then click the 'Add' button. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list.
-    ![](./media/app-service-mobile-android-quickstart/mobile-quickstart-startup-android.png)
+    ![Quickstart Android](./media/app-service-mobile-android-quickstart/mobile-quickstart-startup-android.png)

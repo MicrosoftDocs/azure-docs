@@ -10,6 +10,7 @@ ms.author: crdun
 ms.custom: "include file"
 ---
 1. Download the client SDK quickstarts for the following platforms:
+    
     [iOS (Objective-C)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS)
     [iOS (Swift)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS-Swift)
     [Android (Java)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/android)
@@ -25,7 +26,7 @@ ms.custom: "include file"
 
 4. **Create a new data store** : If you’re going to create a data store, use the following quickstart:
 
-    [Quickstart: Getting started with single databases in Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-single-database-quickstart-guide)
+    [Quickstart: Getting started with single databases in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
 
 5. **Existing data source** : Follow the instructions below if you want to use an existing database connection
     1. SQL Database Connection String format - 
@@ -37,15 +38,21 @@ ms.custom: "include file"
         **{your_username}** User name to access your database.
         **{your_password}** Password to access your database.
         
-        [Learn more about SQL Connection String format](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
+        [Learn more about SQL Connection String format](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
 
     2. Add the connection string to your **mobile app**
         In App Service, you can manage connection strings for your application by using the **Configuration** option in the menu.
 
         To add a connection string:
-            1. Click on the **Application settings** tab.
-            2. Click on **[+] New connection string**.
-            3. You will need to provide **Name**, **Value** and **Type** for your connection string.
-            4. Type **Name** as `MS_TableConnectionString`
-            5. Value should be the connecting string you formed in the step before.
-            6. If you are adding a connection string to a SQL Azure database choose **SQLAzure** under **type**.        
+
+        1. Click on the **Application settings** tab.
+
+        2. Click on **[+] New connection string**.
+
+        3. You will need to provide **Name**, **Value** and **Type** for your connection string.
+
+        4. Type **Name** as `MS_TableConnectionString`
+
+        5. Value should be the connecting string you formed in the step before.
+
+        6. If you are adding a connection string to a SQL Azure database choose **SQLAzure** under **type**.        

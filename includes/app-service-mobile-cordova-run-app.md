@@ -11,7 +11,7 @@ ms.author: crdun
 2. In Visual Studio, choose the solution platform (Android, iOS, or Windows) from the drop-down next to the start arrow. Select a specific deployment device or emulator by clicking the drop-down on the green arrow. You can use the default Android platform and Ripple emulator. More advanced tutorials
     (for example, push notifications) require you to select a supported device or emulator.
 
-3. Open the file `ToDoActivity.java` in this folder - ZUMOAPPNAME/app/src/main/java/com/example/zumoappname. The applciation name is `ZUMOAPPNAME`.
+3. Open the file `ToDoActivity.java` in this folder - ZUMOAPPNAME/app/src/main/java/com/example/zumoappname. The application name is `ZUMOAPPNAME`.
 
 4. Go to the [Azure portal](https://portal.azure.com/) and navigate to the mobile app that you created. On the `Overview` blade, look for the URL which is the public endpoint for your mobile app. Example - the sitename for my app name "test123" will be https://test123.azurewebsites.net.
 

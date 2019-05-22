@@ -31,7 +31,7 @@ To complete this tutorial, you need the following prerequisites:
 
 * An active Azure account. If you don't have an account, sign up for an Azure trial and get up to 10 free mobile apps that you
   can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio for Mac. See [Setup and install for Visual Studio for Mac](https://docs.microsoft.com/en-us/visualstudio/mac/installation?view=vsmac-2019).
+* Visual Studio for Mac. See [Setup and install for Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
 * A Mac with Xcode 9.0 or later.
   
 ## Create an Azure Mobile App backend
