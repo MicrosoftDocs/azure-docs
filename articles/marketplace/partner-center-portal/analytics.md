@@ -25,7 +25,7 @@ To access the Partner Center analytics tools, open the **[Analyze](https://partn
 
 ## Summary dashboard
 
-The **Summary** dashboard presents an overview based on each offer type. **Insights** show critical information at a glance and provides a broad view of the sales activity of your offers. You can view graphical representations of the following in this dashboard: 
+The **Summary** dashboard presents an overview based on each offer type. **Insights** show critical information at a glance and provides a broad view of the sales activity of your offers. You can view graphical representations of the following in this dashboard:
 
  - [Total orders](#totals)
  - [Total customers](#totals)
@@ -52,7 +52,13 @@ The **Totals** section displays a count of all orders created, or customers acqu
 
 ### Customers by geography
 
-The **Customers by geography** heatmap displays a customer count on a world map. You can move the map to view the exact location. You can also zoom into a specific location. The heatmap has a supplementary grid to view the details of customer count and order count in the specific location. You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
+The **Customers by geography** heatmap displays a customer count on a world map. 
+
+- You can move the map to view the exact location. 
+- You can zoom into a specific location. 
+- The heatmap has a supplementary grid to view the details of customer count (or [order count](#orders-by-geography)) in the specific location. 
+- You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
+- New customers are those who purchased any of your offers for the first time during the month within the selected date range.
 
 ![Partner Center Analyze customer geography](./media/analyze-customer-geography.png)
 
@@ -68,7 +74,7 @@ The top 50 customers with the highest number of orders are displayed on a *leade
 
 - Select a customer to view their profile details, orders organized by offer, or orders organized by Azure license type and pricing channel. 
 - The **Offers by orders** donut chart presents the top 4 offers (by order count) and the remaining offers grouped in as ‘Rest All’.
- 
+
 > [!NOTE]
 > Customer personal information will be presented only if the customer has provided consent. You can view this information if you have logged in with the **Owner** role. Users with the **Contributor** role will not be able to view this information. [Learn more about user roles and permissions](./manage-account.md#define-user-roles-and-permissions).
 
@@ -84,7 +90,7 @@ The **Offers by orders** chart organizes your active orders according to the Off
 
 ## Orders dashboard
 
-The **Orders** dashboard of the **Analyze** menu displays the current orders for all of your SaaS offers. The metrics and insights in this page are displayed and pivoted according to the offer name. You can view graphical representations of:
+The **Orders** dashboard of the **Analyze** menu displays the current orders for all of your SaaS offers. You can view graphical representations of:
 
 - [Order Totals](#order-totals)
 - [Orders by geography](#orders-by-geography)
@@ -99,7 +105,7 @@ The **Orders** dashboard of the **Analyze** menu displays the current orders for
 
 ### Order totals
 
-The **Totals** section of the **Orders** page displays a count of all orders created, including both **Active** and **Cancelled** orders, during the selected [date range](#date-range). 
+The **Order totals** section displays a count of all orders created, including both **Active** and **Cancelled** orders, during the selected [date range](#date-range). 
 
 - The percentage value next to **Total Orders** represents the amount of growth compared to the previous month. 
 - A green triangle pointing upward indicates a positive growth trend. A red triangle pointing downward indicates a negative growth trend relative to the previous month. 
@@ -111,7 +117,7 @@ The **Orders by geography** heatmap displays a count of your orders on a world m
 
 ### Trends for active and cancelled orders
 
-The **Active orders by offers** donut graph organizes all of your active orders according to their offer names. 
+The **Active orders by offers** donut graph organizes all of your active orders according to their offer names.
 
 - The top 4 offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
 - You can select specific offers in the legend to display only those offers in the graph. 
@@ -157,10 +163,53 @@ The **Order details table** displays a numbered list of the 1000 top orders sort
 
 ## Customer dashboard
 
-The **Customer** dashboard of the **Analyze** menu displays the customers who have aquired your offers. The metrics and insights in this page are displayed and pivoted according to the offer name. You can view graphical representations of:
+The **Customer** dashboard of the **Analyze** menu displays data for customers who have acquired your offers. You can view graphical representations of:
 
-- [Order Totals](#order-totals)
-This page presents insights pivoted by your customers, your customer base growth and their contribution to orders by different data views. This page provides graphical representations of the Customer totals, Customers by geography, Customer growth trend, Customers by orders contribution and Customers details grid.
+- [Customer totals](#customer-totals)
+- [Customers by geography](#customers-by-geography)
+- [Customer trends](#customer-trends)
+- [Customers by orders](#customers-by-orders)
+- [Customer details table](#customer-details-table)
+
+### Customer totals
+
+The **Customer totals** section displays a count of all customers, including new, existing, and churned, during the selected [date range](#date-range).
+
+- Customers percentage of growth compared to the previous month is indicated by the number and upward indicator in green or downward indicator in red.
+- Growth trends are represented by bar graphs and will display the value for each month by hovering over the columns of the chart.
+
+#### Customer types
+
+There are three customer types: new, existing, and churned. 
+
+- A new customer has acquired one or more of your offers for the first time within the selected month.
+- An existing customer has acquired one or more of your offers prior to the month selected.
+- A churned customer has cancelled all offers previously purchased.
+
+### Customer trends
+
+The **Customer trends** chart displays a count of all customers, including new, existing, and churned, with a month-by-month growth trend.
+
+- The line chart represents the overall customer growth percentages. 
+- The month column represents the count of customers stacked by new, existing and churned customers.
+- The churned customer count is displayed on the negative direction of Y Axis.
+- You can select specific legend items to displayed more detailed views. For example, select new customers from the legend to only display new customers.
+- You can use the slider on the top of the chart to scroll right and left on the x-axis and focus on specific data points to view in more detail.
+- Hovering over a column of the chart will display details for only that month.
+
+![Partner Center Analyze customer trends](./media/analyze-customer-trends.png)
+
+### Customers by orders
+
+The **Customers by orders** chart displays the **Top Customer Percentile** along the x-axis, as determined by their number of orders. The y-axis displays the customer's order count. The z-axis (line graph) displays the cumulative percentage of the total number of orders. You can display details by hovering over points along the line chart.
+
+As an example, you can learn from this customer order data that the top 30% of your customers are contributing to 83% of the orders, equal to 2,130 orders.
+
+![Partner Center Analyze customer orders](./media/analyze-customer-orders.png)
+
+### Customer details table
+
+
 
 ## Downloads dashboard
 
