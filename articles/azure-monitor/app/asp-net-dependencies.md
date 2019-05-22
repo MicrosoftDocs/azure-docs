@@ -17,7 +17,7 @@ ms.author: mbullwin
 ---
 # Dependency Tracking in Azure Application Insights 
 
-A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures how long your application waits for dependencies and how often a dependency call fails. You can investigate specific calls, and relate them to requests and exceptions.
+A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures the duration of dependency calls, whether its failing or not, along with additional information like name of dependency etc. You can investigate specific dependency calls, and correlate them to requests and exceptions.
 
 ## Automatically tracked dependencies
 
@@ -70,7 +70,7 @@ For example, if you build your code with an assembly that you didn't write yours
             finally
             {
                 timer.Stop();
-                telemetry.TrackDependency("myDependencyType", "myDependencyCall", "myDependencyData",  startTime, timer.Elapsed, success);
+                telemetryClient.TrackDependency("myDependencyType", "myDependencyCall", "myDependencyData",  startTime, timer.Elapsed, success);
             }
 ```
 
@@ -90,7 +90,7 @@ For ASP.NET applications, full SQL query is collected with the help of byte code
 
 | Platform | Step(s) Needed to get full SQL Query |
 | --- | --- |
-| Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET |
+| Azure Web App |In your web app control panel, [open the Application Insights blade](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET |
 | IIS Server (Azure VM, On-Prem etc.) | [Install Status Monitor on your server where application is running](../../azure-monitor/app/monitor-performance-live-website-now.md) and restart IIS.
 | Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) to [Install Status Monitor](monitor-performance-live-website-now.md#download) |
 | IIS Express | Not supported
@@ -231,6 +231,16 @@ You can track dependencies in the [Kusto query language](/azure/kusto/query/). H
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## Frequently asked questions
+
+### *How does automatic dependency collector report failed calls to dependencies?*
+
+* Failed dependency calls will have 'success' field set to False. `DependencyTrackingTelemetryModule` does not report `ExceptionTelemetry`. The full data model for dependency is described [here](data-model-dependency-telemetry.md).
+
+## Open-source SDK
+Like every Application Insights SDKs, dependency collection module is also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
+
 
 ## Next steps
 
