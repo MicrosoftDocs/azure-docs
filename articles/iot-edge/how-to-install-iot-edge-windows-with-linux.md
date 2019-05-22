@@ -62,7 +62,7 @@ You can read more about the different installation options and parameters in the
 2. Run PowerShell as an administrator.
 
    >[!NOTE]
-   >Use the 64 bit version of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which version you're using, run the following command:
+   >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
    >
    >```powershell
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
