@@ -3,7 +3,7 @@ title: How to request transit data in Azure Maps | Microsoft Docs
 description: Request public transit data using the Azure Maps Mobility service.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -516,10 +516,10 @@ The Azure Maps [Get Transit Itinerary](https://aka.ms/AzureMapsMobilityTransitIt
 
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
-    We will set the `DetailType` parameter to **itineraryShape** so that the response contains stop information for public transit and turn-by-turn navigation for walk and bike legs of the route.
+    We will set the `DetailType` parameter to **geometry** so that the response contains stop information for public transit and turn-by-turn navigation for walk and bike legs of the route.
 
     ```HTTP
-    https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=itineraryShape
+    https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry
     ```
     
 3. Upon a successful request, the response structure should look like the one below:

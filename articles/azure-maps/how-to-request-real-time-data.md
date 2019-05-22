@@ -3,7 +3,7 @@ title: How to request real-time data in Azure Maps | Microsoft Docs
 description: Request real-time data using the Azure Maps Mobility service.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Request real-time data using the Azure Maps Mobility Service
 
-This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService) to request real-time transit data such as real-time arrivals at a transit stop, including number of line arrivals or arrivals of a particular line and requesting real-time information for a given bike or scooter docking station.
+This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService) to request real-time transit data such as real-time arrivals at a transit stop, including number of line arrivals or arrivals for a particular line and requesting real-time information for a given bike or scooter docking station.
 
 
 ## Prerequisites
@@ -108,7 +108,7 @@ Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–B
 
 The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes. 
 
-In order to make a request to the Get Transit Dock Info API, you will need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) and setting the **objectType** parameter to "dockedBike". Follow the steps below to get real-time data of a docking station for bikes.
+In order to make a request to the Get Transit Dock Info API, you will need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) and setting the **objectType** parameter to "bikeDock". Follow the steps below to get real-time data of a docking station for bikes.
 
 
 ### Get dock ID
@@ -120,7 +120,7 @@ To get **dockID**, follow the steps below to make a request to the Get Nearby Tr
 2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
  
     ```HTTP
-    ttps://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=dockedBike
+    ttps://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock
     ```
 
 3. After a successful request, you will receive the following response. Notice that we now have the **id** in the response, which can be used later as a query parameter in the request to the Get Transit Dock Info API.
@@ -130,37 +130,7 @@ To get **dockID**, follow the steps below to make a request to the Get Nearby Tr
         "results": [
             {
                 "id": "121---4640799",
-                "type": "dockedBike",
-                "objectDetails": {
-                    "availableVehicles": 0,
-                    "vacantLocations": 30,
-                    "lastUpdated": "2019-05-21T20:06:59-04:00",
-                    "operatorInfo": {
-                        "id": "80",
-                        "name": "Citi Bike"
-                    }
-                },
-                "position": {
-                    "latitude": 40.767128,
-                    "longitude": -73.962243
-                },
-                "viewport": {
-                    "topLeftPoint": {
-                        "latitude": 40.768039,
-                        "longitude": -73.963413
-                    },
-                    "btmRightPoint": {
-                        "latitude": 40.766216,
-                        "longitude": -73.961072
-                    }
-                }
-            },
-            ...
-            ...,
-            ...,
-            {
-                "id": "121---4640799",
-                "type": "dockedBike",
+                "type": "bikeDock",
                 "objectDetails": {
                     "availableVehicles": 0,
                     "vacantLocations": 30,
