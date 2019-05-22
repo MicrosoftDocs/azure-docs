@@ -5,7 +5,7 @@
     href: open-a-developer-account.md
     items:
       - name: Account types, locations, and fees
-      - href: account-types-locations-and-fees.md
+        href: account-types-locations-and-fees.md
       - name: Manage account settings and profile
       - href: manage-account-settings-and-profile
   - name: Manage account users
@@ -51,6 +51,12 @@
     href: decide-on-a-pricing-model.md
   - name: AppSource submission FAQ
     href: office-store-submission-faq.md
+  - name: Create effective AppSource listings
+    items:
+    - name: Overview
+      href: create-effective-office-store-listings.md
+    - name: Craft effective AppSource store images
+      href: craft-effective-appsource-store-images.md
 - name: Submit add-ins via Seller Dashboard
   items: 
   - name: Overview
@@ -67,12 +73,6 @@
     href: create-or-update-client-ids-and-secrets.md
   - name: AppSource submission FAQ
     href: office-store-submission-faq.md
-  - name: Create effective AppSource listings
-    items:
-    - name: Overview
-      href: create-effective-office-store-listings.md
-    - name: Craft effective AppSource store images
-      href: craft-effective-appsource-store-images.md
 - name: Add-in management and services
   items:
     - name: Mange add-in names
