@@ -271,7 +271,7 @@ You can use an existing AKS cluster or create a new one using the Azure Machine 
 
 <a id="deploy-aks"></a>
 
-If you already have an AKS cluster attached, you can deploy to it. If you have NOT created or attached an AKS cluster go <a href="#create-attach-aks">here</a>.
+If you already have an AKS cluster attached, you can deploy to it. If you haven't created or attached an AKS cluster, follow the process to <a href="#create-attach-aks">create a new AKS cluster</a>.
 
 
 + **Using the SDK**
