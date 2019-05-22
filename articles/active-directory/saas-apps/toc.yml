@@ -289,6 +289,8 @@
         href: consent2go-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
+      - name: Control
+        href: control-tutorial.md
       - name: Convene
         href: convene-tutorial.md
       - name: Convercent
@@ -617,6 +619,8 @@
         href: jive-tutorial.md
       - name: Jobbadmin
         href: jobbadmin-tutorial.md
+      - name: JOBHUB
+        href: jobhub-tutorial.md
       - name: Jobscience
         href: jobscience-tutorial.md
       - name: JobScore
@@ -1263,6 +1267,8 @@
         href: webmethods-integration-cloud-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
+      - name: Whatfix
+        href: whatfix-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
