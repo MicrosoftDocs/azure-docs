@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/27/2019
+ms.date: 05/22/2019
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
@@ -50,7 +50,7 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | Max number of databases per instance | 100 | 100 |
 | Max database files per instance | Up to 280 | 32,767 files per database |
 | Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
-| Log throughput | 22 MB/s per instance | 4 MB/s per vCore<br/>Max 48 MB/s per instance|
+| Log throughput | 3MB/s per vCore<br/>Max 22 MB/s per instance | 4 MB/s per vCore<br/>Max 48 MB/s per instance|
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192 - 1,920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |

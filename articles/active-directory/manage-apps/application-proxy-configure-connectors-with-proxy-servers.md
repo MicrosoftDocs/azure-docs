@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -108,7 +108,7 @@ Allow access to the following URLs:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates |
 | login.windows.net<br>login.microsoftonline.com | The connector uses these URLs during the registration process. |
 
-If your firewall or proxy allows DNS whitelisting, you can whitelist connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
+If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
 
 
 If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
