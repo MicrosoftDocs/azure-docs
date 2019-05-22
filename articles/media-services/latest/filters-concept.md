@@ -16,7 +16,7 @@ ms.date: 05/07/2019
 ms.author: juliako
 
 ---
-# Define account filters and asset filters  
+# Filters
 
 When delivering your content to customers (Live Streaming events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
