@@ -28,53 +28,42 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 * The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
+## What needs to be updated
+
+Storage accounts can be used by the Azure Machine Learning service workspace (storing logs, models, snapshots, etc.) and as a datastore. The process to update the workspace is a single Azure CLI command, and can be ran after updating the storage key. The process of updating datastores is more involved, and requires discovering what datastores are currently using the storage account and then re-registering them.
+
+To discover the storage accounts that are used by your datastores, use the following code:
+
+```python
+import azureml.core
+from azureml.core import Workspace, Datastore
+
+ws = Workspace.from_config()
+
+default_ds = ws.get_default_datastore()
+print("Default datstore: " + default_ds.name + ", storage account name: " + default_ds.account_name + ", container name: " + ds.container_name)
+
+datastores = ws.datastores
+for name, ds in datastores.items():
+    if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
+        print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
+```
+
+This code looks for any registered datastores that use Azure Storage and lists the following information:
+
+* Datastore name: The name of the datastore that the storage account is registered under.
+* Storage account name: The name of the Azure Storage account.
+* Container: The container in the storage account that is used by this registration.
+
+If an entry exists for the storage account that you plan on regenerating access keys for, save the datastore name, storage account name, and container name.
+
 ## Update the key in Azure Machine Learning
 
 To update Azure Machine Learning service to use the new key, use the following steps:
 
-1. To find all the datastore entries for the storage account, use the following code:
-
-    ```python
-    import azureml.core
-    from azureml.core import Workspace, Datastore
-
-    ws = Workspace.from_config()
-
-    datastores = ws.datastores
-    for name, ds in datastores.items():
-        if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-            print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
-    ```
-
-    This code looks for any registered datastores that use Azure Storage and lists the following information:
-
-    * Datastore name: The name of the datastore that the storage account is registered under.
-    * Storage account name: The name of the Azure Storage account.
-    * Container: The container in the storage account that is used by this registration.
-
-    If an entry exists for the storage account that you plan on regenerating access keys for, save the datastore name, storage account name, and container name.
-
-    > [!TIP]
-    > You may have multiple datastores registered for the same storage account. For example, you may have a datastore for both blob containers and file shares on the same storage account.
-    >
-    > Each datastore that references the storage account needs to be re-registerd with the new key.
-
 1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage.md#access-keys) article. Save the new key.
 
-1. Using the values from step 1 and the key from step 2, use the following code to re-register the datastore using the new key value:
-
-    ```python
-    ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                              datastore_name='your datastore name', 
-                                              container_name='your container name',
-                                              account_name='your storage account name', 
-                                              account_key='new storage account key',
-                                              overwrite=True)
-    ```
-
-    Since `overwrite=True` is specified, this code overwrites the existing registration and updates it to use the new key.
-
-1. To update the workspace to use the new key for experiments, run logs, snapshots, and registering models, use the following stes from the Azure CLI:
+1. To update the workspace to use the new key, use the following steps:
 
     1. To sign in to the Azure subscription that contains your workspace by using the following Azure CLI command:
 
@@ -94,7 +83,20 @@ To update Azure Machine Learning service to use the new key, use the following s
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
 
-        This command automatically syncs the new keys for the Azure storage account used for experiments, runs, models, and images.
+        This command automatically syncs the new keys for the Azure storage account used by the workspace.
+
+1. To re-register datastore(s) that use the storage account, use the values from the [What needs to be updated](#what_needs_to_be_updated) section and the key from step 1 with the following code:
+
+    ```python
+    ds = Datastore.register_azure_blob_container(workspace=ws, 
+                                              datastore_name='your datastore name', 
+                                              container_name='your container name',
+                                              account_name='your storage account name', 
+                                              account_key='new storage account key',
+                                              overwrite=True)
+    ```
+
+    Since `overwrite=True` is specified, this code overwrites the existing registration and updates it to use the new key.
 
 ## Next steps
 
