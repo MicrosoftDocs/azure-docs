@@ -118,6 +118,10 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
+## GitHub tracking and integration
+
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
+
 ## Examples
 For a notebook that shows the basics of estimator pattern, see:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
