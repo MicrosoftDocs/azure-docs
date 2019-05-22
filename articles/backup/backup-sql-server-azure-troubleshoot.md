@@ -167,7 +167,7 @@ These symptoms may arise due to one or more of the following reasons:
    
 In the above scenarios, it is recommended to trigger re-register operation on the VM. This option is only available through PowerShell and will soon be available in the Azure portal as well.
 
-## Files size limit beyond which restore happens to default path
+## File's size limit beyond which restore happens to default path
 
 The total string size of files not only depends on the number of files but also on their names and paths. For each of the database files, get the logical file name and physical path. You can use the SQL query given below:
 
