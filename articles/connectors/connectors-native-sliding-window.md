@@ -1,6 +1,6 @@
 ---
-title: Create, schedule, and run recurring tasks with Sliding Window trigger - Azure Logic Apps
-description: Run scheduled, recurring, automated tasks and workflows with the Sliding Window trigger in Azure Logic Apps
+title: Schedule recurring tasks with Sliding Window trigger - Azure Logic Apps
+description: Schedule and run recurring automated tasks and workflows with the Sliding Window trigger in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,18 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 05/25/2019
 ---
 
 # Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger in Azure Logic Apps
 
-To run tasks, processes, or jobs at regularly recurring intervals, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Sliding Window - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence interval for repeating that workflow. If any recurrences are missed, this trigger processes those past missed recurrences. For example, to synchronize information between your database and backup storage, use the Sliding Window trigger so that your data .
+To regularly run tasks, processes, or jobs that must handle data in continuous chunks, you can start your logic app workflow with the **Sliding Window - Schedule** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Here are some patterns that this trigger supports:
 
-* Run immediately and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
-* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
-* Delay for a specific duration, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+* Run immediately and repeat every *n* number of seconds, minutes, or hours.
+
+* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, or hours.
+
+* Delay for a specific duration, then run and repeat every *n* number of seconds, minutes, or hours.
 
 For differences between this trigger and the Recurrence trigger or for more information about scheduling recurring workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
@@ -47,8 +49,8 @@ For differences between this trigger and the Recurrence trigger or for more info
 
    | Property | Required | JSON name | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>The default interval is 1. Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
-   | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** |
+   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <p>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Hour", then the recurrence is every 6 hours. |
+   | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, or **Hour** |
    ||||||
 
    ![Advanced recurrence options](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
@@ -63,7 +65,7 @@ For differences between this trigger and the Recurrence trigger or for more info
    | **Start time** | No | startTime | String | Provide a start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and select a time zone such as Pacific Standard Time. Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for advanced recurrences, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
-1. Now build your remaining workflow with other actions. For more actions that you can add, see [Connectors](../connectors/apis-list.md).
+1. Now build your remaining workflow with other actions. For more actions that you can add, see [Connectors for Azure Logic Apps](../connectors/apis-list.md).
 
 ## Workflow definition - Sliding Window
 
@@ -80,7 +82,7 @@ This example shows how a Sliding Window trigger definition might look in an unde
             "delay": "PT5H"
          },
          "recurrence": {
-            "frequency": "Week",
+            "frequency": "Hour",
             "interval": 1,
             "startTime": "2019-05-13T14:00:00Z",
             "timeZone": "Pacific Standard Time"
