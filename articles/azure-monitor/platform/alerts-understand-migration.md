@@ -10,19 +10,22 @@ ms.subservice: alerts
 ---
 # Understand how the migration tool works
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in July 2019. A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in September 2019 (was originally July 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
 
 This article explains how the voluntary migration tool works. It also describes remedies for some common problems.
 
+> [!NOTE]
+> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
+
 ## Which classic alert rules can be migrated?
 
-Although the tool can migrate almost all classic alert rules, there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration in July 2019):
+Although the tool can migrate almost all classic alert rules, there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration in September 2019):
 
 - Classic alert rules on virtual-machine guest metrics (both Windows and Linux). See the [guidance for recreating such alert rules in new metric alerts](#guest-metrics-on-virtual-machines) later in this article.
 - Classic alert rules on classic storage metrics. See the [guidance for monitoring your classic storage accounts](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
 - Classic alert rules on some storage account metrics. See [details](#storage-account-metrics) later in this article.
 
-If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after June 2019.
+If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after August 2019.
 
 ### Guest metrics on virtual machines
 
