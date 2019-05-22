@@ -117,10 +117,6 @@
       href: platform/alerts-overview.md
     - name: Classic alerts 
       href: platform/alerts-classic.overview.md  
-    - name: Smart groups
-      href: platform/alerts-smartgroups-overview.md  
-    - name: Autoscale
-      href: platform/autoscale-overview.md
     - name: Metric alerts
       href: platform/alerts-metric-overview.md
     - name: Log alerts
@@ -131,6 +127,10 @@
       href: platform/alerts-common-schema.md
     - name: Action rules
       href: platform/alerts-action-rules.md
+    - name: Smart groups
+      href: platform/alerts-smartgroups-overview.md 
+    - name: Autoscale
+      href: platform/autoscale-overview.md
     - name: Change analysis
       href: app/change-analysis.md 
   - name: Visualize data
