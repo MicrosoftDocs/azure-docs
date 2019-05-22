@@ -27,7 +27,7 @@ The following table shows some examples of URLs with filters:
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
 > 
@@ -120,7 +120,7 @@ For more information, see [this](https://azure.microsoft.com/blog/azure-media-se
 
 ## Associate filters with Streaming Locator
 
-You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [dynamic packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [dynamic manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+See [Filters: associate with Streaming Locators](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## Considerations and limitations
 
@@ -132,7 +132,6 @@ You can specify a list of asset or account filters, which would apply to your St
     
     - To determine properties of the tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files).
     - The formula to set the asset filter timestamp properties: <br/>startTimestamp = &lt;start time in the manifest&gt; +  &lt;expected filter start time in seconds&gt;*timescale
-
 
 ## Next steps
 
