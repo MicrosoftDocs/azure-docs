@@ -1331,6 +1331,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
+      "redirect_url": "/azure/cosmos-db/scrips/powershell/sql/ps-sql-create",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-delete.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
       "redirect_document_id": true
