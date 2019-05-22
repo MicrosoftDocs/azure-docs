@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/26/2019
 ms.author: tulasim
 ---
 
@@ -29,7 +29,7 @@ The table below summarizes the types of content and file formats that are suppor
 
 Most data source locations need to provide public URLs or files, which do not require authentication. 
 
-[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated files. Sharepoint resources must be files, not web pages. If you have a URL, download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base.
+[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated files. Sharepoint resources must be files, not web pages. 
 
 If you have an authenticated file or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base. 
 

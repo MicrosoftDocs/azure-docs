@@ -16,7 +16,7 @@ ms.date: 05/07/2019
 ms.author: juliako
 
 ---
-# Define account filters and asset filters  
+# Filters
 
 When delivering your content to customers (Live Streaming events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
@@ -84,11 +84,9 @@ Filter track property conditions describe track types, values (described in the 
 |**Name**|Use the name of the track for filtering.|
 |**Type**|Use the type of the track for filtering.<br/><br/>The following values are allowed: "video", "audio", or "text".|
 
-## Associate filters with Streaming Locator
+### Example
 
-You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [dynamic packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [dynamic manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
-
-## Definition example
+The following example defines a Live Streaming filter: 
 
 ```json
 {
@@ -142,6 +140,15 @@ You can specify a list of asset or account filters, which would apply to your St
   }
 }
 ```
+
+## Associate filters with Streaming Locator
+
+You can specify a list of [asset or account filters](filters-concept.md), which would apply to your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+
+See the following examples:
+
+* [Associate filters with Streaming Locator - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [Associate filters with Streaming Locator - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
 ## Next steps
 

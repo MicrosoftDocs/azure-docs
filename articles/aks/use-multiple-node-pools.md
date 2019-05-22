@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
 ---
 
@@ -328,7 +328,7 @@ Only pods that have this taint applied can be scheduled on nodes in *gpunodepool
 
 In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
 
-To delete the GPU-based node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command as shown in following example:
+To delete the GPU-based node pool, use the [az aks nodepool delete][az-aks-nodepool-delete] command as shown in following example:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -343,6 +343,8 @@ az group delete --name myResourceGroup --yes --no-wait
 ## Next steps
 
 In this article you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
+
+To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
 [aks-github]: https://github.com/azure/aks/issues]
@@ -372,3 +374,4 @@ In this article you learned how to create and manage multiple node pools in an A
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md
