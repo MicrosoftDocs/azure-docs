@@ -152,10 +152,6 @@ You can evaluate an HTTP request or response header for the presence of a header
 
 - Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (\_) special character in Header names.
 
-## Need help?
-
-Contact us at [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@microsoft.com) if you need any help with this feature.
-
 ## Next steps
 
 To learn how to rewrite HTTP headers, see:
