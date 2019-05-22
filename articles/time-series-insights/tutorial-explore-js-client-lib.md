@@ -7,7 +7,7 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.author: anshan
+ms.author: dpalled
 ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about the Time Series Insights JavaScript client library, so I can use the APIs in my own applications.
 ---
