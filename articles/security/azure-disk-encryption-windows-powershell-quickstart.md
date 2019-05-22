@@ -24,57 +24,15 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## Create a virtual machine configuration object 
-
-Before creating a virtual machine, you must first create an object that specifies credentials, a virtual network, a subnet, a public IP address, and other VM attributes. 
-
-```azurepowershell-interactive
-$securePassword = ConvertTo-SecureString 'AZUREuserPA$$W0RD' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
-
-# Create a subnet configuration
-$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" -Location "EastUS" `
-  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$pip = New-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Location "EastUS" `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
-
-# Create an inbound network security group rule for port 22
-$nsgRuleSSH = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleSSH  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 22 -Access Allow
-
-# Create a network security group
-$nsg = New-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" -Location "EastUS" `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName "myResourceGroup" -Location "EastUS" `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName "MyVM" -VMSize Standard_D2S_V3 |
-Set-AzVMOperatingSystem -Windows -ComputerName "MyVM" -Credential $cred -DisablePasswordAuthentication |
-Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest |
-Add-AzVMNetworkInterface -Id $nic.Id
-
-# Configure SSH Keys
-$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
-Add-AzVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
-```
-
-
-
 ## Create a virtual machine
 
 Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). You must supply creditials to the cmdlet. 
 
 ```azurepowershell-interactive
-New-AzVM -Name MyVM -ResourceGroupName MyResourceGroup -Location EastUS -Credential $cred
+$securePassword = ConvertTo-SecureString 'AZUREuserPA$$W0RD' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+
+New-AzVM -Name MyWinVm -Credential $cred -ResourceGroupName MyResourceGroup -Image win2016datacenter -Size Standard_D2S_V
 ```
 
 It will take a few minutes for your VM to be deployed. 
@@ -99,10 +57,16 @@ Set-AzVmDiskEncryptionExtension requires some values from your Key Vault object.
 ```azurecli-interactive
 $KeyVault = Get-AzKeyVault -VaultName MyKV -ResourceGroupName MyResourceGroup
 
-Set-AzVMDiskEncryptionExtension -ResourceGroupName MyResourceGroup -VMName MyVM -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId –SkipVmBackup -VolumeType All
+Set-AzVMDiskEncryptionExtension -ResourceGroupName MyResourceGroup -VMName MyVM -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId
 ```
 
-After a few minutes the process will return, "IsSuccessStatusCode" as "True".
+After a few minutes the process will return the following:
+
+```
+RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+--------- ------------------- ---------- ------------
+                         True         OK OK
+```
 
 You can verify the encryption process by running [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/Get-AzVMDiskEncryptionStatus).
 
@@ -110,14 +74,13 @@ You can verify the encryption process by running [Get-AzVmDiskEncryptionStatus](
 Get-AzVmDiskEncryptionStatus -VMName MyVM -ResourceGroupName MyResourceGroup
 ```
 
-
 When encryption is enabled, you will see the following in the returned output:
 
 ```
-OsVolumeEncrypted          : EncryptionInProgress
-DataVolumesEncrypted       : NotMounted
+OsVolumeEncrypted          : Encrypted
+DataVolumesEncrypted       : NoDiskFound
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
-ProgressMessage            : OS disk encryption started
+ProgressMessage            : Provisioning succeeded
 ```
 
 ## Clean up resources
