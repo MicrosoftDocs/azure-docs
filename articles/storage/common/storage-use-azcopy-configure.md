@@ -1,5 +1,5 @@
 ---
-title: Configure, optimize, and troubleshoot AzCopy | Microsoft Docs
+title: Configure, optimize, and troubleshoot AzCopy with Azure Storage | Microsoft Docs
 description: Configure, optimize, and troubleshoot AzCopy.
 services: storage
 author: normesta

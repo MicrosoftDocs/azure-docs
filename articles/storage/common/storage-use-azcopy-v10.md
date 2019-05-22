@@ -78,7 +78,7 @@ To learn how to verify and assign roles, see [Grant access to Azure blob and que
 
 You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or folder. In the ACL, your identity needs write permission on the target folder, and execute permission on container and each parent folder.
 
-To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
+To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 #### Authorization to download files
 
@@ -99,7 +99,7 @@ To learn how to verify and assign roles, see [Grant access to Azure blob and que
 
 You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or folder. In the ACL, your identity needs read permission on the target folder, and execute permission on container and each parent folder.
 
-To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
+To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 #### Authenticate your identity
 

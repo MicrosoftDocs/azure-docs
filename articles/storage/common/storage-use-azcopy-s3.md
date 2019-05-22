@@ -1,5 +1,5 @@
 ---
-title: Transfer data with AzCopy and Amazon S3 buckets | Microsoft Docs
+title: Transfer data to Azure Storage from Amazon S3 buckets by using AzCopy v10 | Microsoft Docs
 description: Transfer data with AzCopy and Amazon S3 buckets
 services: storage
 author: normesta

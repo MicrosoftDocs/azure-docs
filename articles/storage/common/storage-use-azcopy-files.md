@@ -1,5 +1,5 @@
 ---
-title: Transfer data with AzCopy and file storage | Microsoft Docs
+title: Transfer data to or from Azure Files by using AzCopy v10 | Microsoft Docs
 description: Transfer data with AzCopy and file storage.
 services: storage
 author: normesta

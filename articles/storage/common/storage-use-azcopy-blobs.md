@@ -1,5 +1,5 @@
 ---
-title: Transfer data with AzCopy and blob storage | Microsoft Docs
+title: Transfer data to or from Azure Blob storage by using AzCopy v10 | Microsoft Docs
 description: This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize folders between local file systems and containers.
 services: storage
 author: normesta
@@ -10,7 +10,7 @@ ms.author: normesta
 ms.subservice: common
 ---
 
-# Transfer data with AzCopy and blob storage
+# Transfer data with AzCopy and Blob storage
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that work with Blob storage.
 
