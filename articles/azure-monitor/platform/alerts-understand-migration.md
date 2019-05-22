@@ -14,8 +14,8 @@ As [previously announced](monitoring-classic-retirement.md), classic alerts in A
 
 This article explains how the voluntary migration tool works. It also describes remedies for some common problems.
 
- > [!NOTE]
-    > Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been extended to August 31st, 2019 from the originally announced date of June 30th, 2019.
+> [!NOTE]
+> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
 
 ## Which classic alert rules can be migrated?
 
