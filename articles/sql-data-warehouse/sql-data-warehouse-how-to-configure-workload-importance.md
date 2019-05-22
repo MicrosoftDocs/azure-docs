@@ -12,7 +12,7 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ---
 
-# Configure Workload Importance in Azure SQL Data Warehouse
+# Configure workload importance in Azure SQL Data Warehouse
 
 Setting importance in the SQL Data Warehouse allows you to influence the scheduling of queries. Queries with higher importance will be scheduled to run before queries with lower importance. To assign importance to queries, you need to create a workload classifier.
 

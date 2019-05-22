@@ -12,11 +12,11 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ---
 
-# Manage and monitor Workload Importance in Azure SQL Data Warehouse
+# Manage and monitor workload importance in Azure SQL Data Warehouse
 
 Manage and monitor request level importance in Azure SQL Data Warehouse using DMVs and catalog views.
 
-## Monitor Importance
+## Monitor importance
 
 Monitor importance using the new importance column in the [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) dynamic management view.
 The below monitoring query shows submit time and start time for queries. Review the submit time and start time along with importance to see how importance influenced scheduling.
@@ -31,7 +31,7 @@ ORDER BY r.start_time
 
 To look further into how queries are being schedule, use the catalog views.
 
-## Manage Importance with catalog views
+## Manage importance with catalog views
 
 The sys.workload_management_workload_classifiers catalog view contains information on classifiers in your Azure SQL Data Warehouse instance. To exclude the system-defined classifiers that map to resource classes execute the following code:
 
@@ -51,7 +51,7 @@ SELECT c.name,cd.classifier_type, classifier_value
   WHERE c.name = 'ExecReportsClassifier'
 ```
 
-![query results](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm_queryresults.png)
+![query results](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
 
 To simplify troubleshooting misclassification, we recommended you remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run sp_droprolemember for each ```membername``` returned from the corresponding resource class.
 Below is an example of checking for existence before dropping a workload classifier:
