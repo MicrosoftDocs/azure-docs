@@ -123,9 +123,9 @@ AzCopy performs these steps:
    This key will be used to save original metadata invalid **key**.
    You can use this key to try and recover the metadata in Azure side since metadata key is preserved as a value on the Blob storage service.
 
-## More examples
+## Next steps
 
-See these articles:
+Find more examples in any of these articles:
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 

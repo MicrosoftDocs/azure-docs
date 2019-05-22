@@ -116,9 +116,9 @@ You can download the contents of a folder without copying the containing folder 
 > [!NOTE]
 > Append the `--recursive` flag to download files in all sub-folders.
 
-## More examples
+## Next steps
 
-See these articles:
+Find more examples in any of these articles:
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 

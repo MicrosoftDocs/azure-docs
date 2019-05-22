@@ -218,9 +218,9 @@ In this case, the container becomes the source and the local file system is the 
 | **Example** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myFolder" --recursive` |
 | **Example** (hierarchical namespace) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myFolder" --recursive` |
 
-## More examples
+## Next steps
 
-See these articles:
+Find more examples in any of these articles:
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 
