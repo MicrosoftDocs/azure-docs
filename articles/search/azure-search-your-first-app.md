@@ -9,6 +9,8 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
+# Build your first Azure search app
+
 Complete this tutorial to learn about building Azure search apps in C#.
 
 In this tutorial, you learn how to:
@@ -44,7 +46,7 @@ To complete this tutorial, you need:
 * C# programming skills.
 * HTML development skills.
 
-## Installing and running the project from GitHub
+## Instal and run the project from GitHub
 
 1. Locate the sample app at the following location xxxxx.
 1. Select **Clone or download** and make your private local copy of the project.
@@ -54,7 +56,7 @@ To complete this tutorial, you need:
 Hopefully this will all run smoothly and you have an Azure app running. It is a simple search, but as almost all of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
 
 
-## Creating the project from scratch
+## Build the project from scratch
 
 To create this project from scratch, and hence help reinforce the components of Azure search in your mind, go through the following steps.
 
@@ -509,7 +511,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
                 </td>
 
                 <!-- Aid navigation by showing the current page and how many pages of results there are. -->
-                <td>&nbsp;&nbsp;Page @Model.getDisplayNumber() of @Model.pageCount&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;Page @(Model.currentPage + 1) of @Model.pageCount&nbsp;&nbsp;</td>
                 <td>
                     @using (Html.BeginForm("Next", "Home", FormMethod.Post))
                     {
@@ -540,7 +542,7 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using AzureSearchIndex.Models;
+using FirstAzureSearch.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
@@ -789,7 +791,7 @@ You should consider the following takeaways from this project:
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
