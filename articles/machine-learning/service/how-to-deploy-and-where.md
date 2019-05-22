@@ -344,8 +344,11 @@ aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
 ## Consume web services
+
 Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages. 
 If you have enabled authentication for your service, you need to provide a service key as a token in your request header.
+
+### Request-response consumption
 
 Here is an example of how to invoke your service in Python:
 ```python
@@ -372,14 +375,13 @@ print(response.json())
 
 For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
 
-## More inference options
 
-### <a id="azuremlcompute"></a> Batch inference
+### <a id="azuremlcompute"></a> Batch consumption
 Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
 
 For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) article.
 
-### <a id="iotedge"></a> Inference on IoT Edge
+### <a id="iotedge"></a> IoT Edge inference
 Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) article.
 
 
