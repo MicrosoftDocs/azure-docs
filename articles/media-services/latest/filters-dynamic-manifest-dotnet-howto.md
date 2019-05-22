@@ -23,7 +23,7 @@ When delivering your content to customers (streaming Live events or Video on Dem
 This topic shows how to use Media Services .NET SDK to define a filter for a Video on Demand asset and create [Account Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) and [Asset Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
-> Make sure to review (filters-concept.md#presentationtimerange).
+> Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## Prerequisites 
 
