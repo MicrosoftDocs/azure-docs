@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft global network'
+title: 'Microsoft global network - Azure'
 description: Describes how Microsoft builds its fast and reliable global network
 services: networking
 documentationcenter: 
