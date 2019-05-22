@@ -216,7 +216,7 @@ The following table provides an example of creating a deployment configuration f
 
 The following sections demonstrate how to create the deployment configuration, and then use it to deploy the web service.
 
-## Where to deploy
+## Deploy to target
 
 ### <a id="local"></a> Deploy locally
 
@@ -268,19 +268,13 @@ For more information, see the reference documentation for the [AciWebservice](ht
 
 You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
 
+<a id="deploy-aks"></a>
 
-> [!IMPORTANT]
-> Creating an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments.
-> If you have NOT created or attached an AKS cluster go <a href="#create-attach-aks">here</a>.
+If you already have an AKS cluster attached, you can deploy to it. If you have NOT created or attached an AKS cluster go <a href="#create-attach-aks">here</a>.
 
-#### Deploy to AKS <a id="deploy-aks"></a>
 
-You can deploy to AKS with the Azure ML CLI:
-```azurecli-interactive
-az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
-```
+**Using the SDK**
 
-You can also use the Python SDK:
 ```python
 aks_target = AksCompute(ws,"myaks")
 deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
@@ -290,17 +284,20 @@ print(service.state)
 print(service.get_logs())
 ```
 
-For more information on configuring your AKS deployment, including autoscale, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
+Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
+**Using the CLI**
+
+```azurecli-interactive
+az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+```
+
+#### Create a new AKS cluster<a id="create-attach-aks"></a>
 **Time estimate:** Approximately 5 minutes.
 
-#### Create or attach an AKS cluster <a id="create-attach-aks"></a>
-Creating or attaching an AKS cluster is a **one time process** for your workspace. 
-After a cluster has been associated with your workspace, you can use it for multiple deployments. 
+> [!IMPORTANT]
+> Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy.
 
-If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy.
-
-##### Create a new AKS cluster
 For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) reference.
 The following example demonstrates how to create a new Azure Kubernetes Service cluster:
 
@@ -330,7 +327,7 @@ For more information on creating an AKS cluster outside of the Azure Machine Lea
 
 **Time estimate**: Approximately 20 minutes.
 
-##### Attach an existing AKS cluster
+#### Attach an existing AKS cluster
 
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.## and has at least 12 virtual CPUs, you can use it to deploy your image. The following code demonstrates how to attach an existing AKS 1.12.## cluster to your workspace:
 
@@ -375,7 +372,18 @@ print(response.json())
 
 For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
 
-## <a id="update"></a> Update the web service
+## More inference options
+
+### <a id="azuremlcompute"></a> Batch inference
+Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
+
+For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) article.
+
+### <a id="iotedge"></a> Inference on IoT Edge
+Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) article.
+
+
+## <a id="update"></a> Update web services
 
 When you create a new model, you must manually update each service that you want to use the new model. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new model:
 
@@ -400,15 +408,11 @@ print(service.state)
 print(service.get_logs())
 ```
 
-## Clean up
-To delete a deployed web service, use `service.delete()`.
-To delete a registered model, use `model.delete()`.
+<a id="advanced-config"></a>
 
-For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+## Advanced settings 
 
-## Advanced configuration settings <a id="advanced-config"></a>
-
-### <a id="customimage"></a> Use a custom base image
+**<a id="customimage"></a> Use a custom base image**
 
 Internally, InferenceConfig creates a Docker image that contains the model and other assets needed by the service. If not specified, a default base image is used.
 
@@ -452,15 +456,11 @@ If your model is trained on Azure Machine Learning Compute, using __version 1.0.
 image_config.base_image = run.properties["AzureML.DerivedImageName"]
 ```
 
-## Other inference options
+## Clean up resources
+To delete a deployed web service, use `service.delete()`.
+To delete a registered model, use `model.delete()`.
 
-### <a id="azuremlcompute"></a> Batch inference
-Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
-
-For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) article.
-
-## <a id="iotedge"></a> Inference on IoT Edge
-Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) article.
+For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## Next steps
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
@@ -468,3 +468,4 @@ Support for deploying to the edge is in preview. For more information, see the  
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
+
