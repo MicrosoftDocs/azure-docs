@@ -18,20 +18,21 @@ To access the Partner Center analytics tools, open the **[Analyze](https://partn
 |**Dashboard**|**Displayed content**|
 |:---|:---|
 |[Summary](#summary-dashboard)|Graphs, trends, and values of aggregate data that summarize marketplace activity for your offers|
-|[Orders](#)|Information about your orders in a graphical and downloadable format|
-|[Customer](#)|Information about your customers, including growth trends, presented in a  graphical and downloadable format|
-|[Downloads](#)|A list of your download requests over the last 30 days|
-|[Analytics](#)|A summary of your marketplace web analytics and analysis of campaign performance|
+|[Orders](#orders-dashboard)|Information about your orders in a graphical and downloadable format|
+|[Customers](#customers-dashboard)|Information about your customers, including growth trends, presented in a  graphical and downloadable format|
+|[Downloads](#downloads-dashboard)|A list of your download requests over the last 30 days|
+|[Analytics](#analytics-dashboard)|A summary of your marketplace web analytics and analysis of campaign performance|
 
 ## Summary dashboard
 
 The **Summary** dashboard presents an overview based on each offer type. **Insights** show critical information at a glance and provides a broad view of the sales activity of your offers. You can view graphical representations of the following in this dashboard: 
- - Total orders
- - Total customers
- - Geographic location of your customers
- - Trends emerging based on your customer and order information
- - Customer leaderboard with highest orders
- - Number of orders organized by offer name
+
+ - [Total orders](#totals)
+ - [Total customers](#totals)
+ - [Geographic location of your customers](#customers-by-geography)
+ - [Trends emerging based on your customer and order information](#growth-trend-chart)
+ - [Customer leaderboard with highest orders](#customer-leaderboard)
+ - [Number of orders organized by offer name](#offers-by-orders)
 
 ### Date range
  
@@ -51,17 +52,17 @@ The **Totals** section displays a count of all orders created, or customers acqu
 
 ### Customers by geography
 
-Heatmap presents customers count by ‘Customer Country’ on world map. You can move the map to view the exact location, you can zoom into a specific location. This map has a supplementary grid to view the details of customer count and order count in the specific location. You can search and click a country in the grid to zoom the location in the map and revert to original view by pressing the home button in the map.
+The **Customers by geography** heatmap displays a customer count on a world map. You can move the map to view the exact location. You can also zoom into a specific location. The heatmap has a supplementary grid to view the details of customer count and order count in the specific location. You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
 
 ![Partner Center Analyze customer geography](./media/analyze-customer-geography.png)
 
-### Growth trend chart 
+### Growth trend chart
 
 You can view trends based on the growth of your **Orders created** or **Customers acquired**, displayed month by month according to the selected date range. You can further analyze these trends by selecting links below the chart which navigate to the respective **Order** or **Customer** pages. 
 
 ![Partner Center Analyze growth trends](./media/analyze-growth-trends.png)
 
-### Customer leader board
+### Customer leaderboard
 
 The top 50 customers with the highest number of orders are displayed on a *leader board*, sorted by highest order count and order percentage. 
 
@@ -83,20 +84,20 @@ The **Offers by orders** chart organizes your active orders according to the Off
 
 ## Orders dashboard
 
-The **Orders** page of the **Analyze** menu displays the current orders for all SaaS offers. The metrics and insights in this page are displayed and pivoted according to the offer name. You can view graphical representations of:
+The **Orders** dashboard of the **Analyze** menu displays the current orders for all of your SaaS offers. The metrics and insights in this page are displayed and pivoted according to the offer name. You can view graphical representations of:
 
-- Order Totals 
-- Orders by geography
-- Active orders organized by offer name
-- Month-by-month trends of active and cancelled orders
-- Orders organized by marketplace license type
-- Orders organized by new and existing customers
-- An orders details table
+- [Order Totals](#order-totals)
+- [Orders by geography](#orders-by-geography)
+- [Active orders organized by offer name](#active-orders-by-offers)
+- [Trends for active and cancelled orders](#trends-for-active-and-cancelled-orders)
+- [Orders organized by marketplace license type](#orders-by-marketplace-license-type)
+- [Orders organized by new and existing customers](#orders-by-customer-type)
+- [Order details table](#order-details-table)
 
 > [!NOTE]
 > There are differences between how analytics reports display in the Cloud Partner Portal (CPP) and the new Commercial Marketplace program in Partner Center. One specific way is that the **Seller Insights** in CPP has a **Orders & Usage** tab, which displays data for usage-based offers and non-usage-based offers. In Partner Center, the **Orders** page has a separate tab for SaaS Offers.
 
-### Totals
+### Order totals
 
 The **Totals** section of the **Orders** page displays a count of all orders created, including both **Active** and **Cancelled** orders, during the selected [date range](#date-range). 
 
@@ -104,8 +105,66 @@ The **Totals** section of the **Orders** page displays a count of all orders cre
 - A green triangle pointing upward indicates a positive growth trend. A red triangle pointing downward indicates a negative growth trend relative to the previous month. 
 - Growth trends are represented by bar graphs and will display the value for each month by hovering over the columns of the chart.
 
+### Orders by geography
+
+The **Orders by geography** heatmap displays a count of your orders on a world map and functions the same as the **[Customers by geography heatmap](#customers-by-geography)**.
+
+### Trends for active and cancelled orders
+
+The **Active orders by offers** donut graph organizes all of your active orders according to their offer names. 
+
+- The top 4 offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
+- You can select specific offers in the legend to display only those offers in the graph. 
+- Hovering over a slice in the graph will display the number of orders and percentage of that offer compared to your total number of orders across all offers.
+- **Orders by offers trend** displays month-by-month growth trends.The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
+- You can use the slider on the top of the chart to scroll right and left along the x-axis and focus on specific data points.
+- You can display the trend chart by selecting a specific item on the legend.
+- You can also choose to display trends and data for **Cancelled orders**. The graph will function in the same way as active orders.
+
+![Partner Center Analyze active orders](./media/analyze-active-orders.png)
+
+### Orders by marketplace license type
+<!-- This section needs review and clarification!  -->
+The **Orders by marketplace license type** chart displays a month-by-month order count based on the license type and billing method of the marketplace offer. License types include:
+
+- **Billed through Azure**: Microsoft bills customers on your behalf when you choose to [sell your offer through Microsoft](./create-new-saas-offer.md#sell-through-microsoft) with this license type. Payment types include pay-as-you-go via credit card or Enterprise invoicing.
+- **Bring your own license**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Get it now (Free)](./create-new-saas-offer.md#get-it-now-free)** in the marketplace.
+- **Free**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Free trial](./create-new-saas-offer.md#free-trial)** in the marketplace.
+- **Microsoft as reseller**: Represents offers sold by Microsoft resellers as a part of the **[Cloud Solution Provider (CSP) program](./create-new-saas-offer.md#csp-program-opt-in)**.
+
+![Partner Center Analyze orders by license type](./media/analyze-license-type.png)
+
+### Orders by customer type
+
+The **Orders by customer type** bar chart displays the number of orders divided between **New Customers** and **Existing Customers**. 
+
+- A **New customer** has acquired one or more of your marketplace offers for the first time within the same calendar month (y-axis). An **Existing customer** has previously acquired an offer from you prior to the calendar month reported (on the y-axis). 
+- An additional pie chart represents all orders created by the new or existing customer for the date range selected.
+- In both charts, you can choose to view only new or only existing customers by selecting the respective legend.
+
+![Partner Center Analyze orders by customer type](./media/analyze-order-by-customer.png)
+
+### Order details table
+
+The **Order details table** displays a numbered list of the 1000 top orders sorted by date of acquisition.
+
+- Each column in the grid is sortable.
+- The data can be extracted to a TSV file if the count of the records is less than 1000.
+- If records number over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
+- Filters can be applied to the **Order details table** to display only the data that you are interested in. Data can be filtered by Country, Azure license type, Marketplace license type, Offer type, Order status, Free trails, Marketplace subscription ID, Customer ID, and Company name. 
+
+![Partner Center Analyze order details](./media/analyze-order-details.png)
+
 ## Customer dashboard
+
+The **Customer** dashboard of the **Analyze** menu displays the customers who have aquired your offers. The metrics and insights in this page are displayed and pivoted according to the offer name. You can view graphical representations of:
+
+- [Order Totals](#order-totals)
+This page presents insights pivoted by your customers, your customer base growth and their contribution to orders by different data views. This page provides graphical representations of the Customer totals, Customers by geography, Customer growth trend, Customers by orders contribution and Customers details grid.
 
 ## Downloads dashboard
 
 ## Analytics dashboard
+
+
+
