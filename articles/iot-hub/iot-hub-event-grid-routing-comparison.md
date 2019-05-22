@@ -57,9 +57,9 @@ IoT Hub message routing and the IoT Hub integration with Event Grid perform diff
 
 * **What endpoints need to receive this information?**
 
-   IoT Hub message routing supports limited endpoints, but you can build connectors to reroute the data and events to additional endpoints. For a complete list of supported endpoints, see the table in the previous section. 
+   IoT Hub message routing supports limited number of unique endpoints and endpoint types, but you can build connectors to reroute the data and events to additional endpoints. For a complete list of supported endpoints, see the table in the previous section. 
 
-   The IoT Hub integration with Event Grid supports more endpoints. It also works with webhooks to extend routing outside of the Azure service ecosystem and into third-party business applications. 
+   The IoT Hub integration with Event Grid supports unlimited number of endpoints and endpoint types. It also works with webhooks to extend routing outside of the Azure service ecosystem and into third-party business applications. 
 
 * **Does it matter if your data arrives in order?**
 
