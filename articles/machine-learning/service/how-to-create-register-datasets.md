@@ -1,5 +1,5 @@
 ---
-title: Create datasets to access data
+title: Create datasets to access data with azureml-datasets
 titleSuffix: Azure Machine Learning service
 description: Learn how to create Datasets from various sources and register Datasets with your workspace
 services: machine-learning
@@ -38,7 +38,7 @@ To create and work with datasets, you need:
 
 * An [Azure Machine Learning service workspace Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
-* The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 
 > [!Note]
 > Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
@@ -56,7 +56,7 @@ You can create an Azure Machine Learning Dataset from the following data:
 
 ## Create datasets 
 
-You can interact with your datasets with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and specifically [the `Dataset` class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py).
+You can interact with your datasets with the azureml-datasets package in the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and specifically [the `Dataset` class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py).
 
 ### Create from local files
 
