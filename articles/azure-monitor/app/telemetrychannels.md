@@ -36,7 +36,7 @@ public interface ITelemetryChannel
 }
 ```
 
-The `Send(ITelemetry item)` method of TelemetryChannel is called after all `TelemetryInitializer`s and `TelemetryProcessor`s are called. This means that any items dropped by `TelemetryProcessor` won't reach channel. `Send()` does not typically send the items instantly to the backend. They are typically buffered in-memory, and send in batches,for efficient transmission.
+The `Send(ITelemetry item)` method of TelemetryChannel is called after all `TelemetryInitializer`s and `TelemetryProcessor`s are called. This means that any items dropped by `TelemetryProcessor` won't reach the channel. `Send()` does not typically send the items instantly to the backend. They are typically buffered in-memory, and sent in batches, for efficient transmission.
 
 [LiveMetrics](live-stream.md) also has a custom channel, which powers the live streaming of telemetry. This channel is independent of the regular telemetry channel, and this document does not apply to the channel used by `LiveMetrics`.
 
