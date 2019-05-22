@@ -116,7 +116,7 @@ If you stop the `azds up` command using *Ctrl+c*, the service will continue to r
 To deploy an updated version of your service, you can update any file in your project and rerun the `azds up` command. For example:
 
 1. If `azds up` is still running, press *Ctrl+c*.
-1. Update [line 16 in `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) to:
+1. Update [line 19 in `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) to:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -172,17 +172,17 @@ Click *Debug* then *Stop Debugging* to stop the debugger.
 
 Start your service in debugging mode using *Launch Java Program (AZDS)*.
 
-Navigate back to the *Explorer* view by clicking *View* then *Explorer*. Open `src/main/java/com/ms/sample/webfrontend/Application.java` and click somewhere on line 16 to put your cursor there. To set a breakpoint hit *F9* or click *Debug* then *Toggle Breakpoint*.
+Navigate back to the *Explorer* view by clicking *View* then *Explorer*. Open `src/main/java/com/ms/sample/webfrontend/Application.java` and click somewhere on line 19 to put your cursor there. To set a breakpoint hit *F9* or click *Debug* then *Toggle Breakpoint*.
 
-Open your service in a browser and notice no message is displayed. Return to Visual Studio Code and observe line 16 is highlighted. The breakpoint you set has paused the service at line 16. To resume the service, hit *F5* or click *Debug* then *Continue*. Return to your browser and notice the message is now displayed.
+Open your service in a browser and notice no message is displayed. Return to Visual Studio Code and observe line 19 is highlighted. The breakpoint you set has paused the service at line 19. To resume the service, hit *F5* or click *Debug* then *Continue*. Return to your browser and notice the message is now displayed.
 
 While running your service in Kubernetes with a debugger attached, you have full access to debug information such as the call stack, local variables, and exception information.
 
-Remove the breakpoint by putting your cursor on line 16 in `src/main/java/com/ms/sample/webfrontend/Application.java` and hitting *F9*.
+Remove the breakpoint by putting your cursor on line 19 in `src/main/java/com/ms/sample/webfrontend/Application.java` and hitting *F9*.
 
 ## Update code from Visual Studio Code
 
-While the service is running in debugging mode, update line 16 in `src/main/java/com/ms/sample/webfrontend/Application.java`. For example:
+While the service is running in debugging mode, update line 19 in `src/main/java/com/ms/sample/webfrontend/Application.java`. For example:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```
