@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/22/2019
 ms.author: mstephen
 
 ---
@@ -22,7 +22,7 @@ ms.author: mstephen
 
 
 ## Before you begin
-Refer to [Networking considerations for Azure Active Directory Domain Services](networking.md).
+Refer to [Networking considerations for Azure Active Directory Domain Services](network-considerations.md).
 
 
 ## Task 2: configure network settings
@@ -37,7 +37,7 @@ The next configuration task is to create an Azure virtual network and a dedicate
 3. Choose the virtual network in which Azure AD Domain Services should be enabled. You can either pick an existing virtual network or create a new one.
 
    > [!TIP]
-   > **You cannot move your managed domain to a different virtual network after you enable Azure AD Domain Services.** Pick the right virtual network to enable your managed domain. After you create a managed domain, you cannot move it to a different virtual network, without deleting the managed domain. We recommend reviewing the [networking considerations for Azure Active Directory Domain Services](networking.md) before you proceed.  
+   > **You cannot move your managed domain to a different virtual network after you enable Azure AD Domain Services.** Pick the right virtual network to enable your managed domain. After you create a managed domain, you cannot move it to a different virtual network, without deleting the managed domain. We recommend reviewing the [networking considerations for Azure Active Directory Domain Services](network-considerations.md) before you proceed.  
    >
 
 4. **Create virtual network:** Click **Create new** to create a new virtual network. Use a dedicated subnet for Azure AD Domain Services. For example, create a subnet with the name 'DomainServices', making it easy for other administrators to understand what is deployed within the subnet. Click **OK** when you're done.
@@ -53,7 +53,7 @@ The next configuration task is to create an Azure virtual network and a dedicate
 
    > [!NOTE]
    > **Guidelines for selecting a subnet**
-   > 1. Use a dedicated subnet for Azure AD Domain Services. Do not deploy any other virtual machines to this subnet. This configuration enables you to configure network security groups (NSGs) for your workloads/virtual machines without disrupting your managed domain. For details, see [networking considerations for Azure Active Directory Domain Services](networking.md).
+   > 1. Use a dedicated subnet for Azure AD Domain Services. Do not deploy any other virtual machines to this subnet. This configuration enables you to configure network security groups (NSGs) for your workloads/virtual machines without disrupting your managed domain. For details, see [networking considerations for Azure Active Directory Domain Services](network-considerations.md).
    > 2. Do not select the Gateway subnet for deploying Azure AD Domain Services, because it is not a supported configuration.
    > 3. The subnet you've selected must have at least 3-5 available IP addresses in its address space.
 

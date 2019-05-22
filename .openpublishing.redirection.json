@@ -4042,7 +4042,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-networking.md",
-      "redirect_url": "/azure/active-directory-domain-services/networking",
+      "redirect_url": "/azure/active-directory-domain-services/network-considerations",
       "redirect_document_id": false
     },
     {
