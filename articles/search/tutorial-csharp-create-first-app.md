@@ -55,13 +55,13 @@ To complete this tutorial, you need:
 _Search for "wifi"_
  ![Searching for wifi](./media/azure-search-wifi.png)
 
-_Note how no paging options are displayed if there is less than one page worth of results._
+_Note how no paging options are displayed if there is less than one page worth of results_
  ![Searching for town](./media/azure-search-town.png)
 
 _The last page of results may contain less than a full page_
  ![Searching for pool](./media/azure-search-pool-last-page.png)
 
-Hopefully this will all run smoothly and you have an Azure app running. It is a simple search, but as almost all of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
+Hopefully this will all run smoothly, and you have an Azure app running. It is a simple search, but as almost all of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
 
 
 ## Build the project from scratch
@@ -88,7 +88,7 @@ To create this project from scratch, and hence help reinforce the components of 
 
 ## Initialize the Azure Search service
 
-For this sample we are using publicly available hotel data. This data is just an arbitrary collection of 60 or so fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data you need to specify a name and key for it. 
+For this sample we are using publicly available hotel data. This data is just an arbitrary collection of 60 or so fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data, you need to specify a name and key for it. 
 
 1. Open up the appsettings.json file in your project and add the following name and key. The API key shown here is not an example of a key, it is exactly the key you need to access the hotel data. Your appsettings.json file should now look like this.
 
@@ -111,7 +111,7 @@ For this sample we are using publicly available hotel data. This data is just an
 
 ## Create MVC models to communicate data
 
-Models (C# classes) are used to communicate data between the client (the view), the server (the controller) and also the Azure cloud using the MVC (model, view, controller) architecture. Typically these models will simply reflect the structure of the data that is being accessed. Also, we need a model to handle the view/controller communications.
+Models (C# classes) are used to communicate data between the client (the view), the server (the controller) and also the Azure cloud using the MVC (model, view, controller) architecture. Typically, these models will simply reflect the structure of the data that is being accessed. Also, we need a model to handle the view/controller communications.
 
 1. Open up the **Models** folder of your project, using Solution Explorer, and you will see one default model in there: **ErrorViewModel.cs**.
 
@@ -361,7 +361,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 }
 ```
 
-1. Following this lets enter some HTML styling. No need to go into this in detail, this is just standard html.
+1. Following this let's enter some HTML styling. No need to go into this in detail, this is just standard html.
 
 ```cs
 <style>
@@ -458,7 +458,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 </style>
 ```
 
-1. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched and the user has not yet entered any search text. Secondly, it must handle the display of a single page of results in addition to the search text boxes for repeated use by the user. To handle these two situations we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file, and read through the comments.
+1. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of a single page of results in addition to the search text boxes for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
 
 ```cs
    <h1 class="sampleTitle">
@@ -493,7 +493,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 }
 ```
 
-1. Finally we complete the view with paging buttons. We keep this fairly simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and also infinite paging.
+1. Finally we complete the view with paging buttons. We keep this simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and infinite paging.
 
 ```cs
 @if (Model != null && Model.pageCount > 1)
@@ -543,7 +543,7 @@ That completes our view. We are making good progress, the models and views are c
 
 ## Create the MVC controller
 
-We need to add to the contents of the one controller (**Home Controller**) which is created by default. Open up the HomeController.cs file and replace the **using** statements with the following. 
+We need to add to the contents of the one controller (**Home Controller**) which is created by default. Open the HomeController.cs file and replace the **using** statements with the following. 
 
 ```cs
 using System;
@@ -560,7 +560,7 @@ using Microsoft.Azure.Search.Models;
 
 We need two **Index** methods, one taking no parameters (the app-first-opened case) and one taking a model as a parameter (user has entered search text).
 
-The first of these two methods is created by default. Add the following method after the default **Index** method.
+The first of these methods is created by default. Add the following method after the default **Index()** method.
 
 ```cs
         [HttpPost]
@@ -575,7 +575,7 @@ The first of these two methods is created by default. Add the following method a
                     model.searchText = "";
                 }
                 
-                // Ensure search string is stored for next call, as TempData only stored for one call.
+                // Ensure search string is stored for next call, as TempData is only stored for one call.
                 TempData["searchfor"] = model.searchText;
 
                 await RunQueryAsync(model, 0);
@@ -589,9 +589,9 @@ The first of these two methods is created by default. Add the following method a
         }
 ```
 
-A few important things to take note of here. The **TempData** calls store a value (an **object**) in temporary storage, though this storage really does just last one call. If we store something in temporary data it will be available for the next **Index** call, but will most definitely be gone the next! Because of this really short lifespan we store the search text and page number back in temporary storage each and every call to **Index**.
+A few important things to take note of here. The **TempData** calls store a value (an **object**) in temporary storage, though this storage really does just last one call. If we store something in temporary data it will be available for the next **Index** call but will most definitely be gone the next! Because of this short lifespan we store the search text and page number back in temporary storage each and every call to **Index**.
 
-Also note the **async** declaration of the method and the **await** call to **runQueryAsync**. This takes care of making our calls asynchronous and so avoid blocking threads on the server.
+Also note the **async** declaration of the method and the **await** call to **RunQueryAsync**. This takes care of making our calls asynchronous and so avoid blocking threads on the server.
 
 Finally note the **catch** block uses the error model that was created for us by default.
 
@@ -627,7 +627,8 @@ As mentioned before a subsequent tutorial has a good look at paging. For this fi
         {
             try
             {
-                // Decerement the current page.
+
+                // Decrement the current page.
                 int page = (int)TempData["page"] - 1;
                 TempData["page"] = (object)page;
 
@@ -744,7 +745,7 @@ The Azure Search itself is encapsulated in our **RunQueryAsync** method.
         }
 ```
 
-In this method we first ensure our Azure configuration is initiated, then set some search parameters. Note that the list of parameters are exactly the member names of the **hotel** class. It is possible to leave this empty, then all data is returned. However, this is inefficient if we are only interested in a subset of the data. By specifying only the fields we are interested in, only this data will be returned.
+In this method we first ensure our Azure configuration is initiated, then set some search parameters. Note that the list of parameters are exactly the member names of the **hotel** class. It is possible to leave this empty, then all data is returned. However, this is inefficient if we are only interested in a subset of the data. By specifying the fields we are interested in, only this data will be returned.
 
 The asynchronous call to search (**results = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one and a really good idea is to stop at this point using a debugger and examine the contents of **results**. You should find that it is intuitive and makes a lot of sense, providing you with just the data you asked for and not much else.
 
@@ -756,19 +757,19 @@ Now, will all this good effort be worthwhile and your app runs!
 
 1. Select **Debug/Start Without Debugging** or press the F5 key. If you have coded things correctly you will get the initial Index view.
 
-!index view
+ ![Opening the app](./media/azure-search-index.png)
 
 1. Enter text such as "beach" (or any text that comes to mind) and click the search icon. You should get some results.
 _Search for "beach"_
 
  ![Searching for beach](./media/azure-search-beach.png)
 
-1. Test the next and previous page buttons. Check that when they are not relevant they are grayed out.
+1. Test the next and previous page buttons. Check that when they are not relevant, they are grayed out.
 
 1. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search.
  
 _Search for "five star"_
- ![Searching for beach](./media/azure-search-five-star.png)
+ ![Searching for five star](./media/azure-search-five-star.png)
 
 1. Try entering "hot" as search text. Note that it does _not_ return entries with the word "hotel" in them. Our simple search is only locating whole words.
 
@@ -788,7 +789,7 @@ _Forcing an error_
 > Note
 > It is considered a security risk to return internal error numbers in error pages. If your app is intended for general use, do some investigation into secure and best practices of what to return when an error occurs.
 
-3. Remove the  **Throw new Exception()** line when you are satisfied the error handling works as it should.
+3. Remove **Throw new Exception()** when you are satisfied the error handling works as it should.
 
 
 ## Takeaways
