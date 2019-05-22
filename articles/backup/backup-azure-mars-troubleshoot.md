@@ -25,7 +25,6 @@ We recommend you perform the below validation, before you start troubleshooting 
 - [Check if another process or antivirus software is interfering with Azure Backup](https://aka.ms/AB-AA4dwtk)
 - [Scheduled backup fails, but manual backup works](https://aka.ms/ScheduledBackupFailManualWorks)
 - Ensure your OS has the latest updates
-- [Ensure unsupported file & folders are excluded from backup](https://aka.ms/AB-AA4dp52)<br>
 - [Ensure unsupported drives and files with unsupported attributes are excluded from backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Ensure **System Clock** on the protected system is configured to correct time zone <br>
 - [Ensure that the server has at least .Net Framework version 4.5.2 and higher](https://www.microsoft.com/download/details.aspx?id=30653)<br>
@@ -33,6 +32,7 @@ We recommend you perform the below validation, before you start troubleshooting 
   - Ensure the agent is uninstalled on the server and it is deleted from portal <br>
   - Use the same passphrase that was initially used for registering the server <br>
 - In case of offline backup ensure that Azure PowerShell version 3.7.0 is installed on both source and copy computer before you begin offline backup operation
+- [Consideration when Backup agent is running on an Azure virtual machine](https://aka.ms/AB-AA4dwtr)
 
 ## Invalid vault credentials provided
 
