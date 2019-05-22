@@ -32,7 +32,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 To update Azure Machine Learning service to use the new key, use the following steps:
 
-1. To find the datastore entry for the storage account, use the following code:
+1. To find all the datastore entries for the storage account, use the following code:
 
     ```python
     import azureml.core
@@ -43,7 +43,7 @@ To update Azure Machine Learning service to use the new key, use the following s
     datastores = ws.datastores
     for name, ds in datastores.items():
         if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-            f"datastore name: {name}, storage account name: {ds.account_name}, container name: {ds.container_name}"
+            print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
     ```
 
     This code looks for any registered datastores that use Azure Storage and lists the following information:
@@ -53,6 +53,11 @@ To update Azure Machine Learning service to use the new key, use the following s
     * Container: The container in the storage account that is used by this registration.
 
     If an entry exists for the storage account that you plan on regenerating access keys for, save the datastore name, storage account name, and container name.
+
+    > [!TIP]
+    > You may have multiple datastores registered for the same storage account. For example, you may have a datastore for both blob containers and file shares on the same storage account.
+    >
+    > Each datastore that references the storage account needs to be re-registerd with the new key.
 
 1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage.md#access-keys) article. Save the new key.
 
@@ -73,6 +78,12 @@ To update Azure Machine Learning service to use the new key, use the following s
 
     ```azurecli-interactive
     az login
+    ```
+
+1. To install the Azure Machine Learning extension, use the following command:
+
+    ```azurecli-interactive
+    az extension add -n azure-cli-ml 
     ```
 
 1. To update the workspace to use the new key to log information on experiments, snapshots, and trained models, use the following Azure CLI command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
