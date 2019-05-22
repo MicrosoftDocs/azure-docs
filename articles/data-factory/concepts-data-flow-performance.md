@@ -37,18 +37,19 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 ### Set Batch Size and Query on Source
 
 
-Setting batch size will instruct ADF to store data in sets in memory instead of row-by-row. It is an optional setting and you may run out of resources on the compute nodes if they are not sized properly.
-Setting a query can allow you to filter rows right at the source before they even arrive for Data Flow for processing, which can make the initial data acquisition faster.
-If you use a query, you can add optional query hints for your Azure SQL DB, i.e. READ UNCOMMITTED
-Set Sink Batch Size
+* Setting batch size will instruct ADF to store data in sets in memory instead of row-by-row. It is an optional setting and you may run out of resources on the compute nodes if they are not sized properly.
+* Setting a query can allow you to filter rows right at the source before they even arrive for Data Flow for processing, which can make the initial data acquisition faster.
+* If you use a query, you can add optional query hints for your Azure SQL DB, i.e. READ UNCOMMITTED
+
+### Set Sink Batch Size
 
 
- In order to avoid row-by-row processing of your data floes, set the "Batch size" in the sink settings for Azure SQL DB. This will tell ADF to process database writes in batches based on the size provided.
-Set Partitioning Options on your Sink
+* In order to avoid row-by-row processing of your data floes, set the "Batch size" in the sink settings for Azure SQL DB. This will tell ADF to process database writes in batches based on the size provided.
 
+### Set Partitioning Options on your Sink
 
-Even if you don't have your data partitioned in your destination Azure SQL DB tables, go to the Optimize tab and set partitioning.
-Very often, simply telling ADF to use Round Robin partitioning on the Spark execution clusters results in much faster data loading instead of forcing all connections from a single node/partition.
+* Even if you don't have your data partitioned in your destination Azure SQL DB tables, go to the Optimize tab and set partitioning.
+* Very often, simply telling ADF to use Round Robin partitioning on the Spark execution clusters results in much faster data loading instead of forcing all connections from a single node/partition.
 Increase size of your compute engine in Azure Integration Runtime
 
 
