@@ -74,7 +74,7 @@ If you don't have a logic app yet, learn [how to create logic apps](../logic-app
 
 ## Add referenced assemblies
 
-1. Sign in to the [Azure portal] 
+1. Sign in to the [Azure portal](https://portal.azure.com) 
    with your Azure account credentials.
 
 1. To find and open your integration account, 
@@ -249,7 +249,7 @@ After you upload any assemblies that your map references,
 you can now upload your map.
 
 1. If you haven't signed in already, sign in to the 
-   <a href="h" target="_blank">Azure portal</a> 
+   [Azure portal](https://portal.azure.com) 
    with your Azure account credentials. 
 
 1. If your integration account isn't already open, 
