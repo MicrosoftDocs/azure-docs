@@ -37,7 +37,7 @@ Before you restore a database, note the following:
     - Only the specified client name can open the connection.
 - For all system databases (model, master, msdb), stop the SQL Server Agent service before you trigger the restore.
 - Close any applications that might try to take a connection to any of these databases.
-- If you have multiple instances running on a server, all of the instances should be up and running otherwise the sever would not appear in the list of destination servers for you to restore database to.
+- If you have multiple instances running on a server, all of the instances should be up and running otherwise the server would not appear in the list of destination servers for you to restore database to.
 
 ## Restore a database
 
