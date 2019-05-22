@@ -41,7 +41,7 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
     This authentication mechanism also requires the webhook endpoint to return an HTTP status code of 200 so that it knows that the POST for the validation event was accepted before it can be put in the manual validation mode. In other words, if the endpoint returns 200 but doesn’t return back a validation response programmatically, the mode is transitioned to the manual validation mode. If there is a GET on the validation URL within 5 minutes, the validation handshake is considered to be successful.
 
 > [!NOTE]
-> Using self-signed certificates for validation isn't supported. Use a signed certificate from a certificate authority (CA) instead;
+> Using self-signed certificates for validation isn't supported. Use a signed certificate from a certificate authority (CA) instead.
 
 ### Validation details
 
