@@ -45,7 +45,7 @@ The following table briefly describes the application tiers that may be in Azure
 |:---|:---|:---|
 | [Guest operating system](#guest-operating-system) | Data about the operating system on compute resources. | Install Log Analytics agent to collect client data sources into Azure Monitor and Dependency agent to collect dependencies supporting Azure Monitor for VMs.<br>For Azure virtual machines, install Azure Diagnostic Extension to collect logs and metrics into Azure Monitor. |
 | [Application](#applications) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code to collect data into Application Insights. |
-| Custom sources | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
+| [Custom sources](#custom-sources) | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
 
 ## Azure tenant
 Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
