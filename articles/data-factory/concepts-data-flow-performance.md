@@ -28,7 +28,7 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 
 ![Source Part](media/data-flow/sourcepart2.png "Source Part")
 
-### You can match Spark data partitioning to your source database partitioning based on a database table column key in the Source transformation
+### You can match Spark data partitioning to your source database partitioning based on a database table column key in the source transformation
 
 * Go to "Optimize" and select "Source". Set either a specific table column or a type in a query.
 * If you chose "column", then pick the partition column.
