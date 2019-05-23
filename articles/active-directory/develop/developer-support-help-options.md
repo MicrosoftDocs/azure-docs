@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
@@ -80,7 +80,7 @@ If you find a bug or problem related to our libraries, raise an issue in our Git
 To see a list of libraries and their GitHub repositories, see the following articles:
 
 * [ADAL](active-directory-authentication-libraries.md) libraries and GitHub repositories
-* [MSAL](reference-v2-libraries.md) libraries and GitHub repositories
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), and [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) libraries and GitHub repositories
 
 ## Open a support request
 
