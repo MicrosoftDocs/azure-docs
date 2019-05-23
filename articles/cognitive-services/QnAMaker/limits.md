@@ -51,7 +51,7 @@ Overall limits on the content in the knowledge base:
 
 ## Create Knowledge base call limits:
 These represent the limits for each create knowledge base action; that is, clicking *Create KB* or calling the CreateKnowledgeBase API.
-* Maximum number of alternate questions per answer: 100
+* Maximum number of alternate questions per answer: 300
 * Maximum number of URLs: 10
 * Maximum number of files: 10
 
