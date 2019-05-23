@@ -35,8 +35,6 @@
         href: application-proxy-connectors.md
       - name: Connector groups
         href: application-proxy-connector-groups.md
-      - name: CORS in Application Proxy
-        href: application-proxy-understand-cors-issues.md
       - name: Security
         href: application-proxy-security.md
       - name: Network topology
@@ -161,6 +159,8 @@
           href: application-proxy-connector-installation-problem.md
         - name: Sign-in problem
           href: application-sign-in-problem-on-premises-application-proxy.md
+        - name: CORS issues in Application Proxy
+          href: application-proxy-understand-cors-issues.md
     - name: User provisioning
       items:
       - name: How long it takes
