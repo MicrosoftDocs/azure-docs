@@ -72,7 +72,7 @@ This baseline policy provides you the option to exclude users. Before enabling t
 
 The policy **Baseline policy: End user protection (preview)** comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal.
 
-To enable this policy and protect your administrators:
+To enable this policy and protect your users:
 
 1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
