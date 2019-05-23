@@ -398,3 +398,8 @@ Create a controller with an alternate name:
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## Enabling Dev Spaces failing when Windows node pools are added to an AKS cluster
+
+### Reason
+Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only. At this time, you cannot enable Azure Dev Spaces on an AKS cluster with a Windows node pool.
