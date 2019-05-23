@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/23/2019
 ms.author: lahugh
 ---
 
@@ -85,21 +85,21 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 
 #### Increase the OS disk size
 
-OS disks larger than 2 TB are new to generation 2 VMs. By default, the OS disk size is set to TBD TB for most generation 2 VMs. 
+OS disks larger than 2 TB are new to generation 2 VMs. By default, most OS disks are less than 2 TB for generation 2 VMs, but the disk size can be increased to a recommended maximum of 4 TB.
 
 To increase the OS disk size:
 
 * Shut down and deallocate the VM using the **Stop** button on the Azure portal.
 
-![Stop a VM](./media/generation-2/stop-vm.png)
+    ![Stop a VM](./media/generation-2/stop-vm.png)
 
 * In the **Disks** section, select the OS disk that you'd like to increase.
 
-![Stop a VM in the Azure portal](./media/generation-2/os-disk-select.png)
+    ![Stop a VM in the Azure portal](./media/generation-2/os-disk-select.png)
 
 * Select **Configuration** and update the **Size** to the desired value.
 
-![Stop a VM in the Azure portal](./media/generation-2/os-disk-configure.png)
+    ![Stop a VM in the Azure portal](./media/generation-2/os-disk-configure.png)
 
 > [!NOTE]
 > You may see a warning for OS disks larger than 2 TB. The warning does not apply to generation 2 VMs; however, OS disk sizes larger than 4 TB are **not recommended.**
@@ -130,6 +130,12 @@ Generation 2 VMs can be created from managed image or managed disk in the same w
 Generation 2 VMs can also be created using virtual machine scale sets. You can create generation 2 VMs using Azure virtual machine scale sets via Azure CLI.
 
 ## Frequently asked questions
+
+* **Are generation 2 VMs available in all Azure regions?**
+    Yes; however, not all [generation 2 VM sizes](#generation-2-vm-sizes) are available in every region. The availability of generation 2 VMs is dependent upon the availability of the VM size.
+
+* **Is there a price difference between generation 1 and generation 2 VMs?**
+    There is no difference in pricing between generation 1 and generation 2 VMs.
 
 * **Do generation 2 VMs support Accelerated Networking?**  
     Yes, generation 2 VMs support [Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
