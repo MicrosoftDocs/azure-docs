@@ -147,7 +147,7 @@ The following table may be used to troubleshoot multi-factor authentication usin
 | SUCCESS_USED_IP_BASED_CACHE | Used IP-based Cache | Authentication succeeded without a Multi-Factor Authentication call since a previous successful authentication for the same username, authentication type, application name, and IP occurred within the configured cache timeframe. |
 | SUCCESS_USED_APP_BASED_CACHE | Used App-based Cache | Authentication succeeded without a Multi-Factor Authentication call since a previous successful authentication for the same username, authentication type, and application name within the configured cache timeframe. |
 | SUCCESS_INVALID_INPUT | Invalid Phone Input | The response sent from the phone is not valid.  This could be from a fax machine or modem or the user may have entered * as part of their PIN. |
-| SUCCESS_USER_BLOCKED | User is Blocked | The user's phone number is blocked.  A blocked number can be initiated by the user during an authentication call or by an administrator using the Azure Portal. <br> NOTE:  A blocked number is also a byproduct of a Fraud Alert. |
+| SUCCESS_USER_BLOCKED | User is Blocked | The user's phone number is blocked.  A blocked number can be initiated by the user during an authentication call or by an administrator using the Azure portal. <br> NOTE:  A blocked number is also a byproduct of a Fraud Alert. |
 | SUCCESS_SMS_AUTHENTICATED | Text Message Authenticated | For two-way test message, the user correctly replied with their one-time passcode (OTP) or OTP + PIN. |
 | SUCCESS_SMS_SENT | Text Message Sent | For Text Message, the text message containing the one-time passcode (OTP) was successfully sent.  The user will enter the OTP or OTP + PIN in the application to complete the authentication. |
 | SUCCESS_PHONE_APP_AUTHENTICATED | Mobile App Authenticated | The user successfully authenticated via the mobile app. |
@@ -155,7 +155,7 @@ The following table may be used to troubleshoot multi-factor authentication usin
 | SUCCESS_OATH_CODE_VERIFIED | OATH Code Verified | The user entered a valid OATH code when prompted. |
 | SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Fallback OATH Code Verified | The user was denied authentication using their primary Multi-Factor Authentication method and then provided a valid OATH code for fallback. |
 | SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Fallback Security Questions Answered | The user was denied authentication using their primary Multi-Factor Authentication method and then answered their security questions correctly for fallback. |
-| FAILED_PHONE_BUSY | Auth Already In Progress | Multi-Factor Authentication is already processing an authentication for this user.  This is often caused by RADIUS clients that send multiple authentication requests during the same sign on. |
+| FAILED_PHONE_BUSY | Auth Already In Progress | Multi-Factor Authentication is already processing an authentication for this user.  This is often caused by RADIUS clients that send multiple authentication requests during the same sign-on. |
 | CONFIG_ISSUE | Phone Unreachable | Call was attempted, but either could not be placed or was not answered.  This includes busy signal, fast busy signal (disconnected), tri-tones (number no longer in service), timed out while ringing, etc. |
 | FAILED_INVALID_PHONENUMBER | Invalid Phone Number Format | The phone number has an invalid format.  Phone numbers must be numeric and must be 10 digits for country code +1 (United States & Canada). |
 | FAILED_USER_HUNGUP_ON_US | User Hung Up the Phone | The user answered the phone, but then hung up without pressing any buttons. |
@@ -165,7 +165,7 @@ The following table may be used to troubleshoot multi-factor authentication usin
 | FAILED_SMS_NOT_SENT | Text Message Could Not Be Sent | The text message could not be sent.  The authentication is denied. |
 | FAILED_SMS_OTP_INCORRECT | Text Message OTP Incorrect | The user entered an incorrect one-time passcode (OTP) from the text message they received.  The authentication is denied. |
 | FAILED_SMS_OTP_PIN_INCORRECT | Text Message OTP + PIN Incorrect | The user entered an incorrect one-time passcode (OTP) and/or an incorrect user PIN.  The authentication is denied. |
-| FAILED_SMS_MAX_OTP_RETRY_REACHED | Exceeded Maximum Text Message OTP Attempts | The user has exceed the maximum number of one-time passcode (OTP) attempts. |
+| FAILED_SMS_MAX_OTP_RETRY_REACHED | Exceeded Maximum Text Message OTP Attempts | The user has exceeded the maximum number of one-time passcode (OTP) attempts. |
 | FAILED_PHONE_APP_DENIED | Mobile App Denied | The user denied the authentication in the mobile app by pressing the Deny button. |
 | FAILED_PHONE_APP_INVALID_PIN | Mobile App Invalid PIN | The user entered an invalid PIN when authenticating in the mobile app. |
 | FAILED_PHONE_APP_PIN_NOT_CHANGED | Mobile App PIN Not Changed | The user did not successfully complete a required PIN change in the mobile app. |
