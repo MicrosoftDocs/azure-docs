@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: juliako
 
 ---
@@ -30,7 +30,7 @@ Filters are server-side rules that allow your customers to do things like:
 
 Media Services enables you to create **Account filters** and **Asset filters** for your content. In addition, you can associate your pre-created filters with a **Streaming Locator**.
 
-## Define filters
+## Defining filters
 
 There are two types of filters: 
 
@@ -133,7 +133,7 @@ The following example defines a Live Streaming filter:
 }
 ```
 
-## Associate filters with Streaming Locator
+## Associating filters with Streaming Locator
 
 You can specify a list of [asset or account filters](filters-concept.md) on your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on the Streaming Locator. 
 
@@ -142,8 +142,12 @@ See the following examples:
 * [Associate filters with Streaming Locator - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [Associate filters with Streaming Locator - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
+## Updating filters
+ 
+**Streaming Locators** are not updatable while filters can be updated. 
+
 > [!NOTE]
-> **Streaming Locators** are not updatable while filters can be updated. If a filter is updated after the **Streaming Locator**'s creation, it may have some delay until the CDN manifest cache expires.
+> It is not recommended updating filters associated with a **Streaming Locator** after the **Streaming Locator**'s creation.
 
 ## Next steps
 
