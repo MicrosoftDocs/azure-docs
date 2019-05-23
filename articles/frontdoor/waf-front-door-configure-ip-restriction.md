@@ -1,6 +1,6 @@
 ---
 title: Configure an IP restriction rule with a web application firewall rule for Azure Front Door Service
-description: Learn how to configure an IP address restriction WAF rule for an existing Azure Front Door Service endpoint.
+description: Learn how to configure web application firewall rule to restrict IP addresses for an existing Azure Front Door Service endpoint.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
