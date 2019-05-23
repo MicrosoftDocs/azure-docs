@@ -4,7 +4,7 @@
     href: oracle-overview.md
   - name: Solutions on Azure VMs
     href: oracle-vm-solutions.md
-  - name: Integrate with Oracle Cloud Infrastructure (OCI) - Preview
+  - name: Solutions with OCI - Preview
     href: oracle-oci-overview.md
 - name: Quickstarts
   items:
@@ -14,7 +14,7 @@
   items:
   - name: Configure Oracle ASM
     href: configure-oracle-asm.md
-  - name: Configure Oracle DataGuard
+  - name: Configure Oracle Data Guard
     href: configure-oracle-dataguard.md
   - name: Configure Oracle GoldenGate
     href: configure-oracle-golden-gate.md

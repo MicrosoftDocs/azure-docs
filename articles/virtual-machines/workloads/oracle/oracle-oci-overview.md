@@ -73,4 +73,4 @@ Currently, this integration allows you to manage in one central location, which 
 
 See the quickstarts to set up an Oracle app in Azure and establish network connectivity and integrate identities with Oracle OCI.
 
-For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation .
+For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation.
