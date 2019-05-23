@@ -85,9 +85,9 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 
 #### Increase the OS disk size
 
-OS disks larger than 2 TB are new to generation 2 VMs. By default, most OS disks are less than 2 TB for generation 2 VMs, but the disk size can be increased to a recommended maximum of 4 TB.
+OS disks larger than 2 TB are new to generation 2 VMs. By default, most OS disks are less than 2 TB for generation 2 VMs, but the disk size can be increased to a recommended maximum of 4 TB. You can increase the OS disk size via the Azure CLI or the Azure portal.
 
-To increase the OS disk size:
+To increase the OS disk size via Azure portal:
 
 * Shut down and deallocate the VM using the **Stop** button on the Azure portal.
 
