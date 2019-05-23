@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/21/2019
+ms.date: 05/23/2019
 ms.author: bwren
 
 ---
@@ -34,7 +34,7 @@ The following table briefly describes the application tiers that are specific to
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
+| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View AAD data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
 | [Azure subscription](#azure-subscription) |  Telemetry related to the health and operation of Azure itself. | View in portal or configure collection to Azure Monitor using a log profile. |
 | [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
@@ -43,8 +43,8 @@ The following table briefly describes the application tiers that may be in Azure
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Guest operating system](#guest-operating-system) | Data about the operating system on compute resources. | Install Log Analytics agent to collect client data sources into Azure Monitor and Dependency agent to collect dependencies supporting Azure Monitor for VMs.<br>For Azure virtual machines, install Azure Diagnostic Extension to collect logs and metrics into Azure Monitor. |
-| [Application](#applications) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code to collect data into Application Insights. |
+| [Operating system (guest)](#guest-operating-system) | Data about the operating system on compute resources. | Install Log Analytics agent to collect client data sources into Azure Monitor and Dependency agent to collect dependencies supporting Azure Monitor for VMs.<br>For Azure virtual machines, install Azure Diagnostic Extension to collect logs and metrics into Azure Monitor. |
+| [Application Code](#application-code) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code to collect data into Application Insights. |
 | [Custom sources](#custom-sources) | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
 
 ## Azure tenant
@@ -112,7 +112,7 @@ The configuration requirements and content of Diagnostic logs vary by resource t
 | Storage | Send Diagnostic logs to Azure Storage for archiving. | [Archive Azure Diagnostic Logs](archive-diagnostic-logs.md) |
 | Event Hubs | Stream Diagnostic logs to other locations using Event Hubs. |[Stream Azure Diagnostic Logs to an event hub](diagnostic-logs-stream-event-hubs.md) |
 
-## Guest operating system
+## Operating system (guest)
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.
 
 ![Azure compute resource collection](media/data-sources/compute-resources.png)
@@ -145,7 +145,7 @@ Install the Log Analytics agent for comprehensive monitoring and management of y
 
 
 
-## Applications
+## Application Code
 Detailed application monitoring in Azure Monitor is done with [Application Insights](https://docs.microsoft.com/azure/application-insights/) which collects data from applications running on a variety of platforms. The application can be running in Azure, another cloud, or on-premises.
 
 ![Application data collection](media/data-sources/applications.png)
@@ -185,7 +185,7 @@ When you enable Application Insights for an application by installing an instrum
 | Azure Kubernetes Service | In order to a near real time experience, Azure Monitor for Containers presents data directly from the Azure Kubernetes service in the Azure portal. | [How to view container logs real time with Azure Monitor for containers (preview)](../insights/container-insights-live-logs.md) |
 
 ### Azure Monitor for VMs
-[Azure Monitor for VMs](../insights/vminsights-overview.md) provides a customized experience for monitoring virtual machines. A description of the data collected by Azure Monitor for VMs is included in the [Guest Operating System](#guest-operating-system) section above.
+[Azure Monitor for VMs](../insights/vminsights-overview.md) provides a customized experience for monitoring virtual machines. A description of the data collected by Azure Monitor for VMs is included in the **Operating System (guest)** section above.
 
 ## Custom sources
 In addition to the standard tiers of an application, you may need to monitor other resources that have telemetry that can't be collected with the other data sources. For these resources, write this data to either Metrics or Logs using an Azure Monitor API.
