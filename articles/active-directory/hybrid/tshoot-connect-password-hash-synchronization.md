@@ -421,7 +421,7 @@ Write-Host
 #### Trigger a full sync of all passwords
 
 > [!NOTE]
-> Run this script only once. If you need to run it more than once, something else is the problem. To troubleshoot the problem, contact Microsoft support.
+> Run this script only once. If you need to run it more than once, something else is the problem. To troubleshoot the problem, contact Microsoft support. The script only needs to be executed again if password hashes are required in Azure Active Directory Domain Services and password hash synchronization has been enabled before Azure Active Directory Domain Services.
 
 You can trigger a full sync of all passwords by using the following script:
 
