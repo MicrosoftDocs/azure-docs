@@ -20,10 +20,10 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this tutorial, you need to:
 
-To have the [C# Tutorial: Create your first app in Azure Search](tutorial-csharp-create-first-app.md) project up and running.
-[Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
+* [Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
+* Have the [C# Tutorial: Create your first app in Azure Search](tutorial-csharp-create-first-app.md) project up and running.
 
 ## Install and run the projects from GitHub
 

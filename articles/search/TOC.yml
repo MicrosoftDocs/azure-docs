@@ -41,6 +41,18 @@
       href: cognitive-search-tutorial-blob.md
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
+  - name: Create and build on your first app
+    items:
+    - name: Create your first app in Azure Search
+      href: tutorial-csharp-create-first-app.md
+    - name: Page the results of an Azure Search
+      href: tutorial-csharp-paging.md
+    - name: Add autocompletion and suggestions to an Azure Search
+      href: tutorial-csharp-type-ahead-and-suggestions.md
+    - name: Use facets to improve the efficiency of an Azure Search
+      href: tutorial-csharp-facets.md
+    - name: Use Azure Search for geospatial queries
+      href: tutorial-csharp-geospatial-searches.md
 - name: Samples
   items:
   - name: Azure code samples

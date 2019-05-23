@@ -41,7 +41,7 @@ You should be both impressed and relieved at the power and brevity of Azure Sear
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this tutorial, you need to:
 
 [Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
 
