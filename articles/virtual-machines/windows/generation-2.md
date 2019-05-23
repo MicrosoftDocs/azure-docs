@@ -81,6 +81,27 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 | Shared Image Gallery              | :heavy_check_mark:         | :x:                |
 | Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
 
+#### Increase the OS disk size
+
+OS disks larger than 2 TB are new to generation 2 VMs. By default, the OS disk size is set to TBD TB for most generation 2 VMs. 
+
+To increase the OS disk size:
+
+* Shut down and deallocate the VM using the **Stop** button on the Azure portal.
+
+![Stop a VM](./media/generation-2/stop-vm.png)
+
+* In the **Disks** section, select the OS disk that you'd like to increase.
+
+![Stop a VM in the Azure portal](./media/generation-2/os-disk-select.png)
+
+* Select **Configuration** and update the **Size** to the desired value.
+
+![Stop a VM in the Azure portal](./media/generation-2/os-disk-configure.png)
+
+> [!NOTE]
+> You may see a warning for OS disks larger than 2 TB. The warning does not apply to generation 2 VMs; however, OS disk sizes larger than 4 TB are **not recommended.**
+
 ## Creating a generation 2 VM
 
 ### Marketplace image

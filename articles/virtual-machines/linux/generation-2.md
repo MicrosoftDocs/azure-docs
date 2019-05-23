@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/23/2019
 ms.author: lahugh
 ---
 
@@ -26,7 +26,7 @@ ms.author: lahugh
 
 Support for generation 2 virtual machines (VMs) is now available in public preview on Azure. You can't change a virtual machine's generation after you've created it. So, we recommend that you review the considerations [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) as well as the information on this page before choosing a generation.
 
-Generation 2 VMs support key features like: increased memory, Intel® Software Guard Extensions (SGX), and virtual persistent memory (vPMEM), which are not supported on generation 1 VMs. Generation 2 VMs have some features that aren't supported on Azure yet. For more information, see the [Features and capabilities](#features-and-capabilities) section. 
+Generation 2 VMs support key features that aren't supported on generation 1 VMs, such as: increased memory, Intel® Software Guard Extensions (SGX), and virtual persistent memory (vPMEM). Generation 2 VMs also have some features that aren't supported on Azure yet. For more information, see the [Features and capabilities](#features-and-capabilities) section.
 
 Generation 2 VMs use the new UEFI-based Boot architecture vs the BIOS-based architecture used by generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs may have improved boot and installation times. For an overview of generation 2 VMs and some of the key differences between generation 1 and generation 2, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
@@ -83,6 +83,27 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 | Shared Image Gallery              | :heavy_check_mark:         | :x:                |
 | Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
 
+#### Increase the OS disk size
+
+OS disks larger than 2 TB are new to generation 2 VMs. By default, the OS disk size is set to TBD TB for most generation 2 VMs. 
+
+To increase the OS disk size:
+
+* Shut down and deallocate the VM using the **Stop** button on the Azure portal.
+
+![Stop a VM](./media/generation-2/stop-vm.png)
+
+* In the **Disks** section, select the OS disk that you'd like to increase.
+
+![Stop a VM in the Azure portal](./media/generation-2/os-disk-select.png)
+
+* Select **Configuration** and update the **Size** to the desired value.
+
+![Stop a VM in the Azure portal](./media/generation-2/os-disk-configure.png)
+
+> [!NOTE]
+> You may see a warning for OS disks larger than 2 TB. The warning does not apply to generation 2 VMs; however, OS disk sizes larger than 4 TB are **not recommended.**
+
 ## Creating a generation 2 VM
 
 ### Marketplace image
@@ -110,6 +131,9 @@ Generation 2 VMs can also be created using virtual machine scale sets. You can c
 
 ## Frequently asked questions
 
+* **Are generation 2 VMs available in all Azure regions?**
+    
+
 * **Do generation 2 VMs support Accelerated Networking?**  
     Yes, generation 2 VMs support [Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
@@ -121,6 +145,9 @@ Generation 2 VMs can also be created using virtual machine scale sets. You can c
 
 * **Can I migrate from generation 1 to generation 2 VMs?**  
     No, you can't change the generation of a VM after you've created it. If you need to switch between VM generations, you need to create a new VM of a different generation.
+
+* **Is there a price difference between generation 1 and generation 2 VMs?**
+    There is no difference in pricing between generation 1 and generation 2 VMs.
 
 ## Next steps
 
