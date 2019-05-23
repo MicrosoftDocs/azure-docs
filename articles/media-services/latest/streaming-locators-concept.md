@@ -27,7 +27,7 @@ When creating a **Streaming Locator**, you must specify an **Asset** name and a 
 * [Streaming Policies](streaming-policy-concept.md)
 * [Content Key Policies](content-key-policy-concept.md)
 
-You can also specify the start and end time on your Streaming Locator which will only let your user play the content between these times (for example, between 5/1/2019 to 5/5/2019).  
+You can also specify the start and end time on your Streaming Locator, which will only let your user play the content between these times (for example, between 5/1/2019 to 5/5/2019).  
  
 > [!IMPORTANT]
 > * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
