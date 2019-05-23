@@ -42,6 +42,7 @@ When using this script requires the following information:
 > [!NOTE]  
 > You must mark this script as persisted when applying to an existing cluster. Otherwise, any new nodes created through scaling operations will use the default patching schedule.  If you apply the script as part of the cluster creation process, it is persisted automatically.
 
+
 ## Next steps
 
 For specific steps on using the script action, see the following sections in the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
