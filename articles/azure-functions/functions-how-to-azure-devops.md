@@ -51,12 +51,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
@@ -81,12 +81,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
@@ -117,12 +117,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
