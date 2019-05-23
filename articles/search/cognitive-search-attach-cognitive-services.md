@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 AI algorithms drive the [cognitive indexing pipelines](cognitive-search-concept-intro.md) used for document enrichment in Azure Search. These algorithms are based on Azure Cognitive Services resources, including [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR) and [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for entity recognition, key phrase extraction, and other enrichments. As used by Azure Search for document enrichment purposes, the algorithms are wrapped inside a *skill*, placed in a *skillset*, and referenced by an *indexer* during indexing.
 
-You can enrich a limited number of documents for free, or you can attach a billable Cognitive Services resource for larger and more frequent workloads. In this article, you'll learn how to attach a billable Cognitive Services resource with your cognitive skillset to enrich documents during [Azure Search indexing](search-what-is-an-index.md).
+You can enrich a limited number of documents for free. Or, you can attach a billable Cognitive Services resource to a *skillset* for larger and more frequent workloads. In this article, you'll learn how to attach a billable Cognitive Services resource to enrich documents during Azure Search [indexing](search-what-is-an-index.md).
 
 > [!NOTE]
 > Billable events include calls to Cognitive Services APIs and image extraction as part of the document-cracking stage in Azure Search. There is no charge for text extraction from documents or for skills that do not call Cognitive Services.
@@ -24,7 +24,9 @@ You can enrich a limited number of documents for free, or you can attach a billa
 
 ## Same-region requirement
 
-We require that Azure Search and Azure Cognitive Services exist within the same region. Otherwise, you will get this message at run time: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` There is no way to move a service across regions. If you get this error, you should create a new service in the same region and republish your indexes accordingly.
+We require that Azure Search and Azure Cognitive Services exist within the same region. Otherwise, you will get this message at run time: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+
+There is no way to move a service across regions. If you get this error, you should create a new Cognitive Services resource in the same region as Azure Search.
 
 ## Use Free resources
 
