@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/02/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Platforms and features supported by Azure Security Center
@@ -105,9 +105,8 @@ The following table provides a matrix of:
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
 >
->
 
-## Supported PaaS features 
+## Supported PaaS features
 
 
 |Service|Recommendations|Threat detection|
