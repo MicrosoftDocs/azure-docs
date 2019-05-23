@@ -115,6 +115,8 @@ The serial console can be disabled for a specific VM or virtual machine scale se
 ### Subscription-level disable
 The serial console can be disabled for an entire subscription through the [Disable Console REST API call](/rest/api/serialconsole/console/disableconsole). This action requires contributor level access or above to the subscription. You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter **default** for **default**, and then select **Run**. Azure CLI commands aren't yet available.
 
+To reenable serial console for a subscription, use the [Enable Console REST API call](/rest/api/serialconsole/console/enableconsole).
+
 ![REST API Try It](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
 Alternatively, you can use the following set of bash commands in Cloud Shell to disable, enable, and view the disabled status of the serial console for a subscription:
