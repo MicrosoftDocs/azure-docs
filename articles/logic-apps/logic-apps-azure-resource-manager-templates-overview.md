@@ -166,16 +166,16 @@ The template's `resources` attribute references the template's parameter values 
                "$connections": {
                   "value": {
                      "office365": {
-                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
-                        // References the template parameter values for `office365_1_Connection_Name`
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]",
+                        // Reference the template parameter value for `office365_1_Connection_Name`
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
-                        // References the template parameter values for `office365_1_Connection_Name`
+                        // Reference the template parameter value for `office365_1_Connection_Name`
                         "connectionName": "[parameters('office365_1_Connection_Name')]"
                      }
                   }
                }
             },
-            // Reference the template parameter value for `LogicAppName`
+            // Logic app resource information that references the template parameter value for `LogicAppName`
             "name": "[parameters('LogicAppName')]",
             "type": "Microsoft.Logic/workflows",
             // Reference the template parameter value for `LogicAppLocation`
@@ -185,22 +185,23 @@ The template's `resources` attribute references the template's parameter values 
             },
             "apiVersion": "2016-06-01",
             "dependsOn": [
-               // References the template parameter values for 'office365_1_Connection_Name`
+               // Reference the template parameter values for 'office365_1_Connection_Name`
               "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
             ]
          }
       },
       {
+         // APIConnection resource information
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
-         // References the template parameter values for 'office365_1_Connection_Name`
+         // Reference the template parameter value for 'office365_1_Connection_Name`
          "name": "[parameters('office365_1_Connection_Name')]",
          "location": "<connection-resource-location>",
          "properties": {
             "api": {
-               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]"
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]"
              },
-             // References the template parameter values for 'office365_1_Connection_Display_Name`
+             // Reference the template parameter value for 'office365_1_Connection_Display_Name`
              "displayName": "[parameters('office365_1_Connection_DisplayName')]"
          }
       }
@@ -304,10 +305,10 @@ Your template's `resources` attribute declares information for each resource tha
             "definition": {<workflow-definition>},
             // Workflow definition parameter values
             "parameters": {
-               "$connections" : {<references-to-template-parameters-for-connection-resources>}
+               "$connections" : {<references-to-template-parameter-values-for-connection-resources>}
             }
          },
-         // References to template parameter values
+         // Logic app resource information that references the template parameter value for `LogicAppName`
          "name": "[parameters('LogicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('LogicAppLocation')",
@@ -315,7 +316,22 @@ Your template's `resources` attribute declares information for each resource tha
             "displayName": "LogicApp"
          },
          "apiVersion": "2016-06-01",
-         "dependsOn": [<references-to-template-parameters-for-connection-resources>]
+         "dependsOn": [<references-to-template-parameter-values-for-connection-resources>]
+      },
+      {
+         // APIConnection resource information
+         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "apiVersion": "2016-06-01",
+         // Reference the template parameter value for 'office365_1_Connection_Name`
+         "name": "[parameters('office365_1_Connection_Name')]",
+         "location": "<connection-resource-location>",
+         "properties": {
+            "api": {
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]"
+             },
+             // Reference the template parameter value for 'office365_1_Connection_Display_Name`
+             "displayName": "[parameters('office365_1_Connection_DisplayName')]"
+         }
       }
    ],
    "outputs": {}
@@ -346,12 +362,12 @@ In this example, the template `resources` attribute declares resource informatio
             "parameters": {
                "$connections": {
                   "value": {
+                     // Workflow definition parameter values for `office365` connection
                      "office365": {
-                        // Workflow definition parameter values for `office365` connection
-                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
-                        // References to template parameter values for `office365_1_Connection_Name`
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]",
+                        // Reference the template parameter value for `office365_1_Connection_Name`
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
-                        // References to template parameter values for `office365_1_Connection_Name`
+                        // References the template parameter value for `office365_1_Connection_Name`
                         "connectionName": "[parameters('office365_1_Connection_Name')]"
                      }
                   }
@@ -367,20 +383,22 @@ In this example, the template `resources` attribute declares resource informatio
          },
          "apiVersion": "2016-06-01",
          "dependsOn": [
-            // References template parameter values for 'office365_1_Connection_Name`
+            // Reference the template parameter value for 'office365_1_Connection_Name`
             "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
          ]
       },
       {
-         // APIConnection information
+         // APIConnection resource information
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
+         // Reference the template parameter value for 'office365_1_Connection_Name`
          "name": "[parameters('office365_1_Connection_Name')]",
-         "location": "westus",
+         "location": "<connection-resource-location>",
          "properties": {
             "api": {
-               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]"
-              },
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]"
+             },
+             // Reference the template parameter value for 'office365_1_Connection_Display_Name`
              "displayName": "[parameters('office365_1_Connection_DisplayName')]"
          }
       }
@@ -561,19 +579,66 @@ Each new connection that you create for a logic app also creates a resource with
                   "value": {
                      // Workflow definition parameter values for Office 365 Outlook connection
                      "office365": {
-                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
+                        // Workflow definition parameter values for `office365` connection
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]",
+                        // Reference the template parameter value for `office365_1_Connection_Name`
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                        // Reference the template parameter value for `office365_1_Connection_Name`
                         "connectionName": "[parameters('office365_1_Connection_Name')]"
                      }
                   }
                }
             }
+         },
+         // Logic app resource information
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+            // Reference the template parameter value for 'office365_1_Connection_Name`
+            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+         ]
+      },
+      {
+         // APIConnection resource information
+         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "apiVersion": "2016-06-01",
+         // Reference the template parameter value for 'office365_1_Connection_Name`
+         "name": "[parameters('office365_1_Connection_Name')]",
+         "location": "<connection-resource-location>",
+         "properties": {
+            "api": {
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]"
+             },
+             // Reference the template parameter value for 'office365_1_Connection_Display_Name`
+             "displayName": "[parameters('office365_1_Connection_DisplayName')]"
          }
       }
    ],
    "outputs": {}
 }
 ```
+
+         // Logic app resource information
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+            // References template parameter values for 'office365_1_Connection_Name`
+            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+         ]
+      },
+   ],
+   "outputs": {}
+
 
 > [!NOTE]
 > When you view your logic app's workflow definition outside a Resource Manager template, for example, in "code view", the `$connections` attribute appears at the same level as the `definition` attribute that contains your workflow definition:
@@ -589,7 +654,11 @@ In this example, the `$connections` attribute contains an `office365` attribute,
 
 ```json
 {
-   <...>,
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "<template-version-number>",
+   "parameters": {},
+   "variables": {},
+   "functions": [],
    "resources": [
       {
          "properties": {
@@ -630,7 +699,7 @@ In this example, the `$connections` attribute contains an `office365` attribute,
                   "value": {
                      // Workflow definition parameter values for Office 365 Outlook connection
                      "office365": {
-                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]",
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
                         "connectionName": "[parameters('office365_1_Connection_Name')]"
                      }
@@ -643,14 +712,6 @@ In this example, the `$connections` attribute contains an `office365` attribute,
    "outputs": {}
 }
 ```
-
-## Authorize OAuth connections
-
-At deployment, your logic app works end-to-end with valid parameters. However, you must still authorize OAuth connections to generate a valid access token.
-
-* To authorize OAuth connections, open your logic app in Logic App Designer. In the designer, authorize any required connections.
-
-* For automated deployment, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
 <a name="full-example-template"></a>
 
@@ -784,12 +845,12 @@ Here is the parameterized sample template that this overview uses for the templa
                "$connections": {
                   "value": {
                      "azureblob": {
-                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'azureblob')]",
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'azureblob')]",
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
                         "connectionName": "[parameters('azureblob_1_Connection_Name')]"
                      },
                      "office365": {
-                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]",
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]",
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
                         "connectionName": "[parameters('office365_1_Connection_Name')]"
                      }
@@ -814,10 +875,10 @@ Here is the parameterized sample template that this overview uses for the templa
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
          "name": "[parameters('office365_1_Connection_Name')]",
-         "location": "westus",
+         "location": "[resourceGroup().location]",
          "properties": {
             "api": {
-               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]"
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'office365')]"
             },
             "displayName": "[parameters('office365_1_Connection_DisplayName')]"
          }
@@ -826,10 +887,10 @@ Here is the parameterized sample template that this overview uses for the templa
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
          "name": "[parameters('azureblob_1_Connection_Name')]",
-         "location": "westus",
+         "location": "[resourceGroup().location]",
          "properties": {
             "api": {
-               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'azureblob')]"
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'azureblob')]"
             },
             "displayName": "[parameters('azureblob_1_Connection_DisplayName')]",
             "parameterValues": {
@@ -842,6 +903,14 @@ Here is the parameterized sample template that this overview uses for the templa
    "outputs": {}
 }
 ```
+
+## Authorize OAuth connections
+
+At deployment, your logic app works end-to-end with valid parameters. However, you must still authorize OAuth connections to generate a valid access token.
+
+* To authorize OAuth connections, open your logic app in Logic App Designer. In the designer, authorize any required connections.
+
+* For automated deployment, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
 ## Next steps
 
