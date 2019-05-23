@@ -31,6 +31,8 @@
         href: accredible-tutorial.md
       - name: Achieve3000
         href: achieve3000-tutorial.md
+      - name: ACLP
+        href: aclp-tutorial.md
       - name: Adaptive Insights
         href: adaptivesuite-tutorial.md
       - name: Adobe Captivate Prime
@@ -261,6 +263,8 @@
         href: cloudpassage-tutorial.md
       - name: Cloud Service PICCO
         href: cloud-service-picco-tutorial.md
+      - name: Cobalt
+        href: cobalt-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Comeet Recruiting Software
@@ -285,6 +289,8 @@
         href: consent2go-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
+      - name: Control
+        href: control-tutorial.md
       - name: Convene
         href: convene-tutorial.md
       - name: Convercent
@@ -613,6 +619,8 @@
         href: jive-tutorial.md
       - name: Jobbadmin
         href: jobbadmin-tutorial.md
+      - name: JOBHUB
+        href: jobhub-tutorial.md
       - name: Jobscience
         href: jobscience-tutorial.md
       - name: JobScore
@@ -723,6 +731,8 @@
         href: mercerhrs-tutorial.md
       - name: Merchlogix
         href: merchlogix-tutorial.md
+      - name: Meta4 Global HR
+        href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
       - name: Mimecast Admin Console
@@ -823,6 +833,8 @@
         href: orgchartnow-tutorial.md
       - name: Origami
         href: origami-tutorial.md
+      - name: OutSystems
+        href: outsystems-tutorial.md
       - name: OU Campus
         href: ou-campus-tutorial.md
       - name: Overdrive
@@ -917,6 +929,8 @@
         href: qprism-tutorial.md
       - name: Qualtrics
         href: qualtrics-tutorial.md
+      - name: Quantum Workplace
+        href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
         href: questetra-bpm-suite-tutorial.md
       - name: QuickHelp
@@ -1249,10 +1263,12 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
-      - name: webMethods Integration Cloud
+      - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
+      - name: Whatfix
+        href: whatfix-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF

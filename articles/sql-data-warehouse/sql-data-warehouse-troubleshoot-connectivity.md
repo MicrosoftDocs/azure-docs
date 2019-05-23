@@ -2,13 +2,13 @@
 title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: mlee3gsd
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.component: supportability
 ms.date: 03/27/2019
-ms.author: martinle
+ms.author: anjangsh
 ms.reviewer: igorstan
 ---
 
