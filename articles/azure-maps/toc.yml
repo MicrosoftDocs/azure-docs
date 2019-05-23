@@ -70,9 +70,9 @@
       href: how-to-use-best-practices-for-search.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
-    - name: Request transit data
+    - name: Request public transit routes
       href: how-to-request-transit-data.md
-    - name: Request real time data
+    - name: Request real time public transit data
       href: how-to-request-real-time-data.md
   - name: Develop with the Web SDK
     items:
