@@ -16,7 +16,7 @@ Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (
 
 Cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
 
-This article explains how to deploy the prerequisites for AKS and Azure AD. It also shows how to deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster by using the Azure portal. You can also complete these steps by using the [Azure Client ID (CLI)][azure-ad-cli].
+This article explains how to deploy the prerequisites for AKS and Azure AD. It also shows how to deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster by using the Azure portal. You can also complete these steps by using the [Azure Client ID (CLI)][azure-ad-cli]. 
 
 > [!NOTE]
 > Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
