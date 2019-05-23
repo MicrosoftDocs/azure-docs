@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 05/23/2019
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 
@@ -40,11 +40,11 @@ After your subscription has been provisioned for the preview, we will respond wi
 
 This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. From the home page in the [preview portal](http://aka.ms/BastionHost), click **+ Create a resource** to create a new resource.
+1. From the home page in the [preview portal](http://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal for this preview, not the regular Azure portal.
 
-1. Type 'Bastion' in the search resource type field, then click **Enter** to get to the search results.
+1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results. (WALLIX Bastion is not Microsoft Azure Bastion)
 
-1. From the search results, click the **Bastion** resource. Make sure the publisher is *Microsoft* and the category is *Networking*. (WALLIX Bastion is not Microsoft Azure Bastion).
+1. From the results, click **Bastion (preview)**. Make sure the publisher is *Microsoft* and the category is *Networking*.
 
 1. On the **Bastion (preview)** page, click **Create** to open the **Create a bastion** page.
 
@@ -57,14 +57,15 @@ This section helps you create a new Azure Bastion resource from the Azure portal
     * **Name**: The name of the new Bastion resource
     * **Region**: The Azure public region that the resource will be created in.
     * **Virtual network**: The virtual network in which the Bastion resource will be created in. You can create a new virtual network in the portal during this process, in case you don’t have or don’t want to use an existing virtual network. If you are using an existing virtual network, make sure the existing VNet has enough free address space to accommodate the Bastion subnet requirements.
-    * **Subnet**: The subnet inside your virtual network to which Bastion resource will be deployed. The subnet must be created with the name AzureBastionSubnet. This lets Azure know which subnet to deploy the Bastion resource to. This is different than a Gateway subnet. We highly recommend that you use at least a /27 or larger subnet (/27, /26, and so on). Create the AzureBastionSubnet without any Network Security Groups, route tables, or delegations.
+    * **Subnet**: The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. This is different than a Gateway subnet. We highly recommend that you use at least a /27 or larger subnet (/27, /26, and so on). Create the **AzureBastionSubnet** without any Network Security Groups, route tables, or delegations.
     * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
     * **Public IP address name**: The name of the public IP address resource.
     * **Public IP address SKU**: Prepopulated by default to **Standard**.
     * **Assignment**: Static
 
-1. When you have finished specifying the settings, click **Review + Create**.
-1. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed. During preview, ignore any "failed" messages until 5 minutes have passed.
+1. When you have finished specifying the settings, click **Review + Create**. This validates the values. Once validation passes, you can begin the creation process.
+1. On the Create a bastion page, click **Create**.
+1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 mins for the Bastion resource to be created and deployed.
 
 ## <a name="createvmset"></a>Create a bastion host using VM settings
 
