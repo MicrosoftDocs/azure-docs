@@ -24,7 +24,6 @@ Security state monitoring and recommendations are available for virtual machines
 > [!NOTE]
 > Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 >
->
 
 ## Platforms that support the data collection agent 
 
