@@ -1,5 +1,5 @@
 ---
-title: Collect Azure Activity Logs into a Log Analytics workspace across subscriptions | Microsoft Docs
+title: Collect Azure Activity logs into a Log Analytics workspace across Azure tenants | Microsoft Docs
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to a Log Analytics workspace in Azure Monitor in a different tenant.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: magoedte
 ---
-# Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants
+# Collect Azure Activity logs into Azure Monitor across Azure Active Directory tenants
 
 This article steps through a method to collect Azure Activity Logs into a Log Analytics workspace in Azure Monitor using the Azure Log Analytics Data Collector connector for Logic Apps. Use the process in this article when you need to send logs to a workspace in a different Azure Active Directory tenant. For example, if you are a managed service provider, you may want to collect activity logs from a customer's subscription and store them in a Log Analytics workspace in your own subscription.
 
-If the Log Analytics workspace is in the same Azure subscription, or in a different subscription but in the same Azure Active Directory, use the steps in the [Azure activity log solution](collect-activity-logs.md) to collect Azure activity logs.
+If the Log Analytics workspace is in the same Azure subscription, or in a different subscription but in the same Azure Active Directory, use the steps in the [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) to collect Azure Activity logs.
 
 ## Overview
 
@@ -326,7 +326,7 @@ The final step is to check the Log Analytics workspace to make sure that data is
 > The first time a new custom log is sent to the Log Analytics workspace it may take up to an hour for the custom log to be searchable.
 
 >[!NOTE]
-> The activity logs are written to a custom table and do not appear in the [Activity Log solution](./collect-activity-logs.md).
+> The activity logs are written to a custom table and do not appear in the [Activity Log solution](./activity-log-collect.md).
 
 
 ![Test logic app](media/collect-activity-logs-subscriptions/log-analytics-results.png)
