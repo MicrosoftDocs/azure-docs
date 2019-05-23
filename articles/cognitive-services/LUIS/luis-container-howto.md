@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
 ---
 
@@ -251,6 +251,10 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 > The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+## Endpoint APIs supported by the container
+
+Both V2 and [V3 (Preview)](luis-migration-api-v3.md) versions of the API are available with the container. 
 
 ## Query the container's prediction endpoint
 
