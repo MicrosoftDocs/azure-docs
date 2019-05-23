@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Page the results of an Azure Search
 
-Learn how to implement two different systems of paging, the first based on page numbers and the second on infinite scrolling. This tutorial builds on the Create your first app in Azure Search tutorial. Both systems of paging are popular across the internet and selecting the right one can depend on the type of search that is being carried out.
+Learn how to implement two different systems of paging, the first based on page numbers and the second on infinite scrolling. This tutorial builds on the Create your first app in Azure Search tutorial. Both systems of paging are popular across the internet and selecting the right one can depend on the type of search that is being carried out and the user experience you would like with the results.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
