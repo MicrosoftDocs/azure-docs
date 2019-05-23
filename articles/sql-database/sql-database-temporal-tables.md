@@ -103,7 +103,7 @@ WITH (DROP_EXISTING = ON);
 ## Step 2: Run your workload regularly
 The main advantage of Temporal Tables is that you do not need to change or adjust your website in any way to perform change tracking. Once created, Temporal Tables transparently persist previous row versions every time you perform modifications on your data. 
 
-In order to leverage automatic change tracking for this particular scenario, let’s just update column **PagesVisited** every time when user ends her/his session on the website:
+In order to leverage automatic change tracking for this particular scenario, let’s just update column **PagesVisited** every time a user ends their session on the website:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 

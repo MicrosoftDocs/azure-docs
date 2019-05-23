@@ -90,7 +90,7 @@ When the final query is run several times, assuming that nothing in your environ
 the results returned will be consistent and as expected -- ordered by the **Name** property, but
 still limited to the top five results.
 
-## Cleanup resources
+## Clean up resources
 
 If you wish to remove the Resource Graph extension from your Azure CLI environment, you can do so by
 using the following command:

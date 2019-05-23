@@ -92,11 +92,11 @@
   items:
   - name: Configure app
     items:
-    - name: Use app settings
-      href: web-sites-configure.md
+    - name: Configure common settings
+      href: configure-common.md
     - name: Configure PHP
       href: web-sites-php-configure.md
-    - name: Java developer guide
+    - name: Configure Java
       href: configure-language-java.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
