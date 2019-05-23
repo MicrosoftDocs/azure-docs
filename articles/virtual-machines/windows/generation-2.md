@@ -131,10 +131,10 @@ Generation 2 VMs can also be created using virtual machine scale sets. You can c
 
 ## Frequently asked questions
 
-* **Are generation 2 VMs available in all Azure regions?**
+* **Are generation 2 VMs available in all Azure regions?**  
     Yes; however, not all [generation 2 VM sizes](#generation-2-vm-sizes) are available in every region. The availability of generation 2 VMs is dependent upon the availability of the VM size.
 
-* **Is there a price difference between generation 1 and generation 2 VMs?**
+* **Is there a price difference between generation 1 and generation 2 VMs?**  
     There is no difference in pricing between generation 1 and generation 2 VMs.
 
 * **Do generation 2 VMs support Accelerated Networking?**  
