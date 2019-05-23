@@ -68,22 +68,22 @@ Telemetry related to the health and operation of your Azure subscription.
 
 ![Azure subscription](media/data-sources/azure-subscription.png)
 
-### Azure Activity Log 
-The [Azure Activity Log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to the resources in your Azure subscription. The Activity log is available to all Azure resources and represents their _external_ view.
+### Azure Activity log 
+The [Azure Activity log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to the resources in your Azure subscription. The Activity log is available to all Azure resources and represents their _external_ view.
 
 | Destination | Description | Reference |
 |:---|:---|
-| Activity Log | The Activity Log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity Log alerts. | [Query the Activity Log in the Azure portal](activity-log-view.md#azure-portal) |
-| Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity Log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) |
-| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity Log](activity-log-export.md#archive-activity-log)  |
-| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity Log to Event Hub](activity-log-export.md#stream-activity-log-to-event-hub). |
+| Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. | [Query the Activity log in the Azure portal](activity-log-view.md#azure-portal) |
+| Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) |
+| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](activity-log-export.md#archive-activity-log)  |
+| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hub](activity-log-export.md#stream-activity-log-to-event-hub). |
 
 ### Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md) provides information about the health of the Azure services in your subscription that your application and resources rely on.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Activity Log<br>Azure Monitor Logs | Service Health records are stored in the Azure Activity log, so you can view them in the Azure portal or perform any other activities you can perform with the Activity log. | [View service health notifications by using the Azure portal](service-notifications.md) |
+| Activity log<br>Azure Monitor Logs | Service Health records are stored in the Azure Activity log, so you can view them in the Azure portal or perform any other activities you can perform with the Activity log. | [View service health notifications by using the Azure portal](service-notifications.md) |
 
 
 ## Azure resources
