@@ -198,7 +198,7 @@
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       maintainContext: true
-      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=%2fazure%2fcognitive-services%2fluis%2ftoc.json&bc=%2fazure%2fcognitive-services%2fluis%2fbreadcrumb%2ftoc.json
+      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?context=toc=%2fazure%2fcognitive-services%2fluis%2fcontext%2fluis-context.json
     - name: With a bot
       items:
         - name: Web app bot
