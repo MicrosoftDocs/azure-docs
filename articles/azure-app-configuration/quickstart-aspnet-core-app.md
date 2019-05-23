@@ -128,8 +128,6 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
-    <!DOCTYPE html>
-    <html lang="en">
     <style>
         body {
             background-color: @Configuration["TestApp:Settings:BackgroundColor"]
@@ -139,13 +137,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             font-size: @Configuration["TestApp:Settings:FontSize"];
         }
     </style>
-    <head>
-        <title>Index View</title>
-    </head>
-    <body>
-        <h1>@Configuration["TestApp:Settings:Message"]</h1>
-    </body>
-    </html>
+
+    <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
 7. Open *_Layout.cshtml* in the Views > Shared directory, and replace its content with the following code:
