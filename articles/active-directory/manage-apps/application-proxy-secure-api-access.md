@@ -2,7 +2,7 @@
 title: Secure API access beyond the intranet with Azure AD Application Proxy
 description: Azure Active Directory's Application Proxy lets web apps securely access APIs and business logic you host on-premises or on cloud VMs. 
 services: active-directory
-author: v-thepet
+author: jeevanbisht
 manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,7 +14,7 @@ ms.reviewer: japere
 ---
 # Secure API access with Azure AD Application Proxy walkthrough
 
-You may host business logic and APIs running on-premises, or hosted on virtual machines in the cloud. These native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Azure Active Directory Authentication Libraries (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer. 
+You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Azure Active Directory Authentication Libraries (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer. 
 
 This article walks through an overview of the Azure AD Application Proxy solution for hosting a web API service that native apps can access. 
 
@@ -167,7 +167,7 @@ To configure the native app to connect to Azure Active Directory and call the AP
   
 - Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding** page.
 
-After you configure the parameters, build and run the native app, and confirm that it successfully connects to the SecretAPI by showing a success message:
+After you configure the parameters, build and run the native app. When you select the **Sign In** button, the app lets you sign in, and then displays a success screen to confirm that it successfully connected to the SecretAPI.
 
 ![Success](./media/application-proxy-secure-api-access/success.png)
 
