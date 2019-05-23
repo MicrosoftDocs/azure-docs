@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
 ---
