@@ -309,7 +309,21 @@ Your template's `resources` attribute declares information for each resource tha
             "definition": {<workflow-definition>},
             // Workflow definition parameter values
             "parameters": {
-               "$connections" : {<references-to-template-parameter-values-for-connection-resources>}
+               // Reference the template parameters for connection resources
+               "$connections" : {
+                  "value": {
+                     // Workflow definition parameter values for connection resource
+                     "<connection-resource-name>": {
+                        // To reference the resource group location, use resourceGroup().location
+                        // To reference the logic app's location, use parameters('LogicAppLocation')
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', <connection-resource-location>, '/managedApis/', '<connection-resource-name>')]",
+                        // Reference the template parameter value for connection resource's connection name
+                        "connectionId": "[resourceId('Microsoft.Web/connections', parameters('<connection-resource-connection-name>'))]",
+                        // References the template parameter value for connection resource's connection name
+                        "connectionName": "[parameters('<connection-resource-connection-name>')]"
+                     }
+                  }
+               }
             }
          },
          // Logic app resource information that references the template parameter value for `LogicAppName`
@@ -326,8 +340,8 @@ Your template's `resources` attribute declares information for each resource tha
          // APIConnection resource information
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
-         // Reference the template parameter value for 'office365_1_Connection_Name`
-         "name": "[parameters('office365_1_Connection_Name')]",
+         // Reference the template parameter value for connection resource's connection name
+         "name": "[parameters('<connection-resource-connection-name>')]",
          // To reference the resource group location, use "resourceGroup().location"
          // To reference the logic app's location, use "[parameters('LogicAppLocation')]"
          "location": "<connection-resource-location>",
@@ -335,10 +349,10 @@ Your template's `resources` attribute declares information for each resource tha
             "api": {
                // To reference the resource group location, use resourceGroup().location
                // To reference the logic app's location, use parameters('LogicAppLocation')
-               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', <connection-resource-location>, '/managedApis/', 'office365')]"
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', <connection-resource-location>, '/managedApis/', '<connection-resource-name>')]"
              },
-             // Reference the template parameter value for 'office365_1_Connection_Display_Name`
-             "displayName": "[parameters('office365_1_Connection_DisplayName')]"
+             // Reference the template parameter value for your connection resource's display name
+             "displayName": "[parameters('<connection-resource-display-name>')]"
          }
       }
    ],
