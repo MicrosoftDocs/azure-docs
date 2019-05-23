@@ -36,7 +36,7 @@ You can resize the remote session from the Browser to full-screen.
 
 For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette.
 
-![Allow clipboard](./media/bastion-vm-manage/allow.png)
+  ![Allow clipboard](./media/bastion-vm-manage/allow.png)
 
 Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
 
