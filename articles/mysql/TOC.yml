@@ -87,12 +87,18 @@
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
-  - name: Monitor
+  - name: Monitor and tune
     items:
-    - name: Monitor
+    - name: Monitor and tune
       href: concepts-monitoring.md
     - name: Server logs
       href: concepts-server-logs.md
+    - name: Query Store
+      href: concepts-query-store.md
+    - name: Query Performance Insight
+      href: concepts-query-performance-insight.md
+    - name: Performance Recommendations
+      href: concepts-performance-recommendations.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
