@@ -1,6 +1,6 @@
 ---
-title: Pause workflows with delay actions - Azure Logic Apps
-description: Add pauses to your logic app workflows by using the Delay or Delay Until actions in Azure Logic Apps
+title: Add delays to workflows with delay actions - Azure Logic Apps
+description: Add delays to actions in your logic app workflows by using the Delay or Delay Until actions in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ---
 
-# Pause workflows with delay actions in Azure Logic Apps
+# Add delays to workflows with delay actions in Azure Logic Apps
 
-To stop running your logic app for a specific amount of time, you can add the built-in **Delay - Schedule** action after or before any action in your logic app's workflow. Or, you can add the built-in **Delay until - Schedule** action to stop running until a specific date and time. For more information about the built-in Schedule actions and triggers, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+To have your logic app wait an amount of time before running the next action, you can add the built-in **Delay - Schedule** action after or before any action in your logic app's workflow. Or, you can add the built-in **Delay until - Schedule** action to wait until a specific date and time before running the next action. For more information about the built-in Schedule actions and triggers, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-* **Delay**: Pauses for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months.
+* **Delay**: Wait for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months, before the next action runs.
 
-* **Delay until**: Pauses until the specified date and time.
+* **Delay until**: Wait until the specified date and time before the next action runs.
 
 Here are some example ways to use these actions:
 
@@ -44,7 +44,7 @@ Here are some example ways to use these actions:
 
    ![Add "Delay" action](./media/connectors-native-delay/add-delay-action.png)
 
-1. Specify the amount of time to pause your workflow run.
+1. Specify the amount of time to wait before the next action runs.
 
    ![Set amount of time for the delay](./media/connectors-native-delay/delay-time-intervals.png)
 

@@ -19,9 +19,9 @@ Here are some patterns that this trigger supports:
 
 * Run immediately and repeat every *n* number of seconds, minutes, or hours.
 
-* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, or hours.
+* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, or hours. With this trigger, you can specify a start time in the past, which runs all past recurrences.
 
-* Delay for a specific duration, then run and repeat every *n* number of seconds, minutes, or hours.
+* Delay each recurrence for a specific duration before running.
 
 For differences between this trigger and the Recurrence trigger or for more information about scheduling recurring workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
@@ -71,7 +71,7 @@ For differences between this trigger and the Recurrence trigger or for more info
 
 In your logic app's underlying workflow definition, which uses JSON, you can view the [Sliding Window trigger definition](../logic-apps/logic-apps-workflow-actions-triggers.md#sliding-window-trigger) with the options that you chose. To view this definition, on the designer toolbar, choose **Code view**. To return to the designer, choose on the designer toolbar, **Designer**.
 
-This example shows how a Sliding Window trigger definition might look in an underlying workflow definition:
+This example shows how a Sliding Window trigger definition might look in an underlying workflow definition where the delay for each recurrence is five seconds for an hourly recurrence:
 
 ``` json
 "triggers": {
@@ -79,7 +79,7 @@ This example shows how a Sliding Window trigger definition might look in an unde
       "type": "SlidingWindow",
       "Sliding_Window": {
          "inputs": {
-            "delay": "PT5H"
+            "delay": "PT5S"
          },
          "recurrence": {
             "frequency": "Hour",
