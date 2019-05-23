@@ -9,12 +9,12 @@ ms.date: 05/22/2019
 ms.author: pabutler
 ---
 
-# Lead Management Instructions for Azure Table
+# Lead management instructions for Azure Table
 
 This article describes how to configure Azure Table for storing sales leads. Azure Table lets you store and customize customer information.
 
 
-## To configure Azure Table
+## How to configure Azure Table
 
 1. If you don't have an Azure account, you can [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
 2. After your Azure account is active, sign in to the [Azure portal](https://portal.azure.com).
@@ -29,16 +29,20 @@ This article describes how to configure Azure Table for storing sales leads. Azu
 
 4. Wait until your storage account is provisioned, a process that typically takes a few minutes.  Then access your storage account from the **Home** page of the Azure portal by selecting **See all your resources** or by selecting **All resources** from the left navigation menubar of the Azure portal.
 
-    ![Acces your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
+    ![Access your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-5. From your storage account pane, copy the storage account connection string for the key and paste it into the **Storage Account Connection String** field on the Cloud Partner Portal. An example of a connection sting is `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
- 
-    ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+5. From your storage account pane, copy the storage account connection string for the key and paste it into the **Storage Account Connection String** field on the Cloud Partner Portal. An example of a connection sting is:
+
+```sql
+DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+```
+
+  ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
 You can use [Azure storage explorer](https://azurestorageexplorer.codeplex.com/) or other similar tool to see the data in your storage table. You can also export the data from Azure tables.
 
 
-## **(Optional)** Use Microsoft Flow with an Azure table
+## Use Microsoft Flow with an Azure Table (*optional*) 
 
 You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to Azure table. If you don’t have an account, you can [sign up for a free account](https://flow.microsoft.com/).
 
@@ -131,10 +135,11 @@ In next set of steps, you’ll connect to your Azure table, and set up the proce
 The next screen capture shows an example of how the final flow should look.
 
 [![Final flow sequence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
-<br/>(*Click on the image to enlarge.*)
+
+(*Click on the image to enlarge.*)
 
 
-### Managing your flow
+### Manage your flow
 
 Managing your flow after it’s running is easy.  You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The next screen capture shows the options that are available to manage a flow. 
 
