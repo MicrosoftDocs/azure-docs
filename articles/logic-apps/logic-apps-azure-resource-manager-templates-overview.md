@@ -293,7 +293,10 @@ For example, this short parameter file provides values for the template paramete
 
 ## Template resources
 
-Your template's `resources` attribute declares information for each resource that you want to create and deploy in Azure. This attribute references the values that pass through the template's `parameters` attribute by using an expression that's enclosed with square brackets (**[]**) and calls the `parameters()` function on the template parameter. In the template's `resources` attribute, the `properties` attribute contains the workflow definition for your logic app and any references to resources for connections used by your logic app. Under `properties`, other resource attributes reference the template parameter values used for creating and deploying your logic app:
+Your template's `resources` attribute declares information for each resource that you want to create and deploy in Azure. This attribute references the values that pass through the template's `parameters` attribute by using an expression that's enclosed with square brackets (**[]**) and calls the `parameters()` function on the template parameter. In the template's `resources` attribute, the `properties` attribute contains the workflow definition for your logic app and any references to connection resources used by your logic app. Under `properties`, other resource attributes reference the template parameter values used for creating and deploying your logic app:
+
+> [!NOTE]
+> Connection resources must exist in the same Azure resource group as your logic app.
 
 ```json
 {
@@ -588,6 +591,7 @@ For more information about workflow definition parameters, see [Parameters - Wor
 Inside your template's `resources` > `properties` > `parameters` attributes, the `$connections` attribute references the resources that securely store metadata for any connections that your logic app creates and uses through [managed connectors](../connectors/apis-list.md). This metadata can include information such as connection strings and access tokens, which you can put in your template's parameter file.
 
 Each new connection that you create for a logic app also creates a resource with a unique name in Azure. So, when you have multiple connection resources for the same service or system, each resource name is appended with a number, which increments with each new connection created, for example, `office365`, `office365-1`, and so on.
+Connection resources must exist in the same Azure resource group as your logic app.
 
 ```json
 {
