@@ -39219,7 +39219,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-database/sql-database-elastic-jobs-create-and-manage.mdd",
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-create-and-manage.md",
       "redirect_url": "/azure/sql-database/elastic-jobs-overview",
       "redirect_document_id": false
     },
