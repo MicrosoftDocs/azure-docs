@@ -42,6 +42,8 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 1. In the **CDN endpoint name** field, specify a name for your CDN endpoint. The CDN endpoint must be unique across Azure.
 1. Specify your the static website endpoint in the **Origin hostname** field. To find your static website endpoint, navigate to the **Static website** settings for your storage account. Copy the primary endpoint and paste it into the CDN configuration, removing the protocol identifier (*e.g.*, HTTPS).
 
+    The following image shows an example endpoint configuration:
+
     ![Screenshot showing sample CDN endpoint configuration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
 1. Create the CDN endpoint and wait for it to propagate.
@@ -64,8 +66,13 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 1. In the Azure portal, display the settings for your CDN endpoint. Navigate to **Custom domains** under **Settings** to configure the custom domain and the SSL certificate.
 1. Select **Add custom domain** and enter your domain name, then click **Add**.
 1. Select the new custom domain mapping to provision an SSL certificate.
-1. Set **Custom Domain HTTPS** to **ON**, then click **Save**. It may take several minutes or more to configure your custom domain. For more information about enabling HTTPS for custom domains, see [Tutorial: Configure HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
+1. Set **Custom Domain HTTPS** to **ON**, then click **Save**. It may take several hours to configure your custom domain. The portal displays progress as shown in the following image.
+
+    ![Screenshot showing progress of custom domain configuration](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
+
 1. Test the mapping of your static website to your custom domain by accessing the URL for your custom domain.
+
+For more information about enabling HTTPS for custom domains, see [Tutorial: Configure HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 
 ## Next steps
 
