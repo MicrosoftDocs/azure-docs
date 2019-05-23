@@ -124,6 +124,30 @@ The following table provides a matrix of:
 |NICs|✔| NA|
 |NSGs|✔| NA|
 |Subscription|✔ **| ✔|
+|App service|✔| NA|
+|Batch|✔| NA|
+|Service fabric|✔| NA|
+|Automation account|✔| NA|
+|Load balancer|✔| NA|
+|Search|✔| NA|
+|Service bus|✔| NA|
+|Stream analytics|✔| NA|
+|Event hub|✔| NA|
+|Logic apps|✔| NA|
+|Machine|✔| NA|
+|Virtual machine scale set|✔| NA|
+|Subnet|✔| NA|
+|Vnet|✔| NA|
+|Storage account|✔| NA|
+|Redis|✔| NA|
+|SQL|✔| NA|
+|Data lake analytics|✔| NA|
+|Storage account|✔| NA|
+|Subscription|✔| NA|
+|Key vault|✔| NA|
+
+
+
 
 \* These features are currently supported in public preview.
 
