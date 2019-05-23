@@ -6,9 +6,9 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: tomfitz
-
 ---
 # Test Azure portal interface for your managed application
+
 After [creating the createUiDefinition.json file](create-uidefinition-overview.md) for your Azure Managed Application, you need to test the user experience. To simplify testing, use a sandbox environment that loads your file in the portal. You don't need to actually deploy your managed application. Or, you can use a PowerShell script for testing the interface. Both approaches are shown in this article.
 
 ## Prerequisites
@@ -19,7 +19,7 @@ After [creating the createUiDefinition.json file](create-uidefinition-overview.m
 
 ## Use sandbox
 
-1. Open the [Create UI Definition Sandbox](http://aka.ms/createuidef/sandbox).
+1. Open the [Create UI Definition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
 
    ![Show sandbox](./media/test-createuidefinition/show-sandbox.png)
 
