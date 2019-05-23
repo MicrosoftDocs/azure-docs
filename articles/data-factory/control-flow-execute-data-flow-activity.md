@@ -62,6 +62,10 @@ This is a required field that defines which Integration Runtime to use for your 
 
 The default setting for Data Flow executions is 8 cores of general compute with a TTL of 60 minutes.
 
+You have control over the Spark execution environment for your Data Flow activities. In the [Azure integration runtime](concepts-integration-runtime.md) are settings to set the compute type (general purpose, memory optimized, and compute optimized), number of worker cores, and time-to-live to match the execution engine with your Data Flow compute requirements. Also, setting TTL will allow you to maintain a warm cluster that is immediately available for job executions.
+
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
+
 ### Staging area
 
 If you are sinking your data into Azure Data Warehouse, you must choose a staging location for your Polybase batch load.

@@ -82,7 +82,9 @@ To learn more about connector groups, see [Publish applications on separate netw
 
 ## Capacity Planning 
 
-It is important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. In general, the more users you have, the larger a machine you'll need. Below is a table giving an outline of the volume different machines can handle. Note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and can't be used to predict load. There will also be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS. We recommend having additional machines so that the distributed load across the machines is about 50%. The extra capacity will ensure that you have high availability and resiliency.
+It is important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. We recommend that each connector group has at least two connectors to provide high availability and scale. Having three connectors is optimal in case you may need to service a machine at any point. 
+
+In general, the more users you have, the larger a machine you'll need. Below is a table giving an outline of the volume and expected latency different machines can handle. Note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and can't be used to predict load. There will also be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS. We also recommend having additional machines so that the distributed load across the machines always provides ample buffer. The extra capacity will ensure that you have high availability and resiliency.
 
 |Cores|RAM|Expected Latency (MS)-P99|Max TPS|
 | ----- | ----- | ----- | ----- |
