@@ -22,7 +22,7 @@ This article helps you work with VMs. Before you work with a VM, make sure you h
 
 ## Resize a session to full screen
 
-You can resize the remote session from the Browser to full-screen for a more productive seamless experience.
+You can resize the remote session from the Browser to full-screen.
 
 1. During the remote session, launch the Bastion clipboard access tool palette by selecting the two arrows that located on the left center of the session.
 
@@ -34,13 +34,11 @@ You can resize the remote session from the Browser to full-screen for a more pro
 
 ##  Copy and paste text
 
-This section shows you how copy and paste text across local devices and remote sessions.
-
 For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette.
 
-Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
-
 ![Allow clipboard](./media/bastion-vm-manage/allow.png)
+
+Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
 
 ### <a name="to"></a>Copy to a remote session
 
