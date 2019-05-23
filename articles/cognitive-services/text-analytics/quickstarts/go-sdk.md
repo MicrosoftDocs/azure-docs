@@ -249,7 +249,7 @@ In the same function, `call textAnalyticsclient.Entities()` and get the result. 
 	}
 ```
 
-3. In the main function of your project, call `ExtractEntities()`.
+In the main function of your project, call `ExtractEntities()`.
 
 ### Output
 
