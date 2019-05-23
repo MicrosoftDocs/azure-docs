@@ -184,7 +184,7 @@ Azure REST APIs, Azure CLI, and Azure portal are continuously available. The Key
 
 * Not dependent on a single logical data center.
 
-* Never taken down for maintenance activities
+* Never taken down for maintenance activities.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
