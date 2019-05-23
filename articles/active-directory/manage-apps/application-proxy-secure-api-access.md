@@ -1,6 +1,6 @@
 ---
-title: Secure API access beyond the intranet with Azure AD Application Proxy
-description: Azure Active Directory's Application Proxy lets web apps securely access APIs and business logic you host on-premises or on cloud VMs. 
+title: Access on-premises APIs with Azure AD Application Proxy
+description: Azure Active Directory's Application Proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs. 
 services: active-directory
 author: jeevanbisht
 manager: mtillman
@@ -173,9 +173,6 @@ After you configure the parameters, build and run the native app. When you selec
 
 ## Next steps
 
-- [Remote access to on-premises applications through Azure Active Directory's Application Proxy](application-proxy.md)
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Quickstart: Configure a client application to access web APIs](../develop/quickstart-configure-app-access-web-apis.md)
 - [How to enable native client applications to interact with proxy applications](application-proxy-configure-native-client-application.md)
-- [Native apps](../develop/native-app.md)
-- [Training guide: App registrations in the Azure portal](../develop/app-registrations-training-guide.md)
