@@ -44,6 +44,8 @@ Create a script or start a notebook in the same directory as your workspace conf
 This code reads information from the configuration file to attach to your workspace.
 
 ```
+from azureml.core import Workspace
+
 ws = Workspace.from_config()
 ```
 
