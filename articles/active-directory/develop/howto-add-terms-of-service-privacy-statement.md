@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
@@ -52,33 +52,20 @@ Examples: `https://myapp.com/terms-of-service` and `https://myapp.com/privacy-st
 
 When the terms of service and privacy statement are ready, you can add links to these documents in your app using one of these methods:
 
-* [Through the Azure portal](#registered-in-azure-portal)
-* [In the Application Registration Portal, or Dev Center](#registered-in-app-reg-portal)
+* [Through the Azure portal](#azure-portal)
 * [Using the app object JSON](#app-object-json)
 * [Using the MSGraph beta REST API](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>If you registered your app in the Azure portal
-
-Follow these steps if you registered your app in the Azure portal.
+### <a name="azure-portal"></a>Using the Azure portal
+Follow these steps in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Navigate to the **App Registrations** section and select your app.
-3. Open the **Properties** section of the app.
+3. Open the **Branding** pane.
 4. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
 5. Save your changes.
 
     ![App properties section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>If you registered your app in the Application Registration Portal
-
-Follow these steps if you registered your app in the Application Registration Portal or Dev Center.
-
-1. Sign in to the [Application Registration Portal](https://apps.dev.microsoft.com/).
-2. Select your app and scroll to the **Profile** section.
-3. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
-4. Save your changes.
-
-    ![App profile section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Using the app object JSON
 

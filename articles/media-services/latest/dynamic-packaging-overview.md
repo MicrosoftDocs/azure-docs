@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
 
 ---
@@ -27,6 +27,9 @@ To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
 In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. 
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Common on-demand workflow
 
@@ -189,10 +192,7 @@ Here is an example of a Smooth Streaming manifest:
 
 ## Dynamic Manifest
 
-Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see  [filters and dynamic manifests](filters-dynamic-manifest-overview.md).
-
-> [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see  [Pre-filtering manifests with Dynamic Packager](filters-dynamic-manifest-overview.md).
 
 ## Ask questions, give feedback, get updates
 

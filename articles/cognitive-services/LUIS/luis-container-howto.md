@@ -255,6 +255,10 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+## Endpoint APIs supported by the container
+
+Both V2 and [V3 (Preview)](luis-migration-api-v3.md) versions of the API are available with the container. 
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
