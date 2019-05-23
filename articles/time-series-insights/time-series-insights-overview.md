@@ -69,7 +69,7 @@ Azure Time Series Insights captures and stores every new event as a row, and cha
 
 - **Build custom solutions**: Embed Azure Time Series Insights data into your existing applications. You also can create new custom solutions with the Time Series Insights REST APIs. Create personalized views you can share for others to explore your insights.
 
-- **Scalability**: Time Series Insights is designed to support IoT at scale. It can ingress from 1 million to 100 million events per day, with a default retention span of 31 days. You can visualize and analyze live data streams in near real time, alongside historical data. Moving forward, ingress and retention rates will increase to accommodate enterprise scale.
+- **Scalability**: Time Series Insights is designed to support IoT at scale. It can ingress from 1 million to 100 million events per day, with a default retention span of 31 days. You can visualize and analyze live data streams in near real time, alongside historical data.
 
 ## Get started
 
