@@ -21,16 +21,20 @@ A *dependency* is an external component that is called by your app. It's typical
 
 ## Automatically tracked dependencies
 
-Application Insights SDKs for .NET and .NET Core, has a built-in `TelemetryModule`, named `DependencyTrackingTelemetryModule` which automatically collects dependencies. This dependency collection is enabled automatically for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, when configured as per the linked official docs. `DependencyTrackingTelemetryModule` is shipped as the NuGet package `Microsoft.ApplicationInsights.DependencyCollector`, and is brought automatically when using either of the NuGet packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
+Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingTelemetryModule` which is a Telemetry Module that will automatically collects dependencies. This dependency collection is enabled automatically for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, when configured as per the linked official docs. `DependencyTrackingTelemetryModule` is shipped as [this](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet package, and is brought automatically when using either of the NuGet packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
 
  `DependencyTrackingTelemetryModule` currently tracks the following dependencies out-of-the-box:
 
-* Local or remote HTTP calls
-* SQL calls
-* WCF services that use HTTP-based bindings
-* Azure Cosmos DB (only if using http/https), Azure Table, Azure Blob, and Azure Queue
-* Microsoft.Azure.EventHubs
-* Microsoft.Azure.ServiceBus
+|Dependencies |Details|
+|---------------|-------|
+|Http/Https | Local or Remote http/https calls |
+|WCF calls| Only tracked automatically if Http-based bindings are used.|
+|SQL | Calls made with `SqlClient`. |
+|[Azure storage (Blob, Table, Queue )](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with Azure Storage Client. |
+|[EventHub Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and above. |
+|[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
+|Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
+
 
 ## Setup automatic dependency tracking in Console Apps
 
@@ -90,7 +94,7 @@ For SQL calls, the name of the server and database is always collected and store
 
 For ASP.NET Core applications there is no additional step required to get the full SQL Query.
 
-For ASP.NET applications, full SQL query is collected with the help of byte code instrumentation, which require instrumentation engine. Additional steps, as described below, are required.
+For ASP.NET applications, full SQL query is collected with the help of byte code instrumentation, which require instrumentation engine. Additional platform-specific steps, as described below, are required.
 
 | Platform | Step(s) Needed to get full SQL Query |
 | --- | --- |
@@ -99,7 +103,7 @@ For ASP.NET applications, full SQL query is collected with the help of byte code
 | Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) to [Install Status Monitor](monitor-performance-live-website-now.md#download) |
 | IIS Express | Not supported
 
-In all the above cases, the correct way of validating that instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is 'rddp'. 'rdddsd' or 'rddf' indicates dependencies are collected via DiagnosticSource or EventSource callbacks, and hence full SQL query will not be captured.
+In the above cases, the correct way of validating that instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is 'rddp'. 'rdddsd' or 'rddf' indicates dependencies are collected via DiagnosticSource or EventSource callbacks, and hence full SQL query will not be captured.
 
 ## Where to find dependency data
 
