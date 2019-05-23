@@ -85,7 +85,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Network map|✔|X|✔|X|Standard|
 |Adaptive network controls|✔|X|✔|X|Standard|
 |Regulatory Compliance dashboard & reports|✔|✔|✔|✔|Standard|
-|Container Recommendations|✔|X|✔|X|Standard|
+|Containers|x|X|✔|✔|Standard|
 
 
 
