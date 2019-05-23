@@ -62,7 +62,7 @@ Next, we add to the foundation laid in phase 1 by importing our users and enabli
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
 | [Install Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Prepare to synchronize users from your existing on-premises directory to the cloud. | Azure AD Free |
-| [Implement Password Hash Sync](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synchronize password hashes to allow password changes to be replicated, bad password detection and remediation, and leaked credential reporting. | Azure AD Premium P1 |
+| [Implement Password Hash Sync](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synchronize password hashes to allow password changes to be replicated, bad password detection and remediation, and leaked credential reporting. | Azure AD Free |
 | [Implement Password Writeback](../authentication/howto-sspr-writeback.md) | Allow password changes in the cloud to be written back to an on-premises Windows Server Active Directory environment. | Azure AD Premium P1 |
 | [Implement Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Enable monitoring of key health statistics for your Azure AD Connect servers, AD FS servers, and domain controllers. | Azure AD Premium P1 |
 | [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Save time and effort by creating licensing groups that enable or disable features by group instead of setting per user. | |
