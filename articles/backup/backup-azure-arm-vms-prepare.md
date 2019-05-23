@@ -166,7 +166,7 @@ The **Transfer data to vault** phase can take multiple days to complete dependin
 
 Job status can vary depending on the following scenarios:
 
-**Snapshot** | **Transfer data to vault ** | **Job Status**
+**Snapshot** | **Transfer data to vault** | **Job Status**
 --- | --- | ---
 Completed | In progress | In progress
 Completed | Skipped | Completed
