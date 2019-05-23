@@ -237,7 +237,7 @@ After you run the **kubectl** command, you'll be prompted to authenticate by usi
 ```console
 $ kubectl get nodes
 
-To sign in, use a web browser to open the following page: https://microsoft.com/devicelogin. Next, enter the code BUJHWDGNL to authenticate.
+To sign in, use a web browser to open https://microsoft.com/devicelogin. Next, enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
 aks-nodepool1-79590246-0   Ready     agent     1h        v1.13.5
