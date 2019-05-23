@@ -78,13 +78,13 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
 ```
 
-Note:
+A few pieces of important information:
 
-- The resource group name is the project name with **rg** appended. To make it easier to [clean up the resources created in this tutorial](#clean-up-resources), use the same project name and resource group name when you [deploy the next template](#deploy-the-template).
-- The default name for the secret name is **vmAdminPassword**. It is hardcoded in the template.
-- To be able for the template to retrieve the secret, you must enable an access policy called **Enable access to Azure Resource Manager for template deployment** for the key vault. This policy is enabled in the template. For more information about this access policy, see [Deploy key vaults and secrets](./resource-manager-keyvault-parameter.md#deploy-key-vaults-and-secrets).
+* The resource group name is the project name with **rg** appended. To make it easier to [clean up the resources created in this tutorial](#clean-up-resources), use the same project name and resource group name when you [deploy the next template](#deploy-the-template).
+* The default name for the secret name is **vmAdminPassword**. It is hardcoded in the template.
+* To be able for the template to retrieve the secret, you must enable an access policy called **Enable access to Azure Resource Manager for template deployment** for the key vault. This policy is enabled in the template. For more information about this access policy, see [Deploy key vaults and secrets](./resource-manager-keyvault-parameter.md#deploy-key-vaults-and-secrets).
 
-The template has one output called **keyVaultId**. Write down the value. You need this ID when you deploy the virtual machine. The Resource ID format is:
+The template has one output value called **keyVaultId**. Write down the value. You need this ID when you deploy the virtual machine. The Resource ID format is:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
