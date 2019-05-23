@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
 ---
@@ -65,7 +65,7 @@ Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-
 
 ### Option 2: Publish the parent directory
 
-Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, you can publish the common parent directory, which results in the same origin.
+Publish the parent directory of both apps. This solution works especially well if you have only two apps on the web server. Instead of publishing each app separately, you can publish the common parent directory, which results in the same origin.
 
 The following examples show the portal Azure AD Application Proxy page for the CORSWebClient app.  When the **Internal URL** is set to *contoso.com/CORSWebClient*, the app can't make successful requests to the *contoso.com/CORSWebService* directory, because they're cross-origin. 
 
@@ -104,6 +104,10 @@ Content-Length: 17
 ### Option 4: Modify the app
 
 You can change your app to support CORS by adding the Access-Control-Allow-Origin header, with appropriate values. The way to add the header depends on the app's code language. Changing the code is the least recommended option, because it requires the most effort.
+
+### Option 5: Extend the lifetime of the access token
+
+Some CORS issues can't be resolved, such as when your app redirects to *login.microsoftonline.com* to authenticate, and the access token expires. The CORS call then fails. A workaround for this scenario is to extend the lifetime of the access token, to prevent it from expiring during a user’s session. For more information about how to do this, see [Configurable token lifetimes in Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
 
 ## See also
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md) 
