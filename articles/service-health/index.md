@@ -21,7 +21,7 @@ Azure Service Health is composed of:
 
 Together, these experiences provide you with a comprehensive view into the health of Azure, at the granularity that is most relevant to you.
 
-For more in depth information on each service, see [Service Health Overview](resource-health-overview.md)
+For more in depth information on each service, see [Service Health Overview](overview.md)
 
 <ul class="panelContent cardsFTitle">
     <li>
