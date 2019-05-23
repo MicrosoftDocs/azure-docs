@@ -27,8 +27,8 @@ In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Import a sample database into an Azure SQL database
+> * Separate customers along different dimensions
 > * Load the data from the Azure SQL database into a data frame using R
-> * Calculate additional data from the customer records
 
 In [part two](sql-database-tutorial-clustering-model-build.md), you'll learn how to create and train a Kmeans clustering model.
 
@@ -146,9 +146,22 @@ LEFT OUTER JOIN (
     GROUP BY sr_customer_sk
     ) returned ON ss_customer_sk = sr_customer_sk
 "
+```
 
+Now return the results from the query to R using the **rxSqlServerData** function.
+In the process, you'll define the type for the selected columns (using colClasses), to make sure that the types are correctly transferred to R.
 
-DONE?
+```r
+#Query SQL Server using input_query and get the results back to data frame customer_returns
+#Define the types for selected columns (using colClasses), to make sure that the types are correctly transferred to R
+customer_returns <- RxSqlServerData(sqlQuery=input_query,colClasses=c(customer ="numeric" , orderRatio="numeric" , itemsRatio="numeric" , monetaryRatio="numeric" , frequency="numeric" ),connectionString=connStr);
+
+# Transform the data from an input dataset to an output dataset
+customer_data <- rxDataStep(customer_returns);
+
+#Take a look at the data just loaded from SQL Server
+head(customer_data, n = 5);
+```
 
 ## Clean up resources
 
@@ -166,10 +179,10 @@ From the Azure portal, follow these steps:
 In part one of this tutorial series, you completed these steps:
 
 * Import a sample database into an Azure SQL database
+* Separate customers along different dimensions
 * Load the data from the Azure SQL database into a data frame using R
-* Calculate additional data from the customer records
 
-To create a machine learning model that uses data from the tpcxbb_1gb database, follow part two of this tutorial series:
+To create a machine learning model that uses this customer data, follow part two of this tutorial series:
 
 FIX
 
