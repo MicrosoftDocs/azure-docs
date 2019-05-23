@@ -69,19 +69,19 @@ The table below shows benefits and limitations of user profile technologies.
 
 #### Performance
 
-UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. This is due to UPD using Server Message Block (SMB) protocol and copying the profile to the VM in which the user is being logged. UPD on top of S2D had been the solution that the RDS team recommended for Windows Virtual Desktop during the preview of the service.  
+UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. UPD uses Server Message Block (SMB) protocol and copies the profile to the VM in which the user is being logged. UPD on top of S2D had been the solution that the RDS team recommended for Windows Virtual Desktop during the preview of the service.  
 
 #### Cost
 
-While S2D clusters achieve the necessary performance, the cost is considered high among enterprise customers and very high for small and medium business (SMB) customers.
+While S2D clusters achieve the necessary performance, the cost is expensive for enterprise customers, but especially expensive for small and medium business (SMB) customers.
 
 #### Administrative overhead
 
-S2D clusters require an operating system that is patched, updated, and maintained in a secure state. This, in addition to the complexity of setting up S2D disaster recovery, makes S2D feasible only for enterprises with a dedicated IT staff.
+S2D clusters require an operating system that is patched, updated, and maintained in a secure state. These processes, in addition to the complexity of setting up S2D disaster recovery, make S2D feasible only for enterprises with a dedicated IT staff.
 
 ## FSLogix Profile Containers
 
-On Nov 19, 2018 [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix addresses many profile container challenges, key among them are:
+On November 19, 2018 [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix addresses many profile container challenges, key among them are:
 
 - **Performance:** The [FSLogix profile containers](https://fslogix.com/products/profile-containers) are high performance and resolve performance issues that have historically blocked cached exchange mode.
 - **OneDrive:** Without FSLogix profile containers, OneDrive for Business is not supported in non-persistent RDSH or VDI environments. [OneDrive for Business and FSLogix best practices](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) describes how they interact. For more information, see [Use the sync client on virtual desktops](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
@@ -97,11 +97,11 @@ FSLogix profile containers performance and features take advantage of the cloud.
 
 Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Windows Virtual Desktop Preview?](https://docs.microsoft.com/azure/virtual-desktop/overview).
 
-As a best practice, Azure Files storage account must be in the same region as the session host VMs. In addition, Azure Files permissions should match those outlined in [Connect from a web browser](https://docs.microsoft.com/azure/virtual-desktop/connect-web).
+As a best practice, Azure Files storage account must be in the same region as the session host VMs. In addition, Azure Files permissions should match permissions described in [Requirements - Profile Containers](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers).
 
 ## Best practices for Windows Virtual Desktop
 
-This section provides best practices for setting up a Windows Virtual Desktop environment.
+This section describes best practices for setting up a Windows Virtual Desktop environment.
 
 - Each host pool must be built of the same type and size VM based on the same master image.
 - Each host pool VM must be in the same resource group to aid management, scaling and updating.
