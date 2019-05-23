@@ -105,7 +105,7 @@ Next, you'll analyze a document and extract key-value pairs and tables from it. 
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<modelID>` with the model ID that you received in the previous section.
-1. Replace `<path to your form>` with the file path of your form.
+1. Replace `<path to your form>` with the file path of your form. For example c:\temp\file.pdf. 
 1. Replace `<file type>` with the file type. Supported types: pdf, image/jpeg, image/png.
 1. Replace `<subscription key>` with your subscription key.
 
