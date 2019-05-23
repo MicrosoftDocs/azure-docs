@@ -144,7 +144,7 @@ If you need to make changes to your PHP installation, you can change any of the 
 > The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.
 >
 
-### Customize non-PHP_INI_SYSTEM directives
+### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Customize-non-PHP_INI_SYSTEM directives
 
 To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), add an *.htaccess* file to the root directory of your app.
 
