@@ -26,26 +26,10 @@ Some delivery scenarios require that you make sure a customer is unable to acces
 You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device specific filters that your client specifies in the URL. This can be useful to restrict additional tracks like metadata or event streams, audio languages or descriptive audio tracks. 
 
 This ability to specify different filters on your stream, provides a powerful **Dynamic Manifest** manipulation solution to target multiple use-case scenarios for your target devices. This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you might want to use this feature.
- 
+
 > [!NOTE]
 > Dynamic Manifests do not change the asset and the default manifest for that asset. 
 > 
-
-### Examples: URLs with filters in query string
-
-Filters could be applied to adaptive bitrate streaming protocols: Apple HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming. The following table shows some examples of URLs with filters:
-
-|Protocol|Example|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
-> [!NOTE]
-> Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
-> 
-
-This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you might want to use this feature.
 
 ## Manifests overview
 
@@ -64,6 +48,16 @@ For the REST example, see [Upload, encode, and stream files with REST](stream-fi
 You can use the [Azure Media Player demo page](https://aka.ms/amp) to monitor the bitrate of a video stream. The demo page displays diagnostics info in the **Diagnostics** tab:
 
 ![Azure Media Player diagnostics][amp_diagnostics]
+ 
+### Examples: URLs with filters in query string
+
+Filters could be applied to adaptive bitrate streaming protocols: HLS, MPEG-DASH, and Smooth Streaming. The following table shows some examples of URLs with filters:
+
+|Protocol|Example|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## Rendition filtering
 
