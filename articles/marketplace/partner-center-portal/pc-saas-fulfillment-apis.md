@@ -29,4 +29,4 @@ This API supports the following business model capabilities; you can:
 
 ## Next steps
 
-If you have not already done so, register your SaaS application in the [Azure portal](https://ms.portal.azure.com) as explained in [Register an Azure AD Application](./cpp-saas-registration.md).  Afterwards, use the most current version of this interface for development: [SaaS Fulfillment API Version 2](./cpp-saas-fulfillment-api-v2.md).
+If you have not already done so, register your SaaS application in the [Azure portal](https://ms.portal.azure.com) as explained in [Register an Azure AD Application](./pc-saas-registration.md).  Afterwards, use the most current version of this interface for development: [SaaS Fulfillment API Version 2](./pc-saas-fulfillment-api-v2.md).
