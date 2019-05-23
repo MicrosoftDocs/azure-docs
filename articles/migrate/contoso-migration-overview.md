@@ -1,5 +1,5 @@
 ---
-title: Overview of Contoso migration to Azure | Microsoft Docs
+title: Contoso migration series | Microsoft Docs
 description: Provides an overview of the migration strategy and scenarios used by Contoso to migrate their on-premises datacenter to Azure.
 author: rayne-wiselman
 manager: carmonm
@@ -9,7 +9,7 @@ ms.date: 05/23/2019
 ms.author: raynew
 
 ---
-# Contoso migration: Overview
+# Contoso migration series
 
 
 We have a series of articles that demonstrates how the fictitious organization Contoso migrates on-premises infrastructure to the [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) cloud. 
