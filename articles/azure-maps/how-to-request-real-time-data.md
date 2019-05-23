@@ -126,7 +126,7 @@ To get **dockID**, follow the steps below to make a request to the Get Nearby Tr
 2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
  
     ```HTTP
-    ttps://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock
+    https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock
     ```
 
 3. After a successful request, you will receive the following response. Notice that we now have the **id** in the response, which can be used later as a query parameter in the request to the Get Transit Dock Info API.
