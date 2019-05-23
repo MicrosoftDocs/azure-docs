@@ -29,13 +29,13 @@ This article describes how to use the Azure portal to add an event source that r
 
 ### Add a consumer group to your IoT hub
 
-Applications use consumer groups to pull data from Azure IoT Hub. Provide a dedicated consumer group that's used only by this Time Series Insights environment to reliably read data from your IoT hub.
+Applications use consumer groups to pull data from Azure IoT Hub. To reliably read data from your IoT hub, provide a dedicated consumer group that's used only by this Time Series Insights environment.
 
 To add a new consumer group to your IoT hub:
 
 1. In the Azure portal, find and open your IoT hub.
 
-1. In the menu, under **Settings**, select **Built-in Endpoints**, and then select the **Events** endpoint.
+1. Under **Settings**, select **Built-in Endpoints**, and then select the **Events** endpoint.
 
    [![On the Build-in Endpoints page, select the Events button](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
 
@@ -64,7 +64,7 @@ To add a new consumer group to your IoT hub:
 
    [![Select options in the New event source pane](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
 
-1. The following table describes the properties that are required for the **Use IoT Hub from available subscriptions** option:
+- The following table describes the properties that are required for the **Use IoT Hub from available subscriptions** option:
 
    [![New event source pane - Properties to set in the Use IoT Hub from available subscriptions option](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
