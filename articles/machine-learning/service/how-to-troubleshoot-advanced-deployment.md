@@ -160,6 +160,45 @@ The steps in this section download the image to your local development environme
 
     For the rest of the steps, you can refer to the local image as `debug:1` instead of the full image path value.
 
+## Configure Visual Studio Code
+
+VS Code needs to know the port that PTVSD on the Docker image uses for debugging. It also needs to know the host address, and the directories (both locally and in the image) where the code is located.
+
+To configure VS Code and PTVSD to connect to the image, use the following steps.
+
+> [!IMPORTANT]
+> These steps assume that PTVSD has been successfully installed with VS Code. If you have not installed PTVSD, use the following command to install it:
+> ```python
+> python -m pip install --upgrade ptvsd
+> ```
+
+1. Use VS Code to open the `score.py` file that was used to create your model deployment.
+
+1. From VS Code, select the __Debug__ menu and then select __Open configurations__. A file named __launch.json__ opens.
+
+1. In the __launch.json__ file, find the line that contains `"configurations": [`, and insert the following text on the line after it:
+
+    ```json
+    {
+        "name": "Azure Machine Learning service: Docker Debug",
+        "type": "python",
+        "request": "attach",
+        "port": 5678,
+        "host": "localhost",
+        "pathMappings": [
+            {
+                "localRoot": "${workspaceFolder}",
+                "remoteRoot": "/var/azureml-app"
+            }
+        ]
+    }
+    ```
+
+    > [!IMPORTANT]
+    > If there are already other entries in the configurations section, add a comma (,) after the closing bracket (}) of the code that you inserted.
+
+1. Save the __launch.json__ file.
+
 ## Debug the service
 
 1. To start a container based on the image, use the following command:
@@ -170,7 +209,11 @@ The steps in this section download the image to your local development environme
 
     This command creates a new container named __debug__. Once it starts, you arrive at a bash prompt inside the container. Your prompt changes to something similar to `root@ba216845db54:/#`.
 
-1. 
+1. If you are not sure whether the score.py file is successfully loading or not, you can use the following steps to verify that it can load and process data:
+
+    * Create an example data file in the Docker container.
+    * Modify the score.py to load the example data on start.
+    * Start score.py using PTVSD. The PTVSD process waits for you to connect a debugger.
 
 2. To start the web service and immediately attach a debuggger, use the following command:
 
