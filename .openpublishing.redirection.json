@@ -35250,7 +35250,7 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-data-sources.md",
-      "redirect_url": "/azure/azure-monitor/platform/data-sources-reference",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources",
       "redirect_document_id": true
     },
     {
@@ -36034,8 +36034,23 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/activity-logs-stream-event-hubs.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log-export",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/archive-activity-log.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log-export",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/platform/data-sources-alerts-nagios-zabbix.md",
       "redirect_url": "/azure/azure-monitor/platform/data-sources-custom-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/collect-activity-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log-collect",
       "redirect_document_id": false
     },
     {
@@ -36931,6 +36946,16 @@
     {
       "source_path": "articles/azure-monitor/platform/data-collection.md",
       "redirect_url": "/azure/azure-monitor/platform/data-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/data-sources-reference.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/collect-activity-logs-subscriptions.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log-collect-tenants",
       "redirect_document_id": false
     },
     {
@@ -39319,6 +39344,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service-mobile-migrating-from-mobile-services.md",
+      "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/app-service-mobile-net-upgrading-from-mobile-services.md",
+      "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/app-service-mobile-node-backend-upgrading-from-mobile-services.md",
+      "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/app-service-mobile-value-prop-migration-from-mobile-services.md",
+      "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-monitor/app/asp-net-core-no-visualstudio.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-core",
       "redirect_document_id": false
@@ -39331,6 +39376,36 @@
     {
       "source_path": "articles/storage/common/storage-use-azcopy-linux.md",
       "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-overview.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-service-installation.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-create-and-manage.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-powershell.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-getting-started.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-uninstall.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
       "redirect_document_id": false
     }
   ]

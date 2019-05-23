@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
 
 ---
 # Filters
 
-When delivering your content to customers (Live Streaming events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+When delivering your content to customers (Live Streaming events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services offers [Dynamic Manifests](filters-dynamic-manifest-overview.md) based on pre-defined filters. 
 
 Filters are server-side rules that allow your customers to do things like: 
 
@@ -28,24 +28,16 @@ Filters are server-side rules that allow your customers to do things like:
 - Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 - Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
 
-Media Services offers [Dynamic Manifests](filters-dynamic-manifest-overview.md) based on pre-defined filters. Once you define filters, your clients could use them in the streaming URL. Filters could be applied to adaptive bitrate streaming protocols: Apple HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming.
+Media Services enables you to create **Account filters** and **Asset filters** for your content. In addition, you can associate your pre-created filters with a **Streaming Locator**.
 
-The following table shows some examples of URLs with filters:
-
-|Protocol|Example|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>For HLS v3, use: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## Define filters
+## Defining filters
 
 There are two types of filters: 
 
 * [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
 * [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
 
-[Account Filter](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filter](https://docs.microsoft.com/rest/api/media/assetfilters) types have exactly the same properties for defining/describing the filter. Except when creating the **Asset Filter**, you need to specify the asset name with which you want to associate the filter.
+**Account Filters** and **Asset Filters** types have exactly the same properties for defining/describing the filter. Except when creating the **Asset Filter**, you need to specify the asset name with which you want to associate the filter.
 
 Depending on your scenario, you decide what type of a filter is more suitable (Asset Filter or Account Filter). Account Filters are suitable for device profiles (rendition filtering) where Asset Filters could be used to trim a specific asset.
 
@@ -141,14 +133,21 @@ The following example defines a Live Streaming filter:
 }
 ```
 
-## Associate filters with Streaming Locator
+## Associating filters with Streaming Locator
 
-You can specify a list of [asset or account filters](filters-concept.md), which would apply to your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+You can specify a list of [asset or account filters](filters-concept.md) on your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on the Streaming Locator. 
 
 See the following examples:
 
 * [Associate filters with Streaming Locator - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [Associate filters with Streaming Locator - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## Updating filters
+ 
+**Streaming Locators** are not updatable while filters can be updated. 
+
+> [!NOTE]
+> It is not recommended updating filters associated with a **Streaming Locator** after the **Streaming Locator**'s creation.
 
 ## Next steps
 
