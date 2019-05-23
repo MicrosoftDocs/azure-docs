@@ -37,7 +37,7 @@ You can also specify the start and end time on your Streaming Locator, which wil
 
 ## Associate filters with Streaming Locators
 
-See [Filters: associate with Streaming Locators](filters-concept.md#associate-filters-with-streaming-locator).
+See [Filters: associate with Streaming Locators](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## Filter, order, page Streaming Locator entities
 
