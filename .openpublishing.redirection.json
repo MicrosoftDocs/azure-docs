@@ -39332,6 +39332,36 @@
       "source_path": "articles/storage/common/storage-use-azcopy-linux.md",
       "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-overview.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-service-installation.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-create-and-manage.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-powershell.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-getting-started.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-jobs-uninstall.md",
+      "redirect_url": "/azure/sql-database/elastic-jobs-overview",
+      "redirect_document_id": false
     }
   ]
 }
