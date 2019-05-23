@@ -5,11 +5,9 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ---
-## Set up your device
+## Set up your device in Unity
 
-In Unity, open the project in the `Unity` folder.
-
-![Unity window](./media/spatial-anchors-unity/unity-window.png)
+[!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
 ### Set up an Android Device
 

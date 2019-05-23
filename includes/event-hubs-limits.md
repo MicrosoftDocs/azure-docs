@@ -26,3 +26,4 @@ The following table lists quotas and limits specific to [Azure Event Hubs](https
 | Maximum retention period of event data |Entity |- |1-7 days |
 | Maximum throughput units |Namespace |Exceeding the throughput unit limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](/azure/azure-supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
 | Number of authorization rules per namespace |Namespace|Subsequent requests for authorization rule creation are rejected.|12 |
+| Number of calls to the GetRuntimeInformation method | Entity | - | 50 per second | 
