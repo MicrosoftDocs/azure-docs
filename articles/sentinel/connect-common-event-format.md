@@ -41,6 +41,8 @@ The connection between Azure Sentinel and your CEF appliance takes place in thre
 2. The Syslog agent collects the data and sends it securely to Log Analytics, where it is parsed and enriched.
 3. The agent stores the data in a Log Analytics workspace so it can be queried as needed, using analytics, correlation rules, and dashboards.
 
+> [!NOTE]
+> The agent can collect logs from multiple sources, but must be installed on dedicated proxy machine.
 
 ## Step 1: Connect to your CEF appliance via dedicated Azure VM
 
