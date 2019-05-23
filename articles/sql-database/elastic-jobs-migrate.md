@@ -17,7 +17,7 @@ ms.date: 03/13/2019
 
 An upgraded version of [Elastic Database Jobs](elastic-jobs-overview.md) is available.
 
-If you have an existing customer hosted version of [Elastic Database Jobs](sql-database-elastic-jobs-overview.md), migration cmdlets and scripts are provided for easily migrating to the latest version.
+If you have an existing customer hosted version of Elastic Database Jobs, migration cmdlets and scripts are provided for easily migrating to the latest version.
 
 
 ## Prerequisites
