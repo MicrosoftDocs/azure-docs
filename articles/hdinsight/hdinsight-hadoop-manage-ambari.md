@@ -15,18 +15,13 @@ ms.author: hrasheed
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifies the management and monitoring of an Apache Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes.
+Apache Ambari simplifies the management and monitoring of an Apache Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes.
 
 In this document, you learn how to use the Ambari Web UI with an HDInsight cluster.
 
 ## <a id="whatis"></a>What is Apache Ambari?
 
 [Apache Ambari](https://ambari.apache.org) simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
-
-The Ambari Web UI is provided by default with HDInsight clusters that use the Linux operating system.
-
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Connectivity
 
@@ -152,18 +147,18 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 2. Use the **Actions** menu to select the action that you wish to perform:
 
-|Item |Description |
-|---|---|
-|Start all components|Start all components on the host.|
-|Stop all components|Stop all components on the host.|
-|Restart all components|Stop and start all components on the host.|
-|Turn on maintenance mode|Suppresses alerts for the host. This mode should be enabled if you are performing actions that generate alerts. For example, stopping and starting a service.|
-|Turn off maintenance mode|Returns the host to normal alerting.|
-|Stop|Stops DataNode or NodeManagers on the host.|
-|Start|Starts DataNode or NodeManagers on the host.|
-|Restart|Stops and starts DataNode or NodeManagers on the host.|
-|Decommission|Removes a host from the cluster. **Do not use this action on HDInsight clusters.**|
-|Recommission|Adds a previously decommissioned host to the cluster. **Do not use this action on HDInsight clusters.**|
+    |Item |Description |
+    |---|---|
+    |Start all components|Start all components on the host.|
+    |Stop all components|Stop all components on the host.|
+    |Restart all components|Stop and start all components on the host.|
+    |Turn on maintenance mode|Suppresses alerts for the host. This mode should be enabled if you are performing actions that generate alerts. For example, stopping and starting a service.|
+    |Turn off maintenance mode|Returns the host to normal alerting.|
+    |Stop|Stops DataNode or NodeManagers on the host.|
+    |Start|Starts DataNode or NodeManagers on the host.|
+    |Restart|Stops and starts DataNode or NodeManagers on the host.|
+    |Decommission|Removes a host from the cluster. **Do not use this action on HDInsight clusters.**|
+    |Recommission|Adds a previously decommissioned host to the cluster. **Do not use this action on HDInsight clusters.**|
 
 ### <a id="service"></a>Services
 
