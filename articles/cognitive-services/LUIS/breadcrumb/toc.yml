@@ -7,5 +7,5 @@
     topicHref: /azure/cognitive-services/index
     items:
     - name: LUIS
-      tocHref: /azure/cognitive-services/LUIS/
+      tocHref: /azure/cognitive-services/speech-service/
       topicHref: /azure/cognitive-services/LUIS/index

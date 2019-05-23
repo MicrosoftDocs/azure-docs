@@ -197,7 +197,8 @@
     - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
-      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md
+      maintainContext: true
+      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=%2fazure%2fcognitive-services%2fluis%2ftoc.json&bc=%2fazure%2fcognitive-services%2fluis%2fbreadcrumb%2ftoc.json
     - name: With a bot
       items:
         - name: Web app bot
