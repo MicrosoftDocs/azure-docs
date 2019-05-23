@@ -9,7 +9,7 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 05/23/2019
 ms.author: aahi
 ---
 # Quickstart: Call the Text Analytics service using the Go SDK 
