@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Create custom WAF rules
-description: Azure PowerShell Script Sample - Create custom WAF rules
+title: Azure PowerShell Script Sample - Create WAF custom  rules
+description: Azure PowerShell Script Sample - Create WAF custom  rules
 author: vhorne
 ms.service: application-gateway
 ms.topic: sample
@@ -8,11 +8,18 @@ ms.date: 5/23/2019
 ms.author: victorh
 ---
 
-# Create custom WAF rules with Azure PowerShell
+# Create WAF custom rules with Azure PowerShell
 
 This script creates an Application Gateway Web Application Firewall that uses custom rules. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
+## Prerequisites
+
+### Azure PowerShell module
+
+If you choose to install and use Azure PowerShell locally, this script requires the Azure PowerShell module version 2.1.0 or later.
+
+1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+2. To create a connection with Azure, run `Connect-AzAccount`.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
