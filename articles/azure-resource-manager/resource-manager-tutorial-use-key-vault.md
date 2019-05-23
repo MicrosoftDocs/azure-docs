@@ -102,7 +102,7 @@ To create a key vault:
     * **Secret Name**: The default name is **vmAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
     * **Secret Value**: Enter your secret.  The secret is the password used to sign in to the virtual machine. It is recommended to use the generated password you created in the last procedure.
     * **I agree to the terms and conditions state above**: Select.
-3. Select **Edit parameters** from the top to take a look of the template.
+3. Select **Edit template** from the top to take a look of the template.
 4. Browse to line 28 of the template JSON file. This is the key vault resource definition.
 5. Browse to line 35:
 

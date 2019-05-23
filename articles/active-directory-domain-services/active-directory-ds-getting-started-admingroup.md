@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Getting Started | Microsoft Docs
 description: Enable Azure Active Directory Domain Services using the Azure portal
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
+ms.date: 05/20/2019
+ms.author: mstephen
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure portal
@@ -40,7 +40,7 @@ The wizard automatically creates the administrative group in your Azure AD direc
 
 ## Configure synchronization
 
-Azure AD Domain Services allows for either full synchronization of all users and groups available in Azure AD, or you can select scoped synchronization to synchronize only specific groups. If you choose the full synchronization, you will **not** be able to choose scoped synchronization at a later time. To learn more about scoped synchronization, visit the [Azure AD Domain Services scoped synchronization article](active-directory-ds-scoped-synchronization.md).
+Azure AD Domain Services allows for either full synchronization of all users and groups available in Azure AD, or you can select scoped synchronization to synchronize only specific groups. If you choose the full synchronization, you will **not** be able to choose scoped synchronization at a later time. To learn more about scoped synchronization, visit the [Azure AD Domain Services scoped synchronization article](scoped-synchronization.md).
 
 ### Full synchronization
 
@@ -94,7 +94,7 @@ The process of provisioning your managed domain can take up to an hour.
 
 ## Need help?
 
-It may take an hour or two for both domain controllers for your managed domain to be provisioned. If your deployment failed or is stuck in the 'Pending' state for more than a couple of hours, feel free to [contact the product team for help](active-directory-ds-contact-us.md).
+It may take an hour or two for both domain controllers for your managed domain to be provisioned. If your deployment failed or is stuck in the 'Pending' state for more than a couple of hours, feel free to [contact the product team for help](contact-us.md).
 
 ## Next step
 
