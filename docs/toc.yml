@@ -7,7 +7,7 @@
       - name: Account types, locations, and fees
         href: account-types-locations-and-fees.md
       - name: Manage account settings and profile
-      - href: manage-account-settings-and-profile
+        href: manage-account-settings-and-profile.md
   - name: Manage account users
     href: manage-account-users.md
     items:
