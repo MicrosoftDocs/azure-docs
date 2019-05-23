@@ -41,7 +41,7 @@ See the following articles for more information:
 - [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [What is RBAC for Azure resources?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Media Servicies resource provider operarions](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
+- [Media Servicies resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
 
 ## Next steps
 
