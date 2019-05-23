@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
@@ -38,11 +38,22 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 1. Locate your storage account and display the account overview.
 1. Select **Azure CDN** under the **Blob Service** menu to configure Azure CDN.
 1. In the **CDN profile** section, specify a new or existing CDN profile. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](../../cdn/cdn-create-new-endpoint.md).
-1. Specify a pricing tier for the CDN endpoint. This tutorial uses the **Standard Akamai** pricing tier, because it propagates quickly, typically within a minute. Other pricing tiers may take longer to propagate, but may also offer other advantages. See [Compare Azure CDN product features](../../cdn/cdn-features.md).
+1. Specify a pricing tier for the CDN endpoint. This tutorial uses the **Standard Akamai** pricing tier, because it propagates quickly, typically within a few minutes. Other pricing tiers may take longer to propagate, but may also offer other advantages. For more information, see [Compare Azure CDN product features](../../cdn/cdn-features.md).
 1. In the **CDN endpoint name** field, specify a name for your CDN endpoint. The CDN endpoint must be unique across Azure.
-1. Specify your the static website endpoint in the **Origin hostname** field. To find your static website endpoint, navigate to the **Static website** settings for your storage account. Copy the primary endpoint and paste it into the CDN configuration.
+1. Specify your the static website endpoint in the **Origin hostname** field. To find your static website endpoint, navigate to the **Static website** settings for your storage account. Copy the primary endpoint and paste it into the CDN configuration, removing the protocol identifier (*e.g.*, HTTPS).
+
+    ![Screenshot showing sample CDN endpoint configuration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+
 1. Create the CDN endpoint and wait for it to propagate.
-1. Test your CDN endpoint by navigating to it in your browser.
+1. To verify that the CDN endpoint is configured correctly, click on the endpoint to navigate to its settings. From the CDN overview for your storage account, locate the endpoint hostname, and navigate to the endpoint, as shown in the following image. The format of your CDN endpoint will be similar to `https://staticwebsitesamples.azureedge.net`.
+
+    ![Screenshot showing overview of CDN endpoint](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+
+    Once the CDN endpoint propagation is complete, navigating to the CDN endpoint displays the contents of the index.html file that you previously uploaded to your static website.
+
+1. To review the origin settings for your CDN endpoint, navigate to **Origin** under the **Settings** section for your CDN endpoint. You will see that the **Origin type** field is set to *Custom Origin* and that the **Origin hostname** field displays your static website endpoint.
+
+    ![Screenshot showing Origin settings for CDN endpoint](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## Enable custom domain and SSL
 
@@ -50,11 +61,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
     ![Specify CNAME record for subdomain www](media/storage-blob-static-website-custom-domain/subdomain-cname-record.png)
 
-1. In the Azure portal, click on the newly created endpoint to configure the custom domain and the SSL certificate.
+1. In the Azure portal, display the settings for your CDN endpoint. Navigate to **Custom domains** under **Settings** to configure the custom domain and the SSL certificate.
 1. Select **Add custom domain** and enter your domain name, then click **Add**.
-1. Select the newly created custom domain mapping to provision an SSL certificate.
-1. Set **Custom Domain HTTPS** to **ON**. Select **CDN Managed** to have Azure CDN manage your SSL certificate. Click **Save**.
-1. Test your website by accessing your website url.
+1. Select the new custom domain mapping to provision an SSL certificate.
+1. Set **Custom Domain HTTPS** to **ON**, then click **Save**. It may take several minutes to configure your custom domain.
+1. Test the mapping of your static website to your custom domain by accessing the URL for your custom domain.
 
 ## Next steps
 

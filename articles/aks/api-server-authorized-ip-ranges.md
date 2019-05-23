@@ -188,7 +188,7 @@ FIREWALL_INTERNAL_IP=$(az network firewall show \
     --query ipConfigurations[0].privateIpAddress -o tsv)
 
 # Get the IP address of API server endpoint
-K8S_ENDPOINT_IP=$(k get endpoints -o=jsonpath='{.items[?(@.metadata.name == "kubernetes")].subsets[].addresses[].ip}')
+K8S_ENDPOINT_IP=$(kubectl get endpoints -o=jsonpath='{.items[?(@.metadata.name == "kubernetes")].subsets[].addresses[].ip}')
 ```
 
 Finally, create a route in the existing AKS network route table using the [az network route-table route create][az-network-route-table-route-create] command that allows traffic to use the Azure firewall appliance for API server communication.

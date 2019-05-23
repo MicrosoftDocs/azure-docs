@@ -4,7 +4,7 @@ description: Perform bulk operations in Azure Cosmos DB through bulk import and 
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 05/21/2018
 ms.author: ramkris
 ms.reviewer: sngun
 ---

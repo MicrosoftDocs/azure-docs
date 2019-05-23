@@ -22,14 +22,15 @@ While this application is written in C#, the API is a RESTful Web service compat
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-    * To install the NuGet package in Visual studio:
-        1. Right click in the Solution Explorer
-        2. Click **Manage NuGet Packages...**
-        3. Search for **newtonsoft.json** and install the package
+- Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 
-* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+- The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. To install the NuGet package in Visual Studio:
+
+   1. Right click your project in **Solution Explorer**.
+   2. Select **Manage NuGet Packages**.
+   3. Search for *Newtonsoft.Json* and install the package.
+
+- If you're using Linux/MacOS, this application can be run by  using [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

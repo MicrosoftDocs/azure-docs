@@ -255,7 +255,9 @@ Azure File Sync is available only in the following regions:
 | US Gov Texas (preview) | Texas |
 | US Gov Virginia (preview) | Virginia |
 | West Europe | Netherlands |
+| West Central US | Wyoming |
 | West US | California |
+| West US 2 | Washington |
 
 Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
 
@@ -297,7 +299,9 @@ To support the failover integration between geo-redundant storage and Azure File
 | US Gov Iowa         | US Gov Virginia    |
 | US Gov Virgini      | US Gov Texas       |
 | West Europe         | North Europe       |
+| West Central US     | West US 2          |
 | West US             | East US            |
+| West US 2           | West Central US    |
 
 ## Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

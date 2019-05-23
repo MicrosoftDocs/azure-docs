@@ -39,7 +39,7 @@ The following is a common Media Services streaming workflow where Dynamic Packag
 
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
-![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 ### Encode to adaptive bitrate MP4s
 
