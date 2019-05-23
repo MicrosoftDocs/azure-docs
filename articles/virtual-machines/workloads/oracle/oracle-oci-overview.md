@@ -17,11 +17,14 @@ ms.date: 05/15/2019
 ms.author: rogirdh
 ms.custom: 
 ---
-# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
+# (Preview) Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
 
 Microsoft and Oracle have partnered to provide low latency, high throughput cross-cloud connectivity, allowing you to take advantage of the best of both clouds. 
 
 Using this cross-cloud connectivity, you can host your application tier on Microsoft Azure and your database tier on Oracle Cloud Infrastructure (OCI). The experience is similar to running the entire solution stack in a single cloud.
+
+> [!IMPORTANT]
+> This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Scenario overview
 
@@ -38,6 +41,10 @@ Applications you can run in a cross-cloud configuration include:
 The following diagram is a high-level overview of the connected solution. for more information, see the following sections.
 
 ![Azure OCI solution overview](media/oracle-oci-overview/crosscloud.png)
+
+## Preview limitations
+
+* Cross-cloud connectivity in preview is limited to the Azure East US (eastus) region and the OCI Ashburn (us-ashburn-1) region.
 
 ## Networking
 
