@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure FXT Edge Filer network connections 
-description: 
+description: How to cable the network ports in Azure FXT Edge Filer hardware
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
@@ -108,8 +108,8 @@ Follow these instructions to route the cables through the CMA:
 1. Swing the CMA back into place on the tray (4).
 1. Use the preinstalled status indicator cable at the back of the system and secure the cable by routing it through the CMA. Attach the other end of the cable to the corner of the outer CMA basket (5). 
 
-> [!CAUTION]
-> To avoid potential damage from protruding cables, secure any slack in the status indicator cable after routing this cable through the CMA. 
+   > [!CAUTION]
+   > To avoid potential damage from protruding cables, secure any slack in the status indicator cable after routing this cable through the CMA. 
 
 ![Illustration of CMA with cables installed](media/cma-cabling-scan-400.png)
 

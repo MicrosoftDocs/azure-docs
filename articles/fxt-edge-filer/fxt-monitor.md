@@ -1,8 +1,8 @@
 ---
 title: Monitor the Azure FXT Edge Filer 
-description: How to monitor hardware status for the Azure FXT Edge Filer Hybrid Storage Cache
+description: How to monitor hardware status for the Azure FXT Edge Filer hybrid storage cache
 author: ekpgh
-ms.service: 
+ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: v-erkell

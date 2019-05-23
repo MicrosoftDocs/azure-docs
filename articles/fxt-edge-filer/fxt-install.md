@@ -70,8 +70,8 @@ The Azure FXT Edge Filer hybrid storage cache is made up of three or more Edge F
 
 * Before you begin, read the safety instructions in the Safety, Environmental, and Regulatory Information booklet that was shipped with your device.
 
-> [!NOTE]
-> Always use two people when lifting the node, including when you install it in a rack or remove it from the rack. 
+  > [!NOTE]
+  > Always use two people when lifting the node, including when you install it in a rack or remove it from the rack. 
 
 * Identify the type of rail installation used with your equipment rack. 
   * For square or round hole snap-in racks, follow the tool-less rail instructions.

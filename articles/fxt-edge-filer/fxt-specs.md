@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure FXT Edge Filer specifications | Microsoft Docs
-description: 
+description: Physical and environmental specifications for Azure FXT Edge Filer hardware
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
@@ -154,7 +154,6 @@ This section gives specifications for the hardware's ambient environment.
 | Shock, non-operational     | 71 G for 2 milliseconds (tested in 6 orientations) |
 | Vibration, operational     | 0.26 G<sub>RMS</sub> 5 Hz to 350 Hz random         |
 | Vibration, non-operational | 1.88 G<sub>RMS</sub> 10 Hz to 500 Hz for 15 minutes (all six sides tested)  |
-
 
 ## Safety regulation compliance 
 
