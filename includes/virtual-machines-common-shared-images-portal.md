@@ -51,7 +51,6 @@ Create the gallery image definition inside of your gallery. In this example, the
 1. When the deployment is finished, select **Go to resource**.
 
 
-
 ## Create an image version
 
 Create an image version from a managed image. In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
@@ -70,3 +69,20 @@ Allowed characters for image version are numbers and periods. Numbers must be wi
 1. When the deployment is finished, select **Go to resource**.
 
 It can take a while to replicate the image to all of the target regions.
+
+## Share the gallery
+
+We recommend that you share access at the image gallery level. The following walks you through sharing the gallery that you just created.
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. In the menu at the left, select **Resource groups**. 
+1. In the list of resource groups, select **myGalleryRG**. The blade for your resource group will open.
+1. In the menu on the left of the **myGalleryRG** page, select **Access control (IAM)**. 
+1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
+1. Under **Role**, select **Reader**.
+1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.
+1. Under **Select**, type in the email address of the person that you would like to invite.
+1. If the user is outside of your organization, you will see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
+
+If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
+
