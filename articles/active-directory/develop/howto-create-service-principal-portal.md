@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2019
+ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
@@ -36,11 +36,11 @@ Let's jump straight into creating the identity. If you run into a problem, check
 
    ![Select app registrations](./media/howto-create-service-principal-portal/select-app-registrations.png)
 
-1. Select **New application registration**.
+1. Select **New registration**.
 
    ![Add app](./media/howto-create-service-principal-portal/select-add-app.png)
 
-1. Provide a name and URL for the application. Select **Web app / API** for the type of application you want to create. You can't create credentials for a [Native application](../manage-apps/application-proxy-configure-native-client-application.md). You can't use that type for an automated application. After setting the values, select **Create**.
+1. Provide a name for the application. Select a supported account type, which determines who can use the application. Under **Redirect URI**, select **Web** for the type of application you want to create. Enter the URI where the access token is sent to.  You can't create credentials for a [Native application](../manage-apps/application-proxy-configure-native-client-application.md). You can't use that type for an automated application. After setting the values, select **Register**.
 
    ![Name application](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -77,31 +77,41 @@ Your service principal is set up. You can start using it to run your scripts or 
 
 ## Get values for signing in
 
-### Get tenant ID
-
-When programmatically signing in, you need to pass the tenant ID with your authentication request.
+When programmatically signing in, you need to pass the tenant ID with your authentication request. You also need the ID for your application and an authentication key. To get those values, use the following steps:
 
 1. Select **Azure Active Directory**.
-1. Select **Properties**.
-
-   ![Select Azure AD properties](./media/howto-create-service-principal-portal/select-ad-properties.png)
-
-1. Copy the **Directory ID** to get your tenant ID.
-
-   ![Tenant ID](./media/howto-create-service-principal-portal/copy-directory-id.png)
-
-### Get application ID and authentication key
-
-You also need the ID for your application and an authentication key. To get those values, use the following steps:
 
 1. From **App registrations** in Azure AD, select your application.
 
    ![Select application](./media/howto-create-service-principal-portal/select-app.png)
 
+1. Copy the Directory (tenant) ID and store it in your application code.
+
+    ![Tenant ID](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+
 1. Copy the **Application ID** and store it in your application code.
 
    ![Client ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
+## Certificates and secrets
+Deamon applications can use two forms of credentials to authenticate with Azure AD: certificates and application secrets.  We recommend using a certificate, but you can also create a new application secret.
+
+### Upload a certificate
+
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Export this certificate using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
+
+To upload the certificate:
+1. Select **Certificates & secrets**.
+
+   ![Select settings](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. Click on **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
+    ![Upload certificate](./media/howto-create-service-principal-portal/upload-cert.png)
+1. Click **Add**.
+
+After registering the certificate with your application in the application registration portal, you need to enable the client application code to use the certificate.
+
+### Create a new application secret
+If you choose not to use a certificate, you can create a new application secret.
 1. Select **Certificates & secrets**.
 
    ![Select settings](./media/howto-create-service-principal-portal/select-certs-secrets.png)
