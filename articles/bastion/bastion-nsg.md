@@ -37,7 +37,7 @@ In the diagram:
 
 ## <a name="apply"></a>Apply NSGs to AzureBastionSubnet
 
-If you apply NSGs to the **AzureBastionSubnet**, allow the following two service tags for Azure Control plane & Infrastructure:
+If you apply NSGs to the **AzureBastionSubnet**, allow the following two service tags for Azure Control plane and Infrastructure:
 
 * **GatewayManager (Resource Manager only)**: This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify GatewayManager for the value, traffic is allowed or denied to GatewayManager.
 
