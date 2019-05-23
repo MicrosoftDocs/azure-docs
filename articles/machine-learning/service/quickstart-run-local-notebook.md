@@ -29,14 +29,29 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * A Python 3.6 notebook server with the Azure Machine Learning SDK installed
 * An Azure Machine Learning service workspace
-* A workspace configuration file (**.azureml/config.json** ).
+* A workspace configuration file (**.azureml/config.json**).
 
-Get all these prerequisites from [Create an Azure Machine Learning service workspace](setup-create-workspace.md#portal).
+Get all these prerequisites from [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk).
+
 
 
 ## Use the workspace
 
-Create a script or start a notebook in the same directory as your workspace configuration file. Run this code that uses the basic APIs of the SDK to track experiment runs.
+Create a script or start a notebook in the same directory as your workspace configuration file (**.azureml/config.json**).
+
+### Attach to workspace
+
+This code reads information from the configuration file to attach to your workspace.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### Log values
+
+Run this code that uses the basic APIs of the SDK to track experiment runs.
 
 1. Create an experiment in the workspace.
 1. Log a single value into the experiment.
