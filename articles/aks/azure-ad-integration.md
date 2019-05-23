@@ -25,11 +25,11 @@ This article explains how to deploy the prerequisites for AKS and Azure AD. It a
 
 Azure AD authentication is provided to AKS clusters that have OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol.
 
-For more information about OpenID Connect, see the [Open ID connect documentation][open-id-connect].
+For more information about OpenID Connect, see [Authorize access to web applications using OpenID Connect and Azure AD][open-id-connect].
 
 Inside a Kubernetes cluster, webhook token authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
-For more information about webhook token authentication, see the [Webhook Token Authentication section in Kubernetes Documentation][kubernetes-webhook].
+For more information about webhook token authentication, see the [Webhook Token Authentication][kubernetes-webhook] section in Kubernetes Documentation.
 
 To provide Azure AD authentication for an AKS cluster, two Azure AD applications are created. The first application is a server component that provides user authentication. The second application is a client component that's used when you're prompted by the CLI for authentication. This client application uses the server application for the actual authentication of the credentials provided by the client.
 
@@ -245,7 +245,7 @@ aks-nodepool1-79590246-1   Ready     agent     1h        v1.13.5
 aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 ```
 
-When the process is finished, the authentication token is cached. You're only prompted to sign in again when the token expires or the Kubernetes config file is re-created.
+When the process is finished, the authentication token is cached. You're only prompted to sign in again when the token expires, or the Kubernetes config file is re-created.
 
 If you see an authorization error message after you successfully sign in, check the following criteria:
 
