@@ -50,17 +50,35 @@ This example:
 
 * Sets the billing endpoint, `{BILLING_ENDPOINT}` from the host's environment key using `ENV`.
 * Sets the billing api key, `{ENDPOINT_KEY}` from the host's environment key using `ENV.
-* Copies the Language Understanding (LUIS) model file from the host's file system using `COPY`. The LUIS container supports more than one model. Make sure to copy each model if they are stored in separate folders. If all models are stored in the same folder, you all need one `COPY` statement.
+
+### Text Analytics Dockerfile with billing
+
+This example shows how to build the Text Analtyics' sentiment container from a Dockerfile.
+
+```Dockerfile
+FROM mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+ENV billing={BILLING_ENDPOINT}
+ENV apikey={ENDPOINT_KEY}
+```
+Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
+
+
+### Language understanding Dockerfile with billing and mounts 
+
+This example shows how to use Language Understanding, saving billing and models from the Dockerfile.
+
+* Copies the Language Understanding (LUIS) model file from the host's file system using `COPY`. The LUIS container supports more than one model. If all models are stored in the same folder, you all need one `COPY` statement.
+* Run the docker file from the relative parent of the model input directory. For the following example, run the `docker build` and `docker run` commands from the relative parent of `/input`.
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
 ENV billing={BILLING_ENDPOINT}
 ENV apikey={ENDPOINT_KEY}
-COPY {LUIS_MODEL_1} /input/
-COPY {LUIS_MODEL_1} /input/ 
+ENV EULA=accept
+COPY /input input
 ```
 
-Build and run the container locally or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
+Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
 
 ## How to use container reuse recipes on your local host
 
