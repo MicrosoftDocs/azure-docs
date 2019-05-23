@@ -66,27 +66,27 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||Pricing|
-|----|----|----|----|----|----|
-|Environment|Azure|Non-Azure|Azure|Non-Azure||
-|VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
-|Network-based threat detection alerts|✔|X|✔|X|Standard|
-|Windows Defender ATP integration|✔ (on supported versions)|✔|X|X|Standard|
-|Missing patches|✔|✔|✔|✔|Free|
-|Security configurations|✔|✔|✔|✔|Free|
-|Endpoint protection assessment|✔|✔|X|X|Free|
-|JIT VM access|✔|X|✔|X|Standard|
-|Adaptive application controls|✔|✔|✔|✔|Standard|
-|FIM|✔|✔|✔|✔|Standard|
-|Disk encryption assessment|✔|X|✔|X|Free|
-|Third-party deployment|✔|X|✔|X|Free|
-|NSGs assessment|✔|X|✔|X|Free|
+|Server||Windows|||Linux||Pricing|
+|----|----|----|----|----|----|----|----|
+|Environment|Azure||Non-Azure|Azure||Non-Azure|
+||Virtual Machine|Virtual Machine Scale Set||Virtual Machine|Virtual Machine Scale Set|
+|VMBA threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)||✔|Recommendations (Free) Threat Detection (Standard)|
+|Network-based threat detection alerts|✔|✔|X|✔|✔|X|Standard|
+|Windows Defender ATP integration|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
+|Missing patches|✔|✔|✔|✔|✔|✔|Free|
+|Security configurations|✔|✔|✔|✔|✔|✔|Free|
+|Endpoint protection assessment|✔|✔|✔|X|X|X|Free|
+|JIT VM access|✔|X|X|✔|X|X|Standard|
+|Adaptive application controls|✔|X|✔|✔|X|✔|Standard|
+|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
+|Third-party deployment|✔|X|X|✔|X|X|Free|
+|NSGs assessment|✔|✔|X|✔|✔|X|Free|
 |Fileless threat detection|✔|✔|X|X|Standard|
-|Network map|✔|X|✔|X|Standard|
-|Adaptive network controls|✔|X|✔|X|Standard|
-|Regulatory Compliance dashboard & reports|✔|✔|✔|✔|Standard|
-|Recommendations and threat detection on Docker-hosted IaaS containers|X|X|✔|✔|Standard|
-|Virtual machine scale set|✔|✔|NA|NA|Recommendations (Free) Threat Detection (Standard)|
+|Network map|✔|✔|X|✔|✔|X|Standard|
+|Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
+|Regulatory Compliance dashboard & reports|✔|✔|✔|✔|✔|✔|Standard|
+|Recommendations and threat detection on Docker-hosted IaaS containers|X|X|X|✔|✔|✔|Standard|
 
 ### Supported endpoint protection solutions
 
