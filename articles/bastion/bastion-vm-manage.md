@@ -24,11 +24,11 @@ This article helps you work with VMs. Before you work with a VM, make sure you h
 
 You can resize the remote session from the Browser to full-screen for a more productive seamless experience.
 
-1. During the remote session, launch the Bastion clipboard access tool palette by selecting the two arrows.  These are located on the left center of the session, image depicting the same is as below:
+1. During the remote session, launch the Bastion clipboard access tool palette by selecting the two arrows that located on the left center of the session.
 
-    image
+    ![Allow clipboard](./media/bastion-vm-manage/left.png)
 
-2. Select the Fullscreen button on the palette to switch the session to full screen experience.  Once you switch, the session will reinitialize to full screen seamless immersive experience.
+2. Select the Fullscreen button on the palette to switch the session to a full screen experience. Once you switch, the session will reinitialize to full screen.
 
 ##  Copy and paste text
 
