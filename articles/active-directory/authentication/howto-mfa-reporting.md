@@ -133,6 +133,8 @@ Identify users who have not registered for MFA using the PowerShell that follows
 
 ## Possible results in activity reports
 
+The following table may be used to troubleshoot multi-factor authentication using the downloaded version of the multi-factor authentication activity report. They will not appear directly in the Azure portal.
+
 | Call Result | Description | Broad description |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN Entered | The user entered a PIN.  If authentication succeeded then they entered the correct PIN.  If authentication is denied, then they entered an incorrect PIN or the user is set to Standard mode. |
