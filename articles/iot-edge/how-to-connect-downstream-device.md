@@ -4,7 +4,7 @@ description: How to configure downstream or leaf devices to connect through Azur
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/15/2019
+ms.date: 05/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,13 @@ ms.custom: seodec18
 
 # Connect a downstream device to an Azure IoT Edge gateway
 
-Azure IoT Edge enables transparent gateway scenarios, in which one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub. Once you have the gateway device configured, you need to know how to securely connect the downstream devices. 
+This article provides instructions for establishing a trusted connection between downstream devices and IoT Edge transparent gateways. In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub. A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). For all practical purposes, a downstream device could even be an application running on the IoT Edge gateway device itself. 
+
+There are three general steps to set up a successful transparent gateway connection. This article covers the second step.
+
+1. The gateway device needs to be able to securely connect to downstream devices, receive communications from downstream devices, and route messages to the proper destination. For more information, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
+2. **The downstream device needs to be able to securely connect to its gateway device.**
+3. The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 This article identifies common problems with downstream device connections and guides you in setting up your downstream devices by: 
 
@@ -44,15 +50,11 @@ A downstream device can be any application or platform that has an identity crea
 
 To connect a downstream device to an IoT Edge gateway, you need two things:
 
-1. A device or application that's configured with an IoT Hub device connection string appended with information to connect it to the gateway. 
-
-    The connection string is formatted like: `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;`. Append the **GatewayHostName** property with the hostname of the gateway device to the end of the connection string. The value of **GatewayHostName** should match the value of **hostname** in the gateway device's config.yaml file. 
-
-    The final string looks like: `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com`.
+1. A device or application that's configured with an IoT Hub device connection string appended with information to connect it to the gateway. This step is explained more in [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 2. The device or application has to trust the gateway's **root CA** or **owner CA** certificate to validate the TLS connections to the gateway device. 
 
-    This more complicated step is explained in detail in the rest of this article. This step can be performed one of two ways: by installing the CA certificate in the operating system's certificate store, or (for certain languages) referencing the certificate within applications using the Azure IoT SDKs.
+    This more complicated step is explained in detail in the rest of this article. This step can be performed one of two ways: by installing the CA certificate in the operating system's certificate store, or (for certain languages) by referencing the certificate within applications using the Azure IoT SDKs.
 
 ## TLS and certificate fundamentals
 
@@ -108,11 +110,7 @@ This section describes how the Azure IoT SDKs connect to an IoT Edge device usin
 
 Have two things ready before using the application-level samples:
 
-1. Your downstream device's IoT Hub connection string modified to point to the gateway device.
-
-    The connection string is formatted like: `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;`. Append the **GatewayHostName** property with the hostname of the gateway device to the end of the connection string. The value of **GatewayHostName** should match the value of **hostname** in the gateway device's config.yaml file. 
-
-    The final string looks like: `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com`.
+1. Your downstream device's IoT Hub connection string modified to point to the gateway device. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 2. The full path to the root CA certificate that you copied and saved somewhere on your downstream device.
 

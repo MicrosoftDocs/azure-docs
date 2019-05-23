@@ -15,15 +15,19 @@ ms.custom: seodec18
 
 In a transparent gateway scenario, downstream (or leaf) devices need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection.
 
-Use this article along with [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md), which explains how to create a trusted connection between the gateway and downstream device.
+There are three general steps to set up a successful transparent gateway connection. This article covers the third step.
 
-Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys, X.509 self-signed certificates, or x.509 certificate authority (CA) signed certificates. The authentication steps are very similar for those used to set up any non-IoT-Edge device with IoT Hub, with small differences for the gateway relationship.
+1. The gateway device needs to be able to securely connect to downstream devices, receive communications from downstream devices, and route messages to the proper destination. For more information, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
+2. The downstream device needs to be able to securely connect to its gateway device. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
+3. **The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device.**
+
+Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys (sometimes referred to as shared access keys), X.509 self-signed certificates, or x.509 certificate authority (CA) signed certificates. The authentication steps are very similar for those used to set up any non-IoT-Edge device with IoT Hub, with small differences for the gateway relationship.
 
 The steps in this article show manual device provisioning, not automatic provisioning with the Azure IoT Hub Device Provisioning Service. 
 
 ## Symmetric key authentication
 
-Symmetric key authentication, is the simplest way to authenticate with IoT Hub, and as such is usually the method you see in samples. With symmetric key authentication, a base64 key is associated with your IoT device ID in IoT Hub. You need to include that key in your IoT applications so that your device can present it when it connects to IoT Hub. 
+Symmetric key authentication, or shared access key authentication, is the simplest way to authenticate with IoT Hub, and as such is usually the method you see in samples. With symmetric key authentication, a base64 key is associated with your IoT device ID in IoT Hub. You need to include that key in your IoT applications so that your device can present it when it connects to IoT Hub. 
 
 ### Create the device identity 
 
@@ -63,7 +67,13 @@ Symmetric key connection strings for downstream devices need the following compo
 All together, a complete connection string looks like:
 
 ``` 
-HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz=;GatewayHostName=myGatewayDevice
+HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
+```
+
+If you established a parent/child relationship for this downstream device, then you can simplify the connection string by calling the gateway directly as the connection host. For example: 
+
+```
+HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 
 ## X.509 authentication 
