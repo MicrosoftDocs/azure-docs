@@ -1291,34 +1291,149 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-firewall-create",
+      "source_path": "articles/cosmos-db/powershell-samples.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-tags-update.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-get.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-firewall-create.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-key-get.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-create.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-create.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-custom.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-shared.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-unique-key-ttl.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-delete.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-delete.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-get.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-get.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-list.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-list.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-create-shared.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-failover-priority-update",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-failover-priority-update",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/scripts/ps-account-failover-priority-update.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-failover-priority-update",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-ru-update",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-get",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
@@ -3887,12 +4002,12 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-configure-secure-ldap.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap",
+      "redirect_url": "/azure/active-directory-domain-services/configure-ldaps",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-create-ou.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-create-ou",
+      "redirect_url": "/azure/active-directory-domain-services/create-ou",
       "redirect_document_id": false
     },
     {
@@ -3907,7 +4022,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-comparison.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-comparison",
+      "redirect_url": "/azure/active-directory-domain-services/comparison",
       "redirect_document_id": false
     },
     {
@@ -3917,12 +4032,12 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-contact-us.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
+      "redirect_url": "/azure/active-directory-domain-services/contact-us",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-faqs.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-faqs",
+      "redirect_url": "/azure/active-directory-domain-services/faqs",
       "redirect_document_id": false
     },
     {
@@ -3957,17 +4072,17 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-getting-started.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+      "redirect_url": "/azure/active-directory-domain-services/create-instance",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-networking.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-networking",
+      "redirect_url": "/azure/active-directory-domain-services/network-considerations",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-overview.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-overview",
+      "redirect_url": "/azure/active-directory-domain-services/overview",
       "redirect_document_id": false
     },
     {
@@ -3977,17 +4092,17 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-synchronization.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-synchronization",
+      "redirect_url": "/azure/active-directory-domain-services/synchronization",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-scenarios.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-scenarios",
+      "redirect_url": "/azure/active-directory-domain-services/scenarios",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-troubleshooting.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-troubleshooting",
+      "redirect_url": "/azure/active-directory-domain-services/troubleshoot",
       "redirect_document_id": false
     },
     {
@@ -14938,6 +15053,11 @@
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
+      "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
     },
     {
@@ -39059,6 +39179,131 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-troubleshoot-service-principals.md",
+      "redirect_url" : "/azure/active-directory-domain-services/alert-service-principal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-troubleshoot-nsg.md",
+      "redirect_url" : "/azure/active-directory-domain-services/alert-nsg",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-troubleshoot-ldaps.md",
+      "redirect_url" : "/azure/active-directory-domain-services/alert-ldaps",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-troubleshoot-alerts.md",
+      "redirect_url" : "/azure/active-directory-domain-services/troubleshoot-alerts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-suspension.md",
+      "redirect_url" : "/azure/active-directory-domain-services/suspension",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-secure-your-domain.md",
+      "redirect_url" : "/azure/active-directory-domain-services/secure-your-domain",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-scoped-synchronization.md",
+      "redirect_url" : "/azure/active-directory-domain-services/scoped-synchronization",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-password-policy.md",
+      "redirect_url" : "/azure/active-directory-domain-services/password-policy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-notifications.md",
+      "redirect_url" : "/azure/active-directory-domain-services/notifications",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-mismatched-tenant-error.md",
+      "redirect_url" : "/azure/active-directory-domain-services/mismatched-tenant-error",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-ldaps-troubleshoot.md",
+      "redirect_url" : "/azure/active-directory-domain-services/tshoot-ldaps",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-windows-vm-template.md",
+      "redirect_url" : "/azure/active-directory-domain-services/join-windows-vm-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md",
+      "redirect_url" : "/azure/active-directory-domain-services/join-ubuntu-linux-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md",
+      "redirect_url" : "/azure/active-directory-domain-services/join-rhel-linux-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-coreos-linux-vm.md",
+      "redirect_url" : "/azure/active-directory-domain-services/join-coreos-linux-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md",
+      "redirect_url" : "/azure/active-directory-domain-services/join-centos-linux-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-enable-using-powershell.md",
+      "redirect_url" : "/azure/active-directory-domain-services/powershell-create-instance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-enable-sharepoint-profile-sync.md",
+      "redirect_url" : "/azure/active-directory-domain-services/deploy-sp-profile-sync",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-enable-kcd.md",
+      "redirect_url" : "/azure/active-directory-domain-services/deploy-kcd",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-disable-aadds.md",
+      "redirect_url" : "/azure/active-directory-domain-services/delete-aadds",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-deploy-azure-app-proxy.md",
+      "redirect_url" : "/azure/active-directory-domain-services/deploy-azure-app-proxy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-csp.md",
+      "redirect_url" : "/azure/active-directory-domain-services/csp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-create-gmsa.md",
+      "redirect_url" : "/azure/active-directory-domain-services/create-gmsa",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-check-health.md",
+      "redirect_url" : "/azure/active-directory-domain-services/check-health",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md",
+      "redirect_url" : "/azure/active-directory-domain-services/manage-group-policy",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk",
       "redirect_document_id": false
@@ -39073,9 +39318,19 @@
       "redirect_url": "/azure/media-services/video-indexer/use-editor-create-project",
       "redirect_document_id": false
     },
-	   {
+    {
       "source_path": "articles/azure-monitor/app/asp-net-core-no-visualstudio.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-use-azcopy.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-use-azcopy-linux.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
       "redirect_document_id": false
     }
   ]
