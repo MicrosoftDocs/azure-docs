@@ -2,40 +2,54 @@
 title: Azure Table | Azure Marketplace
 description: Configure lead management for Azure Table.
 services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/22/2019
 ms.author: pabutler
 ---
 
-# Lead Management Instructions for Azure Table
+# Lead management instructions for Azure Table
 
 This article describes how to configure Azure Table for storing sales leads. Azure Table lets you store and customize customer information.
 
-## To configure Azure Table
 
-1.  If you don't have an Azure account, you can [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
+## How to configure Azure Table
 
-2.  After your Azure account is active, sign in to the [Azure     portal](https://portal.azure.com).
-3.  In the Azure portal, create a storage account. The next screen capture shows how to create a storage account. For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+1. If you don't have an Azure account, you can [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
+2. After your Azure account is active, sign in to the [Azure portal](https://portal.azure.com).
+3. In the Azure portal, create a storage account using the following procedure.  
+    1. Select **+Create a resource** in the left menubar.  The **New** pane (blade) will be displayed to the right.
+    2. Select **Storage** in the **New** pane.  A **Featured** list is displayed to the right.
+    3. Select **Storage Account** to begin account creation.  Follow the instructions in the article [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
     ![Steps to create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Copy the storage account connection string for the key and paste it into the **Storage Account Connection String** field on the Cloud Partner Portal. An example of a connection sting is `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
-    
-    ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+    For more information about storage accounts, select [Quickstart tutorial](https://docs.microsoft.com/azure/storage/).  For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-You can use [Azure storage explorer](https://azurestorageexplorer.codeplex.com/) or any other tool to see the data in your storage table. You can also export the data in Azure Table.
-data.
+4. Wait until your storage account is provisioned, a process that typically takes a few minutes.  Then access your storage account from the **Home** page of the Azure portal by selecting **See all your resources** or by selecting **All resources** from the left navigation menubar of the Azure portal.
 
-## **(Optional)** Use Microsoft Flow with an Azure table
+    ![Access your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to Azure table. If you don’t a have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+5. From your storage account pane, copy the storage account connection string for the key and paste it into the **Storage Account Connection String** field on the Cloud Partner Portal. An example of a connection sting is:
+
+```sql
+DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+```
+
+  ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+
+You can use [Azure storage explorer](https://azurestorageexplorer.codeplex.com/) or other similar tool to see the data in your storage table. You can also export the data from Azure tables.
+
+
+## Use Microsoft Flow with an Azure Table (*optional*) 
+
+You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to Azure table. If you don’t have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+
 
 ### Lead notification example
 
-Use this example as a guide to create a simple flow that automatically sends an email notification when a new lead is added to an Azure table. This example sets up a recurrence to send lead information every hour if table storage is updated.
+Use this example as a guide to create a basic flow that automatically sends an email notification when a new lead is added to an Azure table. This example sets up a recurrence to send lead information every hour if table storage is updated.
 
 1. Sign in to your Microsoft Flow account.
 2. On the left navigation bar, select **My flows**.
@@ -52,7 +66,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
    >[!NOTE] 
    >Although this example uses a 1-hour interval, you can select the interval and frequency that’s best for your business needs.
 
-   ![Set 1 hour frequency for recurrence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
+   ![Set 1-hour frequency for recurrence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
 9. Select **+ New step**.
 10. Search for “Get past time”, and then select **Get past time** under Actions. 
@@ -78,7 +92,7 @@ In next set of steps, you’ll connect to your Azure table, and set up the proce
 
      ![Pick a custom value for Azure table name](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filter query** – Click this field and the Get past time icon is displayed in a popup window. Select **Past time** to use this as timestamp to filter the query. Alternatively, you can paste this function into the field: `gt datetime'@{body('Get_past_time')}'`
+   - **Filter query** – Click this field and the **Get past time** icon is displayed in a popup window. Select **Past time** to use this as timestamp to filter the query. Alternatively, you can paste the following function into the field: CreatedTime `gt datetime'@{body('Get_past_time')}'` 
 
      ![Set up filter query function](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
@@ -109,20 +123,23 @@ In next set of steps, you’ll connect to your Azure table, and set up the proce
 
     - **To** - Enter an email address for everyone that will get this notification.
     - **Subject** – Provide a subject for the email. For example: New leads!
-    - **Body**:   Add the text that you want to include in each email (optional) and then paste in body  `('Get_entities')?['value']` as a function to insert lead information.
+    - **Body**:   Add the text that you want to include in each email (optional) and then paste in body  `body('Get_entities')?['value']` as a function to insert lead information.
 
       >[!NOTE] 
       >You can insert additional static or dynamic data points to the body of this email.
 
-       ![Set up email for lead notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
+      ![Set up email for lead notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
 13. Select **Save** to save the flow. Microsoft Flow will automatically test the flow for errors. If there aren’t any errors, your flow starts running after it’s saved.
 
 The next screen capture shows an example of how the final flow should look.
 
- ![Final flow sequence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+[![Final flow sequence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
-### Managing your flow
+(*Click on the image to enlarge.*)
+
+
+### Manage your flow
 
 Managing your flow after it’s running is easy.  You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The next screen capture shows the options that are available to manage a flow. 
 
@@ -133,6 +150,7 @@ The flow keeps running until you stop it by using the **Turn flow off** option.
 If you’re not getting any lead email notifications, it means that new leads haven’t been added to the Azure table. If there are any flow failures, you’ll get an email like the example in the next screen capture.
 
  ![Flow failure email notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
+
 
 ## Next steps
 

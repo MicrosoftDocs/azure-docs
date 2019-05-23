@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 05/22/2019
 ms.author: magoedte
 ---
 
@@ -71,10 +71,10 @@ The following table lists the Windows and Linux operating systems that are suppo
 
 |OS version |Performance |Maps |Health |
 |-----------|------------|-----|-------|
-|Windows Server 2019 | X | X | |
+|Windows Server 2019 | X | X | X |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
-|Windows Server 2012 R2 | X | X | |
+|Windows Server 2012 R2 | X | X | X |
 |Windows Server 2012 | X | X | |
 |Windows Server 2008 R2 | X | X| |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |

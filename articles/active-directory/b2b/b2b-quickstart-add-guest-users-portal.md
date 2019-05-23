@@ -10,7 +10,7 @@ ms.date: 07/02/2018
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 #Customer intent: As a tenant admin, I want to walk through the B2B  invitation workflow so that I can understand how to add a guest user in the portal, and understand the end user experience.
 ms.custom: "it-pro, seo-update-azuread-jan"

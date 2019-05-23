@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 05/17/2019
 ms.author: yizhon
 ---
 
@@ -121,7 +121,7 @@ The Windows version of the **iothub_client\_samples\_iothub_convenience_sample**
   ![Visual Studio Solution Explorer](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> If you open this project in Visual Studio 2017, accept the prompts to retarget the project to the latest version.
+> If Visual Studio asks you to retarget the project to the latest version, accept the prompt.
 
 This solution contains a single project. There are four NuGet packages installed in this solution:
 
@@ -334,7 +334,7 @@ Inside the **serializer** folder in the [azure-iot-sdk-c repository](https://git
   ![Visual Studio Solution for mqtt sample](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> If you open this project in Visual Studio 2017, accept the prompts to retarget the project to the latest version.
+> If Visual Studio asks you to retarget the project to the latest version, accept the prompt.
 
 As with the previous sample, this one includes several NuGet packages:
 
