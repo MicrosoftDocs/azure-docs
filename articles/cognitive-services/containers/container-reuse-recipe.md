@@ -59,6 +59,7 @@ This example shows how to build the Text Analtyics' sentiment container from a D
 FROM mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ENV billing={BILLING_ENDPOINT}
 ENV apikey={ENDPOINT_KEY}
+ENV EULA=accept
 ```
 Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
 
