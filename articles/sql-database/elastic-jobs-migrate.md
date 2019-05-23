@@ -26,7 +26,7 @@ The upgraded version of Elastic Database jobs has a new set of PowerShell cmdlet
 
 ### Install the latest Elastic Jobs cmdlets
 
-If you don't have already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 Install the **Az.Sql** 1.1.1-preview module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with  administrative access.
 
