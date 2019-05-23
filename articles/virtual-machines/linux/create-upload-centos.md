@@ -20,10 +20,11 @@ ms.author: szark
 ---
 # Prepare a CentOS-based virtual machine for Azure
 
+Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
+
 * [Prepare a CentOS 6.x virtual machine for Azure](#centos-6x)
 * [Prepare a CentOS 7.0+ virtual machine for Azure](#centos-70)
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Prerequisites
 
@@ -47,7 +48,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 3. In CentOS 6, NetworkManager can interfere with the Azure Linux agent. Uninstall this package by running the following command:
 
-        # sudo rpm -e --nodeps NetworkManager
+        sudo rpm -e --nodeps NetworkManager
 
 4. Create or edit the file `/etc/sysconfig/network` and add the following text:
 
@@ -66,12 +67,12 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 6. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
-        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+        sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 7. Ensure the network service will start at boot time by running the following command:
 
-        # sudo chkconfig network on
+        sudo chkconfig network on
 
 8. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the `/etc/yum.repos.d/CentOS-Base.repo` file with the following repositories.  This will also add the **[openlogic]** repository that includes additional packages such as the Azure Linux agent:
 
@@ -131,11 +132,11 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 10. Run the following command to clear the current yum metadata and update the system with the latest packages:
 
-        # yum clean all
+        yum clean all
 
     Unless you are creating an image for an older version of CentOS, it is recommended to update all the packages to the latest:
 
-        # sudo yum -y update
+        sudo yum -y update
 
     A reboot may be required after running this command.
 
@@ -144,14 +145,14 @@ This article assumes that you have already installed a CentOS (or similar deriva
     > [!IMPORTANT]
     > The step is **required** for CentOS 6.3 and earlier, and optional for later releases.
 
-        # sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
-        # sudo yum install microsoft-hyper-v
+        sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
+        sudo yum install microsoft-hyper-v
 
     Alternatively, you can follow the manual installation instructions on the [LIS download page](https://go.microsoft.com/fwlink/?linkid=403033) to install the RPM onto your VM.
 
 12. Install the Azure Linux Agent and dependencies:
 
-        # sudo yum install python-pyasn1 WALinuxAgent
+        sudo yum install python-pyasn1 WALinuxAgent
 
     The WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 3.
 
@@ -184,9 +185,9 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 16. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+        sudo waagent -force -deprovision
+        export HISTSIZE=0
+        logout
 
 17. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
@@ -226,7 +227,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 5. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
-        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
 6. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the `/etc/yum.repos.d/CentOS-Base.repo` file with the following repositories.  This will also add the **[openlogic]** repository that includes packages for the Azure Linux agent:
 
@@ -273,11 +274,11 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 7. Run the following command to clear the current yum metadata and install any updates:
 
-        # sudo yum clean all
+        sudo yum clean all
 
     Unless you are creating an image for an older version of CentOS, it is recommended to update all the packages to the latest:
 
-        # sudo yum -y update
+        sudo yum -y update
 
     A reboot maybe required after running this command.
 
@@ -293,7 +294,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 9. Once you are done editing `/etc/default/grub` per above, run the following command to rebuild the grub configuration:
 
-        # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+        sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 10. If building the image from **VMware, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
 
@@ -303,12 +304,12 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
     Rebuild the initramfs:
 
-        # sudo dracut -f -v
+        sudo dracut -f -v
 
 11. Install the Azure Linux Agent and dependencies:
 
-        # sudo yum install python-pyasn1 WALinuxAgent
-        # sudo systemctl enable waagent
+        sudo yum install python-pyasn1 WALinuxAgent
+        sudo systemctl enable waagent
 
 12. Do not create swap space on the OS disk.
 
@@ -322,9 +323,9 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 13. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+        sudo waagent -force -deprovision
+        export HISTSIZE=0
+        logout
 
 14. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
