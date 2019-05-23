@@ -31,7 +31,7 @@ This ability to specify different filters on your stream, provides a powerful **
 > Dynamic Manifests do not change the asset and the default manifest for that asset. 
 > 
 
-### Examples of URLs with filters
+### Examples: URLs with filters in query string
 
 Filters could be applied to adaptive bitrate streaming protocols: Apple HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming. The following table shows some examples of URLs with filters:
 
