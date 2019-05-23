@@ -76,7 +76,7 @@ FROM <container-registry>/<cognitive-service-container-name>:<tag>
 ENV billing={BILLING_ENDPOINT}
 ENV apikey={ENDPOINT_KEY}
 ENV EULA=accept
-COPY /input input
+COPY /input /input
 ```
 
 Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
@@ -89,10 +89,10 @@ To build the Docker file, replace `<your-image-name>` with the new name of the i
 docker build -t <your-image-name> .
 ```
 
-To run the image:
+To run the image, and remove it when the container stops (`--rm`):
 
 ```console
-docker run -rt <your-image-name>
+docker run --rm <your-image-name>
 ```
 
 
