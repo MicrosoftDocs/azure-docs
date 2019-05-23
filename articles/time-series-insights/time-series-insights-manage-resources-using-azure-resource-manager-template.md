@@ -4,7 +4,7 @@ description: This article describes how to manage your Azure Time Series Insight
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data

@@ -4,17 +4,17 @@ title: Azure Cosmos DB Documentation
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: Azure Cosmos DB Documentation - Tutorials, API Reference
-  description: Learn how to use Azure Cosmos DB to build globally distributed multi-model databases. Tutorials show you how to build and query document, key/value, and graph databases.
+  description: Learn how to use Azure Cosmos DB, globally distributed multi-model database service. Tutorials show you how to build and query document, key/value, and graph databases.
   
   author: SnehaGunda
   ms.author: sngun
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 05/20/2019
   experimental: true
   experiment_id: "414cc76e-9d52-4a"
 abstract:
-  description: Azure Cosmos DB is a globally distributed, multi-model database service that supports document, key-value, wide-column, and graph databases. Learn how to use Azure Cosmos DB with our quickstarts, tutorials, and samples.
+  description: Azure Cosmos DB is a fully managed database service with turnkey global distribution and transparent multi-master replication. You can run globally distributed, low-latency operational and analytics workloads and AI on transactional data within your database. Learn how to use Azure Cosmos DB with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 

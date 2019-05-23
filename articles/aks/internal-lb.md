@@ -25,6 +25,8 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+The AKS cluster service principal needs permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
+
 ## Create an internal load balancer
 
 To create an internal load balancer, create a service manifest named `internal-lb.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* annotation as shown in the following example:
@@ -149,3 +151,4 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

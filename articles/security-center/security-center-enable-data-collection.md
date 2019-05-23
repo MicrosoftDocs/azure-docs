@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Data collection in Azure Security Center

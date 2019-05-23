@@ -188,7 +188,7 @@ Follow these steps to clean up resources as you desire.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Start** button. To resume compute, click **Start**.
+2. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Resume** button. To resume compute, click **Resume**.
 
 3. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
 
