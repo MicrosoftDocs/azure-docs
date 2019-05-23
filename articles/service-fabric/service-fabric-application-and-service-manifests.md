@@ -160,7 +160,11 @@ Within the ServiceManifestImport, you override configuration values in Settings.
 
 **Certificates** (not set in the preceding example) declares the certificates used to [setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) or [encrypt secrets in the application manifest](service-fabric-application-secret-management.md).
 
-**Policies** (not set in the preceding example) describes the log collection, [default run-as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), and [security access](service-fabric-application-runas-security.md) policies to set at the application level.
+**Policies** (not set in the preceding example) describes the log collection, [default run-as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), and [security access](service-fabric-application-runas-security.md) policies to set at the application level, including whether the service(s) have access to the Service Fabric runtime.
+
+> [!NOTE] 
+> By default, Service Fabric applications have access to the Service Fabric runtime, in the form of an endpoint accepting application-specific requests. Consider disabling this access when the application hosts untrusted code. For more information, please see [security best practices in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **Principals** (not set in the preceding example) describe the security principals (users or groups) required to [run services and secure service resources](service-fabric-application-runas-security.md).  Principals are referenced in the **Policies** sections.
 
