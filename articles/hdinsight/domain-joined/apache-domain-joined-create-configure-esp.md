@@ -164,41 +164,64 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
 Create an user-assigned managed identity that will be used to configure Azure Azure Active Directory Domain Services (Azure AD-DS). For more information on creating a user-assigned managed identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image082.png)
+1. Sign in to the Azure portal.
+1. Click **Create a resource** and type **managed identity**. Select **User Assigned Managed Identity** > **Create**.
+1. Enter **HDIFabrikamManagedIdentity** as the **Resource Name**.
+1. Select your subscription.
+1. Under **Resource group** click **Create new** and enter **HDIFabrikam-CentralUS**.
+1. Select **Central US** under **Location**.
+1. Click **Create**.
+
+![create a new user-assigned managed identity](./media/apache-domain-joined-create-configure-esp/image082.png)
+
+### Create a new Azure Active Directory
+
+1. Sign in to the Azure portal.
+1. Click **Create a resource** and type **directory**. Select **Azure Active Directory** > **Create**.
+1. Enter **HDIFabrikam** under **Organization name**.
+1. Enter **HDIFabrikamoutlook** under **Initial domain name**.
+1. Click **Create**.
+
+![create a new azure active directory](./media/apache-domain-joined-create-configure-esp/create-new-directory.png)
 
 ### Enable Azure Active Directory Domain Services using the Azure portal
 
 For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
-1. Create the Virtual Network to host AADDS. Run the following powershell code.
+1. Create the Virtual Network to host Azure AD-DS. Run the following powershell code.
 
     ```powershell
     Connect-AzAccount
     Get-AzSubscription
     Set-AzContext -Subscription 'SUBSCRIPTION_ID'
-    $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS -Location 'Central US' -Name HDIFabrikam-AADDSVNET -AddressPrefix 10.1.0.0/16
-    $subnetConfig = Add-AzVirtualNetworkSubnetConfig -Name -AddressPrefix 10.1.0.0/24 -VirtualNetwork $virtualNetwork
+    $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS' -Location 'Central US' -Name 'HDIFabrikam-AADDSVNET' -AddressPrefix 10.1.0.0/16
+    $subnetConfig = Add-AzVirtualNetworkSubnetConfig -Name 'AADDS-subnet' -AddressPrefix 10.1.0.0/24 -VirtualNetwork $virtualNetwork
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
 1. Sign in to the Azure portal.
-1. Select the Azure Active Directory created for this tutorial, **HDIFabrikam**.
+1. Click **Create resource**, enter **Domain services** and select **Azure AD Domain Services**.
+1. On the **Basics** screen complete the following steps:
+    1. Under **Directory name** select the Azure Active Directory created for this tutorial, **HDIFabrikam**.
+    1. Enter a **DNS domain name** of **HDIFabrikam.com**.
+    1. Select your subscription.
+    1. Specify the resource group **HDIFabrikam-CentralUS** and the **Location** of **Central US**.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
 
-1. Select the network and the subnet that you created in the previous step.
+1. On the **Network** screen complete, select the network (**HDIFabrikam-VNET**) and the subnet (**AADDS-subnet**) that you created with the previous powershell script. Or you can use the **Create new** option to create a virtual network now.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image086.png)
 
-1. Click **OK** on the **Adminstrator group** screen. You can optionally modify membership of this group, but it is not required for the steps of this tutorial.
+1. On the **Administrator group** screen, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can optionally modify membership of this group, but it is not required for the steps of this tutorial. Click **OK**.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image088.png)
 
-1. Enable complete synchronization by selecting **All** on the synchronization screen and clicking **OK**.
+1. On the **Synchronization** screen, enable complete synchronization by selecting **All** and then click **OK**.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image090.png)
 
-1. Verify the details for the Azure DS-DS and click **Ok**.
+1. On the **Summary** screen, verify the details for the Azure AD-DS and click **Ok**.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image092.png)
 
@@ -240,6 +263,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
 -Type SSLServerAuthentication -DnsName *.hdifabrikam.com, hdifabrikam.com
 ```
+
 Verify that the certificate is installed in the computer\'s Personal store. Complete the following steps:
 
 1. Start Microsoft Management Console (MMC).
@@ -269,8 +293,22 @@ click **Next**.
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image113.png)
 
 1. Now that you enabled Secure LDAP, make sure it is reachable by enabling port 636.
+    1. Click the network security group **AADDS-HDIFabrikam.com-NSG** in the **HDIFabrikam-CentralUS** resource group.
+    1. Under **Settings** click **Inbound security rules** > **Add**.
+    1. On the **Add inbound security rule** screen, enter the following properties and click **Add**:
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image115.jpg)
+        | Property | Value |
+        |---|---|
+        | Source | Any |
+        | Source port ranges | * |
+        | Destination | Any |
+        | Destination port range | 636 |
+        | Protocol | Any |
+        | Action | Allow |
+        | Priority | <Desired Number> |
+        | Name | Port_LDAP_636 |
+
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/add-inbound-security-rule.png)
 
 1. `HDIFabrikamManagedIdentity` is the user-assigned managed identity, the HDInsight Domain Services Contributor role is enabled to the managed identity that will enable this Identity to read, create, modify, and delete domain services operations.
 
@@ -278,27 +316,26 @@ click **Next**.
 
 ## Creating Enterprise Security Package Enabled HDInsight cluster
 
-This Step requires 3 Pre-requisites.
+This step requires the following pre-requisites:
 
-1. First step is to create Virtual Network that will host ESP enabled HDInsight cluster
+1. Create a new resource group `HDIFabrikam-WestUS` in the location `West US`.
+1. Create a virtual network that will host ESP enabled HDInsight cluster.
 
     ```powershell
-    $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName HDIFabrikam-WestUS -Location 'west US' -Name HDIFabrikam-HDIVNet -AddressPrefix 10.1.0.0/16
-    $subnetConfig = Add-AzVirtualNetworkSubnetConfig -Name SparkSubnet -AddressPrefix 10.1.0.0/24 -VirtualNetwork $virtualNetwork
+    $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS' -Location 'West US' -Name 'HDIFabrikam-HDIVNet' -AddressPrefix 10.1.0.0/16
+    $subnetConfig = Add-AzVirtualNetworkSubnetConfig -Name 'SparkSubnet' -AddressPrefix 10.1.0.0/24 -VirtualNetwork $virtualNetwork
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
 1. Create a peer relationship between the Virtual Network that is hosting AADDS (`HDIFabrikam-AADDSVNET`) and the Virtual Network that will host the ESP enabled HDInsight cluster (`HDIFabrikam-HDIVNet `). Use the following powershell code to peer these two virtual networks.
 
     ```powershell
-    Add-AzVirtualNetworkPeering -Name HDIVNet-AADDSVNet -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS).Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-WestUS)
+    Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')
 
-    Add-AzVirtualNetworkPeering -Name AADDSVNet-HDIVNet -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-WestUS).Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS)
+    Add-AzVirtualNetworkPeering -Name 'AADDSVNet-HDIVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS')
     ```
 
 1. Create a new Azure Data Lake Storage Gen2 account, **Hdigen2store**, that is configured with the user managed identity **HDIFabrikamManagedIdentity**. For more information on creating Data Lake Storage Gen2 accounts enabled with user managed identities, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image119.png)
 
 1. Setup custom DNS on the **HDIFabrikam-AADDSVNET** virtual network.
     1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **HDIFabrikam-AADDSVNET** > **DNS servers**.
@@ -308,9 +345,8 @@ This Step requires 3 Pre-requisites.
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image123.png)
 
 1. Create a new ESP-enabled HDInsight Spark cluster.
-    1. Enter the desired details for section 1 **Basics**.
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image125.jpg)
+    1. Click **Custom (size, settings, apps)**.
+    2. Enter the desired details for section 1 **Basics**. Ensure that the **Cluster type** is **Spark 2.3 (HDI 3.6)** and the **Resource group** is **HDIFabrikam-CentralUS**
 
     1. Under section 2 **Security + Networking**, complete the following steps:
         1. Click **Enabled** under **Enterprise Security Package**.
