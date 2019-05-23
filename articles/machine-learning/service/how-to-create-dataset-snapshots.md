@@ -1,5 +1,5 @@
 ---
-title: Compare & reproduce data over time with snapshots
+title: Compare & reproduce data with dataset snapshots
 titleSuffix: Azure Machine Learning service
 description: Learn how to compare data over time and ensure reproducibility with dataset snapshots
 services: machine-learning
@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
-ms.date: 05/02/2019
+ms.date: 05/23/2019
 ---
 
 # Compare data and ensure reproducibility with snapshots (preview)
@@ -36,7 +36,7 @@ To create dataset snapshots, you need a registered Azure Machine Learning Datase
 
 ## Create dataset snapshots
 
-To create a snapshot of a dataset, use [`dataset.create_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) from the Azure Machine Learning SDK.
+To create a snapshot of a dataset, use [`dataset.create_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) from the azureml-datasets package of the Azure Machine Learning SDK.
 
 By default, the snapshot stores the profile (summary statistics) of the data with the latest [dataset definition](how-to-manage-dataset-definitions.md) applied. A dataset definition contains a record of any transformation steps defined for the data. It is a great way to make your data prep work reproducible.
 
