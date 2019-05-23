@@ -52,7 +52,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ### Release status 
 
-05/14/2019: TBD
+05/14/2019: Released for download
 
 
 ### Fixed issues 
