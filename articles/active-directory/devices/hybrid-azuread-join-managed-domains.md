@@ -176,7 +176,7 @@ Additionally, you need to enable **Allow updates to status bar via script** in t
 
 ### Configure Seamless SSO
 
-To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using Pass-through Authentication (PTA) or Password Hash Sync (PHS) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). If you are having trouble configuring Seamless SSO, see the article [Troubleshoot Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
+To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using Pass-through Authentication (PTA) or Password Hash Sync (PHS) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). If you are having trouble configuring Seamless SSO, see the article [Troubleshoot Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### Control Windows down-level devices 
