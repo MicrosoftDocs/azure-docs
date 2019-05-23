@@ -18,8 +18,8 @@ This article shows you how to use Azure Maps [Mobility service](https://aka.ms/A
 In this article you will learn, how to:
 
 
- *  request next real-time arrivals for all lines arriving at the given stop
- * request real-time information for a given bike docking station.
+ * Request next real-time arrivals for all lines arriving at the given stop
+ * Request real-time information for a given bike docking station.
 
 
 ## Prerequisites
