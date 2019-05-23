@@ -754,17 +754,3 @@
     href: /azure/architecture/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-  - name: Elastic jobs (deprecated)
-    items:
-    - name: Elastic jobs (deprecated)
-      href: sql-database-elastic-jobs-overview.md
-    - name: Install elastic job (deprecated)
-      href: sql-database-elastic-jobs-service-installation.md
-    - name: Create job - Portal (deprecated)
-      href: sql-database-elastic-jobs-create-and-manage.md
-    - name: Create job - Azure PowerShell (deprecated)
-      href: sql-database-elastic-jobs-powershell.md
-    - name: Create job - Sample app (deprecated)
-      href: sql-database-elastic-jobs-getting-started.md
-    - name: Uninstall elastic job (deprecated)
-      href: sql-database-elastic-jobs-uninstall.md

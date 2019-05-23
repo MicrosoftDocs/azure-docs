@@ -102,7 +102,7 @@ Steps for enabling modern authentication be found in the following articles:
 
 The policy **Baseline policy: Block legacy authentication (preview)** comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal.
 
-To enable this policy and protect your administrators:
+To enable this policy and protect your organization:
 
 1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
