@@ -47,7 +47,7 @@ The SAS is a URI that encompasses in its query parameters all the information ne
 Learn more:
 
 * [Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-* [Create and use an SAS with Blob storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Create and use an SAS with Blob storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 ## Encryption in transit
 

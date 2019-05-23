@@ -4,7 +4,7 @@ description: Learn about customizing prompt behavior in interactive calls using 
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

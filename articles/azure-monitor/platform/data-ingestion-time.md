@@ -98,7 +98,7 @@ Heartbeat
 | render timechart  
 ```
  
-Use the following query to show computer ingestion time by the country they are located in which is based on their IP address: 
+Use the following query to show computer ingestion time by the country/region they are located in which is based on their IP address: 
 
 ``` Kusto
 Heartbeat 

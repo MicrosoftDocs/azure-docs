@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/10/2019
 ms.author: diberry
 ---
 
@@ -62,7 +62,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 1. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the knowledge base before they're published.
 
-    ![Test Panel](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Test Panel](../media/qnamaker-quickstart-kb/inspect.png)
 
 1. Select **Test** again to close the **Test** pop-up.
 

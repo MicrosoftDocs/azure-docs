@@ -32,7 +32,7 @@ Version 9 of the Azure Search .NET SDK contains many changes from earlier versio
 ## What's new in version 9
 Version 9 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API, specifically 2019-05-06. This makes it possible to use new features of Azure Search from a .NET application, including the following:
 
-* [Cognitive Search](cognitive-search-concept-intro.md) is an AI feature in Azure Search, used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index.
+* [Cognitive search](cognitive-search-concept-intro.md) is an AI feature in Azure Search, used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index.
 * Support for [complex types](search-howto-complex-data-types.md) allows you to model almost any nested JSON structure in an Azure Search index.
 * [Autocomplete](search-autocomplete-tutorial.md) provides an alternative to the **Suggest** API for implementing search-as-you-type behavior. Autocomplete "finishes" the word or phrase that a user is currently typing.
 * [JsonLines parsing mode](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.

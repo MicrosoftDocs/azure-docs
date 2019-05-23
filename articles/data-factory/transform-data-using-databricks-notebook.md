@@ -29,7 +29,7 @@ You perform the following steps in this tutorial:
 
   - Monitor the pipeline run.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 For an eleven-minute introduction and demonstration of this feature, watch the following video:
 
@@ -41,37 +41,37 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 ## Create a data factory
 
-1.  Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+1.  Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 
-1.  Select **Create a resource** on the left menu, select **Analytics**, and then select **Data Factory**.
+1.  Select **Create a resource** on the left menu, select **Analytics**, and then select **Data Factory**.
 
     ![Create a new data factory](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
-1.  In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**.
+1.  In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**.
 
-    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](https://docs.microsoft.com/azure/data-factory/naming-rules) article.
+    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](https://docs.microsoft.com/azure/data-factory/naming-rules) article.
 
     ![Provide a name for the new data factory](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
-1.  For **Subscription**, select your Azure subscription in which you want to create the data factory.
+1.  For **Subscription**, select your Azure subscription in which you want to create the data factory.
 
-1.  For **Resource Group**, take one of the following steps:
+1.  For **Resource Group**, take one of the following steps:
     
-    - Select **Use existing** and select an existing resource group from the drop-down list.
+    - Select **Use existing** and select an existing resource group from the drop-down list.
     
-    - Select **Create new** and enter the name of a resource group.
+    - Select **Create new** and enter the name of a resource group.
 
-    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1.  For **Version**, select **V2**.
+1.  For **Version**, select **V2**.
 
-1.  For **Location**, select the location for the data factory.
+1.  For **Location**, select the location for the data factory.
 
     For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.
-1.  Select **Create**.
+1.  Select **Create**.
 
 
-1.  After the creation is complete, you see the **Data factory** page. Select the **Author & Monitor** tile to start the Data Factory UI application on a separate tab.
+1.  After the creation is complete, you see the **Data factory** page. Select the **Author & Monitor** tile to start the Data Factory UI application on a separate tab.
 
     ![Launch the data factory UI application](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
 
@@ -81,19 +81,19 @@ In this section, you author a Databricks linked service. This linked service con
 
 ### Create an Azure Databricks linked service
 
-1.  On the **Let's get started** page, switch to the **Edit** tab in the left panel.
+1.  On the **Let's get started** page, switch to the **Edit** tab in the left panel.
 
     ![Edit the new linked service](media/transform-data-using-databricks-notebook/get-started-page.png)
 
-1.  Select **Connections** at the bottom of the window, and then select **+ New**.
+1.  Select **Connections** at the bottom of the window, and then select **+ New**.
     
     ![Create a new connection](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  In the **New Linked Service** window, select **Compute** \> **Azure Databricks**, and then select **Continue**.
+1.  In the **New Linked Service** window, select **Compute** \> **Azure Databricks**, and then select **Continue**.
     
     ![Specify a Databricks linked service](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
-1.  In the **New Linked Service** window, complete the following steps:
+1.  In the **New Linked Service** window, complete the following steps:
     
     1.  For **Name**, enter ***AzureDatabricks\_LinkedService***
     
@@ -117,7 +117,7 @@ In this section, you author a Databricks linked service. This linked service con
 
 ## Create a pipeline
 
-1.  Select the **+** (plus) button, and then select **Pipeline** on the menu.
+1.  Select the **+** (plus) button, and then select **Pipeline** on the menu.
 
     ![Buttons for creating a new pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
@@ -127,15 +127,15 @@ In this section, you author a Databricks linked service. This linked service con
 
     ![Create the name parameter](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image11.png)
 
-1.  In the **Activities** toolbox, expand **Databricks**. Drag the **Notebook** activity from the **Activities** toolbox to the pipeline designer surface.
+1.  In the **Activities** toolbox, expand **Databricks**. Drag the **Notebook** activity from the **Activities** toolbox to the pipeline designer surface.
 
     ![Drag the notebook to the designer surface](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
-1.  In the properties for the **Databricks** **Notebook** activity window at the bottom, complete the following steps:
+1.  In the properties for the **Databricks** **Notebook** activity window at the bottom, complete the following steps:
 
-    a. Switch to the **Azure Databricks** tab.
+    a. Switch to the **Azure Databricks** tab.
 
-    b. Select **AzureDatabricks\_LinkedService** (which you created in the previous procedure).
+    b. Select **AzureDatabricks\_LinkedService** (which you created in the previous procedure).
 
     c. Switch to the **Settings** tab
 
@@ -177,17 +177,17 @@ In this section, you author a Databricks linked service. This linked service con
 
     b.  Name the parameter as **input** and provide the value as expression **\@pipeline().parameters.name**.
 
-1.  To validate the pipeline, select the **Validate** button on the toolbar. To close the validation window, select the **\>\>** (right arrow) button.
+1.  To validate the pipeline, select the **Validate** button on the toolbar. To close the validation window, select the **\>\>** (right arrow) button.
 
     ![Validate the pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 
-1.  Select **Publish All**. The Data Factory UI publishes entities (linked services and pipeline) to the Azure Data Factory service.
+1.  Select **Publish All**. The Data Factory UI publishes entities (linked services and pipeline) to the Azure Data Factory service.
 
     ![Publish the new data factory entities](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
 
 ## Trigger a pipeline run
 
-Select **Trigger** on the toolbar, and then select **Trigger Now**.
+Select **Trigger** on the toolbar, and then select **Trigger Now**.
 
 ![Select the Trigger Now command](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image20.png)
 
@@ -197,17 +197,17 @@ The **Pipeline Run** dialog box asks for the **name** parameter. Use **/path/fil
 
 ## Monitor the pipeline run
 
-1.  Switch to the **Monitor** tab. Confirm that you see a pipeline run. It takes approximately 5-8 minutes to create a Databricks job cluster, where the notebook is executed.
+1.  Switch to the **Monitor** tab. Confirm that you see a pipeline run. It takes approximately 5-8 minutes to create a Databricks job cluster, where the notebook is executed.
 
     ![Monitor the pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
-1.  Select **Refresh** periodically to check the status of the pipeline run.
+1.  Select **Refresh** periodically to check the status of the pipeline run.
 
-1.  To see activity runs associated with the pipeline run, select **View Activity Runs** in the **Actions** column.
+1.  To see activity runs associated with the pipeline run, select **View Activity Runs** in the **Actions** column.
 
     ![View the activity runs](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
 
-You can switch back to the pipeline runs view by selecting the **Pipelines** link at the top.
+You can switch back to the pipeline runs view by selecting the **Pipelines** link at the top.
 
 ## Verify the output
 

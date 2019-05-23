@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ---
@@ -33,15 +33,11 @@ You deploy the topology template before deploying the rollout template.
 
 The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## Supported locations
-
-For the preview, Deployment Manager resources are supported in Central US and East US 2. When you define resources in your topology and rollout templates, such as the service units, artifact sources, and rollouts described in this article, you must specify one of those regions for the location. However, the resources that you deploy to create your service, such as the virtual machines, storage accounts, and web apps, are supported in all of their [standard locations](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## Identity and access
 
 With Deployment Manager, a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) performs the deployment actions. You create this identity before starting your deployment. It must have access to the subscription you're deploying the service to, and sufficient permission to complete the deployment. For information about the actions granted through roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-The identity must reside in one of the supported locations for Deployment Manager, and it must reside in the same location as the rollout.
+The identity must reside in the same location as the rollout.
 
 ## Topology template
 
@@ -216,7 +212,8 @@ The wait step pauses the deployment before continuing. It allows you to verify t
 
 The duration property uses [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). The preceding example specifies a one-minute wait.
 
-For more information about the health check step, see []() and []()
+For more information about the health check step, see [Introduce health integration rollout to Azure Deployment Manager](./deployment-manager-health-check.md) and [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+
 For more information, see [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### Rollouts

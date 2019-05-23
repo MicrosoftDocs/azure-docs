@@ -4,7 +4,7 @@ description: Learn about acquiring and caching tokens using the Microsoft Authen
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

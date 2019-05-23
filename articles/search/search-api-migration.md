@@ -30,7 +30,7 @@ Version 2019-05-06 is the newest generally available release of the Azure Search
 
 * [JsonLines parsing modes](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
 
-* [Cognitive Search](cognitive-search-concept-intro.md) provides indexing that leverages the AI enrichment engines of Cognitive Services.
+* [Cognitive search](cognitive-search-concept-intro.md) provides indexing that leverages the AI enrichment engines of Cognitive Services.
 
 Several preview feature releases coincide with this generally available update. To review the list of new preview features, see [Search REST api-version 2019-05-06-Preview](search-api-preview.md).
 

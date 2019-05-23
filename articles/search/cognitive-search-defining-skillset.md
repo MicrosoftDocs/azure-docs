@@ -244,7 +244,7 @@ Until now, this structure has been internal-only, memory-only, and used only in 
 
 ## Add a knowledge store
 
-[Knowledge Store](knowledge-store-concept-intro.md) is a preview feature in Azure Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
+[Knowledge store](knowledge-store-concept-intro.md) is a preview feature in Azure Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
 
 A knowledge store definition is added to a skillset. For a  walkthrough of the entire process, see [How to get started with knowledge store](knowledge-store-howto.md).
 
