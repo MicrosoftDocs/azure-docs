@@ -30,7 +30,7 @@ Filters are server-side rules that allow your customers to do things like:
 
 Media Services enables you to create **Account filters** and **Asset filters** for your content. In addition, you can associate your pre-created filters with a **Streaming Locator**.
 
-## Define filters
+## Defining filters
 
 There are two types of filters: 
 
@@ -133,9 +133,9 @@ The following example defines a Live Streaming filter:
 }
 ```
 
-## Associate filters with Streaming Locator
+## Associating filters with Streaming Locator
 
-You can specify a list of [asset or account filters](filters-concept.md) on your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. 
+You can specify a list of [asset or account filters](filters-concept.md) on your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on the Streaming Locator. 
 
 See the following examples:
 
