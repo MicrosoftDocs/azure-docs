@@ -4,7 +4,7 @@ description: This article describes certification coverage for Azure Cosmos DB c
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
 

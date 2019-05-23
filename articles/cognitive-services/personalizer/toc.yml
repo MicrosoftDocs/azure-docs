@@ -24,7 +24,7 @@
     displayName: best practice, design
   - name: Fundamental concepts
     items: 
-    - name: "Features: Action and context"
+    - name: "Features Action and Context"
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set
     - name: Rewards
@@ -65,6 +65,8 @@
   items:
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing 
