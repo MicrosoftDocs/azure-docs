@@ -820,6 +820,7 @@ In order to provide the best user experience using Azure Search, we need to add 
 
 These next steps are addressed are in a series of tutorials. Let's start with paging.
 
-> TBD Link to Paging of Azure Search results
+> [!div class="nextstepaction"]
+> [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md)
 
 
