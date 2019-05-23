@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/23/2019
 ms.author: tomfitz
 
 ---
@@ -170,7 +170,21 @@ After defining your template, you're ready to deploy the resources to Azure. To 
 
 When deploying a complex service to Azure, you might need to deploy your service to multiple regions, and check its health before proceeding to the next step. Use [Azure Deployment Manager](deployment-manager-overview.md) to coordinate a staged rollout of the service. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need these precautions, the deployment operations in the preceding section are the better option.
 
-Deployment Manager is currently in private preview.
+Deployment Manager is currently in public preview.
+
+## Resiliency of Azure services and APIs
+
+Azure REST APIs, Azure CLI, and Azure portal are continuously available. The Key Vault service and control plane operations in the REST API are:
+
+* Designed for resiliency and continuous availability.
+
+* Distributed across regions.
+
+* Distributed across Availability Zones (as well regions) in locations that have multiple Availability Zones.
+
+* Not dependent on a single logical data center.
+
+* Never taken down for maintenance activities
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
