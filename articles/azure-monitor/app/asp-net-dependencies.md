@@ -29,6 +29,8 @@ Application Insights SDKs for .NET and .NET Core, has a built-in `TelemetryModul
 * SQL calls
 * WCF services that use HTTP-based bindings
 * Azure Cosmos DB (only if using http/https), Azure Table, Azure Blob, and Azure Queue
+* Microsoft.Azure.EventHubs
+* Microsoft.Azure.ServiceBus
 
 ## Setup automatic dependency tracking in Console Apps
 
@@ -74,7 +76,9 @@ For example, if you build your code with an assembly that you didn't write yours
             }
 ```
 
-If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) for ASP.NET applications. For ASP.NET Core applications, follow instructions [here](asp-net-core.md#configuring-or-removing-default-telemetryModules).
+Alternatively, `TelemetryClient` provides extension methods `StartOperation` and `StopOperation` which can be used to manually track dependencies, as shown [here](custom-operations-tracking.md#outgoing-dependencies-tracking)
+
+If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) for ASP.NET applications. For ASP.NET Core applications, follow instructions [here](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
 
 ## Tracking AJAX calls from Web Pages
 
@@ -127,11 +131,6 @@ Click through the summary charts or the table items to search raw occurrences of
 ![Dependency call instances](./media/asp-net-dependencies/dependency-call-instance.png)
 
 **Failure counts** are shown on the **Failures** blade. A failure is any return code that is not in the range 200-399, or unknown.
-
-> [!NOTE]
-> **100% failures?** - This probably indicates that you are only getting partial dependency data. You need to [set up dependency monitoring appropriate to your platform](#set-up-dependency-monitoring).
->
->
 
 ## AJAX Calls
 
