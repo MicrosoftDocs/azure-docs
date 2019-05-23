@@ -39,7 +39,7 @@ import (
 )
 ```
 
-Add the following functions to your project since most of the parameters/properties expects string/bool pointers.
+Add the following functions to your project as most of the parameters and properties for this quickstart expect string and bool pointers.
 
 ```golang
 // returns a pointer to the string value passed in.
@@ -55,14 +55,14 @@ func BoolPointer(v bool) *bool {
 
 ## Create Text Analytics Client and Authenticate Credentials
 
-In the main function of your project, create a new `TextAnalytics` object. Use the correct Azure region for your Text Analytics subscription. For example: `https://eastus.api.cognitive.microsoft.com`.
+In the main function of your project, create a new `TextAnalytics` object. Use the correct Azure region for your Text Analytics subscription. For example: `https://eastus.api.cognitive.microsoft.com`. If you're using a trial key, you don't need to update the location.
 
 ```golang
 //Replace 'eastus' with the correct region for your Text Analytics subscription
 textAnalyticsClient := textanalytics.New("https://eastus.api.cognitive.microsoft.com")
 ```
 
-Create a variable for your Text Analytics subscription key and pass it to the function `autorest.NewCognitiveServicesAuthorizer` which will then be passed to the client's `authorizer` property.
+Create a variable for your Text Analytics access key and pass it to the function `autorest.NewCognitiveServicesAuthorizer` which will then be passed to the client's `authorizer` property.
 
 ```golang
 subscriptionKey := "<<subscriptionKey>>"
