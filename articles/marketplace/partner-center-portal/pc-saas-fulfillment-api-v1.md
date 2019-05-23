@@ -5,25 +5,19 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: reference
-ms.date: 03/28/2019
-ms.author: pabutler
+ms.date: 05/23/2019
+ms.author: evansma
 
 ROBOTS: NOINDEX
 ---
 
-# SaaS Fulfillment APIs Version 1  (Deprecated)
+# SaaS Fulfillment APIs version 1 (deprecated)
 
 This article explains how to create a SaaS offer with APIs. The APIs, composed of REST methods and endpoints, are necessary for allowing subscriptions to your SaaS offer if you have Sell
 through Azure selected.  
 
-> [!IMPORTANT] 
-> SaaS offer functionality has been migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
-> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
-> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
-> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
-
 > [!WARNING]
-> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md).  This API is currently being maintained only to serve existing publishers. 
+> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./pc-saas-fulfillment-api-v2.md).  This intial version of the API is currently being maintained only to serve existing publishers. 
 
 The following APIs are provided to help you integrate your SaaS service with Azure:
 

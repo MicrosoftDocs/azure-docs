@@ -5,22 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: pabutler
+ms.date: 05/23/2019
+ms.author: evansma
 ---
 
 # SaaS Fulfillment APIs
 
-> [!IMPORTANT] 
-> SaaS offer functionality has been migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
-> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
-> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
-> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
-
 The SaaS Fulfillment APIs enable independent software vendors (ISVs) to integrate their SaaS applications with the Azure Marketplace. These APIs enable ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller) and field-led.  They are a requirement for listing transactable SaaS offers on the Azure Marketplace.
 
 > [!WARNING]
-> The current version of this API is Version 2, which should be used for all new SaaS offers.  Version 1 of the API is deprecated and is being maintained to support existing offers.
+> The current version of this API is version 2, which should be used for all new SaaS offers.  Version 1 of the API is deprecated and is being maintained to support existing offers.
 
 
 ## Business model support

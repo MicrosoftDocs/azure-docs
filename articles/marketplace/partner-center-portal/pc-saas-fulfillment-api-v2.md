@@ -5,19 +5,13 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: pabutler
+ms.date: 05/23/2019
+ms.author: evansma
 ---
 
-# SaaS Fulfillment APIs Version 2 
+# SaaS Fulfillment APIs version 2 
 
 This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
-
-> [!IMPORTANT] 
-> SaaS offer functionality has been migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
-> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
-> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
-> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
 
 ## Managing the SaaS subscription lifecycle
 
