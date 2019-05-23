@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. Legacy authentication is a term that refers to an authentication request made by:
 
 * Older Office clients that do not use modern authentication (for example, Office 2010 client)
-* Any client that uses legacy mail protocols such as IMAP/SMPT/POP3
+* Any client that uses legacy mail protocols such as IMAP/SMTP/POP3
 
 Today, majority of all compromising sign-in attempts come from legacy authentication. Legacy authentication does not support multi-factor authentication (MFA). Even if you have an MFA policy enabled on your directory, a bad actor can authenticate using a legacy protocol and bypass MFA.
 
@@ -102,7 +102,7 @@ Steps for enabling modern authentication be found in the following articles:
 
 The policy **Baseline policy: Block legacy authentication (preview)** comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal.
 
-To enable this policy and protect your administrators:
+To enable this policy and protect your organization:
 
 1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
