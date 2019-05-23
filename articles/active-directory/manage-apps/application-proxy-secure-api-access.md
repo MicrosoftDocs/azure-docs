@@ -12,11 +12,11 @@ ms.date: 04/23/2019
 ms.author: celested
 ms.reviewer: japere
 ---
-# Azure AD Application Proxy: Secure APIs walkthrough
+# Secure API access with Azure AD Application Proxy walkthrough
 
-You may host your business logic and APIs on-premises, or on virtual machines in the cloud. Your native Android, iOS, Mac, and Windows apps may need to interact with these API endpoints to use data or provide user interaction. You can use Azure AD Application Proxy and the [Azure Active Directory Authentication Libraries (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) to let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer. 
+You may host business logic and APIs running on-premises, or hosted on virtual machines in the cloud. These native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Azure Active Directory Authentication Libraries (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer. 
 
-This article walks through an overview of the Azure AD Application Proxy solution for letting a registered native app access an API web service you host on-premises. 
+This article walks through an overview of the Azure AD Application Proxy solution for hosting a web API service that native apps can access. 
 
 ## Overview
 
@@ -30,7 +30,7 @@ The following diagram shows how you can use Azure AD Application Proxy to secure
 
 The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) libraries. 
 
-Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD conditional access to ensure only trusted devices access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
+Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD conditional access to ensure only trusted devices can access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
 ## Prerequisites
 
@@ -45,7 +45,9 @@ To publish an API outside of your intranet through Application Proxy, you follow
 
 To publish the SecretAPI web API through Application Proxy:
 
-1. In the Azure portal, select **Azure Active Directory** in the left navigation. Then, on the **Overview** page, select **Enterprise applications**.
+1. Build and publish the sample SecretAPI project as an ASP.NET web app on your local computer or intranet. Make sure you can access the web app locally. 
+   
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** in the left navigation. Then, on the **Overview** page, select **Enterprise applications**.
    
    ![Enterprise apps](./media/application-proxy-secure-api-access/1-enterprise-apps.png)
    
@@ -67,11 +69,11 @@ To publish the SecretAPI web API through Application Proxy:
       
    1. Make sure **Pre-Authentication** is set to **Azure Active Directory**. 
       
-   1. Select **Add** at the top of the page.
+   1. Select **Add** at the top of the page, and wait for the app to be created.
    
    ![Add API app](./media/application-proxy-secure-api-access/3-add-api-app.png)
    
-1. After the new app is successfully created, on the **Enterprise applications - All applications** page, select the **SecretAPI** app. 
+1. On the **Enterprise applications - All applications** page, select the **SecretAPI** app. 
    
 1. On the **SecretAPI - Overview** page, select **Properties** in the left navigation.
    
@@ -79,7 +81,7 @@ To publish the SecretAPI web API through Application Proxy:
    
    ![Not visible to users](./media/application-proxy-secure-api-access/5-not-visible-to-users.png)
    
-You've published your web API through Azure AD Application Proxy. Now, add add users who can access the app. 
+You've published your web API through Azure AD Application Proxy. Now, add users who can access the app. 
 
 1. On the **SecretAPI - Overview** page, select **Users and groups** in the left navigation.
    
@@ -87,7 +89,7 @@ You've published your web API through Azure AD Application Proxy. Now, add add u
    
 1. On the **Add assignment** page, select **Users and groups**. 
    
-1. On the **Users and groups** page, search for and select listed users who can access the app, including at least yourself. For each user, select **Select**. 
+1. On the **Users and groups** page, search for and select users who can access the app, including at least yourself. After selecting all users, select **Select**. 
    
    ![Select and assign user](./media/application-proxy-secure-api-access/7-select-admin-user.png)
    
@@ -98,7 +100,7 @@ You've published your web API through Azure AD Application Proxy. Now, add add u
 
 ## Register the native app and grant access to the API
 
-Native apps are programs developed to use on a particular platform or device. Before your native app can connect and access an API, you must register it in Azure AD. The following steps show how to register a native app, and give it access to the web API you published through Application Proxy.
+Native apps are programs developed to use on a particular platform or device. Before your native app can connect and access an API, you must register it in Azure AD. The following steps show how to register a native app and give it access to the web API you published through Application Proxy.
 
 To register the AppProxyNativeAppSample native app:
 
@@ -153,23 +155,21 @@ The last step is to configure the native app. The following snippet from the *Fo
        MessageBox.Show(s);
    ```
    
-To configure the native app to connect to Azure Active Directory and call the API App Proxy:
+To configure the native app to connect to Azure Active Directory and call the API App Proxy, update the placeholder values in the *App.config* file of the NativeClient sample app with values from Azure AD: 
 
-1. Update the placeholder values in the *App.config* file of the NativeClient sample app: 
-   
-   - Paste the **Directory (tenant) ID** in the `<add key="ida:Tenant" value="" />` field. You can find and copy this value (a GUID) from the **Overview** page of either of your apps. 
-     
-   - Paste the AppProxyNativeAppSample **Application (client) ID** in the `<add key="ida:ClientId" value="" />` field. You can find and copy this value (a GUID) from the AppProxyNativeAppSample **Overview** page.
-     
-   - Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample **Authentication** page. 
-     
-   - Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI **Expose an API** page.
-     
-   - Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding** page.
-   
-1. After you configure the parameters, build and run the native app, and confirm that it successfully connects to the SecretAPI by showing a success message:
-   
-   ![Success](./media/application-proxy-secure-api-access/success.png)
+- Paste the **Directory (tenant) ID** in the `<add key="ida:Tenant" value="" />` field. You can find and copy this value (a GUID) from the **Overview** page of either of your apps. 
+  
+- Paste the AppProxyNativeAppSample **Application (client) ID** in the `<add key="ida:ClientId" value="" />` field. You can find and copy this value (a GUID) from the AppProxyNativeAppSample **Overview** page.
+  
+- Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample **Authentication** page. 
+  
+- Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI **Expose an API** page.
+  
+- Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding** page.
+
+After you configure the parameters, build and run the native app, and confirm that it successfully connects to the SecretAPI by showing a success message:
+
+![Success](./media/application-proxy-secure-api-access/success.png)
 
 ## Next steps
 
