@@ -1,12 +1,12 @@
 ---
 title: Authentication and Authorization to Azure Spatial Anchors | Microsoft Docs
 description: Learn about the various ways an app or service can authenticate to Azure Spatial Anchors, and the levels of control that you have to gate access to Azure Spatial Anchors.  
-author: ramonarguelles
-manager: vicenterivera
+author: julianparismorgan
+manager: vriveras
 services: azure-spatial-anchors
 
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: pmorgan
+ms.date: 05/23/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ---
