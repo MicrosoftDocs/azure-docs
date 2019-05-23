@@ -105,7 +105,7 @@ The Microsoft.ApplicationInsights package provides the [core API](https://msdn.m
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.
 
 ## Telemetry Channel
-The [telemetry channel](telemetrychannels.md) manages buffering and transmission of telemetry to the Application Insights service.
+The [telemetry channel](telemetry-channels.md) manages buffering and transmission of telemetry to the Application Insights service.
 
 * `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` is the default channel for web applications. It buffers data in memory, and employs retry mechanisms and local disk storage for more reliable telemetry delivery.
 * `Microsoft.ApplicationInsights.InMemoryChannel` is a lightweight telemetry channel, which is used if no other channel is configured. 
