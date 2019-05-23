@@ -71,7 +71,7 @@ textAnalyticsClient.Authorizer = autorest.NewCognitiveServicesAuthorizer(subscri
 
 ## Sentiment analysis
 
-Create a new function called `SentimentAnalysis()` that takes the client created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, `Language` and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the langauge of the document, and the `id` can be any value. 
+Create a new function called `SentimentAnalysis()` that takes the client created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, `Language` and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value. 
 
 ```golang
 func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
