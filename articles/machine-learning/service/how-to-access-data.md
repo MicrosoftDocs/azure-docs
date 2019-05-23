@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
-ms.reviewer: sgilley
-ms.date: 02/25/2019
+ms.reviewer: nibaccam
+ms.date: 05/23/2019
 ms.custom: seodec18
 
 
@@ -152,7 +152,7 @@ The following table lists the  [`DataReference`](https://docs.microsoft.com/pyth
 
 Way|Method|Description|
 ----|-----|--------
-Mount| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use to mount the datastore on the compute target.
+Mount| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--) Available with Azure Machine Learning compute ONLY| Use to mount the datastore on the compute target.
 Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Use to download the contents of your datastore to the location specified by `path_on_compute`. <br> For  training run context, this download happens before the run.
 Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Use to upload a file from the location specified by `path_on_compute` to your datastore. <br> For training run context, this upload happens after your run.
 
@@ -179,14 +179,16 @@ ds.path('./bar').as_download()
 
 The following matrix displays the available data access functionalities for the different compute context and datastore scenarios. The term "Pipeline" in this matrix refers to the ability to use datastores as an input or output in [Azure Machine Learning Pipelines](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
 
-||Local Compute|Azure Machine Learning Compute|Data Transfer|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
--|--|-----------|----------|---------|-----|--------------|---------|---------|
-|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Pipeline|Pipeline|Pipeline|[`as_download()`] <br> [`as_upload()`]|Pipeline||[`as_download()`] <br> [`as_upload()`]|
-|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
-|AzureDataLakeDatastore|||Pipeline|Pipeline|||Pipeline||
-|AzureDataLakeGen2Datastore|||Pipeline||||||
-|AzureDataPostgresSqlDatastore|||Pipeline||||||
-|AzureSqlDatabaseDataDatastore|||Pipeline||||||
+|                                | AzureBlobDatastore                                       | AzureFileDatastore                                       | AzureDataLakeDatastore | AzureDataLakeGen2Datastore AzureDataPostgresSqlDatastore AzureSqlDatabaseDataDatastore |
+|--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
+| Local Compute                  | [as_download()] [as_upload()]                            | [as_download()] [as_upload()]                            | not supported          | not supported                                                                          |
+| Azure Machine Learning Compute | [as_mount()], [as_download()], [as_upload()],  pipelines | [as_mount()], [as_download()], [as_upload()],  pipelines | not supported          | not supported                                                                          |
+| Virtual Machines               | [as_download()] [as_upload()]                            | [as_download()] [as_upload()]                            | not supported          | not supported                                                                          |
+| HDInsight                      | [as_download()] [as_upload()]                            | [as_download()] [as_upload()]                            | not supported          | not supported                                                                          |
+| Data Transfer                  | pipelines                                                | not supported                                            | pipelines              | pipelines                                                                              |
+| Databricks                     | pipelines                                                | not supported                                            | pipelines              | not supported                                                                          |
+| Azure Batch                    | pipelines                                                | not supported                                            | not supported          | not supported                                                                          |
+| Azure DataLake Analytics       | not supported                                            | not supported                                            | pipelines              | not supported                                                                          |
 
 
 > [!NOTE]
