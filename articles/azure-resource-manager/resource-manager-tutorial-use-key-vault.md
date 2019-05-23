@@ -53,9 +53,9 @@ To complete this article, you need:
 
 ## Prepare a key vault
 
-In this section, you use a Resource Manager template to create a key vault and a secret. This template does:
+In this section, you use a Resource Manager template to create a key vault and a secret. This template does the following:
 
-* Create a key vault with the `enabledForTemplateDeployment` property enables. This property must be true before the template deployment process can access the secrets defined in this key vault.
+* Create a key vault with the `enabledForTemplateDeployment` property enabled. This property must be true before the template deployment process can access the secrets defined in this key vault.
 * Add a secret to the key vault.  The secret stores the virtual machine administrator password.
 
 If you (as the user to deploy the virtual machine template) are not the owner or the contributor of the key vault, the Owner or a Contributor of the key vault must grant you the access to the Microsoft.KeyVault/vaults/deploy/action permission for the key vault. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./resource-manager-keyvault-parameter.md)
