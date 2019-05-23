@@ -18,7 +18,7 @@ You can connect to structured and unstructured data sources, join tables from mu
 
 You need the following to complete this article:
 
-* Sisense app //To do: <link>
+* Download and install Sisense app //To do: <link>
 
 * A cluster that includes the StormEvents sample data. For  more information, see [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) and [Ingest sample data into Azure Data Explorer](ingest-sample-data.md).
 
@@ -43,10 +43,14 @@ You need the following to complete this article:
     * oauth2-oidc-sdk-5.24.1.jar
     * slf4j-api-1.7.21.jar
     
-1. Open **Sisense desktop app**.
-1. Select **Data** tab and create a new ElastiCube model.
-1. Name the ElastiCube model and select **Add Data**.
-1. Select **Generic JDBC** connector and fill out the following fields:
+1. Open **Sisense app**.
+1. Select **Data** tab and select **+ElasticCube** to create a new ElastiCube model.
+    sisense 1 img
+1. In **Add new ElasticClube model name** Name the ElastiCube model and **Save**
+    sisense 2 img
+1. Select **+ Data**.
+1. Select **Generic JDBC** connector from **Choose connector** window 
+1. In resulting **Generic JDBC** window fill out the following fields: (cover all fields with gray - JDBC: on first field). select **Next**
 
     |Field |Description |
     |---------|---------|
@@ -56,9 +60,14 @@ You need the following to complete this article:
     |User Name   |    AAD user name     |
     |Password     |   AAD user password      |
 
-1. Select the relevant database.
-1. Select the relevant table and **Done**.
-1. **Build** your dataset. You can start building dashboards on top of this dataset.
+1. In **Select Database** pane select the relevant database to which you have permissions.
+1. In *Database name* pane:
+    1. You can click on table name to preview the table. 
+    1. Select the "box" of the relevant table. Select **Done**.
+1. In left-hand pane, click on table name to see table column names. 
+1. Click **Build** to build your dataset. The build window opens. Click **Build** again. Wait until build process is complete and **Build Succeeded**.
+1. In left hand pane click on table name to see table column names. Select the rel
+1. You can start building dashboards on top of this dataset.
 
 ## Next steps
 
