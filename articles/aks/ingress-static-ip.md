@@ -220,7 +220,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   tls:
   - hosts:
@@ -234,7 +234,7 @@ spec:
         backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
+      - path: /$
         backend:
           serviceName: ingress-demo
           servicePort: 80

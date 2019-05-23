@@ -116,7 +116,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
   - http:
@@ -125,7 +125,7 @@ spec:
         backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
+      - path: /$
         backend:
           serviceName: ingress-demo
           servicePort: 80
