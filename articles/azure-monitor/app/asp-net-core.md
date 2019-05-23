@@ -378,7 +378,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## Video
 
 - External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
-- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio Code](https://www.youtube.com/watch?v=ppS_UJUnZZo) from scratch.
+- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync) from scratch.
 
 ## Next steps
 * [Explore User Flows](../../azure-monitor/app/usage-flows.md) to understand how users navigate through your app.
