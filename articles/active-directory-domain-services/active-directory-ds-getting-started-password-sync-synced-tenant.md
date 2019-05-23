@@ -58,6 +58,11 @@ Installation instructions for Azure AD Connect are available in the following ar
 ### Enable synchronization of NTLM and Kerberos credential hashes to Azure AD
 Execute the following PowerShell script on each AD forest. The script enables all on-premises users' NTLM and Kerberos password hashes to be synchronized to your Azure AD tenant. The script also initiates a full synchronization in Azure AD Connect.
 
+> [!TIP]
+> **If password hash synchronization was already activated.**
+> The following PowerShell script can also be run if password hash synchronization was already enabled before the Azure Active Directory Domain Services were enabled. The script resynchronizes all passwords, so the password hashes are then available for all synchronized user accounts in Azure Active Directory Domain Services. 
+>
+
 ```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
 $azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"
