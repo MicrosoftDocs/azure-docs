@@ -986,7 +986,7 @@
       - name: Sampling
         href: app/sampling.md
       - name: TelemetryChannels
-        href: app/telemetrychannels.md
+        href: app/telemetry-channels.md
     - name: Monitoring solutions
       items:
       - name: Design and build

@@ -44,7 +44,7 @@ Application Insights .NET/.NET Core SDK ships with two built-in channels:
 
 Telemetry Channel can be configured by setting the desired `TelemetryChannel` on the active `TelemetryConfiguration`. For Asp.Net applications, configuration involves setting `TelemetryChannel` on `TelemetryConfiguration.Active`, or modifying `ApplicationInsights.config`. For ASP.NET Core applications, configuration involves adding the desired channel to the Dependency Injection Container.
 
-Following shows an example where user is configuring the `StorageFolder` for the channel. `StorageFolder` is just one of the configurable settings. The full list of configuration settings is described [in the settings section](telemetrychannels.md#configurable-settings-in-channel).
+Following shows an example where user is configuring the `StorageFolder` for the channel. `StorageFolder` is just one of the configurable settings. The full list of configuration settings is described [in the settings section](telemetry-channels.md#configurable-settings-in-channel).
 
 ## Configuring TelemetryChannel using ApplicationInsights.Config for ASP.NET Applications
 
