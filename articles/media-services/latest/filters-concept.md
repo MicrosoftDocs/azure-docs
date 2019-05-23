@@ -40,7 +40,7 @@ The following table shows some examples of URLs with filters:
 
 ## Define filters
 
-There are two types of asset filters: 
+There are two types of filters: 
 
 * [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
 * [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
