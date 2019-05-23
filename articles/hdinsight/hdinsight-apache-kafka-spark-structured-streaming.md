@@ -193,13 +193,13 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
     }
     ```
 
-5. Create the Kafka topic. Edit the command below by replacing `KafkaZookeepers` with the Zookeeper host information extracted in the first step. Enter the edited command in your Jupyter Notebook to create the `tripdata` topic.
+5. Create the Kafka topic. Edit the command below by replacing `YOUR_ZOOKEEPER_HOSTS` with the Zookeeper host information extracted in the first step. Enter the edited command in your Jupyter Notebook to create the `tripdata` topic.
 
     ```scala
     %%bash
-    export YOUR_ZOOKEEPER_HOSTS=KafkaZookeepers
+    export KafkaZookeepers="YOUR_ZOOKEEPER_HOSTS"
 
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic tripdata --zookeeper $YOUR_ZOOKEEPER_HOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic tripdata --zookeeper $KafkaZookeepers
     ```
 
 6. Retrieve data on taxi trips. Enter the command in the next cell to load data on taxi trips in New York City. The data is loaded into a dataframe and then the dataframe is displayed as the cell output.
@@ -285,7 +285,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
     println("Wrote data to file")
     ```
 
-11. You can verify that the files were created by entering the command in your next Jupyter cell. It lists the files in the `/example/tripdata` directory.
+11. You can verify that the files were created by entering the command in your next Jupyter cell. It lists the files in the `/example/batchtripdata` directory.
 
     ```scala
     %%bash
