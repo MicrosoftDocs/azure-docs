@@ -44,7 +44,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     - Give the application a name, such as AKSAzureADServer.
     - For **Supported account types**, select **Accounts in this organizational directory only**.
-    - Choose **Web** for the Redirect URI type, and then enter any URI-formatted value, such as **https://aksazureadserver**.
+    - Choose **Web** for the Redirect URI type, and then enter any URI-formatted value, such as https://aksazureadserver.
     - Select **Register** when you're finished.
 
 2. Select **Manifest**, and then edit the **"groupMembershipClaims:"** value as **"All"**. When you're finished with the updates, select **Save**.
@@ -56,7 +56,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 3. On the left pane of the Azure AD application, select **Certificates & secrets**.
 
     * Choose **+ New client secret**.
-    * Add a key description, such as **AKS Azure AD server**. Choose an expiration time, and then select **Add**.
+    * Add a key description, such as AKS Azure AD server. Choose an expiration time, and then select **Add**.
     * Note the key value, which is only displayed at this time. When you deploy an Azure AD-enabled AKS cluster, this value is called the server application secret.
 
 4. On the left pane of the Azure AD application, select **API permissions**, and then choose **+ Add a permission**.
@@ -70,7 +70,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     * Choose **Add permissions** to save the updates.
 
-    * Under the **Grant consent** section, select **Grant admin consent**. This button isn't unavailable if the current account isn't a tenant admin.
+    * Under **Grant consent**, select **Grant admin consent**. This button isn't unavailable if the current account isn't a tenant admin.
 
         When the permissions have been successfully granted, the following notification is displayed in the portal:
 
@@ -97,10 +97,10 @@ The second Azure AD application is used when you sign in with the Kubernetes CLI
 
     * Give the application a name, such as AKSAzureADClient.
     * For **Supported account types**, select **Accounts in this organizational directory only**.
-    * Choose **Web** for the **Redirect URI** type, and then enter any URI-formatted value such as https://aksazureadclient.
+    * Choose **Web** for the Redirect URI type, and then enter any URI-formatted value such as https://aksazureadclient.
     * Select **Register** when you're finished.
 
-2. On the left pane of the Azure AD application, select **API permissions**, and then choose to **+ Add a permission**.
+2. On the left pane of the Azure AD application, select **API permissions**, and then choose **+ Add a permission**.
 
     * Select **My APIs**, and then choose your Azure AD server application created in the previous step, such as AKSAzureADServer.
     * Choose **Delegated permissions**, and then select the check box next to your Azure AD server app.
@@ -109,7 +109,7 @@ The second Azure AD application is used when you sign in with the Kubernetes CLI
 
     * Select **Add permissions**.
 
-    * Under the **Grant consent** section, choose to **Grant admin consent**. This button isn't available if the current account isn't a tenant admin.
+    * Under **Grant consent**, select **Grant admin consent**. This button isn't available if the current account isn't a tenant admin.
 
         When permissions have been granted, the following notification is displayed in the portal:
 
@@ -226,7 +226,7 @@ For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC
 
 ## Access cluster with Azure AD
 
-Pull the context for the non-admin user by using the [az aks get-credentials][az-aks-get-credentials] command.
+Pull the context for the non-admin user by using the **[az aks get-credentials][az-aks-get-credentials]** command.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -256,7 +256,7 @@ error: You must be logged in to the server (Unauthorized)
 
 1. You defined the appropriate object ID or UPN, depending on if the user account is in the same Azure AD tenant or not.
 2. The user isn't a member of more than 200 groups.
-3. Secret defined in the application registration for server matches the value configured by using **--aad-server-app-secret**.
+3. The secret defined in the application registration for server matches the value configured by using **--aad-server-app-secret**.
 
 ## Next steps
 
