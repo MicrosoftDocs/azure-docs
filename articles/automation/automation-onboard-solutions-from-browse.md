@@ -99,6 +99,8 @@ If you used the Start/Stop VMs during off-hours solution, optionally you may wan
 * Start and stop VM runbooks
 * Variables
 
+Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
+
 ## Troubleshooting
 
 When onboarding multiple machines, there may be machines that show as **Cannot enable**. There are different reasons why some machines may not be enabled. The following sections show possible reasons for the **Cannot enable** state on a VM when attempting to onboard.

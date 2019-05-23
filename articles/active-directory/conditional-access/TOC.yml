@@ -19,8 +19,8 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Baseline Protection
-    href: baseline-protection.md
+  - name: Baseline protection policies
+    href: concept-baseline-protection.md
   - name: Conditions
     href: conditions.md
   - name: Location conditions
@@ -38,6 +38,16 @@
     href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md
+  - name: Baseline policies
+    items:
+    - name: Require MFA for admins
+      href: howto-baseline-protect-administrators.md
+    - name: End user protection
+      href: howto-baseline-protect-end-users.md
+    - name: Block legacy authentication
+      href: howto-baseline-protect-legacy-auth.md
+    - name: Require MFA for service management
+      href: howto-baseline-protect-azure.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Migrate classic policies

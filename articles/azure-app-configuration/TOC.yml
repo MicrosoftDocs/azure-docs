@@ -59,11 +59,13 @@
   items:
     - name: Configuration
       items:
-        - name: .NET Core configuration provider
+        - name: Azure CLI
+          href: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
+        - name: .NET Core provider
           href: https://go.microsoft.com/fwlink/?linkid=2074664
-        - name: .NET Framework configuration builder
+        - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
-        - name: Java Spring configuration provider
+        - name: Java Spring provider
           href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
         - name: .NET Azure SDK
           href: https://go.microsoft.com/fwlink/?linkid=2092056
@@ -79,7 +81,11 @@
           href: https://go.microsoft.com/fwlink/?linkid=2091601
 - name: Resources
   items:
-    - name: Getting started video
-      href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+    - name: Videos
+      items:
+        - name: Getting started
+          href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+        - name: Feature management
+          href: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues
