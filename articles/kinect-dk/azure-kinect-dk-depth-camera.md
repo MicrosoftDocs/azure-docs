@@ -98,10 +98,11 @@ The figures below show examples of invalidation by multi-path detection. You als
 
 ![Invalidation Multipath - Corner](./media/concepts/depth-camera-invalidation-multipath.png)
 
-Another common case of multipath is pixels contain the mixed signal from foreground and background (e.g. edges). During fast motion, because the exposure interval of capturing raw depth data, you may see more invalidated pixels around the edges.
+Another common case of multi path is pixels contain the mixed signal from foreground and background (e.g. edges). During fast motion, because the exposure interval of capturing raw depth data, you may see more invalidated pixels around the edges.
 
 ![Invalidation MultiPath - Edge](./media/concepts/depth-camera-invalidation-edge.png)
 
 ## Next steps
 
-[Coordinate systems](azure-kinect-dk-coordinate-systems.md)
+> [!div class="nextstepaction"]
+>[Coordinate systems](azure-kinect-dk-coordinate-systems.md)
