@@ -30,7 +30,7 @@ The following diagram shows how you can use Azure AD Application Proxy to secure
 
 The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) libraries. 
 
-Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can also use Azure AD conditional access to ensure only trusted devices access your APIs. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
+Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD conditional access to ensure only trusted devices access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ To publish the SecretAPI web API through Application Proxy:
    
    ![Add API app](./media/application-proxy-secure-api-access/3-add-api-app.png)
    
-1. On the **Enterprise applications - All applications** page, select the new **SecretAPI** app. 
+1. After the new app is successfully created, on the **Enterprise applications - All applications** page, select the **SecretAPI** app. 
    
 1. On the **SecretAPI - Overview** page, select **Properties** in the left navigation.
    
@@ -112,7 +112,7 @@ To register the AppProxyNativeAppSample native app:
       
    1. Under **Redirect URL**, drop down and select **Public client (mobile & desktop)**, and then enter *https:\//appproxynativeapp*. 
       
-   1. Select **Register**. 
+   1. Select **Register**, and wait for the app to be successfully registered. 
       
       ![New application registration](./media/application-proxy-secure-api-access/8-create-reg-ga.png)
    
@@ -124,7 +124,7 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
    
 1. On the **API permissions** page, select **Add a permission**.
    
-1. On the first **Request API permissions** page, select the **MyAPIs** tab, and then select **SecretAPI**. 
+1. On the first **Request API permissions** page, select the **APIs my organization uses** tab, and then search for and select **SecretAPI**. 
    
 1. On the next **Request API permissions** page, select the check box next to **user_impersonation**, and then select **Add permissions**. 
    
@@ -163,11 +163,13 @@ To configure the native app to connect to Azure Active Directory and call the AP
      
    - Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample **Authentication** page. 
      
-   - Paste the SecretAPI **Redirect URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI **Authentication** page.
+   - Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI **Expose an API** page.
      
    - Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding** page.
    
-1. After you configure the parameters, build and run the native app, and confirm that it can successfully access the API by returning a success message.
+1. After you configure the parameters, build and run the native app, and confirm that it successfully connects to the SecretAPI by showing a success message:
+   
+   ![Success](./media/application-proxy-secure-api-access/success.png)
 
 ## Next steps
 
