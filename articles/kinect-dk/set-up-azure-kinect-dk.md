@@ -34,10 +34,6 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 1. Select the link to [Download the SDK](sensor-sdk-download.md).
 2. Install the SDK on your PC.
 
-## Update device firmware
-
-The firmware version shipped with the SDK is newer than the hardware version. To ensure you have the latest version, perform a [Firmware Update](azure-kinect-dk-update-device-firmware.md) as Azure Kinect does not automatically update firmware.
-
 ## Verify device streams data
 
 1. Launch `k4aviewer.exe` located under tools -directory (e.g. `C:\Program Files\Azure Kinect SDK\tools\k4aviewer.exe`). You can launch it from either the command line or by double-clicking the executable.
