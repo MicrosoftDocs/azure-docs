@@ -63,28 +63,24 @@
     href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
+  - name: Data sources
+    href: platform/data-sources.md
   - name: Data platform
     items:
     - name: Overview
       href: platform/data-platform.md
+    - name: Data locations
+      href: platform/data-locations.md
     - name: Metrics
       href: platform/data-platform-metrics.md
     - name: Logs
       href: platform/data-platform-logs.md
-  - name: Data sources
-    items:
-    - name: Data sources summary
-      href: platform/data-sources.md
-    - name: Azure data sources
-      href: platform/data-sources-reference.md
-    - name: Activity log
-      href: platform/activity-logs-overview.md
-    - name: Diagnostic logs
-      href: platform/diagnostic-logs-overview.md 
     - name: Log data ingestion time
-      href: platform/data-ingestion-time.md  
-    - name: Custom metrics to metric store
-      href: platform/metrics-custom-overview.md       
+      href: platform/data-ingestion-time.md         
+  - name: Insights
+    href: insights/insights-overview.md
+  - name: Monitoring solutions
+    href: insights/solutions-inventory.md
   - name: Data security
     items:
     - name: Log data
@@ -93,24 +89,6 @@
       href: platform/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
       href: app/data-retention-privacy.md
-  - name: Insights
-    items:
-    - name: Application Insights
-      items:
-      - name: Overview
-        href: app/app-insights-overview.md
-      - name: DevOps
-        href: app/detect-triage-diagnose.md
-      - name: Distributed tracing
-        href: app/distributed-tracing.md
-      - name: Log-based & pre-aggregated metrics
-        href: app/pre-aggregated-metrics-log-metrics.md
-    - name: Containers
-      href: insights/container-insights-overview.md
-    - name: Virtual Machines
-      href: insights/vminsights-overview.md
-    - name: Monitoring solutions
-      href: insights/solutions-inventory.md
   - name: Respond to incidents
     items:
     - name: Alerts 
@@ -189,6 +167,42 @@
         href: platform/service-providers.md
   - name: Collect data
     items:
+    - name: Azure resources
+      items:
+      - name: Activity log
+        items:
+        - name: Overview
+          href: platform/activity-logs-overview.md
+        - name: View and retrieve
+          href: platform/activity-log-view.md
+        - name: Collect and analyze
+          href: platform/activity-log-collect.md
+        - name: Collect across tenants
+          href: platform/activity-log-collect-tenants.md
+        - name: Export 
+          href: platform/activity-log-export.md
+        - name: Schema
+          href: platform/activity-log-schema.md
+      - name: Diagnostic logs
+        items: 
+        - name: Overview
+          href: platform/diagnostic-logs-overview.md 
+        - name: Collect in Logs
+          href: platform/diagnostic-logs-stream-log-store.md
+        - name: Collect from Azure Storage
+          href: platform/collect-azure-metrics-logs.md
+        - name: Archive to storage
+          href: platform/archive-diagnostic-logs.md
+        - name: Stream data to Event Hubs
+          href: platform/diagnostic-logs-stream-event-hubs.md
+        - name: Enable with Resource Manager templates
+          href: platform/diagnostic-logs-stream-template.md
+        - name: Service logs and metrics
+          href: platform/azure-storage-iis-table.md
+      - name: Stream to Event Hubs
+        href: platform/stream-monitoring-data-event-hubs.md   
+      - name: Correlate custom data sources
+        href: app/custom-data-correlation.md
     - name: Install and configure agents
       items:
       - name: Monitoring agents overview
@@ -221,17 +235,15 @@
           href: platform/diagnostics-extension-stream-event-hubs.md
         - name: Troubleshooting
           href: platform/diagnostics-extension-troubleshooting.md
-        - name: Enable diagnostic settings with Resource Manager templates
-          href: platform/diagnostic-logs-stream-template.md
         - name: Prepare for JSON Lines diagnostic logs format
           href: platform/diagnostic-logs-append-blobs.md
-        - name: VM guest to metrics store
+        - name: VM guest to Metrics
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md  
-        - name: Virtual machine scale set guest to metrics store
+        - name: Virtual machine scale set guest to Metrics
           href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
-        - name: VM classic guest to metrics store 
+        - name: VM classic guest to Metrics
           href: platform/collect-custom-metrics-guestos-vm-classic.md  
-        - name: Cloud service guest to metrics store
+        - name: Cloud service guest to Metrics
           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
       - name: Troubleshoot
         items:
@@ -432,64 +444,6 @@
           href: app/proactive-email-notification.md
       - name: Create a resource
         href: app/create-new-resource.md 
-      - name: Troubleshoot
-        items:
-        - name: No data for .NET
-          href: app/asp-net-troubleshoot-no-data.md
-        - name: Snapshot debugger
-          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-        - name: Analytics
-          href: app/analytics-troubleshooting.md
-        - name: Java
-          href: app/java-troubleshoot.md
-        - name: Usage analytics
-          href: app/usage-troubleshoot.md
-    - name: Azure resources
-      items:
-      - name: Azure activity logs
-        items:
-        - name: Analytics
-          href: platform/collect-activity-logs.md
-        - name: Collect across subscriptions
-          href: platform/collect-activity-logs-subscriptions.md
-      - name: Service logs and metrics
-        href: platform/collect-azure-metrics-logs.md
-      - name: Diagnostic or log data from Azure storage
-        href: platform/azure-storage-iis-table.md
-      - name: Azure PaaS resources
-        href: platform/collect-azurepass-posh.md
-      - name: Correlate custom data sources
-        href: app/custom-data-correlation.md
-    - name: Collect custom data 
-      items:
-      - name: Log Analytics Data collector API 
-        href: platform/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: platform/create-pipeline-datacollector-api.md
-      - name: Metrics store REST API
-        href: platform/metrics-store-custom-rest-api.md
-      - name: GuestOS to metrics store Linux VM (Telegraf)
-        href: platform/collect-custom-metrics-linux-telegraf.md  
-    - name: System Center
-      items:
-      - name: Configuration Manager
-        href: platform/collect-sccm.md
-      - name: Application Performance Monitoring using SCOM
-        href: app/scom.md
-    - name: Route data
-      items:
-      - name: Archive activity log
-        href: platform/archive-activity-log.md
-      - name: Archive diagnostic logs
-        href: platform/archive-diagnostic-logs.md
-      - name: Store diagnostic logs
-        href: platform/diagnostic-logs-stream-log-store.md
-      - name: Stream activity log to Event Hubs
-        href: platform/activity-logs-stream-event-hubs.md
-      - name: Logs and metrics to Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
-      - name: Diagnostic logs to Event Hub
-        href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Application data to Log Analytics
         href: platform/app-insights-connector.md
       - name: Export application data
@@ -505,10 +459,50 @@
               href: app/export-stream-analytics.md
         - name: Export data model
           href: app/export-data-model.md
+        - name: Troubleshoot
+        items:
+        - name: No data for .NET
+          href: app/asp-net-troubleshoot-no-data.md
+        - name: Snapshot debugger
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
+        - name: Analytics
+          href: app/analytics-troubleshooting.md
+        - name: Java
+          href: app/java-troubleshoot.md
+        - name: Usage analytics
+          href: app/usage-troubleshoot.md
+    - name: Collect custom data 
+      items:
+      - name: Custom metrics
+        href: platform/metrics-custom-overview.md   
+      - name: Log Analytics Data collector API 
+        href: platform/data-collector-api.md
+      - name: Log Analytics Data Collector API Pipeline example
+        href: platform/create-pipeline-datacollector-api.md
+      - name: Metrics REST API
+        href: platform/metrics-store-custom-rest-api.md
+      - name: GuestOS to Metrics Linux VM (Telegraf)
+        href: platform/collect-custom-metrics-linux-telegraf.md  
+    - name: System Center
+      items:
+      - name: Configuration Manager
+        href: platform/collect-sccm.md
+      - name: Application Performance Monitoring using SCOM
+        href: app/scom.md
   - name: Gain insights
     items:
     - name: Monitor applications
       items:
+      - name: Application Insights overview
+        items:
+        - name: Overview
+          href: app/app-insights-overview.md
+        - name: DevOps
+          href: app/detect-triage-diagnose.md
+        - name: Distributed tracing
+          href: app/distributed-tracing.md
+        - name: Log-based & pre-aggregated metrics
+          href: app/pre-aggregated-metrics-log-metrics.md
       - name: Application Insights portal
         items:
         - name: Search
@@ -1062,8 +1056,6 @@
     items:
     - name: Diagnostic logs services, categories, and schemas
       href: platform/diagnostic-logs-schema.md
-    - name: Activity log event schema
-      href: platform/activity-log-schema.md
     - name: Azure Diagnostics extension schema
       href: platform/diagnostics-extension-schema.md
       items:
