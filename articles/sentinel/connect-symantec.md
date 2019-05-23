@@ -40,15 +40,13 @@ Symantec ICDX can integrate and export logs directly to Azure Sentinel.
 4. Under **Forwarders**, next to Microsoft Azure Sentinel (Log Analytics), click **Add**. 
 4. In the **Microsoft Azure Sentinel (Log Analytics)** window, click **Show Advanced**. 
 5. At the top of the expanded to Microsoft Azure Sentinel (Log Analytics) window, do the following:
-  -	**Name**: Type a name for the forwarder that has no more than 30 characters. Choose a unique, meaningful name. This name appears in the list of forwarders on the **Configuration** screen and in the dashboards on the **Dashboard** screen. For example: Microsoft Azure Log Analytics East. This field is required.
-  -	**Description**: Type a description for the forwarder. This description also appears in the list of forwarders on the **Configuration** screen. Include details such as the event type being forwarded and the group that needs to inspect the data.
-  -	**Startup Type**: Select the method of startup for the forwarder configuration. Your options are:
-      - Manual 
-      - Automatic <br>The default is Automatic. 
+    -	**Name**: Type a name for the forwarder that has no more than 30 characters. Choose a unique, meaningful name. This name appears in the list of forwarders on the **Configuration** screen and in the dashboards on the **Dashboard** screen. For example: Microsoft Azure Log Analytics East. This field is required.
+    -	**Description**: Type a description for the forwarder. This description also appears in the list of forwarders on the **Configuration** screen. Include details such as the event type being forwarded and the group that needs to inspect the data.
+    -	**Startup Type**: Select the method of startup for the forwarder configuration. Your options are manual and automatic.<br>The default is Automatic. 
 6. Under **Events**, do the following: 
     - **Source**: Select one or more archives from which to forward events. You can select active collector archives (including the Common Archive), orphaned collector archives (that is, archives for the collectors that you have deleted), ICDx receiver archives, or the System Archive. <br>The default is Common Archive.
-    > [!NOTE]
-    > ICDx receiver archives are listed separately, by name. 
+      > [!NOTE]
+      > ICDx receiver archives are listed separately, by name. 
  
     - **Filter**: Add a filter that specifies the subset of events to forward. Do one of the following:
         - To select a filter condition, click a Type, Attribute, Operator, and Value. 
@@ -65,7 +63,7 @@ Symantec ICDX can integrate and export logs directly to Azure Sentinel.
     - **Custom Log Name**: Type the custom log name in the Microsoft Azure portal Log Analytics workspace to which you are going to forward events. The default is SymantecICDx. This field is required.
 8. Click *Save* to finish the forwarder configuration. 
 9. To start the forwarder, under **Options**, click **More** and then **Start**.
-4. To use the relevant schema in Log Analytics for the Symantec ICDX events, search for **SymantecICDX_CL**.
+10. To use the relevant schema in Log Analytics for the Symantec ICDX events, search for **SymantecICDX_CL**.
 
 
 ## Validate connectivity
