@@ -4,7 +4,7 @@ description: Use Azure Powershell manage your Azure Cosmos DB accounts, database
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ---

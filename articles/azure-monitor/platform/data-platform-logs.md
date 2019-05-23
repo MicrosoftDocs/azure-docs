@@ -74,7 +74,7 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 | Data | Description |
 |:---|:---|
 | Azure Active Directory audit logs | Configured through Diagnostic settings for each directory. See [Integrate Azure AD logs with Azure Monitor logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Activity logs | Stored separately by default and can be used for near real time alerts. Install Activity Log Analytics solution to write to Log Analytics workspace. See [Collect and analyze Azure activity logs in Log Analytics](collect-activity-logs.md). |
+| Activity logs | Stored separately by default and can be used for near real time alerts. Install Activity log Analytics solution to write to Log Analytics workspace. See [Collect and analyze Azure activity logs in Log Analytics](activity-log-collect.md). |
 
 ### Azure resources
 
