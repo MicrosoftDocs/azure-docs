@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
 ---
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
 Previously, Azure Service Bus offered namespaces only on the standard tier. Namespaces are multi-tenant setups that are optimized for low throughput and developer environments. The premium tier offers dedicated resources per namespace for predictable latency and increased throughput at a fixed price. The premium tier is optimized for high throughput and production environments that require additional enterprise features.
 
-This article describes how to migrate existing standard tier namespaces to the premium tier.
+This article describes how to migrate existing standard tier namespaces to the premium tier.  
 
 >[!WARNING]
 > Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool does not support downgrading.
@@ -29,6 +29,7 @@ Some of the points to note:
 - The **premium** namespace should have **no entities** in it for the migration to succeed. 
 - All **entities** in the standard namespace are **copied** to the premium namespace during the migration process. 
 - Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace. 
+- You can't directly migrate from **basic tier** to **premier tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
 
 ## Migration steps
 Some conditions are associated with the migration process. Familiarize yourself with the following steps to reduce the possibility of errors. These steps outline the migration process, and the step-by-step details are listed in the sections that follow.
