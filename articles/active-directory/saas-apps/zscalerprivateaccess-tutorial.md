@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 05/23/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -108,21 +108,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. From the left side of menu, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
 
-	![Zscaler Private Access Administrator admin](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_admin.png)
+	![Zscaler Private Access Administrator administration](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-administration.png)
 
 5. In the top right corner, click **Add IdP Configuration**. 
 
-	![Zscaler Private Access Administrator addidp](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_addpidp.png)
+	![Zscaler Private Access Administrator idp](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-idp.png)
 
 6. On the **Add IdP Configuration** page perform the following steps:
  
-	![Zscaler Private Access Administrator idpselect](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_idpselect.png)
+	![Zscaler Private Access Administrator select](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-select.png)
 
 	a. Click **Select File** to upload the downloaded Metadata file from Azure AD in the **IdP Metadata File Upload** field.
 
 	b. It reads the **IdP metadata** from Azure AD and populates all the fields information as shown below.
 
-	![Zscaler Private Access Administrator idpconfig](./media/zscalerprivateaccess-tutorial/idpconfig.png)
+	![Zscaler Private Access Administrator config](./media/zscalerprivateaccess-tutorial/config.png)
 
 	c. Select your domain from **Domains** field.
 	
