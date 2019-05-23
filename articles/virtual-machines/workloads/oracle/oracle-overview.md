@@ -1,26 +1,25 @@
 ---
 title: Oracle solutions on Microsoft Azure | Microsoft Docs
-description: Learn about options to deploy Oracle applications and solutions on Microsoft Azure.
+description: Learn about options to deploy Oracle applications and solutions on Microsoft Azure, including running entirely on Azure infrastructure or using cross-cloud connectivity with Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
 manager: jeconnoc
 tags: azure-resource-management
 
-ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
-ms.service: virtual-machines-windows
+ms.assetid: 
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
-ms.custom: seodec18
 ---
 
 # Overview of Oracle applications and solutions on Azure
 
-This article introduces capabilities to run Oracle solutions using Azure infrastructure. See more detailed introductions to available [Oracle VM images](oracle-vm-solutions.md) in Azure and the preview capability to [interconnect Azure with Oracle Cloud Infrastructure](oracle-oci-overview.md).
+This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace, and the preview capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## Oracle databases on Azure infrastructure
 
@@ -44,32 +43,34 @@ Run enterprise applications in Azure on supported Oracle operating systems. The 
 
 ## High availability and disaster recovery options
 
+* Configure Oracle Data Guard, Active Data Guard, or GoldenGate on Azure infrastructure in conjunction with [Availability Zones](../../../availability-zones/az-overview.md) for high availability.
+
+* Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure and your on-premises or physical servers. 
+
 * Enable Oracle Real Application Clusters (RAC) in Azure using [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
-* Configure Oracle Data Guard, Active Data Guard, or Golden Gate on Azure infrastructure
-
-## (Preview) Integration of Azure with Oracle Cloud Infrastructure
+## Preview - Integration of Azure with OCI
 
 Run Oracle applications in Azure infrastructure, connected to backend databases in Oracle Cloud Infrastructure (OCI). This solution uses the following capabilities: 
 
-* **Cross-cloud networking** - Using the direct interconnect available between Azure ExpressRoute and Oracle FastConnect, establish high-bandwidth, private, and low-latency connections between the application and the database layer.
+* **Cross-cloud networking** - Use the direct interconnect available between Azure ExpressRoute and Oracle FastConnect to establish high-bandwidth, private, and low-latency connections between the application and the database layer.
 * **Integrated identity** - Set up federated identity between Azure AD and Oracle IDCS to create a single identity source for the solutions. Enable single sign-on to manage resources across OCI and Azure.
 
 ### Deploy Oracle applications on Azure
 
-Use TerraForm templates to set up Oracle applications certified to run on Azure:
+Use Terraform templates to set up Oracle applications validated and supported to run in the cross-cloud configuration and enabled to run in Azure:
 
 * E-Business Suite
-* JD Edwards
+* JD Edwards EnterpriseOne
 * PeopleSoft
-* Oracle Retail Applications
+* Oracle Retail applications
 * Hyperion
 
 Also deploy custom applications in Azure that connect with OCI and other Azure services.
 
 ### Set up Oracle databases in OCI
 
-Use Oracle Database Cloud Services (RAC, Exadata, Single Node) in conjunction with custom applications. Learn more about [OCI database options](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
+Use Oracle Database Cloud Services (Autonomous Database, RAC, Exadata, DBaaS, Single Node) in conjunction with Oracle applications running in Azure. Learn more about [OCI database options](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
 ## Licensing

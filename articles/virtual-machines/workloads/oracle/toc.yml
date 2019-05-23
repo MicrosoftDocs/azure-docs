@@ -1,10 +1,10 @@
 - name: Overview
   items:
   - name: Oracle solutions overview
-    href: oracle-considerations.md
-  - name: Solutions on Azure VM
+    href: oracle-overview.md
+  - name: Solutions on Azure VMs
     href: oracle-vm-solutions.md
-  - name: Oracle OCI integration
+  - name: Integrate with Oracle Cloud Infrastructure (OCI) - Preview
     href: oracle-oci-overview.md
 - name: Quickstarts
   items:
@@ -24,7 +24,7 @@
     href: oracle-design.md
   - name: Backup strategy for Oracle DB
     href: oracle-backup-recovery.md
-  - name: Oracle Disaster Recovery options
+  - name: Oracle disaster recovery options
     href: oracle-disaster-recovery.md
 - name: Resources
   items:

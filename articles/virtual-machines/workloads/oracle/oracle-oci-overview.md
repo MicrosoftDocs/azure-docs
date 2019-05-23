@@ -26,6 +26,8 @@ Using this cross-cloud connectivity, you can host your application tier on Micro
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
+If you are interested in deploying Oracle solutions using only Oracle VM images in Azure, see [Oracle VM images and their deployment on Microsoft Azure](oracle-vm-solutions.md).
+
 ## Scenario overview
 
 Cross-cloud connectivity provides a solution for you to run Oracle’s industry-leading applications on Azure virtual machines while enjoying the benefits of hosted database services in OCI. 
