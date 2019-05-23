@@ -41,7 +41,7 @@ RAM | 16 GB
 Number of disks | 3 disks<br/><br/> Disks include the OS disk, process server cache disk, and retention drive for failback.
 Disk free space | 600 GB of space required for process server cache.
 Disk free space | 600 GB  of space required for retention drive.
-Operating system  | Windows Server 2012 R2 or Windows Server 2016 |
+Operating system  | Windows Server 2012 R2 or Windows Server 2016 with Desktop experience |
 Operating system locale | English (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") is not required for configuration server with versions from [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server roles | Don't enable: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |

@@ -84,7 +84,7 @@ Software licensing fees are presented as a monthly, recurring site-based subscri
 - Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 > [!NOTE]
-> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 31, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
+> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
 
 |**Microsoft bills**|**$100 per month**|
 |:---|:---|
@@ -112,6 +112,10 @@ List your offer to customers on a free trial basis by providing a valid URL (beg
 
 ##### Contact me
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
+
+## Example marketplace offer listing
+
+![Example marketplace offer listing with notes](./media/marketplace-offer.svg)
 
 ## Enable a test drive
 
@@ -172,7 +176,8 @@ Select up to two (2) industries used for grouping your offer into the appropriat
 This is an optional field used in the AppSource marketplace to identify the version number of your offer. 
 
 ### Standard Contract
-- **Use Standard Contract?** 
+
+- **Use Standard Contract?**
 
 To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace. 
 
@@ -180,7 +185,8 @@ Rather than crafting custom terms and conditions, Azure Marketplace publishers c
 
 The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178.
 
-##### Terms of use
+#### Terms of use
+
 If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. You can also enter up to 10,000 characters of text in this field. If your terms of use require a longer description, enter a single URL link into this field where your additional license terms can be found. It will display to customers as an active link.
 
 Customers are required to accept these terms before they can try your app. 
@@ -188,9 +194,11 @@ Customers are required to accept these terms before they can try your app.
 Remember to **Save** before moving on to the next section!
 
 ## Offer listing
+
 The Offer listing tab displays the languages (and markets) where your offer is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
 ### Offer listings
+
 Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
 
 - **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain whitespace, emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
@@ -230,7 +238,6 @@ Remember to **Save** before moving on to the next section!
 - [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-
 ## Preview
 
 The **Preview** tab enables you to define a limited **Preview Audience** for releasing your offer prior to publishing your offer live to the broader marketplace audience.
@@ -265,9 +272,10 @@ The **Plan overview** tab enables you to provide a variety of plan options withi
 
 Once created, you will see your plan names, IDs, pricing models, availability (Public or Private), current publishing status, and any available actions.
 
--   **Actions** available in the **Plan overview** vary depending on the current status of your plan and may include:
-  - If the plan status is **Draft** – Delete draft
-  - If the plan status is **Live** – Stop sell plan or Sync private audience
+**Actions** available in the **Plan overview** vary depending on the current status of your plan and may include:
+
+- If the plan status is **Draft** – Delete draft
+- If the plan status is **Live** – Stop sell plan or Sync private audience
 
 **Create new plan** (minimum of one plan for those who select to sell through Microsoft)
 
@@ -346,6 +354,9 @@ While SaaS offers use tenant IDs to define a private audience, other offer types
 > [!NOTE]
 > The private audience (or restricted audience) differs from a preview audience. In the **[Preview](#preview)** tab, you can define a preview audience. A preview audience is allowed access to your offer *prior* to the offer being published live in the marketplace. While the private audience designation only applies to a specific plan, the preview audience can view all plans (private or not), but only during the limited preview period while the plan is tested and validated.
 
+## Example list of plans within a marketplace offer
+
+![Example marketplace plan listing with notes](./media/marketplace-plan.svg)
 
 ## Test drive
 
