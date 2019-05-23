@@ -27,7 +27,7 @@ Azure AD authentication is provided to AKS clusters that have OpenID Connect. Op
 
 For more information about OpenID Connect, see [Authorize access to web applications using OpenID Connect and Azure AD][open-id-connect].
 
-Inside a Kubernetes cluster, webhook token authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
+Inside a Kubernetes cluster, webhook token authentication is used to authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
 For more information about webhook token authentication, see the [Webhook Token Authentication][kubernetes-webhook] section in Kubernetes Documentation.
 
