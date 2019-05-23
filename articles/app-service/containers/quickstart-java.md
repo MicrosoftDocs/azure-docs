@@ -69,10 +69,10 @@ The deploy process to Azure App Service uses account credentials from the Azure 
 az login
 ```
 
-Then you can configure the deployment, run the maven command `mvn azure-webapp:config` in the Command Prompt and use the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'Y'** and the configuration is done.
+Then you can configure the deployment, run the maven command `mvn azure-webapp:config` in the Command Prompt and use the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done.
 
 ```cmd
-C:\sample\helloworld>mvn azure-webapp:config
+~@Azure:~/helloworld$ mvn azure-webapp:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
@@ -132,11 +132,19 @@ mvn package azure-webapp:deploy
 
 Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net`. 
 
-![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
+![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+
+```azurecli-interactive
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
+
+This command may take a minute to run.
 
 ## Next steps
 
