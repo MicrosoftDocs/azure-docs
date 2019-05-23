@@ -71,3 +71,14 @@ We recommend creating a network service endpoint in your virtual network for "St
 
 ### Network connectivity
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these problems. To make sure all the URLs are connected, see [Outbound connectivity for Site Recovery URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
+
+## Error ID 153006 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
+
+To generate application consistent recovery points, Azure site recovery use VSS framework on Windows. </br>
+Some of the most common issues are listed below
+
+**Cause 1: Known issue on SQL server 2008/ 2008R2** </br>
+*How to fix* : There is a known issue with SQL server 2008/2008R2. Please refer this KB article [ASR Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+**Cause 2:** Azure Site Recovery jobs fail on servers hosting **any version** of SQL Server instances with AUTO_CLOSE DBs </br>
+*How to fix* : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
