@@ -1,7 +1,7 @@
 ---
-title: Endpoint Protection solutions Discovery and Health Assesment
-description: How the Endpoint Protection solutions are discovery and identified as healthy.
-services: security- center 
+title: Endpoint protection solutions discovery and health assessment in Azure Security Center | Microsoft Docs
+description: How the endpoint protection solutions are discovered and identified as healthy.
+services: security-center 
 documentationcenter: na
 author: monhaber 
 manager: barbkess 
@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/20/2019
-ms.author: monhaber
+ms.date: 05/23/2019
+ms.author: v-mohabe
 ---
 
-# Endpoint Protection Assessment and Recommendations by Azure Security Center
+# Endpoint protection assessment and recommendations in Azure Security Center
 
-## Overview
-
-Endpoint Protection assessment and recommendations in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Endpoint Protection solutions. This topic explains the scenarios that generates the following two recommendations for Endpoint Protection solutions by Azure Security Center.
+Endpoint protection assessment and recommendations in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Endpoint protection solutions. This topic explains the scenarios that generates the following two recommendations for Endpoint protection solutions by Azure Security Center.
 
 * **Install endpoint protection solutions on your virtual machine**
 * **Resolve endpoint protection health issues on your machines**
 
 ## Windows Defender
 
-* The **Install endpoint protection solutions on virtual machine** recommendation is generated when [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and the result is **AMServiceEnabled  : False**
+* The **Install endpoint protection solutions on virtual machine** recommendation is generated when [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and the result is **AMServiceEnabled  : False**
 
-* The **Resolve endpoint protection health issues on your machines** recommendation is generated when  [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and either or both of the following occurs:
+* The **Resolve endpoint protection health issues on your machines** recommendation is generated when  [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and either or both of the following occurs:
 
   * At least one of the following properties is false:
 
@@ -51,7 +49,7 @@ Endpoint Protection assessment and recommendations in Azure Security Center dete
 
      **AntivirusSignatureAge**
 
-## Microsoft System Center Endpoint Protection
+## Microsoft System Center endpoint protection
 
 * The **Install endpoint protection solutions on virtual machine** recommendation is generated when importing **SCEPMpModule  ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )** and running **Get-MProtComputerStatus** results with **AMServiceEnabled = false**
 
@@ -85,7 +83,7 @@ Endpoint Protection assessment and recommendations in Azure Security Center dete
     * The **dsq_query.cmd** file is found in the Installation Folder
     * Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
-## Symantec Endpoint Protection
+## Symantec endpoint protection
 The **Install endpoint protection solutions on virtual machine** recommendation is generated if any of the following checks are not met:
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
@@ -116,7 +114,7 @@ Registry Paths:
 **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
 **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
-## McAfee Endpoint Protection for Windows
+## McAfee endpoint protection for Windows
 
 The **Install endpoint protection solutions on virtual machine** recommendation is generated if the following checks are not met:
 
@@ -143,4 +141,4 @@ Microsoft Antimalware extension logs are available at:
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
