@@ -19,13 +19,15 @@ ms.author: diberry
 
 Use these container recipes to create Cognitive Services Containers that can be reused. Containers can be built with some or all configuration settings so that they are not needed when the container is started.
 
-Once you have this new layer of container (with settings), you can store the container in a container registry. When the container needs to be pulled and started, it will only need those settings that are not currently stored in the container.  
+Once you have this new layer of container (with settings), and you have tested it locally, you can store the container in a container registry. When the container starts, it will only need those settings that are not currently stored in the container. The private registry container provides configuration space for you to pass those settings in.
 
-## Store no configuration settings
+## Store no configuration settings in image
 
-The example Docker commands for each service do not store any configuration settings in the container. When you pull and start the container from a registry service, those values need to passed in.
+The example Docker commands for each service do not store any configuration settings in the container. When you start the container from a registry service, those values need to passed in. The private registry container provides configuration space for you to pass those settings in.
 
-## Reuse recipe: store billing configuration settings 
+
+
+## Reuse recipe: store all configuration settings 
 
 Storing the billing information with the container allows you to pull and start the container, without having to know the billing endpoint or billing key.
 
