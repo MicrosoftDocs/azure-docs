@@ -55,9 +55,6 @@ For examples of creating subscriptions, see:
 For information about getting your current event grid subscriptions, see [Query Event Grid subscriptions](query-event-subscriptions.md).
 
 ## Event subscription expiration
-
-The [Event Grid extension](/cli/azure/azure-cli-extensions-list) for Azure CLI allows you to set an expiration date when creating an event subscription. If you are using the REST API, use `api-version=2018-09-15-preview`
-
 The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time and you don't want to worry about cleaning up those subscriptions. For example, when creating an event subscription to test a scenario, you might want to set an expiration. 
 
 For an example of setting an expiration, see [Subscribe with advanced filters](how-to-filter-events.md#subscribe-with-advanced-filters).
