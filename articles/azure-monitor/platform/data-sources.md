@@ -118,7 +118,7 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 ![Azure compute resource collection](media/data-sources/compute-resources.png)
 
 ### Azure Diagnostic extension
-Enabling the Azure Diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine scale sets, and Service Fabric.
+Enabling the Azure Diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, virtual machine scale sets, and Service Fabric.
 
 | Destination | Description | Reference |
 |:---|:---|:---|

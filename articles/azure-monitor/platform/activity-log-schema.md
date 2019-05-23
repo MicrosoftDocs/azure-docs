@@ -210,7 +210,7 @@ This category contains the record of any resource health events that have occurr
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -226,7 +226,7 @@ This category contains the record of any resource health events that have occurr
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -236,7 +236,7 @@ This category contains the record of any resource health events that have occurr
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -269,7 +269,7 @@ This category contains the record of any resource health events that have occurr
 | status |String describing the status of the health event. Values can be: Active, Resolved, InProgress, Updated. |
 | subStatus | Usually null for alerts. |
 | submissionTimestamp |Timestamp when the event became available for querying. |
-| subscriptionId |Azure Subscription Id. |
+| subscriptionId |Azure Subscription ID. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event.|
 | properties.title | A user-friendly string that describes the health status of the resource. |
 | properties.details | A user-friendly string that describes further details about the event. |

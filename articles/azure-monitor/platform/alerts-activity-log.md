@@ -1,6 +1,6 @@
 ---
 title: Create, View, and Manage Activity Log Alerts in Azure Monitor
-description: How to create activity log alerts from Azure Portal, Resource Template and PowerShell.
+description: How to create activity log alerts by using the Azure portal, an Azure Resource Manager template, and Azure PowerShell.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor

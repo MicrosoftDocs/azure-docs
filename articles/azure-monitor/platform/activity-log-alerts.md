@@ -15,14 +15,14 @@ ms.subservice: alerts
 Activity log alerts are alerts that activate when a new activity log event occurs that matches the conditions specified in the alert. They are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events. For more information on usage, see [Create and manage activity log alerts](alerts-activity-log.md).
 
 > [!NOTE]
-> Alerts **can not** be created for events in Alert category of activity log.
+> Alerts **cannot** be created for events in Alert category of activity log.
 
 Typically, you create activity log alerts to receive notifications when:
 
 * Specific operations occur on resources in your Azure subscription, often scoped to particular resource groups or resources. For example, you might want to be notified when any virtual machine in myProductionResourceGroup is deleted. Or, you might want to be notified if any new roles are assigned to a user in your subscription.
 * A service health event occurs. Service health events include notification of incidents and maintenance events that apply to resources in your subscription.
 
-A simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure Portal](activity-log-view.md#azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button.
+A simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure portal](activity-log-view.md#azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button.
 
 In either case, an activity log alert monitors only for events in the subscription in which the alert is created.
 

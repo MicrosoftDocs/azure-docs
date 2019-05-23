@@ -1,5 +1,5 @@
 ---
-title: Monitoring data locations in Azure | Microsoft Docs
+title: Monitoring data locations in Azure Monitor | Microsoft Docs
 description: Describes the different locations where monitoring data is stored in Azure including the Azure Monitor data platform.
 documentationcenter: ''
 author: bwren
@@ -16,7 +16,7 @@ ms.author: bwren
 
 ---
 
-# Monitoring data locations in Azure
+# Monitoring data locations in Azure Monitor
 
 Azure Monitor is based on a [data platform](data-platform.md) of [Logs](data-platform-logs.md) and [Metrics](data-platform-metrics.md) as described in [Azure Monitor data platform](data-platform.md). Monitoring data from Azure resources may be written to other locations though, either before they are copied to Azure Monitor or to support additional scenarios. 
 

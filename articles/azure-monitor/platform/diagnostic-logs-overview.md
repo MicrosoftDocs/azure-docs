@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Diagnostic Logs
-description: Learn what Azure diagnostic logs are and how you can use them to understand events occurring within an Azure resource.
+description: Learn about Azure Diagnostic logs in Azure Monitor and how you can use them to understand events occurring within an Azure resource.
 author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
@@ -32,7 +32,7 @@ Here are some of the things you can do with diagnostic logs:
 ![Logical placement of Diagnostic Logs](./media/diagnostic-logs-overview/Diagnostics_Logs_Actions.png)
 
 * Save them to a [**Storage Account**](../../azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
-* [Stream them to **Event Hubs**](diagnostic-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+* [Stream them to **Event Hubs**](diagnostic-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as Power BI.
 * Analyze them with [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md), where the data is written immediately to Azure Monitor with no need to first write the data to storage.  
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]

@@ -1,5 +1,5 @@
 ---
-title: Collect Azure Activity Logs into a Log Analytics workspace across Azure tenants | Microsoft Docs
+title: Collect Azure Activity logs into a Log Analytics workspace across Azure tenants | Microsoft Docs
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to a Log Analytics workspace in Azure Monitor in a different tenant.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: magoedte
 ---
-# Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants
+# Collect Azure Activity logs into Azure Monitor across Azure Active Directory tenants
 
 This article steps through a method to collect Azure Activity Logs into a Log Analytics workspace in Azure Monitor using the Azure Log Analytics Data Collector connector for Logic Apps. Use the process in this article when you need to send logs to a workspace in a different Azure Active Directory tenant. For example, if you are a managed service provider, you may want to collect activity logs from a customer's subscription and store them in a Log Analytics workspace in your own subscription.
 
