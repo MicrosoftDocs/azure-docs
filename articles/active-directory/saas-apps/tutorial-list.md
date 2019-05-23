@@ -29,7 +29,7 @@ For a list of all SaaS apps that have been pre-integrated into Azure AD, see the
 ## Quick links
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
-| :---: | :--- | :--- |
+| :--- | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud - User Provisioning](atlassian-cloud-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - User Provisioning](servicenow-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - User Provisioning](slack-provisioning-tutorial.md)|
@@ -41,7 +41,7 @@ To find more tutorials, use the table of contents on the left.
 ## Cloud Integrations
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
-| :---: | :--- | :--- |
+| :--- | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform - User Provisioning](google-apps-provisioning-tutorial.md) |
 | ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) Console](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) Console - Role Provisioning](amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on) |
 | ![logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Role bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
