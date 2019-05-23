@@ -111,8 +111,6 @@
         href: application-proxy-remove-personal-data.md
       - name: Configure custom domain
         href: application-proxy-configure-custom-domain.md
-      - name: Configuration errors
-        href: application-proxy-troubleshoot.md
       - name: Publishing walkthroughs
         items:
         - name: Integrate with Cloud App Security
@@ -129,6 +127,12 @@
           href: application-proxy-qlik.md
       - name: Application Proxy troubleshooting
         items:
+        - name: Connector troubleshooting flowchart
+          href: application-proxy-debug-connectors.md
+        - name: Application troubleshooting flowchart
+          href: application-proxy-debug-apps.md
+        - name: Configuration errors
+          href: application-proxy-troubleshoot.md
         - name: Problem displaying app page
           href: application-proxy-page-appearance-broken-problem.md
         - name: Application load is too long

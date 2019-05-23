@@ -129,7 +129,7 @@ If your client program connects to SQL Database by using the .NET Framework clas
 When you build the [connection string](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) for your **SqlConnection** object, coordinate the values among the following parameters:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;Default is 1. Range is 0 through 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;Default is 1 second. Range is 1 through 60.
+- **ConnectRetryInterval**:&nbsp;&nbsp;Default is 10 seconds. Range is 1 through 60.
 - **Connection Timeout**:&nbsp;&nbsp;Default is 15 seconds. Range is 0 through 2147483647.
 
 Specifically, your chosen values should make the following equality true: Connection Timeout = ConnectRetryCount * ConnectionRetryInterval

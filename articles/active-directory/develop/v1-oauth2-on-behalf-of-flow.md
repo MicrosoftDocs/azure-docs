@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
@@ -55,31 +55,32 @@ Register both the middle-tier service and the client application in Azure AD.
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account and look under the **Directory** list to select an Active Directory tenant for your application.
 1. Select **More Services** on the left pane and choose **Azure Active Directory**.
-1. Select **App registrations** and then **New application registration**.
+1. Select **App registrations** and then **New registration**.
 1. Enter a friendly name for the application and select the application type.
-    1. Depending upon the application type, set either the sign-on URL or the redirect URL to the base URL.
-    1. Select **Create** to create the application.
+1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Set the redirect URI to the base URL.
+1. Select **Register** to create the application.
 1. Generate a client secret before exiting the Azure portal.
-   1. In the Azure portal, choose your application and select **Settings**.
-   1. Select **Keys** in the Settings menu and add a key with a key duration of either one year or two years.
-   1. When you save this page, the Azure portal displays the key value. Copy and save the key value in a safe location.
+1. In the Azure portal, choose your application and select **Certificates & secrets**.
+1. Select **New client secret** and add a secret with a duration of either one year or two years.
+1. When you save this page, the Azure portal displays the secret value. Copy and save the secret value in a safe location.
 
-      > [!IMPORTANT]
-      > You need the key to configure the application settings in your implementation. This key value is not displayed again, and it isn't retrievable by any other means. Record it as soon as it is visible in the Azure portal.
+> [!IMPORTANT]
+> You need the secret to configure the application settings in your implementation. This secret value is not displayed again, and it isn't retrievable by any other means. Record it as soon as it is visible in the Azure portal.
 
 ### Register the client application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account and look under the **Directory** list to select an Active Directory tenant for your application.
 1. Select **More Services** on the left pane and choose **Azure Active Directory**.
-1. Select **App registrations** and then **New application registration**.
+1. Select **App registrations** and then **New registration**.
 1. Enter a friendly name for the application and select the application type.
-   1. Depending upon the application type, set either the sign-on URL or the redirect URL to the base URL.
-   1. Select **Create** to create the application.
-1. Configure permissions for your application.
-   1. In the Settings menu, choose the **Required permissions** section, and then select **Add** and **Select an API**.
-   1. Type the name of the middle-tier service in the text field.
-   1. Choose **Select Permissions** and then select **Access service name**.
+1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Set the redirect URI to the base URL.
+1. Select **Register** to create the application.
+1. Configure permissions for your application. In **API permissions**, select **Add a permission** and then **My APIs**.
+1. Type the name of the middle-tier service in the text field.
+1. Choose **Select Permissions** and then select **Access <service name>**.
 
 ### Configure known client applications
 
