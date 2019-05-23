@@ -24,6 +24,7 @@ To complete this tutorial, you need to:
 
 Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
 
+# [\.NET](#tab/dotnet)
 
 ## Install and run the project from GitHub
 
@@ -31,6 +32,9 @@ Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-pagi
 ## Build a geospatial query into an Azure Search
 
 ## Add code to order Azure Search results
+
+
+---
 
 ## Takeaways
 
