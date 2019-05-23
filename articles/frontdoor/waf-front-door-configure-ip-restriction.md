@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
 
 ---
@@ -151,6 +151,7 @@ In the below example, replace *ip-address-range-1*, *ip-address-range-2* with yo
     ```
     
 ### Create a custom IP allow rule
+
   1. Use the [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests from client IPs that match the list will be allowed. 
     
         ```powershell
@@ -170,6 +171,28 @@ In the below example, replace *ip-address-range-1*, *ip-address-range-2* with yo
             -Priority 2
            ```
         
+=======
+   Use the [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests from client IPs that match the list will be allowed. 
+
+```powershell
+  $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
+    -Name "IPAllowRule" `
+    -RuleType MatchRule `
+    -MatchCondition $IPMatchCondition `
+    -Action Allow -Priority 1
+```
+Create a Block all IP rule with lower priority than the previous IP allow rule.
+
+```powershell
+  $IPBlockAll = New-AzFrontDoorWafCustomRuleObject `
+    -Name "IPDenyAll" `
+    -RuleType MatchRule `
+    -MatchCondition $IPMatchALlCondition `
+    -Action Block `
+    -Priority 2
+   ```
+
+>>>>>>> b66e08820ad9748df079fd72b79528d00492fd9a
 ### Configure WAF policy
 Find the name of the resource group that contains the Azure Front Door Service profile by using `Get-AzResourceGroup`. Next, configure a WAF policy with the IP **block all** rule by using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 

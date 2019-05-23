@@ -26,6 +26,24 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Changes**
   + Run configuration auto_prepare_environment option is being deprecated, with auto prepare becoming the default.
 
+## 2019-05-08
+
+### Azure Machine Learning Data Prep SDK v1.1.3
+
++ **New features**
+  + Added support to read from a PostgresSQL database, either by calling read_postgresql or using a Datastore.
+    + See examples in how-to guides:
+      + [Data Ingestion notebook](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Datastore notebook](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Bug fixes and improvements**
+  + Fixed issues with column type conversion:
+  + Now correctly converts a boolean or numeric column to a boolean column.
+  + Now does not fail when attempting to set a date column to be date type.
+  + Improved JoinType types and accompanying reference documentation. When joining two dataflows, you can now specify one of these types of join:
+    + NONE, MATCH, INNER, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, FULL.
+  + Improved data type inferencing to recognize more date formats.
+
 ## 2019-05-06
 
 ### Azure portal
