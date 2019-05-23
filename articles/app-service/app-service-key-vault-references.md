@@ -64,7 +64,7 @@ Alternatively:
 
 ## Source Application Settings from Key Vault
 
-Key Vault references can be used as values for [Application Settings](web-sites-configure.md#app-settings), allowing you to keep secrets in Key Vault instead of the site config. Application Settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
+Key Vault references can be used as values for [Application Settings](configure-common.md#configure-app-settings), allowing you to keep secrets in Key Vault instead of the site config. Application Settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
 
 To use a Key Vault reference for an application setting, set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
 

@@ -45,6 +45,8 @@
       href: publish-portal.md
     - name: Use secret from Key Vault
       href: key-vault-access.md
+    - name: Deploy with Managed Identity
+      href: publish-managed-identity.md
   - name: Consumers
     items:
     - name: Monitor managed application

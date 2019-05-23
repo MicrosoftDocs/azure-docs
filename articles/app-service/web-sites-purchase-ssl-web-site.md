@@ -161,4 +161,4 @@ Once the renew operation is complete, click **Sync**. The sync operation automat
 * [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
-* [FAQ : App Service Certificates](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)
+* [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
