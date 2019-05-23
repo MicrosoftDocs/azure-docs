@@ -29,7 +29,7 @@ Before you start using the Speech Devices SDK, you'll need to:
 
 * Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download), and extract the .zip to your working directory.
    > [!NOTE]
-   > The .zip file includes the Android sample app and this quickstart assumes that the app is extracted to C:\SDSDK\Android-Sample-Release
+   > The Android-Sample-Release.zip file includes the Android sample app and this quickstart assumes that the app is extracted to C:\SDSDK\Android-Sample-Release
 
 * To get an [Azure subscription key for Speech Services](get-started.md)
 
