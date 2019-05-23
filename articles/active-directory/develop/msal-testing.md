@@ -55,21 +55,23 @@ The MSAL team are currently running tests on a Xamarin app that uses MSAL.net; W
 When evaluating a test framework, it is worth also having a look at the Appium and other test frameworks, as well as other CI / CD providers in the mobile space.
 
 ## Testing the token cache
-No matter what platform you use, MSAL stores tokens in a token cache. On some platforms, you tell MSAL how to serialize this cache. On others - the mobile platforms - MSAL does it for you. From an application perspective, the token cache is responsible for 3 things:
+No matter what platform you use, MSAL stores tokens in a token cache. On some platforms, you tell MSAL how to serialize this cache. On others - the mobile platforms - MSAL does it for you. From an application perspective, the token cache is responsible for three things:
 
-storing tokens in the cache after they were acquired (e.g. via AcquireTokenInteractive)
-fetching tokens from the cache when doing AcquireTokenSilent()
-fetching account metadata from the cache when doing GetAccount()
+* storing tokens in the cache after they were acquired (e.g. via AcquireTokenInteractive)
+* fetching tokens from the cache when doing AcquireTokenSilent()
+* fetching account metadata from the cache when doing GetAccount()
+
 So if you want to test cache scenarios, consider writing a scenario that would:
 
-acquire one or more tokens (e.g. using ROPC / Username-password flow, which is the simplest for testing)
-verify that GetAccounts works
-verify that AcquireTokenSilent works
+* acquire one or more tokens (e.g. using ROPC / Username-password flow, which is the simplest for testing)
+* verify that GetAccounts works
+* verify that AcquireTokenSilent works
+
 You might want to also test that:
 
-restarting the app does not blow away the cache
-AcquireTokenSilent does not refresh the RT (i.e. network call to AAD), but serves the AT if it has not expired. You can achieve this and other HTTP related scenarios by taking control of the HttpClient via IHttpClientFactory, see:
+* restarting the app does not blow away the cache
+* AcquireTokenSilent does not refresh the RT (i.e. network call to AAD), but serves the AT if it has not expired. You can achieve this and other HTTP related scenarios by taking control of the HttpClient via IHttpClientFactory, see:
 https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Providing-an-HttpClient
 
 ## Feedback
-Please log issues or ask questions related to testing. Providing a good test experience is one of the goals of the team.
+Please [log issues](developer-support-help-options.md#create-a-github-issue) or ask questions related to testing. Providing a good test experience is one of the goals of the team.
