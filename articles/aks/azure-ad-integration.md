@@ -44,7 +44,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     - Give the application a name, such as AKSAzureADServer.
     - For **Supported account types**, select **Accounts in this organizational directory only**.
-    - Choose **Web** for the Redirect URI type, and then enter any URI-formatted value such as **https://aksazureadserver**.
+    - Choose **Web** for the Redirect URI type, and then enter any URI-formatted value, such as **https://aksazureadserver**.
     - Select **Register** when you're finished.
 
 2. Select **Manifest**, and then edit the **"groupMembershipClaims:"** value as **"All"**. When you're finished with the updates, select **Save**.
@@ -232,7 +232,7 @@ Pull the context for the non-admin user by using the [az aks get-credentials][az
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-After you run the **kubectl** command, you'll be prompted to authenticate with Azure. Follow the on-screen instructions to finish the process, as shown in the following example:
+After you run the **kubectl** command, you'll be prompted to authenticate by using Azure. Follow the on-screen instructions to finish the process, as shown in the following example:
 
 ```console
 $ kubectl get nodes
