@@ -46,7 +46,7 @@ Telemetry Channel can be configured by setting the desired `TelemetryChannel` on
 
 Following shows an example where user is configuring the `StorageFolder` for the channel. `StorageFolder` is just one of the configurable settings. The full list of configuration settings is described [in the settings section](telemetry-channels.md#configurable-settings-in-channel).
 
-## Configuring TelemetryChannel using ApplicationInsights.Config for ASP.NET Applications
+## Configuration using ApplicationInsights.Config for ASP.NET Applications
 
 The following section from [ApplicationInsights.config](configuration-with-applicationinsights-config.md) shows ServerTelemetryChannel configured with `StorageFolder` set to a custom location.
 
@@ -63,7 +63,7 @@ The following section from [ApplicationInsights.config](configuration-with-appli
     </TelemetrySinks>
 ```
 
-## Configuring TelemetryChannel in code for ASP.NET Applications
+## Configuration in code for ASP.NET Applications
 
 The following code sets up ServerTelemetryChannel with `StorageFolder` set to a custom location. This code should be added at the beginning of the application, typically in Application_Start() method in `Global.aspx.cs`
 
@@ -79,7 +79,7 @@ protected void Application_Start()
 }
 ```
 
-## Configuring TelemetryChannel in code for ASP.NET Core Applications
+## Configuration in code for ASP.NET Core Applications
 
 Modify `ConfigureServices` method of `Startup.cs` class as shown below.
 
@@ -160,7 +160,7 @@ Read more about [data protection and privacy](data-retention-privacy.md#does-the
 ## Open-source SDK
 Like every Application Insights SDKs, channels are also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
-## Related documentation
+## Next Steps
 
 * [Sampling](../../azure-monitor/app/sampling.md)
 * [SDK Troubleshooting](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
