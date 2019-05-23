@@ -50,7 +50,7 @@ In the **Platform** section, select **Universal Windows Platform**. Change the *
 
 Select **Switch Platform** to change the platform to **Universal Windows Platform**. Unity might prompt you to install UWP support components if they're missing.
 
-   ![Unity Build Settings window](./media/get-started-unity-hololens/unity-build-settings.png)
+![Unity Build Settings window](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Close the **Build Settings** window.
 
