@@ -77,14 +77,15 @@ Endpoint protection assessment and recommendations in Azure Security Center dete
 
 ## Trend Micro
 
-* The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if one or more of the following checks are not met:
+* The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if one or more of the following checks aren't met:
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
     * The **dsq_query.cmd** file is found in the Installation Folder
     * Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
 ## Symantec endpoint protection
-The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if any of the following checks are not met:
+The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if any of the following checks aren't met:
+
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
@@ -95,7 +96,7 @@ Or
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-The **"Resolve endpoint protection health issues on your machines"** recommendation is generated if any of the following checks are not met:  
+The **"Resolve endpoint protection health issues on your machines"** recommendation is generated if any of the following checks aren't met:  
 
 * Check Symantec Version >= 12:  Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
@@ -116,13 +117,13 @@ Registry Paths:
 
 ## McAfee endpoint protection for Windows
 
-The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if the following checks are not met:
+The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if the following checks aren't met:
 
 * **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
 * **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-The **"Resolve endpoint protection health issues on your machines"** recommendation is generated if the following checks are not met:
+The **"Resolve endpoint protection health issues on your machines"** recommendation is generated if the following checks aren't met:
 
 * McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
@@ -141,4 +142,4 @@ Microsoft Antimalware extension logs are available at:
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
