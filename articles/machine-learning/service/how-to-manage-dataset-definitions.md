@@ -1,5 +1,5 @@
 ---
-title: Dataset definition and versioning
+title: Dataset definition and versioning with azureml-datasets
 titleSuffix: Azure Machine Learning service
 description: Learn how to update Dataset definitions and manage the lifecycle of definitions
 services: machine-learning

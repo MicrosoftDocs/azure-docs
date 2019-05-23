@@ -165,6 +165,9 @@ Deleting a topic also deletes any subscriptions that are registered with the top
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
+
 ## Next steps
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 

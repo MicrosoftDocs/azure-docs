@@ -7,7 +7,7 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
+ms.author: v-adgera
 ---
 
 # How to configure Postman for Azure Digital Twins
