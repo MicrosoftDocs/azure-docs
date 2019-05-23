@@ -70,7 +70,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     * Choose **Add permissions** to save the updates.
 
-    * Under the **Grant consent** section, select **Grant admin consent**. This button is greyed out and unavailable if the current account isn't a tenant admin.
+    * Under the **Grant consent** section, select **Grant admin consent**. This button isn't unavailable if the current account isn't a tenant admin.
 
         When the permissions have been successfully granted, the following notification is displayed in the portal:
 
@@ -109,7 +109,7 @@ The second Azure AD application is used when you sign in with the Kubernetes CLI
 
     * Select **Add permissions**.
 
-    * Under the **Grant consent** section, choose to **Grant admin consent**. This button is greyed out and unavailable if the current account isn't a tenant admin.
+    * Under the **Grant consent** section, choose to **Grant admin consent**. This button isn't available if the current account isn't a tenant admin.
 
         When permissions have been granted, the following notification is displayed in the portal:
 
