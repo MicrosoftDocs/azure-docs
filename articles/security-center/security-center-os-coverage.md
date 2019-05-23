@@ -66,9 +66,9 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||||Linux||Pricing|
+|Server|Windows|||Linux||Pricing|
 |----|----|----|----|----|----|----|----|
-||**Environment**|**Azure**||**Non-Azure**|**Azure**|**Non-Azure**||
+|**Environment**|**Azure**|**Non-Azure**|**Azure**|**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
 |VMBA threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)||✔|Recommendations (Free) Threat Detection (Standard)|
 |Network-based threat detection alerts|✔|✔|X|✔|✔|X|Standard|
@@ -82,7 +82,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
 |Third-party deployment|✔|X|X|✔|X|X|Free|
 |NSGs assessment|✔|✔|X|✔|✔|X|Free|
-|Fileless threat detection|✔|✔|X|X|Standard|
+|Fileless threat detection|✔|✔|✔|X|X|X|Standard|
 |Network map|✔|✔|X|✔|✔|X|Standard|
 |Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
 |Regulatory Compliance dashboard & reports|✔|✔|✔|✔|✔|✔|Standard|
