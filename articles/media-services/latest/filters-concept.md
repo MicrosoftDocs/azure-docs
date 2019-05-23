@@ -142,6 +142,9 @@ See the following examples:
 * [Associate filters with Streaming Locator - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [Associate filters with Streaming Locator - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
+> [!NOTE]
+> **Streaming Locators** are not updatable while filters can be updated. If a filter is updated after the **Streaming Locator**'s creation, it may have some delay until the CDN manifest cache expires.
+
 ## Next steps
 
 The following articles show how to create filters programmatically.  
