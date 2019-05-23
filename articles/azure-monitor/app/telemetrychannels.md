@@ -1,6 +1,6 @@
 ---
 title: Telemetry channels in Azure Application Insights | Microsoft Docs
-description: How to customize telemetry channel in Azure Application Insights SDKs for .NET/.NET Core.
+description: How to customize telemetry channels in Azure Application Insights SDKs for .NET/.NET Core.
 services: application-insights
 documentationcenter: .net
 author: cijothomas
@@ -89,7 +89,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 public void ConfigureServices(IServiceCollection services)
 {
-    // This setups up ServerTelemetryChannel with StorageFolder set to a custom location.
+    // This sets up ServerTelemetryChannel with StorageFolder set to a custom location.
     services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel() {StorageFolder = @"d:\temp\applicationinsights" });
 
     services.AddApplicationInsightsTelemetry();
@@ -139,16 +139,16 @@ Most commonly used settings for `ServerTelemetryChannel` are listed below:
 
 ### *Does ApplicationInsights channel offer guaranteed telemetry delivery or What are the scenarios where telemetry can be lost?*
 
-* Short answer is none of the built-in channels offer transaction type guarantee about telemetry delivery to the backend. While `ServerTelemetryChannel` is more advanced compared to `InMemoryChannel` for reliable telemetry delivery, it also makes a best-effort attempt to send telemetry and telemetry can still be lost in several scenarios. Some of the common scenarios where telemetry is lost includes:
+* Short answer is none of the built-in channels offer transaction type guarantee about telemetry delivery to the backend. While `ServerTelemetryChannel` is more advanced compared to `InMemoryChannel` for reliable telemetry delivery, it also makes a best-effort attempt to send telemetry and telemetry can still be lost in several scenarios. Some of the common scenarios where telemetry is lost include:
 
 1. Items in memory are lost whenever application crashes.
 1. Telemetry gets stored to local disk during network outages or issues with the Application Insights backend. However, items older than 24 hours are discarded. So telemetry is lost during extended period of network issues.
 1. The default disk locations for storing telemetry in Windows are %LocalAppData% or %Temp%. These locations are typically local to the machine. If the application migrates physically from one location to another, any telemetry stored in this location is lost.
 1. In Azure Web Apps (Windows), the default disk location is "D:\local\LocalAppData". This location isn't persisted, and is wiped out in app restarts, scale outs and so on, leading to loss of telemetry stored in those locations. Users can override storage to a persisted location like "D:\home", but these persisted locations are underneath served by remote storage, and can be slow.
 
-### *Does ServerTelemetryChannel work in non-windows systems?*
+### *Does ServerTelemetryChannel work in non-Windows systems?*
 
-* Despite the name of the package/namespace being WindowsServer, this channel is supported in non-windows systems with the following exception. In non-windows, the channel doesn't create a local storage folder by default. Users must create a local storage folder and configure the channel to use it. Once local storage is configured, the channel works same in windows and non-windows systems.
+* Despite the name of the package/namespace being WindowsServer, this channel is supported in non-Windows systems with the following exception. In non-Windows, the channel doesn't create a local storage folder by default. Users must create a local storage folder and configure the channel to use it. Once local storage is configured, the channel works same in Windows and non-Windows systems.
 
 ### *Does the SDK create temporary local storage? Is the data encrypted at storage?*
 
