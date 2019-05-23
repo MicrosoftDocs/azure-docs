@@ -17,6 +17,8 @@
       href: configure-single-sign-on-portal.md
     - name: Add an on-premises app - portal
       href: application-proxy-add-on-premises-application.md    
+    - name: Give a native app access to an on-premises API
+      href: application-proxy-secure-api-access.md    
   - name: Concepts
     items: 
     - name: Plan a cloud app integration
