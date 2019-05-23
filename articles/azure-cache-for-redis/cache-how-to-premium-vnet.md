@@ -118,6 +118,7 @@ There are seven outbound port requirements.
 | 6379-6380 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 
 [^1]: These IP addresses owned by Microsoft are used to address the Host VM which serves Azure DNS.
+
 [^3]: Not needed for subnets with no custom DNS server, or newer redis caches that ignore custom DNS.
 
 #### Inbound port requirements
