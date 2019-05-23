@@ -49,6 +49,9 @@ The following additional limitations apply to Windows Server node pool support i
     - These Windows Server node upgrades temporarily consume additional IP addresses in the virtual network subnet as a new node is deployed, before the old node is removed.
     - vCPU quotas are also temporarily consumed in the subscription as a new node is deployed, then the old node removed.
     - You can't automatically update and manage reboots using `kured` as with Linux nodes in AKS.
+- The AKS cluster can have a maximum of eight node pools.
+    - You can have a maximum of 400 nodes across those eight node pools.
+- The Windows Server node pool name has a limit of 6 characters.
 - Preview features in AKS such as Network Policy and cluster autoscaler, aren't endorsed for Windows Server nodes.
 - Ingress controllers should only be scheduled on Linux nodes using a NodeSelector.
 - Azure Dev Spaces is currently only available for Linux-based node pools.

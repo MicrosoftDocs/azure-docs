@@ -31,39 +31,24 @@ The machine learning workflow generally follows this sequence:
 1. After a satisfactory run is found, register the persisted model in the **model registry**.
 1. Develop a scoring script that uses the model and **Deploy the model** as a **web service** in Azure, or to an **IoT Edge device**.
 
+You perform these steps with any of the following:
++ [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
++  The [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)
 
 > [!NOTE]
 > Although this article defines terms and concepts used by Azure Machine Learning service, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## Workspace
 
-The workspace is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.
-
-The workspace keeps a list of compute targets that you can use to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.
-
-You register models with the workspace. You use a registered model and scoring scripts to deploy a model to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the image to an Azure IoT Edge device as a module. Internally, a docker image is created to host the deployed image. If needed, you can specify your own image.
-
-You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning users to the following roles:
-
-* Owner
-* Contributor
-* Reader
-
-For more information on these roles, see the [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article.
-
-When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
-
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model.
-* [Azure storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.
-* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
-
-> [!NOTE]
-> In addition to creating new versions, you can also use existing Azure services.
+[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.
 
 A taxonomy of the workspace is illustrated in the following diagram:
 
 [![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+For more information about workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
 
 ## Experiment
 
@@ -166,6 +151,10 @@ A run is a record that contains the following information:
 You produce a run when you submit a script to train a model. A run can have zero or more child runs. For example, the top-level run might have two child runs, each of which might have its own child run.
 
 For an example of viewing runs that are produced by training a model, see [Quickstart: Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
+
+## GitHub tracking and integration
+
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
 
 ## Snapshot
 

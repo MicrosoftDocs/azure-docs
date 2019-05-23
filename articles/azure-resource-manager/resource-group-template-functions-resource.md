@@ -1,17 +1,10 @@
 ---
 title: Azure Resource Manager template functions - resources | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/09/2019
+ms.date: 05/21/2019
 ms.author: tomfitz
 
 ---
@@ -171,7 +164,7 @@ Other list functions have different return formats. To see the format of a funct
 
 Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
 
-If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource exists. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
+If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
 
 ### Example
 
@@ -339,11 +332,11 @@ Every resource type returns different properties for the reference function. The
 
 The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID and an API version for the resource. You can determine valid API versions for your resource in the [template reference](/azure/templates/).
 
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment.
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
 
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
 
-If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource exists. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
 To see the property names and values for a resource type, create a template that returns the object in the outputs section. If you have an existing resource of that type, your template returns the object without deploying any new resources. 
 
