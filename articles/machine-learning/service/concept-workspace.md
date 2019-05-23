@@ -1,7 +1,7 @@
 ---
 title: 'What is a workspace'
 titleSuffix: Azure Machine Learning service
-description: Learn what a workspace is and why you need one for Azure Machine Learning service.
+description: The workspace is the top-level resource for Azure Machine Learning service. It keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,13 +13,11 @@ ms.date: 05/21/2019
 ---
 
 
-# What is an Azure Machine Learning workspace?
+# What is an Azure Machine Learning service workspace?
 
-The workspace is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.
+The workspace is the top-level resource for Azure Machine Learning service, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.  The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.  
 
-The workspace keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.  
-
-Once you have a model you like, you register it with the workspace. You use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the model to an Azure IoT Edge device as a module.
+Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the model to an Azure IoT Edge device as a module.
 
 ## Taxonomy 
 
