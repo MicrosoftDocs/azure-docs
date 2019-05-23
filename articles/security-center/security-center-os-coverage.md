@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/02/2019
+ms.date: 5/23/2019
 ms.author: monhaber
 
 ---
@@ -85,9 +85,8 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Network map|✔|X|✔|X|Standard|
 |Adaptive network controls|✔|X|✔|X|Standard|
 |Regulatory Compliance dashboard & reports|✔|✔|✔|✔|Standard|
-|Containers|X|X|✔|✔|Standard|
-
-
+|Recommendations and threat detection on Docker-hosted IaaS containers|X|X|✔|✔|Standard|
+|Virtual machine scale set|✔|✔|NA|NA|Recommendations (Free) Threat Detection (Standard)|
 
 ### Supported endpoint protection solutions
 
@@ -136,8 +135,6 @@ The following table provides a matrix of:
 |Stream analytics|✔| NA|
 |Event hub|✔| NA|
 |Logic apps|✔| NA|
-|Machine|✔| NA|
-|Virtual machine scale set|✔| NA|
 |Subnet|✔| NA|
 |Vnet|✔| NA|
 |Storage account|✔| NA|
