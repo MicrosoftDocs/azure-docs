@@ -23,9 +23,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-[Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
 Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
-
 
 ## Install and run the project from GitHub
 

@@ -15,7 +15,7 @@ Learn how to implement ...
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Specify certain fields of a data set as "facet-able"
+> * Specify certain fields of a data set as Facetable
 > * Make the single call for an Azure Search of facets
 > * Determine the conditions when a facet search makes most sense
 
@@ -23,8 +23,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-> [Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
-> Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
+Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
 
