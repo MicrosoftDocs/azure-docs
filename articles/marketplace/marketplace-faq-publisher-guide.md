@@ -305,7 +305,7 @@ Review the [Publisher Guide](https://docs.microsoft.com/azure/marketplace/market
 
 **How do I begin to publish in Azure Marketplace?**
 
-Start your Azure Marketplace listing by reviewing the [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Next, submit your application by completing the [Azure Marketplace Nomination Form](https://azuremarketplace.microsoft.com/sell/signup).
+Start your Azure Marketplace listing by reviewing the [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Next, submit your application by [submitting your offer](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
 **Do I have to be a member of the Microsoft Partner Network (MPN) to list my applications and services in the Azure Marketplace?**
 

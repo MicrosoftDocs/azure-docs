@@ -31,8 +31,7 @@ see [Limits and configuration information for Azure Logic Apps](../logic-apps/lo
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 where you store your maps and other artifacts for enterprise 
@@ -40,7 +39,7 @@ integration and business-to-business (B2B) solutions.
 
 * If your map references an external assembly, you have to upload 
 *both the assembly and the map* to your integration account. 
-Make sure you *upload your assembly first*, and then upload the 
+Make sure you [*upload your assembly first*](#add-assembly), and then upload the 
 map that references the assembly.
 
   If your assembly is 2 MB or smaller, you can add 
@@ -71,9 +70,11 @@ an integration account where you store that map. Learn
 [how to link logic apps to integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## Add referenced assemblies
 
-1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+1. Sign in to the [Azure portal](https://portal.azure.com) 
    with your Azure account credentials.
 
 1. To find and open your integration account, 
@@ -103,6 +104,9 @@ steps for uploading an assembly that's either
 [more than 2 MB but only up to 8 MB](#larger-assembly).
 For limits on assembly quantities in integration accounts, see 
 [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> If you change your assembly, you must also update your map whether or not the map has changes.
 
 <a name="smaller-assembly"></a>
 
@@ -137,7 +141,7 @@ you're uploading, for example:
 
 To add larger assemblies, you can upload your assembly to 
 an Azure blob container in your Azure storage account. 
-Your steps for adding assemblies differs based whether 
+Your steps for adding assemblies differ based whether 
 your blob container has public read access. So first, 
 check whether or not your blob container has public 
 read access by following these steps: 
@@ -245,7 +249,7 @@ After you upload any assemblies that your map references,
 you can now upload your map.
 
 1. If you haven't signed in already, sign in to the 
-   <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+   [Azure portal](https://portal.azure.com) 
    with your Azure account credentials. 
 
 1. If your integration account isn't already open, 
@@ -398,7 +402,7 @@ To update an existing map, you have to upload a new
 map file that has the changes you want. However, 
 you can first download the existing map for editing.
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
 find and open your integration account, if not already open.
 
 1. On the main Azure menu, select **All services**. 
@@ -423,7 +427,7 @@ Select **Integration accounts**.
 
 ## Delete maps
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
    find and open your integration account, if not already open.
 
 1. On the main Azure menu, select **All services**. 
