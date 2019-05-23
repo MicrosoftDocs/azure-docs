@@ -4,7 +4,7 @@ description: Tutorial on how to set up build and release workflow in Azure DevOp
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
 ---
