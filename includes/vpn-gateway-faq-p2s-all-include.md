@@ -32,7 +32,7 @@ The following client operating systems are supported:
 
 ### Can I traverse proxies and firewalls using Point-to-Site capability?
 
-Azure supports two types of Point-to-site VPN options:
+Azure supports three types of Point-to-site VPN options:
 
 * Secure Socket Tunneling Protocol (SSTP). SSTP is a Microsoft proprietary SSL-based solution that can penetrate firewalls since most firewalls open the TCP port that 443 SSL uses.
 
