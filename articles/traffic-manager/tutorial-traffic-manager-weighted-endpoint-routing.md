@@ -69,7 +69,7 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in th
 
 #### Install IIS and customize the default webpage
 
-In this section, you install the IIS server on the two VMs&mdash;myIISVMEastUS and myIISVMWEurope&mdash;and then update the default webpage. The customized webpage shows the name of the VM that you're connecting to when you visit the website from a web browser.
+In this section, you install the IIS server on the two VMs, myIISVMEastUS and myIISVMWEurope and then update the default webpage. The customized webpage shows the name of the VM that you're connecting to when you visit the website from a web browser.
 
 1. Select **All resources** on the left menu. From the resource list, select **myIISVMEastUS** in the **myResourceGroupTM1** resource group.
 2. On the **Overview** page, select **Connect**. In **Connect to virtual machine**, select **Download RDP file**.
@@ -125,6 +125,7 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
 7. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
 ## Create a Traffic Manager profile
+
 Create a Traffic Manager profile based on the **Weighted** routing method.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
@@ -161,22 +162,26 @@ Add the two VMs running the IIS servers myIISVMEastUS and myIISVMWEurope, to rou
 5. When the addition of both endpoints is complete, they're displayed in the Traffic Manager profile along with their monitoring status as **Online**.
 
 ## Test the Traffic Manager profile
+
 To view Traffic Manager in action, complete the following steps:
+
 1. Determine the DNS name of your Traffic Manager profile.
 2. View Traffic Manager in action.
 
 ### Determine DNS name of Traffic Manager profile
+
 In this tutorial, for simplicity, you use the DNS name of the Traffic Manager profile to visit the websites.
 
 You can determine the DNS name of the Traffic Manager profile as follows:
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section. In the results that are displayed, select the Traffic Manager profile.
-1. Select **Overview**.
-2. The Traffic Manager profile displays its DNS name. In production deployments, you configure a vanity domain name to point to the Traffic Manager domain name, by using a DNS CNAME record.
+2. Select **Overview**.
+3. The Traffic Manager profile displays its DNS name. In production deployments, you configure a vanity domain name to point to the Traffic Manager domain name, by using a DNS CNAME record.
 
    ![Traffic Manager DNS name](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### View Traffic Manager in action
+
 In this section, you can see Traffic Manager in action.
 
 1. Select **All resources** on the left menu. From the resource list, select **myVMEastUS** in the **myResourceGroupTM1** resource group.
@@ -191,6 +196,7 @@ In this section, you can see Traffic Manager in action.
 7. Repeat steps 1-6 on the VM myVMWestEurope to see the weighted website response.
 
 ## Delete the Traffic Manager profile
+
 When you no longer need the resource groups that you created in this tutorial, you can delete them. To do so, select the resource group (**ResourceGroupTM1** or **ResourceGroupTM2**), and then select **Delete**.
 
 ## Next steps

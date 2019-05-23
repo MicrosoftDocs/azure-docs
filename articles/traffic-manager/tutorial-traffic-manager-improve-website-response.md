@@ -72,7 +72,7 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWEurope* in the 
 
 #### Install IIS and customize the default web page
 
-In this section, you install the IIS server on the two VMs - *myIISVMEastUS* & *myIISVMWEurope*, and then update the default website page. The customized website page shows the name of the VM that you are connecting to when you visit the website from a web browser.
+In this section, you install the IIS server on the two VMs *myIISVMEastUS* and *myIISVMWEurope*, and then update the default website page. The customized website page shows the name of the VM that you are connecting to when you visit the website from a web browser.
 
 1. Select **All resources** in the left-hand menu, and then from the resources list click *myIISVMEastUS* that is located in the *myResourceGroupTM1* resource group.
 2. On the **Overview** page, click **Connect**, and then in **Connect to virtual machine**, select **Download RDP file**.
