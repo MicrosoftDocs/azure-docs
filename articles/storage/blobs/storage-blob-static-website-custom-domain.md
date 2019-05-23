@@ -64,14 +64,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 1. In the Azure portal, display the settings for your CDN endpoint. Navigate to **Custom domains** under **Settings** to configure the custom domain and the SSL certificate.
 1. Select **Add custom domain** and enter your domain name, then click **Add**.
 1. Select the new custom domain mapping to provision an SSL certificate.
-1. Set **Custom Domain HTTPS** to **ON**, then click **Save**. It may take several minutes to configure your custom domain.
+1. Set **Custom Domain HTTPS** to **ON**, then click **Save**. It may take several minutes or more to configure your custom domain. For more information about enabling HTTPS for custom domains, see [Tutorial: Configure HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 1. Test the mapping of your static website to your custom domain by accessing the URL for your custom domain.
 
 ## Next steps
 
 In part two of this tutorial, you learned how to configure a custom domain with SSL in Azure CDN for your static website.
 
-Follow this link to learn more about static website hosting on Azure Storage.
-
-> [!div class="nextstepaction"]
-> [Learn more about static websites](storage-blob-static-website.md)
+For more information about configuring and using Azure CDN, see [What is Azure CDN?](../../cdn/cdn-overview.md).
