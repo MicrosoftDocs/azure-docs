@@ -8,7 +8,7 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. 
@@ -33,7 +33,7 @@ ms.date: 09/24/2018
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and differentiate from workspaces created by others.  
    Subscription |Select the Azure subscription that you want to use.
-   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. In this example, we use **docs-aml**. 
+   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources. This location is where the workspace is created.
 
    ![Create workspace](./media/aml-create-in-portal/workspace-create.png)

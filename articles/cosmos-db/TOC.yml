@@ -71,7 +71,7 @@
     - name: Python samples
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples.md
+      href: powershell-samples-sql.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
@@ -277,6 +277,8 @@
             href: cassandra-spark-table-copy-ops.md
         - name: Manage using Resource Manager templates
           href: manage-cassandra-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-cassandra.md
     - name: MongoDB API
       items: 
       - name: Introduction
@@ -356,6 +358,8 @@
           displayName: custom commands
         - name: Manage using Resource Manager templates
           href: manage-mongodb-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-mongodb.md
     - name: Gremlin API
       displayName: graph, graph database
       items: 
@@ -394,6 +398,8 @@
           maintainContext: true
         - name: Manage using Resource Manager templates
           href: manage-gremlin-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-gremlin.md
     - name: Table API
       items:
       - name: Introduction
@@ -446,6 +452,8 @@
           href: table-storage-design-guide.md
         - name: Manage using Resource Manager templates
           href: manage-table-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-table.md
       - name: Reference
         items:
           - name: .NET
