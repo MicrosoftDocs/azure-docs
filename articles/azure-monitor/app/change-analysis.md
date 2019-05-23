@@ -100,7 +100,7 @@ If you have a lot of web apps in your Subscription, enable the service at per we
 
     ```
 
-2. Register Change Analysis Resource Provider for the subscirption
+2. Register Change Analysis Resource Provider for the subscription
 
     - Navigate to Subscriptions, select the subscription you want to onboard the change service, then click Resource providers:
 
