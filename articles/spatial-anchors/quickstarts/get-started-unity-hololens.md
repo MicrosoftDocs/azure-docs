@@ -38,11 +38,11 @@ To complete this quickstart:
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## Open the sample project in Unity
+## Download and open the Unity sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-In Unity, open the project in the Unity folder.
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 Open **Build Settings** by selecting **File** > **Build Settings**.
 
@@ -50,7 +50,7 @@ In the **Platform** section, select **Universal Windows Platform**. Change the *
 
 Select **Switch Platform** to change the platform to **Universal Windows Platform**. Unity might prompt you to install UWP support components if they're missing.
 
-   ![Unity Build Settings window](./media/get-started-unity-hololens/unity-build-settings.png)
+![Unity Build Settings window](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Close the **Build Settings** window.
 
