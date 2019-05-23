@@ -330,4 +330,4 @@ To improve the project, make the following additional changes to the completed p
 In this tutorial, you modularized a template into a main template and a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see:
 
 > [!div class="nextstepaction"]
-> [Deploy virtual machine extensions](.//resource-manager-tutorial-deploy-vm-extensions.md)
+> [Deploy virtual machine extensions](./resource-manager-tutorial-deploy-vm-extensions.md)
