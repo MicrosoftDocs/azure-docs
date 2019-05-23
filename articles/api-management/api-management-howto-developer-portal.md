@@ -1,6 +1,6 @@
 ---
 title: Access and customize the new developer portal - Azure API Management | Microsoft Docs
-description: Learn how to edit and use the new developer portal in API Management.
+description: Learn how to use the new developer portal in API Management.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -32,18 +32,20 @@ This article shows you how to access the new Azure API Management developer port
 
 You can build your developer portal in two ways:
 
-- **Managed version** - by editing and customizing the portal built-into an API Management instance. This is the experience described in this documentation article. 
+- **Managed version** - by editing and customizing the portal built-into an API Management instance and accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`. This documentation article describes the managed version.
 - **Self-hosted version** - by deploying your own portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. For details and instructions, refer to the [GitHub repository with the source code of the portal][1].
 
 ## Edit and customize the portal and publish the changes
 
-### Access the portal
-
-### Create a new page
-
-### Customize the look
-
-### Publish changes
+1. Go to your API Management service instance in the Azure portal.
+1. Click on the **New developer portal (preview)** button in the top navigation bar. A new browser tab will open with an administrative version of the developer portal.
+1. // Change text
+1. // Save
+1. // Add a page
+1. // Save
+1. // Change colors
+1. // Save
+1. // Publish
 
 ## YouTube tutorial
 
