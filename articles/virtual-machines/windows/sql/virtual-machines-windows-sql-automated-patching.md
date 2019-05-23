@@ -80,9 +80,9 @@ For context, see the complete topic on [provisioning a SQL Server virtual machin
 
 ### Existing VMs
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-use-new-management-blade.md)]
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-For existing SQL Server virtual machines, open your [SQL VM management blade](virtual-machines-windows-sql-manage-portal.md#sql-vm-management-blade) and select **Patching** under **Settings**. 
+For existing SQL Server virtual machines, open your [SQL virtual machine resource](virtual-machines-windows-sql-manage-portal.md#sql-virtual-machine-resource) and select **Patching** under **Settings**. 
 
 ![SQL Automatic Patching for existing VMs](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 

@@ -20,9 +20,9 @@ ms.reviewer: jroth
 
 There are now two different access points to manage your SQL Server VM on Azure using the [Azure portal](https://portal.azure.com). 
 
-The first is the **SQL VM management blade**, which is now an independent management service and is meant to modify settings dedicated to SQL Server: 
+The first is the **SQL virtual machine** resource, which is now an independent management service and is meant to modify settings dedicated to SQL Server: 
 
-![SQL VM management blade](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+![SQL virtual machine resource](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
 
 The second is the **SQL Server configuration tab** found within the typical virtual machine management blade: 
 
@@ -44,13 +44,13 @@ The SQL VM management blade is only available to SQL Server VMs that have [regis
 
 ## Which to use
 
-The SQL VM management blade is the recommended choice for managing your SQL Server VM. However, managing [end-of-support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VM images is not supported with the new management blade and as such, those SQL Server VM images should be managed with the **SQL Server configuration** tab. 
+The **SQL virtual machine** resource is the recommended choice for managing your SQL Server VM. However, managing [end-of-support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VM images is not supported with the new management blade and as such, those SQL Server VM images should be managed with the **SQL Server configuration** tab. 
 
 
 ## How to access
 
-### SQL VM management blade
-To access the SQL VM management blade, do the following:
+### SQL virtual machine resource
+To access the SQL virtual machine resource, do the following:
 
 1. Open the [Azure portal](https://portal.azure.com). 
 1. Select **All Services**. 
@@ -67,7 +67,7 @@ To access the SQL VM management blade, do the following:
 Selecting your SQL Server VM will open the SQL VM management blade: 
 
 
-![SQL VM management blade](media/virtual-machines-windows-sql-manage-portal/sql-vm-management-blade.png)
+![SQL virtual machine resource](media/virtual-machines-windows-sql-manage-portal/sql-vm-management-blade.png)
 
   > [!TIP]
   > The management blade is for dedicated SQL Server settings. Select the name of the VM in the **Virtual machine** field to navigate to settings that are specific to the VM, but not exclusive to SQL Server. 
