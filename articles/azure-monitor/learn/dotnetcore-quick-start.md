@@ -97,6 +97,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 ## Video
 
 - External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
+- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio Code](https://www.youtube.com/watch?v=ppS_UJUnZZo) from scratch.
 
 ## Clean up resources
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
