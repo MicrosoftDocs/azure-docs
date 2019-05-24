@@ -17,7 +17,7 @@ ms.author: ypitsch,kumud
 
 # Microsoft global network
 
-Microsoft owns and operates one of the largest backbone networks in the world. This global and sophisticated architecture, spanning more than 100,000 miles, connect our datacenters and customers. 
+Microsoft owns and operates one of the largest backbone networks in the world. This global and sophisticated architecture, spanning more than 100,000 miles, connects our datacenters and customers. 
  
 Every day, customers around the world connect and pass trillions of requests to Microsoft Azure, Bing, Dynamics 365, Office 365, XBox, and many others. Regardless of type, customers expect instant reliability and responsiveness from our services. 
  
@@ -27,7 +27,7 @@ The [Microsoft global network](https://azure.microsoft.com/global-infrastructure
  
 ## Get the best cloud network
  
-Opting for the [best possible experience](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) is easy when you use Microsoft cloud. From the moment, when customer traffic enters our global network through our strategically placed edge-nodes, your data travels through optimized routes at near the speed of light. This ensures optimal latency for best performance. These edge-nodes, all interconnected to more than 3500 unique Internet partners (peers)  through thousands of connections in more than 145 locations, provide the foundation of our interconnection strategy. 
+Opting for the [best possible experience](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) is easy when you use Microsoft cloud. From the moment when customer traffic enters our global network through our strategically placed edge-nodes, your data travels through optimized routes at near the speed of light. This ensures optimal latency for best performance. These edge-nodes, all interconnected to more than 3500 unique Internet partners (peers) through thousands of connections in more than 145 locations, provide the foundation of our interconnection strategy. 
  
 Whether connecting from London to Tokyo, or from Washington DC to Los Angeles, network performance is quantified and impacted by things such as latency, jitter, packet loss, and throughput.  At Microsoft, we prefer and use direct interconnects as opposed to transit-links, this keeps response traffic symmetric and helps keep hops, peering parties and paths as short and simple as possible. This premium approach, often referred to as [cold-potato routing](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), ensures that customers network traffic remains within the Microsoft network as long as possible before we hand it off.  
  
@@ -40,7 +40,7 @@ Massive investments in fiber capacity and diversity across metro, terrestrial, a
 
 We have put two decades of experience, along with massive investments into the network, to ensure optimal performance at all times. Businesses can take full advantage of our network assets and build advanced overlay architectures on top. 
  
-Microsoft Azure offers the richest portfolio of services and capabilities, allowing customers to quickly and easily build, expand, and meet networking requirements anywhere. Our family of connectivity services span virtual network peering between regions, hybrid, and in-cloud point-to-site and site-to-site architectures as well as global IP transit scenarios.  For enterprises looking to connect there own datacenter or network to Azure, or customers with massive data ingestion or transit needs, [ExpressRoute](../expressroute/expressroute-introduction.md), and [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) provide options up to 100 Gbps of bandwidth, directly into Microsoft's global network at peering locations across the world.  
+Microsoft Azure offers the richest portfolio of services and capabilities, allowing customers to quickly and easily build, expand, and meet networking requirements anywhere. Our family of connectivity services span virtual network peering between regions, hybrid, and in-cloud point-to-site and site-to-site architectures as well as global IP transit scenarios.  For enterprises looking to connect their own datacenter or network to Azure, or customers with massive data ingestion or transit needs, [ExpressRoute](../expressroute/expressroute-introduction.md), and [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) provide options up to 100 Gbps of bandwidth, directly into Microsoft's global network at peering locations across the world.  
  
 [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) is designed to complement your service provider's WAN implementation and connect your on-premises sites across the world. If you run a global operation, you can use ExpressRoute Global Reach in conjunction with your preferred and local service providers to connect all your global sites using the Microsoft global network. Expanding your new network in the cloud (WAN) to encompass large numbers of branch-sites can be accomplished through Azure Virtual WAN, which brings the ability to seamlessly connect your branches to Microsoft global network with SDWAN & VPN devices (that is, Customer Premises Equipment or CPE) with built-in ease of use and automated connectivity and configuration management. 
  
@@ -61,7 +61,7 @@ We adhere to a robust set of operational principles:
  
 These principles apply to all layers of the network: from the host Network Interface, switching platform, network functions in the data center such as Load Balancers, all the way up to the WAN with our traffic engineering platform and our optical networks.  
  
-The exponential growth of Azure and its network has reached a point where we eventually realized that human intuition could no longer be relied on to manage the global network operations. To fulfill the need to validate long, medium, and short-term changes on the network, we developed a platform to mirror and emulate our production network synthetically. The ability to create mirrored environments and run millions of simulations, allows us to test soft- and hardware changes and their impact, before committing them to our production platform and network. 
+The exponential growth of Azure and its network has reached a point where we eventually realized that human intuition could no longer be relied on to manage the global network operations. To fulfill the need to validate long, medium, and short-term changes on the network, we developed a platform to mirror and emulate our production network synthetically. The ability to create mirrored environments and run millions of simulations, allows us to test software and hardware changes and their impact, before committing them to our production platform and network. 
 
 ## Next steps
 - [Learn more about the networking services provided in Azure](https://azure.microsoft.com/product-categories/networking/)
