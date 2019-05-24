@@ -481,6 +481,15 @@
     items:
     - name: Create a SaaS offer
       href: ./partner-center-portal/create-new-saas-offer.md
+    - name: SaaS Fulfillment APIs
+      href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+      items:
+      - name: Register a SaaS application
+        href: ./partner-center-portal/pc-saas-registration.md
+      - name: SaaS Fulfillment APIs v2
+        href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+      - name: SaaS Fulfillment APIs v1 (deprecated)
+        href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
