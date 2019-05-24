@@ -3,8 +3,8 @@ title: Create your first function in Azure with Kotlin and Maven| Microsoft Docs
 description: Create and publish a simple HTTP triggered function to Azure with Kotlin and Maven.
 services: functions
 documentationcenter: na
-author: rloutlaw
-manager: justhe
+author: dglover
+manager: chanezon
 keywords: azure functions, functions, event processing, compute, serverless architecture
 ms.service: azure-functions
 ms.devlang: multiple
