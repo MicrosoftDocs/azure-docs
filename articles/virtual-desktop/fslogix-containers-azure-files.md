@@ -33,13 +33,13 @@ Microsoft products operate with several technologies for remote user profiles, i
 
 UPD and RUP are the most widely used technologies for user profiles in Remote Desktop Session Host (RDSH) and Virtual Hard Disk (VHD) environments.
 
-### Challenges with User Profile technologies
+### Challenges with previous user profile technologies
 
 Existing and legacy Microsoft solutions for user profiles came with various challenges. No previous solution handled all the user profile needs that come with an RDSH or VDI environment. For example, UPD cannot handle large OST files and RUP does not persist modern settings.
 
 #### Functionality
 
-The following table shows benefits and limitations of user profile technologies.
+The following table shows benefits and limitations of previous user profile technologies.
 
 | Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-premises | Version support | Subsequent sign in time |Notes|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
