@@ -17,7 +17,7 @@ The read replica feature allows you to replicate data from an Azure Database for
 
 Replicas are new servers that you manage similar to regular Azure Database for MariaDB servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
-To learn more about GIT replication, please see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
+To learn more about GTID replication, please see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
 
 ## When to use a read replica
 
