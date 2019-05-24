@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 5/24/2019
 ms.author: travisw
 ---
 
-# Quickstart: Recognize speech in Java on Android by using the Speech SDK
+# Quickstart: Create a voice-first virtual assistant in Java on Android by using the Speech SDK
 
 A quickstart is also available for [speech-to-text](quickstart-java-android.md).
 
