@@ -23,7 +23,7 @@ Every day, customers around the world connect and pass trillions of requests to 
  
 The Microsoft global network (WAN) is a central part of delivering a great cloud experience. Connecting our many data centers across 54 Azure regions and large mesh of edge-nodes strategically placed around the world, our global network offers both the availability, capacity, and the flexibility to meet any demand.
 
-![Microsoft global network](./media/azure-network/microsoft-global-wan.png)
+![Microsoft global network](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## Get the best network we know how to make
  
