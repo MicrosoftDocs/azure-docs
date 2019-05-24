@@ -22,9 +22,6 @@ app's [overview blade](app-insights-dashboards.md).
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/analytics/001.png)
 
 You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) which is a free demo environment with a lot of sample data.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## Relation to Azure Monitor logs
 Application Insights analytics is based on [Azure Data Explorer](/azure/data-explorer) like Azure Monitor logs and also uses the [Kusto query language](/azure/kusto/query). It uses the same [log analytics portal](../log-query/get-started-portal.md) as Azure Monitor logs, although its data is stored in a separate partition.
