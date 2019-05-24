@@ -60,6 +60,24 @@ Run the following command to add a consumer group to the built-in endpoint of yo
 az iot hub consumer-group create --hub-name YourIoTHubName --name YourConsumerGroupName
 ```
 
+Note down the name you choose, you will need it later in this tutorial.
+
+## Get a service connection string for your IoT hub
+
+IoT hubs are created with several default access policies. One such policy is the **service** policy, which provides sufficient permissions for a service to read and write the IoT hub's endpoints. Run the following command to get a connection string for your IoT hub that adheres to the service policy:
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name YourIotHub --policy-name service
+```
+
+The connection string should look similar to the following:
+
+```javascript
+"HostName={YourIotHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"
+```
+
+Note down the service connection string, you will need it later in this tutorial.
+
 ## Download the web app from Github
 
 Open a command window, and enter the following commands to download the sample from github and change to the sample directory:
@@ -85,23 +103,9 @@ Take a moment to examine the following files:
 
 * **Index.html** handles the UI layout for the web page, and references the necessary scripts for client-side logic.
 
-## Get a service connection string for your IoT hub
-
-IoT hubs are created with several default access policies. One such policy is the **service** policy, which provides sufficient permissions for a service to read and write the IoT hub's endpoints. Run the following command to get a connection string for your IoT hub that adheres to the service policy:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIotHub --policy-name service
-```
-
-The connection string should look similar to the following:
-
-```javascript
-"HostName={YourIotHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"
-```
-
 ## Configure environment variables for the web app
 
-To read data from your IoT hub, the web app needs your IoT hub's connection string and the consumer group it should read with. It gets these from the process environment in the following lines in server.js:
+To read data from your IoT hub, the web app needs your IoT hub's connection string and the consumer group that it should read through. It gets these from the process environment in the following lines in server.js:
 
 ```javascript
 const iotHubConnectionString = process.env.IotHubConnectionString;
