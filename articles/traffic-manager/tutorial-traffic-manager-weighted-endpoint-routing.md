@@ -69,7 +69,7 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in th
 
 #### Install IIS and customize the default webpage
 
-In this section, you install the IIS server on the two VMs, myIISVMEastUS and myIISVMWEurope and then update the default webpage. The customized webpage shows the name of the VM that you're connecting to when you visit the website from a web browser.
+In this section, you install the IIS server on the two VMs myIISVMEastUS and myIISVMWEurope,  and then update the default webpage. The customized webpage shows the name of the VM that you're connecting to when you visit the website from a web browser.
 
 1. Select **All resources** on the left menu. From the resource list, select **myIISVMEastUS** in the **myResourceGroupTM1** resource group.
 2. On the **Overview** page, select **Connect**. In **Connect to virtual machine**, select **Download RDP file**.
@@ -105,7 +105,7 @@ Traffic Manager routes user traffic based on the DNS name of the service endpoin
 
 ### Create a test VM
 
-In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azure region (**East US** and **West Europe**. You will use these VMs to test how Traffic Manager routes traffic to the website endpoint that has the higher weight value.
+In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azure region (**East US** and **West Europe**). You will use these VMs to test how Traffic Manager routes traffic to the website endpoint that has the higher weight value.
 
 1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
 2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
