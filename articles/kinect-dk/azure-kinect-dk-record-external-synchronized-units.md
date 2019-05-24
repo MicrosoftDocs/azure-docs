@@ -15,7 +15,7 @@ This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-d
 
 ## Prerequisites
 
-- You must [Set up multiple units for external synchronization](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md).
+- You must [set up multiple Azure Kinect DK units for external synchronization](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md).
 
 ## External synchronization constraints
 
@@ -29,7 +29,7 @@ The following issues will not let you record with external synchronized units:
 
 ## Record when each unit has a host PC
 
-In the example below, each device has its own dedicated host PC. This is the recommended setup.
+In the example below, each device has its own dedicated host PC. It is the recommended setup.
 
 ### Subordinate-1
 
@@ -71,7 +71,7 @@ In the example below, each device has its own dedicated host PC. This is the rec
 
 ## Recording when multiple units connected to single host PC
 
-You can have multiple Azure Kinect DK's connected to a single host PC. However, that can be very demanding to USB bandwidth and host compute. To mitigate this:
+You can have multiple Azure Kinect DKs connected to a single host PC. However, that can be very demanding to USB bandwidth and host compute. To mitigate this:
 
 - Connect each device into own USB host controller.
 - Have a powerful GPU that can handle depth engine for each device.
@@ -97,13 +97,13 @@ You must start subordinate devices first and the master last.
 
 ## Playing recording
 
-You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to playback recording.
+You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play back recording.
 
 ## Tips
 
-- Use manual exposure (e.g. by setting using viewer before recording). RGB camera auto-exposure may impact time-synchronization and some lost depth frames if exposure is too long.
+- Use manual exposure (for example, by setting using viewer before recording). RGB camera auto-exposure may impact time-synchronization and some lost depth frames if exposure is too long.
 - Restarting subordinate device will cause synchronization to be lost.
-- Some [camera modes](https://aka.ms/AzureKinectAPIDocs/azure-kinect-devkit.md) support 15fps max. We recommended that you do not mix modes/frame rates between devices
+- Some [camera modes](https://aka.ms/AzureKinectAPIDocs/azure-kinect-devkit.md) support 15 fps max. We recommended that you do not mix modes/frame rates between devices
 - Connecting multiple units to single PC can easily saturate USB bandwidth, consider using separate host PC per device. Pay attention to CPU/GPU compute as well.
 - Disable microphone and IMU in the viewer if those are not needed. This can improve reliability.
 
@@ -111,7 +111,12 @@ For any issues see [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troublesh
 
 ## Next steps
 
-- [Setup external sync](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md) for how to setup hardware.
+Learn how to synchronize multiple Azure Kinect DK devices
+> [!div class="nextstepaction"]
+>[Setup external sync](https://support.microsoft.com/en-us/help/4494429/sync-multiple-azure-kinect-dk-devices)
+
+## See also
+
 - [Azure Kinect Recorder](azure-kinect-dk-recorder.md) for recorder settings and additional information.
 - [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) for playing recordings or setting RGB camera properties not available through recorder.
 - [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md) for updating device firmware.

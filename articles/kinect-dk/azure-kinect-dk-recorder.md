@@ -46,26 +46,26 @@ k4arecorder [options] output.mkv
 
 ## Record files
 
-Scenario 1. Record Depth NFOV unbinned (640x576) mode, RGB 1080p at 30fps with IMU.
+Scenario 1. Record Depth NFOV unbinned (640x576) mode, RGB 1080p at 30 fps with IMU.
 Run the **CTRL-C** to stop recording.
 
 ```
 k4arecorder.exe output.mkv
 ```
 
-Scenario 2. Record WFOV non-binned (1MP), RGB 3072p at 15fps without IMU.
+Scenario 2. Record WFOV non-binned (1MP), RGB 3072p at 15 fps without IMU.
 
 ```
 k4arecorder.exe -d WFOV_UNBINNED -c 3072p -r 15 -l 10 --imu OFF output.mkv
 ```
 
-Example 3. Record WFOV 2x2 binned 30fps 5 seconds to output.mkv file.
+Example 3. Record WFOV 2x2 binned 30 fps 5 seconds to output.mkv file.
 
 ```
 k4arecorder.exe -d WFOV_2X2BINNED -c OFF --imu OFF -l 5 output.mkv
 ```
 
-Note that options are case sensitive.
+The options are case-sensitive.
 
 >[!TIP]
 >You can use [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to configure RGB camera controls before recording (e.g. to set manual exposure).
@@ -76,8 +76,9 @@ You can open the output .mkv file with [Azure Kinect Viewer](azure-kinect-sensor
 
 To extract tracks or view file info, tools such as `mkvinfo` are available as part of the [MKVToolNix](https://mkvtoolnix.download/) toolkit.
 
-For any issues with recording, refer to [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md).
+For any issues with recording, refer to [Troubleshooting](https://support.microsoft.com).
 
 ## Next steps
 
-[Using recorder with external synchronized units](azure-kinect-dk-record-external-synchronized-units.md)
+> [!div class="nextstepaction"]
+>[Using recorder with external synchronized units](azure-kinect-dk-record-external-synchronized-units.md)

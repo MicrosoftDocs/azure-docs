@@ -12,9 +12,9 @@
     href: setup.md
 - name: Concepts
   items:
-   - name: Azure Kinect DK depth camera
+   - name: Depth camera
      href: azure-kinect-dk-depth-camera.md
-   - name: Azure Kinect DK coordinate systems
+   - name: Coordinate systems
      href: azure-kinect-dk-coordinate-systems.md
 - name: How-to guides
   items: 
@@ -40,17 +40,15 @@
          href: record-playback-api.md
    - name: Update Azure Kinect firmware
      href: azure-kinect-dk-update-device-firmware.md
+   - name: Use recorder with external synchronized units
+     href: azure-kinect-dk-record-external-synchronized-units.md
 - name: Tools
   items:
-    - name: Azure Kinect sensor viewer
+    - name: Sensor viewer
       href: azure-kinect-sensor-viewer.md
-    - name: Azure Kinect recorder
-      items:
-        - name: Overview
-          href: azure-kinect-dk-recorder.md
-        - name: Azure Kinect DK record external synchronized units
-          href: azure-kinect-dk-record-external-synchronized-units.md
-    - name: Azure Kinect firmware tool
+    - name: Recorder
+      href: azure-kinect-dk-recorder.md
+    - name: Firmware tool
       href: azure-kinect-firmware-tool.md
 - name: Resources
   items:  
@@ -67,3 +65,5 @@
   items:  
    - name: Sensor API
      href: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
+   - name: Record file format
+     href: sdk-record-format.md
