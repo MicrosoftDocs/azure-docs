@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 # Working with VMs using Azure Bastion (preview)
 
-This article helps you work with VMs. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](bastion-create-host-portal.md) and have connected to the VM that you want to work with via either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
+This article helps you work with VMs. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](bastion-create-host-portal.md). Then, connect to the VM that you want to work with using either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
