@@ -126,25 +126,6 @@ The Log Analytics agent was designed to ensure it has a small footprint. The dat
 
 For more information, you can read a [customer blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
 
-### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
-
-A. Bandwidth is a function on the amount of data sent. Data is compressed as it is sent over the network.
-
-### Q. How much data is sent per agent?
-
-A. The amount of data sent per agent depends on:
-
-* The solutions you have enabled
-* The number of logs and performance counters being collected
-* The volume of data in the logs
-
-The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](platform/data-usage.md) page.
-
-For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
-
-```
-Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
-```
 
 
 
@@ -161,6 +142,27 @@ You can’t move data from one Log Analytics workspace to another, or change the
 
 ## Agents
 
+### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Azure Monitor?
+Bandwidth is a function on the amount of data sent. Data is compressed as it is sent over the network.
+
+
+### Q. How much data is sent per agent?
+The amount of data sent per agent depends on:
+
+* The solutions you have enabled
+* The number of logs and performance counters being collected
+* The volume of data in the logs
+
+The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](platform/data-usage.md) page.
+
+For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
+
+```
+WireData 
+| where ProcessName=="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe"
+| where Direction=="Outbound"
+| summarize sum(TotalBytes) by Computer
+```
 
 
 ## Next steps
