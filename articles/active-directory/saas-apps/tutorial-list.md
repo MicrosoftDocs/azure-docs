@@ -42,36 +42,36 @@ To find more tutorials, use the table of contents on the left.
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :--- | :--- | :--- |
-| ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform - User Provisioning](google-apps-provisioning-tutorial.md) |
 | ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) Console](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) Console - Role Provisioning](amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on) |
 | ![logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Role bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
+| ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform - User Provisioning](google-apps-provisioning-tutorial.md) |
 | ![logo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)| |
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - User Provisioning](salesforce-provisioning-tutorial.md) |
 
 ## OneClick SSO
 
-| Logo | Application tutorial for single sign-on |  |
+| Logo | Application tutorial for single sign-on |        |
 | :--- | :--- | :--- |
-| ![logo](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-zscaler-tutorial.png)| [Zscaler](zscaler-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](zscaler-beta-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](zscaler-one-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-zscalerprivateaccess-tutorial.png)| [Zscaler Private Access (ZPA)](zscalerprivateaccess-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler Three](zscaler-three-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](zscaler-two-tutorial.md)| |
-| ![logo](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)| |
+| ![logo](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|      |
+| ![logo](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)|    |
+| ![logo](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|     |
+| ![logo](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
+| ![logo](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|       |
+| ![logo](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|        |
+| ![logo](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|        |
+| ![logo](./media/tutorial-list/active-directory-saas-zscaler-tutorial.png)| [Zscaler](zscaler-tutorial.md)|          |
+| ![logo](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](zscaler-beta-tutorial.md)|       |
+| ![logo](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](zscaler-one-tutorial.md)|       |
+| ![logo](./media/tutorial-list/active-directory-saas-zscalerprivateaccess-tutorial.png)| [Zscaler Private Access (ZPA)](zscalerprivateaccess-tutorial.md)|        |
+| ![logo](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler Three](zscaler-three-tutorial.md)|       |
+| ![logo](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](zscaler-two-tutorial.md)|        |
+| ![logo](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)|         |
 
 ## Next steps
 
