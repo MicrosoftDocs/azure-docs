@@ -30,7 +30,9 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
 
 In the portal page of your Azure Database for MySQL server, select **Query Performance Insight** under the **Intelligent Performance** section of the menu bar.
 
-![Query Performance Insight long running queries](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+<!-- 
+![Query Performance Insight long running queries](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+-->
 
 The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15-minute intervals. You can view more queries by selecting from  the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
 
@@ -38,7 +40,9 @@ You can click and drag in the chart to narrow down to a specific time window. Al
 
 Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
 
+<!--
 ![Query Performance Insight waits statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+-->
 
 ## Next steps
 
