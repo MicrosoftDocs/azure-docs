@@ -11,7 +11,7 @@ keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 
 # Access microphones
 
-The Speech SDK Quickstarts provide examples to utilize the Azure Kinect DK microphone array in a variety of programming languages.
+The [Speech SDK Quickstarts](https://docs.microsoft.com/azure/cognitive-services/speech-service/#5-minute-quickstarts) provide examples to utilize the Azure Kinect DK microphone array in a variety of programming languages.
 For example, view Quickstart: Recognize speech in C++ on Windows by using the Speech SDK; the code is available [from GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp-windows).
 
 Access the microphone array also through Windows API, and see the following docs for details on Windows documentation:
@@ -23,6 +23,11 @@ Access the microphone array also through Windows API, and see the following docs
 
 ## Next steps
 
-* Speech Services SDK
-* Set Up Microphone in Azure Kinect DK
-* Azure Kinect Viewer as Sample Code
+>[!div class="nextstepaction"]
+>[Speech Services SDK](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/)
+
+>[!div class="nextstepaction"]
+>[Set Up Microphone in Azure Kinect DK](hardware-specification.md)
+
+>[!div class="nextstepaction"]
+>[Azure Kinect Viewer as Sample Code](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/tools/k4aviewer)
