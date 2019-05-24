@@ -146,8 +146,9 @@ See the following examples:
  
 **Streaming Locators** are not updatable while filters can be updated. 
 
-> [!NOTE]
-> It is not recommended updating filters associated with a **Streaming Locator** after the **Streaming Locator**'s creation, especially when CDN is enabled. Streaming servers and CDNs can have internal caches that may cause old data to be cached or unexpected data to be returned.
+It is not recommended to update the definition of filters associated with an actively published **Streaming Locator**, especially when CDN is enabled. Streaming servers and CDNs can have internal caches that may result in stale cached data to be returned. 
+
+If the filter definition needs to be changed consider creating a new filter and adding it to the **Streaming Locator** URL or publishing a new **Streaming Locator** that references the filter directly.
 
 ## Next steps
 
