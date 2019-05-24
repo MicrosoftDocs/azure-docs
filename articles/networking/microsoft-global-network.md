@@ -25,7 +25,7 @@ The [Microsoft global network](https://azure.microsoft.com/global-infrastructure
 
 ![Microsoft global network](./media/microsoft-global-network/microsoft-global-wan.png)
  
-## Get the best cloud network
+## Get the premium cloud network
  
 Opting for the [best possible experience](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) is easy when you use Microsoft cloud. From the moment when customer traffic enters our global network through our strategically placed edge-nodes, your data travels through optimized routes at near the speed of light. This ensures optimal latency for best performance. These edge-nodes, all interconnected to more than 3500 unique Internet partners (peers) through thousands of connections in more than 145 locations, provide the foundation of our interconnection strategy. 
  
