@@ -2,12 +2,12 @@
 title: Tutorial - Route traffic to weighted endpoints - Azure Traffic Manager
 description: This tutorial article describes how to route traffic to weighted endpoints by using Traffic Manager.
 services: traffic-manager
-author: KumudD
+author: asudbring
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Tutorial: Control traffic routing with weighted endpoints by using Traffic Manager
@@ -27,7 +27,9 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
 To see Traffic Manager in action, deploy the following for this tutorial:
+
 - Two instances of basic websites running in different Azure regions: East US and West Europe.
 - Two test VMs for testing Traffic Manager: one in East US and the other in West Europe. The test VMs are used to illustrate how Traffic Manager routes user traffic to a website that has higher weight assigned to its endpoint.
 
@@ -38,53 +40,36 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ### Create websites
 
 In this section, you create two website instances that provide the two service endpoints for the Traffic Manager profile in two Azure regions. To create the two websites, complete the following steps:
+
 1. Create two VMs for running a basic website: one in East US, and the other in West Europe.
 2. Install an IIS server on each VM. Update the default webpage that describes the VM name that a user is connected to when visiting the website.
 
 #### Create VMs for running websites
+
 In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in the East US and West Europe Azure regions.
 
-1. In the upper-left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 VM**.
-2. Enter or select the following information for **Basics**. Accept the defaults for the other settings, and then select **Create**.
+1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
+2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
 
-    |Setting|Value|
-    |---|---|
-    |Name|Enter **myIISVMEastUS**.|
-    |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Select **New** and then enter **myResourceGroupTM1**.|
-    |Location| Select **East US**.|
-    |||
+   - **Subscription** > **Resource Group**: Select **Create new** and then type **myResourceGroupTM1**.
+   - **Instance Details** > **Virtual machine name**: Type *myIISVMEastUS*.
+   - **Instance Details** > **Region**:  Select **East US**.
+   - **Administrator Account** > **Username**:  Enter a user name of your choosing.
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
+   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** in the pull down box.
 
-4. Select a VM size under **Choose a size**.
-5. Select the following values for **Settings**, and then select **OK**:
-    
-    |Setting|Value|
-    |---|---|
-    |Virtual network| Select **Virtual network**. In **Create virtual network**, for **Name**, enter **myVNet1**. For **Subnet**, enter **mySubnet**.|
-    |Network Security Group|Select **Basic**. In the **Select public inbound ports** drop-down list, select **HTTP** and **RDP**. |
-    |Boot diagnostics|Select **Disabled**.|
-    |||
-
-6. Under **Create**, in **Summary**, select **Create** to start the VM deployment.
-
-7. Complete steps 1-6 again, with the following changes:
-
-    |Setting|Value|
-    |---|---|
-    |Resource group | Select **New**, and then enter **myResourceGroupTM2**.|
-    |Location|Enter **West Europe**.|
-    |VM Name | Enter **myIISVMWEurope**.|
-    |Virtual network | Select **Virtual network**. In **Create virtual network**, for **Name**, enter **myVNet2**. For **Subnet**, enter **mySubnet**.|
-    |||
-
-8. The VMs take a few minutes to create. Don't continue with other steps until both VMs are created.
+3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
+4. Select **Review + create**.
+5. Review the settings, and then click **Create**.  
+6. Follow the steps to create a second VM named *myIISVMWEurope*, with a **Resource group** name of *myResourceGroupTM2*, a **location** of *West Europe*, and all the other settings the same as *myIISVMEastUS*.
+7. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
 ![Create a VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
 #### Install IIS and customize the default webpage
 
-In this section, you install the IIS server on the two VMs&mdash;myIISVMEastUS and myIISVMWEurope&mdash;and then update the default webpage. The customized webpage shows the name of the VM that you're connecting to when you visit the website from a web browser.
+In this section, you install the IIS server on the two VMs, myIISVMEastUS and myIISVMWEurope and then update the default webpage. The customized webpage shows the name of the VM that you're connecting to when you visit the website from a web browser.
 
 1. Select **All resources** on the left menu. From the resource list, select **myIISVMEastUS** in the **myResourceGroupTM1** resource group.
 2. On the **Overview** page, select **Connect**. In **Connect to virtual machine**, select **Download RDP file**.
@@ -116,37 +101,31 @@ Traffic Manager routes user traffic based on the DNS name of the service endpoin
 1. Select **All resources** on the left menu. From the resource list, select **myIISVMEastUS** in the **myResourceGroupTM1** resource group.
 2. On the **Overview** page, under **DNS name**, select **Configure**.
 3. On the **Configuration** page, under the DNS name label, add a unique name. Then select **Save**.
-4. Repeat steps 1-3 for the VM named **myIISVMWEurope** in the **myResourceGroupTM1** resource group.
+4. Repeat steps 1-3 for the VM named **myIISVMWEurope** in the **myResourceGroupTM2** resource group.
 
 ### Create a test VM
 
-In this section, you create the VM *mVMEastUS*. You'll use this VM to test how Traffic Manager routes traffic to the website endpoint that has the higher weight value.
+In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azure region (**East US** and **West Europe**. You will use these VMs to test how Traffic Manager routes traffic to the website endpoint that has the higher weight value.
 
-1. In the upper-left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 VM**.
-2. Enter or select the following information for **Basics**. Accept the defaults for the other settings, and then select **Create**:
+1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
+2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
 
-    |Setting|Value|
-    |---|---|
-    |Name|Enter **myVMEastUS**.|
-    |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Select **Use existing** and then select **myResourceGroupTM1**.|
-    |||
+   - **Subscription** > **Resource Group**: Select **myResourceGroupTM1**.
+   - **Instance Details** > **Virtual machine name**: Type *myVMEastUS*.
+   - **Instance Details** > **Region**:  Select **East US**.
+   - **Administrator Account** > **Username**:  Enter a user name of your choosing.
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
+   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** in the pull down box.
 
-4. Select a VM size under **Choose a size**.
-5. Select the following values for **Settings**, and then select **OK**:
-
-    |Setting|Value|
-    |---|---|
-    |Virtual network| Select **Virtual network**. In **Create virtual network**, for **Name**, enter **myVNet3**. For subnet, enter **mySubnet**.|
-    |Network Security Group|Select **Basic**. In the **Select public inbound ports** drop-down list, select **HTTP** and **RDP**. |
-    |Boot diagnostics|Select **Disabled**.|
-    |||
-
-6. Under **Create** in **Summary**, select **Create** to start the VM deployment.
-8. The VM takes a few minutes to create. Don't continue with other steps until the VM is created.
+3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
+4. Select **Review + create**.
+5. Review the settings, and then click **Create**.  
+6. Follow the steps to create a second VM named *myVMWestEurope*, with a **Resource group** name of *myResourceGroupTM2*, a **location** of *West Europe*, and all the other settings the same as *myVMEastUS*.
+7. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
 ## Create a Traffic Manager profile
+
 Create a Traffic Manager profile based on the **Weighted** routing method.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
@@ -183,22 +162,26 @@ Add the two VMs running the IIS servers myIISVMEastUS and myIISVMWEurope, to rou
 5. When the addition of both endpoints is complete, they're displayed in the Traffic Manager profile along with their monitoring status as **Online**.
 
 ## Test the Traffic Manager profile
+
 To view Traffic Manager in action, complete the following steps:
+
 1. Determine the DNS name of your Traffic Manager profile.
 2. View Traffic Manager in action.
 
 ### Determine DNS name of Traffic Manager profile
+
 In this tutorial, for simplicity, you use the DNS name of the Traffic Manager profile to visit the websites.
 
 You can determine the DNS name of the Traffic Manager profile as follows:
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section. In the results that are displayed, select the Traffic Manager profile.
-1. Select **Overview**.
-2. The Traffic Manager profile displays its DNS name. In production deployments, you configure a vanity domain name to point to the Traffic Manager domain name, by using a DNS CNAME record.
+2. Select **Overview**.
+3. The Traffic Manager profile displays its DNS name. In production deployments, you configure a vanity domain name to point to the Traffic Manager domain name, by using a DNS CNAME record.
 
    ![Traffic Manager DNS name](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### View Traffic Manager in action
+
 In this section, you can see Traffic Manager in action.
 
 1. Select **All resources** on the left menu. From the resource list, select **myVMEastUS** in the **myResourceGroupTM1** resource group.
@@ -210,7 +193,10 @@ In this section, you can see Traffic Manager in action.
 
    ![Test Traffic Manager profile](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
+7. Repeat steps 1-6 on the VM myVMWestEurope to see the weighted website response.
+
 ## Delete the Traffic Manager profile
+
 When you no longer need the resource groups that you created in this tutorial, you can delete them. To do so, select the resource group (**ResourceGroupTM1** or **ResourceGroupTM2**), and then select **Delete**.
 
 ## Next steps

@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 07/07/2017
+ms.date: 05/09/2019
 ms.author: crdun
 
 ---
@@ -44,42 +44,13 @@ the command line is not covered by this tutorial.
 ## Create an Azure mobile app backend
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
-
-## Configure the server project
+## Create a database connection and configure the client and server project
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## Download and run the Apache Cordova app
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
-
-## Next Steps
-Now that you completed this quick start tutorial, move on to one of the following tutorials:
-
-* [Add Offline Data](app-service-mobile-cordova-get-started-offline-data.md) to your Apache Cordova app.
-* [Add Authentication](app-service-mobile-cordova-get-started-users.md) to your Apache Cordova app.
-* [Add Push Notifications](app-service-mobile-cordova-get-started-push.md) to your Apache Cordova app.
-
-Learn more about key concepts with Azure App Service.
-
-* [Offline Data]
-* [Authentication]
-* [Push Notifications]
-
-Learn how to use the SDKs.
-
-* [Apache Cordova SDK]
-* [ASP.NET Server SDK]
-* [Node.js Server SDK]
-
-<!-- Images. -->
-
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
+
 [Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Offline Data]: app-service-mobile-offline-data-sync.md
-[Authentication]: app-service-mobile-auth.md
-[Push Notifications]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
-[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
