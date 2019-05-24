@@ -1,5 +1,5 @@
 ---
-title: Real-time data visualization of sensor data from your Azure IoT hub – Web Apps | Microsoft Docs
+title: Real-time data visualization of sensor data from your Azure IoT hub in a web app | Microsoft Docs
 description: Use a web application to visualize temperature and humidity data that is collected from a sensor and sent to your Iot hub.
 author: robinsh
 ms.service: iot-hub
@@ -10,7 +10,7 @@ ms.date: 04/11/2018
 ms.author: robinsh
 ---
 
-# Visualize real-time sensor data from your Azure IoT hub by using the Web Apps feature of Azure App Service
+# Visualize real-time sensor data from your Azure IoT hub in a web application
 
 ![End-to-end diagram](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
 
@@ -18,7 +18,7 @@ ms.author: robinsh
 
 ## What you learn
 
-In this tutorial, you learn how to visualize real-time sensor data that your IoT hub receives with a node.js web app running on your local computer. After running the web app locally, you can optionally follow steps to host the web in Azure App Service. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+In this tutorial, you learn how to visualize real-time sensor data that your IoT hub receives with a node.js web app running on your local computer. After running the web app locally, you can optionally follow steps to host the web app in Azure App Service. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 ## What you do
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 * [Download Git](https://www.git-scm.com/downloads)
 
-## Start and initialize Azure CLI
+* The steps in this article assume a Windows development machine; however, you can easily perform these steps on a Linux system in your preferred shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -85,32 +85,34 @@ Take a moment to examine the following files:
 
 * **Index.html** handles the UI layout for the web page, and references the necessary scripts for client-side logic.
 
+## Get a service connection string for your IoT hub
+
+IoT hubs are created with several default access policies. One such policy is the **service** policy, which provides sufficient permissions for a service to read and write the IoT hub's endpoints. Run the following command to get the connection string:
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name YourIotHub --policy-name service
+```
+
+The connection string should look similar to the following:
+
+```javascript
+"HostName={YourIotHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"
+```
+
 ## Configure environment variables for the web app
 
-To read data from your IoT hub, the web app needs your hub's connection string and the consumer group it should read with. It gets these from the process environment in the following lines in server.js:
+To read data from your IoT hub, the web app needs your IoT hub's connection string and the consumer group it should read with. It gets these from the process environment in the following lines in server.js:
 
 ```javascript
 const iotHubConnectionString = process.env.IotHubConnectionString;
 const eventHubConsumerGroup = process.env.EventHubConsumerGroup;
 ```
 
-Set the environment variables in your command shell with the following commands. Replace the placeholder values with the connection string for your IoT hub and the name of the consumer group you created previously. Do not quote the strings.
+Set the environment variables in your command window with the following commands. Replace the placeholder values with the service connection string for your IoT hub and the name of the consumer group you created previously. Do not quote the strings.
 
 ```cmd
 set IotHubConnectionString=YourIoTHubConnectionString
 set EventHubConsumerGroup=YourConsumerGroupName
-```
-
-If you haven't noted it previously, you can run the following Azure CLI command to get the connection string for your IoT hub:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIotHub
-```
-
-The connection string should look similar to the following:
-
-```javascript
-"HostName=my-contoso-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=HHUGaP1JkpkIZlkNdnxaT8sM19J3Kiqw3KFe9t6KVRA="
 ```
 
 ## Run the web app
@@ -144,9 +146,9 @@ You should also see output in the console similar to the following that shows th
 
 The [Web Apps feature of Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview) provides a platform as a service (PAAS) that enables your web applications to benefit from powerful Azure features like additional security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. Azure App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
 
-In this section you provision a web app in App Service and deploy your code to it.
+In this section you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest) documentation.
 
-1. An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) defines a set of compute resources for an app hosted in App Service to run. In this article we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps in the region selected, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
+1. An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) defines a set of compute resources for an app hosted in App Service to run. In this article we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
 
    To create an App Service plan using the Windows free tier run the following command. Use the same resource group your IoT hub is in.
 
@@ -160,13 +162,13 @@ In this section you provision a web app in App Service and deploy your code to i
    az webapp create -g <your resource group> -n <your web app name> -p <your app service plan name>  -l
    ```
 
-3. Now add Application Settings for the environment variables that specify the IoT hub connection string and the Event hub consumer group so they can be read by your code. Individual settings are space delimited in the `-settings` parameter. Use the connection string for your IoT hub and the consumer group you created previously in this tutorial. Do not quote the values.
+3. Now add Application Settings for the environment variables that specify the IoT hub connection string and the Event hub consumer group. Individual settings are space delimited in the `-settings` parameter. Use the service connection string for your IoT hub and the consumer group you created previously in this tutorial. Do not quote the values.
 
    ```azurecli-interactive
    az webapp config appsettings set -g <your resource group> -n <your web app name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=HostName=<your IoT hub connection string>
    ```
 
-4. Enable the Web Sockets protocol for the Web App and set it to HTTPS only.
+4. Enable the Web Sockets protocol for the web app and set the web app to receive HTTPS requests only (HTTP requests are redirected to HTTPS).
 
    ```azurecli-interactive
    az webapp config set -g <your resource group> -n <your web app name>  --web-sockets-enabled true
@@ -179,13 +181,13 @@ In this section you provision a web app in App Service and deploy your code to i
    az webapp deployment source config-local-git -g <your resource group> -n <your web app name>
    ```
 
-6. Add a remote to your clone that references the GitHub repo for the Web App in App Service. For \<Git clone URL \> use the URL returned in the previous step
+6. Add a remote to your clone that references the GitHub repo for the Web App in App Service. For \<Git clone URL \> use the URL returned in the previous step. Run the following in your command window.
 
    ```cmd
    git remote add webapp <Git clone URL>
    ```
 
-7. By default, web apps hosted in App Service use HTTPS. For this reason, you must change the web socket protocol used to send data to the client javascript to secure web sockets. Open the `web-apps-node-iot-hub-data-visualization/public/js/chart-device-data.js` file in your favorite editor and change the line near the top of the file where the protocol is set from `ws://` to `wss://`. Then save the file and quit the editor.
+7. Because the web app is configured for HTTPS-only, you must change the web socket protocol used to send data to the client javascript to secure web sockets. Open the `web-apps-node-iot-hub-data-visualization/public/js/chart-device-data.js` file in your favorite editor and change the line near the top of the file where the protocol is set from `ws://` to `wss://`. Then save the file and quit the editor.
 
    ```javascript
    // if deployed to a site requiring SSL, change to wss://
@@ -199,13 +201,13 @@ In this section you provision a web app in App Service and deploy your code to i
    git commit -m "updated client code to use wss"
    ```
 
-9. In order to push your changes to App Service, you need [user-level deployment credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials#userscope). Your user-level deployment credentials are valid across all of your App Service apps and all subscriptions in your Azure account. They are used for Git local and FTP deployments. If you have previously set user-level deployment credentials, you can use them. If you have not previously set user-level deployment credentials, run the following command to set them.
+9. In order to push your changes to App Service, you need [user-level deployment credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials#userscope). Your user-level deployment credentials are valid across all of your App Service apps and all subscriptions in your Azure account. They are different from your Azure account credentials. They are used to authenticate for Git local and FTP deployments to App Service. If you have previously set user-level deployment credentials, you can use them. If you have not previously set user-level deployment credentials, run the following command to set them.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your new user name> --password <your new password>
    ```
 
-10. To push the web application code up to App Service, enter the following command. If you are prompted for credentials, enter your user-level deployment credentials. Make sure that you push to the master branch of the App Service remote.
+10. To push the web application code up to App Service, enter the following command in your command window. If you are prompted for credentials, enter your user-level deployment credentials. Make sure that you push to the master branch of the App Service remote.
 
     ```cmd
     git push webapp master:master
@@ -228,7 +230,7 @@ In this section you provision a web app in App Service and deploy your code to i
     az webapp show -g <your resource group> -n <your web app name> --query state
     ```
 
-13. Run the following command to open a browser to your web app. A web page similar to the one you saw when you ran the web app locally opens. Assuming that your device is running and sending data you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
+13. Run the following command to open a browser to your web app. A web page similar to the one you saw when you ran the web app locally opens. Assuming that your device is running and sending data, you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
 
     ```azurecli-interactive
     az webapp browse -g <your resource group> -n <your web app name> --query state
