@@ -6,7 +6,7 @@ ms.date: 05/24/2019
 ms.author: jingwang
 ---
 
-| Category | Data store | Supported as a [Copy activity](../articles/data-factory/) source | Supported as a [Copy activity](../articles/data-factory/) sink | Supported by [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supported by [Self-hosted IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Supported by [Data Flow](../articles/data-factory/concepts-data-flow-overview.md)
+| Category | Data store | Supported as a [Copy activity](../articles/data-factory/copy-activity-overview.md) source | Supported as a [Copy activity](../articles/data-factory/copy-activity-overview.md) sink | Supported by [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supported by [Self-hosted IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Supported by [Data Flow](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>Supported Formats: Delimited Text, Parquet</small> |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
