@@ -328,7 +328,7 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`CorrelationId`|`string`|The correlation ID.|
 
 > [!NOTE]
-> Currently, trigger only works with queues and subscriptions that don't use sessions. Please track [this feature item](https://github.com/Azure/azure-functions-host/issues/563) for any further updates regarding this feature. 
+> Currently, Service bus trigger that works with session enabled queues and subscriptions is in preview. Please track [this item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) for any further updates regarding this. 
 
 See [code examples](#trigger---example) that use these properties earlier in this article.
 

@@ -1115,7 +1115,7 @@ You did these things:
 > * Viewed the progress of data as it is loading
 > * Created statistics on the newly loaded data
 
-Advance to the migration overview to learn how to migrate an existing database to SQL Data Warehouse.
+Advance to the development overview to learn how to migrate an existing database to SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Learn how to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Design decisions to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
