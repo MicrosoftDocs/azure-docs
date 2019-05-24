@@ -12,12 +12,61 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 5/23/2019
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## May 2019 Guest OS
+
+>[!NOTE]
+>The May Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the May Guest OS. This list is subject to change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-05   |  [4498206 ]  |  May IE Rollup   |  2,86, 3.73, 4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4505050 ]  |  May IE Rollup   |  2,86, 3.73, 4.66  |  May 18, 2019  |
+|  Rel 19-05   |  [4497932 ]  |  May Flash Update   |  3.73, 4.66, 5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4499175 ]  |  May Security Rollup   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4495612 ]  |  May Security Rollup .NET 3.5   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4495593 ]  |  May Security Rollup .NET 4.5.2   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4499158 ]  |  May Security Rollup   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4495607 ]  |  May Security Rollup .NET 3.5   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4495591 ]  |  May Security Rollup .NET 4.5.2   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4492872 ]  |  IE Rollup   |  3.73  |  April 16, 2019  |
+|  Rel 19-05   |  [4499165 ]  |  March Security Rollup   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4495615 ]  |  May Security Rollup .NET 3.5   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4495589 ]  |  May Security Rollup .NET 4.5.2   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4498947 ]  |  May SSU   |  5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4494175 ]  |  May Microcode Update   |  5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4505052 ]  |  May Security Rollup   |  5.31  |  May 19, 2019  |
+|  Rel 19-05   |  [4499728 ]  |  May SSU   |  6.7  |  May 19, 2019  |
+|  Rel 19-05   |  [4505056 ]  |  May Security Rollup   |  6.7  |  May 19, 2019  |
+|  Rel 19-05   |  [4494174 ]  |  May Microcode Update   |  6.7  |  May 14, 2019  |
+|  Rel 19-05   |  [4495590 ]  |  May Security Rollup .NET   |  6.7  |  May 14, 2019  |
+
+[KB4493510]: https://support.microsoft.com/kb/KB4493510
+[KB4493472]: https://support.microsoft.com/kb/KB4493472
+[KB4493451]: https://support.microsoft.com/kb/KB4493451
+[KB4493446]: https://support.microsoft.com/kb/KB4493446
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## April 2019 Guest OS
 
