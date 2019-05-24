@@ -1,5 +1,5 @@
 ---
-title: Using sensor SDK - Recording File Format
+title: Using Azure Kinect Sensor SDK - Recording File Format
 description: Recording file format details
 author: joylital
 ms.author: joylital
@@ -10,7 +10,7 @@ keywords: kinect, azure, sensor, sdk, depth, rgb, record, playback, matroska, mk
 ---
 # Recording File Format
 
-To record sensor data, the Matroska (.mkv) container format is used, which allows for multiple tracks to be stored 
+To record sensor data, the Matroska (.mkv) container format is used, which allows for multiple tracks to be stored.
 using a wide range of codecs. The recording file contains tracks for storing Color, Depth, IR images, and IMU.
 
 Low-level details of the .mkv container format can be found on the [Matroska Website](https://www.matroska.org/index.html).
@@ -63,3 +63,8 @@ The full list of tags is listed on the [Record and Playback](record-playback-api
 | K4A_IR_MODE          | IR Track                         |
 | K4A_IMU_MODE         | IMU Track                        |
 | K4A_CALIBRATION_FILE | Calibration Attachment           |
+
+## Next steps
+
+> [!div class="nextstepaction"]
+>[[Record and Playback](record-playback-api.md)

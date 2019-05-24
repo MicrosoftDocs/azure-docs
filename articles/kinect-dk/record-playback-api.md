@@ -133,8 +133,8 @@ If a tag does not exist, it is assumed to have the default value.
 
 | Tag Name                   | Default Value      | [k4a_record_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) Field | Notes                                          |
 |----------------------------|--------------------|-----------------------------------|--------------------------------------------------------------------------------------|
-| K4A_COLOR_MODE             | "OFF"              | color_format / color_resolution   | Possible values: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P", etc               |
-| K4A_DEPTH_MODE             | "OFF"              | depth_mode / depth_track_enabled  | Possible values: "OFF, "NFOV_UNBINNED", "PASSIVE_IR", etc                         |
+| K4A_COLOR_MODE             | "OFF"              | color_format / color_resolution   | Possible values: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P", etc.               |
+| K4A_DEPTH_MODE             | "OFF"              | depth_mode / depth_track_enabled  | Possible values: "OFF, "NFOV_UNBINNED", "PASSIVE_IR", etc.                         |
 | K4A_IR_MODE                | "OFF"              | depth_mode / ir_track_enabled     | Possible values: "OFF", "ACTIVE", "PASSIVE"                                          |
 | K4A_IMU_MODE               | "OFF"              | imu_track_enabled                 | Possible values: "ON", "OFF"                                                         |
 | K4A_CALIBRATION_FILE       | "calibration.json" | N/A                               | See [k4a_device_get_raw_calibration](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f)        |
