@@ -33,23 +33,19 @@ To hear more on the concepts behind MLOps and how they apply to the Azure Machin
 
 > [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
 
-## Operationalize models
-
-The operationalization of ML models is the process of taking an experiment and turning it into product or service used by your business or customers. The model has graduated from an experiment, and is ready to be used in production.
-
-### Convert training to an Azure Pipeline
+## Integration with Azure Pipelines
 
 You can use Azure Pipelines to create a continuous integration process that trains a model. The pipeline can run the training process whenever a change is checked in to your code repository. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
 For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article.
 
-### Convert and optimize models
+## Convert and optimize models
 
 Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
 
 For more information on ONNX with Azure Machine Learning service, see the [Create and accelerate ML models](concept-onnx.md) article.
 
-### Register model
+## Register models
 
 Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
 
@@ -64,15 +60,15 @@ For more information, see the register model section of [Deploy models](how-to-d
 
 For an example of registering a model stored in pickle format, see [Tutorial: Train an image classification model](tutorial-deploy-models-with-aml.md).
 
-### Package and debug models
+## Package and debug models
 
-Before deploying a model into production, it is packaged into a Docker image. In most cases, this happens automatically in the background during deployment. For advanced scenarios you can manually specify the image.
+Before deploying a model into production, it is packaged into a Docker image. In most cases, this happens automatically in the background during deployment. For advanced scenarios, you can manually specify the image.
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troublethooting deployments](how-to-troubleshoot-deployment.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
 
-### Validate and profile models
+## Validate and profile models
 
 Azure Machine Learning service can use profiling to determine the ideal CPU and memory settings to use when deploying your model. Model validation happens as part of this process, using data that you supply for the profiling process.
 
@@ -90,7 +86,7 @@ You can use your models in **web services** with the following compute targets:
 * Azure Kubernetes Service
 * Local development environment
 
-To deploy the model as a web service, you must provide the following:
+To deploy the model as a web service, you must provide the following items:
 
 * The model or ensemble of models.
 * Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
@@ -100,7 +96,7 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 ### IoT Edge devices
 
-You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to hardware devices, which enables inferencing on the device.
+You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inferencing on the device.
 
 For more information, see [Deploy models](how-to-deploy-and-where.md).
 
@@ -108,7 +104,7 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (Preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-### Monitor and collect data
+## Monitor and collect data
 
 Monitoring enables you to understand what data is being sent to your model, and the predictions that it returns.
 
