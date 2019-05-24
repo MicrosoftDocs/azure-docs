@@ -195,7 +195,7 @@ To configure VS Code and PTVSD to connect to the image, use the following steps.
     ```
 
     > [!IMPORTANT]
-    > If there are already other entries in the configurations section, add a comma (,) after the closing bracket (}) of the code that you inserted.
+    > If there are already other entries in the configurations section, add a comma (,) after the code that you inserted.
 
 1. Save the __launch.json__ file.
 
@@ -214,6 +214,17 @@ To configure VS Code and PTVSD to connect to the image, use the following steps.
     * Create an example data file in the Docker container.
     * Modify the score.py to load the example data on start.
     * Start score.py using PTVSD. The PTVSD process waits for you to connect a debugger.
+
+    To make these changes and start the process using PTVSD, use the following steps:
+
+    1. From the ``root@ba216845db54:/#` prompt, use the following command to move to the directory containing the score.py file:
+
+        ```bash
+        cd /var/azureml-app
+        ```
+    
+    1. To create a data file to test the score.py file, use the following command to open the vim editor:
+
 
 2. To start the web service and immediately attach a debuggger, use the following command:
 
