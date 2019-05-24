@@ -47,10 +47,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ![Data flow tutorial](media/data-flow/dataflowtutorial1.png "Data flow tutorial")
 
-* Click new (+) Data Flow
-* Start by clicking on "Add Source" in the design surface
+* Click the new (+) Data Flow.
+* Start by clicking on "Add Source" in the design surface.
+* Name the data flow "Clean Data".
 * In the source settings, choose the dataset that you used for the Blob Store in the incremental pipeline above.
-* 
+* Choose "Delete source files" for the "After completion" option.
+
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in an Azure blob storage and transforms data in ADF Mapping Data Flows code-free. You learned how to: 
