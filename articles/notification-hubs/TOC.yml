@@ -45,7 +45,11 @@
   - name: iOS
     items:
     - name: Push notifications to iOS apps
-      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+      items:
+      - name: Objective-c
+        href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+      - name: Swift
+        href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
     - name: Push notifications to specific devices
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
     - name: Push notifications to specific users

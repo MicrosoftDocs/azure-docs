@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ---
@@ -192,12 +192,14 @@ In this section, you add a custom module to the IoT Edge device that you created
     
         ```
         {
-            "HostConfig": {
-            "Binds": [
-            "/home/hcsshares/mydbesmbedgelocalshare1:/home/input",
-            "/home/hcsshares/mydbesmbedgeshare1:/home/output"
+          "HostConfig": 
+          {
+           "Binds": 
+            [
+             "/home/hcsshares/mydbesmbedgelocalshare1:/home/input",
+             "/home/hcsshares/mydbesmbedgeshare1:/home/output"
             ]
-            }
+           }
         }
         ```
 
