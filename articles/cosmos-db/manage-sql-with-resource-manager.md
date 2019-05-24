@@ -4,7 +4,7 @@ description: Use Azure Resource Manager templates to create and configure Azure 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: mjbrown
 ---
 
@@ -13,6 +13,9 @@ ms.author: mjbrown
 ## Create an Azure Cosmos account, database and container <a id="create-resource"></a>
 
 Create Azure Cosmos DB resources using an Azure Resource Manager template. This template will create an Azure Cosmos account with two containers that share 400 RU/s throughput at the database level. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+
+> [!NOTE]
+> Currently you cannot deploy User Defined Functions(UDFs), stored procedures, and triggers by using Resource Manager templates. 
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 
