@@ -58,7 +58,7 @@ If you have more than one device attach, you can specify which device you want t
 
 ## Reset device
 
-An attached Azure Kinect DK can be reset using -r option, if you must get the device into a known state. 
+An attached Azure Kinect DK can be reset using -r option, if you must get the device into a known state.
 
 If you have more than one device attached, you can specify which device you want to query by adding the full serial number to the command.
 
@@ -111,4 +111,5 @@ Examples:
 
 ## Next steps
 
-Step-by-step instructions to [Update device firmware](azure-kinect-dk-update-device-firmware.md)
+> [!div class="nextstepaction"]
+>[Step-by-step instructions to update device firmware](azure-kinect-dk-update-device-firmware.md)
