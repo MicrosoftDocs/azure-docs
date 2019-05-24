@@ -6,7 +6,16 @@ localization_priority: Normal
 
 # Add-in setup
 
-On the Add-in setup page, add 
+On the Add-in setup page, you can indicate whether you want your add-in to be available in the Apple Store and add lead management details.
+
+## Setup details
+
+If you want your add-in to be available in the Apple Store, select the **iOS** check box.
+
+> [!NOTE]
+> To make your add-in available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. If you add your ID in Account settings, remember to refresh the **Add-in setup** page.
+
+If your add-in requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **Associated service purchase** check box.
 
 ## Lead management
 
@@ -159,10 +168,5 @@ Make sure that any correspondence you send to customers includes an option to un
 
 ## See also
 
-- [Upload your package to AppSource](upload-package.md)
 - [Create your AppSource listing](office-store-listing.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
-- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
-- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
