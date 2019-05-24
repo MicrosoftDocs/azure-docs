@@ -98,7 +98,7 @@ The following table shows connectivity locations and the service providers for e
 | **Melbourne** | NextDC | Australia Southeast | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | n/a | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | n/a | Bell Canada, Cologix, Telus, Zayo |
-| **Mumbai** | Tata Communications | West India | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, |
+| **Mumbai** | Tata Communications | West India | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | West India | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | n/a | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport(Wales)** | Next Generation Data | UK West | British Telecom, Level 3 Communications, Next Generation Data |
@@ -108,7 +108,7 @@ The following table shows connectivity locations and the service providers for e
 | **Quebec City** | 4Degrees | Canada East | Bell Canada, Megaport |
 | **San Antonio** | CyrusOne | South Central US | CenturyLink Cloud Connect, Megaport |
 | **Sao Paulo** | Equinix | Brazil South | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
-| **Seattle** | Equinix | West US 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Zayo |
+| **Seattle** | Equinix | West US 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
 | **Seoul** | KINX | Korea Central | KINX, LG CNS, Sejong Telecom |
 | **Silicon Valley** | Equinix | West US | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IX Reach, Packet, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo |
 | **Silicon Valley2** | Coresite | West US | Coresite | 
@@ -117,7 +117,7 @@ The following table shows connectivity locations and the service providers for e
 | **Sydney** | Equinix | Australia East | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
 | **Taipei** | Chief Telecom | n/a | Chief Telecom, FarEasTone |
 | **Tokyo** | Equinix | Japan East | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
-| **Toronto** | Cologix | Canada Central | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Zayo |
+| **Toronto** | Cologix | Canada Central | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
 | **Washington DC** | Equinix | East US, East US 2 | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | Coresite | East US, East US 2 |Coresite | 
 | **Zurich** | Interxion | n/a | Interxion |
@@ -132,7 +132,7 @@ The following table shows connectivity locations and the service providers for e
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, CenturyLink Cloud Connect, Verizon |
-| **Phoenix** | AT&T NetBond, CenturyLink Cloud Connect |
+| **Phoenix** | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
 | **San Antonio** | CenturyLink Cloud Connect, Megaport |
 | **Silicon Valley** | Equinix, Level 3 Communications, Verizon |
 | **Seattle** | Equinix, Megaport |
