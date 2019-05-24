@@ -41,20 +41,13 @@ Existing and legacy Microsoft solutions for user profiles came with various chal
 
 The following table shows benefits and limitations of user profile technologies.
 
-| Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-premises | Version support | Subsequent sign in time |
-| ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |
-| **UPD** <sup>1</sup> | Yes | Yes | Yes | Yes | Yes | No | Yes | Win 7+ | Yes |
-| **RUP (Roaming User Profile) maintenance mode** <sup>2</sup> | No | Yes | Yes | Yes | Yes| No | Yes | Win 7+ | No |
-| **ESR** <sup>3</sup> | Yes | No | Yes | No | Yes <sup>4</sup> | Yes | No | Win 10 | No |
-| **UE-V** <sup>5</sup> | Yes | Yes | Yes | No | Yes | No | Yes | Win 7+ | No |
-| **Cloud Files** | No | No | No | Yes | Yes <sup>6</sup> | Yes <sup>7</sup> | Yes <sup>8</sup> | Win 10 RS3 | No |
-
-<sup>1. User Profile Disks</sup>   <sup>2. Roaming User Profile, maintenance mode</sup>   <sup>3. Enterprise State Roaming</sup>
-<sup>4. Yes, but no supporting user interface.</sup>
-<sup>5. User Experience Virtualization</sup>
-<sup>6. Not tested</sup>
-<sup>7. Yes, but depends on synch client (for example, One Drive for Business).</sup>
-<sup>8. Needs a sync client (for example, work folders).</sup>
+| Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-premises | Version support | Subsequent sign in time |Notes|
+| ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
+| **User Profile Disks (UPD)** | Yes | Yes | Yes | Yes | Yes | No | Yes | Win 7+ | Yes |  |
+| **Roaming User Profile (RUP), maintenance mode** | No | Yes | Yes | Yes | Yes| No | Yes | Win 7+ | No |  |
+| **Enterprise State Roaming (ESR)** | Yes | No | Yes | No | See notes | Yes | No | Win 10 | No | Functions on server SKU but no supporting user interface |
+| **User Experience Virtualization (UE-V)** | Yes | Yes | Yes | No | Yes | No | Yes | Win 7+ | No |  |
+| **Cloud Files** | No | No | No | Yes | See notes | See notes  | See Notes | Win 10 RS3 | No | Not tested on server SKU. Back-end storage on Azure depends on sync client. Back-end storage on-prem needs a sync client. |
 
 #### Performance
 
@@ -78,7 +71,7 @@ On November 19, 2018 [Microsoft acquired FSLogix](https://blogs.microsoft.com/bl
 
 Since the acquisition, Microsoft started replacing existing user profile solutions, like UPD, with FSLogix profile containers.
 
-## Azure Files integration with Active Directory
+## Azure Files integration with Azure Active Directory
 
 FSLogix profile containers performance and features take advantage of the cloud. On Sept. 24, 2018, Microsoft Azure Files announced a public preview of [Azure Files supporting Azure Active Directory authentication](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/). By addressing both cost and administrative overhead, Azure Files with Azure Active Directory authentication is a premium solution for user profiles in the new Windows Virtual Desktop service.
 
