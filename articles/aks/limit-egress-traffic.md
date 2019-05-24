@@ -67,7 +67,7 @@ In AKS, there are two sets of ports and addresses:
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
-* TCP port *9000*
+* TCP port *9000* for the tunnel front pod to communicate with the tunnel end on the API server.
 
 The following FQDN / application rules are required:
 

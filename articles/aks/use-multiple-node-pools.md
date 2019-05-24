@@ -69,6 +69,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
 * You can't delete the first node pool.
 * The HTTP application routing add-on can't be used.
+* You can't add/update/delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
 
 While this feature is in preview, the following additional limitations apply:
 
@@ -325,6 +326,95 @@ Events:
 
 Only pods that have this taint applied can be scheduled on nodes in *gpunodepool*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
 
+## Manage node pools using a Resource Manager template
+
+When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With nodepools in AKS, the initial nodepool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the agent pools for an existing AKS cluster.
+
+Create a template such as `aks-agentpools.json` and paste the following example manifest. This example template configures the following settings:
+
+* Updates the *Linux* agent pool named *myagentpool* to run three nodes.
+* Sets the nodes in the node pool to run Kubernetes version *1.12.8*.
+* Defines the node size as *Standard_DS2_v2*.
+
+Edit these values as need to update, add, or delete node pools as needed:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Deploy this template using the [az group deployment create][az-group-deployment-create] command, as shown in the following example. You are prompted for the existing AKS cluster name and location:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
+
 ## Clean up resources
 
 In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
@@ -375,5 +465,6 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
