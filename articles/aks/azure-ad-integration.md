@@ -40,7 +40,7 @@ For more information about webhook token authentication, see the [Webhook Token 
 To provide Azure AD authentication for an AKS cluster, two Azure AD applications are created. The first application is a server component that provides user authentication. The second application is a client component that's used when you're prompted by the CLI for authentication. This client application uses the server application for the actual authentication of the credentials provided by the client.
 
 > [!NOTE]
-> When configuring Azure AD for AKS authentication, two Azure AD applications are configured. The steps to delegate permissions for each of the applications must be completed by an Azure tenant administrator.
+> When configuring Azure AD for AKS authentication, two Azure AD applications are configured. The steps to delegate permissions for each application must be completed by an Azure tenant administrator.
 
 ## Create the server application
 
@@ -78,7 +78,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     * Under **Grant consent**, select **Grant admin consent**. This button isn't unavailable if the current account isn't a tenant admin.
 
-        When the permissions have been successfully granted, the following notification is displayed in the portal:
+        When permissions are successfully granted, the following notification is displayed in the portal:
 
         ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
@@ -117,7 +117,7 @@ The second Azure AD application is used when you sign in with the Kubernetes CLI
 
     * Under **Grant consent**, select **Grant admin consent**. This button isn't available if the current account isn't a tenant admin.
 
-        When permissions have been granted, the following notification is displayed in the portal:
+        When permissions are granted, the following notification is displayed in the portal:
 
         ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
