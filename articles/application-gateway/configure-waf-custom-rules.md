@@ -9,11 +9,13 @@ ms.date: 5/24/2019
 ms.author: victorh
 ---
 
-# Configure Web Application Firewall custom rules using Azure PowerShell
+# Configure Web Application Firewall with a custom rule using Azure PowerShell
 
 Custom rules allow you to create your own rules evaluated for each request that passes through the Web Application Firewall (WAF). These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules have an action (to allow or block), a match condition, and an operator to allow full customization.
 
-This article creates an Application Gateway WAF that uses custom rules. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
+This article creates an Application Gateway WAF that uses a custom rule. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
+
+To see more custom rule examples, see [Create and use custom web application firewall rules](create-custom-waf-rules.md)
 
 ## Prerequisites
 
@@ -25,8 +27,6 @@ If you choose to install and use Azure PowerShell locally, this script requires 
 2. To create a connection with Azure, run `Connect-AzAccount`.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Example script
 
