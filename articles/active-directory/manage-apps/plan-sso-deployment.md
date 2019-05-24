@@ -38,17 +38,17 @@ Single sign on for pre-integrated SaaS applications is free! However, the number
 
 You'll need the appropriate licenses for your SaaS applications to meet your business needs.
 
-Work with the application owner to determine whether the users assigned to the application have the appropriate licenses for their roles within the application. If Azure AD manages the automatic provisioning based on roles, the roles that are assigned in Azure AD must align with the correct number of licenses owned within the application. Improper number of licenses owned in the application may lead to errors during the provisioning/updating of a user.
+Work with the application owner to determine whether the users assigned to the application have the appropriate licenses for their roles within the application. If Azure AD manages the automatic provisioning based on roles, the roles assigned in Azure AD must align with the number of licenses owned within the application. Improper number of licenses owned in the application may lead to errors during the provisioning/updating of a user.
 
 ## Plan your SSO Team
 
 ### Engage the right stakeholders
 
-When technology projects fail, it's typically due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholders understand their roles.
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate with your users about how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/end-user-experiences), and craft your communications to match your selection. 
+Communication is critical to the success of any new service. Proactively communicate to your users abut how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/end-user-experiences), and craft your communications to match your selection. 
 
 ## Plan your SSO protocol
 
@@ -93,7 +93,7 @@ Using Azure AD for password-based SSO requires deploying a browser extension tha
 Learn more: [How to configure password single sign on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
 **Capturing Login forms metadata for applications that aren't in the gallery**
-‎Microsoft supports capturing metadata on a web application for password vaulting (capturing the username and password fields). Navigate e to the login URL during the process of configuring the application to capture the forms metadata. Ask the application owner for the exact login URL. This information is used during the sign on process, mapping Azure AD credentials to the application during sign on.
+‎Microsoft supports capturing metadata on a web application for password vaulting (capturing the username and password fields). Navigate e to the login URL during the process of configuring the application to capture the forms metadata. Ask the application owner for the exact login URL. This information is used during the sign-on process, mapping Azure AD credentials to the application during sign-on.
 
 Learn more: [What is application access and SSO with Azure AD? – Password-based SSO](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/)
 
@@ -135,7 +135,7 @@ Some of the key topics to plan for while setting up access reviews include:
 
 1. Create groups that represent the reviewers of the app access reports. You'll need to ensure that stakeholders most familiar with the app and its target users and use cases are participants in your access reviews
 
-1. Completing an access review includes taking away app access permissions to users who no longer need access. Plan for handling potential support requests from denied users. By default, a deleted user will remain deleted in Azure AD for 30 days, during which time they can be restored by an administrator if necessary. After 30 days, that user is permanently deleted. Using the Azure Active Directory portal, a Global Administrator can explicitly permanently delete a recently deleted user before that time period is reached.
+1. Completing an access review includes taking away app access permissions to users who no longer need access. Plan for handling potential support requests from denied users. A deleted user will remain deleted in Azure AD for 30 days during which time they can be restored by an administrator if necessary. After 30 days, that user is permanently deleted. Using the Azure Active Directory portal, a Global Administrator can explicitly permanently delete a recently deleted user before that time period is reached.
 
 ### Plan Auditing
 
@@ -170,7 +170,7 @@ For information about MCAS, see the [Microsoft Cloud App Security overview](http
 
 With conditional access, you can automate criteria-based access control decisions for your cloud apps.
 
-Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (for example the sign-in risk level, location of the request, and so on) to determine access. For more information on Conditional Access, see [the overview](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) and the [Conditional Access deployment plan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can use signals from these events to determine access. For example the sign-in risk level, location of the request, and so on can be used. For more information on Conditional Access, see [the overview](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) and the [Conditional Access deployment plan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
 ## Azure Single Sign-on technical requirements
 
@@ -188,11 +188,11 @@ For all pre-integrated SaaS apps, Microsoft provides a tutorial and you won't ne
 
 #### Attribute requirements
 
-There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects such as groups. Plan the mapping of user attributes from Azure AD to your application and [customize the default attribute-mappings](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) according to your business needs. 
+There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects such as groups. Plan the mapping of user attributes from Azure AD to your application and [customize the default attribute-mappings](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) according to your business needs.
 
 #### Certificate requirements
 
-The certificate for the application must be up to date, or there is a risk of users not being able to access the application. Most SaaS application certificates are good for 36 months. You change that certificate duration in the application blade. Ensure you document the expiration and know how you will manage your certificate renewal. 
+The certificate for the application must be up-to-date, or there is a risk of users not being able to access the application. Most SaaS application certificates are good for 36 months. You change that certificate duration in the application blade. Ensure you document the expiration and know how you will manage your certificate renewal. 
 
 There are two ways to manage your certificates. 
 
@@ -208,7 +208,7 @@ Use the following phases to plan for and deploy your solution in your organizati
 
 #### Identify your test users
 
-Contact to the app owner and ask them to create a minimum of three test users within the application. Ensure the information that you'll be using as the primary identifier is populated correctly and matches an attribute that is available in Azure AD. In most cases this will map to the “NameID” for SAML-based applications. For JWT tokens, it's the “preferred_username.”
+Contact to the app owner and ask them to create a minimum of three test users within the application. Ensure the information that you'll use as the primary identifier is populated correctly and matches an attribute that is available in Azure AD. In most cases this will map to the “NameID” for SAML-based applications. For JWT tokens, it's the “preferred_username.”
 
 Create the user in Azure AD either manually as a cloud-based user or sync the user from on-premises using the Azure AD Connect sync engine. Ensure the information matches the claims being sent to the application.
 
@@ -222,9 +222,9 @@ Optionally, you can use claims issued in the SAML token for the enterprise appli
 
 Note: Custom application onboarding is an Azure AD Premium P1 or P2 licenses feature.
 
-### Provide SSO change communications to end-users
+### Provide SSO change communications to end users
 
-Implement your communication plan. Ensure you are letting your end-users know that a change is coming, when it has arrived, what to do now, and how to seek assistance.
+Implement your communication plan. Ensure you are letting your end users know that a change is coming, when it has arrived, what to do now, and how to seek assistance.
 
 ### Verify end user scenarios for SSO
 
@@ -236,31 +236,31 @@ Note: The scenarios below assume that a user is navigating to an application URL
 
 | Scenario| Expected Result on SP-Initiated Auth Flow by User |
 |-|-|
-| Login to application with IE while on corpnet| Integrated Windows Authentication (IWA) occurs with no additional prompts |
-| Login to application with IE while off corpnet with new login attempt| Forms-based prompt at AD FS Sever. User successfully logs in and browser prompts for MFA. |
-| Login to application with IE while off corpnet with a current session and has never performed MFA| User does not receive prompt for first factor. User receives prompt for MFA. |
-| Login to application with IE while off corpnet with a current session and has already performed MFA in this session| User does not receive prompt for first factor. User does not receive MFA. User SSOs into application |
-| Login to application with Chrome/Firefox/Safari while off corpnet with a current session and has already performed MFA in this session| User does not receive prompt for first factor. User does not receive MFA. User SSO’s into application |
-| Login to into application with Chrome/Firefox/Safari while off corpnet with new login attempt| Forms-based prompt at AD FS Server. User successfully logs in and browser prompts for MFA. |
-| Login to application with Chrome/Firefox while on corporate network with a current session| User does not receive prompt for first factor. User does not receive MFA. User SSO’s into application |
-| Login to application with application mobile app with a new login attempt| Forms-based prompt at AD FS Sever. User successfully logs in and ADAL client prompts for MFA. |
-| Unauthorized user attempts to log into application with login URL| Forms-based prompt at AD FS Sever. User fails to login with first factor |
-| Authorized user attempts to log in but enters an incorrect password| User navigates to application URL and receives bad username/password error. |
-| Authorized user clicks on link in an email and is already authenticated| User clicks on URL and is signed into the application with no additional prompts |
-| Authorized user clicks on link in an email and is not yet authenticated| User clicks on URL and is prompt to authenticate with first factor. |
-| Authorized User logs into application with application mobile app (SP-initiated) with a new login attempt| Forms-based prompt at AD FS Server. User successfully logs in and ADAL client prompts for MFA. |
-| Unauthorized User attempts to log into application with login URL (SP-initiated)| Forms-based prompt at AD FS Server. User fails to login with first factor |
-| Authorized user attempts to log in but enters an incorrect password| User navigates to application URL and receives bad username/password error. |
-| Authorized user logs out and then logs in again| If Sign-out URL is configured, user is logged out of all services and prompt to authenticate. |
-| Authorized user logs out and then logs in again| ‎If Sign-out URL is not configured, user will be automatically logged back in using existing token from the existing Azure AD browser session. |
-| Authorized user clicks on link in an email and is already authenticated| User clicks on URL and is signed into the application with no additional prompts |
-| Authorized user clicks on link in an email and is not yet authenticated| User clicks on URL and is prompt to authenticate with first factor. |
+| Login to application with IE while on corpnet.| Integrated Windows Authentication (IWA) occurs with no additional prompts. |
+| Login to application with IE while off corpnet with new login attempt.| Forms-based prompt at AD FS Server. User successfully logs in and browser prompts for MFA. |
+| Login to application with IE while off corpnet with a current session and has never performed MFA.| User does not receive prompt for first factor. User receives prompt for MFA. |
+| Login to application with IE while off corpnet with a current session and has already performed MFA in this session.| User does not receive prompt for first factor. User does not receive MFA. User SSOs into application. |
+| Login to application with Chrome/Firefox/Safari while off corpnet with a current session and has already performed MFA in this session.| User does not receive prompt for first factor. User does not receive MFA. User SSO’s into application. |
+| Login to into application with Chrome/Firefox/Safari while off corpnet with new login attempt.| Forms-based prompt at AD FS Server. User successfully logs in and browser prompts for MFA. |
+| Login to application with Chrome/Firefox while on corporate network with a current session.| User does not receive prompt for first factor. User does not receive MFA. User SSO’s into application. |
+| Login to application with application mobile app with a new login attempt.| Forms-based prompt at AD FS Server. User successfully logs in and ADAL client prompts for MFA. |
+| Unauthorized user attempts to log into application with login URL.| Forms-based prompt at AD FS Server. User fails to login with first factor. |
+| Authorized user attempts to log in but enters an incorrect password.| User navigates to application URL and receives bad username/password error. |
+| Authorized user clicks on link in an email and is already authenticated.| User clicks on URL and is signed into the application with no additional prompts. |
+| Authorized user clicks on link in an email and is not yet authenticated.| User clicks on URL and is prompt to authenticate with first factor. |
+| Authorized User logs into application with application mobile app (SP-initiated) with a new login attempt.| Forms-based prompt at AD FS Server. User successfully logs in and ADAL client prompts for MFA. |
+| Unauthorized User attempts to log into application with login URL (SP-initiated).| Forms-based prompt at AD FS Server. User fails to login with first factor. |
+| Authorized user attempts to log in but enters an incorrect password.| User navigates to application URL and receives bad username/password error. |
+| Authorized user logs out and then logs in again.| If Sign-out URL is configured, user is logged out of all services and prompt to authenticate. |
+| Authorized user logs out and then logs in again.| ‎If Sign-out URL is not configured, user will be automatically logged back in using existing token from the existing Azure AD browser session. |
+| Authorized user clicks on link in an email and is already authenticated.| User clicks on URL and is signed into the application with no additional prompts. |
+| Authorized user clicks on link in an email and is not yet authenticated.| User clicks on URL and is prompt to authenticate with first factor. |
 
 ## Manage SSO
 
 ### Required administrative roles
 
-Always use the role with the fewest permissions available to accomplish the required task within Azure Active Directory. Microsoft recommend [review the different roles that are available](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) and choose the right one to solve your needs for each persona for this application. Some roles may need to be applied temporarily and removed after the deployment has been completed.
+Always use the role with the fewest permissions available to accomplish the required task within Azure Active Directory. Microsoft recommends [review the different roles that are available](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) and choose the right one to solve your needs for each persona for this application. Some roles may need to be applied temporarily and removed after the deployment has been completed.
 
 | Persona| Roles| Azure AD Role (if required) |
 | - |-|-|
@@ -302,7 +302,7 @@ We recommend choosing a scaled approach when managing access to resources. Commo
 
 ### Monitor security
 
-We recommend setting up a regular cadence in which you review the different aspects of [SaaS app security](#_Plan_your_security) and perform any remedial actions that are required.
+We recommend setting up a regular cadence in which you review the different aspects of SaaS app security and perform any remedial actions that are required.
 
 ### Troubleshooting
 
