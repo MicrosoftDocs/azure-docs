@@ -62,6 +62,11 @@ Each of these options is described in our [Detailed Instructions](status-monitor
    We don't have a cmdlet to verify that enablement was successful. 
 We recommend using [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) to quickly observe if your application is sending us telemetry.
 
+   You can also use [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
+   ```Kusto
+   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+   ```
+
 ## Next steps
 
 View your telemetry:

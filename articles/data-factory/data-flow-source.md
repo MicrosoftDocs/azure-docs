@@ -60,7 +60,7 @@ You can later change the column names in a select transformation. Use a derived-
 
 On the **Optimize** tab for the source transformation, you might see a **Source** partition type. This option is available only when your source is Azure SQL Database. This is because Data Factory tries to make connections parallel to run large queries against your SQL Database source.
 
-![Source partition settings](media/data-flow/sourcepart.png "partitioning")
+![Source partition settings](media/data-flow/sourcepart2.png "partitioning")
 
 You don't have to partition data on your SQL Database source, but partitions are useful for large queries. You can base your partition on a column or a query.
 

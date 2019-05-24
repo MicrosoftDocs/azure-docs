@@ -36,10 +36,10 @@ This tutorial demonstrates how to develop a module in **C** using **Visual Studi
 
 Use the following table to understand your options for developing and deploying C modules to Linux: 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
-| - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Use VS Code for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Use VS 2017 for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![Use VS Code for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Use VS 2017 for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |
+| C | Visual Studio Code | Visual Studio | 
+| - | ------------------ | ------------- |
+| **Linux AMD64** | ![Use VS Code for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM32** | ![Use VS Code for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |
 
 ## Prerequisites
 

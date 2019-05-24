@@ -61,8 +61,8 @@ If your audio doesn’t satisfy these properties or you want to check if it does
 
 | Activity | Description | Sox command |
 |----------|-------------|-------------|
-| Check audio format | Use this command to check the audio file format. | `soxi <filename>.wav` |
-| Convert audio format | Use this command to convert the audio file to single channel, 16-bit, 48 KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
+| Check audio format | Use this command to check the audio file format. | `sox --i <filename>` |
+| Convert audio format | Use this command to convert the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## Audio + human-labeled transcript data for testing/training
 
@@ -137,7 +137,7 @@ This includes examples of a spoken utterance, and a custom pronunciation for eac
 |--------------|--------------------------|
 | three c p o | 3CPO |  
 | c n t k | CNTK |
-| i triple e | IEE |
+| i triple e | IEEE |
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 
