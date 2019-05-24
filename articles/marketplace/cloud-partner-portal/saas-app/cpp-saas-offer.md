@@ -17,6 +17,7 @@ This section explains how to publish a software as a service (SaaS) application 
 > SaaS offer functionality is being migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
 > use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
 > Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
+> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
 
 
 Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will sign in through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment.
