@@ -26,7 +26,6 @@ The solution to securing outbound addresses is to use a firewall device that can
 ## Configuring Azure Firewall with HDInsight
 
 A summary of the steps to lock down egress from your existing HDInsight with Azure Firewall are:
-1. Enable service endpoints.
 1. Create a firewall.
 1. Add application rules to the firewall
 1. Add network rules to the firewall.
@@ -58,7 +57,7 @@ On the **Add application rule collection** screen, complete the following steps:
         1. Enter `https:443` under **Protocol:Port** and `login.windows.net` under **Target FQDNS**.
     1. If your cluster is backed by WASB and you are not using the service endpoints above, then add a rule for WASB:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Enter `http` or [https] depending on if you are using wasb:// or wasbs:// under **Protocol:Port** and the storage account url under **Target FQDNS**.
+        1. Enter `http` or `https` depending on if you are using wasb:// or wasbs:// under **Protocol:Port** and the storage account url under **Target FQDNS**.
 1. Click **Add**.
 
 ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -66,9 +65,6 @@ On the **Add application rule collection** screen, complete the following steps:
 ### Configure the firewall with network rules
 
 Create the network rules to correctly configure your HDInsight cluster.
-
-> [!Important]
-> You can choose between using SQL service tags in the firewall using network rules as described in this section, or a SQL service endpoint. If you choose to use SQL tags in network rules, you can log and audit SQL traffic. Using a service endpoint will have SQL traffic bypass the firewall.
 
 1. Select the new firewall **Test-FW01** from the Azure portal.
 1. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
