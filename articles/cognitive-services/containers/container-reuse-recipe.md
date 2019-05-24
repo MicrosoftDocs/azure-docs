@@ -139,7 +139,7 @@ Follow the [steps](#how-to-steps) to use the Dockerfile and place the new image 
     A subcategory is optional but recommended for organizing your containers. The image in your registry doesn't have to have the same name as the local host image name but it is helpful.
 
     ```Bash
-    docker tag <your-new-container-name>:<your-new-tag-name> <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>
+    docker tag <your-new-container-name>:<your-new-tag-name> <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
     If you don't use a tag name, `latest` is implied.
@@ -147,9 +147,9 @@ Follow the [steps](#how-to-steps) to use the Dockerfile and place the new image 
 1. Push the new image to your private container registry.
 
     ```Bash
-    docker push <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>
+    docker push <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
-
+<!--
 ## Store input and output configuration settings
 
 Bake in input params only
@@ -177,3 +177,5 @@ ENV apikey=<apikey value>
 COPY luisModel1 /input/
 COPY luisModel2 /input/
 ```
+
+->
