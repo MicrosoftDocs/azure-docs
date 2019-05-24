@@ -233,9 +233,9 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 ## View generated data
 
-1. To monitor the D2C message for a specific device, select the device in the list and then click **Start Monitoring D2C Messages** in the **Action** window.
+1. To monitor the D2C message for a specific device, select the device in the list and then click **Start Monitoring Built-in Event Endpoint** in the **Action** window.
 
-1. To stop monitoring data, select the device in the list and then select **Stop Monitoring D2C Messages** in the **Action** window.
+1. To stop monitoring data, select the device in the list and then select **Stop Monitoring Built-in Event Endpoint** in the **Action** window.
 
 ## Next steps
 

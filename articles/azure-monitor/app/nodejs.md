@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 # Monitor your Node.js services and apps with Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you [discover and rapidly diagnose performance and other issues](../../azure-monitor/app/detect-triage-diagnose.md). You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you discover and rapidly diagnose performance and other issues. You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
