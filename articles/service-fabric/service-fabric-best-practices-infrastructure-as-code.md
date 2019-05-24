@@ -122,7 +122,7 @@ The following are the Compute Virtual Machine Scale Set Resource Manager templat
 ```
 
 ## Azure Service Fabric Cluster Upgrade Configuration
-The following is the Service Fabric cluster resource manager template property to enable automatic upgrade:
+The following is the Service Fabric cluster Resource Manager template property to enable automatic upgrade:
 ```json
 "upgradeMode": "Automatic",
 ```
