@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Deploy a clutering model in R"
+title: "Tutorial: Deploy a clustering model in R"
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: In part three of this three-part tutorial series, you'll deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview).
 services: sql-database
@@ -15,7 +15,7 @@ manager: cgronlun
 ms.date: 05/17/2019
 ---
 
-# Tutorial: Deploy a clutering model in R with Azure SQL Database Machine Learning Services (preview)
+# Tutorial: Deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview)
 
 In part three of this three-part tutorial series, you'll deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview).
 

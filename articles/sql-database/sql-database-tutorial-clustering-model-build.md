@@ -28,7 +28,7 @@ In this article, you'll learn how to:
 
 In [part one](sql-database-tutorial-clustering-model-prepare-data.md), you learned how to prepare the data from an Azure SQL database to perform clustering in R.
 
-In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
+In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can perform clustering based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,7 +38,7 @@ In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn 
 
 ## Define the number of clusters
 
-You'll use the **K-Means** clustering algorithm , one of the simplest and most well-known ways of grouping data.
+You'll use the **K-Means** clustering algorithm, one of the simplest and most well-known ways of grouping data.
 You can read more about K-Means in [A complete guide to K-means clustering algorithm](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
 
 The algorithm accepts two inputs: The data itself, and a predefined number "k" representing the number of clusters to generate.
@@ -59,11 +59,9 @@ plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups s
 
 Based on the graph, it looks like *k = 4* would be a good value to try. That will group the customers into four clusters.
 
-Now we have derived the number of clusters to use when clustering.
+## Perform clustering
 
-## Perform Clustering
-
-In the following R script, you'll use the function **rxKmeans** which is the K-Means function in the RevoScaleR package.
+In the following R script, you'll use the function **rxKmeans**, which is the K-Means function in the RevoScaleR package.
 
 ```r
 # Output table to hold the customer group mappings. This is a table where the cluster mappings will be saved in the database.
@@ -120,11 +118,11 @@ The variables shown were defined in part one:
 * *itemsRatio* = return item ratio (total number of items returned versus the number of items purchased)
 * *monetaryRatio* = return amount ratio (total monetary amount of items returned versus the amount purchased)
 
-Data mining using K-Means often requires further analysis of the results, and further steps to better understand each cluster, but it can provide some very good leads.
+Data mining using K-Means often requires further analysis of the results, and further steps to better understand each cluster, but it can provide some good leads.
 Here are a couple ways you could interpret these results:
 
 * Cluster 1 (the largest cluster) seems to be a group of customers that are not active (all values are zero).
-* Cluster 3 seems to be a group that stands out in terms of return behaviour.
+* Cluster 3 seems to be a group that stands out in terms of return behavior.
 
 Perhaps you can target marketing efforts towards the customers in cluster 1 to trigger an interest in purchases.
 You can query the database for their email addresses so you can send them a marketing email.

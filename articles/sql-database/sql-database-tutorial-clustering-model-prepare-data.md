@@ -20,8 +20,8 @@ ms.date: 05/17/2019
 In part one of this three-part tutorial series, you'll prepare the data from an Azure SQL database to perform clustering in R with Azure SQL Database Machine Learning Services (preview).
 
 *Clustering* can be explained as organizing data into groups where members of a group are similar in some way.
-You'll use the **Kmeans** algorithm to perform the clustering of customers in a dataset of product purchases and returns. By clustering customers, you can focus your marketing efforts more effectively by targeting specific groups of customers.
-Kmeans clustering is an *unsupervised learning* algorithm that looks for patterns in data based on similarities.
+You'll use the **K-Means** algorithm to perform the clustering of customers in a dataset of product purchases and returns. By clustering customers, you can focus your marketing efforts more effectively by targeting specific groups of customers.
+K-Means clustering is an *unsupervised learning* algorithm that looks for patterns in data based on similarities.
 
 In this article, you'll learn how to:
 
@@ -30,9 +30,9 @@ In this article, you'll learn how to:
 > * Separate customers along different dimensions
 > * Load the data from the Azure SQL database into a data frame using R
 
-In [part two](sql-database-tutorial-clustering-model-build.md), you'll learn how to create and train a Kmeans clustering model.
+In [part two](sql-database-tutorial-clustering-model-build.md), you'll learn how to create and train a K-Means clustering model.
 
-In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
+In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can perform clustering based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
