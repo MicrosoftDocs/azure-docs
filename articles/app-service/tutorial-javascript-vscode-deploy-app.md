@@ -17,11 +17,11 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
 ![Deploy to Web App](./media/tutorial-javascript-vscode/deploy.png)
 
-> **Tip:** You can also deploy from the **Command Palette** (`kb(workbench.action.showCommands)`) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
+> **Tip:** You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
 
 1. Choose **Create New Web App**.
 
-2. Type a globally unique name for your Web App and press `kbstyle(Enter)`. Valid characters for an app name are 'a-z', '0-9', and '-'.
+2. Type a globally unique name for your Web App and press ENTER. Valid characters for an app name are 'a-z', '0-9', and '-'.
 
 3. Choose a location in a [region](https://azure.microsoft.com/en-us/regions/) near you or near other services you may need to access.
 

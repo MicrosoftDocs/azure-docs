@@ -15,7 +15,7 @@ From the **AZURE FUNCTIONS** explorer, click the **Create Function** icon.
 
 ![Create Function](./media/tutorial-javascript-vscode/create-function.png)
 
-Select the directory you currently have open - it's the default option so press `kbstyle(Enter)`. When prompted, choose HTTP trigger, use the default name of `HttpTriggerJS`, and choose **Anonymous** authentication.
+Select the directory you currently have open - it's the default option so press ENTER. When prompted, choose HTTP trigger, use the default name of `HttpTriggerJS`, and choose **Anonymous** authentication.
 
 ![Choose Template](./media/tutorial-javascript-vscode/create-function-choose-template.png)
 

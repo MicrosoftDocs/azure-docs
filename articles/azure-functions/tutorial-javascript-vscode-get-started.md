@@ -22,14 +22,14 @@ To enable local debugging, you need to install the [Azure Functions Core Tools](
 **On macOS**, install using [Homebrew](https://brew.sh/).
 
 ```bash
-$ brew tap azure/functions
-$ brew install azure-functions-core-tools
+brew tap azure/functions
+brew install azure-functions-core-tools
 ```
 
 **On Windows**, install using [npm](https://npmjs.com).
 
-```bash
-$ npm install -g azure-functions-core-tools
+```console
+npm install -g azure-functions-core-tools
 ```
 
 **On Linux**, follow the instructions in the Azure Functions Core Tools [GitHub repository](https://github.com/Azure/azure-functions-core-tools#linux).
@@ -38,7 +38,8 @@ $ npm install -g azure-functions-core-tools
 
 The Azure Functions extension is used to create, manage, and deploy Functions Apps on Azure.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurefunctions">Install the Azure Functions extension</a>
+> [!div class="nextstepaction"]
+> <a href="vscode:extension/ms-azuretools.vscode-azurefunctions">Install the Azure Functions extension</a>
 
 ## Prerequisite check
 
@@ -46,10 +47,9 @@ Before we continue, ensure that you have all the prerequisites installed and con
 
 In VS Code, you should see your Azure email address in the Status Bar and your subscription in the **AZURE FUNCTIONS** explorer.
 
-Verify that you have the Azure Functions tools installed by opening a terminal (or PowerShell/Command Prompt) and running `func`.
+Verify that you have the Azure Functions tools installed by opening a terminal (or PowerShell/Command Prompt) and running `func`. The output will display the following image followed by additional information, such as version numbers.
 
-```bash
-$ func
+```
                   %%%%%%
                  %%%%%%
             @   %%%%%%    @
@@ -61,9 +61,6 @@ $ func
            @@    %%      @@
                 %%
                 %
-
-Azure Functions Core Tools (2.0.1-beta.22)
-Function Runtime Version: 2.0.11415.0
 ```
 
 ----

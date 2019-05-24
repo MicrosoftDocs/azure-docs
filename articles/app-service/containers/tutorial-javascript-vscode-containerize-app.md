@@ -15,7 +15,7 @@ Next, use the Docker extension to add the necessary files to create an image for
 
 ## Add Docker files
 
-Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `add docker files to workspace` to run the **Docker: Add Docker files to workspace** command. This command will create the necessary Docker files. Choose your application type - **Node.js** in this tutorial - along with the port that your application listens on.
+Open the **Command Palette** (CTRL + SHIFT + P) and type `add docker files to workspace` to run the **Docker: Add Docker files to workspace** command. This command will create the necessary Docker files. Choose your application type - **Node.js** in this tutorial - along with the port that your application listens on.
 
 > **Tip:** Be sure that the port you select matches the port your app listens on. If you used the Express generator, set this to 3000.
 
@@ -29,7 +29,7 @@ The files you just added, specifically, `Dockerfile`, describe the environment f
 
 > **Tip:** Containers versus images: A container is an instance of an image.
 
-Open the **Command Palette** (`kb(workbench.action.showCommands)`) and run **Docker: Build Image** to build the image. Choose the `Dockerfile` that was just created then give the image a name. It's important that you specify a couple of things here, the format is as follows:
+Open the **Command Palette** (CTRL + SHIFT + P) and run **Docker: Build Image** to build the image. Choose the `Dockerfile` that was just created then give the image a name. It's important that you specify a couple of things here, the format is as follows:
 
 `[registry or username]/[image name]:[tag]`
 
@@ -51,7 +51,7 @@ Once built, the image will show up in the **DOCKER** explorer under **Images**.
 
 ## Push the image to a registry
 
-Open the **Command Palette** (`kb(workbench.action.showCommands)`) and run **Docker: Push** and choose the image you just built to push the image to the registry. This will also execute the Docker command in the Terminal panel to show the status of the operation. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
+Open the **Command Palette** (CTRL + SHIFT + P) and run **Docker: Push** and choose the image you just built to push the image to the registry. This will also execute the Docker command in the Terminal panel to show the status of the operation. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
 
 ![Image in ACR](./media/tutorial-javascript-vscode/image-in-acr.png)
 

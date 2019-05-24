@@ -19,14 +19,22 @@ Choose an empty directory for the app then select JavaScript for the language of
 
 ![Select Language](./media/tutorial-javascript-vscode/create-function-app-project-language.png)
 
-When prompted, choose **Open in current window** and VS Code will reload with your new Functions app in the workspace.
+When prompted, choose HTTP trigger, enter `HttpTriggerJS` as the name, and choose **Anonymous** authentication.
 
-Next, add an HTTP trigger Function to your app.
+![Choose Template](./media/tutorial-javascript-vscode/create-function-choose-template.png)
 
-----
+![Choose Authentication](./media/tutorial-javascript-vscode/create-function-anonymous-auth.png)
+
+Upon completion, a new directory is created within your Function app named `HttpTriggerJS` that includes `index.js`and `functions.json` files. The `index.js` file contains the source code that responds to the HTTP request and `functions.json` contains the [binding configuration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger.
+
+![Completed Project](./media/tutorial-javascript-vscode/functions-vscode-intro.png)
+
+Next, run your app locally to verify everything is working.
+
+---
 
 > [!div class="nextstepaction"]
-> [I've created the Functions app](./tutorial-javascript-vscode-create-function.md)
+> [I've created the Function](./tutorial-javascript-vscode-run-app.md)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-app)
