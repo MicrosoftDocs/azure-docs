@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 05/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -34,15 +34,12 @@ Hosting SAP workload scenarios in Azure also can create requirements of identity
 
 ## Latest changes
 
+- Introduction of ExpressRoute Fast Path and Global Reach for HANA Large Instances in [SAP HANA (Large Instances) network architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-network-architecture) and related documents
 - Release of [Azure HANA Large Instances control through the Azure portal](hana-li-portal.md)
-
 - Release of [high availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP Applications](high-availability-guide-suse-netapp-files.md)
-
 - Clarification on **Linux OS parameter net.ipv4.tcp_timestamps** settings in conjunction with an Azure load balancer
 
-- Release of [SAP workload configurations with Azure availability zones](sap-ha-availability-zones.md)
 
-- Release of [SAP workload planning and deployment checklist](sap-deployment-checklist.md)
 
 
 

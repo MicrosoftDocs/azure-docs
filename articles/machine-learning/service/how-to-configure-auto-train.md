@@ -125,30 +125,6 @@ label |	string	| X, y, X_valid, y_valid |	Which column in data_train represents 
 columns	| Array of strings	||	_Optional_ Whitelist of columns to use for features
 cv_splits_indices	| Array of integers	||	_Optional_ List of indexes to split the data for cross validation
 
-### Load and prepare data using data prep SDK
-Automated machine learning experiments supports data loading and transforms using the data prep SDK. Using the SDK provides the ability to
-
->* Load from many file types with parsing parameter inference (encoding, separator, headers)
->* Type-conversion using inference during file loading
->* Connection support for MS SQL Server and Azure Data Lake Storage
->* Add column using an expression
->* Impute missing values
->* Derive column by example
->* Filtering
->* Custom Python transforms
-
-To learn about the data prep sdk refer the [How to prepare data for modeling article](how-to-load-data.md).
-Below is an example loading data using data prep sdk.
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
-
 ## Train and validation data
 
 You can specify separate train and validation set either through get_data() or directly in the `AutoMLConfig`  method.
