@@ -80,4 +80,4 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 Learn how to [Troubleshoot issues related to Data Box Disk](data-box-disk-troubleshoot.md).
 Learn how to [Troubleshoot issues related to Data Box](data-box-troubleshoot.md).
-Learn how to [Troubleshoot issues related to Data Box Blob storage](data-box-rest-troubleshoot.md).
+Learn how to [Troubleshoot issues related to Data Box Blob storage](data-box-troubleshoot-rest.md).
