@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/23/2019
 ms.author: juliako
 
 ---
@@ -45,8 +45,6 @@ az monitor metrics list --resource \
    "/subscriptions/<subscription id>/resourcegroups/<resource group name>/providers/Microsoft.Media/mediaservices/<Media Services account name>/streamingendpoints/<streaming endpoint name>" \
    --metric "Egress"
 ```
-
-For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
 ## Media Services diagnostic logs
 
@@ -84,6 +82,29 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## Next steps 
+## Why would I want to use metrics and diagnostics logs? 
+
+Here are examples of how monitoring Media Services metrics and logs can help you understand how your applications are performing:
+
+### Metrics
+
+* Monitor my Standard Streaming endpoint to know when I have exceeded the limits
+* Set an alert to know when to scale up my Streaming Endpoints
+* See the breakdown of requests failing and what is causing the failure
+* See how many HLS or DASH requests are being pulled from the packager
+
+For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+
+### Logs
+
+* See the number of licenses delivered by DRM type
+* See the number of licenses delivered by policy
+* See errors by DRM or policy type
+* See the number of unauthorized license requests from clients
 
 [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/diagnostic-logs-overview.md).
+
+## Next steps 
+
+* [Monitor Media Services metrics](media-services-metrics-howto.md)
+* [Monitor Media Service diagnostic logs](media-services-diagnostic-logs-howto.md)
