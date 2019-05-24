@@ -39427,6 +39427,26 @@
       "source_path": "articles/sql-database/sql-database-elastic-jobs-uninstall.md",
       "redirect_url": "/azure/sql-database/elastic-jobs-overview",
       "redirect_document_id": false
-    }
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/analytics-troubleshooting.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/detect-triage-diagnose.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/scom.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/windows-services.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    } 
   ]
 }
