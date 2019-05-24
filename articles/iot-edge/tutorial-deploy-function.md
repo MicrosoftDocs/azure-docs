@@ -218,12 +218,11 @@ You can use the Azure portal to deploy your function module to an IoT Edge devic
 
 ## View generated data
 
-You can see all of the messages that arrive at your IoT hub by running **Azure IoT Hub: Start Monitoring D2C Message** in the command palette.
+You can see all of the messages that arrive at your IoT hub by running **Azure IoT Hub: Start Monitoring Built-in Event Endpoint** in the command palette.
 
-You can also filter the view to see all of the messages that arrive at your IoT hub from a specific device. Right-click the device in the **Azure IoT Hub Devices** section and select **Start Monitoring D2C Messages**.
+You can also filter the view to see all of the messages that arrive at your IoT hub from a specific device. Right-click the device in the **Azure IoT Hub Devices** section and select **Start Monitoring Built-in Event Endpoint**.
 
-To stop monitoring messages, run the command **Azure IoT Hub: Stop monitoring D2C message** in the command palette. 
-
+To stop monitoring messages, run the command **Azure IoT Hub: Stop Monitoring Built-in Event Endpoint** in the command palette. 
 
 ## Clean up resources
 
@@ -241,4 +240,3 @@ Continue on to the next tutorials to learn other ways that Azure IoT Edge can he
 
 > [!div class="nextstepaction"]
 > [Find averages by using a floating window in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
-
