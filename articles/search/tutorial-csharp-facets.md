@@ -32,7 +32,7 @@ Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-pagi
 
 ## Takeaways
 
-Another completed, great work again.
+Another tutorial completed, great work again.
 
 You should consider the following takeaways from this project:
 
@@ -43,7 +43,7 @@ You should consider the following takeaways from this project:
 
 ## Next steps
 
-So far we have limited ourselves to text based searches. In the next tutorial we look at provided numerical data in the form of latitude, longitude and radius. And we look at ordering results (up to this point, results are ordered simply in the logic order that they are located).
+So far we have limited ourselves to text based searches. In the next tutorial we look at providing additional numerical data in the form of latitude, longitude and radius. And we look at ordering results (up to this point, results are ordered simply in the order that they are located in the database).
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Use Azure Search for geospatial queries](tutorial-csharp-geospatial-searches.md)
+> [C# Tutorial: Add geospatial filters to an Azure Search](tutorial-csharp-geospatial-searches.md)
