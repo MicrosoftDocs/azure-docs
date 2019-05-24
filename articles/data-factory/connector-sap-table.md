@@ -26,7 +26,7 @@ You can copy data from SAP Table to any supported sink data store. For a list of
 
 Specifically, this SAP Table connector supports:
 
-- SAP Table in any products belong to SAP Business Suite with version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015) or S/4HANA.
+- SAP Table in any product belong to SAP Business Suite with version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015) or S/4HANA.
 - Copying data from both SAP Transparent Table and View.
 - Copying data using basic authentication or SNC if SNC is configured.
 - Connecting to Application Server or Message Server.
@@ -67,11 +67,11 @@ The following properties are supported for SAP Business Warehouse Open Hub linke
 | language | Language that the SAP system uses. | No (default value is **EN**)|
 | userName | Name of the user who has access to the SAP server. | Yes |
 | password | Password for the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| sncMode | SNC activation indicator to access the SAP server where the table is located. Applicable if you want to connect to SNC. The value must be either 0 (off) or 1 (on). | No |
-| sncMyName | Initiator's SNC name to access the SAP server where the table is located. This will only work when sncMode is On. | No |
-| sncPartnerName | Communication partner's SNC name to access the SAP server where the table is located. This will only work when sncMode is On. | No |
-| sncLibraryPath | External security product's library to access the SAP server where the table is located. This will only work when sncMode is On. | No |
-| sncQop | SNC Quality of Protection. Allowed value include: 1(Authentication), 2(Integrity), 3(Privacy), 8(Default), 9(Maximum). This will only work when sncMode is On. | No |
+| sncMode | SNC activation indicator to access the SAP server where the table is located. Applicable if you want to connect to SNC. <br/>Allowed values are: **0 (off)** or **1 (on)**. | No |
+| sncMyName | Initiator's SNC name to access the SAP server where the table is located. Applicable when `sncMode` is On. | No |
+| sncPartnerName | Communication partner's SNC name to access the SAP server where the table is located. Applicable when `sncMode` is On. | No |
+| sncLibraryPath | External security product's library to access the SAP server where the table is located. Applicable when `sncMode` is On. | No |
+| sncQop | SNC Quality of Protection. Applicable when `sncMode` is On. <br/>Allowed value are: 1 (Authentication), 2 (Integrity), 3 (Privacy), 8 (Default), 9 (Maximum). | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example 1: connecting to the SAP Application Server**
@@ -191,7 +191,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### SAP Table as source
 
-To copy data from SAP Table, set the source type in the copy activity to **SapTableSource**. While there are no additional type-specific properties needed in the copy activity **source** section.
+To copy data from SAP Table, the following properties are supported.
 
 | Property                         | Description                                                  | Required |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
@@ -202,9 +202,9 @@ To copy data from SAP Table, set the source type in the copy activity to **SapTa
 | customRfcReadTableFunctionModule | Custom RFC function module that will be used to read data from SAP Table. | No       |
 | partitionOption                  | The partition mechanism that will be used for SAP table read in parallel. Current support options include: None, PartitionOnInt(normal integer or Integer values with zero padding on the left, such as 0000012345), PartitionOnCalendarYear (4 digits in format YYYY), PartitionOnCalendarMonth(6 digits in format YYYYMM), PartitionOnCalendarDate(8 digits in format YYYYMMDD) | No       |
 | partitionColumnName              | The name of the column that will be used for proceeding partitioning. | No       |
-| partitionUpperBound              | The maximum value of column specificed in partitionColumnName that will be used for proceeding partitioning. | No       |
-| partitionLowerBound              | The minimum value of column specificed in partitionColumnName that will be used for proceeding partitioning. | No       |
-| maxPartitionsNumber              | The maximum value of partitions the table will be splitted into. | No       |
+| partitionUpperBound              | The maximum value of column specified in partitionColumnName that will be used for proceeding partitioning. | No       |
+| partitionLowerBound              | The minimum value of column specified in partitionColumnName that will be used for proceeding partitioning. | No       |
+| maxPartitionsNumber              | The maximum value of partitions to split the data into. | No       |
 
 >[!TIP]
 >If your SAP table only large volume of data such as several billions, please use the partitionOption and partitionSetting to split the data into small partitions that will be read by partitions with each of the partition data can be retrieved by your server via one single RFC call.  Take partitionOnInt as example, the number of each partition will be calculated via (total rows falling between partitionUpperBound and partitionLowerBound)/maxPartitionsNumber.  If you would like to run in parallel,  it is strongly recommended to keep maxPartitionsNumber as a multiple of the value of parallelCopies.
@@ -254,12 +254,12 @@ When copying data from SAP Table, the following mappings are used from SAP Table
 | SAP ABAP Type | Data factory interim data type |
 |:--- |:--- |
 | C (String) | String |
-| I (integer) | Int32 |
+| I (Integer) | Int32 |
 | F (Float) | Double |
 | D (Date) | String |
 | T (Time) | String |
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | String |
+| N (Numeric) | String |
 | X (Binary and Raw) | String |
 
 ## Next steps
