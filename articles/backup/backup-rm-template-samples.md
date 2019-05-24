@@ -26,5 +26,6 @@ The following table includes links to Azure Resource Manager templates for use w
 | [Deploy Windows Server VM with backup enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | Template creates a Windows Server VM and Recovery Services vault with the default backup policy enabled.|
 |**Monitor Backup jobs** |  |
 | [Use Azure Monitor logs with Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Template deploys Azure Monitor logs with Azure Backup which allows you to monitor backup and restore jobs, backup alerts and the Cloud storage used in your Recovery Services vaults.|  
+|**Backup SQL Server in Azure VM** |  |
+| [Backup SQL Server in Azure VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | Template creates a Recovery Services Vault and Workload specific Backup Policy. It Registers the VM with Azure Backup service and Configures Protection on that VM. Currently, it only works for SQL Gallery images. |
 |   |   |
-
