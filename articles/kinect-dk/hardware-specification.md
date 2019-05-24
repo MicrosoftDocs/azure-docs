@@ -31,8 +31,8 @@ Azure Kinect DK is intended for developers and commercial businesses operating u
 - **Temperature**: 10-25⁰C
 - **Humidity**: 8-90% (non-condensing) RH
 
->[!NOTE]
->Use outside of the ambient conditions could cause the device to fail and/or function incorrectly. These ambient conditions are applicable for the environment immediately around the device under all operational conditions. When used with an external enclosure, active temperature control and/or other cooling solutions are recommended to ensure the device is maintained within these ranges. The device design features a cooling channel in between the front section and rear sleeve. When you implement the device, make sure this cooling channel is not obstructed.
+> [!NOTE]
+> Use outside of the ambient conditions could cause the device to fail and/or function incorrectly. These ambient conditions are applicable for the environment immediately around the device under all operational conditions. When used with an external enclosure, active temperature control and/or other cooling solutions are recommended to ensure the device is maintained within these ranges. The device design features a cooling channel in between the front section and rear sleeve. When you implement the device, make sure this cooling channel is not obstructed.
 
 Refer to additional product [safety information](https://support.microsoft.com/help/4023454/safety-information).
 
@@ -48,7 +48,7 @@ Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF)
 | WFOV unbinned   | 1024x1024  | 120°x120° | 0, 5, 15           | 0.25 - 2.21 m      | 20.3 ms        |
 | Passive IR      | 1024x1024  | N/A       | 0, 5, 15, 30       | N/A              | 1.6 ms         |
 
-*15% to 95% reflectivity, 2.2 uW/cm^2/nm, random error std. dev. <= 17 mm, typical systematic error < 11 mm + 0.1% of distance without multi-path interference. Depth provided outside of indicated range depending on object reflectivity.
+\*15% to 95% reflectivity, 2.2 uW/cm^2/nm, random error std. dev. <= 17 mm, typical systematic error < 11 mm + 0.1% of distance without multi-path interference. Depth provided outside of indicated range depending on object reflectivity.
 
 ## Color camera supported operating modes
 
@@ -65,8 +65,8 @@ Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. The
 
 The RGB camera is USB Video class-compatible and can be used without the Sensor SDK.
 
->[!NOTE]
->SDK exposes BGRA mode that is converted from MJPEG on host CPU. This is not native more and causes CPU load when used.
+> [!NOTE]
+> SDK exposes BGRA mode that is converted from MJPEG on host CPU. This is not native more and causes CPU load when used.
 
 ## Camera field of view
 
@@ -123,15 +123,15 @@ The status LED behind the device indicates device state:
 
 The device can be powered using the in-box power supply and USB Type-C to A cable, or by using a Type-C to C cable for both power and data. A type-C to C cable is not included.
 
->[!NOTE]
+> [!NOTE]
 > - The in-box power supply cable is a USB Type-A to single post barrel connector. Use the provided wall-power supply with this cable. The device is capable of drawing more power than two standard USB Type-A ports can provide.
 > - USB cables do matter and we recommended to use high-quality cables and verify functionality before deploying the unit remotely.
 
->[!TIP]
->Tips for selecting good type-C to Type-C cable:
->- The [USB certified cable](https://www.usb.org/products), must support both power and data.
->- Passive cable should be less than 1.5m in length, for longer cables use active cable. 
->- The cable shall support no less than >1.5A, else you need connect external PSU.
+> [!TIP]
+> To select a good Type-C to Type-C cable:
+> - The [USB certified cable](https://www.usb.org/products) must support both power and data.
+> - A passive cable should be less than 1.5m in length. If longer, use an active cable. 
+> - The cable needs to support no less than >1.5A. Otherwise you need to connect an external PSU.
 
 Verify cable:
 
@@ -172,15 +172,16 @@ Device firmware can be reset to original firmware using button underneath the lo
 
 ![Azure Kinect DK recovery button](./media/resources/hardware-specs-media/recovery.png)
 
-To perform recovery, see [instructions here](https://aka.ms/support)
+To perform recovery, see [instructions here](https://aka.ms/support).
+
+## See also
+
+[Use Azure Kinect Sensor SDK](overview-sensor-sdk.md)
 
 ## Next steps
 
 Now you are familiar with Azure Kinect hardware specification, you also can review
+
 > [!div class="nextstepaction"]
 >[Host PC minimum requirement](system-requirements.md)
 >[Set up hardware](set-up-azure-kinect-dk.md)
-
-## Also see
-
-[Use Azure Kinect Sensor SDK](overview-sensor-sdk.md)
