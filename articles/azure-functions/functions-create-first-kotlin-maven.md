@@ -50,11 +50,15 @@ mvn archetype:generate \
 
 ### Windows
 
+#### PowerShell
+
 ```powershell
 mvn archetype:generate `
     "-DarchetypeGroupId=com.microsoft.azure" `
     "-DarchetypeArtifactId=azure-functions-kotlin-archetype"
 ```
+
+#### Command line
 
 ```cmd
 mvn archetype:generate ^
