@@ -30,6 +30,9 @@ Specifically, this SAP ECC connector supports:
 - Copying data from any objects exposed by SAP ECC OData services (e.g. SAP Table/Views, BAPI, Data Extractors, etc.), or data/IDOCs sent to SAP PI that can be received as OData via relative Adapters.
 - Copying data using basic authentication.
 
+>[!TIP]
+>To copy data from SAP ECC via SAP table/view, you can use [SAP Table](connector-sap-table.md) connector which is more performant and scalable.
+
 ## Prerequisites
 
 Generally, SAP ECC exposes entities via OData services through SAP Gateway. To use this SAP ECC connector, you need to:
