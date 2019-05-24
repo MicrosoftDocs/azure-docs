@@ -106,8 +106,20 @@ Upgrading your virtual machines is a user initiated operation, and it is recomme
 ```
 When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher.
 
-!Note
-> Ensure the following registry key is set to false to prevent your windows host machines from initaiting uncoordinated updates: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Ensure the following registry key is set to false to prevent your windows host machines from initaiting uncoordinated updates: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+
+The following are the Compute Virtual Machine Scale Set Resource Manager template properties to set the WindowsUpdate registry key to false:
+```json
+"osProfile": {
+        "computerNamePrefix": "{vmss-name}",
+        "adminUsername": "{your-username}",
+        "secrets": [],
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "enableAutomaticUpdates": false
+        }
+      },
+```
 
 ## Azure Service Fabric Cluster Upgrade Configuration
 The following is the Service Fabric cluster Resource Manager template property to enable automatic upgrade:
