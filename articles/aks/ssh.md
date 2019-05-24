@@ -40,16 +40,16 @@ The steps to get the private IP address of the AKS nodes is different based on t
 
 To add your SSH key to a Linux AKS node, complete the following steps:
 
-1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name:
+1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*:
 
     ```azurecli-interactive
-    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
 1. List the VMs in the AKS cluster resource group using the [az vm list][az-vm-list] command. These VMs are your AKS nodes:
 
     ```azurecli-interactive
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+    az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
     ```
 
     The following example output shows the AKS nodes:
@@ -64,7 +64,7 @@ To add your SSH key to a Linux AKS node, complete the following steps:
 
     ```azurecli-interactive
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --resource-group $CLUSTER_RESOURCE_GROUP \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
@@ -118,7 +118,7 @@ The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes,
 View the private IP address of an AKS cluster node using the [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] step:
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
 The following example output shows the private IP addresses of the AKS nodes:
