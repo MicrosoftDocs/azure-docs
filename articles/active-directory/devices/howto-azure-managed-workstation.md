@@ -23,19 +23,22 @@ Now that you understand [Why securing workstation access is important?](concept-
 
 ![Deployment of a secure workstation](./media/secure-admin-workstations/deploying-secure-workstations.png)
 
-| Profile | Standard | Enhanced | VIP | DevOps | Secured |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| User in Azure AD | Yes | Yes | Yes | Yes | Yes |
-| Intune managed | Yes | Yes | Yes | Yes | Yes |
-| Device Azure AD registered | Yes |  |  |  |  |
-| Device Azure AD joined |   | Yes | Yes | Yes | Yes |
-| Intune security baseline applied |   | Yes <br> (Enhanced) | Yes <br> (Enhanced+) | Yes <br> (NCSC) | Yes <br> (Secured) |
-| Hardware meets secure Windows 10 Standards |   | Yes | Yes | Yes | Yes |
-| Removal of admin rights |   |   | Yes | Yes | Yes |
-| Microsoft Defender ATP enabled |   |   |   | Yes | Yes |
-| Deployment using Microsoft Autopilot |   |   |   | Yes | Yes |
-| Apps installed only by Intune |   |   |   | Yes | Yes |
-| URLs restricted to approved list only |   |   |   | Yes | Yes |
+Prior to deploying the solution, the profile that you will be using must be selected. It's important to note that you can apply any of the selected profiles and move to another by assigning the profile in Intune based on your requirement. Multiple profiles can be used simotaniously in a deployment, and assigned using tag's or group assignments.
+
+| Profile | Low | Enhanced | High | Specialized | Secured | Isolated |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| User in Azure AD | Yes | Yes | Yes | Yes | Yes | Yes |
+| Intune managed | Yes | Yes | Yes | Yes | Yes | Yes |
+| Device Azure AD registered | Yes |  |  |  |  | |   |
+| Device Azure AD joined |   | Yes | Yes | Yes | Yes | Yes |
+| Intune security baseline applied |   | Yes <br> (Enhanced) | Yes <br> (HighSecurity) | Yes <br> (NCSC) | Yes <br> (Secured) |  NA |
+| Hardware meets secure Windows 10 Standards |   | Yes | Yes | Yes | Yes | Yes |
+| Microsoft Defender ATP enabled |   | Yes  | Yes | Yes | Yes | Yes |
+| Removal of admin rights |   |   | Yes  | Yes | Yes | Yes |
+| Deployment using Microsoft Autopilot |   |   | Yes  | Yes | Yes | Yes |
+| Apps installed only by Intune |   |   |   | Yes | Yes |Yes |
+| URLs restricted to approved list only |   |   |   | Yes | Yes |Yes |
+| Internet (Inbound/outbound blocked) |   |   |   |  |  |Yes |
 
 ## License Requirements
 
@@ -124,7 +127,7 @@ Organizations can optionally create policies to block countries where users woul
 
 ### Configure enrollment status
 
-When purchasing new devices, Microsoft recommends that devices be factory set to [Windows 10 Pro in S mode](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), which limits the exposure and vulnerabilities during supply chain management. Once a device is received from your supplier, the device will be removed from S mode using Autopilot. The following guidance provides details on applying the transformation process.
+As outlined in the supply chain management, ensuring the secure workstation is a trusted clean device it's recommended that when purchasing new devices,  that devices be factory set to [Windows 10 Pro in S mode](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), which limits the exposure and vulnerabilities during supply chain management. Once a device is received from your supplier, the device will be removed from S mode using Autopilot. The following guidance provides details on applying the transformation process.
 
 We want to ensure that devices are fully configured before use. Intune provides a means to **Block device use until all apps and profiles are installed**. This setting can be found in the **Azure portal** > **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page (Preview)** > **Default** > **Settings**.
 
@@ -191,11 +194,14 @@ To successfully complete the hardening of the solution, download and execute the
 
 | Profile | Download location | Filename |
 | --- | --- | --- |
-| Standard | N/A |  N/A |
-| Enhanced | https://aka.ms/securedworkstationgit | Enhanced-Workstation-Windows10-(1809).ps1 |
-| VIP | https://aka.ms/securedworkstationgit | Enhanced-Workstation-Windows10 (1809).ps1 |
-| DevOps | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC - Windows10 (1803) SecurityBaseline.ps1 |
+| Low Security | N/A |  N/A |
+| Enhanced Security | https://aka.ms/securedworkstationgit | Enhanced-Workstation-Windows10-(1809).ps1 |
+| High Security  | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809).ps1 |
+| Specialized | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC - Windows10 (1803) SecurityBaseline.ps1 |
+| Specialized Compliance* | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
 | Secured | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
+
+Specialized Compliance* is a script that enforces the Specialized configuration provided in the NCSC Windows10 SecurityBaseline.
 
 Once the selected script successfully executes, updates to the profiles and policies can be made in Microsoft Intune. The scripts for Enhanced and Secure profiles create policies and profiles for you but you must assign the policy to your **Secure Workstations** group.
 
@@ -301,7 +307,7 @@ To enroll your device, you need the following information:
    * Run `Get-Windowsautopilotinfo – outputfile device1.csv` to output the information as a CSV file that can be imported in to Intune.
 
 > [!NOTE]
-> The script will require elevated rights and run as unsigned. You can use the following to allow the script to run correctly. `Set-ExecutionPolicy -ExecutionPolicy Remotesigned`
+> The script will require elevated rights and run as remote signed. You can use the following command to allow the script to run correctly. `Set-ExecutionPolicy -ExecutionPolicy Remotesigned`
 
 You can gather this information by signing in to a Windows 10 version 1809 or higher device to gather the information, or your hardware reseller can provide this information when ordering new devices.
 
