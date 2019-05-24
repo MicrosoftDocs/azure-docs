@@ -41,8 +41,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment. 
 
-* MyVR supports **SP and IDP** initiated SSO
-* MyVR supports **Just In Time** user provisioning
+* MyVR supports **SP and IDP** initiated SSO.
+* MyVR supports **Just In Time** user provisioning.
 
 ## Adding MyVR from the gallery
 
@@ -62,11 +62,11 @@ Configure and test Azure AD SSO with MyVR using a test user called **B. Simon**.
 To configure and test Azure AD SSO with MyVR, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-2. **[Configure MyVR SSO](#configure-myvr-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B. Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B. Simon to use Azure AD single sign-on.
-5. **[Create MyVR test user](#create-myvr-test-user)** - to have a counterpart of B. Simon in MyVR that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Configure MyVR SSO](#configure-myvr-sso)** - to configure the Single Sign-On settings on application side.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B. Simon.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B. Simon to use Azure AD single sign-on.
+1. **[Create MyVR test user](#create-myvr-test-user)** - to have a counterpart of B. Simon in MyVR that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
@@ -82,31 +82,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	In the **Sign-on URL** text box, type the URL:
-    `https://ess.virtualroster.net/ess/login.aspx`
+   In the **Sign-on URL** text box, type the URL:
+   `https://ess.virtualroster.net/ess/login.aspx`
 
 1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
-	| Name | Source Attribute|
-	| ---------------| --------------- |
-	| givenname | user.givenname |
-	| surname | user.surname |
-	| emailaddress | user.mail |
-	| employeeid | user.employeeid |
+   | Name | Source attribute|
+   | ---------------| --------------- |
+   | givenname | user.givenname |
+   | surname | user.surname |
+   | emailaddress | user.mail |
+   | employeeid | user.employeeid |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
+   1. Click **Add new claim** to open the **Manage user claims** dialog.
+   1. In the **Name** textbox, type the attribute name shown for that row.
+   1. Leave the **Namespace** blank.
+   1. Select Source as **Attribute**.
+   1. From the **Source attribute** list, type the attribute value shown for that row.
+   1. Click **Ok**.
+   1. Click **Save**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -144,7 +138,7 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+   ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B. Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -158,7 +152,7 @@ In this section, a user called B. Simon is created in MyVR. MyVR supports just-i
 
 When you select the MyVR tile in the Access Panel, you should be automatically signed in to the MyVR for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
