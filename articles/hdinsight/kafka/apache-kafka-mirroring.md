@@ -49,7 +49,61 @@ If you need to mirror between Kafka clusters in different networks, there are th
 
 For more information on connecting two Azure Virtual Networks, see [Configure a VNet-to-VNet connection](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## Create Apache Kafka clusters
+## Mirroring architecture 1
+
+This architecture features two clusters in different resource groups and vnets.
+
+### Setup
+
+### Creation steps
+
+1. Create two new resource groups `kafka-primary-rg` in `Central US` and `kafka-secondary-rg` in `North Central US`
+1. Create a new VNET `kafka-primary-vnet` in `kafka-primary-rg`. Leave the default settings
+1. Create a new VNET `kafka-secondary-vnet` in `kafka-secondary-rg`
+1. Create a new Kafka cluster `kafka-primary-cluster` in the `kafka-primary-rg` resource group, using the `kafka-primary-vnet` virtual network. Create a new storage account `kafka-primary-storage`.
+1. Create a second Kafka cluster `kafka-secondary-cluster` in the `kafka-secondary-rg` resource group, using the `kafka-secondary-vnet` virtual network. Create a new storage account `kafka-secondary-storage`.
+1. Create virtual network peerings. This step will create two peerings: one from `kafka-primary-vnet` to `kafka-secondary-vnet` and one back from `kafka-secondary-vnet` to `kafka-primary-vnet`.
+    1. Select the `kafka-primary-vnet` VNET.
+    1. Click **Peerings** under **Settings**.
+    1. Click **Add**.
+    1. On the **Add peering** screen, enter the details as shown in the screenshot below.
+
+        ![add vnet peering](./media/apache-kafka-mirroring/add-vnet-peering.png)
+1. Configure IP advertising:
+    1. Go to the Ambari dashboard for the primary cluster: `https://kafka-primary-cluster.azurehdinsight.net`.
+    1. Click **Services** > **Kafka** > **Configs**.
+    1. Add the following config lines to the bottom **kafka-env template** section. Click **Save**.
+    
+        ```
+        # Configure Kafka to advertise IP addresses instead of FQDN
+        IP_ADDRESS=$(hostname -i)
+        echo advertised.listeners=$IP_ADDRESS
+        sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+        echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+        ```
+
+    1. Enter a note on the **Save Configuration** screen and click **Save**.
+    1. Click **Ok** on the **Save Configuration Changes**.
+    1. Click **Restart** > **Resart All Affected** in the **Restart Required** notification. Click **Confirm Restart All**.
+
+        ![restart kafka nodes](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+
+1. Configure Kafka to listen on all network interfaces.
+    1. In the **Kafka Broker** section set the **listeners** property to `PLAINTEXT://0.0.0.0:9092`.
+    1. Click **Save**.
+    1. Click **Restart**, and **Confirm Restart All**.
+
+1. Record Broker IP addresses and Zookeeper addresses for primary cluster.
+    1. Click **Hosts** on the Ambari dashboard.
+    1. Make a note of the IP Addresses for the Brokers and Zookeepers.
+
+        ![view ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses.png)
+
+## Mirroring architecture 2
+
+This architecture features two clusters in the same resource group.
+
+### Create Apache Kafka clusters
 
 While you can create an Azure virtual network and Kafka clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network and two Kafka clusters to your Azure subscription.
 
