@@ -41,7 +41,7 @@
   - name: Concepts
     items:
     - name: Microsoft global network
-      href: azure-network.md
+      href: microsoft-global-network.md
     - name: Virtual networks
       href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Network load balancing
