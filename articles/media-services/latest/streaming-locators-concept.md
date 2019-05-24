@@ -30,7 +30,7 @@ When creating a **Streaming Locator**, you must specify an **Asset** name and a 
 You can also specify the start and end time on your Streaming Locator, which will only let your user play the content between these times (for example, between 5/1/2019 to 5/5/2019).  
 
 ## Considerations
- 
+
 * **Streaming Locators** are not updatable. 
 * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
 * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
