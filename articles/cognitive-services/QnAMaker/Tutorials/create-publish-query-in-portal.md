@@ -64,7 +64,7 @@ This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |The contents of the FAQ at that URL are formatted with a question followed by an answer. QnA Maker can interpret this format to extract questions and the associated answers.|
     |File |_not used in this tutorial_|This uploads files for questions and answers. |
-    |Chit-chat personality|Friendly|This gives a friendly and casual personality to common questions and answers. You can edit these questions and answers later. |
+    |Chit-chat personality|Friendly|This gives a friendly and casual [personality](../Concepts/best-practices.md#chit-chat) to common questions and answers. You can edit these questions and answers later. |
 
     ![Step 4 of KB Creation process](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

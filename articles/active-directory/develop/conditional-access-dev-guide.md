@@ -7,12 +7,12 @@ author: rwike77
 manager: CelesteDG
 
 ms.author: ryanwi
-ms.reviewer: dadobali
+ms.reviewer: jmprieur, saeeda
 ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management

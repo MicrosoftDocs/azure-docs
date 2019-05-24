@@ -23,7 +23,7 @@ The `TensorFlow` estimator also provides a layer of abstraction over execution, 
 
 Since the `TensorFlow` estimator class is similar to the base [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), we recommend you first read the [base Estimator how-to article](how-to-train-ml-models.md) to understand the overarching concepts.
 
-To get started with Azure Machine Learning service, [complete the quickstart](quickstart-run-cloud-notebook.md). Once finished, you'll have an [Azure Machine Learning workspace](concept-azure-machine-learning-architecture.md#workspace) and all of our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) including those for training DNNs with TensorFlow and Keras.
+To get started with Azure Machine Learning service, [complete the quickstart](quickstart-run-cloud-notebook.md). Once finished, you'll have an [Azure Machine Learning workspace](concept-workspace.md) and all of our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) including those for training DNNs with TensorFlow and Keras.
 
 ## Single-node training
 
