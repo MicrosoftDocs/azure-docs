@@ -46,9 +46,9 @@ For high availability in your production environment, we recommend having more t
 
 2. The connector server and the web applications servers should belong to the same Active Directory domain or span trusting domains. Having the servers in the same domain or trusting domains is a requirement for using single sign-on (SSO) with Integrated Windows Authentication (IWA) and Kerberos Constrained Delegation (KCD). If the connector server and web application servers are in different Active Directory domains, you need to use resource-based delegation for single sign-on. For more information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
-#### Software requirements
+#### TLS requirements
 
-The Windows connector server needs to have TLS 1.2 enabled before you install the Application Proxy connector. Existing connectors with versions below 1.5.612.0 will continue to work on prior versions of TLS until further notice. 
+The Windows connector server needs to have TLS 1.2 enabled before you install the Application Proxy connector.
 
 To enable TLS 1.2:
 
@@ -62,6 +62,9 @@ To enable TLS 1.2:
     ```
 
 2. Restart the server.
+
+>[!Important] 
+> To provide the best-in-class encryption to our customers, we are making updates to the Application Proxy service to limit access to only TLS 1.2 protocols. Based on customer readiness changes will be gradually rolled out to customers who are only using TLS 1.2 protocols and will not see any impact from this change. TLS 1.0 and 1.1 deprecation will complete on August 31, 2019 and customers will receive advance notice to prepare for this change. To prepare for this change make sure that all client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](https://docs.microsoft.com/en-us/office365/troubleshoot/prepare-tls-1.2-in-office-365) for useful references and resources.
 
 ## Prepare your on-premises environment
 
