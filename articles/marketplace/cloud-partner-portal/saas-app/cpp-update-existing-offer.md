@@ -17,6 +17,7 @@ There are various kinds of updates that you might want to do to your offer after
 > SaaS offer functionality is being migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must
 > use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
 > Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
+> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
 
 There are several reasons why you might want to update your offer, such as:
 
