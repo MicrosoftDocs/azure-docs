@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure Active Directory with Azure Kubernetes Service
-description: How to create Azure Active Directory-enabled Azure Kubernetes Service (AKS) clusters.
+description: How to create Azure Active Directory-enabled Azure Kubernetes Service (AKS) clusters
 services: container-service
 author: iainfoulds
 
