@@ -202,7 +202,7 @@ To copy data from SAP Table, the following properties are supported.
 | rfcTableFields                   | Fields to copy from the SAP table. For example, `column0, column1`. | No       |
 | rfcTableOptions                  | Options to filter the rows in SAP Table. For example, `COLUMN0 EQ 'SOMEVALUE'`. | No       |
 | customRfcReadTableFunctionModule | Custom RFC function module that can be used to read data from SAP Table. | No       |
-| partitionOption                  | The partition mechanism to read from SAP table. <br/>The supported options include: <br/>- **None**<br/>- **PartitionOnInt** (normal integer or integer values with zero padding on the left, such as 0000012345)<br/>- **PartitionOnCalendarYear** (4 digits in format "YYYY"), **PartitionOnCalendarMonth** (6 digits in format "YYYYMM")<br/>- **PartitionOnCalendarDate** (8 digits in format "YYYYMMDD") | No       |
+| partitionOption                  | The partition mechanism to read from SAP table. The supported options include: <br/>- **None**<br/>- **PartitionOnInt** (normal integer or integer values with zero padding on the left, such as 0000012345)<br/>- **PartitionOnCalendarYear** (4 digits in format "YYYY")<br/>- **PartitionOnCalendarMonth** (6 digits in format "YYYYMM")<br/>- **PartitionOnCalendarDate** (8 digits in format "YYYYMMDD") | No       |
 | partitionColumnName              | The name of the column to partition the data. | No       |
 | partitionUpperBound              | The maximum value of the column specified in `partitionColumnName` that will be used for proceeding partitioning. | No       |
 | partitionLowerBound              | The minimum value of the column specified in `partitionColumnName` that will be used for proceeding partitioning. | No       |
