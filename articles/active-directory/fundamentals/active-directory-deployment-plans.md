@@ -22,6 +22,35 @@ Within the documents you will find e-mail templates, system architecture diagram
 
 We'd love your feedback on the documents. Take this short [survey](https://aka.ms/deploymentplanfeedback) about how the documents worked for you. 
 
+## Include the right stakeholders
+
+When beginning your deployment planning for a new capability, it’s important to include key stakeholders across your organization. We recommend that you identify and document the person or people who fulfill each of the following roles, and work with them to determine their involvement in the project.  
+
+Roles might include the following 
+
+|Role |Description |
+|-|-|
+|End-user|A representative group of users for which the capability will be implemented. Often previews the changes in a pilot program.
+|IT Support Manager|IT support organization representative who can provide input on the supportability of this change from a helpdesk perspective.  
+|Identity Architect or Azure Global Administrator|Identity management team representative in charge of defining how this change is aligned with the core identity management infrastructure in your organization.|
+|Application Business Owner |The overall business owner of the affected application(s), which may include managing access.  May also provide input on the user experience and usefulness of this change from an end-user’s perspective.
+|Security Owner|A representative from the security team that can sign off that the plan will meet the security requirements of your organization.|
+|Compliance Manager|The person within your organization responsible for ensuring compliance with  corporate, industry, or governmental requirements.|
+
+**Levels of involvement might include:**
+
+- **R**esponsible for implementing project plan and outcome 
+
+- **A**pproval of project plan and outcome 
+
+- **C**ontributor to project plan and outcome 
+
+- **I**nformed of project plan and outcome
+ 
+## Deployment Plans
+
+
+
 |Scenario |Description |
 |-|-|
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard your access to data and applications, while meeting the demand for a simple sign-in process.|
