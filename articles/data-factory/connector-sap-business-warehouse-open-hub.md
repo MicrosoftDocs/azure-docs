@@ -133,7 +133,7 @@ The following properties are supported for SAP Business Warehouse Open Hub linke
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Salesforce dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the SAP BW Open Hub dataset.
 
 To copy data from and to SAP BW Open Hub, set the type property of the dataset to **SapOpenHubTable**. The following properties are supported.
 
