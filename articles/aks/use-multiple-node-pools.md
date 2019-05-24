@@ -328,9 +328,15 @@ Only pods that have this taint applied can be scheduled on nodes in *gpunodepool
 
 ## Manage node pools using a Resource Manager template
 
-When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With nodepools in AKS, the initial nodepool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the agent pools for an existig AKS cluster.
+When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With nodepools in AKS, the initial nodepool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the agent pools for an existing AKS cluster.
 
-Create a template, such as `aks-agentpools.json` and paste the following example manifest. This example template updates the *Linux* agent pool named *myagentpool* to run three Kubernetes *1.12.8* nodes and uses the *Standard_DS2_v2* node size. Edit these values as need to update, add, or delete node pools. You are prompted for the existing AKS cluster name and location:
+Create a template such as `aks-agentpools.json` and paste the following example manifest. This example template configures the following settings:
+
+* Updates the *Linux* agent pool named *myagentpool* to run three nodes.
+* Sets the nodes in the node pool to run Kubernetes version *1.12.8*.
+* Defines the node size as *Standard_DS2_v2*.
+
+Edit these values as need to update, add, or delete node pools as needed:
 
 ```json
 {
@@ -399,13 +405,15 @@ Create a template, such as `aks-agentpools.json` and paste the following example
 }
 ```
 
-Deploy this template using the [az group deployment create][az-group-deployment-create] command, as shown in the following example:
+Deploy this template using the [az group deployment create][az-group-deployment-create] command, as shown in the following example. You are prompted for the existing AKS cluster name and location:
 
 ```azurecli-interactive
 az group deployment create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
+
+It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
 ## Clean up resources
 
