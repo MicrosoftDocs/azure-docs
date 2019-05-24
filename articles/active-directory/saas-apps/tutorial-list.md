@@ -51,7 +51,7 @@ To find more tutorials, use the table of contents on the left.
 ## OneClick SSO
 
 | Logo | Application tutorial for single sign-on |        |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | ![logo](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|      |
 | ![logo](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|     |
 | ![logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|     |
