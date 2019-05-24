@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* An Apache Spark cluster on HDInsight. See [Create an Apache Spark cluster](spark/apache-spark-jupyter-spark-sql-use-portal.md).
+* An Apache Spark cluster on HDInsight. See [Create an Apache Spark cluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
 * Familiarity with using Jupyter Notebooks with Spark on HDInsight. For more information, see [Load data and run queries with Apache Spark on HDInsight](./apache-spark-load-data-run-query.md).
 
