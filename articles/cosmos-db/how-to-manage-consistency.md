@@ -4,7 +4,7 @@ description: Learn how to manage consistency in Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: rimman
 ---
 

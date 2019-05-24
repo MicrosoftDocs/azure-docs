@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 05/21/2019
 ms.author: mbullwin
 ---
 # IP addresses used by Application Insights and Log Analytics

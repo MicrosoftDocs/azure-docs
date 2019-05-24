@@ -19,9 +19,10 @@ In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows 
 This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS. Node pools for Windows Server are currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ## Limitations for Windows Server in Kubernetes
 
@@ -72,7 +73,6 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
 
 <!-- LINKS - internal -->
@@ -80,3 +80,5 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

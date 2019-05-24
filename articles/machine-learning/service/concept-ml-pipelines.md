@@ -13,7 +13,7 @@ ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 
-# Build machine learning pipelines with the Azure Machine Learning service
+# Build reusable ML pipelines in Azure Machine Learning service
 
 In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python, and the advantages to using pipelines.
 
