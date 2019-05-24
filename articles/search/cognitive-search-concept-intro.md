@@ -19,7 +19,7 @@ Cognitive search is an AI feature in Azure Search, used to extract text from ima
 
 + **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like colors or image orientation. You can create text-representations of image content, searchable using all the query capabilities of Azure Search.
 
-![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search pipeline overview")
+![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive search pipeline overview")
 
 Cognitive skills in Azure Search are based on machine learning models in Cognitive Services APIs: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) and [Text Analysis](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
@@ -55,7 +55,7 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 [Search service REST api-version=2019-05-06](search-api-preview.md) extends skillsets with a knowledgeStore definition that provides an Azure storage connection and projections that describe how the enrichments are stored. 
 
-Adding a knowledge store to a skillset gives you the ability to project a representation of your enrichments for scenarios other than full text search. For more information, see [What is Knowledge Store](knowledge-store-concept-intro.md).
+Adding a knowledge store to a skillset gives you the ability to project a representation of your enrichments for scenarios other than full text search. For more information, see [What is knowledge store](knowledge-store-concept-intro.md).
 
 ### Step 3: Search index and query-based access
 
@@ -139,5 +139,5 @@ For more information about specific questions or problems, see [Troubleshooting 
 + [Cognitive search documentation](cognitive-search-resources-documentation.md)
 + [Quickstart: Try cognitive search in a portal walkthrough](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn the cognitive search APIs](cognitive-search-tutorial-blob.md)
-+ [Knowledge Store overview](knowledge-store-concept-intro.md)
-+ [Knowledge Store walkthrough](knowledge-store-howto.md)
++ [Knowledge store overview](knowledge-store-concept-intro.md)
++ [Knowledge store walkthrough](knowledge-store-howto.md)

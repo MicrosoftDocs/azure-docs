@@ -53,7 +53,7 @@ QnA Maker provides two key services for your data:
 
 The QnA Maker architecture consists of the following two components:
 
-1. **QnA Maker management services**: The management experience for a QnA Maker knowledge base, which includes the initial creation, updating, training, and publishing. These activities can be done through the [portal](https://qnamaker.ai) or the [management APIs](https://aka.ms/qnamaker-v4-apis). 
+1. **QnA Maker management services**: The management experience for a QnA Maker knowledge base, which includes the initial creation, updating, training, and publishing. These activities can be done through the [portal](https://qnamaker.ai) or the [management APIs](https://go.microsoft.com/fwlink/?linkid=2092179). 
 
 2. **QnA Maker data and runtime**: This is deployed in your Azure subscription in your specified region. Your KB content is stored in [Azure Search](https://azure.microsoft.com/services/search/), and the endpoint deployed as an [App service](https://azure.microsoft.com/services/app-service/). You can also choose to deploy an [Application insights](https://azure.microsoft.com/services/application-insights/) resource for analytics.
 

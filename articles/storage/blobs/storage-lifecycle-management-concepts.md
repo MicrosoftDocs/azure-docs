@@ -6,7 +6,7 @@ author: mhopkins-msft
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 4/29/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
@@ -39,7 +39,7 @@ The lifecycle management feature is available in all global Azure regions.
 
 ## Add or remove a policy
 
-You can add, edit, or remove a policy by using any of the following methods.
+You can add, edit, or remove a policy by using any of the following methods:
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
@@ -127,7 +127,7 @@ You can define lifecycle management by using Azure Resource Manager templates. H
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -189,16 +189,16 @@ A policy is a collection of rules:
 
 | Parameter name | Parameter type | Notes |
 |----------------|----------------|-------|
-| rules          | An array of rule objects | At least one rule is required in a policy. You can define up to 100 rules in a policy. |
+| `rules`        | An array of rule objects | At least one rule is required in a policy. You can define up to 100 rules in a policy.|
 
 Each rule within the policy has several parameters:
 
 | Parameter name | Parameter type | Notes | Required |
 |----------------|----------------|-------|----------|
-| name           | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive.  It must be unique within a policy. | True |
-| enabled | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true. | False |
-| type           | An enum value | The current valid type is `Lifecycle`. | True |
-| definition     | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
+| `name`         | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive.  It must be unique within a policy. | True |
+| `enabled`      | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it is not set. | False | 
+| `type`         | An enum value | The current valid type is `Lifecycle`. | True |
+| `definition`   | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
 ## Rules
 
@@ -389,8 +389,12 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 
 ## FAQ
 
-**I created a new policy, why are the actions not run immediately?**  
+**I created a new policy, why do the actions not run immediately?**  
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.  
+
+**I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
+When a blob is moved from one access tier to another access tier, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by lifecycle management engine. You can prevent it by disabling the rule which affects this blob temporarily. You can copy the blob to another location if it needs to stay in hot tier permanently. You can re-enable the rule when the blob can be safely moved back to archive tier. 
+
 
 ## Next steps
 

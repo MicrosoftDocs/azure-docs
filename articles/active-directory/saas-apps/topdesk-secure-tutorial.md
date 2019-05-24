@@ -183,7 +183,7 @@ To configure Azure AD single sign-on with TOPdesk - Secure, perform the followin
 
     d. To upload the logo file you got from the TOPdesk support team, under **Logo icon**, click **Browse**.
 
-    e. In the **User name attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. In the **User name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     f. In the **Display name** textbox, type a name for your configuration.
 

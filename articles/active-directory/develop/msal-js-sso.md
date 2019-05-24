@@ -4,7 +4,7 @@ description: Learn about building single sign-on experiences using the Microsoft
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

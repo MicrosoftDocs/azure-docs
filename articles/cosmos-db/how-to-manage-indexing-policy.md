@@ -4,7 +4,7 @@ description: Learn how to manage indexing policies in Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: thweiss
 ---
 
@@ -17,6 +17,9 @@ In Azure Cosmos DB, data is indexed following [indexing policies](index-policy.m
 - using one of the SDKs
 
 An [indexing policy update](index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
+
+> [!NOTE]
+> As part of the SDK and Portal upgrade, we are evolving the index policy to align with a new index layout we have rolled out to new containers. With this new layout, all primitive data types are indexed as Range with full precision (-1). Therefore, the index kinds and precision are not exposed to the user anymore. In the future, users will need to simply add paths to the includedPaths section, and ignore indexKinds and precision. This change has no impact on performance and you can continue to update indexing policy using the same syntax. You can continue to use all samples in our existing documentation to update index policy.
 
 ## Use the Azure portal
 

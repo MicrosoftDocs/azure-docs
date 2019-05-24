@@ -344,7 +344,7 @@ For convenience, the IP address of the remote end of a connection is included in
 
 | Property | Description |
 |:--|:--|
-| `RemoteCountry` |The name of the country hosting RemoteIp.  For example, *United States* |
+| `RemoteCountry` |The name of the country/region hosting RemoteIp.  For example, *United States* |
 | `RemoteLatitude` |The geolocation latitude.  For example, *47.68* |
 | `RemoteLongitude` |The geolocation longitude.  For example, *-122.12* |
 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
 ---
 
@@ -45,14 +45,6 @@ The following LUIS features are **not supported** in the V3 API:
 The V3 response object changes include [prebuilt entities](luis-reference-prebuilt-entities.md). 
 
 ## Request changes 
-
-The **POST** request to the endpoint URL is in the format of:
-
-```
-https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/versions/{versionId}/slots/{slotName}/predict
-```
-
-Slot name values are `staging` or `production`.
 
 ### Query string parameters
 
@@ -347,6 +339,9 @@ The prediction response includes that list entity, with all the other predicted 
 
 **In V3**, the entity is marked with `startIndex` and `entityLength`.
 
+## Deprecation 
+
+The V2 API will not be deprecated for at least 9 months after the V3 preview. 
 
 ## Next steps
 

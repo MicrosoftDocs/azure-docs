@@ -7,13 +7,13 @@ ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
 manager: craigg
 ms.date: 04/22/2019
 ---
-# Azure SQL Database vCore-based purchasing model limits for a single database
+# Resource limits for single databases using the vCore-based purchasing model
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the vCore-based purchasing model.
 
@@ -123,7 +123,7 @@ You can set the service tier, compute size, and storage amount for a single data
 
 ### Serverless compute tier
 
-The [serverless compute tier](sql-database-serverless.md) is in public preview and is only for single databases using the vCore purchasing model.
+The [serverless compute tier](sql-database-serverless.md) is in preview and is only for single databases using the vCore purchasing model.
 
 #### Generation 5 compute platform
 

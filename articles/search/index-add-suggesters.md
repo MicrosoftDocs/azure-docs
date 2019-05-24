@@ -115,7 +115,7 @@ As previously noted, you can use a suggester for suggested queries, autocomplete
 
 A suggester is referenced on the request along with the operation. For example, on a GET REST call, specify either `suggest` or `autocomplete` on the documents collection. For REST, after a suggester is created, use the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) or the [Autocomplete API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in your query logic.
 
-For .NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) or [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
+For .NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) or [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
 
 For an example demonstrating both requests, see [Example for adding autocomplete and suggestions in Azure Search](search-autocomplete-tutorial.md).
 

@@ -9,6 +9,7 @@ metadata:
   author: juliako
   manager: femila
   ms.service: media-services
+  ms.subservice: video-indexer
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
