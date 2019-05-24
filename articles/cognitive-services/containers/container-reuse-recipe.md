@@ -51,7 +51,7 @@ This example:
 * Sets the billing endpoint, `{BILLING_ENDPOINT}` from the host's environment key using `ENV`.
 * Sets the billing api key, `{ENDPOINT_KEY}` from the host's environment key using `ENV.
 
-### Text Analytics Dockerfile with billing
+### Text Analytics Dockerfile with billing saved
 
 This example shows how to build the Text Analtyics' sentiment container from a Dockerfile.
 
@@ -64,12 +64,13 @@ ENV EULA=accept
 Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
 
 
-### Language understanding Dockerfile with billing and mounts 
+### Language understanding Dockerfile with billing and mounts saved
 
 This example shows how to use Language Understanding, saving billing and models from the Dockerfile.
 
-* Copies the Language Understanding (LUIS) model file from the host's file system using `COPY`. The LUIS container supports more than one model. If all models are stored in the same folder, you all need one `COPY` statement.
-* Run the docker file from the relative parent of the model input directory. For the following example, run the `docker build` and `docker run` commands from the relative parent of `/input`.
+* Copies the Language Understanding (LUIS) model file from the host's file system using `COPY`. 
+* The LUIS container supports more than one model. If all models are stored in the same folder, you all need one `COPY` statement.
+* Run the docker file from the relative parent of the model input directory. For the following example, run the `docker build` and `docker run` commands from the relative parent of `/input`. The first `/input` on the `COPY` command is the host computer's directory. The second `/input` is the container's directory. 
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
@@ -106,12 +107,20 @@ Follow the [steps](#how-to-steps) to use the Dockerfile and place the new image 
 1. Replace any values in the angle brackets with your own values. 
 
 1. Build the file into an image at the command line or terminal, using the following command. Replace the values in the angle brackets, `<>`, with your own container name and tag.  
-1. 
+
+    The tag option, `-t`, is a way to add information about what you have changed for the container. For example, a container name of `modified-LUIS` indicates the original container has been layered. A tag name of `with-billing-and-model` indicates how the Language Understanding (LUIS) container has been modified.
+ 
     ```Bash
     docker build -t <your-new-container-name>:<your-new-tag-name> .
     ```
 
-1. Sign in to your private registry with Azure CLI from command line or terminal.
+1. Sign in to Azure CLI from a console. This command opens a browser and requires authentication. Once authenicated, you can close the browser and continue working in the console.
+ 
+    ```azure-cli
+    az login
+    ```
+
+1. Sign in to your private registry with Azure CLI from a console.
 
     Replace the values in the angle brackets, `<myregistry>`, with your own registry name.  
 
@@ -119,17 +128,21 @@ Follow the [steps](#how-to-steps) to use the Dockerfile and place the new image 
     az acr login --name <myregistry>
     ```
 
-    You can also sign in with docker login if you assigned a service principal.
+    You can also sign in with docker login if you are assigned a service principal.
 
     ```Bash
     docker login <myregistry>.azurecr.io
     ```
 
-1. Create an alias of the image using the `docker tag` command. Replace the values in the angle brackets, `<myregistry>`, with your own registry name. A subcategory is optional but recommended for organizing your containers. The image in your registry doesn't have to have the same name as the local host image name but it is helpful. 
+1. Tag the container with the private registry location. Replace the values in the angle brackets, `<myregistry>`, with your own registry name. 
+
+    A subcategory is optional but recommended for organizing your containers. The image in your registry doesn't have to have the same name as the local host image name but it is helpful.
 
     ```Bash
-    docker tag <your-new-container-name> <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>
+    docker tag <your-new-container-name>:<your-new-tag-name> <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>
     ```
+
+    If you don't use a tag name, `latest` is implied.
 
 1. Push the new image to your private container registry.
 
@@ -137,7 +150,7 @@ Follow the [steps](#how-to-steps) to use the Dockerfile and place the new image 
     docker push <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>
     ```
 
-## Store input and out configuration settings
+## Store input and output configuration settings
 
 Bake in input params only
 
