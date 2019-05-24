@@ -196,6 +196,8 @@ The following example shows how to do this for Cosmos DB resource:
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## Windows security baselines
+[We recommend that you implement an industry-standard configuration that is broadly known and well-tested, such as Microsoft security baselines, as opposed to creating a baseline yourself](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); an option for provisioning these on your Virtual Machine Scale Sets is to use Azure Desired State Configuration (DSC) extension handler, to configure the VMs as they come online, so they are running the production software.
 
 ## Windows Defender 
 
