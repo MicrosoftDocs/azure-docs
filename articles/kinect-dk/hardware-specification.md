@@ -180,7 +180,3 @@ Now you are familiar with Azure Kinect hardware specification, you also can revi
 > [!div class="nextstepaction"]
 >[Host PC minimum requirement](system-requirements.md)
 >[Set up hardware](set-up-azure-kinect-dk.md)
-
-## Also see
-
-[Use Azure Kinect Sensor SDK](overview-sensor-sdk.md)
