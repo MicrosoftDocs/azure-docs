@@ -5,12 +5,12 @@
  author: sharad4u
  ms.service: frontdoor
  ms.topic: include
- ms.date: 9/17/2018
+ ms.date: 05/09/2019
  ms.author: sharadag
  ms.custom: include file
 ---
 
-| Resource | Default limit |
+| Resource | Default/maximum limit |
 | --- | --- |
 | Azure Front Door Service resources per subscription | 100 |
 | Front-end hosts, which includes custom domains per resource | 100 |
@@ -36,4 +36,4 @@
 |  | With chunked transfer encoding (CTE) | Without HTTP chunking |
 | ---- | ------- | ------- |
 | **Download** | There's no limit on the download size. | There's no limit on the download size. |
-| **Upload** |	There's no limit as long as each CTE upload is less than 28.6 MB. | The size can't be larger than 28.6. MB. |
+| **Upload** |	There's no limit as long as each CTE upload is less than 2 GB. | The size can't be larger than 2 GB. |

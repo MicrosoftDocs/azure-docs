@@ -27,7 +27,6 @@ Before you can back up an Azure file share, ensure that it's present in one of t
 
 ## Limitations for Azure file share backup during Preview
 Backup for Azure file shares is in Preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
-- You can't protect Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
 - You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
 - There is no CLI available for protecting Azure Files using Azure Backup.
 - The maximum number of scheduled backups per day is one.
@@ -35,8 +34,6 @@ Backup for Azure file shares is in Preview. Azure file shares in both general-pu
 - Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
 - Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
 - Do not delete file shares that are protected by Azure Backup. The current solution will delete all snapshots taken by Azure Backup once the file share is deleted and hence lose all restore points
-
-\*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices.
 
 Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US (EUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA), West Europe (WE) and West US 2 (WUS2).
 
@@ -51,7 +48,7 @@ This tutorial assumes you already have established an Azure file share. To back 
 
     ![Choose Azure Fileshare as Backup goal](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Click **Backup** to configure the Azure file share to your Recovery Services vault. 
+3. Click **Backup** to configure the Azure file share to your Recovery Services vault.
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/set-backup-goal.png)
 
@@ -72,7 +69,7 @@ This tutorial assumes you already have established an Azure file share. To back 
     After establishing a backup policy, a snapshot of the File Shares will be taken at the scheduled time, and the recovery point is retained for the chosen period.
 
 ## Create an on-demand backup
-Occasionally you may want to generate a backup snapshot, or recovery point, outside of the times scheduled in the backup policy. A common time to generate an on-demand backup is right after you've configured the backup policy. Based on the schedule in the backup policy, it may be hours or days until a snapshot is taken. To protect your data until the backup policy engages, initiate an on-demand backup. Creating an Oo-demand backup is often required before you make planned changes to your file shares.
+Occasionally you may want to generate a backup snapshot, or recovery point, outside of the times scheduled in the backup policy. A common time to generate an on-demand backup is right after you've configured the backup policy. Based on the schedule in the backup policy, it may be hours or days until a snapshot is taken. To protect your data until the backup policy engages, initiate an on-demand backup. Creating an On-demand backup is often required before you make planned changes to your file shares.
 
 ### To create an on-demand backup
 
@@ -118,10 +115,12 @@ You can monitor the progress of all jobs on the **Backup Jobs** page.
 To open the **Backup Jobs** page:
 
 - Open the Recovery Services vault you want to monitor, and in the Recovery Services vault menu, click **Jobs** and then click **Backup Jobs**.
+
    ![Select the job you want to monitor](./media/backup-file-shares/open-backup-jobs.png)
 
     The list of Backup jobs and the status of those jobs appears.
-   ![Select the job you want to monitor](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Select the job you want to monitor](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### Create a new policy
 

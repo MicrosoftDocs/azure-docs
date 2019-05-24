@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: resources
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kylestorck
 ---
 # Project Acoustics Known Issues
@@ -23,8 +23,9 @@ If you rename a scene, all the acoustic parameters that belong to that scene won
 
 On the latest versions of Unity (2018.2+), there is a known bug where Unity will crash when you close your project. This is tracked by [this Unity issue](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
 
-## Trouble deploying to Android
-To use Project Acoustics on Android, change your build target to Android. Some versions of Unity have a bug with deploying audio plugins. Make sure you aren't using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+## Deploying to Android from some Unity versions
+
+Some versions of Unity have a bug with deploying audio plugins to Android. Make sure you aren't using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
 
 ## I get an error that 'could not find metadata file System.Security.dll'
 

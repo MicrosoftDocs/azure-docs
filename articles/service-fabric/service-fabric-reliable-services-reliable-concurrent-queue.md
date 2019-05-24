@@ -4,7 +4,7 @@ description: ReliableConcurrentQueue is a high-throughput queue which allows par
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: raja,tyadam,masnider,vturecek
 
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1

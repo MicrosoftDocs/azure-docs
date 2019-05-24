@@ -4,7 +4,7 @@ description:  Get started with the Service Fabric plug-in for Eclipse.
 services: service-fabric
 documentationcenter: java
 author: rapatchi
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -38,7 +38,7 @@ Install Eclipse Neon or later from the [Eclipse site](https://www.eclipse.org). 
 -   To check for and install updates for Eclipse, go to **Help** > **Check for Updates**.
 
 Install the Service Fabric plug-in, in Eclipse, go to **Help** > **Install New Software**.
-1. In the **Work with** box, enter **https://dl.microsoft.com/eclipse**.
+1. In the **Work with** box, enter https:\//dl.microsoft.com/eclipse.
 2. Click **Add**.
 
    ![Service Fabric plug-in for Eclipse][sf-eclipse-plugin-install]
@@ -51,7 +51,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 3. Once you update the Service Fabric plug-in, also refresh the Gradle project.  Right click **build.gradle**, then select **Refresh**.
 
 > [!NOTE]
-> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (https://dl.microsoft.com/eclipse/azure/servicefabric).
+> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >If Eclipse isn't working as expected on your Mac, or needs you run as super user), go to the **ECLIPSE_INSTALLATION_PATH** folder and navigate to the subfolder **Eclipse.app/Contents/MacOS**. Start Eclipse by running `./eclipse`.

@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: cynthn
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 12/10/2018
- ms.author: cynthn
- ms.custom: include file
+title: include file
+description: include file
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/21/2019
+ms.author: cynthn
+ms.custom: include file
 ---
 
 
@@ -17,17 +17,6 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-
-## Preview: Register the feature
-
-Shared Image Galleries is in preview, but you need to register the feature before you can use it. To register the Shared Image Galleries feature:
-
-```azurepowershell-interactive
-Register-AzProviderFeature `
-   -FeatureName GalleryPreview `
-   -ProviderNamespace Microsoft.Compute
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ## Get the managed image
 
@@ -41,7 +30,9 @@ $managedImage = Get-AzImage `
 
 ## Create an image gallery 
 
-An image gallery is the primary resource used for enabling image sharing. Gallery names must be unique within your subscription. Create an image gallery using [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
+An image gallery is the primary resource used for enabling image sharing. Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
+
+Create an image gallery using [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -56,7 +47,9 @@ $gallery = New-AzGallery `
    
 ## Create an image definition 
 
-Create the gallery image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage*.
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage*.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -70,30 +63,15 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-### Using publisher, offer and SKU 
-For customers planning on implementing shared images, **in an upcoming release**, you'll be able to use your personally defined **-Publisher**, **-Offer** and **-Sku** values to find and specify an image definition, then create a VM using latest image version from the matching image definition. For example, here are three image definitions and their values:
 
-|Image Definition|Publisher|Offer|Sku|
-|---|---|---|---|
-|myImage1|myPublisher|myOffer|mySku|
-|myImage2|myPublisher|standardOffer|mySku|
-|myImage3|Testing|standardOffer|testSku|
-
-All three of these have unique sets of values. You can have image versions that share one or two, but not all three values. **In an upcoming release**, you will be able to combine these values in order to request the latest version of a specific image. **This doesn't work in the current release**, but will be available in the future. When released, using the following syntax should be used to set the source image as *myImage1* from the table above.
-
-```powershell
-$vmConfig = Set-AzVMSourceImage `
-   -VM $vmConfig `
-   -PublisherName myPublisher `
-   -Offer myOffer `
-   -Skus mySku 
-```
-
-This is similar to how you can currently specify use publisher, offer and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) to get the latest version of a Marketplace image. With this in mind, each image definition needs to have a unique set of these values.  
 
 ## Create an image version
 
-Create an image version from a managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters.
+Create an image version from a managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+
+Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+
+In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
 
 ```azurepowershell-interactive
@@ -118,3 +96,25 @@ It can take a while to replicate the image to all of the target regions, so we h
 $job.State
 ```
 
+> [!NOTE]
+> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version. 
+>
+> You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
+>
+
+
+## Share the gallery
+
+We recommend that you share access at the image gallery level. Use an email address and the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet to get the object ID for the user, then use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) to give them access to the gallery. Replace the example email, alinne_montes@contoso.com in this example, with your own information.
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```

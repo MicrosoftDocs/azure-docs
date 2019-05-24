@@ -11,7 +11,7 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
+ms.date: 04/03/2019
 ---
 # Ports beyond 1433 for ADO.NET 4.5
 
@@ -37,11 +37,11 @@ The sequence is as follows:
 
 1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
 
-   * The dynamically identified port number is in the range of 11000-11999 or 14000-14999.
+   * The dynamically identified port number is in the range of 11000-11999.
 2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
 3. Queries are sent directly to the database, and results are returned directly to the client.
 
-Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database.
+Ensure that the port ranges of 11000-11999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database.
 
 * In particular, ports in the range must be free of any other outbound blockers.
 * On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.

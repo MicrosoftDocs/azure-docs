@@ -32,7 +32,7 @@ You must be the Owner, Contributor, Reader, or Invoice Manager of the billing pr
 3. Select **Invoices**.
 4. In the invoice grid, find the row of the invoice corresponding to the tax document you want to download.
 5. Click on the ellipsis (`...`) at the end of the row.
-6. Select **Tax document**. Depending on the country of your billing profile, you might see more than one tax document per invoice.
+6. Select **Tax document**. Depending on the country/region of your billing profile, you might see more than one tax document per invoice.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

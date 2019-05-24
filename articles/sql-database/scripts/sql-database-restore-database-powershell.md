@@ -1,6 +1,6 @@
 ﻿---
 title: PowerShell example-restore-backup-Azure SQL database | Microsoft Docs
-description: Azure PowerShell example script to restore an Azure SQL single database from geo-redundant backups
+description: Azure PowerShell example script to restore an Azure SQL single database to an earlier point in time from automatic backups
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,11 +11,11 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 03/27/2019
 ---
-# Use PowerShell to restore an Azure SQL single database from backups
+# Use PowerShell to restore an Azure SQL single database to an earlier point in time
 
-This PowerShell script example restores an Azure SQL database from a geo-redundant backup, restores a deleted Azure SQL database to its latest backup, and restores an Azure SQL database to a specific point in time.  
+This PowerShell script example restores an Azure SQL database to a specific point in time.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -29,7 +29,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Clean up deployment
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+Use the following command to remove  the resource group and all resources associated with it.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -41,7 +41,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. | 
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database in a SQL Database server as a standalone or a pooled database. |
 [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | Gets a geo-redundant backup of a standalone or pooled database. |

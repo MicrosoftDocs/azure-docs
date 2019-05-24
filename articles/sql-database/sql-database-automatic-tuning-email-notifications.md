@@ -85,7 +85,7 @@ In the header of the provided PowerShell script, you need to replace `<SUBSCRIPT
 
 In case of several subscriptions, you can add them as comma-delimited to the “$subscriptions” property in the header of the script.
 
-```PowerShell
+```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
 #
 # Provided “as-is” with no implied warranties or support.

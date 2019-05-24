@@ -69,7 +69,7 @@ Take note that this sample has dependencies on OkHttp for HTTP requests, and Gso
 Let's create a folder for your sample app. From your working directory, run:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 Next, in this folder, create a file named `AltTranslation.java`.

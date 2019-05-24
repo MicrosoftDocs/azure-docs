@@ -6,6 +6,6 @@ ms.service: azure-powershell
 
 ms.author: sttramer
 ---
-This sample requires the Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). 
+This sample requires Azure PowerShell. Run `Get-Module -ListAvailable Az` to see if it's installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). 
 
-Run `Connect-AzureRmAccount` to create a connection with Azure. 
+Run `Connect-AzAccount` to create a connection with Azure. 

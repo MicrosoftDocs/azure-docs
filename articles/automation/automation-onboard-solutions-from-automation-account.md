@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/16/2018
+ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
@@ -26,28 +26,10 @@ Choose the Log Analytics workspace and Automation account and click **Enable** t
 
 ![Onboard Inventory solution](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
-
-The following table shows the supported mappings:
-
-|**Log Analytics Workspace Region**|**Azure Automation Region**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP and EastUS mappings for Log Analytics workspaces to Automation Accounts are not an exact region to region mapping but is the correct mapping.
-
 > [!NOTE]
-> Due to demand, a region may not be available when creating your Automation Account or Log Analytics workspace.  If that is the case, ensure you are using a region in the preceding table that you can create resources in.
+> When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+>
+> For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
 The Change Tracking and Inventory solution provides the ability to [track changes](automation-vm-change-tracking.md) and [inventory](automation-vm-inventory.md) on your virtual machines. In this step, you enable the solution on a virtual machine.
 
@@ -156,6 +138,8 @@ If you used the Start and Stop VMs during off-hours solution, optionally you may
 * Start and stop VM runbook schedules
 * Start and stop VM runbooks
 * Variables
+
+Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
 
 ## Next steps
 

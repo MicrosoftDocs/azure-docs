@@ -3,9 +3,8 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
-editor: ''
+author: danieldobalian
+manager: CelesteDG
 
 ms.service: active-directory
 ms.devlang: na
@@ -13,7 +12,8 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: andret
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: include file 
 
 ---
@@ -33,7 +33,8 @@ The first time that you sign in to your application, you're prompted to provide 
 ![Provide your consent for application access](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
 
 ### View application results
-After you sign in, you should see your user profile information returned by the Microsoft Graph API call in the **Logging** section. 
+
+After you sign in, you should see your user profile information returned by the Microsoft Graph API call in the **Logging** section.
 
 <!--start-collapse-->
 ### More information about scopes and delegated permissions

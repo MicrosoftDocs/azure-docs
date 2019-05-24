@@ -2,13 +2,16 @@
 title: Use the Azure storage emulator for development and testing | Microsoft Docs
 description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications. Learn how requests are authorized, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
-author: tamram
+author: mhopkins-msft
+
 ms.service: storage
 ms.topic: article
 ms.date: 08/10/2018
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: common
 ---
+
 # Use the Azure storage emulator for development and testing
 
 The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.
@@ -166,7 +169,7 @@ To view the list of options, type `/help` at the command prompt.
 | **Start** |Starts up the storage emulator. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Start the emulator in the current process instead of creating a new process. |
 | **Stop** |Stops the storage emulator. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Prints the status of the storage emulator. |`AzureStorageEmulator.exe status` | |
-| **Clear** |Clears the data in all services specified on the command line. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: Clears blob data. <br/>*queue*: Clears queue data. <br/>*table*: Clears table data. <br/>*all*: Clears all data in all services. |
+| **Clear** |Clears the data in all services specified on the command line. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: Clears blob data. <br/>*queue*: Clears queue data. <br/>*table*: Clears table data. <br/>*all*: Clears all data in all services. |
 | **Init** |Performs one-time initialization to set up the emulator. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: Specifies the server hosting the SQL instance. <br/>*-sqlinstance instanceName*: Specifies the name of the SQL instance to be used in the default server instance. <br/>*-forcecreate*: Forces creation of the SQL database, even if it already exists. <br/>*-skipcreate*: Skips creation of the SQL database. This takes precedence over -forcecreate.<br/>*-reserveports*: Attempts to reserve the HTTP ports associated with the services.<br/>*-unreserveports*: Attempts to remove reservations for the HTTP ports associated with the services. This takes precedence over -reserveports.<br/>*-inprocess*: Performs initialization in the current process instead of spawning a new process. The current process must be launched with elevated permissions if changing port reservations. |
 
 ## Differences between the storage emulator and Azure Storage

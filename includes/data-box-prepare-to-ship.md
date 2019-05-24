@@ -2,16 +2,16 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 01/07/2019
+ms.date: 04/25/2019
 ms.author: alkohli
 ---
 
 Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start this process.
 
 > [!IMPORTANT]
-> Prepare to ship is required as it flags data that does not conform to Azure naming conventions. Skipping this step could result in potential data upload failures due to non-confirming data.
+> Prepare to ship is required as it flags data that does not conform to Azure naming conventions. Skipping this step could result in potential data upload failures due to non-conforming data.
 
-1. Go to **Prepare to ship** and click **Start preparation**. By default, checksums are computed inline during the prepare to ship. The checksum computation can take hours to days depending upon the size of your data. 
+1. Go to **Prepare to ship** and click **Start preparation**. By default, checksums are computed while data is being copied. Prepare to ship completes the checksum computation and creates the list of files ( *-BOM files*). The checksum computation can take hours to days depending upon the size of your data. 
    
     ![Prepare to ship 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
@@ -31,7 +31,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
     If there are errors in this step, you will need to download the error log and resolve the errors. Once the errors are resolved, run **Prepare to ship**.
 
-4. After the prepare to ship is successfully complete (with no errors), download the list of files (also known as the manifest) copied in this process. You can later use this list to verify the files uploaded to Azure.
+4. After the prepare to ship is successfully complete (with no errors), download the list of files (also known as the manifest) copied in this process. You can later use this list to verify the files uploaded to Azure. For more information, see [Inspect BOM files during Prepare to ship](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
     ![Prepare to ship 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

@@ -27,14 +27,6 @@ any reliable data stream. Here are some example tasks you can automate:
 * Get file content and metadata.
 * Extract archives to folders.
 
-Compared to the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md), 
-the SFTP connector can read or write files up to 50 MB in size unless you use 
-[message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md). 
-Currently, you can't use chunking for triggers. For files up to 1 GB in size, 
-use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
-For files larger than 1 GB, you can use the SFTP-SSH connector plus 
-[message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
-
 You can use triggers that monitor events on your SFTP server 
 and make output available to other actions. You can use 
 actions that perform various tasks on your SFTP server. 
@@ -45,6 +37,23 @@ alerts about those files and their content by using the
 Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## Limits
+
+* SFTP actions can read or write files that are *50 MB or smaller* unless you use 
+[message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md), 
+which let you exceed this limit. Currently, SFTP triggers don't support chunking.
+
+* For files *up to 1 GB*, use the 
+[SFTP-SSH connector](../connectors/connectors-sftp-ssh.md).
+
+* For files *larger than 1 GB*, use the SFTP-SSH connector plus 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
+For other differences between the SFTP 
+connector and the SFTP-SSH connector, review 
+[Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) 
+in the SFTP-SSH article.
 
 ## Prerequisites
 

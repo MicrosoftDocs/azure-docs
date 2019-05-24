@@ -1,5 +1,5 @@
 ---
-title: Azure MFA versions and consumption plans | Microsoft Docs
+title: Azure MFA versions and consumption plans - Azure Active Directory
 description: Information about the Multi-factor Authentication client and the different methods and versions available. 
 
 services: multi-factor-authentication

@@ -1,0 +1,77 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Anomaly Detector API Documentation 
+metadata:
+  title: Anomaly Detector API - Tutorials, quickstarts, API reference - Azure Cognitive Services | Microsoft Docs
+  description: Use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+  services: cognitive-services
+  author: aahill
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/26/2019
+  ms.author: aahi
+abstract:
+  description: The Anomaly Detector API helps you easily embed anomaly detection capabilities into your apps so your users can quickly identify problems to minimize loss and customer impact. No machine-learning background required. Through a single API call, you can activate this pre-trained AI model that ingests time-series data of all types and volumes, selects the best-fitting anomaly detection model for your data to ensure high accuracy, and automatically surfaces incidents as soon as they happen. You can customize the service to detect anomalies of all sizes.  Use Anomaly Detector to identify business incidents, monitor IoT device traffic, manage fraud, respond to changing markets, and more.
+sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/anomaly-detector/overview
+          html: <p>Learn about the Anomaly Detector API</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is the Anomaly Detector API?
+        - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
+          html: <p>Optimize your anomaly detection results by using best practices with the API</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Best practices when using the Anomaly Detector API
+        - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
+          html: <p>Adjust the anomaly detection sensitvity, use different detection modes, and more.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Using the Anomaly Detection API
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Detect anomalies in your time series data using:'
+  - type: list
+    style: icon48
+    items:
+      - image:
+          src: media/logo_Csharp.svg
+        href:   quickstarts/detect-data-anomalies-csharp
+        text: "C#"
+      - image:
+          src: media/logo_Java.svg
+        href:   quickstarts/detect-data-anomalies-java
+        text: "Java"
+      - image:
+          src: media/logo_python.svg
+        href:   quickstarts/detect-data-anomalies-python
+        text: "Python"
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API
+      html: <p><a href="https://aka.ms/anomaly-detector-rest-api-ref">Anomaly Detector API</a></p>
+    - title: SDKs
+      html: <p><a href="https://aka.ms/anomaly-detector-dotnet-ref">.NET</a></p>
+            <p><a href="https://go.microsoft.com/fwlink/?linkid=2089915">Go</a></p>
+            <p><a href="https://go.microsoft.com/fwlink/?linkid=2090370">Python</a></p>
+            <p><a href="https://go.microsoft.com/fwlink/?linkid=2090788">Node.js</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

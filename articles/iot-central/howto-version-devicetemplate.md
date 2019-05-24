@@ -3,7 +3,7 @@ title: Understanding device template versioning for your Azure IoT Central apps 
 description: Iterate over your device templates by creating new versions and without impacting your live connected devices
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 01/19/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
