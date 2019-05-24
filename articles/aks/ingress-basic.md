@@ -52,7 +52,7 @@ helm install stable/nginx-ingress \
 When the Kubernetes load balancer service is created for the NGINX ingress controller, a dynamic public IP address is assigned, as shown in the following example output:
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace ingress-basic3
+$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
 
 NAME                                                 TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
 aspiring-labradoodle-nginx-ingress-controller        LoadBalancer   10.0.61.144    40.117.74.8   80:30386/TCP,443:32276/TCP   6m2s
