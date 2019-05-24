@@ -1,47 +1,49 @@
 ---
-author: erhopf
+author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 2/20/2019
-ms.author: erhopf
+ms.date: 5/23/2019
+ms.author: travisw
 ---
 
-1. Start Eclipse.
+1. Launch Android Studio, and choose **Start a new Android Studio project** in the Welcome window.
 
-1. In the Eclipse Launcher, in the **Workspace** field, enter the name of a new workspace directory. Then select **Launch**.
+    ![Screenshot of Android Studio Welcome window](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-   ![Screenshot of Eclipse Launcher](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
+1. The **Choose your project** wizard appears, select **Phone and Tablet** and **Empty Activity** in the activity selection box. Select **Next**.
 
-1. In a moment, the main window of the Eclipse IDE appears. Close the Welcome screen if one is present.
+   ![Screenshot of Choose your project wizard](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. From the Eclipse menu bar, create a new project by choosing **File** > **New** > **Project**.
+1. In the **Configure your project** screen, enter **Quickstart** as **Name**, **samples.speech.cognitiveservices.microsoft.com** as **Package name**, and choose a project directory. For **Minimum API level** pick **API 23: Android 6.0 (Marshmallow)**, leave all other checkboxes unchecked, and select **Finish**.
 
-1. The **New Project** dialog box appears. Select **Java Project**, and select **Next**.
+   ![Screenshot of Configure your project wizard](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-03-create-android-project.png)
 
-   ![Screenshot of New Project dialog box, with Java Project highlighted](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-02-select-wizard.png)
+Android Studio takes a moment to prepare your new Android project. Next, configure the project to know about the Speech SDK and to use Java 8.
 
-1. The New Java Project wizard starts. In the **Project name** field, enter **quickstart**, and choose **JavaSE-1.8** as the execution environment. Select **Finish**.
+[!INCLUDE [License Notice](cognitive-services-speech-service-license-notice.md)]
 
-   ![Screenshot of New Java Project wizard](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-03-create-java-project.png)
+The current version of the Cognitive Services Speech SDK is `1.5.1`.
 
-1. If the **Open Associated Perspective?** window appears, select **Open Perspective**.
+The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
+It is hosted in a Maven repository at https:\//csspeechstorage.blob.core.windows.net/maven/.
 
-1. In the **Package explorer**, right-click the **quickstart** project. Choose **Configure** > **Convert to Maven Project** from the context menu.
+Set up your project to use the Speech SDK. Open the Project Structure window by choosing **File** > **Project Structure** from the Android Studio menu bar. In the Project Structure window, make the following changes:
 
-   ![Screenshot of Package explorer](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
+1. In the list on the left side of the window, select **Project**. Edit the **Default Library Repository** settings by appending a comma and our Maven repository URL enclosed in single quotes. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
-1. The **Create new POM** window appears. In the **Group Id** field, enter **com.microsoft.cognitiveservices.speech.samples**, and in the **Artifact Id** field, enter  **quickstart**. Then select **Finish**.
+   ![Screenshot of Project Structure window](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-06-add-maven-repository.png)
 
-   ![Screenshot of Create new POM window](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
+1. In the same screen, on the left side, select **app**. Then select the **Dependencies** tab at the top of the window. Select the green plus sign (+), and choose **Library dependency** from the drop-down menu.
 
-1. Open the **pom.xml** file and edit it.
+   ![Screenshot of Project Structure window](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-   * At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK, as shown here:
+1. In the window that comes up, enter the name and version of our Speech SDK for Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.5.1`. Then select **OK**.
+   The Speech SDK should be added to the list of dependencies now, as shown below:
 
-     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+   ![Screenshot of Project Structure window](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-   * Also add a `dependencies` element, with the Speech SDK version 1.5.0 as a dependency:
+1. Select the **Properties** tab. For both **Source Compatibility** and **Target Compatibility**, select **1.8**.
 
-     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+   ![](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-09-dependency-added.png)
 
-   * Save the changes.
+1. Select **OK** to close the Project Structure window and apply your changes to the project.
