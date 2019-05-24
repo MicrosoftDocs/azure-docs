@@ -17,12 +17,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about logging so I can diagnose and troubleshoot my apps.
+#Customer intent: As an application developer, I want to learn about testing so I can build reliable apps.
 ms.collection: M365-identity-device-management
 ---
 
 # Testing MSAL applications
-Microsoft Authentication Library (MSAL) 
+This article discusses suggestions for testing Microsoft Authentication Library (MSAL) applications.
 
 ## Unit Testing
 The MSAL APIs uses the builder pattern heavily. Builders are difficult and tedious to mock. Instead, we recommend that you wrap all your authentication logic behind an interface and mock that in your app.
@@ -75,3 +75,6 @@ https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Providi
 
 ## Feedback
 Please [log issues](developer-support-help-options.md#create-a-github-issue) or ask questions related to testing. Providing a good test experience is one of the goals of the team.
+
+## Next steps
+Learn about implmenting [logging](msal-logging.md) in your MSAL application.
