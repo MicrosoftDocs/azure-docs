@@ -30,7 +30,7 @@ This article shows you:
 
 To develop a function with Kotlin and IntelliJ, install the following software:
 
-- [Kotlin Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 8
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or higher
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community or Ultimate versions with Maven
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
@@ -47,7 +47,7 @@ To develop a function with Kotlin and IntelliJ, install the following software:
 1. Select the **Create from archetype** check box, and then select **Add Archetype** for the [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
 1. In the **Add Archetype** window, complete the fields as follows:
     - _GroupId_: com.microsoft.azure
-    - _ArtifactId_: azure-functions-archetype
+    - _ArtifactId_: azure-functions-kotlin-archetype
     - _Version_: Use the latest version from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-kotlin-archetype)
     ![Create a Maven project from archetype in IntelliJ IDEA](media/functions-create-first-kotlin-intellij/functions-create-intellij.png)  
 1. Select **OK**, and then select **Next**.
@@ -113,5 +113,5 @@ Maven creates the project files in a new folder with the same name as the _Artif
 
 ## Next steps
 
-- Review the  [Kotlin Functions developer guide](functions-reference-kotlin.md) for more information on developing Kotlin functions.
+- Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
 - Add additional functions with different triggers to your project by using the `azure-functions:add` Maven target.
