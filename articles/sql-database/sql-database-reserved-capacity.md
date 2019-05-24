@@ -71,6 +71,10 @@ For more information about how to exchange or refund reservations, see [Reservat
 
 vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. SQL Database reserved capacity also provides you with the flexibility to temporarily move your hot databases between pools and single databases as part of your normal operations (within the same region and performance tier) without losing the reserved capacity benefit. By keeping an un-applied buffer in your reservation, you can effectively manage the performance spikes without exceeding your budget.
 
+## Limitation
+
+You can NOT reserve DTU based SQL databases. Ex. Standard / Premium
+
 ## Next steps
 
 The vCore reservation discount is applied automatically to the number of SQL Database instances that match the SQL Database reserved capacity reservation scope and attributes. You can update the scope of the SQL Database reserved capacity reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API.
