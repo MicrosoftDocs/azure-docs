@@ -101,7 +101,7 @@ run = exp.submit(pt_est)
 
 ## Export to ONNX
 
-To get optimized inferencing with the [ONNX Runtime](concept-onnx.md), you can convert your trained PyTorch model to the ONNX format. See the [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) for an example.
+To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your trained PyTorch model to the ONNX format. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. See the [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) for an example.
 
 ## Examples
 

@@ -31,7 +31,7 @@ The workflow may optionally include steps such as converting an ML model to a di
 
 To hear more on the concepts behind MLOps and how they apply to the Azure Machine Learning service, watch the following video.
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## Integration with Azure Pipelines
 
@@ -96,7 +96,8 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 ### IoT Edge devices
 
-You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inferencing on the device.
+
+You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inference, or model scoring, on the device.
 
 For more information, see [Deploy models](how-to-deploy-and-where.md).
 

@@ -303,7 +303,7 @@ A successful response is returned in JSON, as shown in the following example:
 ```
 <a name="Entities"></a>
 
-## Identify entities
+## Entity recognition
 
 The Entities API extracts entities in a text document, using the [Entities method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 

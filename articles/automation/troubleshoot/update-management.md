@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Update Management
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -154,6 +154,38 @@ The Hybrid Runbook Worker wasn't able to generate a self-signed certificate
 
 Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypto\RSA** and try again.
 
+### <a name="failed-to-start"></a>Scenario: A machine shows Failed to start in an update deployment
+
+#### Issue
+
+A machine has the status **Failed to start** for a machine. When you view the specific details for the machine you see the following error:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+#### Cause
+
+This error may happen due to one of the following reasons:
+
+* The machine doesn’t exist anymore.
+* The machine is turned off and unreachable.
+* The machine has a network connectivity issue and the hybrid worker on the machine is unreachable.
+* There was an update to the Microsoft Monitoring Agent that changed the SourceComputerId
+* Your update run may have been throttled if you hit the 2,000 concurrent job limit in an Automation Account. Each deployment is considered a job and each machine in an update deployment count as a job. Any other automation job or update deployment currently running in your Automation Account count towards the concurrent job limit.
+
+#### Resolution
+
+When applicable use [dynamic groups](../automation-update-management.md#using-dynamic-groups) for your update deployments.
+
+* Verify the machine still exists and is reachable. If it does not exist, edit your deployment and remove the machine.
+* See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required for Update Management and verify your machine meets these requirements.
+* Run the following query in Log Analytics to find machines in your environment whose `SourceComputerId` changed. Look for computers that have the same `Computer` value, but different `SourceComputerId` value. Once you find the affected machines, you must edit the update deployments that target those machines, and remove and re-add the machines so the `SourceComputerId` reflects the correct value.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
 ### <a name="hresult"></a>Scenario: Machine shows as Not assessed and shows an HResult exception
 
 #### Issue
@@ -171,7 +203,9 @@ Double-click on the exception displayed in red to see the entire exception messa
 |Exception  |Resolution or Action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details on the cause of the exception.        |
-|`0x8024402C` or `0x8024401C`     | These errors are network connectivity issues. Make sure that your machine has the proper network connectivity to Update Management. See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These errors are network connectivity issues. Make sure that your machine has the proper network connectivity to Update Management. See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required.        |
+|`0x8024001E`| The update operation did not complete because the service or system was shutting down.|
+|`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and is not disabled.        |
 |Any other generic exception     | Do a search the internet for the possible solutions and work with your local IT support.         |

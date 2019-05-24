@@ -6,6 +6,9 @@
   - name: What is Azure Machine Learning service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
+  - name: How the service works
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
 - name: Setup
   items:
   - name: Create a workspace
@@ -61,25 +64,28 @@
   - name: Visual interface experiments
     items:
     - name: "Predict price"
-      displayName: Sample 1, training, regression
+      displayName: Basic Sample, training, regression, sample 1
       href:  ui-sample-regression-predict-automobile-price-basic.md
     - name: "Predict price (advanced)"
-      displayName: Sample 2, training, regression
+      displayName: Advanced Sample, training, regression, sample 2
       href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
     - name: "Predict credit risk"
-      displayName: Sample 3, training, classification
-      href: ui-sample-classification-predict-credit-risk-basic.md
+      displayName: Basic Sample, training, classification, sample 3
+      href:  ui-sample-classification-predict-credit-risk-basic.md
     - name: "Predict credit risk (advanced)"
-      displayName: Sample 4, training, classification
+      displayName: Advanced Sample, training, classification, sample 4
       href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
     - name: "Predict churn"
-      displayName: Sample 5, training, CRM, classification
-      href: ui-sample-classification-predict-churn.md
+      displayName: Basic Sample, training, classification, sample 5
+      href:  ui-sample-classification-predict-churn.md
 - name: Concepts
   items:
-  - name: How the service works
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
+  - name: Workspace
+    displayName: concept definitions architecture
+    href: concept-workspace.md
+  - name: Visual interface
+    displayName: concept
+    href: ui-concept-visual-interface.md
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -132,6 +138,18 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
+    - name: Explore data
+      displayName: data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
+      href: how-to-explore-prepare-data.md
+    - name: Version & manage data definitions
+      displayName: data, etl, dataset, data preparation, dataprep, version
+      href: how-to-manage-dataset-definitions.md
+    - name: Snapshot your data
+      displayName: snapshots, profile, summary statistics, data copy
+      href: how-to-create-dataset-snapshots.md
+    - name: Get data from a datastore
+      displayName: blob get fileshare access storage
+      href: how-to-access-data.md
     - name: 'Prepare with azureml.dataprep'
       items:
       - name: Load data
@@ -143,18 +161,6 @@
       - name: Write data
         displayName: data, etl, data prep, dataprep
         href: how-to-write-data.md
-    - name: 'Prepare with datasets (preview)'
-      displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
-      href: how-to-explore-prepare-data.md
-    - name: Version & manage data definitions
-      displayName: data, etl, dataset, data preparation, dataprep, version
-      href: how-to-manage-dataset-definitions.md
-    - name: Snapshot your data
-      displayName: snapshots, profile, summary statistics, data copy
-      href: how-to-create-dataset-snapshots.md
-    - name: Get data from a datastore
-      displayName: blob get fileshare access storage
-      href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments

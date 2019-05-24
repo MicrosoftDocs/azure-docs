@@ -3,13 +3,13 @@ title: Endpoints for the Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: A list of available endpoints for the Bing Image Search API.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: v-gedod
+ms.author: aahi
 ---
 
 # Endpoints for the Bing Image Search API

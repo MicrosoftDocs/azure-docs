@@ -24,7 +24,7 @@ Setup takes just a few clicks in Visual Studio. You have the option to avoid cha
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
 
-- Install [Visual Studio 2017 for Windows](https://www.visualstudio.com/downloads/) with the following workloads:
+- Install [Visual Studio 2019 for Windows](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development (Do not uncheck the optional components)
 	- Azure development
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## <a name="ide"></a> Step 1: Add the Application Insights SDK
 
 > [!IMPORTANT]
-> The screenshots in this example are based on Visual Studio 2017 version 15.9.9. The experience to add Application Insights varies across versions of Visual Studio 2017 as well as by ASP.NET template type. Older versions may have alternate text such as "Configure Application Insights".
+> The screenshots in this example are based on Visual Studio 2017 version 15.9.9 and later. The experience to add Application Insights varies across versions of Visual Studio as well as by ASP.NET template type. Older versions may have alternate text such as "Configure Application Insights".
 
 Right-click your web app name in the Solution Explorer, and choose **Add** > **Application Insights Telemetry**
 

@@ -5,44 +5,54 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: "include"
-ms.date: 05/25/2018
+ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: "include file"
 ---
-1. Click the **App Services** button, select your Mobile Apps back end, select **Quickstart**, and then select your client platform (iOS, Android, Xamarin, Cordova).
+1. Download the client SDK quickstarts for the following platforms:
+    
+    [iOS (Objective-C)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS)
+    [iOS (Swift)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS-Swift)
+    [Android (Java)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/android)
+    [Xamarin.iOS](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.iOS)
+    [Xamarin.Android](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.android)
+    [Xamarin.Forms](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.forms)
+    [Cordova](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/cordova)
+    [Windows (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)
+        
+2. Azure Mobile Apps support .NET and Node backend SDK. Depending on your app type, download the [.NET](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet) or [Node](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/node) project for open source repository.
 
-    ![Azure portal with Mobile Apps Quickstart highlighted][quickstart]
+3. You will have to add a database connection or connect to an existing connection. First, determine whether you’ll create a data store or use an existing one.
 
-1. If a database connection is not configured, create one by doing the following:
+4. **Create a new data store** : If you’re going to create a data store, use the following quickstart:
 
-    ![Azure portal with Mobile Apps Connect to database][connect]
+    [Quickstart: Getting started with single databases in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
 
-    a. Create a new SQL database and server. You may need to leave the connection string name field to the default value of MS_TableConnectionString in order to complete step 3 below.
+5. **Existing data source** : Follow the instructions below if you want to use an existing database connection
+    1. SQL Database Connection String format - 
+    `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
+      
+       **{your_SQLServer}** Name of the server, this can be found in the overview page for your database and is usually in the form of “server_name.database.windows.net”.
+        **{port}** usually 1433.
+        **{your_catalogue}** Name of the database.
+        **{your_username}** User name to access your database.
+        **{your_password}** Password to access your database.
+        
+        [Learn more about SQL Connection String format](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
 
-    ![Azure portal with Mobile Apps create new database and server][server]
+    2. Add the connection string to your **mobile app**
+        In App Service, you can manage connection strings for your application by using the **Configuration** option in the menu.
 
-    b. Wait until the data connection is successfully created.
+        To add a connection string:
 
-    ![Azure portal notification of successful creation of data connection][notification]
+        1. Click on the **Application settings** tab.
 
-    c. Data connection must be successful.
+        2. Click on **[+] New connection string**.
 
-    ![Azure portal notification, "You already have a data connection"][already-connection]
+        3. You will need to provide **Name**, **Value** and **Type** for your connection string.
 
-1. Under **2. Create a table API**, select Node.js for **Backend language**.
+        4. Type **Name** as `MS_TableConnectionString`
 
-1. Accept the acknowledgment, and then select **Create TodoItem table**.
-    This action creates a new to-do item table in your database.
+        5. Value should be the connecting string you formed in the step before.
 
-    >[!IMPORTANT]
-    > Switching an existing back end to Node.js overwrites all contents. To create a .NET back end instead, see [Work with the .NET back-end server SDK for Mobile Apps][instructions].
-
-<!-- Images. -->
-[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
-[connect]: ./media/app-service-mobile-configure-new-backend/connect-to-bd.png
-[notification]: ./media/app-service-mobile-configure-new-backend/notification-data-connection-create.png
-[server]: ./media/app-service-mobile-configure-new-backend/create-new-server.png
-[already-connection]: ./media/app-service-mobile-configure-new-backend/already-connection.png
-
-<!-- URLs -->
-[instructions]: ../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app
+        6. If you are adding a connection string to a SQL Azure database choose **SQLAzure** under **type**.        
