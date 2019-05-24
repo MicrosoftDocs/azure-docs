@@ -41,7 +41,7 @@ The architecture shown is divided into three sections:
   -  [Use SAP on Windows virtual machines](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Use SAP solutions on Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Left**: Shows the SAP HANA TDI-certified hardware in the Azure Large Instance stamp. The HANA Large Instance units are connected to the virtual networks of your Azure subscription by using the same technology as the connectivity from on-premises into Azure. As of May 2019, an optimization got introduced that allows to communicate between the HANA Large Instance units and the Azure VMs without involvement of the ExpressRoute Gateway. This optimization called ExpressRoute Fast Path is already displayed in this architecture. 
+- **Left**: Shows the SAP HANA TDI-certified hardware in the Azure Large Instance stamp. The HANA Large Instance units are connected to the virtual networks of your Azure subscription by using the same technology as the connectivity from on-premises into Azure. As of May 2019, an optimization got introduced that allows to communicate between the HANA Large Instance units and the Azure VMs without involvement of the ExpressRoute Gateway. This optimization called ExpressRoute Fast Path is displayed in this architecture (red lines). 
 
 The Azure Large Instance stamp itself combines the following components:
 
