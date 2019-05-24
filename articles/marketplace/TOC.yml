@@ -483,6 +483,7 @@
       href: ./partner-center-portal/create-new-saas-offer.md
     - name: SaaS Fulfillment APIs
       href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+      items:
       - name: Register a SaaS application
         href: ./partner-center-portal/pc-saas-registration.md
       - name: SaaS Fulfillment APIs v2
