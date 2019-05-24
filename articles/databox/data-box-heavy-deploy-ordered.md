@@ -18,9 +18,9 @@ Azure Data Box Heavy is a hybrid solution that allows you to import your on-prem
 This tutorial describes how you can order an Azure Data Box Heavy. In this tutorial, you learn about:
 
 > [!div class="checklist"]
-> * Prerequisites to deploy Data Box Heavy
+> * Prerequisites for Data Box Heavy
 > * Order a Data Box Heavy
-> * Track the order 
+> * Track the order
 > * Cancel the order
 
 ## Prerequisites
@@ -150,7 +150,7 @@ To delete a canceled order, go to **Overview** and click **Delete** from the com
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
-> * Prerequisites to deploy Data Box Heavy
+> * Prerequisites for Data Box Heavy
 > * Order Data Box Heavy
 > * Track the order
 > * Cancel the order
@@ -159,5 +159,3 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-heavy-deploy-set-up.md)
-
-
