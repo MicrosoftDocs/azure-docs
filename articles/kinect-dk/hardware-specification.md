@@ -128,10 +128,10 @@ The device can be powered using the in-box power supply and USB Type-C to A cabl
 > - USB cables do matter and we recommended to use high-quality cables and verify functionality before deploying the unit remotely.
 
 > [!TIP]
-> Tips for selecting good type-C to Type-C cable:
-> - The [USB certified cable](https://www.usb.org/products), must support both power and data.
-> - Passive cable should be less than 1.5m in length, for longer cables use active cable. 
-> - The cable shall support no less than >1.5A, else you need connect external PSU.
+> To select a good Type-C to Type-C cable:
+> - The [USB certified cable](https://www.usb.org/products) must support both power and data.
+> - A passive cable should be less than 1.5m in length. If longer, use an active cable. 
+> - The cable needs to support no less than >1.5A. Otherwise you need to connect an external PSU.
 
 Verify cable:
 
