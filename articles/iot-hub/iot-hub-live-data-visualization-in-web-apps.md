@@ -27,7 +27,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 * Examine the web app code.
 * Configure environment variables to hold the IoT Hub artifacts needed by your web app.
 * Run the web app on your development machine.
-* Open the web app to see real-time temperature and humidity data from your IoT hub.
+* Open a web page to see real-time temperature and humidity data from your IoT hub.
 * (Optional) Use Azure CLI to host your web app in Azure App Service.
 
 ## What you need
@@ -87,7 +87,7 @@ Take a moment to examine the following files:
 
 ## Get a service connection string for your IoT hub
 
-IoT hubs are created with several default access policies. One such policy is the **service** policy, which provides sufficient permissions for a service to read and write the IoT hub's endpoints. Run the following command to get the connection string:
+IoT hubs are created with several default access policies. One such policy is the **service** policy, which provides sufficient permissions for a service to read and write the IoT hub's endpoints. Run the following command to get a connection string for your IoT hub that adheres to the service policy:
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIotHub --policy-name service
@@ -130,7 +130,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
    ![Web app started on console](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-start.png)
 
-## Open the web app to see real-time temperature and humidity data from your IoT hub
+## Open a web page to see data from your IoT hub
 
 Open a browser to `http://localhost:3000`.
 
@@ -156,7 +156,7 @@ In this section you provision a web app in App Service and deploy your code to i
    az appservice plan create --name <app service plan name> --resource-group <your resource group> --sku FREE
    ```
 
-2. Now create a Web App in your App Service plan. The `-l` parameter enables the web app code to be uploaded and deployed from a local clone of a Git repository.
+2. Now provision a web app in your App Service plan. The `-l` parameter enables the web app code to be uploaded and deployed from a local clone of a Git repository.
 
    ```azurecli-interactive
    az webapp create -g <your resource group> -n <your web app name> -p <your app service plan name>  -l
@@ -181,7 +181,7 @@ In this section you provision a web app in App Service and deploy your code to i
    az webapp deployment source config-local-git -g <your resource group> -n <your web app name>
    ```
 
-6. Add a remote to your clone that references the GitHub repo for the Web App in App Service. For \<Git clone URL \> use the URL returned in the previous step. Run the following in your command window.
+6. Add a remote to your clone that references the GitHub repo for the web app in App Service. For \<Git clone URL\> use the URL returned in the previous step. Run the following in your command window.
 
    ```cmd
    git remote add webapp <Git clone URL>
@@ -233,7 +233,7 @@ In this section you provision a web app in App Service and deploy your code to i
 13. Run the following command to open a browser to your web app. A web page similar to the one you saw when you ran the web app locally opens. Assuming that your device is running and sending data, you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
 
     ```azurecli-interactive
-    az webapp browse -g <your resource group> -n <your web app name> --query state
+    az webapp browse -g <your resource group> -n <your web app name>
     ```
 
 ## Next steps
