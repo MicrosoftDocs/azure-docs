@@ -104,7 +104,7 @@ Upgrading your virtual machines is a user initiated operation, and it is recomme
     }
 },
 ```
-When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher.
+When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out one Update Domain at a time to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher.
 
 Ensure the following registry key is set to false to prevent your windows host machines from initiating uncoordinated updates: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
@@ -126,7 +126,7 @@ The following is the Service Fabric cluster resource manager template property t
 ```json
 "upgradeMode": "Automatic",
 ```
-Manually upgrading steps are to download the cab/deb distribution to a cluster virtual machine, and then upgrade the cluster code using the following PowerShell:
+Top manually upgrade your cluster, download the cab/deb distribution to a cluster virtual machine, and then invoke the following PowerShell:
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
