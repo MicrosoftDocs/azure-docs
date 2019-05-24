@@ -123,7 +123,7 @@ To delete a master server from the Azure portal, use the following steps:
 
    ![Select time range](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
 
-5. View the replication lag for the selected time range. The image below displays the last 30 minutes.
+5. View the replication lag for the selected time range. The image below displays the last 30 minutes for a large workload.
 
    ![Select time range](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
