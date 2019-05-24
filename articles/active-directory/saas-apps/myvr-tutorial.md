@@ -82,13 +82,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+	In the **Sign-on URL** text box, type the URL:
     `https://ess.virtualroster.net/ess/login.aspx`
 
-    > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [MyVR Client support team](mailto:arno.vandenberg@Kronos.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
+1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
