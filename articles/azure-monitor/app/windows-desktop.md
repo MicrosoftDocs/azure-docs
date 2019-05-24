@@ -71,7 +71,7 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 ```
 
 ## Next steps
-* [Create a dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+* [Create a dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
 * [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
 * [Write Analytics queries](../../azure-monitor/app/analytics.md)

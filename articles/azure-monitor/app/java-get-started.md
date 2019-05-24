@@ -15,7 +15,6 @@ ms.author: lagayhar
 ---
 # Get started with Application Insights in a Java web project
 
-
 [Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [automatically instrument request, track dependencies, and collect performance counters](auto-collect-dependencies.md#java), diagnose performance issues and exceptions, and [write code][api] to track what users do with your app. 
 
 ![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
@@ -481,7 +480,6 @@ Application Insights can test your website at regular intervals to check that it
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Create [dashboards](../../azure-monitor/app/app-insights-dashboards.md) to bring together the key charts for monitoring your system.
 * Use  [Analytics](../../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
