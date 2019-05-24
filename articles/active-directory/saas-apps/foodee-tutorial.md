@@ -59,11 +59,11 @@ Configure and test Azure AD SSO with Foodee using a test user called **B. Simon*
 To configure and test Azure AD SSO with Foodee, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure Foodee](#configure-foodee)** to configure the SSO settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
-5. **[Create Foodee test user](#create-foodee-test-user)** to have a counterpart of B. Simon in Foodee that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** to verify whether the configuration works.
+1. **[Configure Foodee](#configure-foodee)** to configure the SSO settings on application side.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
+1. **[Create Foodee test user](#create-foodee-test-user)** to have a counterpart of B. Simon in Foodee that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
@@ -75,12 +75,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
 	In the **Reply URL** text box, type a URL using the following pattern:
     `https://concierge.food.ee/sso/saml/<INSTANCENAME>/consume`
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://concierge.food.ee/sso/saml/<INSTANCENAME>`
@@ -100,15 +100,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In a different web browser window, sign in to Foodee as an Administrator.
 
-2. Click on **profile logo** on the top right corner of the page then navigate to **Single Sign On** and perform the following steps:
+1. Click on **profile logo** on the top right corner of the page then navigate to **Single Sign On** and perform the following steps:
 
-	 ![Foodee configuration](./media/foodee-tutorial/config01.png)
+   ![Foodee configuration](./media/foodee-tutorial/config01.png)
 
-	a. In the **IDP NAME** text box, type the name like ex:Azure.
-
-	b. Open the Federation Metadata XML in Notepad, copy its content and paste it in the **IDP METADATA XML** text box.
-
-	c. Click **Save**.
+   1. In the **IDP NAME** text box, type the name like ex:Azure.
+   1. Open the Federation Metadata XML in Notepad, copy its content and paste it in the **IDP METADATA XML** text box.
+   1. Click **Save**.
 
 ### Create an Azure AD test user
 
@@ -148,7 +146,7 @@ In this section, a user called B. Simon is created in Foodee. Foodee supports ju
 
 When you select the Foodee tile in the Access Panel, you should be automatically signed in to the Foodee for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
