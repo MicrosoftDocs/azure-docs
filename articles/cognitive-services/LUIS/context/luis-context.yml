@@ -1,5 +1,4 @@
 ### YamlMime:ContextObject
-# https://review.docs.microsoft.com/en-us/help/contribute/contextual-toc?branch=master#build-a-context-file
 brand: azure
-breadcrumb_path: ../breadcrumb/luis-toc.yml
+breadcrumb_path: ../breadcrumb/toc.yml
 toc_rel: ../toc.yml
