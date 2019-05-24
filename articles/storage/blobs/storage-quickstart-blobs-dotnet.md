@@ -23,36 +23,19 @@ Use the Azure Blob Storage client library for .NET to:
 * Download the blob to your local computer
 * List all of the blobs in a container
 
+[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* NET Core 2.1 for your operating system - If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer.
-
-   # [Windows](#tab/windows)
-
-   * Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
-   * Install [Visual Studio for Windows](https://www.visualstudio.com/) (optional if you are using .NET Core)
-
-   # [Linux](#tab/linux)
-
-   * Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
-   * Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
-
-   # [macOS](#tab/macos)
-
-   * Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
-   * Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
-
-   ---
-
-[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core), or later, for your operating system
 
 ## Create the app
 
 Create a .NET Core application named **blob-quickstart**.
 
-1. In a console window (such as CMD, PowerShell, or Azure CLI), use the `dotnet new` command to create a new console app with the name **blob-quickstart**. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name **blob-quickstart**. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
    ```console
    dotnet new console -n blob-quickstart
@@ -67,6 +50,34 @@ Create a .NET Core application named **blob-quickstart**.
    ```console
    dotnet build
    ```
+
+The expected output from the build should look something like this:
+
+   ```output
+   C:\QuickStarts> dotnet new console -n blob-quickstart
+The template "Console Application" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on blob-quickstart\blob-quickstart.csproj...
+  Restore completed in 292.83 ms for C:\QuickStarts\blob-quickstart\blob-quickstart.csproj.
+
+Restore succeeded.
+
+C:\QuickStarts> cd blob-quickstart
+C:\QuickStarts\blob-quickstart> dotnet build
+Microsoft (R) Build Engine version 16.0.450+ga8dc7f1d34 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 44.31 ms for C:\QuickStarts\blob-quickstart\blob-quickstart.csproj.
+  blob-quickstart -> C:\QuickStarts\blob-quickstart\bin\Debug\netcoreapp2.1\blob-quickstart.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.08
+C:\QuickStarts\blob-quickstart> _
+```
 
 ## Install the package
 
@@ -112,10 +123,22 @@ After you add the environment variable, run `source .bash_profile` from your con
 
 ## Key concepts
 
+Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+
+* The storage account.
+* A container in the storage account
+* A blob in a container
+
+The following diagram shows the relationship between these resources.
+
+![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
+
+## Usage examples
+
 You'll learn how to:
 
    * [Setup up the app framework](#setup-up-the-app-framework)
-   * [Try parsing the connection string](#try-parsing-the-connection-string)
+   * [Authenticate the client](#authenticate-the-client)
    * [Create a container](#create-a-container)
    * [Set permissions on a container](#set-permissions-on-a-container)
    * [Upload blobs to a container](#upload-blobs-to-a-container)
@@ -163,7 +186,7 @@ namespace blob_quickstart
 }
 ```
 
-### Try parsing the connection string
+### Authenticate the client
 
 The code below checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
 
