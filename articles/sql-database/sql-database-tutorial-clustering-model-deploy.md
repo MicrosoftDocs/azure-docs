@@ -34,7 +34,7 @@ In [part two](sql-database-tutorial-clustering-model-build.md), you learned how 
 
 ## Prerequisites
 
-* Part three of this tutorial series assumes you have completed [**part one**](sql-database-tutorial-clustering-model-prepare-data.md) and [**part two**](sql-database-tutorial-clustering-model-build-compare.md).
+* Part three of this tutorial series assumes you have completed [**part one**](sql-database-tutorial-clustering-model-prepare-data.md) and [**part two**](sql-database-tutorial-clustering-model-build.md).
 
 ## Create a stored procedure that generates the model
 
