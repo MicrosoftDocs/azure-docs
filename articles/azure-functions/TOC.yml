@@ -136,8 +136,10 @@
       href: functions-develop-vs.md
     - name: Core Tools development
       href: functions-run-local.md
-    - name: IntelliJ IDEA development
+    - name: IntelliJ IDEA Java development
       href: functions-create-maven-intellij.md
+    - name: IntelliJ IDEA Kotlin development
+      href: functions-create-maven-kotlin-intellij.md
     - name: Eclipse development
       href: functions-create-maven-eclipse.md
     - name: Create Linux function app  
