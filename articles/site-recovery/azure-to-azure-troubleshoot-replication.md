@@ -86,7 +86,7 @@ Some of the most common issues are listed below
 **Cause 3: You are using Storage spaces direct configuration** </br>
 *How to fix* : Azure Site Recovery cannot create application consistent recovery point for Storage spaces direct configuration. Please refer article to correctly [configure the replication policy](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
 
-**More causes**</br>
+**More causes: **</br>
 To troubleshoot further, Check the files on the source machine to get the exact error code for failure:
 	
 	C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
@@ -108,4 +108,9 @@ Refer [article for VSS writer installation troubleshooting](https://docs.microso
 
 *How to fix*: To generate application consistency tag, ASR uses Microsoft Volume Shadow copy Service (VSS). ASR installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is disabled, the application consistency snapshot creation fails with the error id "The specified service is disabled and cannot be started(0x80070422)". </br>
 
-Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+- If VSS is disabled,
+    - Verify that the startup type of the VSS Provider service is set to **Automatic**.
+    - Restart the following services:
+        - VSS service
+        - Azure Site Recovery VSS Provider
+        - VDS service
