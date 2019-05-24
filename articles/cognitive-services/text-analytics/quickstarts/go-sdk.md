@@ -62,7 +62,7 @@ In the main function of your project, create a new `TextAnalytics` object. Use t
 textAnalyticsClient := textanalytics.New("https://eastus.api.cognitive.microsoft.com")
 ```
 
-Create a variable for your Text Analytics key and pass it to the function `autorest.NewCognitiveServicesAuthorizer` which will then be passed to the client's `authorizer` property.
+Create a variable for your key and pass it to the function `autorest.NewCognitiveServicesAuthorizer` which will then be passed to the client's `authorizer` property.
 
 ```golang
 subscriptionKey := "<<subscriptionKey>>"
