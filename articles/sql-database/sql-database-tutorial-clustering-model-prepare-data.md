@@ -187,4 +187,4 @@ To create a machine learning model that uses this customer data, follow part two
 FIX
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-predictive-model-build-compare.md)
+> [Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-clustering-model-build.md)
