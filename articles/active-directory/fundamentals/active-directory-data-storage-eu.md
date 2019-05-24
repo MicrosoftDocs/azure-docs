@@ -24,7 +24,7 @@ For customers who provided an address in Europe, Azure AD keeps most of the iden
     
 - All two-factor authentication using phone calls or SMS originate from US datacenters and are also routed by global providers.
 - Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor specific services may also come into play and these services maybe outside Europe.
-- OATH codes are always validated in the U.S. 
+- OAuth codes are always validated in the U.S. 
 
 ## Microsoft Azure Active Directory B2C (Azure AD B2C)
 
