@@ -23,7 +23,7 @@ This article guides you through using the Maven command line tool to build and p
 
 ## Prerequisites
 
-To develop functions using Java, you must have the following installed:
+To develop functions using Kotlin, you must have the following installed:
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
@@ -62,7 +62,7 @@ mvn archetype:generate ^
 	-DarchetypeArtifactId=azure-functions-kotlin-archetype
 ```
 
-Maven will ask you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.
+Maven will ask you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Kotlin package for the generated function code.
 
 The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used as an example and to make later steps in this quickstart easier to read. You are encouraged to supply your own values to Maven in this step.
 
@@ -79,6 +79,7 @@ Maven creates the project files in a new folder with a name of _artifactId_, in 
 
 ```kotlin
 class Function {
+
     /**
      * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
      * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java&code={your function key}
@@ -88,19 +89,28 @@ class Function {
      */
     @FunctionName("HttpTrigger-Java")
     fun run(
-            @HttpTrigger(name = "req", methods = [HttpMethod.GET, HttpMethod.POST], authLevel = AuthorizationLevel.FUNCTION) request: HttpRequestMessage<Optional<String>>,
+            @HttpTrigger(
+                    name = "req",
+                    methods = [HttpMethod.GET, HttpMethod.POST],
+                    authLevel = AuthorizationLevel.FUNCTION) request: HttpRequestMessage<Optional<String>>,
             context: ExecutionContext): HttpResponseMessage {
-        context.logger.info("Java HTTP trigger processed a request.")
 
-        // Parse query parameter
+        context.logger.info("HTTP trigger processed a ${request.httpMethod.name} request.")
+
         val query = request.queryParameters["name"]
         val name = request.body.orElse(query)
 
-        return if (name == null) {
-            request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build()
-        } else {
-            request.createResponseBuilder(HttpStatus.OK).body("Hello, $name").build()
+        name?.let {
+            return request
+                    .createResponseBuilder(HttpStatus.OK)
+                    .body("Hello, $name!")
+                    .build()
         }
+
+        return request
+                .createResponseBuilder(HttpStatus.BAD_REQUEST)
+                .body("Please pass a name on the query string or in the request body")
+                .build()
     }
 }
 ```
@@ -125,18 +135,18 @@ mvn azure-functions:run
 You see this output when the function is running locally on your system and ready to respond to HTTP requests:
 
 ```Output
-Listening on http://localhost:7071
-Hit CTRL-C to exit...
+Now listening on: http://0.0.0.0:7071
+Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-   hello: http://localhost:7071/api/hello
+        HttpTrigger-Java: [GET,POST] http://localhost:7071/api/HttpTrigger-Java
 ```
 
 Trigger the function from the command line using curl in a new terminal window:
 
-```
-curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
+```bash
+curl -w '\n' -d LocalFunction http://localhost:7071/api/HttpTrigger-Java
 ```
 
 ```Output
@@ -178,7 +188,7 @@ Test the function app running on Azure using `cURL`. You'll need to change the U
 > Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
 ```
 
 ```Output
@@ -189,14 +199,20 @@ Hello AzureFunctions!
 
 Edit the `src/main.../Function.java` source file in the generated project to alter the text returned by your Function app. Change this line:
 
-```java
-return request.createResponse(200, "Hello, " + name);
+```kotlin
+return request
+        .createResponseBuilder(HttpStatus.OK)
+        .body("Hello, $name!")
+        .build()
 ```
 
 To the following:
 
-```java
-return request.createResponse(200, "Hi, " + name);
+```kotlin
+return request
+        .createResponseBuilder(HttpStatus.OK)
+        .body("Hi, $name!")
+        .build()
 ```
 
 Save the changes and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
