@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
 
 ---
@@ -172,19 +172,19 @@ When deploying a complex service to Azure, you might need to deploy your service
 
 Deployment Manager is currently in public preview.
 
-## Resiliency of Azure services and APIs
+## Resiliency of Azure Resource Manager
 
-Azure REST APIs, Azure CLI, and Azure portal are continuously available. The Key Vault service and control plane operations in the REST API are:
+The Azure Resource Manager service is designed for resiliency and continuous availability. Resource Manager and control plane operations (requests sent to management.azure.com) in the REST API are:
 
-* Designed for resiliency and continuous availability.
-
-* Distributed across regions.
+* Distributed across regions. Some services are regional.
 
 * Distributed across Availability Zones (as well regions) in locations that have multiple Availability Zones.
 
 * Not dependent on a single logical data center.
 
 * Never taken down for maintenance activities.
+
+This resiliency applies to services that receive requests through Resource Manager. For example, Key Vault benefits from this resiliency.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
