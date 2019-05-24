@@ -7,7 +7,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/13/2019
+ms.date: 05/24/2019
 ---
 # Configure outbound network traffic restriction for Azure HDInsight clusters (Preview)
 
@@ -31,19 +31,6 @@ A summary of the steps to lock down egress from your existing HDInsight with Azu
 1. Add application rules to the firewall
 1. Add network rules to the firewall.
 1. Create a routing table.
-
-### Enable service endpoints
-
-If you want to bypass the firewall(e.g. to save cost on data transfer) then you can enable service endpoints for SQL and storage on your HDInsight subnet. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your cluster has must be configured with service endpoints as well.
-
-To enable the correct service endpoints, complete the following steps:
-
-1. Sign in to the Azure portal and select the virtual network that your HDInsight cluster is deployed in.
-1. Select **Subnets** under **Settings**.
-1. Select the subnet where your cluster is deployed.
-1. On the screen to edit the subnet settings, click **Microsoft.SQL** and/or **Microsoft.Storage** from the **Service endpoints** > **Services** dropdown box.
-1. If you are using an ESP cluster, then you must also select the **Microsoft.AzureActiveDirectory** service endpoint.
-1. Click **Save**.
 
 ### Create a new firewall for your cluster
 
@@ -69,9 +56,6 @@ On the **Add application rule collection** screen, complete the following steps:
     1. A rule to allow Windows login activity:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
         1. Enter `https:443` under **Protocol:Port** and `login.windows.net` under **Target FQDNS**.
-    1. A rule to allow SQM telemetry:
-        1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Enter `https:443` under **Protocol:Port** and `sqm.telemetry.microsoft.com` under **Target FQDNS**.
     1. If your cluster is backed by WASB and you are not using the service endpoints above, then add a rule for WASB:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
         1. Enter `http` or [https] depending on if you are using wasb:// or wasbs:// under **Protocol:Port** and the storage account url under **Target FQDNS**.
@@ -84,7 +68,7 @@ On the **Add application rule collection** screen, complete the following steps:
 Create the network rules to correctly configure your HDInsight cluster.
 
 > [!Important]
-> You can choose between using SQL service tags in the firewall using network rules as described in this section, or a SQL service endpoint a described in [the section on service endpoints](#enable-service-endpoints). If you choose to use SQL tags in network rules, you can log and audit SQL traffic. Using a service endpoint will have SQL traffic bypass the firewall.
+> You can choose between using SQL service tags in the firewall using network rules as described in this section, or a SQL service endpoint. If you choose to use SQL tags in network rules, you can log and audit SQL traffic. Using a service endpoint will have SQL traffic bypass the firewall.
 
 1. Select the new firewall **Test-FW01** from the Azure portal.
 1. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
@@ -106,12 +90,7 @@ Create the network rules to correctly configure your HDInsight cluster.
         1. Set **Source Addresses** `*`.
         1. Enter the IP address for your storage account in **Destination addresses**.
         1. Set **Destination Ports** to `*`.
-    1. A network rule to enable communication with the Key Management Service for Windows Activation.
-        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
-        1. Set **Source Addresses** `*`.
-        1. Set **Destination addresses** to `*`.
-        1. Set **Destination Ports** to `1688`.
-    1. If you are using Log Analytics, then create a network rule to enable communication with your Log Analytics workspace.
+    1. (Optional) If you are using Log Analytics, then create a network rule to enable communication with your Log Analytics workspace.
         1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
