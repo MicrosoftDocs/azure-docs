@@ -47,7 +47,7 @@ Microsoft Azure offers the richest portfolio of services and capabilities, allow
 [Global VNet peering](../virtual-network/virtual-network-peering-overview.md) enables you to connect two or more Azure virtual networks across regions seamlessly. Once peered, the virtual networks appear as one. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network - through private IP addresses only. 
  
 
-## Well managed using software-defined tooling
+## Well managed using software-defined innovation
 
 Running one of the leading clouds in the world, Microsoft has gained a lot of insight and experience in building and managing high-performance global infrastructure.  
  
