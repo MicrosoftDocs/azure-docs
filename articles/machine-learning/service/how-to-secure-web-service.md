@@ -14,21 +14,21 @@ ms.date: 04/29/2019
 ms.custom: seodec18
 ---
 
-# Use SSL to secure web services through Azure Machine Learning
+# Use SSL to secure web a service through Azure Machine Learning
 
-This article shows you how to secure a web service that's deployed through the Azure Machine Learning service. You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web services and secure the data that clients submit.
+This article shows you how to secure a web service that's deployed through the Azure Machine Learning service.
 
-HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web services and secure the data that clients submit. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
 
 > [!TIP]
-> The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use TLS. SSL is just a more commonly recognized term.
+> The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use *TLS*. SSL is just a more commonly recognized term.
 
 TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!WARNING]
 > If you don't use HTTPS for your web service, data that's sent to and from the service might be visible to others on the internet.
 >
-> HTTPS also enables the client to verify the authenticity of the server that its connecting to. This feature protects clients against [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks.
+> HTTPS also enables the client to verify the authenticity of the server that it's connecting to. This feature protects clients against [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks.
 
 This is the general process to secure a web service:
 
@@ -74,8 +74,8 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
   > The information in this section also applies when you deploy a secure web service for the visual interface. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
   When you deploy to AKS, you can create a new AKS cluster or attach an existing one.
--  If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)**.
-- If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)**. Both return a configuration object that has an **enable_ssl** method.
+    -  If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)**.
+    - If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)**. Both return a configuration object that has an **enable_ssl** method.
 
   The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you purchase.
 
@@ -86,7 +86,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
     > [!IMPORTANT]
     > When you use a certificate from Microsoft, you don't need to purchase your own certificate or domain name.
 
-    The following example demonstrates how to create configurations that enable an SSL certificate from Microsoft:
+    The following example demonstrates how to create a configuration that enables an SSL certificate from Microsoft:
 
     ```python
     from azureml.core.compute import AksCompute
@@ -99,7 +99,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
     attach_config.enable_ssl(leaf_domain_label = "myservice")
     ```
 
-  * When you use *a certificate that you purchased*, use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example shows how to use *.pem* files to create configurations that use an SSL certificate that you purchase:
+  * When you use *a certificate that you purchased*, you use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example shows how to use *.pem* files to create a configuration that uses an SSL certificate that you purchased:
 
     ```python
     from azureml.core.compute import AksCompute
