@@ -48,7 +48,7 @@ For high availability in your production environment, we recommend having more t
 
 #### TLS requirements
 
-The Windows connector server needs to have TLS 1.2 enabled before you install the Application Proxy connector. Existing connectors with versions below 1.5.612.0 will continue to work on prior versions of TLS until further notice. 
+The Windows connector server needs to have TLS 1.2 enabled before you install the Application Proxy connector.
 
 To enable TLS 1.2:
 
