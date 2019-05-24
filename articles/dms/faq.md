@@ -1,4 +1,4 @@
-﻿---
+---
 title: FAQ about using the Azure Database Migration Service | Microsoft Docs
 description: Learn frequently asked questions about using Azure Database Migration Service to perform database migrations.
 services: database-migration
@@ -27,7 +27,7 @@ The Azure Database Migration Service is a fully managed service designed to enab
 
 ### Q. What source-target pairs does the Azure Database Migration Service currently support?
 
-The service currently supports a variety of migration scenarios. For a complete listing of the status of each available migration scenario, see the article [Status of migration scenarios supported by the Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Other migration scenarios are in private preview and require submitting a nomination via the DMS Preview site. For a complete listing of the scenarios in private preview and to sign-up to participate in one of these offerings, see the [DMS Preview site](https://aka.ms/dms-preview/).
+The service currently supports a variety of migration scenarios. For a complete listing of the status of each available migration scenario, see the article [Status of migration scenarios supported by the Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Other migration scenarios are in preview and require submitting a nomination via the DMS Preview site. For a complete listing of the scenarios in preview and to sign-up to participate in one of these offerings, see the [DMS Preview site](https://aka.ms/dms-preview/).
 
 ### Q. How does the Azure Database Migration Service compare to other Microsoft database migration tools such as the Database Migration Assistant (DMA) or SQL Server Migration Assistant (SSMA)?
 
