@@ -141,7 +141,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 1. On the **Connect to Azure AD** screen, enter the username and password of the global administrator for Azure AD. Click **Next**. This is the username `fabrikamazureadmin@hdifabrikam.com` that you created when configuring your AD tenant.
     ![Connect to Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image058.png)
 1. On the **Connect to Active Directory Domain Services** screen, enter the username and password for an enterprise admin account. Click **Next**. This is the username `HDIFabrikam\HDIFabrikamAdmin` and its matching password that you created earlier.
-    ![Connect to Active Directory Domain Services](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image060.png)
+   ![Connect to Active Directory Domain Services](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image060.png)
 1. On the **Azure AD sign-in configuration** page, click **Next**.
     ![Azure AD sign-in configuration](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image062.png)
 1. On the Ready to configure screen, click **Install**.
@@ -343,7 +343,7 @@ This step requires the following pre-requisites:
 
     1. Under section 2 **Security + Networking**, complete the following steps:
         1. Click **Enabled** under **Enterprise Security Package**.
-        2. Click **Cluster admin user** and select the **HDIAdmin** account that you created earlier as the on-premises admin user. Click **Select**.
+        1. Click **Cluster admin user** and select the **HDIAdmin** account that you created earlier as the on-premises admin user. Click **Select**.
 
         1. Click **Cluster access group** and then select **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
 
