@@ -24,10 +24,10 @@ Access the microphone array also through Windows API, and see the following docs
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Speech Services SDK](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/)
+>[Speech Services SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/)
 
 >[!div class="nextstepaction"]
->[Set Up Microphone in Azure Kinect DK](hardware-specification.md)
+>[Set up microphone in Azure Kinect DK](hardware-specification.md)
 
 >[!div class="nextstepaction"]
->[Azure Kinect Viewer as Sample Code](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/tools/k4aviewer)
+>[Azure Kinect Viewer as sample code](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/tools/k4aviewer)
