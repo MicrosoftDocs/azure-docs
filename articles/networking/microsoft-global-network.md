@@ -19,9 +19,9 @@ ms.author: ypitsch,kumud
 
 Microsoft owns and operates one of the largest backbone networks in the world. This global and sophisticated architecture, spanning more than 100,000 miles, connect our datacenters and customers. 
  
-Every day, customers around the world connect and pass trillions of requests to Microsoft Azure, Bing, Dynamics 365, Office 365, Xbox, and many others. Regardless of type, customers expect instant responsiveness and reliability from our services. 
+Every day, customers around the world connect and pass trillions of requests to Microsoft Azure, Bing, Dynamics 365, Office 365, XBox, and many others. Regardless of type, customers expect instant responsiveness and reliability from our services. 
  
-The Microsoft global network (WAN) is a central part of delivering a great cloud experience. Connecting our many data centers across 54 Azure regions and large mesh of edge-nodes strategically placed around the world, our global network offers both the availability, capacity, and the flexibility to meet any demand.
+The [Microsoft global network](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) is a central part of delivering a great cloud experience. Connecting our many [data centers](https://azure.microsoft.com/global-infrastructure/) across 54 Azure regions and large mesh of edge-nodes strategically placed around the world, our global network offers both the availability, capacity, and the flexibility to meet any demand.
 
 ![Microsoft global network](./media/microsoft-global-network/microsoft-global-wan.png)
  
