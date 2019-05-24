@@ -163,10 +163,10 @@ This article assumes that you have already installed a CentOS (or similar deriva
     > [!IMPORTANT]
     > The step is **required** for CentOS 6.3 and earlier, and optional for later releases.
 
-		```bash
-		sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
-		sudo yum install microsoft-hyper-v
-		```
+    ```bash
+    sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
+    sudo yum install microsoft-hyper-v
+    ```
 
     Alternatively, you can follow the manual installation instructions on the [LIS download page](https://go.microsoft.com/fwlink/?linkid=403033) to install the RPM onto your VM.
 
