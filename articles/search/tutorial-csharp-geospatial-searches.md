@@ -34,8 +34,17 @@ Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-pagi
 ## Add code to order Azure Search results
 
 
----
+# [Java](#tab/java)
 
+## Install and run the project from GitHub
+
+
+## Build a geospatial query into an Azure Search
+
+## Add code to order Azure Search results
+
+
+---
 ## Takeaways
 
 Great job finishing the fifth and final tutorial in this series.

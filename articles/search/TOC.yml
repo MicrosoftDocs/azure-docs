@@ -33,15 +33,15 @@
   items:
   - name: Create your first app
     items:
-    - name: 1. Basic search page
+    - name: 1 - Basic search page
       href: tutorial-csharp-create-first-app.md
-    - name: 2. Page results
+    - name: 2 - Page results
       href: tutorial-csharp-paging.md
-    - name: 3. Add type-ahead
+    - name: 3 - Add type-ahead
       href: tutorial-csharp-type-ahead-and-suggestions.md
-    - name: 4. Add facets
+    - name: 4 - Add facets
       href: tutorial-csharp-facets.md
-    - name: 5. Add geospatial queries
+    - name: 5 - Add geospatial filters
       href: tutorial-csharp-geospatial-searches.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
