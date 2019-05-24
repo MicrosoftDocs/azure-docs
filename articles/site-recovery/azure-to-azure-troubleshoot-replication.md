@@ -101,12 +101,12 @@ In the above example **2147754994** is the error. The error code tells you about
 
 **Cause 4: If the error is 2147221164, it means VSS writer is not installed**
 
-*How to fix*: To generate application consistency tag, ASR uses Microsoft Volume Shadow copy Service (VSS). ASR installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error id 0x80040154  "Class not registered". </br>
+*How to fix*: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error id 0x80040154  "Class not registered". </br>
 Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
 
 **Cause 5: If the error is 2147943458, it means VSS writer is disabled**
 
-*How to fix*: To generate application consistency tag, ASR uses Microsoft Volume Shadow copy Service (VSS). ASR installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is disabled, the application consistency snapshot creation fails with the error id "The specified service is disabled and cannot be started(0x80070422)". </br>
+*How to fix*: To generate application consistency tag, Azure Site Recover uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is disabled, the application consistency snapshot creation fails with the error id "The specified service is disabled and cannot be started(0x80070422)". </br>
 
 - If VSS is disabled,
     - Verify that the startup type of the VSS Provider service is set to **Automatic**.
