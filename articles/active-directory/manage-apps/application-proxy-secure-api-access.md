@@ -22,11 +22,11 @@ This article walks you through setting up an Azure AD Application Proxy solution
 
 The following diagram shows a traditional way to publish on-premises APIs. This approach requires opening incoming ports 80 and 443.
 
-![Traditional API access](./media/application-proxy-secure-api-access/image1.png)
+![Traditional API access](./media/application-proxy-secure-api-access/overview-publish-api-open-ports.png)
 
 The following diagram shows how you can use Azure AD Application Proxy to securely publish APIs without opening any incoming ports:
 
-![Azure AD Application Proxy API access](./media/application-proxy-secure-api-access/image2.png)
+![Azure AD Application Proxy API access](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
 The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) libraries. 
 
@@ -49,17 +49,11 @@ To publish the SecretAPI web API through Application Proxy:
    
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** in the left navigation. Then, on the **Overview** page, select **Enterprise applications**.
    
-   ![Enterprise apps](./media/application-proxy-secure-api-access/1-enterprise-apps.png)
-   
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
    
 1. On the **Add an application** page, under **Add your own app**, select **On-premises application**. 
    
-   ![Add on-premises app](./media/application-proxy-secure-api-access/2-add-on-prem-app.png)
-   
 1. If you don't have an Application Proxy Connector installed, you'll be prompted to install it. Select **Download Application Proxy Connector** to download and install the connector. 
-   
-   ![Install Application Proxy Connector](./media/application-proxy-secure-api-access/2-2-install-app-proxy.png)
    
 1. Once you've installed the Application Proxy Connector, on the **Add your own on-premises application** page:
    
