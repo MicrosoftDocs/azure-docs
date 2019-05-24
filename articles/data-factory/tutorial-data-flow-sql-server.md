@@ -18,43 +18,50 @@ In this tutorial, you create a Data Factory pipeline that copies data from SQL S
 You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
-> * Create a data factory.
+> * Create a data factory with the incremental data loading pattern.
 > * Create Azure Storage and Azure SQL Database linked services.
-> * Create Azure BLob and Azure SQL Database datasets.
-> * Create a pipeline contains a Copy activity.
+> * Create Azure Blob and Azure SQL Database datasets.
+> * Add a data flow activity to the incremental pipeline.
 > * Start a pipeline run.
-> * Monitor the pipeline and activity runs.
 
-This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory, refer to samples under "Quickstarts".
+This tutorial assumes that you've already gone through the getting stared quickstarts and have performed the actions in the [Incremental data loading with SQL change tracking](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-change-tracking-feature-portal) tutorial.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+* **Azure Storage account**. You use the blob storage as **sink** data store in the copy activity as part of the incremental data load to stage the SQL Server data from an on-prem source. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 * **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
-* **Visual Studio** 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
-* **Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
-* **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article.
 
-### Create a blob and a SQL table
+## Build the incremental pipeline with SQL Server source
 
-Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performing the following steps:
+![SQL Delta Load](media/data-flow/sql1.png "Delta SQL")
 
-#### Create a source blob
+* Follow the [Incremental data loading with SQL change tracking](tutorial-incremental-copy-change-tracking-feature-portal.md) tutorial.
+* Change the source linked service from Azure SQL Database to SQL Server.
+* Change the linked service for the stored procedure activity to call the stored procedure on your local SQL Server. This stored procedure updates the version control table in SQL.
+* Use the [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to the on-premises SQL Server.
+* Keep the rest of the pipeline the same. You'll stage the changed data from your SQL Server in Azure Blob Store and then use that staged data with Data Flows for visual data transformation.
 
+## Build the data flow to transform the data
 
+![Data flow tutorial](media/data-flow/dataflowtutorial1.png "Data flow tutorial")
+
+* Click new (+) Data Flow
+* Start by clicking on "Add Source" in the design surface
+* In the source settings, choose the dataset that you used for the Blob Store in the incremental pipeline above.
+* 
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to: 
+The pipeline in this sample copies data from one location to another location in an Azure blob storage and transforms data in ADF Mapping Data Flows code-free. You learned how to: 
 
 > [!div class="checklist"]
 > * Create a data factory.
 > * Create Azure Storage and Azure SQL Database linked services.
 > * Create Azure Blob and Azure SQL Database datasets.
-> * Create a pipeline contains a Copy activity.
+> * Design a Mapping Data Flow.
+> * Create a pipeline contains a Data Flow activity.
 > * Start a pipeline run.
-> * Monitor the pipeline and activity runs.
 
 
 Advance to the following tutorial to learn about copying data from on-premises to cloud: 
