@@ -31,8 +31,8 @@ Azure Kinect DK is intended for developers and commercial businesses operating u
 - **Temperature**: 10-25⁰C
 - **Humidity**: 8-90% (non-condensing) RH
 
->[!NOTE]
->Use outside of the ambient conditions could cause the device to fail and/or function incorrectly. These ambient conditions are applicable for the environment immediately around the device under all operational conditions. When used with an external enclosure, active temperature control and/or other cooling solutions are recommended to ensure the device is maintained within these ranges. The device design features a cooling channel in between the front section and rear sleeve. When you implement the device, make sure this cooling channel is not obstructed.
+> [!NOTE]
+> Use outside of the ambient conditions could cause the device to fail and/or function incorrectly. These ambient conditions are applicable for the environment immediately around the device under all operational conditions. When used with an external enclosure, active temperature control and/or other cooling solutions are recommended to ensure the device is maintained within these ranges. The device design features a cooling channel in between the front section and rear sleeve. When you implement the device, make sure this cooling channel is not obstructed.
 
 Refer to additional product [safety information](https://support.microsoft.com/help/4023454/safety-information).
 
@@ -65,8 +65,8 @@ Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. The
 
 The RGB camera is USB Video class-compatible and can be used without the Sensor SDK.
 
->[!NOTE]
->SDK exposes BGRA mode that is converted from MJPEG on host CPU. This is not native more and causes CPU load when used.
+> [!NOTE]
+> SDK exposes BGRA mode that is converted from MJPEG on host CPU. This is not native more and causes CPU load when used.
 
 ## Camera field of view
 
@@ -123,15 +123,15 @@ The status LED behind the device indicates device state:
 
 The device can be powered using the in-box power supply and USB Type-C to A cable, or by using a Type-C to C cable for both power and data. A type-C to C cable is not included.
 
->[!NOTE]
+> [!NOTE]
 > - The in-box power supply cable is a USB Type-A to single post barrel connector. Use the provided wall-power supply with this cable. The device is capable of drawing more power than two standard USB Type-A ports can provide.
 > - USB cables do matter and we recommended to use high-quality cables and verify functionality before deploying the unit remotely.
 
->[!TIP]
-Tips for selecting good type-C to Type-C cable:
->- The [USB certified cable](https://www.usb.org/products), must support both power and data.
->- Passive cable should be less than 1.5m in length, for longer cables use active cable. 
->- The cable shall support no less than >1.5A, else you need connect external PSU.
+> [!TIP]
+> Tips for selecting good type-C to Type-C cable:
+> - The [USB certified cable](https://www.usb.org/products), must support both power and data.
+> - Passive cable should be less than 1.5m in length, for longer cables use active cable. 
+> - The cable shall support no less than >1.5A, else you need connect external PSU.
 
 Verify cable:
 
