@@ -48,14 +48,36 @@ To work with the DevTest Labs token authentication feature, there are a few conf
 - The [Application Routing Request](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) module for Internet Information Server (IIS) can be used to redirect `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` requests to the azure function, which handles the request to get a token for authentication.
 
 
-## Requirements for Azure Function
+## Azure function requirements
 Azure Function that handles request with format of `https://{function-app-uri}/app/host/{lab-machine-name}/port/{port-number}` and returns the authentication token based on the same signing certificate installed on the gateway machines. The `{function-app-uri}` is the uri used to access the function. The function key is automatically be passed in the header of the request. For a sample function, see [https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/src/RDGatewayAPI/Functions/CreateToken.cs](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/src/RDGatewayAPI/Functions/CreateToken.cs). 
 
 
-## Requirements for Network
+## Network requirements
 
 - DNS for the FQDN associated with the SSL certificate installed on the gateway machines must direct traffic to the gateway machine or the load balancer of the gateway machine farm.
 - If the lab machine uses private IPs, there must be a network path from the gateway machine to the lab machine, either through sharing the same virtual network or using peered virtual networks.
 
+## Configure the lab to use token authentication 
+This section shows how to configure a lab to use a remote desktop gateway machine that supports token authentication. This section does not cover how to setup a RD gateway farm itself. For that information, See the Sample to Create Remote Desktop Gateway section at the end of this article. 
 
- 
+Before you update the lab settings, store the key needed to successfully execute the function to return an authentication token in the lab’s key vault. You can get the function key value in the **Manage** page for the function in the Azure portal. For more information on how to save a secret in a key vault, see [Add a secret to Key Vault](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault). Save the name of the secret for later use.
+
+To find the id of the lab’s key vault run the following Azure CLI command: 
+
+```azurecli
+az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' --resource-group {lab-resource-group-name} --query properties.vaultName
+```
+
+Configure the lab to use the token authentication by using these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **All Services**, and then select **DevTest Labs** from the list.
+1. From the list of labs, select the desired **lab**.
+1. On the lab's page, select **Configuration and policies**.
+1. On the left menu, in the **Settings** section, select **Lab settings**.
+1. In the **Remote desktop** section, enter the fully qualified domain name (FQDN) or IP address of the remote desktop services gateway machine or farm for the **Gateway hostname** field . This value must match the FQDN of the SSL certificate used on gateway machines.
+1. In the **Remote desktop** section, for **Gateway token** secret, enter the name of the secret created earlier. This value is not the function key itself, but the name of the secret in the lab’s key vault that holds the function key.
+1. 
+
+
+
