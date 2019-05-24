@@ -16,6 +16,8 @@
       href: bastion-connect-vm-rdp.md
   - name: Manage the virtual machine experience
     href: bastion-vm-manage.md
+  - name: Working with NSGs
+    href: bastion-nsg.md
 - name: Reference
   items:
   - name: REST
