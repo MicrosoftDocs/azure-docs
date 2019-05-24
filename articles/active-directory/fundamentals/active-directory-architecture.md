@@ -57,9 +57,7 @@ Directory applications connect to the nearest datacenters. This connection impro
 
 ### Continuous availability
 
-Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Azure AD’s high-availability is that the services can quickly shift traffic across multiple geographically distributed datacenters. Each datacenter is independent, which enables de-correlated failure modes.
-
-Azure AD does not require downtime for maintenance activities. Through the existence of multiple replicas and dynamic traffic routing within and between datacenters, Azure AD maintains high availability.
+Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Azure AD’s high-availability is that the services can quickly shift traffic across multiple geographically distributed datacenters. Each datacenter is independent, which enables de-correlated failure modes. Through this high availability design, Azure AD requires no downtime for maintenance activities.
 
 Azure AD’s partition design is simplified compared to the enterprise AD design, using a single-master design that includes a carefully orchestrated and deterministic primary replica failover process.
 
