@@ -160,7 +160,7 @@ If you get an error message, make sure that your details are correct or try agai
 > [!NOTE]
 > If your add-in is already in AppSource, your lead management details are saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
 
-To delete your lead management details, on **Add-in setup** page, choose **Delete**.
+To edit your lead management details, on **Add-in setup** page, choose **Edit**.
 
 ### Communication guidelines
 
