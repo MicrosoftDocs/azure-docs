@@ -67,12 +67,18 @@ Maven will ask you for values needed to finish generating the project. For _grou
 The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used as an example and to make later steps in this quickstart easier to read. You are encouraged to supply your own values to Maven in this step.
 
 ```Output
-Define value for property 'groupId': com.fabrikam.functions
-Define value for property 'artifactId' : fabrikam-functions
-Define value for property 'version' 1.0-SNAPSHOT : 
-Define value for property 'package': com.fabrikam.functions
-Define value for property 'appName' fabrikam-functions-20170927220323382:
-Confirm properties configuration: Y
+[INFO] Parameter: groupId, Value: com.fabrikam.function
+[INFO] Parameter: artifactId, Value: fabrikam-function
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] Parameter: package, Value: com.fabrikam.function
+[INFO] Parameter: packageInPathFormat, Value: com/fabrikam/function
+[INFO] Parameter: appName, Value: fabrikam-function-20190524171507291
+[INFO] Parameter: resourceGroup, Value: java-functions-group
+[INFO] Parameter: package, Value: com.fabrikam.function
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] Parameter: groupId, Value: com.fabrikam.function
+[INFO] Parameter: appRegion, Value: westus
+[INFO] Parameter: artifactId, Value: fabrikam-function
 ```
 
 Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
@@ -125,7 +131,7 @@ Change directory to the newly created project folder and build and run the funct
 
 ```
 cd fabrikam-function
-mvn clean package 
+mvn clean package
 mvn azure-functions:run
 ```
 
