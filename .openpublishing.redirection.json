@@ -26497,7 +26497,7 @@
     {
       "source_path": "articles/marketplace/register-dev-center.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/gtm-benefits.md",
