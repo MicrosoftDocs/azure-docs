@@ -31,7 +31,7 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
    
     If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send telemetry.
-6. Run your app, and see the telemetry in the resource you created in the Azure Portal.
+6. Run your app, and see the telemetry in the resource you created in the Azure portal.
 
 ## <a name="telemetry"></a>Example code
 ```csharp
