@@ -1,6 +1,6 @@
 ---
 title: Real-time data visualization of sensor data from your Azure IoT hub – Web Apps | Microsoft Docs
-description: Use the Web Apps feature of Microsoft Azure App Service to visualize temperature and humidity data that is collected from the sensor and sent to your Iot hub.
+description: Use a web application to visualize temperature and humidity data that is collected from a sensor and sent to your Iot hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -18,15 +18,17 @@ ms.author: robinsh
 
 ## What you learn
 
-In this tutorial, you learn how to visualize real-time sensor data that your IoT hub receives by running a web application that is hosted on a web app. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+In this tutorial, you learn how to visualize real-time sensor data that your IoT hub receives with a node.js web app running on your local computer. After running the web app locally, you can optionally follow steps to host the web in Azure App Service. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 ## What you do
 
-* Create a web app in the Azure portal.
-* Get your IoT hub ready for data access by adding a consumer group.
-* Configure the web app to read sensor data from your IoT hub.
-* Upload a web application to be hosted by the web app.
+* Add a consumer group to your IoT hub that the web application will use to read sensor data.
+* Download the web app code from GitHub.
+* Examine the web app code.
+* Configure environment variables to hold the IoT Hub artifacts needed by your web app.
+* Run the web app on your development machine.
 * Open the web app to see real-time temperature and humidity data from your IoT hub.
+* (Optional) Use Azure CLI to host your web app in Azure App Service.
 
 ## What you need
 
@@ -38,76 +40,199 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 * [Download Git](https://www.git-scm.com/downloads)
 
-## Create a web app
+## Start and initialize Azure CLI
 
-1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Web + Mobile** > **Web App**.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-2. Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
-   We recommend that you select the same location as your resource group. 
-   
-   ![Create a web app](./media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
-[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
+## Add a consumer group to your IoT hub
 
-## Configure the web app to read data from your IoT hub
+[Consumer groups](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) provide independent views into the event stream that enable apps and Azure services to independently consume data from the same Event Hub endpoint. In this section, you add a consumer group to your IoT hub's built-in endpoint that the web app will use to read data from.
 
-1. Open the web app you’ve just provisioned.
+Run the following command to add a consumer group to the built-in endpoint of your IoT hub:
 
-2. Click **Application settings**, and then, under **App settings**, add the following key/value pairs:
+```azurecli-interactive
+az iot hub consumer-group create --hub-name YourIoTHubName --name YourConsumerGroupName
+```
 
-   | Key                                   | Value                                                        |
-   |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | Obtained from Azure CLI                                      |
-   | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
-   | WEBSITE_NODE_DEFAULT_VERSION          | 8.9.4                                                        |
+## Download the web app from Github
 
-   ![Add settings to your web app with key/value pairs](./media/iot-hub-live-data-visualization-in-web-apps/3_web-app-settings-key-value-azure.png)
+Open a command window, and enter the following commands to download the sample from github and change to the sample directory:
 
-3. Click **Application settings**, under **General settings**, toggle the **Web sockets** option, and then click **Save**.
+```cmd
+git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
+cd web-apps-node-iot-hub-data-visualization
+```
 
-   ![Toggle the Web sockets option](./media/iot-hub-live-data-visualization-in-web-apps/4_toggle_web_sockets.png)
+## Examine the web app code
 
-## Upload a web application to be hosted by the web app
+From the web-apps-node-iot-hub-data-visualization directory, open the web app in your favorite editor. The following shows the file structure viewed in VS Code:
 
-On GitHub, we've made available a web application that displays real-time sensor data from your IoT hub. All you need to do is configure the web app to work with a Git repository, download the web application from GitHub, and then upload it to Azure for the web app to host.
+![Web app file structure](./media/iot-hub-live-data-visualization-in-web-apps/web-app-files.png)
 
-1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**, and then click **OK**.
+Take a moment to examine the following files:
 
-   ![Configure your web app deployment to use the local Git repository](./media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
+* **Server.js** is a service-side script that initializes the web socket and event hub wrapper class and provides a callback to the event hub for incoming messages to broadcast them to the web socket.
 
-2. Click **Deployment Credentials**, create a user name and password to use to connect to the Git repository in Azure, and then click **Save**.
+* **Event-hub-reader.js** is a service-side script that connects to the IoT hub's built-in endpoint using the specified connection string and consumer group, extracts the DeviceId and EnqueuedTimeUtc from metadata, and then relays message using the provided callback method.
 
-3. Click **Overview**, and note the value of **Git clone url**.
+* **Chart-device-data.js** is a client-side script that listens on the web socket, keeps track of each DeviceId and stores the the last 50 points of incoming device data. It then binds the selected device data to the chart object.
 
-   ![Get the Git clone URL of your web app](./media/iot-hub-live-data-visualization-in-web-apps/6_web-app-git-clone-url-azure.png)
+* **Index.html** handles the UI layout for the web page, and references the necessary scripts for client-side logic.
 
-4. Open a command or terminal window on your local computer.
+## Configure environment variables for the web app
 
-5. Download the web app from GitHub, and upload it to Azure for the web app to host. To do so, run the following commands:
+To read data from your IoT hub, the web app needs your hub's connection string and the consumer group it should read with. It gets these from the process environment in the following lines in server.js:
 
-   ```bash
-   git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
-   cd web-apps-node-iot-hub-data-visualization
-   git remote add webapp <Git clone URL>
-   git push webapp master:master
+```javascript
+const iotHubConnectionString = process.env.IotHubConnectionString;
+const eventHubConsumerGroup = process.env.EventHubConsumerGroup;
+```
+
+Set the environment variables in your command shell with the following commands. Replace the placeholder values with the connection string for your IoT hub and the name of the consumer group you created previously. Do not quote the strings.
+
+```cmd
+set IotHubConnectionString=YourIoTHubConnectionString
+set EventHubConsumerGroup=YourConsumerGroupName
+```
+
+If you haven't noted it previously, you can run the following Azure CLI command to get the connection string for your IoT hub:
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name YourIotHub
+```
+
+The connection string should look similar to the following:
+
+```javascript
+"HostName=my-contoso-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=HHUGaP1JkpkIZlkNdnxaT8sM19J3Kiqw3KFe9t6KVRA="
+```
+
+## Run the web app
+
+1. Make sure that your device is running and sending data.
+
+2. In the command window, run  the following lines to download and install referenced packages and start the website:
+
+   ```cmd
+   npm install
+   npm start
    ```
 
-   > [!NOTE]
-   > \<Git clone URL\> is the URL of the Git repository found on the **Overview** page of the web app.
+3. You should see output in the console similar to the following that indicates that the web app has successfully connected to your IoT hub and is listening on port 3000:
+
+   ![Web app started on console](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-start.png)
 
 ## Open the web app to see real-time temperature and humidity data from your IoT hub
 
-On the **Overview** page of your web app, click the URL to open the web app.
+Open a browser to `http://localhost:3000`.
 
-![Get the URL of your web app](./media/iot-hub-live-data-visualization-in-web-apps/7_web-app-url-azure.png)
+In the **Select a device** list, select your device to see a running plot of the last 50 temperature and humidity data points sent by the device to your IoT hub.
 
-You should see the real-time temperature and humidity data from your IoT hub.
+![Web app page showing real-time temperature and humidity](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
 
-![Web app page showing real-time temperature and humidity](./media/iot-hub-live-data-visualization-in-web-apps/8_web-app-page-show-real-time-temperature-humidity-azure.png)
+You should also see output in the console similar to the following that shows the messages that your web app is broadcasting to the browser client:  
 
-> [!NOTE]
-> Ensure the sample application is running on your device. If not, you will get a blank chart, you can refer to the tutorials under [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md).
+![Web app broadcast output on console](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-broadcast.png)
+
+## Host the web app in App Services
+
+The [Web Apps feature of Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview) provides a platform as a service (PAAS) that enables your web applications to benefit from powerful Azure features like additional security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. Azure App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
+
+In this section you provision a web app in App Service and deploy your code to it.
+
+1. An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) defines a set of compute resources for an app hosted in App Service to run. In this article we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps in the region selected, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
+
+   To create an App Service plan using the Windows free tier run the following command. Use the same resource group your IoT hub is in.
+
+   ```azurecli-interactive
+   az appservice plan create --name <app service plan name> --resource-group <your resource group> --sku FREE
+   ```
+
+2. Now create a Web App in your App Service plan. The `-l` parameter enables the web app code to be uploaded and deployed from a local clone of a Git repository.
+
+   ```azurecli-interactive
+   az webapp create -g <your resource group> -n <your web app name> -p <your app service plan name>  -l
+   ```
+
+3. Now add Application Settings for the environment variables that specify the IoT hub connection string and the Event hub consumer group so they can be read by your code. Individual settings are space delimited in the `-settings` parameter. Use the connection string for your IoT hub and the consumer group you created previously in this tutorial. Do not quote the values.
+
+   ```azurecli-interactive
+   az webapp config appsettings set -g <your resource group> -n <your web app name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=HostName=<your IoT hub connection string>
+   ```
+
+4. Enable the Web Sockets protocol for the Web App and set it to HTTPS only.
+
+   ```azurecli-interactive
+   az webapp config set -g <your resource group> -n <your web app name>  --web-sockets-enabled true
+   az webapp update -n <your web app name> -g <your resource group name> --https-only true
+   ```
+
+5. Get the GitHub URL to use to push your code up to App Service.
+
+   ```azurecli-interactive
+   az webapp deployment source config-local-git -g <your resource group> -n <your web app name>
+   ```
+
+6. Add a remote to your clone that references the GitHub repo for the Web App in App Service. For \<Git clone URL \> use the URL returned in the previous step
+
+   ```cmd
+   git remote add webapp <Git clone URL>
+   ```
+
+7. By default, web apps hosted in App Service use HTTPS. For this reason, you must change the web socket protocol used to send data to the client javascript to secure web sockets. Open the `web-apps-node-iot-hub-data-visualization/public/js/chart-device-data.js` file in your favorite editor and change the line near the top of the file where the protocol is set from `ws://` to `wss://`. Then save the file and quit the editor.
+
+   ```javascript
+   // if deployed to a site requiring SSL, change to wss://
+   var protocol = 'wss://';
+   ```
+
+8. Commit the changes.
+
+   ```cmd
+   git add .
+   git commit -m "updated client code to use wss"
+   ```
+
+9. In order to push your changes to App Service, you need [user-level deployment credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials#userscope). Your user-level deployment credentials are valid across all of your App Service apps and all subscriptions in your Azure account. They are used for Git local and FTP deployments. If you have previously set user-level deployment credentials, you can use them. If you have not previously set user-level deployment credentials, run the following command to set them.
+
+   ```azurecli-interactive
+   az webapp deployment user set --user-name <your new user name> --password <your new password>
+   ```
+
+10. To push the web application code up to App Service, enter the following command. If you are prompted for credentials, enter your user-level deployment credentials. Make sure that you push to the master branch of the App Service remote.
+
+    ```cmd
+    git push webapp master:master
+    ```
+
+11. The progress of the deployment will update in your command window. A successful deployment will end with lines similar to the following:
+
+    ```cmd
+    remote:
+    remote: Finished successfully.
+    remote: Running post deployment command(s)...
+    remote: Deployment successful.
+    To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
+    6b132dd..7cbc994  app-service-site -> master
+    ```
+
+12. Run the following command to query the state of your web app and make sure it is running:
+
+    ```azurecli-interactive
+    az webapp show -g <your resource group> -n <your web app name> --query state
+    ```
+
+13. Run the following command to open a browser to your web app. A web page similar to the one you saw when you ran the web app locally opens. Assuming that your device is running and sending data you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
+
+    ```azurecli-interactive
+    az webapp browse -g <your resource group> -n <your web app name> --query state
+    ```
 
 ## Next steps
 
