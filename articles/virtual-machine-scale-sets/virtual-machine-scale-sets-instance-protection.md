@@ -27,17 +27,19 @@ This article describes how you can apply and use the different instance protecti
 
 ## Types of instance protection
 Scale sets provide two types of instance protection capabilities:
--	Protect from scale-in
-  - Enabled through **protectFromScaleIn** property on the scale set instance
-  - Protects instance from Autoscale initiated scale-in
-  - User-initiated instance operations (including instance delete) are **not blocked**
-  - Operations initiated on the scale set (upgrade, reimage, deallocate, etc.) are **not blocked**
--	Protect from scale-set actions
-  - Enabled through **protectFromScaleSetActions** property on the scale set instance
-  - Protects instance from Autoscale initiated scale-in
-  - Protects instance from operations initiated on the scale set (such as upgrade, reimage, deallocate, etc.)
-  - User-initiated instance operations (including instance delete) are **not blocked**
-  - Delete of the full scale set is **not blocked**
+
+-	**Protect from scale-in**
+    - Enabled through **protectFromScaleIn** property on the scale set instance
+    - Protects instance from Autoscale initiated scale-in
+    - User-initiated instance operations (including instance delete) are **not blocked**
+    - Operations initiated on the scale set (upgrade, reimage, deallocate, etc.) are **not blocked**
+
+-	**Protect from scale set actions**
+    - Enabled through **protectFromScaleSetActions** property on the scale set instance
+    - Protects instance from Autoscale initiated scale-in
+    - Protects instance from operations initiated on the scale set (such as upgrade, reimage, deallocate, etc.)
+    - User-initiated instance operations (including instance delete) are **not blocked**
+    - Delete of the full scale set is **not blocked**
 
 ## Protect from scale-in
 Instance protection can be applied to scale set instances after the instances are created. Protection is applied and modified only on the [instance model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) and not on the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
@@ -82,7 +84,7 @@ Update-AzVmssVM `
 
 ### Azure CLI 2.0
 
-Use [az vmss update](/cli/azure/vmss/extension#az-vmss-update) to apply scale-in protection to your scale set instance.
+Use [az vmss update](/cli/azure/vmss#az-vmss-update) to apply scale-in protection to your scale set instance.
 
 The following example applies scale-in protection to an instance in the scale set having instance ID 0.
 
@@ -127,7 +129,7 @@ Protecting an instance from scale set actions also protects the instance from Au
 
 ### Azure PowerShell
 
-Use the [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) cmdlet to apply scale-in protection to your scale set instance.
+Use the [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) cmdlet to apply protection from scale set actions to your scale set instance.
 
 The following example applies protection from scale set actions to an instance in the scale set having instance ID 0.
 
@@ -142,7 +144,7 @@ Update-AzVmssVM `
 
 ### Azure CLI 2.0
 
-Use [az vmss update](/cli/azure/vmss/extension#az-vmss-update) to apply scale-in protection to your scale set instance.
+Use [az vmss update](/cli/azure/vmss#az-vmss-update) to apply protection from scale set actions to your scale set instance.
 
 The following example applies protection from scale set actions to an instance in the scale set having instance ID 0.
 
