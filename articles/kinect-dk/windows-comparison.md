@@ -42,7 +42,7 @@ The following table provides low-level device sensor access capability compariso
 |---------|---------|------------|---------|
 | **Depth** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |
-| **Color** | ✔️ | ✔️ | Color format supports differences, Azure Kinect DK supports these camera controls: Exposure, white balance, brightness, contrast, saturation, sharpness and gain control |
+| **Color** | ✔️ | ✔️ | Color format supports differences, Azure Kinect DK supports these camera controls: Exposure, white balance, brightness, contrast, saturation, sharpness, and gain control |
 | **Audio** | ✔️ | ✔️ | Azure Kinect DK mics are accessed via Speech SDK or Windows native API |
 | **IMU** | ✔️ |  | Partial (1-axis) |
 | **Calibration data** | ️️️️️✔️ ️️️| ✔️ | OpenCV compatible camera model calibration |

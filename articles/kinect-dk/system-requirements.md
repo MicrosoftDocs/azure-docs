@@ -26,13 +26,13 @@ To contribute to sensor SDK development, visit [GitHub](https://github.com/Micro
 
 ## Host PC hardware requirements
 
-The PC host hardware requirement is very dependent on application/algorithm/sensor frame rate/resolution executed on host PC. Recommended minimum Sensor SDK configuration for Windows is:
+The PC host hardware requirement is dependent on application/algorithm/sensor frame rate/resolution executed on host PC. Recommended minimum Sensor SDK configuration for Windows is:
 
-- 7th Gen Intel® CoreTM i3 Processor (Dual Core 2.4 GHz with HD620 GPU or faster)
-- 4GB Memory
+- Seventh Gen Intel® CoreTM i3 Processor (Dual Core 2.4 GHz with HD620 GPU or faster)
+- 4 GB Memory
 - Dedicated USB3 port
 
-Lower end and older CPUs may also work depending on your use-case scenario. Body Tracking minimum hardware requirements are greater than those of the Sensor SDk.
+Lower end and older CPUs may also work depending on your use-case scenario. Body Tracking minimum hardware requirements are greater than the Sensor SDk.
 
 Performance differs also between Windows/Linux operating systems and graphics drivers in use.
 

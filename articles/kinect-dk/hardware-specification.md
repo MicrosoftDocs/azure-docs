@@ -11,7 +11,7 @@ keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, I
 
 # Azure Kinect DK hardware specifications 
 
-This article provides details about the how Azure Kinect hardware integrates Microsoft's latest sensor technology into a single, USB-connected accessory.
+This article provides details about how Azure Kinect hardware integrates Microsoft's latest sensor technology into a single, USB-connected accessory.
 
 ![Azure Kinect DK](./media/resources/hardware-specs-media/device-wire.png)
 
@@ -38,7 +38,7 @@ Refer to additional product [safety information](https://support.microsoft.com/h
 
 ## Depth camera supported operating modes
 
-Azure Kinect DK integrates a Microsoft designed 1 Megapixel Time-of-Flight (ToF) depth camera using the Yeats image sensor presented at ISSCC 2018. The depth camera supports the modes indicated below:
+Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF) depth camera using the Yeats image sensor presented at ISSCC 2018. The depth camera supports the modes indicated below:
 
  | Mode            | Resolution | FOI       | FPS                | Operating range* | Exposure time |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
@@ -70,17 +70,17 @@ The RGB camera is USB Video class-compatible and can be used without the Sensor 
 
 ## Camera field of view
 
-View the next image of both the Depth and RGB camera FOV and what sensors "see". Note that diagram is illustrative where the RGB camera is in 4:3 mode.
+View the next image of both the Depth and RGB camera FOV and what sensors "see". The diagram is illustrative where the RGB camera is in 4:3 mode.
 
 ![Camera FOV](./media/resources/hardware-specs-media/camera-fov.png)
 
-Camera FOV front from 2000mm distance is visualized below. Notice that the 4:3 resolution mode has better pixel overlap in NFOV mode (hexagon shape) than the 16:9 resolution.
+Camera FOV front from 2000 mm distance is visualized below. Notice that the 4:3 resolution mode has better pixel overlap in NFOV mode (hexagon shape) than the 16:9 resolution.
 
 ![Camera FOV Front](./media/resources/hardware-specs-media/fov-front.png)
 
 ## Motion sensor (IMU)
 
-The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both an accelerometer and a gyroscope, simultaneously sampled at 1.6 kHz and reported to the host at a 208 Hz rate.
+The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both an accelerometer and a gyroscope, simultaneously sampled at 1.6 kHz and reported to the host at a 208-Hz rate.
 
 ## Microphone array
 
@@ -94,7 +94,7 @@ Azure Kinect DK embeds a high-quality, 7-microphone circular array that identifi
 
 ## USB
 
-Azure Kinect DK is a USB3 composite device which exposes the following hardware endpoints to the operating system:
+Azure Kinect DK is a USB3 composite device that exposes the following hardware endpoints to the operating system:
 
 Vendor ID is 0x045E (Microsoft), Product ID table below:
 
@@ -148,7 +148,7 @@ Verify cable:
 
 ## Power consumption
 
-Azure Kinect DK consumes up to 5.9W; specific power consumption is use-case dependent.
+Azure Kinect DK consumes up to 5.9 W; specific power consumption is use-case dependent.
 
 ## Calibration
 
@@ -156,12 +156,12 @@ Azure Kinect DK is calibrated at the factory. The calibration parameters for vis
 
 ## External synchronization
 
-The device includes 3.5mm synchronization jacks that can be used to link multiple units together to achieve coordinated Depth/RGB camera triggering. There are specific sync-in and sync-out jacks on the device, enabling easy daisy chaining. A compatible cable is not included in box and must be purchased separately.
+The device includes 3.5 mm synchronization jacks that can be used to link multiple units together to achieve coordinated Depth/RGB camera triggering. There are specific sync-in and sync-out jacks on the device, enabling easy daisy chaining. A compatible cable is not included in box and must be purchased separately.
 
 Cable requirements:
 
-- 3.5mm tip male-to-male cable ("3.5mm audio cable")
-- Maximum cable length < 10m
+- 3.5 mm tip male-to-male cable ("3.5 mm audio cable")
+- Maximum cable length < 10 m
 - Both stereo and mono cable are supported
 
 More details on [external synchronization setup](https://aka.ms/support)
@@ -172,7 +172,7 @@ Device firmware can be reset to original firmware using button underneath the lo
 
 ![Azure Kinect DK recovery button](./media/resources/hardware-specs-media/recovery.png)
 
-To perform recovery see [instructions here](https://aka.ms/support)
+To perform recovery, see [instructions here](https://aka.ms/support)
 
 ## Next steps
 
