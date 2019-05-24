@@ -203,7 +203,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 ## Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using this API.
-- There's an initial limit of 50 subscriptions per enrollment account, but you can [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to increase the limit to 200. After that, subscriptions can only be created through the Account Center.
+- There's an initial limit of 50 subscriptions per enrollment account, but you can [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to increase the limit to 200. After that, more subscriptions for that account can only be created through the Account Center.
 - There needs to be at least one EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions using Account Center.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
