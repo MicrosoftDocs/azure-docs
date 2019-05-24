@@ -99,7 +99,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
     attach_config.enable_ssl(leaf_domain_label = "myservice")
     ```
 
-  * When you use *a certificate that you purchased*, you use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example shows how to use *.pem* files to create a configuration that uses an SSL certificate that you purchased:
+  * When you use *a certificate that you purchased*, you use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example demonstrates how to use *.pem* files to create a configuration that uses an SSL certificate that you purchased:
 
     ```python
     from azureml.core.compute import AksCompute
