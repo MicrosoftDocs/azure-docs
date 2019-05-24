@@ -1,10 +1,10 @@
 ---
-title: SaaS Fulfillment API V2 | Azure Marketplace 
-description: Explains how to create a SaaS offer on the AppSource and Azure Marketplace using the associated fulfillment V2 APIs.
+title: SaaS Fulfillment API v2 | Azure Marketplace 
+description: Explains how to create and manage a SaaS offer on the AppSource and Azure Marketplace using the associated fulfillment v2 APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
 ---
@@ -103,7 +103,7 @@ The resolve endpoint enables the publisher to resolve a marketplace token to a p
 |  x-ms-requestid    |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers.  |
 |  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
-|  x-ms-marketplace-token  |  Token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure (For eg: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
+|  x-ms-marketplace-token  |  Token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure (for example: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
 
 *Response codes:*
 
@@ -125,7 +125,7 @@ Code: 404<br>
 Not Found
 
 Code: 400<br>
-Bad request. x-ms-marketplace-token is missing, malformed or expired.
+Bad request. x-ms-marketplace-token is missing, malformed, or expired.
 
 Code: 403<br>
 Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
@@ -790,7 +790,7 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 }
 ```
 
-Where action can be one of these: 
+Where action can be one of the following: 
 - `Subscribe`  (When the resource has been activated)
 - `Unsubscribe` (When the resource has been deleted)
 - `ChangePlan` (When the change plan operation has completed)
