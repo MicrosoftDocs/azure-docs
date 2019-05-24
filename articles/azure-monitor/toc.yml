@@ -353,8 +353,6 @@
             href: app/status-monitor-v2-api-get-status.md
           - name: API Set-ApplicationInsightsMonitoringConfig
             href: app/status-monitor-v2-api-set-config.md
-        - name: Windows services
-          href: app/windows-services.md
         - name: Windows desktop
           href: app/windows-desktop.md        
         - name: Console
@@ -465,8 +463,6 @@
           href: app/asp-net-troubleshoot-no-data.md
         - name: Snapshot debugger
           href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-        - name: Analytics
-          href: app/analytics-troubleshooting.md
         - name: Java
           href: app/java-troubleshoot.md
         - name: Usage analytics
@@ -487,8 +483,6 @@
       items:
       - name: Configuration Manager
         href: platform/collect-sccm.md
-      - name: Application Performance Monitoring using SCOM
-        href: app/scom.md
   - name: Gain insights
     items:
     - name: Monitor applications
@@ -497,8 +491,6 @@
         items:
         - name: Overview
           href: app/app-insights-overview.md
-        - name: DevOps
-          href: app/detect-triage-diagnose.md
         - name: Distributed tracing
           href: app/distributed-tracing.md
         - name: Log-based & pre-aggregated metrics
