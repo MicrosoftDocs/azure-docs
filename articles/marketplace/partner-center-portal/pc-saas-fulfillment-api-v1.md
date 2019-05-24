@@ -1,29 +1,23 @@
 ---
-title: SaaS Fulfillment API V1 | Azure Marketplace 
-description: Explains how to create a SaaS offer on the Azure Marketplace using the associated fulfillment V1 APIs.
+title: SaaS Fulfillment APIs v1 | Azure Marketplace 
+description: Explains how to create and manage a SaaS offer on the Azure Marketplace using the associated Fulfillment v1 APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
 ms.topic: reference
-ms.date: 03/28/2019
-ms.author: pabutler
+ms.date: 05/23/2019
+ms.author: evansma
 
 ROBOTS: NOINDEX
 ---
 
-# SaaS Fulfillment APIs Version 1  (Deprecated)
+# SaaS Fulfillment APIs version 1 (deprecated)
 
 This article explains how to create a SaaS offer with APIs. The APIs, composed of REST methods and endpoints, are necessary for allowing subscriptions to your SaaS offer if you have Sell
 through Azure selected.  
 
-> [!IMPORTANT] 
-> SaaS offer functionality has been migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
-> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
-> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
-> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
-
 > [!WARNING]
-> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md).  This API is currently being maintained only to serve existing publishers. 
+> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./pc-saas-fulfillment-api-v2.md).  This intial version of the API is currently being maintained only to serve existing publishers. 
 
 The following APIs are provided to help you integrate your SaaS service with Azure:
 
@@ -68,7 +62,7 @@ When a user is redirected to an ISV’s website, the URL contains a token in the
 | **Header key**     | **Required** | **Description**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | No           | A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
-| x-ms-correlationid | No           | A unique string value for operation on the client. This correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers. |
+| x-ms-correlationid | No           | A unique string value for operation on the client. This field correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers. |
 | Content-type       | Yes          | `application/json`                                        |
 | authorization      | Yes          | The JSON web token (JWT) bearer token.                    |
 | x-ms-marketplace-token| Yes| The token query parameter in the URL when the user is redirected to SaaS ISV’s website from Azure. **Note:** This token is only valid for 1 hour. Additionally, URL decode the token value from the browser before using it.|
@@ -155,7 +149,7 @@ service for a given plan and enable billing in the commerce system.
 
 | **Element name** | **Data type** | **Description**                      |
 |------------------|---------------|--------------------------------------|
-| planId           | (Required) String        | Plan Id of the SaaS service user is subscribing to.  |
+| planId           | (Required) String        | Plan ID of the SaaS service user is subscribing to.  |
 |  |  |  |
 
 *Response Codes*
@@ -219,7 +213,7 @@ The change endpoint allows the user to convert their currently subscribed plan t
 
 |  **Element name** |  **Data type**  | **Description**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId           |  (Required) String         | Plan Id of the SaaS service user is subscribing to.          |
+|  planId           |  (Required) String         | Plan ID of the SaaS service user is subscribing to.          |
 |  |  |  |
 
 *Response Codes*
@@ -349,7 +343,7 @@ This endpoint allows user to track the status of a triggered async operation (Su
 | 200                  | `OK`                 | Resolved the get request successfully and the body contains the response.    |
 | 400                  | `BadRequest`         | Either required headers are missing or an invalid api-version was specified. |
 | 403                  | `Forbidden`          | The caller is not authorized to perform this operation.                      |
-| 404                  | `NotFound`           | Subscription not found with the given ID                                     |
+| 404                  | `NotFound`           | Subscription not found with the given ID.                                     |
 | 429                  | `RequestThrottleId`  | Service is busy processing requests, retry later.                     |
 | 503                  | `ServiceUnavailable` | Service is down temporarily, retry later.                             |
 |  |  |  |
@@ -477,13 +471,13 @@ The Get action on subscriptions endpoint allows a user to retrieve all subscript
 
 | **Parameter name**     | **Data type** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID of SaaS subscription resource in Azure.    |
-| offerId                | String        | Offer ID that the user subscribed to.         |
-| planId                 | String        | Plan ID that the user subscribed to.          |
-| saasSubscriptionName   | String        | Name of the SaaS subscription.                |
+| id                     | String        | ID of SaaS subscription resource in Azure    |
+| offerId                | String        | Offer ID that the user subscribed to         |
+| planId                 | String        | Plan ID that the user subscribed to          |
+| saasSubscriptionName   | String        | Name of the SaaS subscription                |
 | saasSubscriptionStatus | Enum          | Operation status.  One of the following:  <br/> - `Subscribed`: Subscription is active.  <br/> - `Pending`: User create the resource but it isn't activated by the ISV.   <br/> - `Unsubscribed`: User has unsubscribed.   <br/> - `Suspended`: User has suspended the subscription.   <br/> - `Deactivated`:  Azure subscription is suspended.  |
-| created                | DateTime      | Subscription creation timestamp value in UTC. |
-| lastModified           | DateTime      | Subscription modified timestamp value in UTC. |
+| created                | DateTime      | Subscription creation timestamp value in UTC |
+| lastModified           | DateTime      | Subscription modified timestamp value in UTC |
 |  |  |  |
 
 *Response Codes*

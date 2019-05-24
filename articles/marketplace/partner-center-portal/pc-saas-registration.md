@@ -5,19 +5,13 @@ services: Azure, Marketplace, Cloud Partner Portal, Azure portal
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: pabutler
+ms.date: 05/23/2019
+ms.author: evansma
 ---
 
 # Register a SaaS application
 
 This article explains how to register a SaaS application using the Microsoft [Azure portal](https://portal.azure.com/).  After a successful registration, you will receive an Azure Active Directory (Azure AD) security token that you can use to access the SaaS Fulfillment APIs.  For more information about Azure AD, see [What is authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
-
-> [!IMPORTANT] 
-> SaaS offer functionality has been migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
-> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
-> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
-> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
 
 
 ## Service-to-service authentication flow
@@ -34,7 +28,7 @@ Azure does not impose any constraints on the authentication that the SaaS servic
 Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it's located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.  To register a new application using the Azure portal, perform the following steps:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com/).
-2.  If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+2.  If your account gives you access to more than one, click your account in the top-right corner, and set your portal session to the desired Azure AD tenant.
 3.  In the left-hand navigation pane, click the **Azure Active Directory** service, click **App registrations**, and click **New application registration**.
 
     ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1.png)
@@ -133,4 +127,4 @@ Sample response token:
 
 ## Next steps
 
-Your Azure AD-secured app can now use the [SaaS Fulfillment API Version 2](./cpp-saas-fulfillment-api-v2.md).
+Your Azure AD-secured app can now use the [SaaS Fulfillment API Version 2](./pc-saas-fulfillment-api-v2.md).

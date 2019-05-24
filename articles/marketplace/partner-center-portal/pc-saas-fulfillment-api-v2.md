@@ -1,23 +1,17 @@
 ---
-title: SaaS Fulfillment API V2 | Azure Marketplace 
-description: Explains how to create a SaaS offer on the AppSource and Azure Marketplace using the associated fulfillment V2 APIs.
+title: SaaS Fulfillment API v2 | Azure Marketplace 
+description: Explains how to create and manage a SaaS offer on the AppSource and Azure Marketplace using the associated fulfillment v2 APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
-ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: pabutler
+ms.topic: reference
+ms.date: 05/23/2019
+ms.author: evansma
 ---
 
-# SaaS Fulfillment APIs Version 2 
+# SaaS Fulfillment APIs version 2 
 
 This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
-
-> [!IMPORTANT] 
-> SaaS offer functionality has been migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
-> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
-> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
-> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
 
 ## Managing the SaaS subscription lifecycle
 
@@ -109,7 +103,7 @@ The resolve endpoint enables the publisher to resolve a marketplace token to a p
 |  x-ms-requestid    |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers.  |
 |  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
-|  x-ms-marketplace-token  |  Token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure (For eg: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
+|  x-ms-marketplace-token  |  Token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure (for example: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
 
 *Response codes:*
 
@@ -131,7 +125,7 @@ Code: 404<br>
 Not Found
 
 Code: 400<br>
-Bad request. x-ms-marketplace-token is missing, malformed or expired.
+Bad request. x-ms-marketplace-token is missing, malformed, or expired.
 
 Code: 403<br>
 Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
@@ -796,7 +790,7 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 }
 ```
 
-Where action can be one of these: 
+Where action can be one of the following: 
 - `Subscribe`  (When the resource has been activated)
 - `Unsubscribe` (When the resource has been deleted)
 - `ChangePlan` (When the change plan operation has completed)
