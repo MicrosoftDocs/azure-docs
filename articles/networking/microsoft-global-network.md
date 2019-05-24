@@ -17,7 +17,7 @@ ms.author: ypitsch,kumud
 
 # Microsoft global network
 
-Microsoft owns and operates one of the largest backbone networks in the world. This global and sophisticated architecture, spanning more than 100.000 miles, connect our datacenters and customers. 
+Microsoft owns and operates one of the largest backbone networks in the world. This global and sophisticated architecture, spanning more than 100,000 miles, connect our datacenters and customers. 
  
 Every day, customers around the world connect and pass trillions of requests to Microsoft Azure, Bing, Dynamics 365, Office 365, Xbox, and many others. Regardless of type, customers expect instant responsiveness and reliability from our services. 
  
