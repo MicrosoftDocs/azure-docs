@@ -131,7 +131,7 @@ Generation 2 VMs can also be created using virtual machine scale sets. You can c
 * **Is there a price difference between generation 1 and generation 2 VMs?**  
     There is no difference in pricing between generation 1 and generation 2 VMs.
 
-* **How do I increase the OS disk size?**
+* **How do I increase the OS disk size?**  
   OS disks larger than 2 TB are new to generation 2 VMs. By default, most OS disks are less than 2 TB for generation 2 VMs, but the disk size can be increased to a recommended maximum of 4 TB. You can increase the OS disk size via the Azure CLI or the Azure portal.
 
   To increase the OS disk size via Azure portal:
