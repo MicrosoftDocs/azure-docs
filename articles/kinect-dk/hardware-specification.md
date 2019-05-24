@@ -11,7 +11,7 @@ keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, I
 
 # Azure Kinect DK hardware specifications 
 
-This article provides details about the how Azure Kinect hardware integrates Microsoft's latest sensor technology into a single, USB-connected accessory.
+This article provides details about how Azure Kinect hardware integrates Microsoft's latest sensor technology into a single, USB-connected accessory.
 
 ![Azure Kinect DK](./media/resources/hardware-specs-media/device-wire.png)
 
@@ -32,15 +32,13 @@ Azure Kinect DK is intended for developers and commercial businesses operating u
 - **Humidity**: 8-90% (non-condensing) RH
 
 >[!NOTE]
->Use outside of the ambient conditions could cause the device to fail and/or function incorrectly.
-
-These ambient conditions are applicable for the environment immediately around the device under all operational conditions. When used with an external enclosure, active temperature control and/or other cooling solutions are recommended to ensure the device is maintained within these ranges. The device design features a cooling channel in between the front section and rear sleeve. When you implement the device, make sure this cooling channel is not obstructed.
+>Use outside of the ambient conditions could cause the device to fail and/or function incorrectly. These ambient conditions are applicable for the environment immediately around the device under all operational conditions. When used with an external enclosure, active temperature control and/or other cooling solutions are recommended to ensure the device is maintained within these ranges. The device design features a cooling channel in between the front section and rear sleeve. When you implement the device, make sure this cooling channel is not obstructed.
 
 Refer to additional product [safety information](https://support.microsoft.com/help/4023454/safety-information).
 
 ## Depth camera supported operating modes
 
-Azure Kinect DK integrates a Microsoft designed 1 Megapixel Time-of-Flight (ToF) depth camera using the Yeats image sensor presented at ISSCC 2018. The depth camera supports the modes indicated below:
+Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF) depth camera using the Yeats image sensor presented at ISSCC 2018. The depth camera supports the modes indicated below:
 
  | Mode            | Resolution | FOI       | FPS                | Operating range* | Exposure time |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
@@ -72,17 +70,17 @@ The RGB camera is USB Video class-compatible and can be used without the Sensor 
 
 ## Camera field of view
 
-View the next image of both the Depth and RGB camera FOV and what sensors "see". Note that diagram is illustrative where the RGB camera is in 4:3 mode.
+View the next image of both the Depth and RGB camera FOV and what sensors "see". The diagram is illustrative where the RGB camera is in 4:3 mode.
 
 ![Camera FOV](./media/resources/hardware-specs-media/camera-fov.png)
 
-Camera FOV front from 2000mm distance is visualized below. Notice that the 4:3 resolution mode has better pixel overlap in NFOV mode (hexagon shape) than the 16:9 resolution.
+Camera FOV front from 2000 mm distance is visualized below. Notice that the 4:3 resolution mode has better pixel overlap in NFOV mode (hexagon shape) than the 16:9 resolution.
 
 ![Camera FOV Front](./media/resources/hardware-specs-media/fov-front.png)
 
 ## Motion sensor (IMU)
 
-The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both an accelerometer and a gyroscope, simultaneously sampled at 1.6 kHz and reported to the host at a 208 Hz rate.
+The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both an accelerometer and a gyroscope, simultaneously sampled at 1.6 kHz and reported to the host at a 208-Hz rate.
 
 ## Microphone array
 
@@ -96,7 +94,7 @@ Azure Kinect DK embeds a high-quality, 7-microphone circular array that identifi
 
 ## USB
 
-Azure Kinect DK is a USB3 composite device which exposes the following hardware endpoints to the operating system:
+Azure Kinect DK is a USB3 composite device that exposes the following hardware endpoints to the operating system:
 
 Vendor ID is 0x045E (Microsoft), Product ID table below:
 
@@ -129,11 +127,11 @@ The device can be powered using the in-box power supply and USB Type-C to A cabl
 > - The in-box power supply cable is a USB Type-A to single post barrel connector. Use the provided wall-power supply with this cable. The device is capable of drawing more power than two standard USB Type-A ports can provide.
 > - USB cables do matter and we recommended to use high-quality cables and verify functionality before deploying the unit remotely.
 
-Tips for selecting good type-C to Type-C cable:
-
-- The [USB certified cable](https://www.usb.org/products), must support both power and data.
-- Passive cable should be less than 1.5m in length, for longer cables use active cable. 
-- The cable shall support no less than >1.5A, else you need connect external PSU.
+>[!TIP]
+>Tips for selecting good type-C to Type-C cable:
+>- The [USB certified cable](https://www.usb.org/products), must support both power and data.
+>- Passive cable should be less than 1.5m in length, for longer cables use active cable. 
+>- The cable shall support no less than >1.5A, else you need connect external PSU.
 
 Verify cable:
 
@@ -150,7 +148,7 @@ Verify cable:
 
 ## Power consumption
 
-Azure Kinect DK consumes up to 5.9W; specific power consumption is use-case dependent.
+Azure Kinect DK consumes up to 5.9 W; specific power consumption is use-case dependent.
 
 ## Calibration
 
@@ -158,12 +156,12 @@ Azure Kinect DK is calibrated at the factory. The calibration parameters for vis
 
 ## External synchronization
 
-The device includes 3.5mm synchronization jacks that can be used to link multiple units together to achieve coordinated Depth/RGB camera triggering. There are specific sync-in and sync-out jacks on the device, enabling easy daisy chaining. A compatible cable is not included in box and must be purchased separately.
+The device includes 3.5 mm synchronization jacks that can be used to link multiple units together to achieve coordinated Depth/RGB camera triggering. There are specific sync-in and sync-out jacks on the device, enabling easy daisy chaining. A compatible cable is not included in box and must be purchased separately.
 
 Cable requirements:
 
-- 3.5mm tip male-to-male cable ("3.5mm audio cable")
-- Maximum cable length < 10m
+- 3.5 mm tip male-to-male cable ("3.5 mm audio cable")
+- Maximum cable length < 10 m
 - Both stereo and mono cable are supported
 
 More details on [external synchronization setup](https://aka.ms/support)
@@ -174,12 +172,15 @@ Device firmware can be reset to original firmware using button underneath the lo
 
 ![Azure Kinect DK recovery button](./media/resources/hardware-specs-media/recovery.png)
 
-To perform recovery see [instructions here](https://aka.ms/support)
+To perform recovery, see [instructions here](https://aka.ms/support)
 
 ## Next steps
 
- [Use Azure Kinect Sensor SDK](overview-sensor-sdk.md)
+Now you are familiar with Azure Kinect hardware specification, you also can review
+> [!div class="nextstepaction"]
+>[Host PC minimum requirement](system-requirements.md)
+>[Set up hardware](set-up-azure-kinect-dk.md)
 
- [Host PC minimum requirement](system-requirements.md)
+## Also see
 
- [Set up hardware](set-up-azure-kinect-dk.md)
+[Use Azure Kinect Sensor SDK](overview-sensor-sdk.md)

@@ -9,7 +9,7 @@ ms.topic: article
 keywords: Kinect, Windows, v2, Azure Kinect, comparison, SDK, differences, hardware, software 
 ---
 
-# Azure Kinect and Kinect Windows v2 Comparison
+# Azure Kinect and Kinect Windows v2 comparison
 
 The Azure Kinect DK hardware and Software Development Kits have differences from Kinect for Windows v2. Any existing Kinect for Windows v2 applications will not work directly with Azure Kinect DK and require porting.  
 
@@ -34,7 +34,7 @@ High-level differences between the Azure Kinect development kit and Kinect for W
 
 Find additional details in the [Azure Kinect DK hardware](hardware-specification.md) document.
 
-## Sensor access   
+## Sensor access
 
 The following table provides low-level device sensor access capability comparison.
 
@@ -42,10 +42,10 @@ The following table provides low-level device sensor access capability compariso
 |---------|---------|------------|---------|
 | **Depth** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |
-| **Color** | ✔️ | ✔️ | Color format supports differences, Azure Kinect DK supports these camera controls: Exposure, white balance, brightness, contrast, saturation, sharpness and gain control |
+| **Color** | ✔️ | ✔️ | Color format supports differences, Azure Kinect DK supports these camera controls: Exposure, white balance, brightness, contrast, saturation, sharpness, and gain control |
 | **Audio** | ✔️ | ✔️ | Azure Kinect DK mics are accessed via Speech SDK or Windows native API |
-| **IMU** | ✔️|  Partial (1-axis) |
-| **Calibration data** | ️️️️️✔️ ️️️| ✔️| OpenCV compatible camera model calibration |
+| **IMU** | ✔️ |  | Partial (1-axis) |
+| **Calibration data** | ️️️️️✔️ ️️️| ✔️ | OpenCV compatible camera model calibration |
 | **Depth-RGB internal sync** | ✔️ | ✔️ |  |
 | **External Sync**| ✔️|  | K4A allows programmable delay for external sync |
 | **Share access with multiple clients** | | ✔️ | The Azure Kinect Sensor SDK relies on WinUSB/libUSB to access device and does not have a service implemented to enable sharing device access with multiple processes |
@@ -69,6 +69,7 @@ The Azure Kinect SDK feature set is different from Kinect for Windows v2, as det
 
 ## Next steps
 
-[Body Tracking SDK](https://aka.ms/support)
+You can also review
 
-[Kinect for Windows developer pages](https://developer.microsoft.com/windows/kinect)
+> [!div class="nextstepaction"]
+>[Kinect for Windows developer pages](https://developer.microsoft.com/windows/kinect)
