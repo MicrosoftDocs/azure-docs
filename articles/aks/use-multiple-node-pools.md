@@ -17,9 +17,10 @@ In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped t
 This article shows you how to create and manage multiple node pools in an AKS cluster. This feature is currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ## Before you begin
 
@@ -327,9 +328,9 @@ Only pods that have this taint applied can be scheduled on nodes in *gpunodepool
 
 ## Manage node pools using a Resource Manager template
 
-If you use an Azure Resource Manager template to create your AKS cluster, you can typically update the settings in your template and redeploy to update the cluster resource. With nodepools, the initial nodepool profile can't be updated once the AKS cluster has been created. Instead, create a separate Resource Manager template that updates only the agent pools for an existig AKS cluster.
+When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With nodepools in AKS, the initial nodepool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the agent pools for an existig AKS cluster.
 
-Create a template, such as `aks-agentpools.json` and paste the following example manifest. This template creates a *Linux* agent pool with three nodes that runs Kubernetes *1.12.8* and uses the *Standard_DS2_v2* node size. You are prompted for the existing AKS cluster name and location, the agent pool name to create or update, and the virtual network subnet ID in use by the existing cluster:
+Create a template, such as `aks-agentpools.json` and paste the following example manifest. This example template updates the *Linux* agent pool named *myagentpool* to run three Kubernetes *1.12.8* nodes and uses the *Standard_DS2_v2* node size. Edit these values as need to update, add, or delete node pools. You are prompted for the existing AKS cluster name and location:
 
 ```json
 {
@@ -350,6 +351,7 @@ Create a template, such as `aks-agentpools.json` and paste the following example
     },
     "agentPoolName": {
       "type": "string",
+      "defaultValue": "myagentpool",
       "metadata": {
         "description": "The name of the agent pool to create or update."
       }
@@ -388,7 +390,7 @@ Create a template, such as `aks-agentpools.json` and paste the following example
             "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
             "osType": "[variables('agentPoolProfiles').osType]",
             "storageProfile": "ManagedDisks",
-	    "type": "VirtualMachineScaleSets",
+      "type": "VirtualMachineScaleSets",
             "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
             "orchestratorVersion": "1.12.8"
       }
@@ -428,7 +430,6 @@ In this article you learned how to create and manage multiple node pools in an A
 To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -457,3 +458,5 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

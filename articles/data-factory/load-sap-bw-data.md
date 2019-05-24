@@ -10,7 +10,7 @@ ms.reviewer:
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 05/22/2019
 ms.author: jingwang
 
 ---
@@ -175,9 +175,9 @@ On the data factory **Let's get started** page, select **Create pipeline from te
             "properties": {
                "sapOpenHubMaxRequestId": {
                   "type": "string"
-               },
-               "type": "object"
-            }
+               }
+            },
+            "type": "object"
          }
          ```
 
