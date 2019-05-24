@@ -78,9 +78,9 @@ The connection string should look similar to the following:
 
 Note down the service connection string, you will need it later in this tutorial.
 
-## Download the web app from Github
+## Download the web app from GitHub
 
-Open a command window, and enter the following commands to download the sample from github and change to the sample directory:
+Open a command window, and enter the following commands to download the sample from GitHub and change to the sample directory:
 
 ```cmd
 git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
@@ -99,13 +99,13 @@ Take a moment to examine the following files:
 
 * **Event-hub-reader.js** is a service-side script that connects to the IoT hub's built-in endpoint using the specified connection string and consumer group, extracts the DeviceId and EnqueuedTimeUtc from metadata, and then relays message using the provided callback method.
 
-* **Chart-device-data.js** is a client-side script that listens on the web socket, keeps track of each DeviceId and stores the the last 50 points of incoming device data. It then binds the selected device data to the chart object.
+* **Chart-device-data.js** is a client-side script that listens on the web socket, keeps track of each DeviceId and stores the last 50 points of incoming device data. It then binds the selected device data to the chart object.
 
 * **Index.html** handles the UI layout for the web page, and references the necessary scripts for client-side logic.
 
 ## Configure environment variables for the web app
 
-To read data from your IoT hub, the web app needs your IoT hub's connection string and the consumer group that it should read through. It gets these from the process environment in the following lines in server.js:
+To read data from your IoT hub, the web app needs your IoT hub's connection string and the name of the consumer group that it should read through. It gets these strings from the process environment in the following lines in server.js:
 
 ```javascript
 const iotHubConnectionString = process.env.IotHubConnectionString;
@@ -130,7 +130,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
    npm start
    ```
 
-3. You should see output in the console similar to the following that indicates that the web app has successfully connected to your IoT hub and is listening on port 3000:
+3. You should see output in the console that indicates that the web app has successfully connected to your IoT hub and is listening on port 3000:
 
    ![Web app started on console](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-start.png)
 
@@ -142,7 +142,7 @@ In the **Select a device** list, select your device to see a running plot of the
 
 ![Web app page showing real-time temperature and humidity](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
 
-You should also see output in the console similar to the following that shows the messages that your web app is broadcasting to the browser client:  
+You should also see output in the console that shows the messages that your web app is broadcasting to the browser client:  
 
 ![Web app broadcast output on console](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-broadcast.png)
 
@@ -150,11 +150,11 @@ You should also see output in the console similar to the following that shows th
 
 The [Web Apps feature of Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview) provides a platform as a service (PAAS) that enables your web applications to benefit from powerful Azure features like additional security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. Azure App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
 
-In this section you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest) documentation.
+In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest) documentation.
 
-1. An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) defines a set of compute resources for an app hosted in App Service to run. In this article we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
+1. An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) defines a set of compute resources for an app hosted in App Service to run. In this tutorial, we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
 
-   To create an App Service plan using the Windows free tier run the following command. Use the same resource group your IoT hub is in.
+   To create an App Service plan using the Windows free tier, run the following command. Use the same resource group your IoT hub is in.
 
    ```azurecli-interactive
    az appservice plan create --name <app service plan name> --resource-group <your resource group> --sku FREE
@@ -185,7 +185,7 @@ In this section you provision a web app in App Service and deploy your code to i
    az webapp deployment source config-local-git -g <your resource group> -n <your web app name>
    ```
 
-6. Add a remote to your clone that references the GitHub repo for the web app in App Service. For \<Git clone URL\> use the URL returned in the previous step. Run the following in your command window.
+6. Add a remote to your clone that references the GitHub repo for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following commmand in your command window.
 
    ```cmd
    git remote add webapp <Git clone URL>
@@ -217,7 +217,7 @@ In this section you provision a web app in App Service and deploy your code to i
     git push webapp master:master
     ```
 
-11. The progress of the deployment will update in your command window. A successful deployment will end with lines similar to the following:
+11. The progress of the deployment will update in your command window. A successful deployment will end with lines similar to the following output:
 
     ```cmd
     remote:
