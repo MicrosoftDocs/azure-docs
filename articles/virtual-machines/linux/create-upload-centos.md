@@ -188,9 +188,9 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
     In addition to the above, it is recommended to *remove* the following parameters:
 
-		```console
-		rhgb quiet crashkernel=auto
-		```
+	```console
+	rhgb quiet crashkernel=auto
+	```
 
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.  The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
@@ -203,13 +203,13 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
-		```console
-		ResourceDisk.Format=y
-		ResourceDisk.Filesystem=ext4
-		ResourceDisk.MountPoint=/mnt/resource
-		ResourceDisk.EnableSwap=y
-		ResourceDisk.SwapSizeMB=2048 ## NOTE: set this to whatever you need it to be.
-		```
+	```console
+	ResourceDisk.Format=y
+	ResourceDisk.Filesystem=ext4
+	ResourceDisk.MountPoint=/mnt/resource
+	ResourceDisk.EnableSwap=y
+	ResourceDisk.SwapSizeMB=2048 ## NOTE: set this to whatever you need it to be.
+	```
 
 16. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
@@ -348,15 +348,15 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
     Edit `/etc/dracut.conf`, add content:
 
-		```console
-		add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
-		```
+	```console
+	add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+	```
 
     Rebuild the initramfs:
 
-		```bash
-		sudo dracut -f -v
-		```
+	```bash
+	sudo dracut -f -v
+	```
 
 11. Install the Azure Linux Agent and dependencies:
 
@@ -369,13 +369,13 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
-		```console
-		ResourceDisk.Format=y
-		ResourceDisk.Filesystem=ext4
-		ResourceDisk.MountPoint=/mnt/resource
-		ResourceDisk.EnableSwap=y
-		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-		```
+	```console
+	ResourceDisk.Format=y
+	ResourceDisk.Filesystem=ext4
+	ResourceDisk.MountPoint=/mnt/resource
+	ResourceDisk.EnableSwap=y
+	ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+	```
 
 13. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
