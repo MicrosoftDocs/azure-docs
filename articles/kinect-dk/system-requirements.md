@@ -43,7 +43,7 @@ There are known compatibility issues with USB Host controllers. Consult [Support
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Azure Kinect DK Overview](what-is-azure-kinect-dk.md)
+>[Azure Kinect DK overview](what-is-azure-kinect-dk.md)
 
 > [!div class="nextstepaction"]
 >[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
