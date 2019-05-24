@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Update Management
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/07/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -71,6 +71,33 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="machines-not-showing"></a>Scenario: Machines don't show up in the portal under Update Management
+
+#### Issue
+
+You may run across the following scenarios:
+
+* Your machine shows **Not configured** from the Update Management view of a VM
+
+* Your machines are missing from the Update Management view of your Automation Account
+
+#### Cause
+
+This can be caused by potential local configuration issues or by improperly configured Scope Configuration.
+
+#### Resolution
+
+* Ensure your machine is reporting to the correct workspace. To find out what workspace is linked to your Azure Automation account, navigate to your Automation Account and click **Linked workspace** under **Related Resources**.
+
+* Check to ensure the machines show up in your Log Analytics workspace. Run the following query in your Log Analytics workspace that is linked to your Automation Account. If your machine is not heartbeating, there is most likely a local configuration issue. You can run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline) depending on the OS, or you can [re-install the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+
+  ```loganalytics
+  Heartbeat
+  | summarize by Computer, Solutions
+  ```
+
+* Check for scope configuration problems. [Scope Configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but is not showing up you will need to configure the scope config to target the machines. To learn how to do this, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
 ### <a name="nologs"></a>Scenario: Update Management data not showing in Azure Monitor logs for a machine
 
