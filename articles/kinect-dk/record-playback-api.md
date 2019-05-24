@@ -68,7 +68,7 @@ if (result == K4A_STREAM_RESULT_FAILED)
 ### Seeking within a recording
 
 Once we've reached the end of the file, we may want to go back and read it again. This process could be done by reading backwards with
-[k4a_playback_get_previous_capture](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga54732e3aa0717e1ca4eb76ee385e878c.html#ga54732e3aa0717e1ca4eb76ee385e878c), but it  be very slow depending on the length of the recording.
+[k4a_playback_get_previous_capture](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga54732e3aa0717e1ca4eb76ee385e878c.html#ga54732e3aa0717e1ca4eb76ee385e878c), but it could be very slow depending on the length of the recording.
 Instead we can use the [k4a_playback_seek_timestamp](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaea748994a121543bd77f90417cf428f6.html#gaea748994a121543bd77f90417cf428f6) function to go to a specific point in the file.
 
 In this example, we specify timestamps in microseconds to seek to various points in the file.
@@ -133,8 +133,8 @@ If a tag does not exist, it is assumed to have the default value.
 
 | Tag Name                   | Default Value      | [k4a_record_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) Field | Notes                                          |
 |----------------------------|--------------------|-----------------------------------|--------------------------------------------------------------------------------------|
-| K4A_COLOR_MODE             | "OFF"              | color_format / color_resolution   | Possible values: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P", etc...               |
-| K4A_DEPTH_MODE             | "OFF"              | depth_mode / depth_track_enabled  | Possible values: "OFF, "NFOV_UNBINNED", "PASSIVE_IR", etc...                         |
+| K4A_COLOR_MODE             | "OFF"              | color_format / color_resolution   | Possible values: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P", etc               |
+| K4A_DEPTH_MODE             | "OFF"              | depth_mode / depth_track_enabled  | Possible values: "OFF, "NFOV_UNBINNED", "PASSIVE_IR", etc                         |
 | K4A_IR_MODE                | "OFF"              | depth_mode / ir_track_enabled     | Possible values: "OFF", "ACTIVE", "PASSIVE"                                          |
 | K4A_IMU_MODE               | "OFF"              | imu_track_enabled                 | Possible values: "ON", "OFF"                                                         |
 | K4A_CALIBRATION_FILE       | "calibration.json" | N/A                               | See [k4a_device_get_raw_calibration](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f)        |

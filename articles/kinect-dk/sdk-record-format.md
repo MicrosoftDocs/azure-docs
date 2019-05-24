@@ -1,8 +1,8 @@
 ---
 title: Using sensor SDK - Recording File Format
 description: Recording file format details
-author: jawirth
-ms.author: jawirth
+author: joylital
+ms.author: joylital
 ms.prod: kinect-depth_track_enabled
 ms.date: 06/06/2019
 ms.topic: reference
@@ -31,7 +31,7 @@ ffmpeg -i output.mkv -map 0:1 -vsync 0 depth%04d.png
 
 The `-map 0:1` parameter will extract track index 1, which for most recordings will be depth. If the recording does not contain a color track, `-map 0:0` would be used.
 
-The `-vsync 0` parameter forces ffmpeg to extract frames as-is instead of trying to match a framerate of 30, 15 or 5 fps.
+The `-vsync 0` parameter forces ffmpeg to extract frames as-is instead of trying to match a framerate of 30 fps, 15 fps or 5 fps.
 
 ## IMU sample structure
 

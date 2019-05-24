@@ -52,10 +52,10 @@ For example, in this case, the depth camera ISP is running FW 1.5.63.
 
 The depth camera viewer will show two windows:
 
-* One is called *Active Brightness* which is a grayscale image showing IR brightness.
+* One is called *Active Brightness* that is a grayscale image showing IR brightness.
 * The second is called *Depth*, which has a colorized representation of the depth data.
 
-Hover your cursor, at the pixel in the the depth window, to see the value of the depth sensor, as shown below.
+Hover your cursor, at the pixel in the depth window, to see the value of the depth sensor, as shown below.
 
 ![Depth view](./media/how-to-guides/depth-camera.png)
 
@@ -73,7 +73,7 @@ You can control RGB camera settings from the configuration window during the str
 
 The IMU window has two components, an accelerometer and a gyroscope.
 
-The top half is the accelerometer and shows linear acceleration in meters/second^2.  It includes acceleration from gravity, so if it's lying flat on a table, the Z axis will probably show around -9.8m/s^2.
+The top half is the accelerometer and shows linear acceleration in meters/second^2.  It includes acceleration from gravity, so if it's lying flat on a table, the Z axis will probably show around -9.8 m/s^2.
 
 The bottom half is the gyroscope portion and shows rotational movement in radians/second
 
@@ -89,13 +89,13 @@ The dark wave represents the minimum and maximum values observed by the micropho
 
 ## Point cloud visualization
 
-Depth visualized in 3D let's you move in the image using instructed keys.
+Depth visualized in 3D lets you move in the image using instructed keys.
 
 ![Depth point cloud](./media/how-to-guides/depth-point-cloud.png)
 
 ## Synchronization control
 
-You can use the viewer to configure the device as standalone (default), master or subordinate mode when configuring multi-device synchronization.
+You can use the viewer to configure the device as standalone (default), master, or subordinate mode when configuring multi-device synchronization.
 When changing configuration or inserting/removing synchronization cable, select **Refresh** to update.
 
 ![External synchronization control](./media/how-to-guides/sync-control.png)
