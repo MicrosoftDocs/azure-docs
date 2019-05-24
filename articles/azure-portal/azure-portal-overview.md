@@ -19,7 +19,7 @@ This article introduces the Azure portal, identifies portal page elements, and h
 
 The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription using a graphical user interface. You can build, manage, and monitor everything from simple web apps to complex cloud deployments, create custom dashboards for an organized view of resources, and configure accessibility options for the best experience.
 
-The Azure portal is designed for resiliency and continuous availability. Because of dynamic traffic routing within and between datacenters, the Azure portal is not dependent on a single datacenter and maintains high availability. Through this high availability design, the Azure portal requires no downtime for maintenance activities.
+The Azure portal is designed for resiliency and continuous availability. It has a presence in every Azure datacenter and is not dependent on a single datacenter. It is therefore resilient to individual datacenter failures and potential networking slow-downs by being near users. Through this high availability design, the Azure portal requires no downtime for maintenance activities.
 
 ## Azure Home
 
