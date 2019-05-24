@@ -17,8 +17,6 @@
       href: configure-single-sign-on-portal.md
     - name: Add an on-premises app - portal
       href: application-proxy-add-on-premises-application.md    
-    - name: Give mobile and desktop apps access to on-premises APIs
-      href: application-proxy-secure-api-access.md    
   - name: Concepts
     items: 
     - name: Plan a cloud app integration
@@ -99,7 +97,9 @@
         href: application-proxy-configure-for-claims-aware-applications.md
       - name: Register connector - silent install
         href: application-proxy-register-connector-powershell.md
-      - name: Configure native client apps
+      - name: Give mobile and desktop apps access to on-premises APIs
+        href: application-proxy-secure-api-access.md 
+      - name: Configure mobile and desktop client apps
         href: application-proxy-configure-native-client-application.md
       - name: Configure custom home page
         href: application-proxy-configure-custom-home-page.md
