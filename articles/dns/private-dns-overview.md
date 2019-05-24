@@ -16,7 +16,7 @@ The Domain Name System, or DNS, is responsible for translating (or resolving) a 
 
 Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the name.
 
-To resolve the records of a private DNS zone from your virtual network, you will need to link virtual network with the zone. Linked virtual networks has full access and can resolve all DNS records published in the private zone. Additionally, you can also enable auto-registration on a virtual network link. If you enable the auto-registration on a virtual network link, the DNS records for the VMs from that virtual network are registered to the private zone. Azure DNS will also update the zone records whenever a VM is created, changes IP, or is deleted for the virtual networks that are linked to the zone with auto-registration enabled.
+To resolve the records of a private DNS zone from your virtual network, you must link the virtual network with the zone. Linked virtual networks have full access and can resolve all DNS records published in the private zone. Additionally, you can also enable auto-registration on a virtual network link. If you enable auto-registration on a virtual network link, the DNS records for the virtual machines on that virtual network are registered in the private zone. Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted when auto-registration is enabled.
 
 ![DNS overview](./media/private-dns-overview/scenario.png)
 
@@ -45,7 +45,7 @@ Azure Private DNS provides the following benefits:
 
 Azure DNS provides the following capabilities:
 
-* **Automatic registration of virtual machines from a virtual network that's linked to a private zone with auto-registration enabled**. The virtual machines are registered (added) to the private zone as A records pointing to their private IPs. When a virtual machine in a virtual network link with auto-registration enabled is deleted, Azure DNS will also automatically remove the corresponding DNS record from the linked private zone.
+* **Automatic registration of virtual machines from a virtual network that's linked to a private zone with auto-registration enabled**. The virtual machines are registered (added) to the private zone as A records pointing to their private IP addresses. When a virtual machine in a virtual network link with auto-registration enabled is deleted, Azure DNS also automatically removes the corresponding DNS record from the linked private zone.
 
 * **Forward DNS resolution is supported across virtual networks that are linked to the private zone**. For cross-virtual network DNS resolution, there is no explicit dependency such that the virtual networks are peered with each other. However, you might want to peer virtual networks for other scenarios (for example, HTTP traffic).
 
