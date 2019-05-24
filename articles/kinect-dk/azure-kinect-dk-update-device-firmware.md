@@ -15,8 +15,8 @@ This document provides guidance on how to update device firmware on your Azure K
 
 ## Prepare for firmware update
 
-1. [Download SDK](https://aka.ms/AzureKinectAPIDocs/download-sdk.md).
-2. Install the SDK. 
+1. [Download SDK](sensor-sdk-download.md).
+2. Install the SDK.
 3. In the SDK install location under (SDK install location)\tools\ you should find:
 
     - AzureKinectFirmwareTool.exe
@@ -73,10 +73,11 @@ Firmware updates can fail for several reasons. When a firmware update fails try 
 
 2. Confirm the device is still connected by querying for the firmware version.        AzureKinectFirmareTool.exe
 
-3. If all else fails, follow the [recovery](https://aka.ms/AzureKinectAPIDocs/azurekinect-fw-recovery.md) steps to revert to the factory firmware and try again.
+3. If all else fails, follow the [recovery](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk) steps to revert to the factory firmware and try again.
 
-For any additional issues see also [troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md)
+For any additional issues see also [Microsoft support pages](https://support.microsoft.com)
 
 ## Next steps
 
-[Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md)
+> [!div class="nextstepaction"]
+>[Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md)

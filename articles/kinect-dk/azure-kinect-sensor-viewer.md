@@ -50,7 +50,7 @@ For example, in this case, the depth camera ISP is running FW 1.5.63.
 
 ## Depth camera
 
-The depth camera viewer will show two windows: 
+The depth camera viewer will show two windows:
 
 * One is called *Active Brightness* which is a grayscale image showing IR brightness.
 * The second is called *Depth*, which has a colorized representation of the depth data.
@@ -102,8 +102,9 @@ When changing configuration or inserting/removing synchronization cable, select 
 
 ## Next steps
 
- [External synchronization setup guide](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md).
+> [!div class="nextstepaction"]
+>[External synchronization setup guide](https://support.microsoft.com/help/4494429/sync-multiple-azure-kinect-dk-devices).
 
 ## Troubleshooting
 
-See [troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md)
+See [troubleshooting](https://support.microsoft.com/help/4494423/use-azure-kinect-viewer)
