@@ -78,6 +78,7 @@ In this section, you install the IIS server on the two VMs myIISVMEastUS and myI
 5. You might receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue** to proceed with the connection.
 6. On the server desktop, browse to **Windows Administrative Tools** > **Server Manager**.
 7. Open Windows PowerShell on VM1. Use the following commands to install the IIS server and update the default .htm file.
+
     ```powershell-interactive
     # Install IIS
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -158,7 +159,7 @@ Add the two VMs running the IIS servers myIISVMEastUS and myIISVMWestEurope, to 
     |  Weight      | Enter **100**.        |
     |        |           |
 
-4. Repeat steps 2 and 3 to add another endpoint named **myWestEuropeEndpoint** for the public IP address **myIISVMWestEurope-ip**. This address is associated with the IIS server VM named myIISVMWEurope. For **Weight**, enter **25**.
+4. Repeat steps 2 and 3 to add another endpoint named **myWestEuropeEndpoint** for the public IP address **myIISVMWestEurope-ip**. This address is associated with the IIS server VM named myIISVMWestEurope. For **Weight**, enter **25**.
 5. When the addition of both endpoints is complete, they're displayed in the Traffic Manager profile along with their monitoring status as **Online**.
 
 ## Test the Traffic Manager profile

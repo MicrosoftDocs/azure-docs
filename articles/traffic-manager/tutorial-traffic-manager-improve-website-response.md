@@ -173,7 +173,7 @@ In this section, you test how the Traffic Manager routes user traffic to the nea
 1. Determine the DNS name of your Traffic Manager profile.
 2. View Traffic Manager in action as follows:
     - From the test VM (*myVMEastUS*) that is located in the **East US** region, in a web browser, browse to the DNS name of your Traffic Manager profile.
-    - From the test VM (*myVMEastUS*) that is located in the **West Europe** region, in a web browser, browse to the DNS name of your Traffic Manager profile.
+    - From the test VM (*myVMWestEurope*) that is located in the **West Europe** region, in a web browser, browse to the DNS name of your Traffic Manager profile.
 
 ### Determine DNS name of Traffic Manager profile
 
