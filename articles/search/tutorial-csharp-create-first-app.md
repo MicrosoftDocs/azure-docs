@@ -311,9 +311,10 @@ namespace FirstAzureSearch.Models
             return h;
         }
 
-        public string getHotelDescription(int index)
+        public string getFullHotelDescription(int index)
         {
             Hotel h = (Hotel)hotels[index];
+
             // Combine the tag data into a comma-delimited string
             string tagData = string.Join(", ", h.Tags);
             string description = h.Description;
@@ -398,15 +399,6 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
         height: 30px;
     }
 
-    .errorText {
-        font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-        margin: 20px 0;
-        font-size: 16px;
-        text-align: left;
-        height: 30px;
-        color: red;
-    }
-
     .searchBoxForm {
         width: 648px;
         box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
@@ -464,7 +456,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 ```cs
    <h1 class="sampleTitle">
     <img src="~/images/azure-logo.png" width="80" />
-     Your first app in Azure Search
+     Your first Azure Search app
     </h1>
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -487,7 +479,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
             @Html.TextAreaFor(m => Model.getHotel(i).HotelName, new { @class = "box1" })
             <br />
             // Display the hotel sample room and description.
-            @Html.TextArea("desc", Model.getHotelDescription(i), new { @class = "box2" })
+            @Html.TextArea("desc", Model.getFullHotelDescription(i), new { @class = "box2" })
             <br /> <br />
         }
     }
@@ -670,7 +662,7 @@ The Azure Search itself is encapsulated in our **RunQueryAsync** method.
 
 1. First add some static variables to set up the Azure service and a call to initiate them.
 
-```cs        
+```cs
         private static SearchServiceClient _serviceClient;
         private static ISearchIndexClient _indexClient;
         private static IConfigurationBuilder _builder;
@@ -688,7 +680,7 @@ The Azure Search itself is encapsulated in our **RunQueryAsync** method.
 
 2. Now add the **RunQueryAsync** method itself.
 
-```cs       
+```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page)
         {
             // Use static variables to set up the configuration and Azure service and index clients, for efficiency.

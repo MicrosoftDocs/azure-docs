@@ -107,7 +107,7 @@ public static class GlobalVariables
     // If there is more than one page of results, show the paging buttons.
     <table>
         <tr>
-            <td class="tdPage">
+            <td>
                 @if (Model.currentPage > 0)
                 {
                     <p class="pageButton">
@@ -120,7 +120,7 @@ public static class GlobalVariables
                 }
             </td>
 
-            <td class="tdPage">
+            <td>
                 @if (Model.currentPage > 0)
                 {
                     <p class="pageButton">
@@ -135,7 +135,7 @@ public static class GlobalVariables
 
             @for (var pn = Model.leftMostPage; pn < Model.leftMostPage + Model.pageRange; pn++)
             {
-                <td class="tdPage">
+                <td>
                     @if (Model.currentPage == pn)
                     {
                         // Convert displayed page numbers to 1-based and not 0-based.
@@ -150,7 +150,7 @@ public static class GlobalVariables
                 </td>
             }
 
-            <td class="tdPage">
+            <td>
                 @if (Model.currentPage < Model.pageCount - 1)
                 {
                     <p class="pageButton">
@@ -163,7 +163,7 @@ public static class GlobalVariables
                 }
             </td>
 
-            <td class="tdPage">
+            <td>
                 @if (Model.currentPage < Model.pageCount - 1)
                 {
                     <p class="pageButton">
@@ -183,6 +183,17 @@ public static class GlobalVariables
 Note in this code the use of an HTML table to align things neatly. However all the action comes from the **@Html.ActionLink** statements, each calling the controller with a **new** model created with different entries to the **paging** field we added earlier.
 
 The first and last page options do not send the strings "first" and "last" but instead send the correct page numbers.
+
+2. Add the **pageSelected** class to the list of HTML styles (perhaps after **.pageButton**). This class is there to identify the page the user is on (by turning the number bold) in the list of page numbers.
+
+```cs
+    .pageSelected {
+        border: none;
+        color: black;
+        font-weight: bold;
+        width: 50px;
+    }
+```
 
 ### Add a Page action to the controller
 
@@ -385,7 +396,7 @@ xxxx
 
 This variable is a string which will simply hold "next" if the next page of results should be sent, or be null for the first page of a search.
 
-### Add a vertical scroll bar
+### Add a vertical scroll bar to the view
 
 1. Locate the section of the index.cshtml file that displays the results (it starts with the **@if (Model != null)** check).
 2. Add a **&lt;div&gt;** section around the area that should be scrol-able and add both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
@@ -405,7 +416,7 @@ This variable is a string which will simply hold "next" if the next page of resu
         </div>
 ```
 
-3. Directly underneath this in the index.cshtml file add the scroll function.
+3. Directly underneath this in the index.cshtml file, add the scroll function.
 
 ```cs
         <script>
@@ -427,7 +438,7 @@ This variable is a string which will simply hold "next" if the next page of resu
 
 Note the call in the script above that tests to see if the user has scrolled to the bottom of the results list. If they have a call to the **Home** controller is make to an action called **Next**. No other information is needed by the controller, it will simply return the next page of data. This data is then formatted using identical styles as the original page. If no results are returned nothing is appended and things stay as they are.
 
-### Add a Next action to the Home controller
+### Handle the next action
 
 There are only three actions that can be sent to the controller: the first running of the app which calls **Index()**, the first search by the user which calls **Index(model)** and the calls for more results via **Next(model)**. 
 
@@ -487,12 +498,9 @@ There are only three actions that can be sent to the controller: the first runni
 
                     int start = page * GlobalVariables.ResultsPerPage;
                     int end = Math.Min(model.resultCount, (page + 1) * GlobalVariables.ResultsPerPage);
-                    double distanceInKm;
 
                     for (int i = start; i < end; i++)
                     {
-                        distanceInKm = DistanceInKm(double.Parse(model.lat), double.Parse(model.lon), results.Results[i].Document.Location.Latitude, results.Results[i].Document.Location.Longitude);
-
                         // Check for hotels with no room data provided.
                         if (results.Results[i].Document.Rooms.Length > 0)
                         {
@@ -501,8 +509,7 @@ There are only three actions that can be sent to the controller: the first runni
                                  results.Results[i].Document.Description,
                                  (double)results.Results[i].Document.Rooms[0].BaseRate,
                                  results.Results[i].Document.Rooms[0].BedOptions,
-                                 results.Results[i].Document.Tags,
-                                 distanceInKm);
+                                 results.Results[i].Document.Tags);
                         }
                         else
                         {
@@ -511,8 +518,7 @@ There are only three actions that can be sent to the controller: the first runni
                                 results.Results[i].Document.Description,
                                 0d,
                                 "No room data provided",
-                                results.Results[i].Document.Tags,
-                                distanceInKm);
+                                results.Results[i].Document.Tags);
                         }
                     }
 
@@ -529,7 +535,7 @@ There are only three actions that can be sent to the controller: the first runni
         }
 ```
 
-4. Add the **Next** action to the home controller. Note how it returns a list, each hotel adding two elements to the list: a hotel name and a hotel description.
+4. Add the **Next** action to the home controller. Note how it returns a list, each hotel adding two elements to the list: a hotel name and a hotel description. This format is set to match the **scrolled** function's use of the returned data in the view.
 
 ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -559,7 +565,7 @@ Good job on finishing this tutorial.
 You should consider the following takeaways from this project:
 
 * Numbered paging is perhaps the most robust for searches where the order of the results is somewhat arbitrary, meaning there may well be something of interest to your users on the later pages.
-* Infinite paging is perhaps most robust when the order of results is particularly important. For example, the distance from the center of a destination city. 
+* Infinite paging is perhaps most robust when the order of results is particularly important. For example, if the results are ordered on the distance from the center of a destination city.
 * Numbered paging allows for some better navigation, for example, a user can remember that an interesting result was on page 6, whereas no such easy navigation exists in infinite paging.
 * Infinite paging has an easy appeal, just scrolling down with no fussy page numbers to click on.
 * A key feature of infinite paging is that you are appending to an existing page, not replacing that page. This keeps it efficient.
