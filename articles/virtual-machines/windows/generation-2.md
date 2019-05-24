@@ -91,15 +91,9 @@ To increase the OS disk size via Azure portal:
 
 * Shut down and deallocate the VM using the **Stop** button on the Azure portal.
 
-    ![Stop a VM](./media/generation-2/stop-vm.png)
-
 * In the **Disks** section, select the OS disk that you'd like to increase.
 
-    ![Stop a VM in the Azure portal](./media/generation-2/os-disk-select.png)
-
 * Select **Configuration** and update the **Size** to the desired value.
-
-    ![Stop a VM in the Azure portal](./media/generation-2/os-disk-configure.png)
 
 > [!NOTE]
 > You may see a warning for OS disks larger than 2 TB. The warning does not apply to generation 2 VMs; however, OS disk sizes larger than 4 TB are **not recommended.**
@@ -136,6 +130,23 @@ Generation 2 VMs can also be created using virtual machine scale sets. You can c
 
 * **Is there a price difference between generation 1 and generation 2 VMs?**  
     There is no difference in pricing between generation 1 and generation 2 VMs.
+
+* **How do I increase the OS disk size?**
+  OS disks larger than 2 TB are new to generation 2 VMs. By default, most OS disks are less than 2 TB for generation 2 VMs, but the disk size can be increased to a recommended maximum of 4 TB. You can increase the OS disk size via the Azure CLI or the Azure portal.
+
+  To increase the OS disk size via Azure portal:
+
+  * Navigate to the VM properties page on the Azure portal.
+
+  * Shut down and deallocate the VM using the **Stop** button on the Azure portal.
+
+  * In the **Disks** section, select the OS disk that you'd like to increase.
+
+  * Select **Configuration** in the **Disks** section and update the **Size** to the desired value.
+
+  * Navigate back to the VM properties page and **Start** the VM.
+  
+  You may see a warning for OS disks larger than 2 TB. The warning does not apply to generation 2 VMs; however, OS disk sizes larger than 4 TB are **not recommended.**
 
 * **Do generation 2 VMs support Accelerated Networking?**  
     Yes, generation 2 VMs support [Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
