@@ -11,7 +11,7 @@ ms.author: yegu
 ms.custom: include file
 ---
 
-1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the pane, select **+ Create a resource**. In the **Search the Marketplace** box, enter **App Configuration** and select Enter.
+1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the pane, select **+Create a resource**. In the **Search the Marketplace** box, enter **App Configuration** and select Enter.
 
     ![Search for App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
 
