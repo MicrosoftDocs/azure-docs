@@ -64,11 +64,11 @@
   items:
     - name: Get support
       href: https://aka.ms/adsupport
-    - name: Join public community
-      href: https://aka.ms/adadvisorsjoin
     - name: Stack Overflow
       href: https://aka.ms/adso
     - name: MSDN
       href: https://aka.ms/admsdn
     - name: User voice
       href: https://aka.ms/aduservoice
+- name: Join Microsoft Teams channel
+  href: https://aka.ms/adadvisorsjoin
