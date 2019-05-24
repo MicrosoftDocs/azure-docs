@@ -40,10 +40,6 @@ To view a list of AzCopy commands, type `azCopy`, and then press the ENTER key.
 
 To learn more about a specific command, type `azCopy` followed by the name of the command.
 
-AzCopy supports the following options when authenticating with Azure Storage:
-- **Azure Active Directory** (Supported for **Blob and Data Lake Storage Gen2 services**). Use ```.\azcopy login``` to sign in with Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage with Azure Active Directory authentication. For authentication via managed identities for Azure resources, use `azcopy login --identity`.
-- **Shared access signature tokens [Supported for Blob and File services]**. Append the shared access signature (SAS) token to the blob path on the command line to use it. You can generate SAS tokens with the Azure portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
-
 For example, to learn about the `copy` command, type `azcopy copy`, and then press the ENTER key.
 
 Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
