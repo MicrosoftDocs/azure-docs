@@ -6,7 +6,7 @@
     href: apache-domain-joined-introduction.md
   - name: Plan for ESP clusters
     href: apache-domain-joined-architecture.md
-  - name: Create ESP clusters and link to On-Prem
+  - name: Create ESP clusters and sync with on-premises
     href: apache-domain-joined-create-configure-enterprise-security-cluster.md
   - name: Configure ESP clusters using Azure AD DS
     href: apache-domain-joined-configure-using-azure-adds.md

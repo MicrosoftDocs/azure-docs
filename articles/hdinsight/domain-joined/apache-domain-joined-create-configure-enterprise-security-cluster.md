@@ -21,7 +21,7 @@ Before using this process in your own environment, setup Active Directory and Do
 
 ![architecture diagram](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image002.png)
 
-## Deploy Windows Server Domain Controller and Windows DNS server
+## Create on-premises environment
 
 Overview: In this section, you will use an Azure Quick Deployment template to create new VMs, configure Domain Name Services (DNS), and a new AD Forest.
 
