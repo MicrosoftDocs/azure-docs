@@ -3,8 +3,8 @@ title: Features and platforms supported by Azure Security Center | Microsoft Doc
 description: This document provides a list of features and platforms supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2019
-ms.author: rkarlin
+ms.date: 5/02/2019
+ms.author: v-mohabe
 
 ---
 # Platforms and features supported by Azure Security Center
@@ -24,7 +24,6 @@ Security state monitoring and recommendations are available for virtual machines
 > [!NOTE]
 > Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 >
->
 
 ## Platforms that support the data collection agent 
 
@@ -33,11 +32,12 @@ This section lists the platforms on which the Azure Security Center agent can ru
 ### Supported platforms for Windows computers and VMs
 The following Windows operating systems are supported:
 
-* Windows Server 2008
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows Server 2008
 
 > [!NOTE]
 > Integration with Windows Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
@@ -65,25 +65,27 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||
-|----|----|----|----|----|
-|Environment|Azure|Non-Azure|Azure|Non-Azure|
-|VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|
-|Network-based threat detection alerts|✔|X|✔|X|
-|Windows Defender ATP integration|✔ (on supported versions)|✔|X|X|
-|Missing patches|✔|✔|✔|✔|
-|Security configurations|✔|✔|✔|✔|
-|Endpoint protection|✔|✔|X|X|
-|JIT VM access|✔|X|✔|X|
-|Adaptive application controls|✔|X|X|X|
-|FIM|✔|✔|✔|✔|
-|Disk encryption|✔|X|✔|X|
-|Third-party deployment|✔|X|✔|X|
-|NSGs|✔|X|✔|X|
-|Fileless threat detection|✔|✔|X|X|
-|Network map|✔|X|✔|X|
-|Adaptive network controls|✔|X|✔|X|
-
+|Server|Windows||Linux||||Pricing|
+|----|----|----|----|----|----|----|----|
+|**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
+||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
+|VMBA threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
+|Network-based threat detection alerts|✔|✔|X|✔|✔|X|Standard|
+|Windows Defender ATP integration|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
+|Missing patches|✔|✔|✔|✔|✔|✔|Free|
+|Security configurations|✔|✔|✔|✔|✔|✔|Free|
+|Endpoint protection assessment|✔|✔|✔|X|X|X|Free|
+|JIT VM access|✔|X|X|✔|X|X|Standard|
+|Adaptive application controls|✔|X|✔|✔|X|✔|Standard|
+|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
+|Third-party deployment|✔|X|X|✔|X|X|Free|
+|NSGs assessment|✔|✔|X|✔|✔|X|Free|
+|Fileless threat detection|✔|✔|✔|X|X|X|Standard|
+|Network map|✔|✔|X|✔|✔|X|Standard|
+|Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
+|Regulatory Compliance dashboard & reports|✔|✔|✔|✔|✔|✔|Standard|
+|Recommendations and threat detection on Docker-hosted IaaS containers|X|X|X|✔|✔|✔|Standard|
 
 ### Supported endpoint protection solutions
 
@@ -104,12 +106,11 @@ The following table provides a matrix of:
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
 >
->
 
-## Supported PaaS features 
+## Supported PaaS features
 
 
-|Service|Recommendations|Threat detection|
+|Service|Recommendations (Free)|Threat detection (Standard)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -119,11 +120,35 @@ The following table provides a matrix of:
 |Cloud Services|✔| X|
 |VNets|✔| NA|
 |Subnets|✔| NA|
-|NICs|✔| ✔|
+|NICs|✔| NA|
 |NSGs|✔| NA|
-|Subscription|✔| ✔|
+|Subscription|✔ **| ✔|
+|App service|✔| NA|
+|Batch|✔| NA|
+|Service fabric|✔| NA|
+|Automation account|✔| NA|
+|Load balancer|✔| NA|
+|Search|✔| NA|
+|Service bus|✔| NA|
+|Stream analytics|✔| NA|
+|Event hub|✔| NA|
+|Logic apps|✔| NA|
+|Subnet|✔| NA|
+|Vnet|✔| NA|
+|Storage account|✔| NA|
+|Redis|✔| NA|
+|SQL|✔| NA|
+|Data lake analytics|✔| NA|
+|Storage account|✔| NA|
+|Subscription|✔| NA|
+|Key vault|✔| NA|
 
-\* These features are currently supported in public preview. 
+
+
+
+\* These features are currently supported in public preview.
+
+\*\* AAD recommendations are only available for Standard subscriptions
 
 
 

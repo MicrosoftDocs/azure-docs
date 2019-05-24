@@ -1,3 +1,4 @@
+
 ---
 title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources'
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
@@ -36,11 +37,16 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.2.7"/>2.2.7
+* Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
+  * In this scenario load balancing algorithm used to falsely consider leases as expired, causing stealing leases from active owners. This could trigger unnecessary re-balancing a lot of leases.
+  * This issue is fixed in this release by avoiding retry on conflict while acquiring expired lease which owner hasn't changed and posponing acquiring expired lease to next load balancing iteration.
+
 ### <a name="2.2.6"/>2.2.6
 * Improved handling of Observer exceptions.
 * Richer information on Observer errors:
- * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
- * Added traces to identify errors within user code in an Observer.
+  * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
+  * Added traces to identify errors within user code in an Observer.
 
 ### <a name="2.2.5"/>2.2.5
 * Added support for handling split in collections that use shared database throughput.
@@ -125,7 +131,7 @@ ms.author: maquaran
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
-  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
+  * Fix for handling canceled tasks issue that might lead to stopped observers on some partitions.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 
@@ -158,6 +164,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |May 14, 2019 |--- |
 | [2.2.6](#2.2.6) |January 29, 2019 |--- |
 | [2.2.5](#2.2.5) |December 13, 2018 |--- |
 | [2.2.4](#2.2.4) |November 29, 2018 |--- |

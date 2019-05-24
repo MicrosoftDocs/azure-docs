@@ -1,6 +1,6 @@
 ---
-title: Set up security info to use phone calls - Azure Active Directory| Microsoft Docs
-description: Set up your security info to verify your identity using a mobile device or work phone number.
+title: Set up security info (preview) to use phone calls - Azure Active Directory | Microsoft Docs
+description: How to set up your security info to verify your identity using phone calls.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,44 +10,85 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
-# Set up security info to use phone calls (preview)
+# Set up security info (preview) to use phone calls
+You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
+
+If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
+> [!Note]
+> Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.
+> 
+> If you don't see a phone option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
 
-## Set up phone calls
-
-Depending on your organization’s settings, you may be prompted to add a phone number to your security info when you sign in. Otherwise, to begin setting up phone calls in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
+## Set up phone calls from the Security info page
+Depending on your organization’s settings, you might be able to use phone calls as one of your security info methods.
 
 >[!Note]
->Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.<br>If you don't see the phone option, it's possible that your organization doesn't allow you to use phone calls for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+>If you want to receive a text message instead of a phone call, follow the steps in the [Set up security info to use text messaging](security-info-setup-text-msg.md) article.
 
-### To use your phone number
+### To set up phone calls
 
-1. Select the **Phone** option.
+1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
-    The **Set up your phone** wizard appears.
+    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
-    ![Set up your country or region code and phone number](media/security-info/security-info-keep-secure-setup-phone.png)
+2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
 
-2. Pick your **Country or Region** from the drop-down box, type your phone number (including area code, if applicable) into the **Phone Number** box, select the **Call me** option, and then select **Next**.
+    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-    You'll receive a phone call to make sure you typed the right phone number. At that time, you'll be asked to push the pound (#) key to confirm and to complete your setup.
+3. On the **Add a method** page, select **Phone** from the drop-down list, and then select **Add**.
 
-    ![Verify your phone screen, showing that the call was successfully answered](media/security-info/security-info-keep-secure-verify-phone-call.png)
+    ![Add method box, with Phone selected](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-    Your security info is updated to use your phone number to verify your identity when using two-step verification or self-service password reset.
+4. On the **Phone** page, type the phone number for your mobile device, choose **Call me**, and then select **Next**.
 
-    >[!Note]
-    >If you want to receive a text message instead of a phone call to your mobile device, follow the steps in the [Set up security info to use text messaging (SMS)](security-info-setup-text-msg.md) article.
+    ![Add phone number and choose phone calls](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
-## Additional security info options
+5. Answer the verification phone call, sent to the phone number you entered, and follow the instructions.
 
+    The page changes to show your success.
+
+    ![Success notification, connecting the phone number, the choice to receive phone calls, and your account](media/security-info/securityinfo-myprofile-phonetext-success.png)
+
+    Your security info is updated and you can use phone calls to verify your identity when using two-step verification or password reset. If you want to make phone calls your default method, see the [Change your default security info method](#change-your-default-security-info-method) section of this article.
+
+## Delete phone calls from your security info methods
+If you no longer want to use phone calls as a security info method, you can remove it from the **Security info** page.
+
+>[!Important]
+>If you delete phone calls by mistake, there's no way to undo it. You'll have to add the method again, following the steps in the [Set up phone calls](#set-up-phone-calls-from-the-security-info-page) section of this article.
+
+### To delete phone calls
+
+1. On the **Security info** page, select the **Delete** link next to the **Phone** option.
+
+    ![Link to delete the phone method from security info](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+
+2. Select **Yes** from the confirmation box to delete the **Phone** number. After your phone number is deleted, it's removed from your security info and it disappears from the **Security info** page. If **Phone** is your default method, the default will change to another available method.
+    
+## Change your default security info method
+If you want phone calls to be the default method used when you sign-in to your work or school account using two-factor verification or for password reset requests, you can set it from the **Security info** page.
+
+### To change your default security info method
+
+1. On the **Security info** page, select the **Change** link next to the **Default sign-in method** information.
+
+    ![Change link for default sign-in method](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+
+2. Select **Phone - call (*_your_phone_number_*)** from the drop-down list of available methods, and then select **Confirm**.
+
+    ![Choose method for default sign-in](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
+
+    The default method used for sign-in changes to **Phone - call (*_your_phone_number_*)**.
+
+## Additional security info methods
 You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
 - **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
@@ -62,8 +103,6 @@ You have additional options for how your organization contacts you to verify you
     >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
 
 ## Next steps
-
-- If you need to update your security info, follow the instructions in the [Manage your security info](security-info-manage-settings.md) article.
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
 

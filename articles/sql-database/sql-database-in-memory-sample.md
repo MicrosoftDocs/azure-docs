@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
@@ -40,7 +40,7 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 #### Installation steps
 
-1. In the [Azure portal](https://portal.azure.com/), create a Premium or Business Critical database on a server. Set the **Source** to the AdventureWorksLT sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started-portal.md).
+1. In the [Azure portal](https://portal.azure.com/), create a Premium or Business Critical database on a server. Set the **Source** to the AdventureWorksLT sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-single-database-get-started.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -177,18 +177,18 @@ On the VM, or on whatever host you choose, install the Replay Markup Language (R
 For more information, see:
 - The ostress.exe discussion in [Sample Database for In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Sample Database for In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
-- The [blog for installing ostress.exe](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- The [blog for installing ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
 <!--
 dn511655.aspx is for SQL 2014,
 [Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
-(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+(https://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
 
 whereas for SQL 2016+
 [Sample Database for In-Memory OLTP]
-(http://msdn.microsoft.com/library/mt465764.aspx)
+(https://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -238,9 +238,9 @@ After you have the result from the *_inmem* run, perform the following steps for
 
 
 1. Reset the database by running the following command in SSMS to delete all the data that was inserted by the previous run:
-```sql
-EXECUTE Demo.usp_DemoReset;
-```
+   ```sql
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. Edit the ostress.exe command line to replace all *_inmem* with *_ondisk*.
 
@@ -271,13 +271,13 @@ For real-time analytics on an OLTP workload, it's often best to use a noncluster
 
 
 1. Use the Azure portal to create a fresh AdventureWorksLT database from the sample.
- - Use that exact name.
- - Choose any Premium service tier.
+   - Use that exact name.
+   - Choose any Premium service tier.
 
 2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
- - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
- - The script creates the Dimension table and two fact tables. The fact tables are populated with 3.5 million rows each.
- - The script might take 15 minutes to complete.
+   - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
+   - The script creates the Dimension table and two fact tables. The fact tables are populated with 3.5 million rows each.
+   - The script might take 15 minutes to complete.
 
 3. Paste the T-SQL script into SSMS, and then execute the script. The **COLUMNSTORE** keyword in the **CREATE INDEX** statement is crucial, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 

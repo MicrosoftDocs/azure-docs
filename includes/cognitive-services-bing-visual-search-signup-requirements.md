@@ -1,10 +1,10 @@
---- 
+---
 author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2018
---- 
+---
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. Before continuing, You will need the access key provided after starting a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 

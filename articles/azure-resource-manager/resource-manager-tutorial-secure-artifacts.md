@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/07/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -32,8 +32,6 @@ This tutorial covers the following tasks:
 > * Verify the deployment
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -125,11 +123,11 @@ A Blob container is needed before you can upload any files.
 3. Select **Generate blob SAS token and URL**.
 4. Make a copy of **Blob SAS URL**. In the middle of the URL is the file name **SQLDatabaseExtension.bacpac**.  The file name divides the URL into three parts:
 
-    - **Artifact location**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Make sure the location ends with a "/".
-    - **BACPAC file name**: SQLDatabaseExtension.bacpac.
-    - **Artifact location SAS token**: Make sure the token precedes with a "?."
+   - **Artifact location**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Make sure the location ends with a "/".
+   - **BACPAC file name**: SQLDatabaseExtension.bacpac.
+   - **Artifact location SAS token**: Make sure the token precedes with a "?."
 
-    You need these three values in [Deploy the template](#deploy-the-template).
+     You need these three values in [Deploy the template](#deploy-the-template).
 
 ## Open an existing template
 
@@ -145,13 +143,13 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
 
     There are five resources defined in the template:
 
-    * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-    * `Microsoft.SQL/servers/filewallRules`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-    * `Microsoft.SQL/servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-    * `Microsoft.SQL/server/databases/extensions`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
+   * `Microsoft.SQL/servers/filewallRules`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-    It is helpful to get some basic understanding of the template before customizing it.
+     It is helpful to get some basic understanding of the template before customizing it.
 4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 
 ## Edit the template
@@ -192,10 +190,11 @@ Update the value of the following two elements:
 
 ## Deploy the template
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -205,14 +204,14 @@ $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS
 $bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
     -_artifactsLocation $artifactsLocation `
     -_artifactsLocationSasToken $artifactsLocationSasToken `
     -bacpacFileName $bacpacFileName `
-    -TemplateFile azuredeploy.json
+    -TemplateFile "$HOME/azuredeploy.json"
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).

@@ -33,7 +33,7 @@ Service Bus Premium supports Geo-disaster recovery, at the namespace level. For 
 The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region.
 
 > [!NOTE]
-> The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-overview.md#regions-that-support-availability-zones) where availability zones are present.
+> The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-overview.md#services-support-by-region) where availability zones are present.
 
 You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 
@@ -90,8 +90,8 @@ To learn more about disaster recovery, see these articles:
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency

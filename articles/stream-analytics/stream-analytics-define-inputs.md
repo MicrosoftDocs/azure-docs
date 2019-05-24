@@ -20,7 +20,7 @@ Stream Analytics has first-class integration with Azure data streams as inputs f
 These input resources can live in the same Azure subscription as your Stream Analytics job or a different subscription.
 
 ### Compression
-Stream Analytics supports compression across all data stream input sources. Currently supported reference types are: None, GZip, and Deflate compression. Support for compression is not available for reference data. If the input format is Avro data that is compressed, it's handled transparently. You don't need to specify compression type with Avro serialization. 
+Stream Analytics supports compression across all data stream input sources. Currently supported compression types are: None, GZip, and Deflate compression. Support for compression is not available for reference data. If the input format is Avro data that is compressed, it's handled transparently. You don't need to specify compression type with Avro serialization. 
 
 ## Create, edit, or test inputs
 You can use the [Azure portal](https://portal.azure.com) to [create new inputs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) and view or edit existing inputs on your streaming job. You can also test input connections and [test queries](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) from sample data. When you write a query, you will list the input in the FROM clause. You can get the list of available inputs from the **Query** page in the portal. If you wish to use multiple inputs, you can `JOIN` them or write multiple `SELECT` queries.
@@ -69,7 +69,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub medadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub metadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## Stream data from IoT Hub
@@ -125,6 +125,8 @@ Stream Analytics currently does not support deserializing AVRO messages generate
 > [!NOTE]
 > Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 > 
+
+Uploading a very large number of blobs at once might cause Stream Analytics to skip reading few blobs in rare cases. It is recommended to upload blobs at least 2 seconds apart to Blob storage. If this option is not feasible, you can use Event Hubs to stream large volumes of events. 
 
 ### Configure Blob storage as a stream input 
 

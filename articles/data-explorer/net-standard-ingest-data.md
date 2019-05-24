@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using .NET Standard SDK.'
-services: data-explorer
+description: In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using .NET Standard SDK.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
 
-#Customer intent: As a .NET Standard SDK developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
+# Customer intent: As a .NET Standard SDK developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
 ---
 
 # Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)
@@ -98,6 +97,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
                 Tuple.Create("State", "System.String"),
                 Tuple.Create("EventType", "System.String"),
                 Tuple.Create("InjuriesDirect", "System.Int32"),
+                Tuple.Create("InjuriesIndirect", "System.Int32"),
                 Tuple.Create("DeathsDirect", "System.Int32"),
                 Tuple.Create("DeathsIndirect", "System.Int32"),
                 Tuple.Create("DamageProperty", "System.Int32"),
@@ -135,8 +135,10 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
             {
                 new CsvColumnMapping { ColumnName = "StartTime", Ordinal = 0 },
                 new CsvColumnMapping { ColumnName = "EndTime", Ordinal = 1 },
+                new CsvColumnMapping { ColumnName = "EpisodeId", Ordinal = 2 },
                 new CsvColumnMapping { ColumnName = "EventId", Ordinal = 3 },
                 new CsvColumnMapping { ColumnName = "State", Ordinal = 4 },
+                new CsvColumnMapping { ColumnName = "EventType", Ordinal = 5 },
                 new CsvColumnMapping { ColumnName = "InjuriesDirect", Ordinal = 6 },
                 new CsvColumnMapping { ColumnName = "InjuriesIndirect", Ordinal = 7 },
                 new CsvColumnMapping { ColumnName = "DeathsDirect", Ordinal = 8 },
@@ -146,13 +148,13 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
                 new CsvColumnMapping { ColumnName = "Source", Ordinal = 12 },
                 new CsvColumnMapping { ColumnName = "BeginLocation", Ordinal = 13 },
                 new CsvColumnMapping { ColumnName = "EndLocation", Ordinal = 14 },
-                new CsvColumnMapping { ColumnName = "BeginLat", Ordinal = 16 },
-                new CsvColumnMapping { ColumnName = "BeginLon", Ordinal = 17 },
-                new CsvColumnMapping { ColumnName = "EndLat", Ordinal = 18 },
-                new CsvColumnMapping { ColumnName = "EndLon", Ordinal = 19 },
-                new CsvColumnMapping { ColumnName = "EpisodeNarrative", Ordinal = 20 },
-                new CsvColumnMapping { ColumnName = "EventNarrative", Ordinal = 21 },
-                new CsvColumnMapping { ColumnName = "StormSummary", Ordinal = 22 },
+                new CsvColumnMapping { ColumnName = "BeginLat", Ordinal = 15 },
+                new CsvColumnMapping { ColumnName = "BeginLon", Ordinal = 16 },
+                new CsvColumnMapping { ColumnName = "EndLat", Ordinal = 17 },
+                new CsvColumnMapping { ColumnName = "EndLon", Ordinal = 18 },
+                new CsvColumnMapping { ColumnName = "EpisodeNarrative", Ordinal = 19 },
+                new CsvColumnMapping { ColumnName = "EventNarrative", Ordinal = 20 },
+                new CsvColumnMapping { ColumnName = "StormSummary", Ordinal = 21 },
             });
 
     kustoClient.ExecuteControlCommand(command);

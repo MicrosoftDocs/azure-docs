@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication - How it works
+title: Azure Multi-Factor Authentication - How it works - Azure Active Directory
 description: Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
 
 services: multi-factor-authentication
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # How it works: Azure Multi-Factor Authentication
 
@@ -22,7 +23,9 @@ The security of two-step verification lies in its layered approach. Compromising
 * Something you have (a trusted device that is not easily duplicated, like a phone)
 * Something you are (biometrics)
 
-<center>![Conceptual authentication methods image](./media/concept-mfa-howitworks/methods.png)</center>
+<center>
+
+![Conceptual authentication methods image](./media/concept-mfa-howitworks/methods.png)</center>
 
 Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md). Users may or may not be challenged for MFA based on configuration decisions that an administrator makes.
 

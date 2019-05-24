@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -63,7 +63,7 @@ The sample performs the following actions:
 6. Downloads the files that resulted from running the job. 
 
 > [!NOTE]
-> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](../previous/media-services-scale-media-processing-overview.md).
+> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
 ### Start using Media Services APIs with .NET SDK
 
@@ -97,7 +97,7 @@ When encoding or processing content in Media Services, it is a common pattern to
 
 #### Transform
 
-When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used and the language ("en-US") is passed to its constructor. This preset enables you to extract multiple audio and video insights from a video. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from a video. 
+When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output, **TransformOutput**  is a required parameter. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used and the language ("en-US") is passed to its constructor (`new VideoAnalyzerPreset("en-US")`). This preset enables you to extract multiple audio and video insights from a video. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from a video. 
 
 When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
@@ -122,6 +122,11 @@ Event Grid is designed for high availability, consistent performance, and dynami
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
+
+
+### Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### Download the result of the job
 
@@ -158,6 +163,10 @@ az group delete --name amsResourceGroup
 ## Multithreading
 
 The Azure Media Services v3 SDKs are not thread-safe. When working with multi-threaded application, you should generate a new  AzureMediaServicesClient object per thread.
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

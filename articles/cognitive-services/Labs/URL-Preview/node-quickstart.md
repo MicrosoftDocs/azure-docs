@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get started using the URL Preview in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: url-preview

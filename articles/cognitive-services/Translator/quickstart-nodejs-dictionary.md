@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Node.js and the Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 # Quickstart: Look up words with bilingual dictionary using Node.js
@@ -26,7 +26,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `dictionary-lookup.js`.
+Create a new project using your favorite IDE or editor, or create a new folder on your desktop. Copy this code snippet into your project/folder into a file named `alt-translations.js`.
 
 ```javascript
 const request = require('request');
@@ -109,7 +109,7 @@ request(options, function(err, res, body){
 That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
 
 ```console
-node dictionary-lookup.js
+node alt-translations.js
 ```
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).

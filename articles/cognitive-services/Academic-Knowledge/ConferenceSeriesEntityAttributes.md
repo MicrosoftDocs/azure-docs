@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about the attributes you can use with the Conference Series entity.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge

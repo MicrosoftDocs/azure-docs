@@ -50,6 +50,7 @@ The following data sources are supported for Lookup activity. The largest number
 ```
 
 ## Type properties
+
 Name | Description | Type | Required?
 ---- | ----------- | ---- | --------
 dataset | Provides the dataset reference for the lookup. Get details from the **Dataset properties** section in each corresponding connector article. | Key/value pair | Yes
@@ -57,7 +58,7 @@ source | Contains dataset-specific source properties, the same as the Copy Activ
 firstRowOnly | Indicates whether to return only the first row or all rows. | Boolean | No. The default is `true`.
 
 > [!NOTE]
-
+> 
 > * Source columns with **ByteArray** type aren't supported.
 > * **Structure** isn't supported in dataset definitions. For text-format files, use the header row to provide the column name.
 > * If your lookup source is a JSON file, the `jsonPathDefinition` setting for reshaping the JSON object isn't supported. The entire objects will be retrieved.

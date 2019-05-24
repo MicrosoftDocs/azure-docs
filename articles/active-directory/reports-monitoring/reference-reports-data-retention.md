@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory report retention policies | Microsoft Docs
-description: Retention policies on report data in your Azure Active Directory
+title: How long does Azure AD store reporting data? | Microsoft Docs
+description: Learn how long Azure stores the various types of reporting data. 
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,11 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory report retention policies
+# How long does Azure AD store reporting data?
 
 In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory. 
 
@@ -63,9 +64,9 @@ For security signals, the collection process starts when you opt-in to use the *
 
 | Report                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| Directory Audit        | 7 days        |  7 days        | 30 days             | 30 days             |
-| Sign-in Activity       | N/A           |  N/A           | 30 days             | 30 days             |
-| Azure MFA Usage        | 30 days       |  30 days       | 30 days             | 30 days             |
+| Audit logs             | 7 days        |  7 days        | 30 days             | 30 days             |
+| Sign-ins               | N/A           |  N/A           | 30 days             | 30 days             |
+| Azure MFA usage        | 30 days       |  30 days       | 30 days             | 30 days             |
 
 You can retain the audit and sign-in activity data for longer than the default retention period outlined above by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Azure AD logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 

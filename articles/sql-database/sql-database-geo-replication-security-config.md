@@ -27,6 +27,9 @@ The main trade-off is that managing the disaster recovery process at scale is mo
 
 If you are using logins and users (rather than contained users), you must take extra steps to ensure that the same logins exist in the master database. The following sections outline the steps involved and additional considerations.
 
+  >[!NOTE]
+  > It is also possible to use Azure Active Directory (AAD) logins to manage your databases. For more information, see [Azure SQL logins and users](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+
 ### Set up user access to a secondary or recovered database
 
 In order for the secondary database to be usable as a read-only secondary database, and to ensure proper access to the new primary database or the database recovered using geo-restore, the master database of the target server must have the appropriate security configuration in place before the recovery.
@@ -80,7 +83,9 @@ The last step is to go to the target server, or servers, and generate the logins
 > [!NOTE]
 > If you want to grant user access to the secondary, but not to the primary, you can do that by altering the user login on the primary server by using the following syntax.
 >
+> ```sql
 > ALTER LOGIN <login name> DISABLE
+> ```
 >
 > DISABLE doesn’t change the password, so you can always enable it if needed.
 

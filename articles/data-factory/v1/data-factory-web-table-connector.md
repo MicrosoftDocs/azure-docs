@@ -236,7 +236,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **WebSource** and **sink** type is set to **BlobSink**.
 
-See [WebSource type properties](#copy-activity-type-properties) for the list of properties supported by the WebSource.
+See WebSource type properties for the list of properties supported by the WebSource.
 
 ```json
 {  

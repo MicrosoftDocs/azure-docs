@@ -1,6 +1,6 @@
 ---
 title: Using managed disks in Azure Resource Manager templates for Linux VMs | Microsoft Docs
-description: Details how to use managed misks in Azure Resource Manager templates for Linux VMs
+description: Details how to use managed disks in Azure Resource Manager templates for Linux VMs
 services: virtual-machines-linux
 documentationcenter:
 author: jboeshart

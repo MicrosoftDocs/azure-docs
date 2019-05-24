@@ -3,8 +3,8 @@ title: Learn about Azure Service Fabric application security | Microsoft Docs
 description: An overview of how to securely run microservices applications on Service Fabric. Learn how to run services and startup script under different security accounts, authenticate and authorize users, manage application secrets, secure service communications, use an API gateway, and secure application data at rest. 
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Service Fabric application and service security
@@ -106,7 +106,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [Learn about cluster security](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[key-vault-get-started]:../key-vault/key-vault-overview.md
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 

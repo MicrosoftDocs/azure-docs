@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this Node.js quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -16,7 +16,7 @@ ms.author: diberry
 
 # Quickstart: Change model using Node.js
 
-[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 
 ## Prerequisites
 

@@ -37,18 +37,18 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 ## Create a new dashboard
 A single dashboard can contain resources from multiple applications, resource groups, and subscriptions.  Start the tutorial by creating a new dashboard for your application.  
 
-2.  On the dashboard pane, select **New dashboard**.
+1. On the dashboard pane, select **New dashboard**.
 
-	![New dashboard](media/tutorial-app-dashboards/1newdashboard.png)
+   ![New dashboard](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Type a name for the dashboard.
-4. Have a look at the **Tile Gallery** for a variety of tiles that you can add to your dashboard.  In addition to adding tiles from the gallery you can pin charts and other views directly from Application Insights to the dashboard.
-5. Locate the **Markdown** tile and drag it on to your dashboard.  This tile allows you to add text formatted in markdown which is ideal for adding descriptive text to your dashboard.
-6. Add text to the tile's properties and resize it on the dashboard canvas.
+1. Type a name for the dashboard.
+1. Have a look at the **Tile Gallery** for a variety of tiles that you can add to your dashboard.  In addition to adding tiles from the gallery you can pin charts and other views directly from Application Insights to the dashboard.
+1. Locate the **Markdown** tile and drag it on to your dashboard.  This tile allows you to add text formatted in markdown which is ideal for adding descriptive text to your dashboard.
+1. Add text to the tile's properties and resize it on the dashboard canvas.
 	
 	![Edit markdown tile](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Click **Done customizing** at the top of the screen to exit tile customization mode.
+1. Click **Done customizing** at the top of the screen to exit tile customization mode.
 
 ## Add health overview
 A dashboard with just static text isn't very interesting, so now add a tile from Application Insights to show information about your application.  You can add Application Insights tiles from the Tile Gallery, or you can pin them directly from Application Insights screens.  This allows you to configure charts and views that you're already familiar with before pinning them to your dashboard.  Start by adding the standard health overview for your application.  This requires no configuration and allows minimal customization in the dashboard.
@@ -102,12 +102,12 @@ Since Azure Applications Insights Analytics is a separate service, you need to s
 
 3. Type the following query, which returns the top 10 most requested pages and their request count:
 
-	```
+    ```
 	requests
 	| summarize count() by name
 	| sort by count_ desc
 	| take 10 
-	```
+    ```
 
 4. Click **Run** to validate the results of the query.
 5. Click the pin icon and select the name of your dashboard. The reason that this option has you select a dashboard unlike the previous steps where the last dashboard was used is because the Analytics console is a separate service and needs to select from all available shared dashboards.
@@ -116,12 +116,12 @@ Since Azure Applications Insights Analytics is a separate service, you need to s
 
 5. Before you go back to the dashboard, add another query, but this time render it as a chart so you see the different ways to visualize an Analytics query in a dashboard.  Start with the following query that summarizes the top 10 operations with the most exceptions.
 
-	```
+    ```
 	exceptions
 	| summarize count() by operation_Name
 	| sort by count_ desc
 	| take 10 
-	```
+    ```
 
 6. Select **Chart** and then change to a **Doughnut** to visualize the output.
 

@@ -1,21 +1,21 @@
 ---
 title: Quickstart to create a Python app that uses Azure Cache for Redis | Microsoft Docs
 description: In this quickstart, you learn how to create an Python App that uses Azure Cache for Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: v-lincan
 
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
-ms.topic: hero-article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.topic: conceptual
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.topic: quickstart
 ms.date: 05/11/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
 #Customer intent: As a Python developer, new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---
@@ -43,7 +43,7 @@ This quickstart shows how to connect to an Azure Cache for Redis with Python to 
 
 [Redis-py](https://github.com/andymccurdy/redis-py) is a Python interface to Azure Cache for Redis. Use the Python packages tool, *pip*, to install the redis-py package. 
 
-The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2017 Developer Command prompt running with elevated Administrator privileges.
+The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2019 Developer Command prompt running with elevated Administrator privileges.
 
     pip3 install redis
 

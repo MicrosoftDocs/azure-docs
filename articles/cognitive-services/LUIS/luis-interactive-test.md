@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -127,5 +127,5 @@ See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

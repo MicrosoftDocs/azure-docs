@@ -1,10 +1,10 @@
 ---
 title: How to configure an Application Proxy application | Microsoft Docs
-description: Learn how to create an configure an APplication Proxy application in a few simple steps  
+description: Learn how to create and configure an APplication Proxy application in a few simple steps  
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure an Application Proxy application
 
-This article help you to understand how to configure an Application Proxy application within Azure AD to expose your on-premises applications to the cloud.
+This article helps you to understand how to configure an Application Proxy application within Azure AD to expose your on-premises applications to the cloud.
 
 ## Recommended documents 
 
@@ -45,7 +46,7 @@ If you are following the steps in the [Publish applications using Azure AD Appli
 
 -   The URL should be a domain name, not an IP address
 
-The error message should display in the top right corner when you create the application. You can also select the notification icon to see the error messages.
+The error message should display in the top-right corner when you create the application. You can also select the notification icon to see the error messages.
 
    ![Notification prompt](./media/application-proxy-config-how-to/error-message.png)
 
@@ -67,7 +68,7 @@ If you are encountering issues uploading your certificate, look for the error me
 
 -   Certificate is missing the private key
 
-The error message display in the top right corner as you try to upload the certificate. You can also select the notification icon to see the error messages.
+The error message display in the top-right corner as you try to upload the certificate. You can also select the notification icon to see the error messages.
 
    ![Notification prompt](./media/application-proxy-config-how-to/error-message2.png)
 

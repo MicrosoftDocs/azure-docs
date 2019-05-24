@@ -4,7 +4,7 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with Node.js.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - You must have [Node.js](https://nodejs.org) 4.x or later installed.
 - You must have [npm](https://www.npmjs.com/) installed.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Create and run the sample
 
@@ -49,7 +49,7 @@ To create and run the sample, do the following steps:
 1. Open a command prompt window.
 1. At the prompt, use the `node` command to run the file. For example, `node analyze-image.js`.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');
@@ -64,7 +64,7 @@ const uriBase =
     'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
 
 const imageUrl =
-    'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+    'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
 // Request parameters.
 const params = {

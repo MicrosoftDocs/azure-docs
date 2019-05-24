@@ -5,7 +5,7 @@ description: Learn about cloud-based computing services that include a wide sele
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -135,6 +135,7 @@ Utilizing an isolated size guarantees that your virtual machine will be the only
 * Standard_G5
 * Standard_DS15_v2
 * Standard_D15_v2
+* Standard_F72s_v2
 
 You can learn more about each Isolated size available [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
@@ -343,7 +344,7 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 **Traffic isolation:** A [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
 
-[Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security group (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) to allow or deny network traffic to a VM instance based on rules configured in access control list (ACL) of NSG. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
+[Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security group (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) to allow or deny network traffic to a VM instance based on rules configured in access control list (ACL) of NSG. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
 
 ## Next Steps
 

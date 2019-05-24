@@ -1,16 +1,15 @@
 ---
 title: Embed a report in Azure Power BI Workspace Collections | Microsoft Docs
 description: Learn how to embed a report that is in Power BI Workspace Collections into your application.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Embed a report in Power BI Workspace Collections
 
 Learn how to embed a report that is in Power BI Workspace Collections into your application.
@@ -36,13 +35,13 @@ When using the .NET SDK, you need to create a token credential that is based on 
 
 **NuGet package install**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Api
 ```
 
 **C# code**
 
-```
+```csharp
 using Microsoft.PowerBI.Api.V1;
 using Microsoft.Rest;
 
@@ -57,7 +56,7 @@ var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, 
 
 ### Calling the REST API directly
 
-```
+```csharp
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.com/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
 
 request.Method = "GET";
@@ -84,13 +83,13 @@ You use the report ID that you retrieved earlier. Once the embed token is create
 
 **NuGet package install**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C# code**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername, roles and scopes are optional.
@@ -112,16 +111,17 @@ After you have the access token and the report ID, we can embed the report using
 
 **NuGet package install**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript code**
 
-```
+```html
 <script src="/scripts/powerbi.js"></script>
 <div id="reportContainer"></div>
 
+<script>
 var embedConfiguration = {
     type: 'report',
     accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
@@ -131,6 +131,7 @@ var embedConfiguration = {
 
 var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
+</script>
 ```
 
 ### Set the size of embedded elements
@@ -149,4 +150,4 @@ The report will automatically be embedded based on the size of its container. To
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git Repo](https://github.com/Microsoft/PowerBI-Node)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

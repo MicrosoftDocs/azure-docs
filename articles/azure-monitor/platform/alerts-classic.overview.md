@@ -5,21 +5,21 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
 ---
 
 # What are classic alerts in Microsoft Azure?
 
 > [!NOTE]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../../azure-monitor/platform/alerts-overview.md). Classic alerts are [scheduled to be retired](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../../azure-monitor/platform/alerts-overview.md). Classic alerts are [scheduled to be retired](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
 >
 
 Alerts allow you to configure conditions over data and become notified when the conditions match the latest monitoring data.
 
 ## Old and New alerting capabilities
 
-In the past Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. The consolidation is still in process. Alerts
+In the past Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. The consolidation is still in process.
 
 You can view classic alerts only in the classic alerts user screen in the Azure Portal. You get this screen from the **View classic alerts** button on the alerts screen. 
 
@@ -76,22 +76,22 @@ However, the older metric alerts do not use action groups. Instead, you can conf
 - Call a webhook, which enables you to launch additional automation actions.
 
 Webhooks enables automation and remediation, for example, using:
-    - Azure Automation Runbook
-    - Azure Function
-    - Azure Logic App
-    - a third-party service
+- Azure Automation Runbook
+- Azure Function
+- Azure Logic App
+- a third-party service
 
 ## Next steps
 Get information about alert rules and configuring them by using:
 
-* Learn more about [Metrics](../../azure-monitor/platform/data-collection.md)
+* Learn more about [Metrics](data-platform.md)
 * Configure [classic Metric Alerts via Azure portal](alerts-classic-portal.md)
 * Configure [classic Metric Alerts PowerShell](alerts-classic-portal.md)
 * Configure [classic Metric Alerts Command-line interface (CLI)](alerts-classic-portal.md)
 * Configure [classic Metric Alerts Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Learn more about [Activity Log](../../azure-monitor/platform/activity-logs-overview.md)
-* Configure [Activity Log Alerts via Azure portal](../../azure-monitor/platform/activity-log-alerts.md)
+* Learn more about [Activity Log](activity-logs-overview.md)
+* Configure [Activity Log Alerts via Azure portal](activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](alerts-activity-log.md)
-* Review the [activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Learn more about [Action groups](../../azure-monitor/platform/action-groups.md)
-* Configure [newer Alerts](../../azure-monitor/platform/alerts-metric.md)
+* Review the [activity log alert webhook schema](activity-log-alerts-webhook.md)
+* Learn more about [Action groups](action-groups.md)
+* Configure [newer Alerts](alerts-metric.md)

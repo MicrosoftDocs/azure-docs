@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Python example get started using Project Answer Search.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: answer-search

@@ -13,6 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
+ms.collection: M365-identity-device-management
 ---
 
 # Diagnose and remediate duplicated attribute sync errors
@@ -28,7 +29,7 @@ For more information about Azure AD, see [Identity synchronization and duplicate
 ## Problems
 ### A common scenario
 When **QuarantinedAttributeValueMustBeUnique** and **AttributeValueMustBeUnique** sync errors happen, it's common to see a **UserPrincipalName** or **Proxy Addresses** conflict in Azure AD. You might solve the sync errors by updating the conflicting source object from the on-premises side. The sync error will be resolved after the next sync. 
-For example, this image indicates that two users have a conflict of their **UserPrincipalName**. Both are **Joe.J@contoso.com**. The conflicting objects are quarantined in Azure AD.
+For example, this image indicates that two users have a conflict of their **UserPrincipalName**. Both are **Joe.J\@contoso.com**. The conflicting objects are quarantined in Azure AD.
 
 ![Diagnose sync error common scenario](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -61,32 +62,34 @@ Follow the steps from the Azure portal to narrow down the sync error details and
 
 From the Azure portal, take a few steps to identify specific fixable scenarios:  
 1.	Check the **Diagnose status** column. The status shows if there's a possible way to fix a sync error directly from Azure Active Directory. In other words, a troubleshooting flow exists that can narrow down the error case and potentially fix it.
+
 | Status | What does it mean? |
 | ------------------ | -----------------|
 | Not Started | You haven't visited this diagnosis process. Depending on the diagnostic result, there's a potential way to fix the sync error directly from the portal. |
 | Manual Fix Required | The error doesn't fit the criteria of available fixes from the portal. Either conflicting object types aren't users, or you already went through the diagnostic steps, and no fix resolution was available from the portal. In the latter case, a fix from the on-premises side is still one of the solutions. [Read more about on-premises fixes](https://support.microsoft.com/help/2647098). | 
 | Pending Sync | A fix was applied. The portal is waiting for the next sync cycle to clear the error. |
+
   >[!IMPORTANT]
   > The diagnostic status column will reset after each sync cycle. 
   >
 
-2.	Select the **Diagnose** button under the error details. You'll answer a few questions and identify the sync error details. Answers to the questions help identify an orphaned object case.
+1. Select the **Diagnose** button under the error details. You'll answer a few questions and identify the sync error details. Answers to the questions help identify an orphaned object case.
 
-3.	If a **Close** button appears at the end of the diagnostics, there's no quick fix available from the portal based on your answers. Refer to the solution shown in the last step. Fixes from on-premises are still the solutions. Select the **Close** button. The status of the current sync error switches to **Manual fix required**. The status stays during the current sync cycle.
+1. If a **Close** button appears at the end of the diagnostics, there's no quick fix available from the portal based on your answers. Refer to the solution shown in the last step. Fixes from on-premises are still the solutions. Select the **Close** button. The status of the current sync error switches to **Manual fix required**. The status stays during the current sync cycle.
 
-4.	After an orphaned object case is identified, you can fix the duplicated attributes sync errors directly from the portal. To trigger the process, select the **Apply Fix** button. The status of the current sync error updates to **Pending sync**.
+1. After an orphaned object case is identified, you can fix the duplicated attributes sync errors directly from the portal. To trigger the process, select the **Apply Fix** button. The status of the current sync error updates to **Pending sync**.
 
-5.	After the next sync cycle, the error should be removed from the list.
+1. After the next sync cycle, the error should be removed from the list.
 
 ## How to answer the diagnosis questions 
 ### Does the user exist in your on-premises Active Directory?
 
 This question tries to identify the source object of the existing user from on-premises Active Directory.  
-1.	Check if Azure Active Directory has an object with the provided **UserPrincipalName**. If not, answer **No**.
-2.	If it does, check whether the object is still in scope for syncing.  
-  - Search in the Azure AD connector space by using the DN.
-  - If the object is found in the **Pending Add** state, answer **No**. Azure AD Connect can't connect the object to the right Azure AD object.
-  - If the object isn't found, answer **Yes**.
+1. Check if Azure Active Directory has an object with the provided **UserPrincipalName**. If not, answer **No**.
+2. If it does, check whether the object is still in scope for syncing.  
+   - Search in the Azure AD connector space by using the DN.
+   - If the object is found in the **Pending Add** state, answer **No**. Azure AD Connect can't connect the object to the right Azure AD object.
+   - If the object isn't found, answer **Yes**.
 
 In these examples, the question tries to identify whether **Joe Jackson** still exists in on-premises Active Directory.
 For the **common scenario**, both users **Joe Johnson** and **Joe Jackson** are present in on-premises Active Directory. The quarantined objects are two different users.
@@ -99,11 +102,11 @@ For the **orphaned object scenario**, only the single user **Joe Johnson** is pr
 
 ### Do both of these accounts belong to the same user?
 This question checks an incoming conflicting user and the existing user object in Azure AD to see if they belong to the same user.  
-1.	The conflicting object is newly synced to Azure Active Directory. Compare the objects' attributes:  
-  - Display Name
-  - User Principal Name
-  - Object ID
-2.	If Azure AD fails to compare them, check whether Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
+1. The conflicting object is newly synced to Azure Active Directory. Compare the objects' attributes:  
+   - Display Name
+   - User Principal Name
+   - Object ID
+2. If Azure AD fails to compare them, check whether Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
 
 In the following example, the two objects belong to the same user **Joe Johnson**.
 

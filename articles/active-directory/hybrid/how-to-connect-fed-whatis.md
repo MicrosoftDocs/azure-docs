@@ -16,6 +16,7 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect and federation
 Azure Active Directory (Azure AD) Connect lets you configure federation with on-premises Active Directory Federation Services (AD FS) and Azure AD. With federation sign-in, you can enable users to sign in to Azure AD-based services with their on-premises passwords--and, while on the corporate network, without having to enter their passwords again. By using the federation option with AD FS, you can deploy a new installation of AD FS, or you can specify an existing installation in a Windows Server 2012 R2 farm.
@@ -30,7 +31,7 @@ This topic is the home for information on federation-related functionalities for
 | **Install AD FS by using Azure AD Connect** | |
 | [Prerequisites](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |See the prerequisites for a successful AD FS installation via Azure AD Connect. |
 | [Configure an AD FS farm](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Install a new AD FS farm by using Azure AD Connect. |
-| [Federate with Azure AD using alternate login ID ](how-to-connect-fed-management.md#alternateid) | Configure federation using alternate login ID  |
+| [Federate with Azure AD using alternate login ID](how-to-connect-fed-management.md#alternateid) | Configure federation using alternate login ID  |
 | **Modify the AD FS configuration** | |
 | [Repair the trust](how-to-connect-fed-management.md#repairthetrust) |Repair the current trust between on-premises AD FS and Office 365/Azure. |
 | [Add a new AD FS server](how-to-connect-fed-management.md#addadfsserver) |Expand an AD FS farm with an additional AD FS server after initial installation. |

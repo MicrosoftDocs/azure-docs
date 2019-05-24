@@ -3,15 +3,15 @@ title: Profile production applications in Azure with Application Insights Profil
 description: Identify the hot path in your web server code with a low-footprint profiler.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 # Profile production applications in Azure with Application Insights
 ## Enable Application Insights Profiler for your application
@@ -24,6 +24,7 @@ Profiler works with .NET applications that are deployed on the following Azure s
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines and virtual machine scale sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [**PREVIEW** ASP.NET Core Azure Linux Web Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
@@ -68,7 +69,7 @@ If **clr!ThePreStub** takes a long time for a request, the request is the first 
 
 ### <a id="ngencold"></a>Loading code ([COLD])
 
-If the method name contains **[COLD]**, such as **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, .NET Framework runtime is executing code for the first time that isn't optimized by [profile-guided optimization](https://msdn.microsoft.com/library/e7k32f4k.aspx). For each method, it should be displayed at most once during the process.
+If the method name contains **[COLD]**, such as **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, .NET Framework runtime is executing code for the first time that isn't optimized by [profile-guided optimization](/cpp/build/profile-guided-optimizations). For each method, it should be displayed at most once during the process.
 
 If loading code takes a substantial amount of time for a request, the request is the first one to execute the unoptimized portion of the method. Consider using a warmup process that executes that portion of the code before your users access it.
 
@@ -87,6 +88,10 @@ Methods such as **SqlCommand.Execute** indicate that the code is waiting for a d
 ### <a id="block"></a>Blocked time
 
 **BLOCKED_TIME** indicates that the code is waiting for another resource to be available. For example, it might be waiting for a synchronization object, for a thread to be available, or for a request to finish.
+
+### Unmanaged Async
+
+.NET framework emits ETW events and passes activity ids between threads so that async calls can be tracked across threads. Unmanaged code (native code) and some older styles of asynchronous code are missing these events and activity ids, so the profiler cannot tell what thread and what functions are running on the thread. This is labeled 'Unmanaged Async' in the call stack. If you download the ETW file, you may be able to use [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)  to get more insight into what is happening.
 
 ### <a id="cpu"></a>CPU time
 

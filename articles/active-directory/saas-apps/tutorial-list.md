@@ -18,6 +18,7 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorials for integrating SaaS applications with Azure Active Directory
 

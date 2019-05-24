@@ -1,7 +1,6 @@
 ---
 title: Configure Apache Kafka policies in HDInsight with Enterprise Security Package - Azure
 description: Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: mamccrea
 ms.author: mamccrea
@@ -43,7 +42,7 @@ In this tutorial, you learn how to:
 
 ## Create domain users
 
-Visit [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster), to learn how to create the **sales_user** and **marketing_user** domain users. In a production scenario, domain users come from your Active Directory tenant.
+Visit [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds), to learn how to create the **sales_user** and **marketing_user** domain users. In a production scenario, domain users come from your Active Directory tenant.
 
 ## Create Ranger policy
 

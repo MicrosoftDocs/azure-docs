@@ -4,11 +4,11 @@ description: Learn about Service Fabric's Reliable Service programming model, an
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: vturecek; mani-ramaswamy
 
 ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -41,13 +41,6 @@ Reliable Services gives you a simple, powerful, top-level programming model to h
 * A simple model for running your own code that looks like programming models you are used to. Your code has a well-defined entry point and easily managed lifecycle.
 * A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, or anything else. Reliable Services provide some great out-of-the-box options you can use, or you can provide your own.
 * For stateful services, the Reliable Services programming model allows you to consistently and reliably store your state right inside your service by using [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Reliable Collections are a simple set of highly available and reliable collection classes that will be familiar to anyone who has used C# collections. Traditionally, services needed external systems for Reliable state management. With Reliable Collections, you can store your state next to your compute with the same high availability and reliability you've come to expect from highly available external stores. This model also improves latency because you are co-locating the compute and state it needs to function.
-
-Watch this Microsoft Virtual Academy video for an overview of Reliable services:
-<center>
-<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
-<img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
-</a>
-</center>
 
 ## What makes Reliable Services different?
 Reliable Services in Service Fabric are different from services you may have written before. Service Fabric provides reliability, availability, consistency, and scalability.

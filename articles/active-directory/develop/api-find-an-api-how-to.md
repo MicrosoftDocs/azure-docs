@@ -3,8 +3,8 @@ title: How to find a specific API needed for a custom-developed application | Mi
 description: How to configure the permissions you need to access a particular API in your custom developed Azure AD application
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to find a specific API needed for a custom-developed application
@@ -24,7 +25,7 @@ Access to APIs require configuration of access scopes and roles. If you want to 
 
 ## Configuring a resource application to expose web APIs
 
-When you expose your web API, the API be displayed in the **Select an API** list when adding permissions to an app registration. To add access scopes, follow the steps outlined in [adding access scopes to your resource application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-access-scopes-to-your-resource-application).
+When you expose your web API, the API be displayed in the **Select an API** list when adding permissions to an app registration. To add access scopes, follow the steps outlined in [adding access scopes to your resource application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 ## Configuring a client application to access web APIs
 

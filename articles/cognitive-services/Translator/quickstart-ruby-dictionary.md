@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with Ruby.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
 ---
 # Quickstart: Look up words with bilingual dictionary using Ruby

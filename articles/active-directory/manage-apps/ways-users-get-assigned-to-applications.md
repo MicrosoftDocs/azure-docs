@@ -3,8 +3,8 @@ title: How to Assign users to applications | Microsoft Docs
 description: Understand how users get assigned to an application in your tenant
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to assign users to applications

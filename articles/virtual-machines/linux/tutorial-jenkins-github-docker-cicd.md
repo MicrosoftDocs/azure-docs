@@ -57,9 +57,9 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - apt install default-jre -y
+  - apt install openjdk-8-jre-headless -y
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
-  - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  - sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
@@ -67,7 +67,7 @@ runcmd:
   - service jenkins restart
 ```
 
-Before you can create a VM, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
@@ -86,7 +86,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 It takes a few minutes for the VM to be created and configured.
 
-To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm#az_vm_open_port) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
+To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -107,6 +107,21 @@ For security purposes, you need to enter the initial admin password that is stor
 ssh azureuser@<publicIps>
 ```
 
+Verify Jenkins is running using the `service` command:
+
+```bash
+$ service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2019-02-12 16:16:11 UTC; 55s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4103)
+   CGroup: /system.slice/jenkins.service
+
+Feb 12 16:16:10 myVM systemd[1]: Starting LSB: Start Jenkins at boot time...
+...
+```
+
 View the `initialAdminPassword` for your Jenkins install and copy it:
 
 ```bash
@@ -123,7 +138,7 @@ Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial
 - Select **Save and Finish**
 - Once Jenkins is ready, select **Start using Jenkins**
   - If your web browser displays a blank page when you start using Jenkins, restart the Jenkins service. From your SSH session, type `sudo service jenkins restart`, then refresh you web browser.
-- Log in to Jenkins with the username and password you created.
+- If needed, log in to Jenkins with the username and password you created.
 
 
 ## Create GitHub webhook
@@ -131,11 +146,13 @@ To configure the integration with GitHub, open the [Node.js Hello World sample a
 
 Create a webhook inside the fork you created:
 
-- Select **Settings**, then select **Integrations & services** on the left-hand side.
-- Choose **Add service**, then enter *Jenkins* in filter box.
-- Select *Jenkins (GitHub plugin)*
-- For the **Jenkins hook URL**, enter `http://<publicIps>:8080/github-webhook/`. Make sure you include the trailing /
-- Select **Add service**
+- Select **Settings**, then select **Webhooks** on the left-hand side.
+- Choose **Add webhook**, then enter *Jenkins* in filter box.
+- For the **Payload URL**, enter `http://<publicIps>:8080/github-webhook/`. Make sure you include the trailing /
+- For **Content type**, select *application/x-www-form-urlencoded*.
+- For **Which events would you like to trigger this webhook?**, select *Just the push event.*
+- Set **Active** to checked.
+- Click **Add webhook**.
 
 ![Add GitHub webhook to your forked repo](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -164,7 +181,7 @@ response.end("Hello World!");
 
 To commit your changes, select the **Commit changes** button at the bottom.
 
-In Jenkins, a new build starts under the **Build history** section of the bottom left-hand corner of your job page. Choose the build number link and select **Console output** on the left-hand side. You can view the steps Jenkins takes as your code is pulled from GitHub and the build action outputs the message `Testing` to the console. Each time a commit is made in GitHub, the webhook reaches out to Jenkins and triggers a new build in this way.
+In Jenkins, a new build starts under the **Build history** section of the bottom left-hand corner of your job page. Choose the build number link and select **Console output** on the left-hand side. You can view the steps Jenkins takes as your code is pulled from GitHub and the build action outputs the message `Test` to the console. Each time a commit is made in GitHub, the webhook reaches out to Jenkins and triggers a new build in this way.
 
 
 ## Define Docker build image

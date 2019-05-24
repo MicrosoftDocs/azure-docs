@@ -1,12 +1,12 @@
 ---
 title: Azure Diagnostic Logs supported services and schemas
 description: Understand the supported services and event schema for Azure Diagnostic Logs.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
 ms.date: 10/11/2018
-ms.author: johnkem
+ms.author: robb
 ms.subservice: logs
 ---
 # Supported services, schemas, and categories for Azure Diagnostic Logs
@@ -41,7 +41,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 | Service | Schema & Docs |
 | --- | --- |
-| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign Ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management Diagnostic Logs](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |

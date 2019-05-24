@@ -4,7 +4,7 @@ description: Learn how to add a list entity to help LUIS label variations of a w
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
@@ -18,9 +18,9 @@ This tutorial demonstrates the use of a [list entity](luis-concept-entity-types.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Create a list entity 
-* Add normalized values and synonyms
-* Validate improved entity identification
+> * Create a list entity 
+> * Add normalized values and synonyms
+> * Validate improved entity identification
 
 ## Prerequisites
 

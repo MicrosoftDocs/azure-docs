@@ -1,10 +1,10 @@
 ﻿---
-title: Azure security features used with Azure virtual machines | Microsoft Docs
+title: Security features used with Azure virtual machines - Azure security | Microsoft Docs
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
 
 ---
 # Azure Virtual Machines security overview
+This article provides an overview of the core Azure security features that can be used with virtual machines.
 
 You can use Azure Virtual Machines to deploy a wide range of computing solutions in an agile way. The service supports Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP, and Azure BizTalk Services. So you can deploy any workload and any language on nearly any operating system.
 
@@ -29,9 +30,7 @@ With Azure, you can build security-enhanced, compliant solutions that:
 * Encrypt your sensitive data.
 * Secure network traffic.
 * Identify and detect threats.
-* Meet compliance requirements.
-
-The goal of this article is to provide an overview of the core Azure security features that can be used with virtual machines. Links to articles give details of each feature so you can learn more.  
+* Meet compliance requirements.  
 
 ## Antimalware
 
@@ -73,21 +72,20 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 * [Management and APIs](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Learn more: 
+Learn more:
 
 * [Get Started with WDATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [Overview of WDATP capabilities](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## Hardware security module
 
-Improving key security can enhance encryption and authentication protections. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault. 
+Improving key security can enhance encryption and authentication protections. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault.
 
 Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Learn more:
 
-* [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault blog](https://blogs.technet.microsoft.com/kv/)
 
 ## Virtual machine disk encryption
@@ -130,7 +128,7 @@ Learn more:
 
 ## Virtual networking
 
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure virtual network. 
+Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure virtual network.
 
 An Azure virtual network is a logical construct built on top of the physical Azure network fabric. Each logical Azure virtual network is isolated from all other Azure virtual networks. This isolation helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
 
@@ -166,14 +164,13 @@ Learn more:
 
 ## Confidential Computing
 
-While confidential computing is not technically part of virtual machine security, the topic of virtual machine security belongs to the higher-level subject of “compute” security. Confidential computing belongs within the category of “compute” security. 
+While confidential computing is not technically part of virtual machine security, the topic of virtual machine security belongs to the higher-level subject of “compute” security. Confidential computing belongs within the category of “compute” security.
 
 Confidential computing ensures that when data is “in the clear,” which is required for efficient processing, the data is protected inside a Trusted Execution Environment  https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - also known as an enclave), an example of which is shown in the figure below.  
 
-TEEs ensure there is no way to view data or the operations inside from the outside, even with a debugger. They even ensure that only authorized code is permitted to access data. If the code is altered or tampered, the operations are denied and the environment disabled. The TEE enforces these protections throughout the execution of code within it. 
+TEEs ensure there is no way to view data or the operations inside from the outside, even with a debugger. They even ensure that only authorized code is permitted to access data. If the code is altered or tampered, the operations are denied and the environment disabled. The TEE enforces these protections throughout the execution of code within it.
 
 Learn more:
 
 * [Introducing Azure confidential computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azure confidential computing](https://azure.microsoft.com/blog/azure-confidential-computing/)  
-

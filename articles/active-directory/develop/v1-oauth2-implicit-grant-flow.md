@@ -3,8 +3,8 @@ title: Understanding the OAuth2 implicit grant flow in Azure AD | Microsoft Docs
 description: Learn more about Azure Active Directory's implementation of the OAuth2 implicit grant flow, and whether it's right for your application.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
@@ -15,9 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)

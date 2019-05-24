@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
 
-You create a web service when you deploy an image to Azure Container Instances, Azure Kubernetes Service, or Project Brainwave (field programmable gate arrays). You create images from registered models and scoring files. You retrieve the URI used to access a web service by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk). If authentication is enabled, you can also use the SDK to get the authentication keys.
+You create a web service when you deploy an image to Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You create images from registered models and scoring files. You retrieve the URI used to access a web service by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk). If authentication is enabled, you can also use the SDK to get the authentication keys.
 
 The general workflow for creating a client that uses a machine learning web service is:
 
@@ -51,7 +51,7 @@ There are a three ways to retrieve this information for deployed web services:
     print(service.scoring_uri)
     ```
 
-* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information about what can be filtered on, see the [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) reference documentation.
+* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information about what can be filtered on, see the [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) reference documentation.
 
     ```python
     services = Webservice.list(ws)
@@ -126,7 +126,7 @@ The web service can accept multiple sets of data in one request. It returns a JS
 
 ### Binary data
 
-If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. Here's an example of a `score.py` that accepts binary data, and returns the reversed bytes for POST requests. For GET requests, it returns the full URL in the response body:
+If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. Here's an example of a `score.py` that accepts binary data:
 
 ```python 
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -140,14 +140,16 @@ def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
     if request.method == 'GET':
+        # For this example, just return the URL for GETs
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        respBody = bytearray(reqBody)
-        respBody.reverse()
-        respBody = bytes(respBody)
-        return AMLResponse(respBody, 200)
+        # For a real world solution, you would load the data from reqBody 
+        # and send to the model. Then return the response.
+        
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
     else:
         return AMLResponse("bad request", 500)
 ```
@@ -427,7 +429,6 @@ The results returned are similar to the following JSON document:
 This example demonstrates how to use Python to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
 
 ```python
-import requests
 import requests
 import json
 

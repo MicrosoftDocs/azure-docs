@@ -4,7 +4,7 @@ description: " Prioritize your security recommendations using the secure score i
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Improve your secure score in Azure Security Center

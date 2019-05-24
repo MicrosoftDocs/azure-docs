@@ -29,12 +29,12 @@ Assume, for instance, that your IoT hub device twins have the following structur
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
     "status": "enabled",
-    "statusUpdateTime": "0001-01-01T00:00:00",    
-    "connectionState": "Disconnected",    
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "Disconnected",
     "lastActivityTime": "0001-01-01T00:00:00",
     "cloudToDeviceMessageCount": 0,
-    "authenticationType": "sas",    
-    "x509Thumbprint": {    
+    "authenticationType": "sas",
+    "x509Thumbprint": {
         "primaryThumbprint": null,
         "secondaryThumbprint": null
     },
@@ -169,8 +169,8 @@ SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 This query will return all module twins with the scanning status, but only on the specified subset of devices:
 
 ```sql
-SELECT * FROM devices.modules 
-  WHERE properties.reported.status = 'scanning' 
+SELECT * FROM devices.modules
+  WHERE properties.reported.status = 'scanning'
   AND deviceId IN ['device1', 'device2']
 ```
 
@@ -356,7 +356,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the [Getting started with device twin queries](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) section.
+**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the Getting started with device twin queries section.
 
 Currently, selection clauses different than **SELECT*** are only supported in aggregate queries on device twins.
 

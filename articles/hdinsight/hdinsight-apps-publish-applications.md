@@ -1,7 +1,6 @@
 ---
 title: Publish Azure HDInsight applications 
 description: Learn how to create an HDInsight application, and then publish it in the Azure Marketplace.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -71,9 +70,9 @@ The installation script must have the following characteristics:
 * If your script starts services on the nodes, services are monitored and configured to start automatically if a node reboot occurs.
 
 ## Package the application
-Create a .zip file that contains all the files that are required to install your HDInsight application. You use the .zip file to [publish the application](#publish-application). The .zip file includes the following files:
+Create a .zip file that contains all the files that are required to install your HDInsight application. You use the .zip file to publish the application. The .zip file includes the following files:
 
-* [createUiDefinition.json](#define-application)
+* createUiDefinition.json
 * mainTemplate.json (For a sample, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).)
 * All required scripts
 
@@ -90,7 +89,7 @@ To publish an HDInsight application:
 5. Select **Define some Topologies to get Started**. A solution template is a "parent" to all its topologies. You can define multiple topologies in one offer or solution template. When an offer is pushed to staging, it is pushed with all its topologies. 
 6. Enter a topology name, and then select **+**.
 7. Enter a new version, and then select **+**.
-8. Upload the .zip file you created when you [packaged the application](#package-application).  
+8. Upload the .zip file you created when you packaged the application.  
 9. Select **Request Certification**. The Microsoft certification team reviews the files and certifies the topology.
 
 ## Next steps

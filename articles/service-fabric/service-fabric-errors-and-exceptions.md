@@ -3,8 +3,8 @@ title: Common FabricClient exceptions thrown | Microsoft Docs
 description: Describes the common exceptions and errors which can be thrown by the FabricClient APIs while performing application and cluster management operations.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: oanapl
+manager: chackdan
 editor: ''
 
 ms.assetid: bb821313-b221-479f-b08e-36cf07e60a07
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/20/2018
-ms.author: ryanwi
+ms.author: oanapl
 
 ---
 # Common exceptions and errors when working with the FabricClient APIs
@@ -24,13 +24,13 @@ There are many different types of operations which can be performed using Fabric
 
 | Exception | Thrown when |
 | --- |:--- |
-| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |The [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) object is in a closed state. Dispose of the [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) object you are using and instantiate a new [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) object. |
-| [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception#System_TimeoutException) |The operation timed out. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) is returned when the operation takes more than MaxOperationTimeout to complete. |
-| [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception#System_UnauthorizedAccessException) |The access check for the operation failed. E_ACCESSDENIED is returned. |
-| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException) |A runtime error occurred while performing the operation. Any of the FabricClient methods can potentially throw [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException), the [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException_ErrorCode) property indicates the exact cause of the exception. Error codes are defined in the [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) enumeration. |
-| [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception#System_Fabric_FabricTransientException) |The operation failed due to a transient error condition of some kind. For example, an operation may fail because a quorum of replicas is temporarily not reachable. Transient exceptions correspond to failed operations that can be retried. |
+| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception) |The [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) object is in a closed state. Dispose of the [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) object you are using and instantiate a new [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) object. |
+| [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |The operation timed out. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) is returned when the operation takes more than MaxOperationTimeout to complete. |
+| [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |The access check for the operation failed. E_ACCESSDENIED is returned. |
+| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |A runtime error occurred while performing the operation. Any of the FabricClient methods can potentially throw [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception), the [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception.ErrorCode) property indicates the exact cause of the exception. Error codes are defined in the [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) enumeration. |
+| [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |The operation failed due to a transient error condition of some kind. For example, an operation may fail because a quorum of replicas is temporarily not reachable. Transient exceptions correspond to failed operations that can be retried. |
 
-Some common [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) errors that can be returned in a [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException):
+Some common [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) errors that can be returned in a [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception):
 
 | Error | Condition |
 | --- |:--- |

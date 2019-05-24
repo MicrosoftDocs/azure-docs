@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/22/2019
 ms.author: juliako
 ---
 
@@ -122,6 +122,10 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
+### Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ### Get a Streaming Locator
 
 After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
@@ -189,6 +193,10 @@ az group delete --name amsResourceGroup
 ## Multithreading
 
 The Azure Media Services v3 SDKs are not thread-safe. When developing a multi-threaded application, you should generate and use a new  AzureMediaServicesClient object per thread.
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

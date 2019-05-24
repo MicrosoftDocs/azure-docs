@@ -92,15 +92,15 @@ Manage most Data settings the  in the **Advanced settings** menu for the workspa
 | Custom Logs                  | **Advanced settings** menu for the workspace. |
 | Syslog                       | **Advanced settings** menu for the workspace. |
 | Application Insights         | This solution has been deprecated now that Log Analytics and Application Insights share the same data engine.  |
-| Windows File Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
-| Windows Registry Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
-| Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
+| Windows File Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md) for details. |
+| Windows Registry Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md) for details. |
+| Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md) for details. |
 
 ### Solutions
 Manage Solutions in the **Solutions** menu for the workspace. 
 
 ## How do I install and remove management solutions?
-In the OMS portal, you install management solutions from the Solutions Gallery and removed them from **Settings**. In the Azure portal, [install management solutions](../insights/solutions.md#install-a-management-solution) from the Azure Marketplace. [Remove solutions](../insights/solutions.md#remove-a-management-solution) from the list of installed solutions.
+In the OMS portal, you install management solutions from the Solutions Gallery and removed them from **Settings**. In the Azure portal, [install management solutions](../insights/solutions.md#install-a-monitoring-solution) from the Azure Marketplace. [Remove solutions](../insights/solutions.md#remove-a-monitoring-solution) from the list of installed solutions.
 
 ## How do I create and manage alerts?
 Alert rules based on Log Analytics queries are now managed in the [unified alerting experience](../../azure-monitor/platform/alerts-metric.md). See [How to extend alerts from Log Analytics into Azure Alerts](../../azure-monitor/platform/alerts-extend-tool.md) for details on configuring and using alerts in the Azure portal.

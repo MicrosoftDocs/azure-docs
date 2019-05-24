@@ -3,12 +3,12 @@ title: Containerize an existing .NET app for Service Fabric Mesh | Microsoft Doc
 description: Add Mesh support to an existing .NET app 
 services: service-fabric-mesh
 keywords:  containerize service fabric mesh
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/08/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: jeconnoc  
+manager: chakdan  
 #Customer intent: As a developer, I want to use environment variables when I debug to test different scenarios.
 ---
 

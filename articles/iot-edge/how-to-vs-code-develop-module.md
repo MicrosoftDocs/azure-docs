@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
 
@@ -151,7 +151,7 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
 
 1. Prepare your environment for debugging according to the requirements of your development language, set a breakpoint in your module, and select the debug configuration to use:
    - **C#**
-     - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to build .Net Core application.
+     - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to build .NET Core application.
 
        ```cmd
        dotnet build
@@ -162,7 +162,7 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
      - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
         > [!NOTE]
-        > If your .Net Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
+        > If your .NET Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
 
    - **Node.js**
      - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to install Node packages
@@ -259,6 +259,7 @@ When debugging modules using this method, your modules are running on top of the
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Add the following single line of code to the callback you want to debug:
 
       ```python
@@ -347,6 +348,12 @@ You can skip this section if your modules are running on the same machine as Vis
 
 > [!NOTE]
 > The preceding example shows how to debug IoT Edge modules on containers. It added exposed ports to your module's container `createOptions` settings. After you finish debugging your modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
+
+## Build and debug a module remotely
+
+With recent changes in both the Docker and Moby engines to support SSH connections, and a new setting in Azure IoT Tools that enables injection of environment settings into the Visual Studio Code command palette and Azure IoT Edge terminals, you can now build and debug modules on remote devices.
+
+See this [IoT Developer blog entry](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) for more information and step-by-step instructions.
 
 ## Next steps
 

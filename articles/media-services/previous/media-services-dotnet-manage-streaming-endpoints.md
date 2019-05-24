@@ -6,7 +6,7 @@ services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 0da34a97-f36c-48d0-8ea2-ec12584a2215
@@ -15,12 +15,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 
-# Manage streaming endpoints with .NET SDK
+# Manage streaming endpoints with .NET SDK  
 
 >[!NOTE]
 >Make sure to review the [overview](media-services-streaming-endpoints-overview.md) article. Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).

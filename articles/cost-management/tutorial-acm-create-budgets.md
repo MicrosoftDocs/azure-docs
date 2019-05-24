@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -22,6 +22,9 @@ Budgets reset automatically at the end of a period (monthly, quarterly, or annua
 
 The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
 
+Watch the [How to create a budget to monitor your spending with Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) video to see how you can create budgets in Azure to monitor spending.
+
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -30,9 +33,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Budgets are available to all Azure EA customers. You must have read access to an Azure EA subscription view budgets. To create and manage budgets, you must have contributor permission. You can create individual budgets for EA subscriptions and resource groups. However, you cannot create budgets for EA billing accounts.
+Budgets are supported for a variety of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view budgets, you need at least read access for your Azure account.
 
-The following Azure permissions are supported per subscription for budgets by user and group:
+ For Azure EA subscriptions, you must have read access to view budgets. To create and manage budgets, you must have contributor permission. You can create individual budgets for EA subscriptions and resource groups. However, you cannot create budgets for EA billing accounts.
+
+The following Azure permissions, or scopes, are supported per subscription for budgets by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Owner – Can create, modify, or delete budgets for a subscription.
 - Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
@@ -46,7 +51,9 @@ For more information about assigning permission to Cost Management data, see [As
 
 ## Create a budget in the Azure portal
 
-You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a resource group. For example, in the Azure portal, navigate to **Subscriptions** &gt; select a subscription &gt; **Budgets**. In this example, the budget that you create is for the subscription that you selected. If you want to create a budget for a resource group, navigate to **Resource groups** > select a resource group > **Budgets**.
+You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a management group.
+
+To create or view a budget, open the desired scope in the Azure portal and select **Budgets** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope, like a management group, in Budgets. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 After you create budgets, they show a simple view of your current spending against them.
 
@@ -54,7 +61,9 @@ Click **Add**.
 
 ![Cost Management budgets shown in the Azure portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
-In the **Create budget** window, enter a budget name and budget amount. Then, choose either a monthly, quarterly, or annual duration period. Next, select an end date. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than eight hours.
+In the **Create budget** window, enter a budget name and budget amount. Then, choose either a monthly, quarterly, or annual duration period. Next, select an end date. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than eight hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md).
+
+If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice billing period might not align to the calendar month. For those types of subscriptions and resource groups, you can create a budget that's aligned to your invoice period or to calendar months. To create a budget aligned to your invoice period, select a reset period of Billing month, Billing quarter or Billing year. To create a budget aligned to the calendar month, select a reset period of Monthly, Quarterly or Annually.
 
 Here's an example of creating a monthly budget for $4,500. An email alert gets generated when 90% of the budget is reached.
 
@@ -78,6 +87,28 @@ Depending on the level of access that you have, you can edit a budget to change 
 
 ![Example of editing a budget to change various properties](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## Trigger an action group
+
+When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform a variety of different actions when your budget threshold is met. For more information about Action Groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md). For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../billing/billing-cost-management-budget-scenario.md).
+
+To create or update action groups, click **Manage action groups** while you're creating or editing a budget.
+
+![Example of creating a budget to show Manage action groups](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+Next, click **Add action group** and create the action group.
+
+
+![Image of the Add action group box](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+After the action group is created, close the box to return to your budget.
+
+Configure your budget to use your action group when an individual threshold is met. Up to five different thresholds are supported.
+
+![Example showing action group selection for an alert condition](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+The following example shows budget thresholds set to 50%, 75% and 100%. Each is configured to trigger the specified actions within the designated action group.
+
+![Example showing alert conditions configured with various action groups and type of actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## Next steps
 

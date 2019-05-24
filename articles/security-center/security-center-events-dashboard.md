@@ -4,7 +4,7 @@ description: Learn how you can use Security Center's events dashboard to see sec
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -21,12 +21,15 @@ ms.author: rkarlin
 The Events dashboard provides an overview of the number of security events collected over time and a list of notable events that may require your attention.  
 
 > [!NOTE]
-> To use this feature, your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier. See the Security Center [pricing page](security-center-pricing.md) for more information about the Standard tier.
->
->
+> Security events dashboard will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_events).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## What is a security event?
 Security Center uses the Microsoft Monitoring Agent to collect various security related configurations and events from your machines and stores these events in your workspace(s). Examples of such data are: operating system logs (Windows event logs), running processes, and events from security solutions integrated with Security Center. The Microsoft Monitoring Agent also copies crash dump files to your workspace(s).
+
+## Requirements
+To use this feature, your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier. See the Security Center [pricing page](security-center-pricing.md) for more information about the Standard tier.
 
 ## Events processed dashboard
 You access the **Events** dashboard from the Security Center main menu or Security Center **Overview** blade.  
@@ -51,30 +54,30 @@ The **Events dashboard** provides an overview of the number of events processed 
 1. Under the **Security Center** main menu, select **Events**.
 2. The **Events dashboard** workspace selector may open. If you have only one workspace, this workspace selector does not appear. If you have more than one workspace, you need to select a workspace to view its processed event details. Select a workspace from the list if you have more than one workspace.
 
-  ![Workspace list][3]
+   ![Workspace list][3]
 
 3. The **Events dashboard** opens showing you event details for the selected workspace. You can view the notable events and all events by type.  In this example, we selected **Notable events**.
 
-  ![Notable event][4]
+   ![Notable event][4]
 
 4. You can query for more data under the workspace by selecting an event type. In this example, we selected **SecurityEvent**.
 
-  ![Selecting an event type][5]
+   ![Selecting an event type][5]
 
 5. **Log Search** opens with additional detail on the event type.
 
-  ![Log search][6]
+   ![Log search][6]
 
 ## Add a notable event
-Security Center provides out-of-the-box notable events. You can add notable events based on your own query using the [Log Analytics query language](../log-analytics/log-analytics-search-reference.md). We’ll return to the **Events dashboard** to add a notable event.
+Security Center provides out-of-the-box notable events. You can add notable events based on your own query using the [Kusto query language](../log-analytics/log-analytics-search-reference.md). We’ll return to the **Events dashboard** to add a notable event.
 
 1. Select **Add Notable Event**.
 
-  ![Add a notable event][7]
+   ![Add a notable event][7]
 
 2. **Add custom notable event** opens.  Under **Display Name**, enter a name for your notable event. Under **Search Query**, enter your query for the event.
 
-  ![Enter your query][8]
+   ![Enter your query][8]
 
 4. Select **OK**.
 
@@ -90,7 +93,7 @@ If the workspace row:
 - Is blank - your workspace meets requirements and selecting a workspace takes you to the dashboard
 
 > [!NOTE]
-> Under **Events dashboard**, the **EVENTS** column indicates amount of events in each workspace.  This column is blank for some workspaces because Security Center’s Free tier is applied to that workspace. Under the Free tier, Security Center will collect events but the events are not saved in Log Analytics and are not available in the dashboard.
+> Under **Events dashboard**, the **EVENTS** column indicates amount of events in each workspace.  This column is blank for some workspaces because Security Center’s Free tier is applied to that workspace. Under the Free tier, Security Center will collect events but the events are not saved in Azure Monitor logs and are not available in the dashboard.
 >
 >
 
@@ -98,26 +101,26 @@ If the workspace row:
 1. Select a workspace that **REQUIRES UPDATE**.
 2. **Search Upgrade** opens. Select **Upgrade Now**.
 
-  ![Upgrade now][10]
+   ![Upgrade now][10]
 
 ## Upgrade to Security Center’s Standard tier
 1. Select a workspace with **UPGRADE PLAN**.
 2. **Events dashboard** opens. Select **Try Events dashboard**.
 
-  ![Try dashboard][11]
+   ![Try dashboard][11]
 
 3. Under **Onboarding to advanced security**, select the workspace that you are upgrading.
 4. Under **Pricing**, select **Standard**.
 5. Select **Save**.
 
-  ![Upgrade to Standard tier][12]
+   ![Upgrade to Standard tier][12]
 
 ## Next steps
 In this article you learned how to use Security Center’s Event dashboard. To learn more about how the dashboard works and to write your own event queries, see:
 
-- [What is Log Analytics?](../log-analytics/log-analytics-overview.md) – Overview on Log Analytics
-- [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md) - Describes how log searches are used in Log Analytics and provides concepts that should be understood before creating a log search
-- [Log Analytics search reference](../log-analytics/log-analytics-search-reference.md) – Learn how to write your own event queries using the query language in Log
+- [What is Azure Monitor logs?](../log-analytics/log-analytics-overview.md) – Overview on Azure Monitor logs
+- [Understanding log searches in Kusto](../log-analytics/log-analytics-log-search-new.md) - Describes how log searches are used in Azure Monitor logs and provides concepts that should be understood before creating a log search
+- [Kusto search reference](../log-analytics/log-analytics-search-reference.md) – Learn how to write your own event queries using the query language in Log
 
 To learn more about Security Center, see:
 

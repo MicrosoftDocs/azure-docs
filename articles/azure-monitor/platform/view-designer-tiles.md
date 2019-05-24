@@ -1,6 +1,6 @@
 ---
-title: A reference guide to the View Designer tiles in Azure Log Analytics | Microsoft Docs
-description: By using View Designer in Log Analytics, you can create custom views in the Azure portal that display a variety of data visualizations in your Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
+title: A reference guide to the View Designer tiles in Azure Monitor | Microsoft Docs
+description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,8 +15,8 @@ ms.date: 01/17/2018
 ms.author: bwren
 ---
 
-# Reference guide to View Designer tiles in Log Analytics
-By using View Designer in Azure Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations in your Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
+# Reference guide to View Designer tiles in Azure Monitor
+By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
 
 For more information about View Designer, see:
 
@@ -31,11 +31,14 @@ The available View Designer tiles are described in the following table:
 | [Number](#number-tile) |The count of records from a query. |
 | [Two numbers](#two-numbers-tile) |The counts of records from two different queries. |
 | [Donut](#donut-tile) | A chart that's based on a query, with a summary value in the center. |
-| [Line chart and callout](#line-chart-amp-callout-tile) | A line chart that's based on a query, and a callout with a summary value. |
+| Line chart and callout | A line chart that's based on a query, and a callout with a summary value. |
 | [Line chart](#line-chart-tile) |A line chart that's based on a query. |
 | [Two timelines](#two-timelines-tile) | A column chart with two series, each based on a separate query. |
 
 The next sections describe the tile types and their properties in detail.
+
+> [!NOTE]
+> Tiles in views are based on [log queries](../log-query/log-query-overview.md) in your Log Analytics workspace. They do not currently support [cross resource queries](../log-query/cross-workspace-query.md) to retrieve data from Application Insights.
 
 ## Number tile
 The **Number** tile displays both the count of records from a log query and a label.
@@ -172,5 +175,5 @@ The **Two timelines** tile displays the results of two log queries over time as 
 
 
 ## Next steps
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to support the queries in tiles.
+* Learn about [log queries](../log-query/log-query-overview.md) to support the queries in tiles.
 * Add [visualization parts](view-designer-parts.md) to your custom view.

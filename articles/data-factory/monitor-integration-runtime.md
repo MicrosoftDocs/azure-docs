@@ -3,18 +3,14 @@ title: Monitor integration runtime in Azure Data Factory | Microsoft Docs
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 07/25/2018
-ms.author: douglasl
-
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
 ---
 
 # Monitor an integration runtime in Azure Data Factory  
@@ -24,16 +20,18 @@ ms.author: douglasl
 - Self-hosted integration runtime
 - Azure-SSIS integration runtime
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To get the status of an instance of integration runtime (IR), run the following PowerShell command: 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 The cmdlet returns different information for different types of integration runtime. This article explains the properties and statuses for each type of integration runtime.  
 
 ## Azure integration runtime
-The compute resource for an Azure integration runtime is fully managed elastically in Azure. The following table provides descriptions for properties returned by the **Get-AzureRmDataFactoryV2IntegrationRuntime** command:
+The compute resource for an Azure integration runtime is fully managed elastically in Azure. The following table provides descriptions for properties returned by the **Get-AzDataFactoryV2IntegrationRuntime** command:
 
 ### Properties
 The following table provides descriptions of properties returned by the cmdlet for an Azure integration runtime:
@@ -56,7 +54,7 @@ The following table provides possible statuses of an Azure integration runtime:
 | Offline | The Azure integration runtime is offline due to an internal error. |
 
 ## Self-hosted integration runtime
-This section provides descriptions for properties returned by the Get-AzureRmDataFactoryV2IntegrationRuntime cmdlet. 
+This section provides descriptions for properties returned by the Get-AzDataFactoryV2IntegrationRuntime cmdlet. 
 
 > [!NOTE] 
 > The returned properties and status contain information about overall self-hosted integration runtime and each node in the runtime.  
@@ -84,7 +82,7 @@ The default value of the concurrent jobs limit is set based on the machine size.
 
 You scale out by increasing the number of nodes. When you increase the number of nodes, the concurrent jobs limit is the sum of the concurrent job limit values of all the available nodes.  For example, if one node lets you run a maximum of twelve concurrent jobs, then adding three more similar nodes lets you run a maximum of  48 concurrent jobs (that is, 4 x 12). We recommend that you increase the concurrent jobs limit only when you see low resource usage with the default values on each node.
 
-You can override the calculated default value in the Azure portal. Select Author > Connections > Integration Runtimes > Edit > Nodes > Modify concurrent job value per node. You can also use the PowerShell [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) command.
+You can override the calculated default value in the Azure portal. Select Author > Connections > Integration Runtimes > Edit > Nodes > Modify concurrent job value per node. You can also use the PowerShell [update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) command.
   
 ### Status (per node)
 The following table provides possible statuses of a self-hosted integration runtime node:
@@ -109,10 +107,10 @@ The following table provides possible statuses of a self-hosted integration runt
 | Offline | No node is online. |
 | Limited | Not all nodes in this self-hosted integration runtime are in a healthy state. This status is a warning that some nodes might be down. This status could be due to a credential sync issue on dispatcher/worker node. |
 
-Use the **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** cmdlet to fetch the JSON payload containing the detailed self-hosted integration runtime properties, and their snapshot values during the time of execution of the cmdlet.
+Use the **Get-AzDataFactoryV2IntegrationRuntimeMetric** cmdlet to fetch the JSON payload containing the detailed self-hosted integration runtime properties, and their snapshot values during the time of execution of the cmdlet.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
 Sample output (assumes that there are two nodes associated with this self-hosted integration runtime):
@@ -211,7 +209,7 @@ The following screenshots show how to select the Azure-SSIS IR to monitor, and p
 Use a script like the following example to check the status of the Azure-SSIS IR.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### More info about the Azure-SSIS integration runtime

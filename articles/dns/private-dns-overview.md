@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 3/1/2019
 ms.author: victorh
 ---
 
@@ -13,13 +13,18 @@ ms.author: victorh
 
 The Domain Name System, or DNS, is responsible for translating (or resolving) a service name to its IP address. A hosting service for DNS domains, Azure DNS provides name resolution by using the Microsoft Azure infrastructure. In addition to supporting internet-facing DNS domains, Azure DNS now also supports private DNS domains as a preview feature.
 
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+
 Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without your needing to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the name.
+
+To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone. These are called *resolution virtual networks*. You may also specify a virtual network for which Azure DNS maintains hostname records whenever a VM is created, changes IP, or is deleted. This is called a *registration virtual network*.
 
 If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs, but the VM records are indeed registered and will resolve successfully.
 
 ![DNS overview](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> As a best practice, do not use a .local domain for your private DNS zone. Not all operating systems support this.
 
 ## Benefits
 
@@ -27,7 +32,7 @@ Azure DNS provides the following benefits:
 
 * **Removes the need for custom DNS solutions**. Previously, many customers created custom DNS solutions to manage DNS zones in their virtual network. You can now perform DNS zone management by using the native Azure infrastructure, which removes the burden of creating and managing custom DNS solutions.
 
-* **Use all common DNS records types**. Azure DNS supports A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT records.
+* **Use all common DNS records types**. Azure DNS supports A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT records.
 
 * **Automatic hostname record management**. Along with hosting your custom DNS records, Azure automatically maintains hostname records for the VMs in the specified virtual networks. In this scenario, you can optimize the domain names you use without needing to create custom DNS solutions or modify applications.
 

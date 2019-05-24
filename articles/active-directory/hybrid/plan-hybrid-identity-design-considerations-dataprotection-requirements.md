@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Plan for enhancing data security through a strong identity solution
 The first step in protecting data is to identify who can access that data. Also, you need to have an identity solution that can integrate with your system to provide authentication and authorization capabilities. Authentication and authorization are often confused with each other and their roles misunderstood. In reality, they are different, as shown in the figure below:
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![mobile device lifecycle](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Mobile device management lifecycle stages**
 
@@ -37,7 +38,7 @@ In the age of mobility, most companies have a common goal: enable their users to
 However, there are some security aspects that should be explored and validated, regardless of the industry.
 
 ## Data protection paths
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![data protection paths](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Data protection paths**
 

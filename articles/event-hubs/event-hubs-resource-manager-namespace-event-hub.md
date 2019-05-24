@@ -27,9 +27,12 @@ In this quickstart, you create an event hub using an Azure Resource Manager temp
 > For the complete template, see the [Event hub and consumer group template][Event Hub and consumer group template] on GitHub. This template created a consumer group in addition to an event hub namespace and an event hub. To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Event Hubs.
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-If you want to use **Azure PowerShell** to deploy the Resource Manager template, [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+If you want to use **Azure PowerShell** to deploy the Resource Manager template, [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 If you want to use **Azure CLI** to deploy the Resource Manager template, [Install  Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -114,12 +117,12 @@ Create a JSON file named MyEventHub-Parameters.json that contains parameters for
 2. Run the following command to sign in to Azure:
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. If you have Issue the following commands to set the current subscription context:
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### Provision resources
@@ -132,10 +135,10 @@ To deploy/provision the resources using Azure PowerShell, switch to the C:\Event
 $resourceGroupName = "<Specify a name for the Azure resource group>"
 
 # Create an Azure resource group
-New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+New-AzResourceGroup $resourceGroupName -location 'East US'
 
 # Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
 ```
 
 ## Use Azure CLI to deploy the template
@@ -174,10 +177,17 @@ Congratulations! You have used the Azure Resource Manager template to create an 
 
 ## Next steps
 
-In this article, you created the Event Hubs namespace, and used sample applications to send and receive events from your event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the following tutorials: 
+In this article, you created the Event Hubs namespace, and used sample applications to send and receive events from your event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials: 
 
-- **Send events to an event hub**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **Receive events from an event hub**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (send only)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
+
 
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png

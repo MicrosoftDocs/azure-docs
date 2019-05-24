@@ -2,14 +2,16 @@
 title: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines | Microsoft Docs
 description: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines
 services: storage
-author: swums
+author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
-
+ms.author: normesta
+ms.reviewer: stewu
 ---
+
 # Performance tuning guidance for Spark on HDInsight and Azure Data Lake Storage Gen2
 
 When tuning performance on Spark, you need to consider the number of apps that will be running on your cluster.  By default, you can run 4 apps concurrently on your HDI cluster (Note: the default setting is subject to change).  You may decide to use fewer apps so you can override the default settings and use more of the cluster for those apps.  
@@ -18,7 +20,7 @@ When tuning performance on Spark, you need to consider the number of apps that w
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen2 account**. For instructions on how to create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. Make sure you enable Remote Desktop for the cluster. 
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Make sure you enable Remote Desktop for the cluster.
 * **Running Spark cluster on Data Lake Storage Gen2**.  For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
 * **Performance tuning guidelines on Data Lake Storage Gen2**.  For general performance concepts, see [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md) 
 

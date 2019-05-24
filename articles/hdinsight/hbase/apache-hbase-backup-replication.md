@@ -1,7 +1,6 @@
 ---
 title: Set up Apache HBase and Apache Phoenix backup and replication - Azure HDInsight
 description: Set up backup and replication for HBase and Phoenix.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -71,7 +70,11 @@ Specify the full export path to the default storage or to any of the attached st
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-In Azure Data Lake Storage, the syntax is:
+In Azure Data Lake Storage Gen2, the syntax is:
+
+    abfs://<containername>@<accountname>.dfs.core.windows.net/<path>
+
+In Azure Data Lake Storage Gen1, the syntax is:
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 

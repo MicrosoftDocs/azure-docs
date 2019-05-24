@@ -3,8 +3,8 @@ title: Azure AD Federation Metadata | Microsoft Docs
 description: This article describes the federation metadata document that Azure Active Directory publishes for services that accept Azure Active Directory tokens.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Federation metadata
@@ -68,7 +69,7 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### Token signing certificates
-When a service receives a token that is issued by a Azure AD tenant, the signature of the token must be validated with a signing key that is published in the federation metadata document. The federation metadata includes the public portion of the certificates that the tenants use for token signing. The certificate raw bytes appear in the `KeyDescriptor` element. The token signing certificate is valid for signing only when the value of the `use` attribute is `signing`.
+When a service receives a token that is issued by an Azure AD tenant, the signature of the token must be validated with a signing key that is published in the federation metadata document. The federation metadata includes the public portion of the certificates that the tenants use for token signing. The certificate raw bytes appear in the `KeyDescriptor` element. The token signing certificate is valid for signing only when the value of the `use` attribute is `signing`.
 
 A federation metadata document published by Azure AD can have multiple signing keys, such as when Azure AD is preparing to update the signing certificate. When a federation metadata document includes more than one certificate, a service that is validating the tokens should support all certificates in the document.
 

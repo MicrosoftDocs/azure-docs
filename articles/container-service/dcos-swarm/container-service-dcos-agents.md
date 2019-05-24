@@ -23,7 +23,7 @@ DC/OS clusters in Azure Container Service contain agent nodes in two pools, a pu
 
 * **Public agents**: Public agent nodes run DC/OS apps and services through a publicly accessible network. 
 
-For more information about DC/OS network security, see the [DC/OS documentation](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
+For more information about DC/OS network security, see the [DC/OS documentation](https://docs.mesosphere.com/).
 
 ## Deploy agent pools
 

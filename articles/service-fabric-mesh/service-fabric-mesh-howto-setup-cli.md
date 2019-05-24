@@ -3,10 +3,10 @@ title: Set up the Azure Service Fabric Mesh CLI | Microsoft Docs
 description: Learn how to set up the Azure Service Fabric Mesh CLI.
 services: service-fabric-mesh
 keywords:  
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt  
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable deployment to service fabric mesh.
@@ -21,7 +21,7 @@ There are three types of CLI that can be used and they are summarized in the tab
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | The primary CLI which allows you to deploy your applications and manage resources against the Azure Service Fabric Mesh environment. 
 | sfctl | Local clusters | Service Fabric CLI that allows deployment and testing of Service Fabric resources against local clusters.  
-| Maven CLI | Local clusters & Azure Service Fabric Mesh | A wrapper around 'az mesh' and 'sfctl' that allows Java developers to use a familiar command line experience for local and Azure development experience.  
+| Maven CLI | Local clusters & Azure Service Fabric Mesh | A wrapper around `az mesh` and `sfctl` that allows Java developers to use a familiar command line experience for local and Azure development experience.  
 
 For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI. You can install it in the Azure Cloud Shell or a local installation of Azure CLI. 
 
@@ -51,7 +51,7 @@ Follow instructions on [Set up Service Fabric CLI](https://docs.microsoft.com/az
 In order to use the Maven CLI, the following needs to be installed on your machine: 
 
 * [Java](https://www.azul.com/downloads/zulu/)
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Azure Mesh CLI (az mesh) - To target Azure Service Fabric Mesh 
 * SFCTL (sfctl) - To target local clusters 

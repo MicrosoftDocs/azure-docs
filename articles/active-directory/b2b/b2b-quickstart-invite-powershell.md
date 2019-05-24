@@ -1,6 +1,6 @@
 ---
 
-title: Quickstart to add a guest user with PowerShell for Azure Active Directory B2B collaboration | Microsoft Docs
+title: Quickstart Add a guest user with PowerShell - Azure Active Directory | Microsoft Docs
 description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user.
 
 services: active-directory
@@ -11,10 +11,12 @@ ms.date: 08/28/2018
 
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
-
+ms.custom: "it-pro, seo-update-azuread-jan"
 #customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add a guest user with PowerShell
@@ -73,7 +75,7 @@ When prompted, enter your credentials.
 
 ## Send an invitation
 
-1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda@fabrikam.com** with your test email account name and email address): 
+1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda\@fabrikam.com** with your test email account name and email address): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -89,7 +91,7 @@ When prompted, enter your credentials.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Check the output to make sure the user you invited is listed, with a user principal name (UPN) in the format *emailaddress*#EXT#@*domain*. For example, *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+3. Check the output to make sure the user you invited is listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
    ![PowerShell output showing guest user added](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

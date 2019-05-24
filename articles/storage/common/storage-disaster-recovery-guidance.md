@@ -6,8 +6,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/25/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
@@ -18,6 +19,9 @@ Microsoft strives to ensure that Azure services are always available. However, u
 Azure Storage supports account failover (preview) for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
 
 This article describes the concepts and process involved with an account failover and discusses how to prepare your storage account for recovery with the least amount of customer impact. To learn how to initiate an account failover in the Azure portal or PowerShell, see [Initiate an account failover (preview)](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Choose the right redundancy option
 
@@ -117,15 +121,15 @@ The preview is intended for non-production use only. Production service-level ag
 
 To register for the preview, run the following commands in PowerShell. Make sure to replace the placeholder in brackets with your own subscription ID:
 
-```PowerShell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+```powershell
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 It may take 1-2 days to receive approval for the preview. To verify that your registration has been approved, run the following command:
 
-```PowerShell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+```powershell
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### Additional considerations 
@@ -153,17 +157,14 @@ Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running 
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
 
-#### Azure File Sync
-
-Azure File Sync supports account failover. However, you will need to reconfigure all Azure File Sync settings after the failover is complete.
-
 ### Unsupported features or services
-
 The following features or services are not supported for account failover for the preview release:
 
-- Azure Data Lake Storage Gen2 hierarchical file shares cannot be failed over.
+- Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.  
+- Storage accounts using Azure Data Lake Storage Gen2 hierarchical namespace cannot be failed over.
 - A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
+- After the failover is complete the following features will stop working if originally enabled: [Event subscriptions](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [Lifecycle policies](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts),  [Storage Analytics Logging](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## Copying data as an alternative to failover
 

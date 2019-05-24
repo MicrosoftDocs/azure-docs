@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you translate text from one language to another using the Translator Text API with Node.js.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -17,7 +17,6 @@ ms.author: erhopf
 In this quickstart, you'll learn how to translate a text string from English to Italian and German using Node.js and the Translator Text REST API.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
 
 ## Prerequisites
 
@@ -28,7 +27,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `translate-text.js`.
+Create a new project using your favorite IDE or editor, or a new folder with a file named  `translate-text.js` on your desktop. Then copy this code snippet into your project/file:
 
 ```javascript
 const request = require('request');

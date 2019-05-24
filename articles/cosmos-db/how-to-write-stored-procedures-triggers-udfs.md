@@ -4,7 +4,7 @@ description: Learn how to define stored procedures, triggers, and user-defined f
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/11/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
 ---
 
@@ -13,6 +13,9 @@ ms.author: mjbrown
 Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the SQL API in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) and the [Cosmos DB SQL API client SDKs](sql-api-dotnet-samples.md). 
 
 To call a stored procedure, trigger, and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+
+> [!NOTE]
+> For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
@@ -40,7 +43,7 @@ Once written, the stored procedure must be registered with a collection. To lear
 
 ### <a id="create-an-item"></a>Create an item using stored procedure
 
-When you create an item by using stored procedure, the item is inserted into the Azure Cosmos DB container and an id for the newly created item it returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
+When you create an item by using stored procedure, the item is inserted into the Azure Cosmos DB container and an id for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
 
 The stored procedure also includes a parameter to set the description, it's a boolean value. When the parameter is set to true and the description is missing, the stored procedure will throw an exception. Otherwise, the rest of the stored procedure continues to run.
 
@@ -91,7 +94,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
+    var filterQuery = 
+    {     
+        'query' : 'SELECT * FROM Players p where p.id = @playerId1',
+        'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
+    };
+            
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -99,7 +107,11 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
+            var filterQuery2 = 
+            {     
+                'query' : 'SELECT * FROM Players p where p.id = @playerId2',
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+            };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
                     if (err2) throw new Error("Error" + err2.message);
@@ -262,7 +274,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. This post-trigger runs as part of the same transaction that is used by the create Azure Cosmos DB item. Therefore, if you get an exception during the post-trigger execution, for example, if you are unable to update the metadata item, the whole transaction will fail and it is rolled back. So the Azure Cosmos DB item is created and an exception is returned.
+One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. The post-trigger runs as part of the same transaction for the underlying item itself. An exception during the post-trigger execution will fail the whole transaction. Anything committed will be rolled back and an exception returned.
 
 For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) articles. 
 
@@ -272,9 +284,9 @@ The following sample creates a UDF to calculate income tax for various income br
 
 ```json
 {
-   name = "Satya Nadella",
-   country = "USA",
-   income = 70000
+   "name": "Satya Nadella",
+   "country": "USA",
+   "income": 70000
 }
 ```
 

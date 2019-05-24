@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 03/19/2019
 ms.author: juliako;anilmur
 
 ---
@@ -22,14 +22,12 @@ ms.author: juliako;anilmur
 > For premium encoder questions, email mepd@microsoft.com.
 > 
 > Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
-> 
-> 
 
 This document contains a list of input and output file formats and codecs that are supported by the public preview version of the **Media Encoder Premium Workflow** encoder.
 
 [Media Encoder Premium Workflow Input Formats and Codecs](#input_formats)
 
-[Media Encoder Premium Workflow Output Formats and Codecs](#output_formats)
+Media Encoder Premium Workflow Output Formats and Codecs
 
 **Media Encoder Premium Workflow** supports closed captioning described in [this](#closed_captioning) section. 
 

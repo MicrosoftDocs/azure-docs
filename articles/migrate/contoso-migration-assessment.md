@@ -87,7 +87,7 @@ Technology | Description | Cost
 --- | --- | ---
 [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso uses Data Migration Assistant to assess and detect compatibility issues that might affect its database functionality in Azure. Data Migration Assistant assesses feature parity between SQL sources and targets. It recommends performance and reliability improvements. | Data Migration Assistant is a free, downloadable tool.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso uses the Azure Migrate service to assess its VMware VMs. Azure Migrate assesses the migration suitability of the machines. It provides sizing and cost estimates for running in Azure.  | As of May 2018, Azure Migrate is a free service.
-[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines that the company wants to migrate. | Service Map is part of Azure Log Analytics. Currently, Contoso can use Service Map for 180 days without incurring charges.
+[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines that the company wants to migrate. | Service Map is part of Azure Monitor logs. Currently, Contoso can use Service Map for 180 days without incurring charges.
 
 In this scenario, Contoso downloads and runs Data Migration Assistant to assess the on-premises SQL Server database for its travel app. Contoso uses Azure Migrate with dependency mapping to assess the app VMs before migration to Azure.
 
@@ -122,7 +122,7 @@ Contoso and other users must meet the following prerequisites for the assessment
 - At least two on-premises VMware VMs, one running a SQL Server database.
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.  
-    - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector).  
     - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../azure-monitor/platform/gateway.md) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
 - Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.
@@ -156,15 +156,15 @@ Now, Contoso can run an assessment to analyze its on-premises SQL Server databas
 
     ![Data Migration Assistant - Select source](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      Currently, Data Migration Assistant doesn't support assessment for migrating to an Azure SQL Database Managed Instance. As a workaround, Contoso uses SQL Server on an Azure VM as the supposed target for the assessment.
+   > [!NOTE]
+   >    Currently, Data Migration Assistant doesn't support assessment for migrating to an Azure SQL Database Managed Instance. As a workaround, Contoso uses SQL Server on an Azure VM as the supposed target for the assessment.
 
 3. In **Select Target Version**, Contoso selects SQL Server 2017 as the target version. Contoso needs to select this version because it's the version that's used by the SQL Database Managed Instance.
 4. Contoso selects reports to help it discover information about compatibility and new features:
-    - **Compatibility Issues** note changes that might break migration or that require a minor adjustment before migration. This report keeps Contoso informed about any features currently in use that are deprecated. Issues are organized by compatibility level.
-    - **New features' recommendation** notes new features in the target SQL Server platform that can be used for the database after migration. New feature recommendations are organized under the headings **Performance**, **Security**, and **Storage**.
+   - **Compatibility Issues** note changes that might break migration or that require a minor adjustment before migration. This report keeps Contoso informed about any features currently in use that are deprecated. Issues are organized by compatibility level.
+   - **New features' recommendation** notes new features in the target SQL Server platform that can be used for the database after migration. New feature recommendations are organized under the headings **Performance**, **Security**, and **Storage**.
 
-    ![Data Migration Assistant - Compatibility issues and new features](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Data Migration Assistant - Compatibility issues and new features](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. In **Connect to a server**, Contoso enters the name of the VM that's running the database and credentials to access it. Contoso selects **Trust server certificate** to make sure the VM can access SQL Server. Then, Contoso selects **Connect**.
 
@@ -183,13 +183,13 @@ Results are displayed as soon as they're available. If Contoso fixes issues, it 
 
 1. In the **Compatibility issues** report, Contoso checks for any issues at each compatibility level. Compatibility levels map to SQL Server versions as follows:
 
-    - 100: SQL Server 2008/Azure SQL Database
-    - 110: SQL Server 2012/Azure SQL Database
-    - 120: SQL Server 2014/Azure SQL Database
-    - 130: SQL Server 2016/Azure SQL Database
-    - 140: SQL Server 2017/Azure SQL Database
+   - 100: SQL Server 2008/Azure SQL Database
+   - 110: SQL Server 2012/Azure SQL Database
+   - 120: SQL Server 2014/Azure SQL Database
+   - 130: SQL Server 2016/Azure SQL Database
+   - 140: SQL Server 2017/Azure SQL Database
 
-    ![Data Migration Assistant - Compatibility issues report](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Data Migration Assistant - Compatibility issues report](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. In the **Feature recommendations** report, Contoso views performance, security, and storage features that the assessment recommends after migration. A variety of features are recommended, including In-Memory OLTP, columnstore indexes, Stretch Database, Always Encrypted, dynamic data masking, and transparent data encryption.
 
@@ -400,14 +400,14 @@ Contoso runs the installation on each VM.
 
     `sudo -i`
 3. Contoso installs the MMA:
-    - Contoso enters the workspace ID and key in the command.
-    - Commands are for 64-bit.
-    - The workspace ID and primary key are located in the Log Analytics workspace in the Azure portal. Select **Settings**, and then select the **Connected Sources** tab.
-    - Run the following commands to download the Log Analytics agent, validate the checksum, and install and onboard the agent:
+   - Contoso enters the workspace ID and key in the command.
+   - Commands are for 64-bit.
+   - The workspace ID and primary key are located in the Log Analytics workspace in the Azure portal. Select **Settings**, and then select the **Connected Sources** tab.
+   - Run the following commands to download the Log Analytics agent, validate the checksum, and install and onboard the agent:
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### Install the Dependency Agent on Linux VMs
 

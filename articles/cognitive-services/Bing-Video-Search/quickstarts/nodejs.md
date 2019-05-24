@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using JavaScript.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search
@@ -56,19 +56,19 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     };
     ```
     
-    2. When `end` is signaled, use `response.on()` to store the bing-related headers (beginning with `bingapis` or `x-msedge-`). Then parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify()`, and print it.
+   1. When `end` is signaled, use `response.on()` to store the bing-related headers (beginning with `bingapis` or `x-msedge-`). Then parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify()`, and print it.
 
-        ```javascript
-        response.on('end', function () {
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            //JSON Response body
-            console.log(body);
-        });
-        ```
+       ```javascript
+       response.on('end', function () {
+           for (var header in response.headers)
+               // header keys are lower-cased by Node.js
+               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                    console.log(header + ": " + response.headers[header]);
+           body = JSON.stringify(JSON.parse(body), null, '  ');
+           //JSON Response body
+           console.log(body);
+       });
+       ```
 
 # Create and send the search request
 

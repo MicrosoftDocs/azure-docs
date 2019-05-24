@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Preview API is now discontinued, replaced by the Recommendations Solution template.
 services: cognitive-services
 author: LuisCabrer
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: recommendations
 ms.topic: overview

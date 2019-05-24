@@ -312,7 +312,7 @@ To connect to the Azure SQL Database, Contoso admins set up a firewall rule to a
 
 Need more help?
 
-[Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#creating-and-managing-firewall-rules) creating and managing firewall rules for Azure SQL Database.
+[Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) creating and managing firewall rules for Azure SQL Database.
 
 ### Migrate
 
@@ -397,10 +397,10 @@ Contoso admins will convert the app to a container using Visual Studio and the S
 4. They repeat the process for SmartHotel.Registration.WCF app.
 5. Now, they check how the solution has changed.
 
-    - The new app is **SmartHotel.RegistrationApplication/**
-    - It contains two services: **SmartHotel.Registration.WCF** and **SmartHotel.Registration.Web**.
+   - The new app is **SmartHotel.RegistrationApplication/**
+   - It contains two services: **SmartHotel.Registration.WCF** and **SmartHotel.Registration.Web**.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. Visual Studio created the Docker file, and pulled down the required images locally to the developer machine.
 
@@ -483,7 +483,7 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 
 16. In addition, note that the continuous deployment trigger is enabled.
 
-   ![Continuous deployment enabled](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![Continuous deployment enabled](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. They click **Save** > **Create a release**.
 

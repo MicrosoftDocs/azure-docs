@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of uploading files into a
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
@@ -12,12 +12,12 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/17/2017
+ms.topic: conceptual
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure
+# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure 
 
 ## Overview
 
@@ -85,48 +85,48 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
 	The following screenshot shows the access creation. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
 	The following screenshot shows the usage reporting interfaces in the portal. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## Upload files with Aspera
 
 1. Download and install the Aspera client software:
 	
-	* [Browser plugin](http://downloads.asperasoft.com/connect2/)
-	* [Rich client](http://downloads.asperasoft.com/en/downloads/2)
+	* [Browser plugin](https://downloads.asperasoft.com/connect2/)
+	* [Rich client](https://downloads.asperasoft.com/en/downloads/2)
 
 2. Make your first transfer. In order to use the Aspera client to transfer with the Aspera transfer service, you need to complete the following: 
 
-	1. Create an access key, using the Aspera portal.  
-	2. Download, install, and license the Aspera client (software can be found in the Aspera portal).  
+   1. Create an access key, using the Aspera portal.  
+   2. Download, install, and license the Aspera client (software can be found in the Aspera portal).  
 
-	>[!NOTE]
-	>Please read the Aspera client guide for configuration information.
+      >[!NOTE]
+      >Please read the Aspera client guide for configuration information.
 	
-	3. Retrieve some information of your storage account that is associated with your Azure Media Account using the [Azure portal](https://portal.azure.com/). Specifically, name and key, and the storage blob container name in to which you want to place your content. 
+   3. Retrieve some information of your storage account that is associated with your Azure Media Account using the [Azure portal](https://portal.azure.com/). Specifically, name and key, and the storage blob container name in to which you want to place your content. 
 
-		* To get the storage info from the portal: find your storage account, click on the Access keys and copy the name and the key of your account.
-		* To get the container name: find your storage account, select **Blobs**, select the name of the container you want to upload the content into. 
+       * To get the storage info from the portal: find your storage account, click on the Access keys and copy the name and the key of your account.
+       * To get the container name: find your storage account, select **Blobs**, select the name of the container you want to upload the content into. 
 
-	Below is the screenshot of the Aspera client **Connection Manager** where you must specify the 'Azure' storage type and credentials as well as the blob container.
+      Below is the screenshot of the Aspera client **Connection Manager** where you must specify the 'Azure' storage type and credentials as well as the blob container.
 
-	![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+      ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## Resources
 
 The following resources were mentioned in this article. 
 
-* [Connect Browser Plugin](http://downloads.asperasoft.com/connect2/)
-* [Connect Guide](http://downloads.asperasoft.com/en/documentation/8)
-* [Aspera Client](http://downloads.asperasoft.com/en/downloads/2)
-* [Client Guide](http://downloads.asperasoft.com/en/documentation/2)
+* [Connect Browser Plugin](https://downloads.asperasoft.com/connect2/)
+* [Connect Guide](https://downloads.asperasoft.com/en/documentation/8)
+* [Aspera Client](https://downloads.asperasoft.com/en/downloads/2)
+* [Client Guide](https://downloads.asperasoft.com/en/documentation/2)
 
 ## Next steps
 
-You can now [copy blobs from a storage account into an AMS account ](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
+You can now [copy blobs from a storage account into an AMS account](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

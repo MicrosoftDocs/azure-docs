@@ -38,7 +38,7 @@ Before deploying this image, you need to create a resource group with the [az gr
 az group create --name myResourceGroup --location eastus
 ```
 
-Now, create a VM with [az vm create](/cli/azure/vm#az_vm_create) and specify the cloud-init file with `--custom-data cloud_init_upgrade.txt` as follows:
+Now, create a VM with [az vm create](/cli/azure/vm) and specify the cloud-init file with `--custom-data cloud_init_upgrade.txt` as follows:
 
 ```azurecli-interactive 
 az vm create \

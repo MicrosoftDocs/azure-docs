@@ -22,7 +22,7 @@ ms.author: tamram
 
 This script creates an Azure Storage account, displays the new storage account's primary access key, then renews (rotates) the key.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

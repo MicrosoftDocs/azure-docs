@@ -67,7 +67,10 @@ Before you start writing code to build the application, you can build the framew
      * ```touch app.js```
      * ```touch config.js```
 
-4. Install the @azure/cosmos module via npm. Use the following command:
+4. Create and initialize a `package.json` file. Use the following command:
+   * ```npm init -y```
+
+5. Install the @azure/cosmos module via npm. Use the following command:
    * ```npm install @azure/cosmos --save```
 
 ## <a id="Config"></a>Set your app's configurations
@@ -185,13 +188,12 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
    ```
 
 1. Copy and paste the code to use the previously saved ```config.endpoint``` and ```config.primaryKey``` to create a new CosmosClient.
 
    ```javascript
-   const url = require('url');
+   const config = require('./config');
 
    // ADD THIS PART TO YOUR CODE
    const endpoint = config.endpoint;
@@ -275,7 +277,6 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
 
    const endpoint = config.endpoint;
    const masterKey = config.primaryKey;
@@ -332,7 +333,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
 Next create a container within the Azure Cosmos DB account, so that you can store and query the data. 
 
 > [!WARNING]
-Creating a container has pricing implications. Visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) so you know what to expect.
+> Creating a container has pricing implications. Visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) so you know what to expect.
 
 A container can be created by using either the `createIfNotExists` or create function from the **Containers** class.  A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript application logic.
 
@@ -377,7 +378,6 @@ A container can be created by using either the `createIfNotExists` or create fun
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
 
    const endpoint = config.endpoint;
    const masterKey = config.primaryKey;
@@ -457,7 +457,7 @@ An item can be created by using the create function of the **Items** class. When
    /**
    * Create family item if it does not exist
    */
-  async function createFamilyItem(itemBody) {
+   async function createFamilyItem(itemBody) {
      try {
          // read the item to see if it exists
          const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
@@ -607,9 +607,9 @@ Azure Cosmos DB supports deleting JSON items.
 1. Copy and paste the **deleteFamilyItem** function underneath the **replaceFamilyItem** function.
 
    ```javascript
-  /**
-  * Delete the item by ID.
-  */
+   /**
+   * Delete the item by ID.
+   */
    async function deleteFamilyItem(itemBody) {
       await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
       console.log(`Deleted item:\n${itemBody.id}\n`);
@@ -690,7 +690,6 @@ Altogether, your code should look like this:
 const CosmosClient = require('@azure/cosmos').CosmosClient;
 
 const config = require('./config');
-const url = require('url');
 
 const endpoint = config.endpoint;
 const masterKey = config.primaryKey;
@@ -884,9 +883,9 @@ To run the getting started solution that contains all the code in this article, 
 * An [Azure Cosmos DB account][create-account]. 
 * The [Getting Started](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started) solution available on GitHub. 
 
-Install the **@azure/cosmos** module via npm. Use the following command: 
+Install the project's dependencies via npm. Use the following command: 
 
-* ```npm install @azure/cosmos --save``` 
+* ```npm install``` 
 
 Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config).  
 

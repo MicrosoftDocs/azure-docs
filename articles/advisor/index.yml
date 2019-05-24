@@ -17,18 +17,20 @@ abstract:
 sections:
 - title: 
   items:
-  - type: paragraph
   - type: list
-    style: icon48
-    items: 
-    - image:
-        src: media/index/advisor.svg
-      text: Learn about Azure Advisor
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Learn about Azure Advisor
       href: /azure/advisor/advisor-overview
-    - image:
-        src: media/index/get-started.svg
-      text: Get started with Azure Advisor
+      image: 
+        src: media/index/advisor.svg
+        href: /azure/advisor/advisor-overview
+    - title:  Get started with Azure Advisor
       href: /azure/advisor/advisor-get-started
+      image: 
+        src: media/index/get-started.svg
+        href: /azure/advisor/advisor-get-started
 - title: Reference
   items:
   - type: list

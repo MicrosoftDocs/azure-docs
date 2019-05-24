@@ -20,6 +20,9 @@ ms.custom: mvc
 
 ---
 # Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -181,7 +184,7 @@ IpAddress
 52.168.121.216
 ```
 
-Create a remote connection to your first VM instance. Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, they are *azureuser* and *P@ssw0rd!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *0*:
+Create a remote connection to your first VM instance. Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, they are *azureuser* and *P\@ssw0rd!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

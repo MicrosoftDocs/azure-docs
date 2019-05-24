@@ -26,6 +26,7 @@ Linux-based Service Fabric clusters do not run natively on Windows. To run a loc
 
 * At least 4-GB RAM
 * Latest version of [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
+* Docker must be running on Linux mode
 
 >[!TIP]
 > * You can follow the steps mentioned in the official Docker [documentation](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) to install Docker on your Windows. 
@@ -48,7 +49,7 @@ To set up a local Docker container and have a service fabric cluster running on 
 
 2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
-    ```dockerfile
+    ```Dockerfile
     FROM microsoft/service-fabric-onebox
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh

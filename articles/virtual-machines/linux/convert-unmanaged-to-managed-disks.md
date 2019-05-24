@@ -4,7 +4,7 @@ description: How to convert a Linux VM from unmanaged disks to managed disks by 
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -40,13 +40,13 @@ This section covers how to convert single-instance Azure VMs from unmanaged disk
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Convert the VM to managed disks by using [az vm convert](/cli/azure/vm#az_vm_convert). The following process converts the VM named `myVM`, including the OS disk and any data disks:
+2. Convert the VM to managed disks by using [az vm convert](/cli/azure/vm). The following process converts the VM named `myVM`, including the OS disk and any data disks:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Start the VM after the conversion to managed disks by using [az vm start](/cli/azure/vm#az_vm_start). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`.
+3. Start the VM after the conversion to managed disks by using [az vm start](/cli/azure/vm). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -58,7 +58,7 @@ If the VMs that you want to convert to managed disks are in an availability set,
 
 All VMs in the availability set must be deallocated before you convert the availability set. Plan to convert all VMs to managed disks after the availability set itself has been converted to a managed availability set. Then, start all the VMs and continue operating as normal.
 
-1. List all VMs in an availability set by using [az vm availability-set list](/cli/azure/vm/availability-set#az_vm_availability_set_list). The following example lists all VMs in the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
+1. List all VMs in an availability set by using [az vm availability-set list](/cli/azure/vm/availability-set). The following example lists all VMs in the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm availability-set show \
@@ -74,7 +74,7 @@ All VMs in the availability set must be deallocated before you convert the avail
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Convert the availability set by using [az vm availability-set convert](/cli/azure/vm/availability-set#az_vm_availability_set_convert). The following example converts the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
+3. Convert the availability set by using [az vm availability-set convert](/cli/azure/vm/availability-set). The following example converts the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm availability-set convert \
@@ -82,17 +82,30 @@ All VMs in the availability set must be deallocated before you convert the avail
         --name myAvailabilitySet
     ```
 
-4. Convert all the VMs to managed disks by using [az vm convert](/cli/azure/vm#az_vm_convert). The following process converts the VM named `myVM`, including the OS disk and any data disks:
+4. Convert all the VMs to managed disks by using [az vm convert](/cli/azure/vm). The following process converts the VM named `myVM`, including the OS disk and any data disks:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Start all the VMs after the conversion to managed disks by using [az vm start](/cli/azure/vm#az_vm_start). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`:
+5. Start all the VMs after the conversion to managed disks by using [az vm start](/cli/azure/vm). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## Convert using the Azure portal
+
+You can also convert unmanaged disks to managed disks using the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the VM from the list of VMs in the portal.
+3. In the blade for the VM, select **Disks** from the menu.
+4. At the top of the **Disks** blade, select **Migrate to managed disks**.
+5. If your VM is in an availability set, there will be a warning on the **Migrate to managed disks** blade that you need to convert the availability set first. The warning should have a link you can click to convert the availability set. Once the availability set is converted or if your VM is not in an availability set, click **Migrate** to start the process of migrating your disks to managed disks.
+
+The VM will be stopped and restarted after migration is complete.
+
 ## Next steps
+
 For more information about storage options, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).

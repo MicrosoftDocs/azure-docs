@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos DB datab
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
 
 ---
@@ -26,7 +26,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 1. **Connection policy: Use direct connection mode**
 
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the [connection *protocol*](#connection-protocol).  The two available modes are:
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the connection *protocol*.  The two available modes are:
 
    * Gateway Mode (default)
       
@@ -34,37 +34,37 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
    * Direct Mode
 
-     Direct mode supports connectivity through TCP and HTTPS protocols. Currently, direct is supported in .NET Standard 2.0. When using Direct Mode, there are two protocol options available:
+     Direct mode supports connectivity through TCP and HTTPS protocols. If you are using the latest version of .NET SDK, direct connectivity mode is supported in .NET Standard 2.0 and .NET framework. When using Direct Mode, there are two protocol options available:
 
-    * TCP
-    * HTTPS
+     * TCP
+     * HTTPS
 
-    When using Gateway mode, Cosmos DB uses port 443 and ports 10250, 10255 and 10256 when using Azure Cosmos DB's API for MongoDB. The 10250 port maps to a default MongoDB instance without geo-replication and 10255/10256 ports map to the MongoDB instance with geo-replication functionality. When using TCP in Direct Mode, in addition to the Gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you receive a 503 Service Unavailable error. The following table shows connectivity modes available for different APIs and the service ports user for each API:
+     When using Gateway mode, Cosmos DB uses port 443 and ports 10250, 10255 and 10256 when using Azure Cosmos DB's API for MongoDB. The 10250 port maps to a default MongoDB instance without geo-replication and 10255/10256 ports map to the MongoDB instance with geo-replication functionality. When using TCP in Direct Mode, in addition to the Gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you receive a 503 Service Unavailable error. The following table shows connectivity modes available for different APIs and the service ports user for each API:
 
-    |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
-    |---------|---------|---------|---------|
-    |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
-    |Direct    |    HTTPS     |  .Net and Java SDK    |    SQL(443)   |
-    |Direct    |     TCP    |  .Net SDK    | Ports within 10,000-20,000 range |
+     |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
+     |---------|---------|---------|---------|
+     |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
+     |Direct    |    HTTPS     |  .NET and Java SDK    |   Ports within 10,000-20,000 range    |
+     |Direct    |     TCP    |  .NET SDK    | Ports within 10,000-20,000 range |
 
-    Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
+     Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
 
-    The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
+     The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
-    ```csharp
-    var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
-    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-    new ConnectionPolicy
-    {
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = "your authKey from the Azure portal";
+     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+     new ConnectionPolicy
+     {
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp
-    });
-    ```
+     });
+     ```
 
-    Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
+     Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
 
-    ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
+     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
 
 2. **Call OpenAsync to avoid startup latency on first request**
 
@@ -81,6 +81,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
 4. **Increase number of threads/tasks**
 
     Since calls to Azure Cosmos DB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create in the order of 100s of Tasks reading or writing to Azure Cosmos DB.
+
+5. **Enable accelerated networking**
+
+   In order to reduce latency and CPU jitter, we recommend that the client virtual machines are accelerated networking enabled. See the [Create a Windows virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) articles to enable accelerated networking.
+
 
 ## SDK Usage
 1. **Install the most recent SDK**
@@ -157,7 +162,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
  
 1. **Exclude unused paths from indexing for faster writes**
 
-    Cosmos DB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
+    Cosmos DB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a subtree) from indexing using the "*" wildcard.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

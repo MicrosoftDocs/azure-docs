@@ -3,8 +3,8 @@ title: Problem configuring federated single sign-on for an Azure AD Gallery appl
 description: Address some of the common problems you may encounter when configuring federated single sign-on using SAML for applications that are listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem configuring federated single sign-on for an Azure AD Gallery application
@@ -38,33 +39,33 @@ If you’re not able to configure the Identifier or the Reply URL, confirm the I
 
 To know the patterns pre-configured for the application:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.** Go to step 7. If you are already in the application configuration blade on Azure AD.
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.** Go to step 7. If you are already in the application configuration blade on Azure AD.
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to configure single sign-on.
+6. Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
-8.  Select **SAML-based Sign-on** from the **Mode** dropdown.
+8. Select **SAML-based Sign-on** from the **Mode** dropdown.
 
-9.  Go to the **Identifier** or **Reply URL** textbox, under the **Domain and URLs section.**
+9. Go to the **Identifier** or **Reply URL** textbox, under the **Domain and URLs section.**
 
 10. There are three ways to know the supported patterns for the application:
 
-   * In the textbox, you see the supported pattern(s) as a placeholder *Example:* <https://contoso.com>.
+    * In the textbox, you see the supported pattern(s) as a placeholder *Example:* <https://contoso.com>.
 
-   * if the pattern is not supported, you see a red exclamation mark when you try to enter the value in the textbox. If you hover your mouse over the red exclamation mark, you see the supported patterns.
+    * if the pattern is not supported, you see a red exclamation mark when you try to enter the value in the textbox. If you hover your mouse over the red exclamation mark, you see the supported patterns.
 
-   * In the tutorial for the application, you can also get information about the supported patterns. Under the **Configure Azure AD single sign-on** section. Go to the step for configured the values under the **Domain and URLs** section.
+    * In the tutorial for the application, you can also get information about the supported patterns. Under the **Configure Azure AD single sign-on** section. Go to the step for configured the values under the **Domain and URLs** section.
 
 If the values don’t match with the patterns pre-configured on Azure AD. You can:
 
@@ -82,23 +83,23 @@ Azure AD select the format for the NameID attribute (User Identifier) based on t
 
 To download the application metadata or certificate from Azure AD, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you have configured single sign-on.
+6. Select the application you have configured single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
-8.  Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
+8. Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
 
 Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as a XML file.
 

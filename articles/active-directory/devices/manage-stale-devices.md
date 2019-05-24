@@ -3,7 +3,7 @@ title: How to manage stale devices in Azure AD | Microsoft Docs
 description: Due to lost, stolen, broken devices, or OS reinstallations you typically have stale devices in your environment. Learn how to remove stale devices from your database of registered devices in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: spunukol
 
 
-#Customer intent: As a IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
+#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Manage stale devices in Azure AD
@@ -122,7 +123,7 @@ To cleanup Azure AD:
 
 - **Windows 10 devices** - Disable or delete Windows 10 devices in your on-premises AD, and let Azure AD Connect synchronize the changed device status to Azure AD.
 
-- **Windows 7/8** - Disable or delete Windows 10 devices in the Azure AD. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD.
+- **Windows 7/8** - Disable or delete Windows 7/8 devices in the Azure AD. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD.
 
 
 

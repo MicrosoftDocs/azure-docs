@@ -78,7 +78,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Apply the Custom Script Extension
-Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/azure/vmss/extension#set). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*:
+Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/azure/vmss/extension). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -108,7 +108,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
+To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -137,7 +137,7 @@ In your current shell, create a file named *customConfigv2.json* and paste the f
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az vmss extension set](/cli/azure/vmss/extension#set). The *customConfigv2.json* is used to apply the updated version of the application:
+Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az vmss extension set](/cli/azure/vmss/extension). The *customConfigv2.json* is used to apply the updated version of the application:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -155,7 +155,7 @@ All VM instances in the scale set are automatically updated with the latest vers
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

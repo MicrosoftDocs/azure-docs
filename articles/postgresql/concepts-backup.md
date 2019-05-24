@@ -1,14 +1,14 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL
-description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server.
+title: Backup and restore in Azure Database for PostgreSQL - Single Server
+description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 
-# Backup and restore in Azure Database for PostgreSQL
+# Backup and restore in Azure Database for PostgreSQL - Single Server
 
 Azure Database for PostgreSQL automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 
@@ -45,7 +45,7 @@ There are two types of restore available:
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered.
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### Point-in-time restore
 

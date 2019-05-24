@@ -14,4 +14,4 @@ ms.author: diberry
 ---
 
 > [!NOTE]
-> The complete solution is available from the [**LUIS-Samples** GitHub repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/).
+> The complete solution is available from the [**cognitive-services-language-understanding** GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/).

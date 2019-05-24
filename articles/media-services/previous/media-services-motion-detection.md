@@ -4,7 +4,7 @@ description: The Azure Media Motion Detector media processor (MP) enables you to
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 03/19/2019
 ms.author: milanga;juliako;
 
 ---
@@ -382,5 +382,5 @@ namespace VideoMotionDetection
 
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

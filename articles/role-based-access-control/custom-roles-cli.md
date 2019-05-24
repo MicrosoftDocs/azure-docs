@@ -1,6 +1,6 @@
 ---
-title: Create custom roles using Azure CLI | Microsoft Docs
-description: Learn how to create custom roles for role-based access control (RBAC) using Azure CLI. This includes how to list, create, update, and delete custom roles.
+title: Create custom roles for Azure resources using Azure CLI | Microsoft Docs
+description: Learn how to create custom roles with role-based access control (RBAC) for Azure resources using Azure CLI. This includes how to list, create, update, and delete custom roles.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Create custom roles using Azure CLI
+# Create custom roles for Azure resources using Azure CLI
 
-If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using Azure CLI.
+If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using Azure CLI.
+
+For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a custom role for Azure resources using Azure CLI](tutorial-custom-role-cli.md).
 
 ## Prerequisites
 
 To create custom roles, you need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
-- [Azure CLI](/cli/azure/install-azure-cli) installed locally
+- [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure/install-azure-cli)
 
 ## List custom roles
 
@@ -56,6 +58,78 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 ...
 ```
 
+## List a custom role definition
+
+To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This is the same command you would use for a built-in role.
+
+```azurecli
+az role definition list --name <role_name>
+```
+
+The following example lists the *Virtual Machine Operator* role definition:
+
+```azurecli
+az role definition list --name "Virtual Machine Operator"
+```
+
+```Output
+[
+  {
+    "assignableScopes": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111"
+    ],
+    "description": "Can monitor and restart virtual machines.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000",
+    "name": "00000000-0000-0000-0000-000000000000",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/*/read",
+          "Microsoft.Network/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Insights/diagnosticSettings/*",
+          "Microsoft.Support/*"
+        ],
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Virtual Machine Operator",
+    "roleType": "CustomRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+The following example lists just the actions of the *Virtual Machine Operator* role:
+
+```azurecli
+az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
+```
+
+```Output
+[
+  "Microsoft.Storage/*/read",
+  "Microsoft.Network/*/read",
+  "Microsoft.Compute/*/read",
+  "Microsoft.Compute/virtualMachines/start/action",
+  "Microsoft.Compute/virtualMachines/restart/action",
+  "Microsoft.Authorization/*/read",
+  "Microsoft.ResourceHealth/availabilityStatuses/read",
+  "Microsoft.Resources/subscriptions/resourceGroups/read",
+  "Microsoft.Insights/alertRules/*",
+  "Microsoft.Insights/diagnosticSettings/*",
+  "Microsoft.Support/*"
+]
+```
+
 ## Create a custom role
 
 To create a custom role, use [az role definition create](/cli/azure/role/definition#az-role-definition-create). The role definition can be a JSON description or a path to a file containing a JSON description.
@@ -80,6 +154,7 @@ vmoperator.json
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Support/*"
@@ -122,6 +197,7 @@ vmoperator.json
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -157,6 +233,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## Next steps
 
-- [Tutorial: Create a custom role using Azure CLI](tutorial-custom-role-cli.md)
-- [Custom roles in Azure](custom-roles.md)
+- [Tutorial: Create a custom role for Azure resources using Azure CLI](tutorial-custom-role-cli.md)
+- [Custom roles for Azure resources](custom-roles.md)
 - [Azure Resource Manager resource provider operations](resource-provider-operations.md)

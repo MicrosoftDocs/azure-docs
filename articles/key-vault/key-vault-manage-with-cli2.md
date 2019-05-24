@@ -2,15 +2,11 @@
 title: Manage Azure Key Vault using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
-documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid:
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
@@ -141,18 +137,18 @@ If you want Azure Key Vault to create a software-protected key for you, use the 
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
-If you have an existing key in a .pem file, you can upload it to Azure Key Vault. You can choose to protect the key with software or HSM. Use the following to import the key from the .pem file and protect it with software:
+If you have an existing key in a .pem file, you can upload it to Azure Key Vault. You can choose to protect the key with software or HSM. This example imports the key from the .pem file and protect it with software, using the password "hVFkk965BuUv":
 
 ```azurecli
-az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
 You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] to get this specific version. For example, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
 
-Add a secret to the vault, which is a password named SQLPassword, and that has the value of Pa$$w0rd to Azure Key Vaults. 
+Add a secret to the vault, which is a password named SQLPassword, and that has the value of "hVFkk965BuUv" to Azure Key Vaults. 
 
 ```azurecli
-az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
 Reference this password by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] to get this specific version. For example, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
@@ -160,7 +156,7 @@ Reference this password by using its URI. Use **https://ContosoVault.vault.azure
 Import a certificate to the vault using a .pem or .pfx.
 
 ```azurecli
-az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "hVFkk965BuUv"
 ```
 
 Let's view the key, secret, or certificate that you created:
@@ -199,7 +195,7 @@ For detailed steps on registering an application with Azure Active Directory you
 To register an application in Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -243,7 +239,7 @@ Enable Key Vault for template deployment: Allows Resource Manager to retrieve se
 
 ## Working with Hardware security modules (HSMs)
 
-For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
+For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 

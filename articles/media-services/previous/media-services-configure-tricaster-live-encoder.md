@@ -4,7 +4,7 @@ description: This topic shows how to configure the Tricaster live encoder to sen
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 03/14/2019
 ms.author: juliako;cenkd;anilmur
 
 ---
-# Use the NewTek TriCaster encoder to send a single bitrate live stream
+# Use the NewTek TriCaster encoder to send a single bitrate live stream  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -26,7 +26,7 @@ ms.author: juliako;cenkd;anilmur
 >
 >
 
-This article shows how to configure the [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+This article shows how to configure the [NewTek TriCaster](https://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
 

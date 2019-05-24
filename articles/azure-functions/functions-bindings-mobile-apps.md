@@ -40,7 +40,7 @@ The Mobile Apps input binding loads a record from a mobile table endpoint and pa
 See the language-specific example:
 
 * [C# script (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
+* JavaScript
 
 ### Input - C# script example
 

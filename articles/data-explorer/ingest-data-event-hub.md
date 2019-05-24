@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Ingest data from Event Hub into Azure Data Explorer'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Event Hub.'
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/17/2019
 
-#Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze streaming data.
+# Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze streaming data.
 ---
 
 # Quickstart: Ingest data from Event Hub into Azure Data Explorer
@@ -20,11 +19,11 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* [A test cluster and database](create-cluster-database-portal.md)
+* [A test cluster and database](create-cluster-database-portal.md).
 
 * [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub. Download the sample app to your system.
 
-* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
 
 ## Sign in to the Azure portal
 
@@ -100,11 +99,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
 
     ![Select test database](media/ingest-data-event-hub/select-test-database.png)
 
-1. Select **Data ingestion** then **Add data connection**.
-
-    ![Data ingestion](media/ingest-data-event-hub/data-ingestion-create.png)
-
-1. Fill out the form with the following information, then select **Create**.
+1. Select **Data ingestion** and **Add data connection**. Then fill out the form with the following information. Select **Create** when you are finished.
 
     ![Event hub connection](media/ingest-data-event-hub/event-hub-connection.png)
 
@@ -126,7 +121,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Table | *TestTable* | The table you created in **TestDatabase**. |
-    | Data format | *JSON* | JSON and CSV formats are supported. |
+    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. |
     | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**.|
     | | |
 

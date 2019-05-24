@@ -1,7 +1,6 @@
 ---
 title: Sample - Audit transparent data encryption for SQL Database
-description: This sample policy audits if SQL database does not have transparent data encryption enabled.
-services: azure-policy
+description: This sample policy definition audits if SQL database does not have transparent data encryption enabled.
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -9,7 +8,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Audit SQL database encryption
+# Sample - Audit SQL database encryption
 
 This built-in policy audits if SQL database does not have transparent data encryption enabled.
 
@@ -27,7 +26,7 @@ When assigning a policy, select **Audit transparent data encryption status** fro
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/17k78e20-9358-41c9-923c-fb736d382a12

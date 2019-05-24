@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a SQL Server Windows VM with Azure PowerShell | Microsoft Docs
 description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine with Azure PowerShell.
 services: virtual-machines-windows
@@ -21,10 +21,8 @@ ms.reviewer: jroth
 This quickstart steps through creating a SQL Server virtual machine with Azure PowerShell.
 
 > [!TIP]
-> This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
-
-> [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+> - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
 
@@ -33,14 +31,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## <a id="powershell"></a> Get Azure PowerShell
 
-This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## Configure PowerShell
 
-1. Open PowerShell and establish access to your Azure account by running the **Connect-AzureRmAccount** command.
+1. Open PowerShell and establish access to your Azure account by running the **Connect-AzAccount** command.
 
-   ```PowerShell
-   Connect-AzureRmAccount
+   ```powershell
+   Connect-AzAccount
    ```
 
 1. You should see a screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
@@ -49,20 +47,20 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 1. Define a variable with a unique resource group name. To simplify the rest of the quickstart, the remaining commands use this name as a basis for other resource names.
 
-   ```PowerShell
+   ```powershell
    $ResourceGroupName = "sqlvm1"
    ```
 
 1. Define a location of a target Azure region for all VM resources.
 
-   ```PowerShell
+   ```powershell
    $Location = "East US"
    ```
 
 1. Create the resource group.
 
-   ```PowerShell
-   New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+   ```powershell
+   New-AzResourceGroup -Name $ResourceGroupName -Location $Location
    ```
 
 ## Configure network settings
@@ -75,42 +73,42 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
    $PipName = $ResourceGroupName + $(Get-Random)
 
    # Create a subnet configuration
-   $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix 192.168.1.0/24
+   $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix 192.168.1.0/24
 
    # Create a virtual network
-   $Vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
+   $Vnet = New-AzVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
       -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
    # Create a public IP address and specify a DNS name
-   $Pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
+   $Pip = New-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
       -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name $PipName
    ```
 
 1. Create a network security group. Configure rules to allow remote desktop (RDP) and SQL Server connections.
 
-   ```PowerShell
+   ```powershell
    # Rule to allow remote desktop (RDP)
-   $NsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
+   $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
 
    #Rule to allow SQL Server connections on port 1433
-   $NsgRuleSQL = New-AzureRmNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
+   $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
 
    # Create the network security group
    $NsgName = $ResourceGroupName + "nsg"
-   $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
+   $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
    ```
 
 1. Create the network interface.
 
-   ```PowerShell
+   ```powershell
    $InterfaceName = $ResourceGroupName + "int"
-   $Interface = New-AzureRmNetworkInterface -Name $InterfaceName `
+   $Interface = New-AzNetworkInterface -Name $InterfaceName `
       -ResourceGroupName $ResourceGroupName -Location $Location `
       -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $Pip.Id `
       -NetworkSecurityGroupId $Nsg.Id
@@ -129,16 +127,16 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 1. Create a virtual machine configuration object and then create the VM. The following command creates a SQL Server 2017 Developer Edition VM on Windows Server 2016.
 
-   ```PowerShell
+   ```powershell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
-      Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
-      Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
-      Add-AzureRmVMNetworkInterface -Id $Interface.Id
+   $VMConfig = New-AzVMConfig -VMName $VMName -VMSize Standard_DS13_V2 |
+      Set-AzVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate |
+      Set-AzVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" |
+      Add-AzVMNetworkInterface -Id $Interface.Id
    
    # Create the VM
-   New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VMConfig
+   New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VMConfig
    ```
 
    > [!TIP]
@@ -148,16 +146,16 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after the VM is created.
 
-   ```PowerShell
-   Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   ```powershell
+   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
 ## Remote desktop into the VM
 
 1. Use the following command to retrieve the public IP address for the new VM.
 
-   ```PowerShell
-   Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
+   ```powershell
+   Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
 1. Pass the returned IP address as a command-line parameter to **mstsc** to start a Remote Desktop session into the new VM.
@@ -180,11 +178,11 @@ You're now connected to SQL Server locally. If you want to connect remotely, you
 
 If you don't need the VM to run continuously, you can avoid unnecessary charges by stopping it when not in use. The following command stops the VM but leaves it available for future use.
 
-```PowerShell
-Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+```powershell
+Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-You can also permanently delete all resources associated with the virtual machine with the **Remove-AzureRmResourceGroup** command. Doing so permanently deletes the virtual machine as well, so use this command with care.
+You can also permanently delete all resources associated with the virtual machine with the **Remove-AzResourceGroup** command. Doing so permanently deletes the virtual machine as well, so use this command with care.
 
 ## Next steps
 

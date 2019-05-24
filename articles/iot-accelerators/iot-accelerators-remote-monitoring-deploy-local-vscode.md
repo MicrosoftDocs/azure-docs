@@ -3,7 +3,7 @@ title: Deploy the remote monitoring solution locally (Visual Studio Code) - Azur
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Visual Studio Code for testing and development.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
@@ -27,9 +27,9 @@ If you don’t have an account, you can create a free trial account in just a co
 To complete the local deployment, you need the following tools installed on your local development machine:
 
 * [Git](https://git-scm.com/)
-* [.Net Core](https://dotnet.microsoft.com/download)
+* [.NET Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VS Code's C# extension](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) - this software is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Don't use Node.js v10
@@ -54,7 +54,7 @@ dotnet build -c Release
 
 ### Deploy all other microservices on local machine
 
-The following steps show you how to run the Remote Monitoring microservices in Visual Studio 2017:
+The following steps show you how to run the Remote Monitoring microservices in Visual Studio Code:
 
 1. Launch Visual Studio Code.
 1. Open the **azure-iot-pcs-remote-monitoring-dotnet** module from your local copy in VS Code.
@@ -74,7 +74,7 @@ npm install
 npm start
 ```
 
-When the start is complete, your browser displays the page **http://localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
+When the start is complete, your browser displays the page **http:\//localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
 
 ### Configure and run NGINX
 
@@ -83,11 +83,11 @@ Set up a reverse proxy server to link the web application and microservices runn
 * Copy the **nginx.conf** file from the **webui\scripts\localhost** folder to the **nginx\conf** install directory.
 * Run **nginx**.
 
-For more information about running **nginx**, see [nginx for Windows](http://nginx.org/en/docs/windows.html).
+For more information about running **nginx**, see [nginx for Windows](https://nginx.org/en/docs/windows.html).
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:9000](http://localhost:9000) in your browser.
+To access the Remote Monitoring solution dashboard, navigate to http:\//localhost:9000 in your browser.
 
 ## Clean up
 

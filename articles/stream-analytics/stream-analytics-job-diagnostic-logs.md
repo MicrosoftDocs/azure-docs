@@ -7,8 +7,7 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
+ms.date: 05/15/2019
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
 
@@ -23,7 +22,9 @@ Stream Analytics offers two types of logs:
 * [Diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurable), which provide richer insights into everything that happens with a job. Diagnostics logs start when the job is created and end when the job is deleted. They cover events when the job is updated and while it’s running.
 
 > [!NOTE]
-> You can use services like Azure Storage, Azure Event Hubs, and Azure Log Analytics to analyze nonconforming data. You are charged based on the pricing model for those services.
+> You can use services like Azure Storage, Azure Event Hubs, and Azure Monitor logs to analyze nonconforming data. You are charged based on the pricing model for those services.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Debugging using activity logs
 
@@ -45,11 +46,11 @@ Activity logs are on by default and give high-level insights into operations per
 
 5. You can take corrective actions based on the error message in JSON. In this example, checks to ensure latitude value is between -90 degrees and 90 degrees need to be added to the query.
 
-6. If the error message in the Activity logs isn’t helpful in identifying root cause, enable diagnostic logs and use Log Analytics.
+6. If the error message in the Activity logs isn’t helpful in identifying root cause, enable diagnostic logs and use Azure Monitor logs.
 
-## Send diagnostics to Log Analytics
+## Send diagnostics to Azure Monitor logs
 
-Turning on diagnostic logs and sending them to Log Analytics is highly recommended. Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
+Turning on diagnostic logs and sending them to Azure Monitor logs is highly recommended. Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
 
 1.  Sign in to the Azure portal, and navigate to your Stream Analytics job. Under **Monitoring**, select **Diagnostics logs**. Then select **Turn on diagnostics**.
 
@@ -61,7 +62,7 @@ Turning on diagnostic logs and sending them to Log Analytics is highly recommend
 
 3. When your Stream Analytics job starts, diagnostic logs are routed to your Log Analytics workspace. Navigate to the Log Analytics workspace and choose **Logs** under the **General** section.
 
-   ![Log Analytics logs under general section](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Azure Monitor logs under general section](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. You can [write your own query](../azure-monitor/log-query/get-started-portal.md) to search for terms, identify trends, analyze patterns, and provide insights based on your data. For example, you can write a query to filter only diagnostic logs that have the message “The streaming job failed.” Diagnostic logs from Azure Stream Analytics are stored in the **AzureDiagnostics** table.
 
@@ -75,7 +76,7 @@ Turning on diagnostic logs and sending them to Log Analytics is highly recommend
 
 ## Diagnostics log categories
 
-Currently, we capture two categories of diagnostics logs:
+Azure Stream Analytics captures two categories of diagnostics logs:
 
 * **Authoring**: Captures log events that are related to job authoring operations, such as job creation, adding and deleting inputs and outputs, adding and updating the query, and starting or stopping the job.
 
@@ -102,7 +103,7 @@ properties | Log entry-specific detail, serialized as a JSON string. For more in
 
 ### Execution log properties schema
 
-Execution logs have information about events that happened during Stream Analytics job execution. The schema of properties varies, depending on the type of event. Currently, we have the following types of execution logs:
+Execution logs have information about events that happened during Stream Analytics job execution. The schema of properties varies depending on whether the event is a data error or a generic event.
 
 ### Data errors
 
@@ -116,10 +117,14 @@ Type | Type of error. For example, **DataConversionError**, **CsvParserError**, 
 Data | Contains data that is useful to accurately locate the source of the error. Subject to truncation, depending on size.
 
 Depending on the **operationName** value, data errors have the following schema:
-* **Serialize events**. Serialize events occur during event read operations. They occur when the data at the input does not satisfy the query schema for one of these reasons:
-    * *Type mismatch during event (de)serialize*: Identifies the field that's causing the error.
-    * *Cannot read an event, invalid serialization*: Lists information about the location in the input data where the error occurred. Includes blob name for blob input, offset, and a sample of the data.
-* **Send events**. Send events occur during write operations. They identify the streaming event that caused the error.
+
+* **Serialize events** occur during event read operations. They occur when the data at the input does not satisfy the query schema for one of these reasons:
+
+   * *Type mismatch during event (de)serialize*: Identifies the field that's causing the error.
+
+   * *Cannot read an event, invalid serialization*: Lists information about the location in the input data where the error occurred. Includes blob name for blob input, offset, and a sample of the data.
+
+* **Send events** occur during write operations. They identify the streaming event that caused the error.
 
 ### Generic events
 

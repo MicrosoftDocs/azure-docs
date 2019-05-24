@@ -4,7 +4,7 @@ description: Best practices for Azure Service Fabric security.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock 
+manager: chackdan 
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -183,7 +183,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-In your Service Fabric application code, obtain an access token for Azure Resource Manager by making a REST all similar to the following:
+In your Service Fabric application code, [obtain an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) for Azure Resource Manager by making a REST all similar to the following:
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")

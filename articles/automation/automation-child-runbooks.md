@@ -22,7 +22,7 @@ When you invoke a runbook inline, it runs in the same job as the parent runbook.
 
 When a runbook is published, any child runbooks that it calls must already be published. This is because Azure Automation builds an association with any child runbooks when a runbook is compiled. If they aren’t, the parent runbook appears to publish properly, but will generate an exception when it’s started. If this happens, you can republish the parent runbook to properly reference the child runbooks. You do not need to republish the parent runbook if any of the child runbooks are changed because the association has already been created.
 
-The parameters of a child runbook called inline can be any data type including complex objects. There is no [JSON serialization](automation-starting-a-runbook.md#runbook-parameters) as there is when you start the runbook using the Azure portal or with the Start-AzureRmAutomationRunbook cmdlet.
+The parameters of a child runbook called inline can be any data type including complex objects. There is no [JSON serialization](start-runbooks.md#runbook-parameters) as there is when you start the runbook using the Azure portal or with the Start-AzureRmAutomationRunbook cmdlet.
 
 ### Runbook types
 
@@ -59,7 +59,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > If you are invoking a child runbook with the `Start-AzureRmAutomationRunbook` cmdlet with the `-Wait` switch and the results of the child runbook is an object, you may encounter errors. To work around the error, see [Child runbooks with object output](troubleshoot/runbooks.md#child-runbook-object) to learn how to implement the logic to poll for the results and use the [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-You can use the [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet to start a runbook as described in [To start a runbook with Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). There are two modes of use for this cmdlet.  In one mode, the cmdlet returns the job id when the child job is created for the child runbook.  In the other mode, which you enable by specifying the **-wait** parameter, the cmdlet waits until the child job finishes and returns the output from the child runbook.
+You can use the [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet to start a runbook as described in [To start a runbook with Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). There are two modes of use for this cmdlet.  In one mode, the cmdlet returns the job id when the child job is created for the child runbook.  In the other mode, which you enable by specifying the **-wait** parameter, the cmdlet waits until the child job finishes and returns the output from the child runbook.
 
 The job from a child runbook started with a cmdlet runs in a separate job from the parent runbook. This behavior results in more jobs than starting the runbook inline and makes them more difficult to track. The parent can start more than one child runbook asynchronously without waiting for each to complete. For that same kind of parallel execution calling the child runbooks inline, the parent runbook would need to use the [parallel keyword](automation-powershell-workflow.md#parallel-processing).
 
@@ -67,7 +67,7 @@ The output of child runbooks aren't returned to the parent runbook reliably beca
 
 If you don’t want the parent runbook to be blocked on waiting, you can start the child runbook using `Start-AzureRmAutomationRunbook` cmdlet without the `-Wait` switch. You would then need to use `Get-AzureRmAutomationJob` to wait for job completion, and `Get-AzureRmAutomationJobOutput` and `Get-AzureRmAutomationJobOutputRecord` to retrieve the results.
 
-Parameters for a child runbook started with a cmdlet are provided as a hashtable as described in [Runbook Parameters](automation-starting-a-runbook.md#runbook-parameters). Only simple data types can be used. If the runbook has a parameter with a complex data type, then it must be called inline.
+Parameters for a child runbook started with a cmdlet are provided as a hashtable as described in [Runbook Parameters](start-runbooks.md#runbook-parameters). Only simple data types can be used. If the runbook has a parameter with a complex data type, then it must be called inline.
 
 The subscription context might be lost when starting child runbooks as separate jobs. In order for the child runbook to execute Azure RM cmdlets against a specific Azure subscription, the child runbook must authenticate to this subscription independently of the parent runbook.
 
@@ -78,6 +78,9 @@ If jobs within the same Automation account work with more than one subscription,
 The following example starts a child runbook with parameters and then waits for it to complete using the Start-AzureRmAutomationRunbook -wait parameter. Once completed, its output is collected from the child runbook. To use `Start-AzureRmAutomationRunbook`, you must authenticate to your Azure subscription.
 
 ```azurepowershell-interactive
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -95,7 +98,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRMContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -114,6 +117,6 @@ The following table summarizes the differences between the two methods for calli
 
 ## Next steps
 
-* [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
+* [Starting a runbook in Azure Automation](start-runbooks.md)
 * [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
 

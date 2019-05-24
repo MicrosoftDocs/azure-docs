@@ -1,6 +1,6 @@
 ---
 title: Develop Azure Functions using Visual Studio  | Microsoft Docs
-description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2017.
+description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
 services: functions
 documentationcenter: .net
 author: ggailey777  
@@ -14,7 +14,7 @@ ms.author: glenga
 ---
 # Develop Azure Functions using Visual Studio  
 
-Azure Functions Tools for Visual Studio 2017 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
+Azure Functions Tools for Visual Studio 2019 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
 The Azure Functions Tools provides the following benefits: 
 
@@ -24,16 +24,16 @@ The Azure Functions Tools provides the following benefits:
 * Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
 * Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-This article provides details about how to use the Azure Functions Tools for Visual Studio 2017 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
+This article provides details about how to use the Azure Functions Tools for Visual Studio 2019 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
 
 ## Prerequisites
 
-Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
+Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2019 installation:
 
-![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Install Visual Studio 2019 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Make sure that your Visual Studio is up-to-date and that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools.
 
@@ -75,7 +75,7 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for environment variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
@@ -138,7 +138,7 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Make sure you have [configured the project for local development](#configure-the-project-for-local-development).
 
-2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
+2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](./functions-bindings-register.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
 3. If there are app settings that the binding needs, add them to the **Values** collection in the [local setting file](functions-run-local.md#local-settings-file). These values are used when the function runs locally. When the function runs in the function app in Azure, the [function app settings](#function-app-settings) are used.
 
@@ -158,7 +158,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
-The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
+   The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -202,21 +202,15 @@ You can also manage application settings in one of these other ways:
 
 ## Monitoring functions
 
-The recommended way to monitor the execution of your function in Azure is by integrating with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done. Instead, you get built-in logging, which isn't recommended.
+The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done.
 
-To enable Application Insights for your function app in Azure:
+To enable Application Insights for your function app:
 
-1. Create an Application Insights instance in the [Azure portal](https://portal.azure.com) and copy its instrumentation key. To learn how, see [Manually connect an App Insights resource](functions-monitoring.md#manually-connect-an-app-insights-resource).  
-
-1. Add an app setting named `APPINSIGHTS_INSTRUMENTATIONKEY` to the function app settings in Azure, as described in [Function app settings](#function-app-settings). This app setting contains the instrumentation key that you created in the previous step.
-
-1. Remove the `AzureWebJobsDashboard` app setting from the function app in Azure, which disables built-in logging.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
-
-For more information about Azure Functions Tools, see the Common Questions section of the [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post.
 
 To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 

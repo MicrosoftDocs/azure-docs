@@ -4,22 +4,22 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to page through search results from the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 05/15/2019
 ms.author: aahi
 ---
 
 # How to page through results from the Bing Web Search API
 
-When you call the Web Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) field.  
+When you call the Web Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) field.  
 
 The following example shows the `totalEstimatedMatches` field that a Web answer includes.  
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -60,3 +60,7 @@ If you specify the `responseFilter` query parameter and do not include Webpages 
 
 > [!NOTE]
 > The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 
+
+## Next steps
+
+* [What is the Bing Web Search API](overview.md)?

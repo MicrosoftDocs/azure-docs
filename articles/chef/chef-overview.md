@@ -11,12 +11,12 @@ ms.topic: article
 ---
 
 # Using Chef with Azure
-[Chef](http://www.chef.io) is a powerful automation platform that transforms virtual machine infrastructure on Azure into code. Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+[Chef](https://www.chef.io) is a powerful automation platform that transforms virtual machine infrastructure on Azure into code. Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
 This article describes the benefits of using Chef to manage Azure infrastructure.
 
 ## Chef Extension on Azure
-Provision a virtual machine with Chef Client running as a background service with the [Chef Extension](https://docs.microsoft.com/en-us/azure/chef/chef-extension-portal) on the Azure Portal. Once provisioned, these virtual machines are ready to be managed by a Chef server.
+Provision a virtual machine with Chef Client running as a background service with the [Chef Extension](https://docs.microsoft.com/azure/chef/chef-extension-portal) on the Azure Portal. Once provisioned, these virtual machines are ready to be managed by a Chef server.
 
 ## Chef Cloud Shell
 Use Chef Workstation directly in Azure Cloud Shell! Run all of your Chef utilities and InSpec right from Cloud Shell. You can utilize the Chef commands from:

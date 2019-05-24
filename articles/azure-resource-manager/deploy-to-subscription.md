@@ -18,7 +18,7 @@ ms.author: tomfitz
 
 Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create Azure resource groups, and create Azure resources at the subscription level. To deploy templates at the subscription level, you use Azure CLI and Azure PowerShell. The Azure portal doesn't support deployment in the subscription level.
 
-To create a resource group in an Azure Resource Manager template, define a [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template. The resources that you can deploy at the  subscription level include: [Policies](../azure-policy/azure-policy-introduction.md), and [Role-based access control](../role-based-access-control/overview.md).
+To create a resource group in an Azure Resource Manager template, define a [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template. The resources that you can deploy at the subscription level include: [Policies](../governance/policy/overview.md), and [Role-based access control](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -97,7 +97,7 @@ The following template creates an empty resource group.
 }
 ```
 
-The template schema can be found at [here](/azure/templates/microsoft.resources/allversions.md). Similar templates can be found at [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+The template schema can be found at [here](/azure/templates/microsoft.resources/allversions). Similar templates can be found at [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
 ## Create multiple resource groups
 
@@ -303,7 +303,7 @@ New-AzDeployment `
 
 ### Define and assign policy
 
-You can [define](../azure-policy/policy-definition.md) and assign a policy in the same template.
+You can [define](../governance/policy/concepts/definition-structure.md) and assign a policy in the same template.
 
 ```json
 {

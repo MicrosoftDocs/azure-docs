@@ -18,6 +18,7 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
 This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.
@@ -26,7 +27,7 @@ This article describes how to manage and customize Active Directory Federation S
 |:--- |:--- |
 | **Manage AD FS** | |
 | [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
-| [Federate with Azure AD using alternate login ID ](#alternateid) | Configure federation using alternate login ID  |
+| [Federate with Azure AD using alternate login ID](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
 | [Add a federated domain](#addfeddomain) |How to add a federated domain. |

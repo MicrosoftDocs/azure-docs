@@ -51,8 +51,7 @@ The following database solutions are supported with backup feature:
   about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](web-sites-scale.md).  
   **Premium** tier allows a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that 
-  you want to back up. For more information on Azure storage accounts, see the 
-  [links](#moreaboutstorage) at the end of this article.
+  you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
 * Backups of SSL enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
 * Backups of SSL enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.
@@ -121,6 +120,9 @@ Sometimes you don't want to back up everything on your app. Here are a few examp
 * You don't want to back up the log files.
 
 Partial backups allow you choose exactly which files you want to back up.
+
+> [!NOTE]
+> Individual databases in the backup can be 4GB max but the total max size of the backup is 10GB
 
 ### Exclude files from your backup
 Suppose you have an app that contains log files and static images that have been backup once and are not going to change. In such cases, you can exclude those folders and files from being stored in your future backups. To exclude files and folders from your backups, create a `_backup.filter` file in the `D:\home\site\wwwroot` folder of your app. Specify the list of files and folders you want to exclude in this file. 

@@ -78,27 +78,29 @@ The following steps will walk you through creating a web app and assigning it an
 
 ### Using Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following steps will walk you through creating a web app and assigning it an identity using Azure PowerShell:
 
-1. If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure.
+1. If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzAccount` to create a connection with Azure.
 
 2. Create a web application using Azure PowerShell. For more examples of how to use Azure PowerShell with App Service, see [App Service PowerShell samples](../app-service/samples-powershell.md):
 
     ```azurepowershell-interactive
     # Create a resource group.
-    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    New-AzResourceGroup -Name myResourceGroup -Location $location
     
     # Create an App Service plan in Free tier.
-    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
     
     # Create a web app.
-    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Run the `Set-AzureRmWebApp -AssignIdentity` command to create the identity for this application:
+3. Run the `Set-AzWebApp -AssignIdentity` command to create the identity for this application:
 
     ```azurepowershell-interactive
-    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
     ```
 
 ### Using an Azure Resource Manager template
@@ -247,7 +249,7 @@ Where `<PRINCIPALID>` and `<CLIENTID>` are replaced with GUIDs. The principalId 
 An app can use its identity to get tokens to other resources protected by AAD, such as Azure Key Vault. These tokens represent the application accessing the resource, and not any specific user of the application. 
 
 > [!IMPORTANT]
-> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 There is a simple REST protocol for obtaining a token in App Service and Azure Functions. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library provides an abstraction over this protocol and supports a local development experience.
 
@@ -275,16 +277,16 @@ To learn more about Microsoft.Azure.Services.AppAuthentication and the operation
 
 An app with a managed identity has two environment variables defined:
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - the URL to the local token service.
+- MSI_SECRET - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
 
 The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To get a token for a resource, make an HTTP GET request to this endpoint, including the following parameters:
 
 > |Parameter name|In|Description|
 > |-----|-----|-----|
-> |resource|Query|The AAD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.|
+> |resource|Query|The AAD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.|
 > |api-version|Query|The version of the token API to be used. "2017-09-01" is currently the only version supported.|
-> |secret|Header|The value of the MSI_SECRET environment variable.|
+> |secret|Header|The value of the MSI_SECRET environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.|
 > |clientid|Query|(Optional) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
 
 A successful 200 OK response includes a JSON body with the following properties:
@@ -345,7 +347,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
-    var options = {
+    let options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
         headers: {
             'Secret': process.env["MSI_SECRET"]

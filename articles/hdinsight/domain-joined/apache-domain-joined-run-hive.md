@@ -1,7 +1,6 @@
 ---
 title: Configure Hive policies in HDInsight with Enterprise Security Package - Azure
 description: Learn how to configure Apache Ranger policies for Hive in an Azure HDInsight service with Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -39,7 +38,7 @@ In this section, you create two Ranger policies for accessing hivesampletable. Y
 
 **To create Ranger policies**
 
-1. Open Ranger Admin UI. See [Connect to Apache Ranger Admin UI](#connect-to-apache-ranager-admin-ui).
+1. Open Ranger Admin UI. See Connect to Apache Ranger Admin UI.
 2. Click **&lt;ClusterName>_hive**, under **Hive**. You shall see two pre-configure policies.
 3. Click **Add New Policy**, and then enter the following values:
 

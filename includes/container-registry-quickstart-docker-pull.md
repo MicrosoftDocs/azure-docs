@@ -15,7 +15,7 @@ ms.custom: include file
 
 Now, you can pull and run the `hello-world:v1` container image from your container registry by using [docker run][docker-run]:
 
-```Docker
+```
 docker run <acrLoginServer>/hello-world:v1  
 ```
 

@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: michmcla
 
 # Customer intent: As an Azure AD Administrator, I want to enhance user authentication with MFA to make sure the user is who they say they are.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Complete an Azure Multi-Factor Authentication pilot roll out
 
