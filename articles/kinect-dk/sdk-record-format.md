@@ -67,4 +67,4 @@ The full list of tags is listed on the [Record and Playback](record-playback-api
 ## Next steps
 
 > [!div class="nextstepaction"]
->[[Record and Playback](record-playback-api.md)
+>[Record and Playback](record-playback-api.md)
