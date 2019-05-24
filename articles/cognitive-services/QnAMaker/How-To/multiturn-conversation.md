@@ -94,7 +94,6 @@ The original question of `My account` has follow-up prompts such as `Accounts an
 
 Add a follow-up prompt to an existing QnA pair that isn't currently linked. Because the question isn't linked to any QnA pair, the current view setting needs to change.
 
-1. Change the **View options** to include all QnA pairs by selecting **Hide context (PREVIEW)**. 
 1. To link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair. For the Surface manual, search for `Sign out` to reduce the list.
 1. In the row for `Signout`, select **Add follow-up prompt**  from the **Answer** column.
 1. In the **Follow-up prompt (PREVIEW)** pop-up window, enter the following:
