@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 05/24/2019
 ms.author: stevelas
 ---
 # Geo-replication in Azure Container Registry
@@ -55,7 +55,7 @@ Using the geo-replication feature of Azure Container Registry, these benefits ar
 
 * Manage a single registry across all regions: `contoso.azurecr.io`
 * Manage a single configuration of image deployments as all regions used the same image URL: `contoso.azurecr.io/public/products/web:1.2`
-* Push to a single registry, while ACR manages the geo-replication. You can configure regional [webhooks](container-registry-webhook.md) for local notifications.
+* Push to a single registry, while ACR manages the geo-replication. You can configure regional [webhooks](container-registry-webhook.md) to notify of you events in specific replicas.
 
 ## Configure geo-replication
 
