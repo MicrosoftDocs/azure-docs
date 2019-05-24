@@ -16,7 +16,7 @@ The Domain Name System, or DNS, is responsible for translating (or resolving) a 
 
 Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the name.
 
-To resolve the records of a private DNS zone from your virtual network, you must link the virtual network with the zone. Linked virtual networks have full access and can resolve all DNS records published in the private zone. Additionally, you can also enable auto-registration on a virtual network link. If you enable auto-registration on a virtual network link, the DNS records for the virtual machines on that virtual network are registered in the private zone. Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted when auto-registration is enabled.
+To resolve the records of a private DNS zone from your virtual network, you must link the virtual network with the zone. Linked virtual networks have full access and can resolve all DNS records published in the private zone. Additionally, you can also enable autoregistration on a virtual network link. If you enable autoregistration on a virtual network link, the DNS records for the virtual machines on that virtual network are registered in the private zone. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
 ![DNS overview](./media/private-dns-overview/scenario.png)
 
@@ -27,7 +27,7 @@ To resolve the records of a private DNS zone from your virtual network, you must
 
 Azure Private DNS provides the following benefits:
 
-* **Removes the need for custom DNS solutions**. Previously, many customers created custom DNS solutions to manage DNS zones in their virtual network. You can now perform DNS zone management by using the native Azure infrastructure, which removes the burden of creating and managing custom DNS solutions.
+* **Removes the need for custom DNS solutions**. Previously, many customers created custom DNS solutions to manage DNS zones in their virtual network. You can now manage DNS zones using the native Azure infrastructure, which removes the burden of creating and managing custom DNS solutions.
 
 * **Use all common DNS records types**. Azure DNS supports A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT records.
 
@@ -45,30 +45,30 @@ Azure Private DNS provides the following benefits:
 
 Azure DNS provides the following capabilities:
 
-* **Automatic registration of virtual machines from a virtual network that's linked to a private zone with auto-registration enabled**. The virtual machines are registered (added) to the private zone as A records pointing to their private IP addresses. When a virtual machine in a virtual network link with auto-registration enabled is deleted, Azure DNS also automatically removes the corresponding DNS record from the linked private zone.
+* **Automatic registration of virtual machines from a virtual network that's linked to a private zone with autoregistration enabled**. The virtual machines are registered (added) to the private zone as A records pointing to their private IP addresses. When a virtual machine in a virtual network link with autoregistration enabled is deleted, Azure DNS also automatically removes the corresponding DNS record from the linked private zone.
 
-* **Forward DNS resolution is supported across virtual networks that are linked to the private zone**. For cross-virtual network DNS resolution, there is no explicit dependency such that the virtual networks are peered with each other. However, you might want to peer virtual networks for other scenarios (for example, HTTP traffic).
+* **Forward DNS resolution is supported across virtual networks that are linked to the private zone**. For cross-virtual network DNS resolution, there's no explicit dependency such that the virtual networks are peered with each other. However, you might want to peer virtual networks for other scenarios (for example, HTTP traffic).
 
 * **Reverse DNS lookup is supported within the virtual-network scope**. Reverse DNS lookup for a private IP within the virtual network assigned to a private zone returns the FQDN that includes the host/record name and the zone name as the suffix.
 
 ## Other considerations
 
 * Reverse DNS works only for private IP space in the linked virtual network
-* Reverse DNS for a private IP for a linked virtual network returns "internal.cloudapp.net" as the DNS suffix aka default suffix for virtual machine. For virtual network that are linked to a private zone with auto-registration enabled, reverse DNS for a private IP returns 2 FQDNs, one with default suffix i.e. "internal.cloudapp.net" and another with private zone suffix.
-* Conditional forwarding isn't supported, for example, to enable resolution between Azure and on-premises networks. Learn how you can enable this scenario using other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
-For common questions and answers about private zones in Azure DNS, including specific DNS registration and resolution behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns).  
+* Reverse DNS for a private IP for a linked virtual network returns "internal.cloudapp.net" as the default suffix for the virtual machine. For virtual networks that are linked to a private zone with autoregistration enabled, reverse DNS for a private IP returns 2 FQDNs, one with default the suffix *internal.cloudapp.net* and another with the private zone suffix.
+* Conditional forwarding isn't supported. For example, to enable resolution between Azure and on-premises networks. Learn how you can enable this scenario using other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+For common questions and answers about private zones in Azure DNS, including specific DNS registration and resolution behavior you can expect for certain kinds of operations, see the  [FAQ](./dns-faq.md#private-dns).  
 
 ## Pricing
 
 For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 ## Next steps
 
-- Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
+* Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
 
-- Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
+* Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-- For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns). 
+* For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns). 
 
-- Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
+* Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
 
-- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+* Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
