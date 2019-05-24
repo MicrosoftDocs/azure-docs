@@ -85,3 +85,27 @@ Some of the most common issues are listed below
 
 **Cause 3: You are using Storage spaces direct configuration** </br>
 *How to fix* : Azure Site Recovery cannot create application consistent recovery point for Storage spaces direct configuration. Please refer article to correctly [configure the replication policy](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
+
+**More causes**</br>
+To troubleshoot further, Check the files on the source machine to get the exact error code for failure:
+	
+	C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+How to locate the errors in the file?
+
+		a. Search for the following strings by opening the log file in an editor
+			i. vacpError:
+			
+			ii. Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+In the above example **2147754994** is the error. The error code tells you about the failure as shown below
+
+**Cause 4: If the error is 2147221164, it means VSS writer is not installed**
+
+*How to fix*: To generate application consistency tag, ASR uses Microsoft Volume Shadow copy Service (VSS). ASR installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error id 0x80040154  "Class not registered". </br>
+Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+**Cause 5: If the error is 2147943458, it means VSS writer is disabled**
+
+*How to fix*: To generate application consistency tag, ASR uses Microsoft Volume Shadow copy Service (VSS). ASR installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is disabled, the application consistency snapshot creation fails with the error id "The specified service is disabled and cannot be started(0x80070422)". </br>
+
+Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
