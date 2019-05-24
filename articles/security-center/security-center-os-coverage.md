@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/02/2019
-ms.author: v-mohabe
+ms.date: 5/24/2019
+ms.author: monhaber
 
 ---
 # Platforms and features supported by Azure Security Center
@@ -93,6 +93,8 @@ The following table provides a matrix of:
  - Whether you can use Azure Security Center to install each solution for you.
  - Which endpoint protection solutions Security Center can discover. If one of these endpoint protection solutions is discovered, Security Center will not recommend installing one.
 
+For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
+
 | Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
@@ -105,7 +107,6 @@ The following table provides a matrix of:
 
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
->
 
 ## Supported PaaS features
 
