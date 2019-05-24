@@ -7,8 +7,7 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
+ms.date: 05/15/2019
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
 
@@ -77,7 +76,7 @@ Turning on diagnostic logs and sending them to Azure Monitor logs is highly reco
 
 ## Diagnostics log categories
 
-Currently, we capture two categories of diagnostics logs:
+Azure Stream Analytics captures two categories of diagnostics logs:
 
 * **Authoring**: Captures log events that are related to job authoring operations, such as job creation, adding and deleting inputs and outputs, adding and updating the query, and starting or stopping the job.
 
@@ -104,7 +103,7 @@ properties | Log entry-specific detail, serialized as a JSON string. For more in
 
 ### Execution log properties schema
 
-Execution logs have information about events that happened during Stream Analytics job execution. The schema of properties varies, depending on the type of event. Currently, we have the following types of execution logs:
+Execution logs have information about events that happened during Stream Analytics job execution. The schema of properties varies depending on whether the event is a data error or a generic event.
 
 ### Data errors
 
@@ -118,10 +117,14 @@ Type | Type of error. For example, **DataConversionError**, **CsvParserError**, 
 Data | Contains data that is useful to accurately locate the source of the error. Subject to truncation, depending on size.
 
 Depending on the **operationName** value, data errors have the following schema:
-* **Serialize events**. Serialize events occur during event read operations. They occur when the data at the input does not satisfy the query schema for one of these reasons:
-    * *Type mismatch during event (de)serialize*: Identifies the field that's causing the error.
-    * *Cannot read an event, invalid serialization*: Lists information about the location in the input data where the error occurred. Includes blob name for blob input, offset, and a sample of the data.
-* **Send events**. Send events occur during write operations. They identify the streaming event that caused the error.
+
+* **Serialize events** occur during event read operations. They occur when the data at the input does not satisfy the query schema for one of these reasons:
+
+   * *Type mismatch during event (de)serialize*: Identifies the field that's causing the error.
+
+   * *Cannot read an event, invalid serialization*: Lists information about the location in the input data where the error occurred. Includes blob name for blob input, offset, and a sample of the data.
+
+* **Send events** occur during write operations. They identify the streaming event that caused the error.
 
 ### Generic events
 
