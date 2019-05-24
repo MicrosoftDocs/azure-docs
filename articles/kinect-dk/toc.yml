@@ -18,7 +18,7 @@
      href: azure-kinect-dk-coordinate-systems.md
 - name: How-to guides
   items: 
-   - name: Using Sensor SDK
+   - name: Use Sensor SDK
      items:
        - name: Overview
          href: overview-sensor-sdk.md
@@ -28,15 +28,15 @@
          href: retrieve-images.md
        - name: Retrieve IMU samples
          href: retrieve-imu-samples.md
-       - name: Access microphone input data
+       - name: Access microphone
          href: access-mics.md
        - name: Use image transformations
          href: use-image-transformation.md
-       - name: Use Azure Kinect calibration functions
+       - name: Use camera calibrations
          href: use-azure-kinect-calibration-functions.md
        - name: Capture device synchronization
          href: capture-device-synchronization.md
-       - name: Record and playback API
+       - name: Record and playback
          href: record-playback-api.md
    - name: Update Azure Kinect firmware
      href: azure-kinect-dk-update-device-firmware.md
@@ -44,9 +44,9 @@
   items:
     - name: Azure Kinect sensor viewer
       href: azure-kinect-sensor-viewer.md
-    - name: Azure Kinect Recorder
+    - name: Azure Kinect recorder
       items:
-        - name: Azure Kinect recorder
+        - name: Overview
           href: azure-kinect-dk-recorder.md
         - name: Azure Kinect DK record external synchronized units
           href: azure-kinect-dk-record-external-synchronized-units.md
@@ -63,3 +63,7 @@
    - name: Compare to Windows Kinect
      href: windows-comparison.md
    - name: Azure Kinect Support
+- name: References
+  items:  
+   - name: Sensor API
+     href: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html

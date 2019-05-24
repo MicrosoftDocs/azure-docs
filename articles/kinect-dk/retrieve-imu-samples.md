@@ -11,13 +11,13 @@ keywords: kinect, azure, configure, depth, color, RBG, camera, sensor, sdk, IMU,
 
 # Retrieve IMU samples
 
-The Azure Kinect device provides access to Inertial Motion Units (IMUs), including both the accelerometer and gyroscope types. To access IMUs samples, you must first open and configure your device, then capture IMU data. For more details, refer to Find and Open a Device.
+The Azure Kinect device provides access to Inertial Motion Units (IMUs), including both the accelerometer and gyroscope types. To access IMUs samples, you must first open and configure your device, then capture IMU data. For more information, see [find and open device](find-then-open-device.md).
 
 ## Configure and start cameras
 
 IMU sensors can only work when the color and/or the depth cameras are running. IMU sensors cannot work alone.
 
-To start the cameras, use k4a_device_start_cameras.
+To start the cameras, use [k4a_device_start_cameras](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb).
 
 ```C
 k4a_device_configuration_t config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
@@ -38,11 +38,11 @@ if (K4A_RESULT_SUCCEEDED != k4a_device_start_imu(device))
 }
 ```
 
-Keep in mind, you can start one or both cameras. However, one camera offers a depth the other camera offers color capability. Currently,each camera cannot perform both functions.
+Keep in mind, you can start one or both cameras. However, one camera offers a depth the other camera offers color capability. Currently, each camera cannot perform both functions.
 
 ## Access IMU samples
 
-Sensor readings are captured from the device in a correlated manner. Each k4a_imu_sample_ contains a combination
+Sensor readings are captured from the device in a correlated manner. Each [k4a_imu_sample_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/structk4a__imu__sample__t.html#details) contains a combination
 of accelerometer and gyroscope readings.
 
 You can access and view IMU samples on either a single, dedicated thread. Or, ping-pong by a single thread, then read the captured image, including the available IMU samples.
@@ -51,7 +51,7 @@ As long as a thread can keep up with the capture frame rate, the IMU has suffici
 
 1. Wait on a capture, at any frames-per-second (FPS).
 2. Process the capture.
-3. Repeatedly call k4a_device_get_imu_sample with a timestamp of 0 until the queue is drained.
+3. Repeatedly call [k4a_device_get_imu_sample](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) with a timestamp of 0 until the queue is drained.
 4. Repeat.
 
 ```C
@@ -85,5 +85,6 @@ if (imu_sample != NULL)
 
 ## Next steps
 
-* Find then open Azure Kinect device
-* Retrieve image data
+Now you know how to work with IMU samples, you also can
+>[!div class="nextstepaction"]
+>[Access microphone input data](access-mics.md)

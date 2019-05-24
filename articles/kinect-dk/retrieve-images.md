@@ -12,13 +12,12 @@ keywords: kinect, azure, retrieve, sensor, camera, sdk, depth, rgb, images, colo
 # Retrieve image data
 
 This page provides details about how to retrieve images, and specifically to access, capture, and coordinate the cameras' images between the color and depth, using your Azure Kinect device.
-
-1. To access images, you must first open and configure the device, then you can capture images and take pictures.
-2. Before you configure and capture an image, you must Find and Open Device.
+To access images, you must first open and configure the device, then you can capture images and take pictures.
+Before you configure and capture an image, you must [Find and open device](find-then-open-device.md).
 
 ## Configure and start the device
 
-The 2 cameras available on your Kinect device support multiple modes, resolutions, and output formats. For a complete list, refer to the Azure Kinect Development Kit.
+The 2 cameras available on your Kinect device support multiple modes, resolutions, and output formats. For a complete list, refer to the [Azure Kinect Development Kit](hardware-specification.md).
 
 ```C
 k4a_device_configuration_t config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
@@ -37,7 +36,7 @@ if (K4A_RESULT_SUCCEEDED != k4a_device_start_cameras(device, &config))
 ## Access image buffers
 
 Images are captured from the device in a correlated manner. Each captured image contains a depth image, an IR image, a color image, or a combination of images. All captured images are time synchronized. To retrieve a captured image,
-call the appropriate function for each image type. To access the image's memory buffer, use k4a_image_get_buffer.
+call the appropriate function for each image type. To access the image's memory buffer, use [k4a_image_get_buffer](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/group___functions_ga2ef070cf4e543cd0f726478af332546e.html#ga2ef070cf4e543cd0f726478af332546e).
 
 The following example demonstrates how to access a captured depth image. This same principle applies to other image types. However, make sure you replace the image-type variable with the correct image type, such as IR, or color.
 
@@ -75,5 +74,10 @@ k4a_capture_release(capture);
 
 ## Next steps
 
-* Retrieve IMU samples
-* Access microphones
+Now you know how to capture, and coordinate the cameras' images between the color and depth, using your Azure Kinect device, you also can:
+
+>[!div class="nextstepaction"]
+>[Retrieve IMU samples](retrieve-imu-samples.md)
+
+>[!div class="nextstepaction"]
+>[Access microphones](access-mics.md)
