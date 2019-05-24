@@ -76,8 +76,8 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 Some of the most common issues are listed below
 
-#### Cause 1: Known issue on SQL server 2008/ 2008R2 
-**How to fix** : There is a known issue with SQL server 2008/2008R2. Please refer this KB article [ASR Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+#### Cause 1: Known issue on SQL server 2008/2008 R2 
+**How to fix** : There is a known issue with SQL server 2008/2008 R2. Please refer this KB article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
 #### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs 
 **How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
