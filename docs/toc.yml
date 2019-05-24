@@ -27,8 +27,6 @@
     href: implement-licensing-for-add-in-services.md
   - name: Add-in license schema
     href: add-in-license-schema.md
-- name: Add-in management and services
-  href: add-in-management-and-services.md
 - name: Prepare localized apps and add-ins
   href: prepare-localized-apps-and-add-ins.md
 - name: Submit add-ins via Partner Center
