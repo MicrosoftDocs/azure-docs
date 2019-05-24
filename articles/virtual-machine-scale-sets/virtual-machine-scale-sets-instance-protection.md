@@ -96,7 +96,7 @@ az vmss update \
   --protect-from-scale-in true
 ```
 
-## Protect from scale set action
+## Protect from scale set actions
 Instance protection can be applied to scale set instances after the instances are created. Protection is applied and modified only on the [instance model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) and not on the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
 Protecting an instance from scale set actions also protects the instance from Autoscale initiated scale-in.
@@ -167,7 +167,7 @@ By default, protection policy is not applied to an instance when it is created.
 You can apply instance protection to scale set instances after the instances are created.
 
 ### Not able to apply instance protection
-Instance protection is only supported with API version 2019-03-01 and above. Check the API versions being used and update as required. You might also need to update your PowerShell or CLI to the latest version.
+Instance protection is only supported with API version 2019-03-01 and above. Check the API version being used and update as required. You might also need to update your PowerShell or CLI to the latest version.
 
 ## Next steps
 Learn how to [deploy your application](virtual-machine-scale-sets-deploy-app.md) on virtual machine scale sets.
