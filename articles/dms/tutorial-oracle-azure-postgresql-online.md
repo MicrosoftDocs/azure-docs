@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/24/2019
 ---
 
 # Tutorial: Migrate Oracle to Azure Database for PostgreSQL online using DMS (Preview)
@@ -19,6 +19,7 @@ You can use Azure Database Migration Service to migrate the databases from Oracl
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
+>
 > * Assess the migration effort using the ora2pg tool.
 > * Migrate the sample schema using the ora2pg tool.
 > * Create an instance of Azure Database Migration Service.
@@ -406,5 +407,5 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 ## Next steps
 
 * For information about known issues and limitations when performing online migrations to Azure Database for PostgreSQL, see the article [Known issues and workarounds with Azure Database for PostgreSQL online migrations](known-issues-azure-postgresql-online.md).
-* For information about the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
+* For information about the Azure Database Migration Service, see the article [What is Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 * For information about Azure Database for PostgreSQL, see the article [What is Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
