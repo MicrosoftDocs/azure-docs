@@ -37,7 +37,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Feature Manager** > **+ Create** to add the following feature flags:
+1. Select **Feature Manager** > **+Create** to add the following feature flags:
 
     | Key | State |
     |---|---|
@@ -98,7 +98,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 1. Add a secret named **ConnectionStrings:AppConfig** to Secret Manager.
 
-    This secret contains the connection string to access your App Configuration store. Replace the value in the following command with the connection string for your App Configuration store.
+    This secret contains the connection string to access your App Configuration store. Replace the `<your_connection_string>` value in the following command with the connection string for your App Configuration store.
 
     This command must be executed in the same directory as the *.csproj* file.
 
@@ -106,7 +106,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
-    You use Secret Manager only to test the web app locally. When you deploy the app to [Azure App Service](https://azure.microsoft.com/services/app-service/web), for example, you use an application setting **Connection Strings** in App Service instead of using Secret Manager to store the connection string.
+    You use Secret Manager only to test the web app locally. When you deploy the app to [Azure App Service](https://azure.microsoft.com/services/app-service), for example, you use an application setting named **Connection Strings** in App Service instead of using Secret Manager to store the connection string.
 
     You can access this secret with the App Configuration API. A colon (:) works in the configuration name with the App Configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
@@ -252,7 +252,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Feature Manager**, and change the value of **Beta** to **On**:
+1. Select **Feature Manager**, and change the state of the **Beta** key to **On**:
 
     | Key | State |
     |---|---|

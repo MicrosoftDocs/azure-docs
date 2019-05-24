@@ -17,7 +17,7 @@ ms.custom: include file
 
 1. Select **App Configuration** from the search results, and then select **Create**.
 
-1. On the **App Configuration** > **Create** pane, enter the following settings.
+1. On the **App Configuration** > **Create** pane, enter the following settings:
 
     | Setting | Suggested value | Description |
     |---|---|---|

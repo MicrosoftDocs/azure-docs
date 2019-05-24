@@ -30,7 +30,7 @@ App Configuration supports:
 - Extensive queries
 - Batch retrieval
 - Specialized management operations
-- Feature-management user interface
+- A feature-management user interface
 
 App Configuration is complementary to Key Vault, and the two should be used side by side in most application deployments.
 
