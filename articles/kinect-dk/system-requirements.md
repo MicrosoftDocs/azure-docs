@@ -9,9 +9,9 @@ ms.topic: article
 keywords: azure, kinect, system requirements, CPU, GPU, USB, set up, setup, minimum, requirements
 ---
 
-# Azure Kinect Sensor SDK system requirements
+# Azure Kinect sensor SDK system requirements
 
-This document provides details about the system requirements needed to install the Sensor SDK and successfully deploy your Azure Kinect DK.
+This document provides details about the system requirements needed to install the sensor SDK and successfully deploy your Azure Kinect DK.
 
 ## Supported operating systems and architectures
 
@@ -22,7 +22,7 @@ The Sensor SDK is available for the Windows API (Win32) for native C/C++ Windows
 
 ## Development environment requirements
 
-To contribute into the Sensor SDK or building SDK, see [here](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK)
+To contribute to sensor SDK development, visit [GitHub](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK).
 
 ## Host PC hardware requirements
 
@@ -38,10 +38,12 @@ Performance differs also between Windows/Linux operating systems and graphics dr
 
 ## USB3
 
-There are known compatibility issues with USB Host controllers. Consult [Supported USB3 host controllers](https://review.docs.microsoft.com/azurekinect/troubleshooting?branch=master#usb3-host-controller-compatibility).
+There are known compatibility issues with USB Host controllers. Consult [Supported USB3 host controllers](https://support.microsoft.com).
 
 ## Next steps
 
-[Azure Kinect DK Overview](what-is-azure-kinect-dk.md)
+> [!div class="nextstepaction"]
+>[Azure Kinect DK Overview](what-is-azure-kinect-dk.md)
 
-[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
+> [!div class="nextstepaction"]
+>[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)

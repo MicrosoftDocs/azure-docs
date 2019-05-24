@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: azure, kinect,sdk, download update, latest, available, install
 ---
 
-# Download Azure Kinect Sensor SDK
+# Download Azure Kinect sensor SDK
 
 This page provides the SDK version number and downloadable link to install on your Azure Kinect device. You will download the SDK to develop for Azure Kinect.
 
@@ -27,6 +27,8 @@ Make sure you install the latest version referenced in the change log.
 
 ## Next steps
 
-[Azure Kinect DK Overview](what-is-azure-kinect-dk.md)
+> [!div class="nextstepaction"]
+>[Azure Kinect DK Overview](what-is-azure-kinect-dk.md)
 
-[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
+> [!div class="nextstepaction"]
+>[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
