@@ -16395,71 +16395,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/migrate/contoso-migration-infrastructure.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-assessment.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-rehost-vm-sql-managed-instance.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-rehost-vm.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-rehost-vm-sql-ag.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-rehost-linux-vm.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-rehost-linux-vm-mysql.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-refactor-web-app-sql.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-refactor-linux-app-service-mysql.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-tfs-vsts.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-rearchitect-container-sql.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-rebuild.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/migrate/contoso-migration-scale.md",
-      "redirect_url": "contoso-migration-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/migrate/how-to-tag-v-center.md",
       "redirect_url": "how-to-create-a-group",
       "redirect_document_id": false
@@ -39512,6 +39447,16 @@
       "source_path": "articles/azure-monitor/app/windows-services.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    } 
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/release-notes-vsix.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/app-insights-dashboards.md",
+      "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
+      "redirect_document_id": false
+    }    
   ]
 }
