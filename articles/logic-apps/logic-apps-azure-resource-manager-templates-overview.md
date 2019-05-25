@@ -235,7 +235,11 @@ For more template best practices, see [Best practices for template parameters](.
 
 ## Template parameter files
 
-To provide the values for template parameters, store those values in a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameter files based on where you want to create and deploy the resources for your logic app.  
+To provide the values for template parameters, store those values in a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files), which uses this file name syntax: 
+
+**<*logic-app-name*>.parameters.json**
+
+That way, you can use different parameter files based on where you want to create and deploy the resources for your logic app.  
 
 Here is the syntax for a parameter file, including an example for [passing a secure parameter value with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md):
 
@@ -432,7 +436,7 @@ For more information about template resources, see these topics:
 
 ## Connections
 
-In your template's `resources` section, within the `properties` section and inside the `parameters` section, the `$connections` section specifies the values for your workflow definition's parameters by referencing resources that securely store the metadata for any connections that your logic app creates through [managed connectors](../connectors/apis-list.md). This metadata can include information such as connection strings and access tokens, which you can provide through your template's parameter file.
+In your template's `resources` section, within the `properties` section and inside the `parameters` section, the `$connections` section specifies the values for your workflow definition's parameters to use at runtime by referencing resources that securely store the metadata for any connections that your logic app creates through [managed connectors](../connectors/apis-list.md). This metadata can include information such as connection strings and access tokens, which you can provide through your template's parameter file.
 
 Each new connection that you create also creates a resource with a unique name in Azure. So, when you have multiple connection resources for the same service or system, each resource name is appended with a number, which increments with each new connection created, for example, `office365`, `office365-1`, and so on.
 
@@ -485,7 +489,7 @@ This example just shows the workflow definition parameter value for the Office 3
          ]
       },
       {
-         // APIConnection resource definition
+         // Office 365 Outlook API connection resource definition
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
          "name": "[parameters('office365_1_Connection_Name')]",
@@ -621,7 +625,9 @@ Here is an example workflow definition that corresponds with the other examples 
 
 ## Workflow definition parameters
 
-In your workflow definition's `parameters` section, you can add or edit any parameters that your workflow definition uses for accepting inputs at runtime. By default, this `parameters` section is empty unless your logic app creates and uses connections to other services and systems through [managed connectors](../connectors/apis-list.md), for example:
+In your workflow definition's `parameters` section, you can add or edit any parameters that your workflow definition uses for accepting inputs at runtime. By default, this `parameters` section is empty unless your logic app creates and uses connections to other services and systems through [managed connectors](../connectors/apis-list.md). You can specify values for workflow definition parameters inside the upper-level `parameters` section that's outside your workflow definition but still inside the template's `resources` section.
+
+This example includes only the `$connections` workflow definition parameter that accepts the runtime values for the connections used by your logic app's workflow definition.
 
 ```json
 {
@@ -654,7 +660,7 @@ In your workflow definition's `parameters` section, you can add or edit any para
             "parameters": {
                "$connections": {
                   "value": {
-                     "<connection-resource-name>"
+                     "<connection-values-for-workflow-definition-parameters>"
                   }
                },
                <other-workflow-definition-parameter-values>
