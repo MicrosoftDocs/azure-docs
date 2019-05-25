@@ -54,7 +54,7 @@ To successfully complete your "content protection" system/application design, yo
   
       The **Streaming Locator** has to be associated with a [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies). In the example, we set 
       StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and 
-      Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If 
+      Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If 
       you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
     
       You need to create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients. 
