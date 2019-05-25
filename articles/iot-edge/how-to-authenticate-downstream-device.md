@@ -1,6 +1,6 @@
 ---
-title: Connect downstream devices - Azure IoT Edge | Microsoft Docs
-description: How to configure downstream or leaf devices to connect through Azure IoT Edge gateway devices. 
+title: Authenticate downstream devices - Azure IoT Edge | Microsoft Docs
+description: How to authenticate downstream or leaf devices to IoT Hub, and route their connection through Azure IoT Edge gateway devices. 
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -15,13 +15,13 @@ ms.custom: seodec18
 
 In a transparent gateway scenario, downstream (or leaf) devices need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection.
 
-There are three general steps to set up a successful transparent gateway connection. This article covers the third step.
+There are three general steps to set up a successful transparent gateway connection. This article covers the second step:
 
 1. The gateway device needs to be able to securely connect to downstream devices, receive communications from downstream devices, and route messages to the proper destination. For more information, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
-2. The downstream device needs to be able to securely connect to its gateway device. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
-3. **The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device.**
+2. **The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device.**
+3. The downstream device needs to be able to securely connect to its gateway device. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
 
-Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys (sometimes referred to as shared access keys), X.509 self-signed certificates, or x.509 certificate authority (CA) signed certificates. The authentication steps are very similar for those used to set up any non-IoT-Edge device with IoT Hub, with small differences for the gateway relationship.
+Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys (sometimes referred to as shared access keys), X.509 self-signed certificates, or X.509 certificate authority (CA) signed certificates. The authentication steps are very similar for those used to set up any non-IoT-Edge device with IoT Hub, with small differences for the gateway relationship.
 
 The steps in this article show manual device provisioning, not automatic provisioning with the Azure IoT Hub Device Provisioning Service. 
 
@@ -52,6 +52,8 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 For more information about Azure CLI commands for device creation and parent/child management, see the reference content for [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) commands.
 
 ### Connect to IoT Hub through a gateway
+
+The same process is used to authenticate regular IoT devices to IoT Hub with symmetric keys also applies to downstream devices. The only difference is that you need to add a pointer to the gateway device to route the connection or, in offline scenarios, to handle the authentication on behalf of IoT Hub. 
 
 For symmetric key authentication, there's no additional steps that you need to take on your device for it to authenticate with IoT Hub. You still need the certificates in place so that your downstream device can connect to its gateway device, as described in [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
 
@@ -116,16 +118,16 @@ The easiest way to do test this scenario is to use the same machine that you use
    * Paste the hexadecimal strings that you copied from your device's primary and secondary certificates.
    * Select **Set a parent device** and choose the IoT Edge gateway device that this downstream device will connect through. A parent device is required for X.509 authentication of a downstream device. 
 
-   ![Create device ID with x.509 self-signed auth in portal](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
+   ![Create device ID with X.509 self-signed auth in portal](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
-5. Copy the following files to your downstream device:
+5. Copy the following files to any directory on your downstream device:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device name>*.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
 
-You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with x.509 self-signed authentication and assigns a parent device: 
+You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with X.509 self-signed authentication and assigns a parent device: 
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
@@ -157,7 +159,7 @@ The easiest way to test this scenario is to use the same machine that you used t
 2. Follow the instructions in the [Create an X.509 device for your IoT hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps: 
 
    * Add a new device. Provide a lowercase name for **device ID**, and choose the authentication type **X.509 CA Signed**. 
-   * For *downstream devices*, you must **Set a parent device** and choose the IoT Edge device that will provide the connection to IoT Hub. 
+   * For downstream devices, you must **Set a parent device** and choose the IoT Edge gateway device that will provide the connection to IoT Hub. 
 
 3. Create a certificate chain for your downstream device. Use the same root CA certificate that you uploaded to IoT Hub to make this chain. Use the same lowercase device ID that you gave to your device identity in the portal.
 
@@ -169,14 +171,14 @@ The easiest way to test this scenario is to use the same machine that you used t
    ./certGen.sh create_device_certificate "<device id>"
    ```
 
-4. Copy the following files to your downstream device: 
+4. Copy the following files to any directory on your downstream device: 
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device id>*.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
 
-You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with x.509 CA signed authentication and assigns a parent device: 
+You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with X.509 CA signed authentication and assigns a parent device: 
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
@@ -187,4 +189,7 @@ For more information about Azure CLI commands for device creation and parent/chi
 
 ### Connect to IoT Hub through a gateway
 
-The way that you connect an X.509 authenticated device to IoT Hub is different depending on the SDK that you use. 
+Each Azure IoT SDK handles X.509 authentication a little differently. However, the same process is used to authenticate regular IoT devices to IoT Hub with X.509 certificates also applies to downstream devices. The only difference is that you need to add a pointer to the gateway device to route the connection or, in offline scenarios, to handle the authentication on behalf of IoT Hub.  In general, you can simply replace the value of **Hostname** in the connection string to be the hostname of your gateway device. 
+
+#### C
+
