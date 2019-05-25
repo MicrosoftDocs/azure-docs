@@ -27,9 +27,9 @@ The Kinect Sensor SDK provides the following product and service features:
 
 ## Tools
 
-* A viewer tool to monitor device data streams and configure different modes.
-* A Sensor recording tool and playback reader API that uses the Matroska container format.
-* An Azure Kinect DK firmware update tool.
+* A [viewer tool](azure-kinect-sensor-viewer.md) to monitor device data streams and configure different modes.
+* A sensor [recording tool](azure-kinect-dk-recorder.md) and playback reader API that uses the [Matroska container format](sdk-record-format.md).
+* An Azure Kinect DK [firmware update tool](azure-kinect-firmware-tool.md).
 
 ## Sensor SDK
 
