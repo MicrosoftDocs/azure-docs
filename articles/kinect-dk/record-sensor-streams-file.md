@@ -11,7 +11,7 @@ keywords: azure, kinect, record, play back, reader, matroska, mkv, streams, dept
 
 # Quickstart: Record sensor streams to file
 
-This page provides information about how you can use the `k4arecorder` command prompt to record data streams from the Sensor SDK to a file.
+This page provides information about how you can use the `k4arecorder` command prompt tool to record data streams from the Sensor SDK to a file.
 
 ## Prerequisites
 
@@ -31,9 +31,9 @@ This quickstart assumes:
 
 ## Play back recording
 
-You can use the k4a-viewer to play back a recording.
+You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play back a recording.
 
-1. Launch k4a-viewer
+1. Launch [`k4aviewer.exe`](azure-kinect-sensor-viewer.md)
 2. Unfold the **Open Recording** tab and open your recording.
 
 ## Next steps
