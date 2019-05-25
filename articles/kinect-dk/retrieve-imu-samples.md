@@ -17,7 +17,7 @@ The Azure Kinect device provides access to Inertial Motion Units (IMUs), includi
 
 IMU sensors can only work when the color and/or the depth cameras are running. IMU sensors cannot work alone.
 
-To start the cameras, use [k4a_device_start_cameras](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb).
+To start the cameras, use [k4a_device_start_cameras](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb).
 
 ```C
 k4a_device_configuration_t config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
@@ -42,7 +42,7 @@ Keep in mind, you can start one or both cameras. However, one camera offers a de
 
 ## Access IMU samples
 
-Sensor readings are captured from the device in a correlated manner. Each [k4a_imu_sample_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/structk4a__imu__sample__t.html#details) contains a combination
+Sensor readings are captured from the device in a correlated manner. Each [k4a_imu_sample_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__imu__sample__t.html#details) contains a combination
 of accelerometer and gyroscope readings.
 
 You can access and view IMU samples on either a single, dedicated thread. Or, ping-pong by a single thread, then read the captured image, including the available IMU samples.
@@ -51,7 +51,7 @@ As long as a thread can keep up with the capture frame rate, the IMU has suffici
 
 1. Wait on a capture, at any frames-per-second (FPS).
 2. Process the capture.
-3. Repeatedly call [k4a_device_get_imu_sample](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) with a timestamp of 0 until the queue is drained.
+3. Repeatedly call [k4a_device_get_imu_sample](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) with a timestamp of 0 until the queue is drained.
 4. Repeat.
 
 ```C
