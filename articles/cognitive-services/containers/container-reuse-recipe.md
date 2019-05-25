@@ -114,7 +114,7 @@ Follow the [steps](#how-to-steps) to use the Dockerfile and place the new image 
     docker build -t <your-new-container-name>:<your-new-tag-name> .
     ```
 
-1. Sign in to Azure CLI from a console. This command opens a browser and requires authentication. Once authenicated, you can close the browser and continue working in the console.
+1. Sign in to Azure CLI from a console. This command opens a browser and requires authentication. Once authenticated, you can close the browser and continue working in the console.
  
     ```azure-cli
     az login
@@ -122,33 +122,37 @@ Follow the [steps](#how-to-steps) to use the Dockerfile and place the new image 
 
 1. Sign in to your private registry with Azure CLI from a console.
 
-    Replace the values in the angle brackets, `<myregistry>`, with your own registry name.  
+    Replace the values in the angle brackets, `<my-registry>`, with your own registry name.  
 
     ```azure-cli
-    az acr login --name <myregistry>
+    az acr login --name <my-registry>
     ```
 
     You can also sign in with docker login if you are assigned a service principal.
 
     ```Bash
-    docker login <myregistry>.azurecr.io
+    docker login <my-registry>.azurecr.io
     ```
 
-1. Tag the container with the private registry location. Replace the values in the angle brackets, `<myregistry>`, with your own registry name. 
-
-    A subcategory is optional but recommended for organizing your containers. The image in your registry doesn't have to have the same name as the local host image name but it is helpful.
+1. Tag the container with the private registry location. Replace the values in the angle brackets, `<my-registry>`, with your own registry name. 
 
     ```Bash
-    docker tag <your-new-container-name>:<your-new-tag-name> <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>:<your-new-tag-name>
+    docker tag <your-new-container-name>:<your-new-tag-name> <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
     If you don't use a tag name, `latest` is implied.
 
-1. Push the new image to your private container registry.
+1. Push the new image to your private container registry. When you view your private container registry, the container name used in the following CLI command will be the name of the repository. 
 
     ```Bash
-    docker push <myregistry>.azurecr.io/<subcategory>/<your-new-container-name-in-registry>:<your-new-tag-name>
+    docker push <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create and use Azure Container Instance](azure-container-instance-recipe.md)
+
 <!--
 ## Store input and output configuration settings
 
