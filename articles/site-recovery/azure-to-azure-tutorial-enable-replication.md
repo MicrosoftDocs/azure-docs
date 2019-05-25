@@ -43,12 +43,11 @@ Create the vault in any region, except the source region.
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported
    regions, see geographic availability in
    [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
-5. To quickly access the vault from the dashboard, click **Pin to dashboard** and then
-   click **Create**.
+5. Click **Create**.
 
    ![New vault](./media/azure-to-azure-tutorial-enable-replication/new-vault-settings.png)
 
-   The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
+   
 
 ## Verify target resource settings
 
