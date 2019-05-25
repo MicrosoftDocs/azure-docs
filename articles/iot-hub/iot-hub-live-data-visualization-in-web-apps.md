@@ -97,11 +97,11 @@ Take a moment to examine the following files:
 
 * **Server.js** is a service-side script that initializes the web socket and event hub wrapper class and provides a callback to the event hub for incoming messages to broadcast them to the web socket.
 
-* **Event-hub-reader.js** is a service-side script that connects to the IoT hub's built-in endpoint using the specified connection string and consumer group, extracts the DeviceId and EnqueuedTimeUtc from metadata, and then relays message using the provided callback method.
+* **Event-hub-reader.js** is a service-side script that connects to the IoT hub's built-in endpoint using the specified connection string and consumer group, extracts the DeviceId and EnqueuedTimeUtc from metadata, and then relays the message using the provided callback method.
 
-* **Chart-device-data.js** is a client-side script that listens on the web socket, keeps track of each DeviceId and stores the last 50 points of incoming device data. It then binds the selected device data to the chart object.
+* **Chart-device-data.js** is a client-side script that listens on the web socket, keeps track of each DeviceId, and stores the last 50 points of incoming data for each device. It then binds the selected device data to the chart object.
 
-* **Index.html** handles the UI layout for the web page, and references the necessary scripts for client-side logic.
+* **Index.html** handles the UI layout for the web page and references the necessary scripts for client-side logic.
 
 ## Configure environment variables for the web app
 
@@ -179,13 +179,13 @@ In this section, you provision a web app in App Service and deploy your code to 
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. Get the GitHub URL to use to push your code up to App Service.
+5. Get the Git URL to use to push your code up to App Service.
 
    ```azurecli-interactive
    az webapp deployment source config-local-git -g <your resource group> -n <your web app name>
    ```
 
-6. Add a remote to your clone that references the GitHub repo for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following commmand in your command window.
+6. Add a remote to your clone that references the Git repository for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following command in your command window.
 
    ```cmd
    git remote add webapp <Git clone URL>
