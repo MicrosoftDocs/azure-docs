@@ -36,7 +36,7 @@ To complete this tutorial:
 
 Create the vault in any region, except the source region.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
