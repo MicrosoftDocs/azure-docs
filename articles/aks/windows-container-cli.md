@@ -120,7 +120,7 @@ In order to run an AKS cluster that supports node pools for Windows Server conta
 Provide your own secure *PASSWORD_WIN*.
 
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
+$PASSWORD_WIN="P@ssw0rd1234"
 
 az aks create \
     --resource-group myResourceGroup \
