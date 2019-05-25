@@ -17,7 +17,7 @@ Before you configure and capture an image, you must [Find and open device](find-
 
 ## Configure and start the device
 
-The 2 cameras available on your Kinect device support multiple modes, resolutions, and output formats. For a complete list, refer to the [Azure Kinect Development Kit](hardware-specification.md).
+The 2 cameras available on your Kinect device support multiple modes, resolutions, and output formats. For a complete list, refer to the Azure Kinect Development Kit [hardware specifications](hardware-specification.md).
 
 ```C
 k4a_device_configuration_t config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
