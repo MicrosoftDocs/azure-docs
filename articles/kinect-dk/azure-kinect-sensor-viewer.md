@@ -73,7 +73,7 @@ You can control RGB camera settings from the configuration window during the str
 
 The IMU window has two components, an accelerometer and a gyroscope.
 
-The top half is the accelerometer and shows linear acceleration in meters/second^2.  It includes acceleration from gravity, so if it's lying flat on a table, the Z axis will probably show around -9.8 m/s^2.
+The top half is the accelerometer and shows linear acceleration in meters/second<sup>2</sup>.  It includes acceleration from gravity, so if it's lying flat on a table, the Z axis will probably show around -9.8 m/s<sup>2</sup>.
 
 The bottom half is the gyroscope portion and shows rotational movement in radians/second
 
