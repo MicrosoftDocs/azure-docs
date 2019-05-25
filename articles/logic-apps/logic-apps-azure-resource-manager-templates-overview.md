@@ -439,7 +439,7 @@ Each new connection that you create also creates a resource with a unique name i
 > [!NOTE]
 > Connection resources must exist in the same Azure resource group and location as your logic app.
 
-This example just shows the workflow definition parameter value for the Office 365 Outlook connection, the logic app resource information that depends  and that connection's resource definition:
+This example just shows the workflow definition parameter value for the Office 365 Outlook connection, the logic app's resource definition, which specifies a dependency on that connection, and the connection's resource definition:
 
 ```json
 {
@@ -671,12 +671,14 @@ To make sure that the Logic App Designer can correctly show these parameters, no
 * You can define parameters for these kinds of triggers and actions:
 
   * Azure Functions app
-  * Nested or child logic app workflow
-  * API Management call
-  * The runtime URL for an API connection
-  * The `path` attribute for an APIConnection trigger or action
 
-* Define parameters only for values that vary, based on your logic app's runtime needs.
+  * Nested or child logic app workflow
+
+  * API Management call
+
+  * The runtime URL for an API connection
+
+  * The `path` attribute for an APIConnection trigger or action
 
 * Include the `defaultValue` attribute, which can specify empty values, for all parameters except for values that are sensitive or must be secured. Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
 
@@ -688,7 +690,7 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## References to parameters
 
-To reference template parameters, you use template expressions and [template functions](../azure-resource-manager/azure-resource-manager/resource-group-template-functions.md). Template expressions use square brackets (**[]**), for example:
+To reference template parameters, you use template expressions and [template functions](../azure-resource-manager/resource-group-template-functions.md). Template expressions use square brackets (**[]**), for example:
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 
@@ -710,7 +712,7 @@ Instead, in your template's `resources` section, define your workflow definition
 
 ## Full example template
 
-Here is the parameterized sample template that used by this overview's examples:
+Here is the parameterized sample template that's used by this topic's examples:
 
 ```json
 {
