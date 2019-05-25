@@ -16,23 +16,23 @@ Learn how to use Apache Kafka's mirroring feature to replicate topics to a secon
 In this example, mirroring is used to replicate topics between two HDInsight clusters. Both clusters are in an Azure Virtual Network in the same region.
 
 > [!WARNING]  
-> Mirroring should not be considered as a means to achieve fault-tolerance. The offset to items within a topic are different between the source and destination clusters, so clients cannot use the two interchangeably.
+> Mirroring should not be considered as a means to achieve fault-tolerance. The offset to items within a topic are different between the primary and secondary clusters, so clients cannot use the two interchangeably.
 >
 > If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md).
 
 ## How Apache Kafka mirroring works
 
-Mirroring works by using the [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) tool (part of Apache Kafka) to consume records from topics on the source cluster and then create a local copy on the destination cluster. MirrorMaker uses one (or more) *consumers* that read from the source cluster, and a *producer* that writes to the local (destination) cluster.
+Mirroring works by using the [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) tool (part of Apache Kafka) to consume records from topics on the primary cluster and then create a local copy on the secondary cluster. MirrorMaker uses one (or more) *consumers* that read from the primary cluster, and a *producer* that writes to the local (secondary) cluster.
 
 The following diagram illustrates the Mirroring process:
 
 ![Diagram of the mirroring process](./media/apache-kafka-mirroring/kafka-mirroring.png)
 
-Apache Kafka on HDInsight does not provide access to the Kafka service over the public internet. Kafka producers or consumers must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka source and destination clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
+Apache Kafka on HDInsight does not provide access to the Kafka service over the public internet. Kafka producers or consumers must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka primary and secondary clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
-![Diagram of source and destination Kafka clusters in an Azure virtual network](./media/apache-kafka-mirroring/spark-kafka-vnet.png)
+![Diagram of primary and secondary Kafka clusters in an Azure virtual network](./media/apache-kafka-mirroring/spark-kafka-vnet.png)
 
-The source and destination clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
+The primary and secondary clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
 
 ### Mirroring across network boundaries
 
@@ -51,9 +51,7 @@ For more information on connecting two Azure Virtual Networks, see [Configure a 
 
 ## Mirroring architecture 1
 
-This architecture features two clusters in different resource groups and vnets.
-
-### Setup
+This architecture features two clusters in different resource groups and virtual networks: a **primary** and **secondary**.
 
 ### Creation steps
 
@@ -69,6 +67,7 @@ This architecture features two clusters in different resource groups and vnets.
     1. On the **Add peering** screen, enter the details as shown in the screenshot below.
 
         ![add vnet peering](./media/apache-kafka-mirroring/add-vnet-peering.png)
+
 1. Configure IP advertising:
     1. Go to the Ambari dashboard for the primary cluster: `https://kafka-primary-cluster.azurehdinsight.net`.
     1. Click **Services** > **Kafka** > **Configs**.
@@ -99,70 +98,30 @@ This architecture features two clusters in different resource groups and vnets.
 
         ![view ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses.png)
 
-## Mirroring architecture 2
-
-This architecture features two clusters in the same resource group.
-
-### Create Apache Kafka clusters
-
-While you can create an Azure virtual network and Kafka clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network and two Kafka clusters to your Azure subscription.
-
-1. Use the following button to sign in to Azure and open the template in the Azure portal.
-   
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
-    The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
-
-    > [!WARNING]  
-    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
-
-2. Use the following information to populate the entries on the **Custom deployment** blade:
-    
-    ![HDInsight custom deployment](./media/apache-kafka-mirroring/parameters.png)
-    
-    * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
-
-    * **Location**: Select a location geographically close to you.
-     
-    * **Base Cluster Name**: This value is used as the base name for the Kafka clusters. For example, entering **hdi** creates clusters named **source-hdi** and **dest-hdi**.
-
-    * **Cluster Login User Name**: The admin user name for the source and destination Kafka clusters.
-
-    * **Cluster Login Password**: The admin user password for the source and destination Kafka clusters.
-
-    * **SSH User Name**: The SSH user to create for the source and destination Kafka clusters.
-
-    * **SSH Password**: The password for the SSH user for the source and destination Kafka clusters.
-
-3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
-
-4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
-
-> [!IMPORTANT]  
-> The name of the HDInsight clusters are **source-BASENAME** and **dest-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
+1. Repeat the previous three steps for the second cluster `kafka-secondary-cluster`: configure IP advertising, set listeners and make a note of the Broker and Zookeeper IP addresses.
 
 ## Create topics
 
-1. Connect to the **source** cluster using SSH:
+1. Connect to the **primary** cluster using SSH:
 
     ```bash
-    ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
+    ssh sshuser@kafka-primary-cluster-ssh.azurehdinsight.net
     ```
 
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
 
     For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use the following commands to find the Apache Zookeeper hosts for the source cluster:
+2. Use the following commands to find the Apache Zookeeper hosts for the primary cluster:
 
     ```bash
     # Install jq if it is not installed
     sudo apt -y install jq
-    # get the zookeeper hosts for the source cluster
+    # get the zookeeper hosts for the primary cluster
     export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Replace `$CLUSTERNAME` with the name of the source cluster. When prompted, enter the password for the cluster login (admin) account.
+    Replace `$CLUSTERNAME` with the name of the primary cluster. When prompted, enter the password for the cluster login (admin) account.
 
 3. To create a topic named `testtopic`, use the following command:
 
@@ -178,7 +137,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
     The response contains `testtopic`.
 
-4. Use the following to view the Zookeeper host information for this (the **source**) cluster:
+4. Use the following to view the Zookeeper host information for this (the **primary**) cluster:
 
     ```bash
     echo $SOURCE_ZKHOSTS
@@ -192,17 +151,17 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
 ## Configure mirroring
 
-1. Connect to the **destination** cluster using a different SSH session:
+1. Connect to the **secondary** cluster using a different SSH session:
 
     ```bash
-    ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
+    ssh sshuser@kafka-secondary-cluster-ssh.azurehdinsight.net
     ```
 
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
 
     For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. A `consumer.properties` file is used to configure communication with the **source** cluster. To create the file, use the following command:
+2. A `consumer.properties` file is used to configure communication with the **primary** cluster. To create the file, use the following command:
 
     ```bash
     nano consumer.properties
@@ -215,13 +174,13 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     group.id=mirrorgroup
     ```
 
-    Replace **SOURCE_ZKHOSTS** with the Zookeeper hosts information from the **source** cluster.
+    Replace **SOURCE_ZKHOSTS** with the Zookeeper hosts information from the **primary** cluster.
 
-    This file describes the consumer information to use when reading from the source Kafka cluster. For more information consumer configuration, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at kafka.apache.org.
+    This file describes the consumer information to use when reading from the primary Kafka cluster. For more information consumer configuration, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at kafka.apache.org.
 
     To save the file, use **Ctrl + X**, **Y**, and then **Enter**.
 
-3. Before configuring the producer that communicates with the destination cluster, you must find the broker hosts for the **destination** cluster. Use the following commands to retrieve this information:
+3. Before configuring the producer that communicates with the secondary cluster, you must find the broker hosts for the **secondary** cluster. Use the following commands to retrieve this information:
 
     ```bash
     sudo apt -y install jq
@@ -229,13 +188,13 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     echo $DEST_BROKERHOSTS
     ```
 
-    Replace `$CLUSTERNAME` with the name of the destination cluster. When prompted, enter the password for the cluster login (admin) account.
+    Replace `$CLUSTERNAME` with the name of the secondary cluster. When prompted, enter the password for the cluster login (admin) account.
 
     The `echo` command returns information similar to the following text:
 
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
-4. A `producer.properties` file is used to communicate the __destination__ cluster. To create the file, use the following command:
+4. A `producer.properties` file is used to communicate the __secondary__ cluster. To create the file, use the following command:
 
     ```bash
     nano producer.properties
@@ -252,20 +211,20 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
     For more information producer configuration, see [Producer Configs](https://kafka.apache.org/documentation#producerconfigs) at kafka.apache.org.
 
-5. Use the following commands to find the Zookeeper hosts for the destination cluster:
+5. Use the following commands to find the Zookeeper hosts for the secondary cluster:
 
     ```bash
     # Install jq if it is not installed
     sudo apt -y install jq
-    # get the zookeeper hosts for the source cluster
+    # get the zookeeper hosts for the primary cluster
     export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Replace `$CLUSTERNAME` with the name of the destination cluster. When prompted, enter the password for the cluster login (admin) account.
+    Replace `$CLUSTERNAME` with the name of the secondary cluster. When prompted, enter the password for the cluster login (admin) account.
 
 7. The default configuration for Kafka on HDInsight does not allow the automatic creation of topics. You must use one of the following options before starting the Mirroring process:
 
-    * **Create the topics on the destination cluster**: This option also allows you to set the number of partitions and the replication factor.
+    * **Create the topics on the secondary cluster**: This option also allows you to set the number of partitions and the replication factor.
 
         You can create topics ahead of time by using the following command:
 
@@ -275,11 +234,11 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
         Replace `testtopic` with the name of the topic to create.
 
-    * **Configure the cluster for automatic topic creation**: This option allows MirrorMaker to automatically create topics, however it may create them with a different number of partitions or replication factor than the source topic.
+    * **Configure the cluster for automatic topic creation**: This option allows MirrorMaker to automatically create topics, however it may create them with a different number of partitions or replication factor than the primary topic.
 
-        To configure the destination cluster to automatically create topics, perform these steps:
+        To configure the secondary cluster to automatically create topics, perform these steps:
 
-        1. From the [Azure portal](https://portal.azure.com), select the destination Kafka cluster.
+        1. From the [Azure portal](https://portal.azure.com), select the secondary Kafka cluster.
         2. From the cluster overview, select __Cluster dashboard__. Then select __HDInsight cluster dashboard__. When prompted, authenticate using the login (admin) credentials for the cluster.
         3. Select the __Kafka__ service from the list on the left of the page.
         4. Select __Configs__ in the middle of the page.
@@ -289,7 +248,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
 ## Start MirrorMaker
 
-1. From the SSH connection to the **destination** cluster, use the following command to start the MirrorMaker process:
+1. From the SSH connection to the **secondary** cluster, use the following command to start the MirrorMaker process:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
@@ -297,11 +256,11 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
     The parameters used in this example are:
 
-    * **--consumer.config**: Specifies the file that contains consumer properties. These properties are used to create a consumer that reads from the *source* Kafka cluster.
+    * **--consumer.config**: Specifies the file that contains consumer properties. These properties are used to create a consumer that reads from the *primary* Kafka cluster.
 
-    * **--producer.config**: Specifies the file that contains producer properties. These properties are used to create a producer that writes to the *destination* Kafka cluster.
+    * **--producer.config**: Specifies the file that contains producer properties. These properties are used to create a producer that writes to the *secondary* Kafka cluster.
 
-    * **--whitelist**: A list of topics that MirrorMaker replicates from the source cluster to the destination.
+    * **--whitelist**: A list of topics that MirrorMaker replicates from the primary cluster to the secondary.
 
     * **--num.streams**: The number of consumer threads to create.
 
@@ -313,26 +272,26 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
     ```
 
-2. From the SSH connection to the **source** cluster, use the following command to start a producer and send messages to the topic:
+2. From the SSH connection to the **primary** cluster, use the following command to start a producer and send messages to the topic:
 
     ```bash
     SOURCE_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Replace `$CLUSTERNAME` with the name of the source cluster. When prompted, enter the password for the cluster login (admin) account.
+    Replace `$CLUSTERNAME` with the name of the primary cluster. When prompted, enter the password for the cluster login (admin) account.
 
-     When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **source** cluster. When done, use **Ctrl + C** to end the producer process.
+     When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **primary** cluster. When done, use **Ctrl + C** to end the producer process.
 
-3. From the SSH connection to the **destination** cluster, use **Ctrl + C** to end the MirrorMaker process. It may take several seconds to end the process. To verify that the messages were replicated to the destination, use the following command:
+3. From the SSH connection to the **secondary** cluster, use **Ctrl + C** to end the MirrorMaker process. It may take several seconds to end the process. To verify that the messages were replicated to the secondary, use the following command:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Replace `$CLUSTERNAME` with the name of the destination cluster. When prompted, enter the password for the cluster login (admin) account.
+    Replace `$CLUSTERNAME` with the name of the secondary cluster. When prompted, enter the password for the cluster login (admin) account.
 
-    The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the source cluster to the destination. The messages retrieved from the topic are the same as entered on the source cluster.
+    The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the primary cluster to the secondary. The messages retrieved from the topic are the same as entered on the primary cluster.
 
 ## Delete the cluster
 
