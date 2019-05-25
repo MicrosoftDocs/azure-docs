@@ -33,9 +33,9 @@ The Kinect Sensor SDK provides the following product and service features:
 
 ## Sensor SDK
 
-* See Using Sensor SDK to learn more about the Sensor SDK.
-* Download Sensor SDK
-* The Sensor SDK will be available in open source on GitHub.
+* [Download Sensor SDK](sensor-sdk-download.md)
+* The Sensor SDK is available in [open source on GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK).
+* See the [Sensor SDK API documentation](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) for more details on usage.
 
 ## Next steps
 
