@@ -16,10 +16,10 @@ This article describes how you can find, then open your Azure Kinect DK, especia
 Perform the following steps to find, then open your Azure Kinect DK device:
 
 1. To find or retrieve image data, you must first enumerate and open the desired device.
-2. Retrieve the number of available devices by using [k4a_device_get_installed_count](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc
+2. Retrieve the number of available devices by using [k4a_device_get_installed_count](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc
 ).
 3. Use this number to check for any device's existence, or to walk through and query each individual
-device for its serial number using [k4a_device_get_serialnum](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/feature/publishdocs/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22
+device for its serial number using [k4a_device_get_serialnum](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22
 ).
 4. In our example, we open the default device. If there is more than one device attached
 to a single host, select a specific device instance.
