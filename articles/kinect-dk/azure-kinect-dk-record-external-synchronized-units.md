@@ -103,7 +103,7 @@ You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play bac
 
 - Use manual exposure (for example, by setting using viewer before recording). RGB camera auto-exposure may impact time-synchronization and some lost depth frames if exposure is too long.
 - Restarting subordinate device will cause synchronization to be lost.
-- Some [camera modes](https://aka.ms/AzureKinectAPIDocs/azure-kinect-devkit.md) support 15 fps max. We recommended that you do not mix modes/frame rates between devices
+- Some [camera modes](hardware-specification.md#depth-camera-supported-operating-modes) support 15 fps max. We recommended that you do not mix modes/frame rates between devices
 - Connecting multiple units to single PC can easily saturate USB bandwidth, consider using separate host PC per device. Pay attention to CPU/GPU compute as well.
 - Disable microphone and IMU in the viewer if those are not needed. This can improve reliability.
 
