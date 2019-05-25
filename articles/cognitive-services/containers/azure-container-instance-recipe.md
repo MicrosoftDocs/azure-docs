@@ -23,7 +23,7 @@ With the following steps, scale Azure Cognitive Services applications in the clo
 
 This recipe works with any Cognitive Services container. The Cognitive Service resource must be created in the Azure portal before using this recipe. Each Cognitive Service that supports containers has a "How to install" document specifically for installing and configuring the service for a container. Because some services require a file or set of files as input for the container, it is important that you understand and have used the container successfully before using this recipe.
 
-* A Cognitive Service resource, created in Azure Portal. 
+* A Cognitive Service resource, created in Azure portal. 
 * Cognitive Service **endpoint URL** - review the specific service's "How to install" for the container, to find where the endpoint URL is from within the Azure portal, and what a correct example of the URL looks like. The exact format can change from service to service. 
 * Cognitive Service **key** -  review the specific service's "How to install" for the container, to find where the key is from within the Azure portal. Typically, the key is a string of 32 alpha-numeric characters. 
 * A single Cognitive Services Container on local host (your computer). Make sure you can pull down the image (`docker pull`), run the local container successfully with all required configuration settings (`docker run`), and call the container's endpoint, getting a response of 2xx and a JSON response back. 
@@ -35,7 +35,7 @@ If this recipe has any known issues for specific containers, they are listed in 
 ## If your container requires input to run successfully
 
 1. If your container requires input to run successfully, run the container successfully and test it. 
-1. Create a copy of the tested container with your input configuration using `docker commit <container-id> <image-name>`. The container id is found using the docker command `docker ps -a`. Make sure the use this new container's name whenever the recipe uses `<container>`.
+1. Create a copy of the tested container with your input configuration using `docker commit <container-id> <image-name>`. The container ID is found using the docker command `docker ps -a`. Make sure the use this new container's name whenever the recipe uses `<container>`.
 
 ## Step 1: Create a Cognitive Services resource for Text Analytics 
 
@@ -113,8 +113,6 @@ If this recipe has any known issues for specific containers, they are listed in 
 
 1. Select the **Overview** and copy the IP address. It will be a numeric IP address such as `55.55.55.55`.
 1. Open a new browser tab and use the IP address, for example, `http://<IP-address>:5000 (http://55.55.55.55:5000`). You will see the container's home page, letting you know the container is running.
-
-     ![View the swagger API](./media/container-webpage.png)
 
 1. Select **Service API Description** to view the swagger page for the container.
 

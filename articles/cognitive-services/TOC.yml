@@ -15,15 +15,15 @@
   - name: Container recipes
     items:
     - name: Container Reuse
-      href: container-reuse-recipe.md
+      href: ./containers/container-reuse-recipe.md
     - name: Deploy to Azure Container Instance
-      href: azure-container-instance-recipe.md
+      href: ./containers/azure-container-instance-recipe.md
   - name: Other Container Services
     items:
     - name: Azure Container Instances
       href: ../container-instances/container-instances-tutorial-prepare-app.md
     - name: Azure Container Registry
-      href: ../container-registry/container-registry-get-started-azure-cli
+      href: ../container-registry/container-registry-get-started-azure-cli.md
     - name: Azure Kubernetes Service (AKS)
       href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Quickstarts

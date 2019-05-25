@@ -1,7 +1,8 @@
 ---
-title: Docker container recipes
+title: Resuse Docker container recipes
 titleSuffix: Azure Cognitive Services
-description: Learn how to create Cognitive Services Containers for reuse
+description: Use these container recipes to create Cognitive Services Containers that can be reused. Containers can be built with some or all configuration settings so that they are not needed when the container is started. Once you have this new layer of container (with settings), and you have tested it locally, you can store the container in a container registry. When the container starts, it will only need those settings that are not currently stored in the container. 
+
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -31,9 +32,9 @@ Any `docker run` examples in this document assume a Windows console with a `^` l
 
 ## Store no configuration settings in image
 
-The example `docker run` commands for each service do not store any configuration settings in the container. When you start the container from a console or registry service, those values need to passed in. The private registry container provides configuration space for you to pass those settings in.
+The example `docker run` commands for each service do not store any configuration settings in the container. When you start the container from a console or registry service, those configuration settings need to pass in. The private registry container provides configuration space for you to pass those settings in.
 
-## Reuse recipe: store all configuration settings 
+## Reuse recipe: store all configuration settings with container
 
 In order to store all configuration settings, create a `Dockerfile` with those settings. 
 
@@ -49,11 +50,11 @@ Create Dockerfile, pulling from the existing Cognitive Services container you wa
 This example:
 
 * Sets the billing endpoint, `{BILLING_ENDPOINT}` from the host's environment key using `ENV`.
-* Sets the billing api key, `{ENDPOINT_KEY}` from the host's environment key using `ENV.
+* Sets the billing API-key, `{ENDPOINT_KEY}` from the host's environment key using `ENV.
 
-### Text Analytics Dockerfile with billing saved
+### Reuse recipe: store billing settings with container
 
-This example shows how to build the Text Analtyics' sentiment container from a Dockerfile.
+This example shows how to build the Text Analytics' sentiment container from a Dockerfile.
 
 ```Dockerfile
 FROM mcr.microsoft.com/azure-cognitive-services/sentiment:latest
@@ -64,7 +65,7 @@ ENV EULA=accept
 Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
 
 
-### Language understanding Dockerfile with billing and mounts saved
+### Reuse recipe: store billing and mount settings with container
 
 This example shows how to use Language Understanding, saving billing and models from the Dockerfile.
 
@@ -82,7 +83,7 @@ COPY /input /input
 
 Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
 
-## How to use container reuse recipes on your local host
+## How to use container on your local host
 
 To build the Docker file, replace `<your-image-name>` with the new name of the image, then use: 
 
@@ -97,9 +98,9 @@ docker run --rm <your-image-name>
 ```
 
 
-## How to use container reuse recipes for your private registry
+## How to add container to private registry
 
-Follow the [steps](#how-to-steps) to use the Dockerfile and place the new image in your private container registry.  
+Follow these steps to use the Dockerfile and place the new image in your private container registry.  
 
 
 1. Create a `Dockerfile` with the text from reuse recipe. A `Dockerfile` doesn't have an extension. 
