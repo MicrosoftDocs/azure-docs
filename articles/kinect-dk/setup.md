@@ -13,7 +13,7 @@ keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 
 Getting started with the Azure Kinect DK API? Look no further! This document will get you up and running with access to the device!
 
-First, download and install the [Azure Kinect DK API](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK) from GitHub.
+First, [download](sensor-sdk-download.md)  and install the Azure Kinect Sensor SDK.
 
 Here are the functions we'll use:
 
