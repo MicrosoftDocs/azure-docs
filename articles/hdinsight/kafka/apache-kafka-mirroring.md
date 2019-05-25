@@ -49,7 +49,7 @@ If you need to mirror between Kafka clusters in different networks, there are th
 
 For more information on connecting two Azure Virtual Networks, see [Configure a VNet-to-VNet connection](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## Mirroring architecture 1
+## Mirroring architecture
 
 This architecture features two clusters in different resource groups and virtual networks: a **primary** and **secondary**.
 
