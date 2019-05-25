@@ -39,10 +39,9 @@ To successfully complete your "content protection" system/application design, yo
   
    The example shows how to:
 
-   1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies). You need to create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients.    
 
       * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
-      * Configure DRM encryption by specifying the content key.
       * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
 
         ```
@@ -56,8 +55,8 @@ To successfully complete your "content protection" system/application design, yo
       StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and 
       Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If 
       you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
-    
-      You need to create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients. 
+      
+      The Streaming Locator is also associated with the **Content Key Policy** that was defined.
     
    3. Create a test token.
 
