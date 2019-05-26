@@ -56,12 +56,12 @@ Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. The
 
 |             RGB Camera Resolution (HxV)  |          Aspect Ratio  |          Format Options   |          Frame Rates (FPS)  |          Nominal FOV (HxV)(post-processed)  |
 |------------------------------------------|------------------------|---------------------------|-----------------------------|---------------------------------------------|
-|       3840x2160                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90x59                              |
-|       2560x1440                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90x59                              |
-|       1920x1080                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90x59                              |
-|       1280x720                           |          16:9          |          MJPEG/YUY2/NV12  |          0, 5, 15, 30       |          90x59                              |
-|       4096x3072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90x74.3                            |
-|       2048x1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90x74.3                            |
+|       3840x2160                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90°x59°                              |
+|       2560x1440                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90°x59°                              |
+|       1920x1080                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90°x59°                              |
+|       1280x720                           |          16:9          |          MJPEG/YUY2/NV12  |          0, 5, 15, 30       |          90°x59°                              |
+|       4096x3072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90°x74.3°                            |
+|       2048x1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90°x74.3°                            |
 
 The RGB camera is USB Video class-compatible and can be used without the Sensor SDK.
 
