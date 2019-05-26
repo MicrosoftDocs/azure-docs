@@ -26,7 +26,7 @@ You need the following to complete this article:
 
 ## Connect to Sisense dashboards using Azure Data Explorer JDBC connector
 
-1. Download and copy the latest versions of the following jar files to *..\Sisense\DataConnectors\jdbcdrivers\adx –* 
+1. Download and copy the latest versions of the following jar files to *..\Sisense\DataConnectors\jdbcdrivers\adx* 
 
     * activation-1.1.jar
     * adal4j-1.6.0.jar
@@ -60,7 +60,7 @@ You need the following to complete this article:
 
     ![Choose JDBC connector](media/sisense/select-connector.png)
 
-1. In the **Connect** tab, fill out the following fields for the **Generic JDBC** connector and select **Next**.
+1. In the **Connect** tab, complete the following fields for the **Generic JDBC** connector and select **Next**.
 
     ![JDBC connector settings](media/sisense/jdbc-connector.png)
 
@@ -89,7 +89,7 @@ You need the following to complete this article:
 
     ![Build window](media/sisense/build-window.png)
 
-1. Wait until build process is complete and **Build Succeeded**.
+    * Wait until build process is complete and **Build Succeeded**.
 
     ![Build succeeded](media/sisense/build-succeeded.png)
 
@@ -97,21 +97,21 @@ You need the following to complete this article:
 
     ![New dashboard](media/sisense/new-dashboard.png)
 
-1. Pick a Dashboard and select **Create**. 
+1. Pick a dashboard and select **Create**. 
 
     ![Create dashboard](media/sisense/create-dashboard.png)
 
-1. In **Storm Events** Dashboard under **New Widget**, select **+ Select Data** to create a new widget. 
+1. In **Storm Events Dashboard** under **New Widget**, select **+ Select Data** to create a new widget. 
 
-    ![Add widgets to StormEvent dashboard](media/sisense/storm-dashboard-add-widget.png)
+    ![Add fields to StormEvents dashboard](media/sisense/storm-dashboard-add-field.png)  
 
 1. **+ Add More Data** to add additional columns to your graph. 
 
-    ![Add fields to StormEvents dashboard](media/sisense/storm-dashboard-add-field.png)    
+    ![Add more data to graph](media/sisense/add-more-data.png)
 
 1. Select **+ Widget** to create another widget. Drag and drop widgets to rearrange your dashboard.
 
-    ![Storm dashboard](media/sisense/final-dashboard.PNG)
+    ![Storm dashboard](media/sisense/final-dashboard.png)
 
 ## Next steps
 
