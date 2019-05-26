@@ -45,7 +45,7 @@ The following table provides low-level device sensor access capability compariso
 | **Color** | ✔️ | ✔️ | Color format supports differences, Azure Kinect DK supports these camera controls: Exposure, white balance, brightness, contrast, saturation, sharpness, and gain control |
 | **Audio** | ✔️ | ✔️ | Azure Kinect DK mics are accessed via Speech SDK or Windows native API |
 | **IMU** | ✔️ |  | Partial (1-axis) |
-| **Calibration data** | ️️️️️✔️ ️️️| ✔️ | OpenCV compatible camera model calibration |
+| **Calibration data** | ✔️ | ✔️ | OpenCV compatible camera model calibration |
 | **Depth-RGB internal sync** | ✔️ | ✔️ |  |
 | **External Sync**| ✔️|  | K4A allows programmable delay for external sync |
 | **Share access with multiple clients** | | ✔️ | The Azure Kinect Sensor SDK relies on WinUSB/libUSB to access device and does not have a service implemented to enable sharing device access with multiple processes |
