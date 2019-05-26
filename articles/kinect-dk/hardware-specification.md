@@ -80,7 +80,7 @@ Camera FOV front from 2000 mm distance is visualized below. Notice that the 4:3 
 
 ## Motion sensor (IMU)
 
-The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both an accelerometer and a gyroscope, simultaneously sampled at 1.6 kHz and reported to the host at a 208-Hz rate.
+The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both an accelerometer and a gyroscope. The accelerometer and gyroscope are simultaneously sampled at 1.6 kHz and reported to the host at a 208 Hz.
 
 ## Microphone array
 
