@@ -29,8 +29,6 @@ The currently available predefined Streaming Policies:<br/>
 
 The "Decision tree" that follows helps you choose a predefined Streaming Policy for your scenario.
 
-If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can create a custom Streaming Policy. 
-
 > [!IMPORTANT]
 > * Properties of **Streaming Policies** that are of the Datetime type are always in UTC format.
 > * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
@@ -41,6 +39,8 @@ The following decision tree helps you choose a predefined Streaming Policy for y
 
 Click the image to view it full size.  <br/>
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+
+If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can create a custom Streaming Policy. 
 
 ## Examples
 
