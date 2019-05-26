@@ -27,6 +27,8 @@ The currently available predefined Streaming Policies:<br/>
 * 'Predefined_MultiDrmCencStreaming' 
 * 'Predefined_MultiDrmStreaming'
 
+The "Decision tree" helps you choose a predefined Streaming Policy for your scenario.
+
 If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can create a custom Streaming Policy. 
 
 > [!IMPORTANT]
@@ -35,7 +37,7 @@ If you have special requirements (for example, if you want to specify different 
 
 ## Decision tree
 
-The following decision tree will help you choose a predefined Streaming Policy for your scenario.
+The following decision tree helps you choose a predefined Streaming Policy for your scenario.
 
 Click the image to view it full size.  <br/>
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
