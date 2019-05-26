@@ -45,7 +45,7 @@ The following table provides low-level device sensor access capability compariso
 | **IR** | ✔️ | ✔️ |  |
 | **Color** | ✔️ | ✔️ | Color format supports differences, Azure Kinect DK supports these camera controls: Exposure, white balance, brightness, contrast, saturation, sharpness, and gain control |
 | **Audio** | ✔️ | ✔️ | Azure Kinect DK mics are accessed via Speech SDK or Windows native API |
-| **IMU** | ✔️ |  | Partial (1-axis) |
+| **IMU** | ✔️ |  | Azure Kinect DK has a full 6-axis IMU and Kinect for Windows only provides 1-axis |
 | **Calibration data** | ✔️ | ✔️ | OpenCV compatible camera model calibration |
 | **Depth-RGB internal sync** | ✔️ | ✔️ |  |
 | **External Sync**| ✔️|  | Azure Kinect DK allows programmable delay for external sync |
