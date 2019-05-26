@@ -95,7 +95,7 @@ Services evolve and improve constantly, so remember to check regularly for new o
 
 ## Azure Kinect hardware requirements
 
-The Azure Kinect DK integrates Microsoft's latest sensor technology into single USB connected accessory. [See Azure Kinect DK Hardware Specification](hardware-specification.md) for more details.
+The Azure Kinect DK integrates Microsoft's latest sensor technology into single USB connected accessory. See [Azure Kinect DK Hardware Specification](hardware-specification.md) for more details.
 
 ## Next steps
 
