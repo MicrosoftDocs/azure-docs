@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/26/2019
 ms.author: juliako
 ---
 
@@ -19,11 +19,16 @@ ms.author: juliako
 
 In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your [Streaming Locators](streaming-locators-concept.md). Media Services v3 provides some predefined Streaming Policies so that you can use them directly for trial or production. 
 
-The currently available predefined Streaming Policies:<br/>'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
+The currently available predefined Streaming Policies:<br/>
+* 'Predefined_DownloadOnly'
+* 'Predefined_ClearStreamingOnly'
+* 'Predefined_DownloadAndClearStreaming'
+* 'Predefined_ClearKey'
+* 'Predefined_MultiDrmCencStreaming' 
+* 'Predefined_MultiDrmStreaming'
 
 If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can create a custom Streaming Policy. 
 
- 
 > [!IMPORTANT]
 > * Properties of **Streaming Policies** that are of the Datetime type are always in UTC format.
 > * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
