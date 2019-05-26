@@ -11,7 +11,7 @@ keywords: kinect, azure, sensor, sdk, depth, rgb, device, find, open
 
 # Find then open the Azure Kinect device
 
-This article describes how you can find, then open your Azure Kinect DK, especially if you have more than one Kinect development kit connected to your machine.
+This article describes how you can find, then open your Azure Kinect DK. The article explains how to handle the case where there are multiple devices connected to your machine.
 
 Perform the following steps to find, then open your Azure Kinect DK device:
 
