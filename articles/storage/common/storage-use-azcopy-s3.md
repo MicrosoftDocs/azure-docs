@@ -33,7 +33,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 ### Authorize with AWS S3
 
-Gather your AWS access key and secret access key, and then set the these environment variables:
+Gather your AWS access key and secret access key, and then set these environment variables:
 
 | Operating system | Command  |
 |--------|-----------|
