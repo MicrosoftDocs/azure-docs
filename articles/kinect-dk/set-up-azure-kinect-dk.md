@@ -22,7 +22,7 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 1. Connect the power cable to your device and plug the power supply into a wall outlet or power strip.
 2. Connect the USB data cable into your device and PC.
    >[!NOTE]
-   >Use connectors from the PC to the the back of device, as they work better than connectors  such as a dongle.
+   >Use a direct cable from the PC to the back of the device, as this works better than connecting through adapters or extensions.
 
 3. Verify the power indicator LED next to the USB cable is solid white.
 4. Device power on takes a few seconds and is ready to use when the front-facing LED streaming indicator turns off.
