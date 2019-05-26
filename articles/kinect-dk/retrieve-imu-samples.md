@@ -13,7 +13,7 @@ keywords: kinect, azure, configure, depth, color, RBG, camera, sensor, sdk, IMU,
 
 The Azure Kinect device provides access to Inertial Motion Units (IMUs), including both the accelerometer and gyroscope types. To access IMUs samples, you must first open and configure your device, then capture IMU data. For more information, see [find and open device](find-then-open-device.md).
 
-IMU samples are generated at a much higher frequency than images. Samples are reported to the host at a lower rate they're are sampled. When waiting for an IMU sample, multiple samples will frequently become available at the same time.
+IMU samples are generated at a much higher frequency than images. Samples are reported to the host at a lower rate then they're sampled. When waiting for an IMU sample, multiple samples will frequently become available at the same time.
 
 See the Azure Kinect DK [hardware specification](hardware-specification.md) for details on the IMU reporting rate.
 
