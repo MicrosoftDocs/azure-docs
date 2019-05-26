@@ -23,8 +23,9 @@ High-level differences between the Azure Kinect development kit and Kinect for W
 | **Motion sensor** | Details | 3-axis accelerometer  3-axis gyro | 3-axis accelerometer |
 | **RGB Camera**    | Details | 3840 x 2160 px @30 fps | 1920 x 1080 px @30 fps |
 | **Depth Camera**  | Method   | Time-of-Flight | Time-of-Flight |
-| *Depth Camera* | Resolution/FOV | 640 x 576 px @30 fps | 512 x 424 px @ 30 fps |
-| *Depth Camera* | Resolution/FOV | 512 x 512 px @30 fps | 1024x1024 px @15 fps |
+|                   | Resolution/FOV | 640 x 576 px @30 fps | 512 x 424 px @ 30 fps |
+|                   |                | 512 x 512 px @30 fps |                       |
+|                   |                | 1024x1024 px @15 fps |                       |
 | **Connectivity** | Data | USB3.1 Gen 1 with type USB-C  | USB 3.1 gen 1|
 |  | Power | External PSU or USB-C | External PSU |
 |  | Synchronization | RGB & Depth internal, external device-to-device| RGB & Depth internal only |
