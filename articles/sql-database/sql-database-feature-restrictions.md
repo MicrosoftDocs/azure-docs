@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Feature Restrictions | Microsoft Docs
-description:  Azure SQL Database Feature Restrictions
+title: Azure SQL Database Feature restrictions | Microsoft Docs
+description:  Azure SQL Database Feature restrictions improves your database security by restricting features in your database that can be by attackers to gain access to information in them.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/22/2019
 ---
 
-# Azure SQL Database Feature Restrictions
+# Azure SQL Database Feature restrictions
 
 One common source of SQL Server attacks is through web applications that access the database where various forms of SQL injection attacks are used to glean information about the database.  Ideally, application code is developed so it does not allow for SQL injection.  However, in large code-bases that include legacy and external code, one can never be sure that all cases have been addressed, so SQL injections are a fact of life that we have to protect against.  The goal of feature restrictions is to prevent some forms of SQL injection from leaking information about the database, even when the SQL injection is successful.
 
