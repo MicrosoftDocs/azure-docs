@@ -36,7 +36,7 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 
 ## Verify device streams data
 
-1. Launch `k4aviewer.exe` located under tools -directory (e.g. `C:\Program Files\Azure Kinect SDK\tools\k4aviewer.exe`). You can launch it from either the command line or by double-clicking the executable.
+1. Launch `k4aviewer.exe` located under the installed tools directory (e.g. `C:\Program Files\Azure Kinect SDK\tools\k4aviewer.exe`). You can launch it from either the command line or by double-clicking the executable. It is also available as a link called Azure Kinect Viewer in your start menu.
 2. Select **Open Device**, then **Start**.
 
     ![Azure Kinect Viewer](./media/quickstarts/viewer.png)
