@@ -17,7 +17,7 @@ The Azure Kinect Sensor SDK provides low-level sensor access for Azure Kinect DK
 
 The Kinect Sensor SDK provides the following product and service features:
 
-* Depth camera access and mode control. The camera offers both narrow and wide fields-of-view depth mode,and passive infrared (IR) modes.
+* Depth camera access and mode control. The camera offers both narrow and wide fields-of-view depth mode, and passive infrared (IR) modes.
 * RGB camera with access to both exposure and white balance abilities.
 * Motion sensor, such as gyroscope and accelerometer access.
 * Synchronized depth-RGB camera that streams with configurable delay between cameras.
