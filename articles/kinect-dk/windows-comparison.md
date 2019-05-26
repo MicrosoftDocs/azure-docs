@@ -11,7 +11,7 @@ keywords: Kinect, Windows, v2, Azure Kinect, comparison, SDK, differences, hardw
 
 # Azure Kinect and Kinect Windows v2 comparison
 
-The Azure Kinect DK hardware and Software Development Kits have differences from Kinect for Windows v2. Any existing Kinect for Windows v2 applications will not work directly with Azure Kinect DK and require porting.  
+The Azure Kinect DK hardware and Software Development Kits have differences from Kinect for Windows v2. Any existing Kinect for Windows v2 applications will not work directly with Azure Kinect DK and will require porting to the new SDK.  
 
 ## Hardware
 
