@@ -43,9 +43,7 @@ If you have special requirements (for example, if you want to specify different 
 
 ## Get a Streaming Policy definition  
 
-If you want to see the definition of a Streaming Policy, use [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) and specify the policy name.
-
-For example:
+If you want to see the definition of a Streaming Policy, use [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) and specify the policy name. For example:
 
 ### REST
 
@@ -76,7 +74,7 @@ Response:
 }
 ```
 
-## Examples
+## Streaming Locator creation 
 
 ### Not encrypted
 
