@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 5/22/2019
+ms.date: 5/23/2019
 ---
 
 # Visualize data from Azure Data Explorer in Sisense
@@ -18,7 +18,7 @@ You can connect to structured and unstructured data sources, join tables from mu
 
 You need the following to complete this article:
 
-* Download and install Sisense app //To do: <link>
+* [Download and install Sisense app](https://documentation.sisense.com/latest/getting-started/download-install.htm) 
 
 * A cluster that includes the StormEvents sample data. For  more information, see [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) and [Ingest sample data into Azure Data Explorer](ingest-sample-data.md).
 
@@ -43,31 +43,55 @@ You need the following to complete this article:
     * oauth2-oidc-sdk-5.24.1.jar
     * slf4j-api-1.7.21.jar
     
-1. Open **Sisense app**.
-1. Select **Data** tab and select **+ElasticCube** to create a new ElastiCube model.
-    sisense 1 img
-1. In **Add new ElasticClube model name** Name the ElastiCube model and **Save**
-    sisense 2 img
+1. Open **Sisense** app.
+1. Select **Data** tab and select **+ElastiCube** to create a new ElastiCube model.
+    
+    ![Select ElastiCube](media/sisense/data-select-elasticube.png)
+
+1. In **Add new ElastiCube Model**, name the ElastiCube model and **Save**.
+   
+    ![Add new ElastiCube model](media/sisense/add-new-elasticube-model.png)
+
 1. Select **+ Data**.
-1. Select **Generic JDBC** connector from **Choose connector** window 
-1. In resulting **Generic JDBC** window fill out the following fields: (cover all fields with gray - JDBC: on first field). select **Next**
+
+    ![Select data button](media/sisense/select-data.png)
+
+1. In **Select Connector** tab, select **Generic JDBC** connector.
+
+    ![Choose JDBC connector](media/sisense/select-connector.png)
+
+1. In the **Connect** tab, fill out the following fields for the **Generic JDBC** connector and select **Next**.
+
+    ![JDBC connector settings](media/sisense/jdbc-connector.png)
 
     |Field |Description |
     |---------|---------|
-    |Connection string     |   jdbc:sqlserver://<cluster_name.region>.kusto.windows.net:1433;database=<database_name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.kusto.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword      |
-    |JDBC jar folder  |    ..\Sisense\DataConnectors\jdbcdrivers\adx     |
-    |Driver's Class Name    |   com.microsoft.sqlserver.jdbc.SQLServerDriver      |
+    |Connection String     |   `jdbc:sqlserver://<cluster_name.region>.kusto.windows.net:1433;database=<database_name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.kusto.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword`      |
+    |JDBC JARs folder  |    `..\Sisense\DataConnectors\jdbcdrivers\adx`     |
+    |Driver's Class Name    |   `com.microsoft.sqlserver.jdbc.SQLServerDriver`      |
     |User Name   |    AAD user name     |
     |Password     |   AAD user password      |
 
-1. In **Select Database** pane select the relevant database to which you have permissions.
-1. In *Database name* pane:
-    1. You can click on table name to preview the table. 
-    1. Select the "box" of the relevant table. Select **Done**.
-1. In left-hand pane, click on table name to see table column names. 
+1. In the **Select Data** tab, search **Select Database** to select the relevant database to which you have permissions. In this example, select *test1*.
+
+    ![select-database](media/sisense/select-database.png)
+
+1. In *test* (database name) pane:
+    1. Select the table name to preview the table to see the table column names. 
+    1. Select the check box of the relevant table to select that table. 
+    1. Select **Done**.
+
+    
+
+1. In left-hand pane, click on table name to see table column names. You can remove unnecessary columns.
 1. Click **Build** to build your dataset. The build window opens. Click **Build** again. Wait until build process is complete and **Build Succeeded**.
-1. In left hand pane click on table name to see table column names. Select the rel
-1. You can start building dashboards on top of this dataset.
+1. You can start building dashboards on top of this dataset.(analytics tab)
+1. In Analytics tab, select **+** > **New Dashboard**. Pick a Dashboard and select **Create**.
+1. Storm Events Dashboard under **New Widget**, select **+select data** to create a new widget. 
+1. **+ Add More Data** add additional columns to your graph. In this graph, have the following columns depicted.
+1. Select **+ Widget** to create another widget.
+1. You can drag and drop widgets to arrange your dashboards.
+1.   
 
 ## Next steps
 
