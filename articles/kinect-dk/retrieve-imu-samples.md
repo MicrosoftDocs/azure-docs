@@ -52,7 +52,7 @@ threads.
 
 To retrieve IMU samples as soon as they're available, you may want to call [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) on its own thread. The API also has sufficient internal queuing to allow you to only check for samples after each image capture is returned.
 
-Because there's some internal queueing of IMU samples,
+Because there's some internal queueing of IMU samples, you can use the following pattern without dropping any data:
 
 1. Wait on a capture, at any frames rate.
 2. Process the capture.
