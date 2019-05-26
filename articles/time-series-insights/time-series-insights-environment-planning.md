@@ -20,17 +20,17 @@ This article describes how to plan your Azure Time Series Insights general avail
 
 ## Video
 
-### Learn more about data retention in AzureTime Series Insights and how to plan for it.</br>
+**Learn more about data retention in AzureTime Series Insights and how to plan for it**<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 ## Best practices
 
-To get started with Time Series Insights, it’s best if you know how much data you expect to push by the minute as well as how long you need to store your data.  
+To get started with Time Series Insights, it’s best if you know how much data you expect to push by the minute and how long you need to store your data.  
 
 For more information about capacity and retention for both Time Series Insights SKUs, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-Consider the following attributes to best plan the environment for long-term success:
+To best plan your Time Series Insights environment for long-term success, consider the following attributes:
 
 - <a href="#understand-storage-capacity">Storage capacity</a>
 - <a href="#understand-data-retention">Data retention period</a>
@@ -40,11 +40,11 @@ Consider the following attributes to best plan the environment for long-term suc
 
 ## Understand storage capacity
 
-By default, Azure Time Series Insights retains data based on the amount of storage you have provisioned (units times amount of storage per unit) and ingress.
+By default, Time Series Insights retains data based on the amount of storage you provision (units times the amount of storage per unit) and ingress.
 
 ## Understand data retention
 
-You can configure your Time Series Insights environment’s **Data retention time** setting, enabling up to 400 days of retention. Time Series Insights has two modes, one that optimizes for ensuring your environment has the most up-to-date data (on by default), and another that optimizes for ensuring retention limits are met, where ingress is paused if the overall storage capacity of the environment is hit.  You can adjust retention and toggle between the two modes in the environment’s configuration page in the Azure portal.
+You can configure your Time Series Insights environment’s **Data retention time** setting. You can enable up to 400 days of retention. Time Series Insights has two modes, one that optimizes for ensuring your environment has the most up-to-date data (on by default), and another that optimizes for ensuring retention limits are met, where ingress is paused if the overall storage capacity of the environment is hit. You can adjust retention and toggle between the two modes in the environment’s configuration page in the Azure portal.
 
 You can configure a maximum of 400 days of data retention in your Time Series Insights environment.
 
@@ -52,7 +52,7 @@ You can configure a maximum of 400 days of data retention in your Time Series In
 
 1. In the [Azure portal](https://portal.azure.com), select your Time Series Insights environment.
 
-1. On the **Time Series Insights environment page**, under the **Settings** heading, select **Configure**.
+1. In the **Time Series Insights environment** pane, under **Settings**, select **Configure**.
 
 1. In the **Data retention time (in days)** box, enter a value from 1 to 400.
 
@@ -63,26 +63,26 @@ You can configure a maximum of 400 days of data retention in your Time Series In
 
 ## Understand ingress capacity
 
-The other area to focus on for planning is ingress capacity, which is a derivative of the per-minute allocation.
+The other area to focus on for planning is ingress capacity. Ingress capacity is a derivative of the per-minute allocation.
 
 From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed event size is 32 KB; data packets larger than 32 KB are truncated.
 
 The following table summarizes the ingress capacity for each SKU:
 
-|SKU  |Events Count / Month / Unit  |Events size / Month / Unit  |Events Count / Minute / Unit  | Size / Minute / Unit   |
+|SKU  |Events count / month / unit  |Events size / month / unit  |Events count / minute / unit  | Size / minute / unit   |
 |---------|---------|---------|---------|---------|
 |S1     |   30 million     |  30 GB     |  720    |  720 KB   |
 |S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
 
-You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You cannot migrate from an S1 environment to an S2, or from an S2 environment to an S1.
+You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You can't migrate from an S1 environment to an S2. You can't migrate from an S2 environment to an S1.
 
-For ingress capacity, you should first determine the total ingress you require on a per-month basis. Next, determine what your per-minute needs are, as this is where throttling and latency play a role.
+For ingress capacity, first determine the total ingress you require on a per-month basis. Next, determine what your per-minute needs are. Throttling and latency play a role in per-minute capacity.
 
-If you have a spike in your data ingress lasting less than 24 hours, Time Series Insights can "catch-up" at an ingress rate of 2x the listed rates above.
+If you have a spike in your data ingress that lasts less than 24 hours, Time Series Insights can "catch up" at an ingress rate of 2x the rates listed in the preceding table.
 
-For example, if you have a single S1 SKU and ingress data at a rate of 720 events per minute, and spike for less than 1 hour at a rate of 1440 events or less, there would be no noticeable latency to your environment. However, if you exceed 1440 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment.
+For example, if you have a single S1 SKU and ingress data at a rate of 720 events per minute, and spike for less than 1 hour at a rate of 1,440 events or less, there would be no noticeable latency to your environment. However, if you exceed 1,440 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment.
 
-You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how to provision your environment. Use the **Metrics** page in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
+You might not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal subscription. The telemetry can help you determine how to provision your environment. Use the **Metrics** pane in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
 
 ### Calculate ingress requirements
 

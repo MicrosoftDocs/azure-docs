@@ -61,6 +61,8 @@ Finally:
 * Use your second region to back up and recover all Time Series Insights telemetry and query data.
 
 > [!IMPORTANT]
-> * Note that a delay might be experienced in the event of a failover.
-> * Failover might also cause a momentary spike in message processing as operations are rerouted.
-> * For more information, see [Mitigate latency in Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
+> If a failover occurs:
+> * A delay might occur.
+> * A momentary spike in message processing might occur, as operations are rerouted.
+> 
+> For more information, see [Mitigate latency in Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
