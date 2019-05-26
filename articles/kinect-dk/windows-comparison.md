@@ -48,7 +48,7 @@ The following table provides low-level device sensor access capability compariso
 | **IMU** | ✔️ |  | Partial (1-axis) |
 | **Calibration data** | ✔️ | ✔️ | OpenCV compatible camera model calibration |
 | **Depth-RGB internal sync** | ✔️ | ✔️ |  |
-| **External Sync**| ✔️|  | K4A allows programmable delay for external sync |
+| **External Sync**| ✔️|  | Azure Kinect DK allows programmable delay for external sync |
 | **Share access with multiple clients** | | ✔️ | The Azure Kinect Sensor SDK relies on WinUSB/libUSB to access device and does not have a service implemented to enable sharing device access with multiple processes |
 | **Stream record / playback tool** | ✔️ | ✔️ | Azure Kinect DK uses an open-source Matroska container-based implementation |
 
