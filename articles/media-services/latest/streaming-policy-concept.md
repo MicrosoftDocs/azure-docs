@@ -39,7 +39,42 @@ Click the image to view it full size.
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can create a custom Streaming Policy. 
+If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can [create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) a custom Streaming Policy. 
+
+## Get a Streaming Policy definition  
+
+If you want to see the definition of a Streaming Policy, use [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) and specify the policy name.
+
+For example:
+
+### REST
+
+Request:
+
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaServices/contosomedia/streamingPolicies/clearStreamingPolicy?api-version=2018-07-01
+```
+
+Response:
+
+```
+{
+  "name": "clearStreamingPolicy",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/streamingPolicies/clearStreamingPolicy",
+  "type": "Microsoft.Media/mediaservices/streamingPolicies",
+  "properties": {
+    "created": "2018-08-08T18:29:30.8501486Z",
+    "noEncryption": {
+      "enabledProtocols": {
+        "download": true,
+        "dash": true,
+        "hls": true,
+        "smoothStreaming": true
+      }
+    }
+  }
+}
+```
 
 ## Examples
 
@@ -61,7 +96,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 ### Encrypted 
 
-If you need to encrypt your content with envelope and cenc encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses).
+If you need to encrypt your content with the CENC encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. The  Widevine encryption will be applied to a DASH stream and PlayReady to Smooth. The key will delivered to a playback client based on the configured DRM licenses.
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
@@ -76,7 +111,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-If you also want to encrypt your stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
+If you also want to encrypt your HLS stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
 
 ## Filtering, ordering, paging
 
