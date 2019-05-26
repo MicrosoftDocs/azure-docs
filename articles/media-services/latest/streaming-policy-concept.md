@@ -33,7 +33,7 @@ If you have special requirements (for example, if you want to specify different 
 The following decision tree will help you choose a predefined Streaming Policy for your scenario.
 
 Click the image to view it full size.  <br/>
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
 ## Examples
 
