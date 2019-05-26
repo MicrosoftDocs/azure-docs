@@ -74,24 +74,44 @@ You need the following to complete this article:
 
 1. In the **Select Data** tab, search **Select Database** to select the relevant database to which you have permissions. In this example, select *test1*.
 
-    ![select-database](media/sisense/select-database.png)
+    ![select database](media/sisense/select-database.png)
 
 1. In *test* (database name) pane:
-    1. Select the table name to preview the table to see the table column names. 
+    1. Select the table name to preview the table and see the table column names. You can remove unnecessary columns.
     1. Select the check box of the relevant table to select that table. 
     1. Select **Done**.
 
-    
+    ![select table](media/sisense/select-table-see-columns.png)    
 
-1. In left-hand pane, click on table name to see table column names. You can remove unnecessary columns.
-1. Click **Build** to build your dataset. The build window opens. Click **Build** again. Wait until build process is complete and **Build Succeeded**.
-1. You can start building dashboards on top of this dataset.(analytics tab)
-1. In Analytics tab, select **+** > **New Dashboard**. Pick a Dashboard and select **Create**.
-1. Storm Events Dashboard under **New Widget**, select **+select data** to create a new widget. 
-1. **+ Add More Data** add additional columns to your graph. In this graph, have the following columns depicted.
-1. Select **+ Widget** to create another widget.
-1. You can drag and drop widgets to arrange your dashboards.
-1.   
+1. Select **Build** to build your dataset. 
+
+    * In the **Build** window, select **Build**.
+
+    ![Build window](media/sisense/build-window.png)
+
+1. Wait until build process is complete and **Build Succeeded**.
+
+    ![Build succeeded](media/sisense/build-succeeded.png)
+
+1. In **Analytics** tab, select **+** > **New Dashboard** to start building dashboards on top of this dataset.
+
+    ![New dashboard](media/sisense/new-dashboard.png)
+
+1. Pick a Dashboard and select **Create**. 
+
+    ![Create dashboard](media/sisense/create-dashboard.png)
+
+1. In **Storm Events** Dashboard under **New Widget**, select **+ Select Data** to create a new widget. 
+
+    ![Storm Event dashboard add widgets](media/sisense/storm-dashboard-add-widget.png)
+
+1. **+ Add More Data** to add additional columns to your graph. 
+
+    ![StormEvents dashboard add fields](media/sisense/storm-dashboard-add-field.png)    
+
+1. Select **+ Widget** to create another widget. Drag and drop widgets to rearrange your dashboard.
+
+    ![Storm dashboard](media/sisense/final-dashboard.PNG)
 
 ## Next steps
 
