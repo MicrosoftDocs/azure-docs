@@ -52,7 +52,7 @@ The following table provides low-level device sensor access capability compariso
 | **Share access with multiple clients** | | ✔️ | The Azure Kinect Sensor SDK relies on WinUSB/libUSB to access device and does not have a service implemented to enable sharing device access with multiple processes |
 | **Stream record / playback tool** | ✔️ | ✔️ | Azure Kinect DK uses an open-source Matroska container-based implementation |
 
-## Map features
+## Features
 
 The Azure Kinect SDK feature set is different from Kinect for Windows v2, as detailed below:
 
