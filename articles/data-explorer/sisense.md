@@ -1,18 +1,18 @@
 ---
 title: Visualize data from Azure Data Explorer using Sisense
-description: In this how-to, you learn how to set up Azure Data Explorer as a data source for Sisense, and then visualize data.
+description: In this article, learn how to set up Azure Data Explorer as a data source for Sisense, and visualize the data.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 5/23/2019
+ms.date: 5/26/2019
 ---
 
 # Visualize data from Azure Data Explorer in Sisense
 
-Sisense is an analytics business intelligence platform that enables you to build analytics apps that deliver highly interactive user experiences. The business intelligence and dashboard reporting software allows you to access and consolidate data in a few clicks.
-You can connect to structured and unstructured data sources, join tables from multiple sources with minimal scripting and coding, and create interactive web dashboards and reports. In this article, you learn how to set up Azure Data Explorer as a data source for Sisense, and then visualize data from a sample cluster.
+Sisense is an analytics business intelligence platform that enables you to build analytics apps that deliver highly interactive user experiences. The business intelligence and dashboard reporting software allows you to access and combine data in a few clicks.
+You can connect to structured and unstructured data sources, join tables from multiple sources with minimal scripting and coding, and create interactive web dashboards and reports. In this article, learn how to set up Azure Data Explorer as a data source for Sisense, and then visualize data from a sample cluster.
 
 ## Prerequisites
 
@@ -103,11 +103,11 @@ You need the following to complete this article:
 
 1. In **Storm Events** Dashboard under **New Widget**, select **+ Select Data** to create a new widget. 
 
-    ![Storm Event dashboard add widgets](media/sisense/storm-dashboard-add-widget.png)
+    ![Add widgets to StormEvent dashboard](media/sisense/storm-dashboard-add-widget.png)
 
 1. **+ Add More Data** to add additional columns to your graph. 
 
-    ![StormEvents dashboard add fields](media/sisense/storm-dashboard-add-field.png)    
+    ![Add fields to StormEvents dashboard](media/sisense/storm-dashboard-add-field.png)    
 
 1. Select **+ Widget** to create another widget. Drag and drop widgets to rearrange your dashboard.
 
