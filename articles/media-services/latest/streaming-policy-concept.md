@@ -27,7 +27,7 @@ The currently available predefined Streaming Policies:<br/>
 * 'Predefined_MultiDrmCencStreaming' 
 * 'Predefined_MultiDrmStreaming'
 
-The "Decision tree" that follows helps you choose a predefined Streaming Policy for your scenario.
+The following "Decision tree" helps you choose a predefined Streaming Policy for your scenario.
 
 > [!IMPORTANT]
 > * Properties of **Streaming Policies** that are of the Datetime type are always in UTC format.
@@ -94,7 +94,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 ### Encrypted 
 
-If you need to encrypt your content with the CENC encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. The  Widevine encryption will be applied to a DASH stream and PlayReady to Smooth. The key will delivered to a playback client based on the configured DRM licenses.
+If you need to encrypt your content with the CENC encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. The  Widevine encryption will be applied to a DASH stream and PlayReady to Smooth. The key will be delivered to a playback client based on the configured DRM licenses.
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
