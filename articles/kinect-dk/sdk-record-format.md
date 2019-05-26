@@ -22,8 +22,12 @@ Low-level details of the .mkv container format can be found on the [Matroska Web
 | IR         | b16g (16-bit Grayscale, Big-endian)   |
 | IMU        | Custom structure, see IMU sample structure] below. |
 
+## Using third-party tools
+
 Tools such as `ffmpeg` or the `mkvinfo` command from the [MKVToolNix](https://mkvtoolnix.download/) toolkit can be used to view and extract information
-from recording files. For example, the following command will extract the depth track as a sequence of 16-bit PNGs to the same folder:
+from recording files. 
+
+For example, the following command will extract the depth track as a sequence of 16-bit PNGs to the same folder:
 
 ```
 ffmpeg -i output.mkv -map 0:1 -vsync 0 depth%04d.png
