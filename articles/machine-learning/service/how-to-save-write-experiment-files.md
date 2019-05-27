@@ -17,7 +17,7 @@ ms.date: 05/27/2019
 
 In this article, you learn where to save your experiment scripts and dependency files for easy access on a compute target, and where to write files from your experiments.
 
-When launching training runs on a compute target they are isolated from outside environments. The purpose of this design is to ensure the isolation, reproducibility, and portability of the experiment. If you run the same script twice, on the same or another compute target, you receive the same results. With this design, you can treat compute targets as stateless computation resources, each having no affinity to the jobs that are run after they are finished.
+By design, when launching training runs on a compute target, they are isolated from outside environments. The purpose of this design is to ensure the isolation, reproducibility, and portability of the experiment. If you run the same script twice, on the same or another compute target, you receive the same results. With this design, you can treat compute targets as stateless computation resources, each having no affinity to the jobs that are run after they are finished.
 
 ## Save experiment files
 
@@ -52,25 +52,25 @@ If you,
     ```
 
 * **Use pipelines.**
-    * Use a different sub-directory for each step.
+    * Use a different subdirectory for each step.
     * Create an ignore file. See *Continue using the specified script directory*.
 
 * **Continue using the specified script directory.** Make an ignore file to prevent files from being included in the snapshot that are not really a part of the source code.
 
      * Create a `.gitignore` or `.amlignore ` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the `.gitignore` file. If both files exist, the `.amlignore` file takes precedence.
 
-* **Run experiments via Jupyter notebooks.** Move your notebook into a new, empty, subdirectory and with the following steps. You are likely using a directory that has more than 300 MB worth of data or files inside.
+* **Run experiments via Jupyter notebooks.** Move your notebook into a new, empty, subdirectory with the following steps. You are likely using a directory that has more than 300 MB worth of data or files inside.
 
     1. Create a new folder.
     1. Move Jupyter notebook into empty folder.
     1. Run the code again.
 
-## Store write changes to files
+## Where to write files
 
 Due to the isolation of training experiments, the changes to files that happen during runs are not necessarily persisted outside of your environment.
 If your script modifies the files local to compute, the changes are not persisted for your next execution, and they're not propagated back to the client machine automatically. Therefore, the changes made during the first experiment run don't and shouldn't  affect those in the second.
 
-Write changes using one of following approaches.
+Write files to one of the following:
 >[!Important]
 > Two folders, *outputs* and *logs*, receive special treatment by Azure Machine Learning. During training, when you write files to`./outputs` and` ./logs` folders, the files will automatically upload to your run history, so that you have access to them once your run is finished.
 
