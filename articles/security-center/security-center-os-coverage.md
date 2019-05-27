@@ -43,6 +43,7 @@ The following Windows operating systems are supported:
 > Integration with Windows Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
 
 ### Supported platforms for Linux computers and VMs
+
 The following Linux operating systems are supported:
 
 > [!NOTE]
