@@ -150,9 +150,9 @@ If a tag doesn't exist, it's assumed to have the default value.
 
 ## Timestamp synchronization
 
-The Matroska format requires that recordings must start with a timestamp of zero. When [externally syncing cameras](azure-kinect-dk-record-external-synchronized-units.md), the first timestamp off of each device can be non-zero.
+The Matroska format requires that recordings must start with a timestamp of zero. When [externally syncing cameras](azure-kinect-dk-record-external-synchronized-units.md), the first timestamp from of each device can be non-zero.
 
-To preserve the original timestamps from the devices between recording and playback, the file can store an offset to apply to the timestamps.
+To preserve the original timestamps from the devices between recording and playback, the file stores an offset to apply to the timestamps.
 
 The `K4A_START_OFFSET_NS` tag is used to specify a timestamp offset so that files can be re synchronized after recording. This timestamp offset can be added to each timestamp in the file to reconstruct the original device timestamps.
 
