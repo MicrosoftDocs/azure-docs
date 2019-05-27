@@ -65,7 +65,7 @@ Set **authenticationType** to **Basic**, **Digest**, or **Windows**. In addition
 
 | Property | Description | Required |
 | --- | --- | --- |
-| username | The user name to use to access the HTTP endpoint. | Yes |
+| userName | The user name to use to access the HTTP endpoint. | Yes |
 | password | The password for the user (**username**). | Yes |
 
 **Example: Using Basic, Digest, or Windows authentication**
