@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/24/2019
 ---
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight
 
@@ -55,13 +55,13 @@ This architecture features two clusters in different resource groups and virtual
 
 ### Creation steps
 
-1. Create two new resource groups `kafka-primary-rg` in `Central US` and `kafka-secondary-rg` in `North Central US`
-1. Create a new VNET `kafka-primary-vnet` in `kafka-primary-rg`. Leave the default settings
-1. Create a new VNET `kafka-secondary-vnet` in `kafka-secondary-rg`
-1. Create a new Kafka cluster `kafka-primary-cluster` in the `kafka-primary-rg` resource group, using the `kafka-primary-vnet` virtual network. Create a new storage account `kafka-primary-storage`.
-1. Create a second Kafka cluster `kafka-secondary-cluster` in the `kafka-secondary-rg` resource group, using the `kafka-secondary-vnet` virtual network. Create a new storage account `kafka-secondary-storage`.
-1. Create virtual network peerings. This step will create two peerings: one from `kafka-primary-vnet` to `kafka-secondary-vnet` and one back from `kafka-secondary-vnet` to `kafka-primary-vnet`.
-    1. Select the `kafka-primary-vnet` VNET.
+1. Create two new resource groups **kafka-primary-rg** in **Central US** and **kafka-secondary-rg** in **North Central US**
+1. Create a new virtual network **kafka-primary-vnet** in **kafka-primary-rg**. Leave the default settings.
+1. Create a new virtual network **kafka-secondary-vnet** in **kafka-secondary-rg**
+1. Create a new Kafka cluster **kafka-primary-cluster** in the **kafka-primary-rg** resource group, using the **kafka-primary-vnet** virtual network. Create a new storage account **kafkaprimarystorage**.
+1. Create a second Kafka cluster **kafka-secondary-cluster** in the **kafka-secondary-rg** resource group, using the **kafka-secondary-vnet** virtual network. Create a new storage account **kafkasecondarystorage**.
+1. Create virtual network peerings. This step will create two peerings: one from **kafka-primary-vnet** to **kafka-secondary-vnet** and one back from **kafka-secondary-vnet** to **kafka-primary-vnet**.
+    1. Select the **kafka-primary-vnet** virtual network.
     1. Click **Peerings** under **Settings**.
     1. Click **Add**.
     1. On the **Add peering** screen, enter the details as shown in the screenshot below.
@@ -69,7 +69,7 @@ This architecture features two clusters in different resource groups and virtual
         ![add vnet peering](./media/apache-kafka-mirroring/add-vnet-peering.png)
 
 1. Configure IP advertising:
-    1. Go to the Ambari dashboard for the primary cluster: `https://kafka-primary-cluster.azurehdinsight.net`.
+    1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
     1. Click **Services** > **Kafka** > **Configs**.
     1. Add the following config lines to the bottom **kafka-env template** section. Click **Save**.
     
@@ -98,14 +98,14 @@ This architecture features two clusters in different resource groups and virtual
 
         ![view ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses.png)
 
-1. Repeat the previous three steps for the second cluster `kafka-secondary-cluster`: configure IP advertising, set listeners and make a note of the Broker and Zookeeper IP addresses.
+1. Repeat the previous three steps for the second cluster **kafka-secondary-cluster**: configure IP advertising, set listeners and make a note of the Broker and Zookeeper IP addresses.
 
 ## Create topics
 
 1. Connect to the **primary** cluster using SSH:
 
     ```bash
-    ssh sshuser@kafka-primary-cluster-ssh.azurehdinsight.net
+    ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
     ```
 
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
@@ -154,7 +154,7 @@ This architecture features two clusters in different resource groups and virtual
 1. Connect to the **secondary** cluster using a different SSH session:
 
     ```bash
-    ssh sshuser@kafka-secondary-cluster-ssh.azurehdinsight.net
+    ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net
     ```
 
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
@@ -297,7 +297,7 @@ This architecture features two clusters in different resource groups and virtual
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. Deleting the resource group removes all resources created by following this document, the Azure Virtual Network, and storage account used by the clusters.
+The steps in this document created clusters in different Azure resource groups. To delete all of the resources created, you can delete the two resource groups created: **kafka-primary-rg** and **kafka-secondary_rg**. Deleting the resource groups removes all of the resources created by following this document, including clusters, virtual networks, and storage accounts.
 
 ## Next Steps
 
