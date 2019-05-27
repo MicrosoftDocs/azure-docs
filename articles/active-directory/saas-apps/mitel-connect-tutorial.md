@@ -74,7 +74,7 @@ To configure and test Azure AD single sign-on with MiCloud Connect, you need to 
 1. **[Configure MiCloud Connect for SSO with Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)** - to enable your users to use this feature and to configure the SSO settings on the application side.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-4. **[Create a Mitel MiCloud Connect test user](#create-mitel-micloud-connect-test-user)** - to have a counterpart of Britta Simon on your MiCloud Connect account that is linked to the Azure AD representation of the user.
+4. **[Create a Mitel MiCloud Connect test user](#create-a-mitel-micloud-connect-test-user)** - to have a counterpart of Britta Simon on your MiCloud Connect account that is linked to the Azure AD representation of the user.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure MiCloud Connect for SSO with Azure AD
@@ -197,7 +197,7 @@ In this section, you will enable Britta Simon to use Azure single sign-on by gra
 
 In this section, you create a user named Britta Simon on your MiCloud Connect account. Users must be created and activated before using single sign-on.
 
-For details about adding users in the Mitel Account portal, see the [Adding a User](docs.shoretel.com/connectcloud/Account/Users/AddUser) article in the Mitel Knowledge Base.
+For details about adding users in the Mitel Account portal, see the [Adding a User](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) article in the Mitel Knowledge Base.
 
 Create a user on your MiCloud Connect account with the following details:
 
