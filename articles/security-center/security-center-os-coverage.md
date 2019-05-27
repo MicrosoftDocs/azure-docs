@@ -55,7 +55,7 @@ The following Linux operating systems are supported:
 * Oracle Linux versions 5, 6, and 7.
 * Amazon Linux 2012.09 through 2017.
 * OpenSSL 1.1.0 is only supported on x86_64 platforms, 64 bit.
-* -OMS Linux Agent - supported versions are listed [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems).
+* OMS Linux Agent - supported versions are listed [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems).
 
 ## VMs and Cloud Services
 VMs that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
