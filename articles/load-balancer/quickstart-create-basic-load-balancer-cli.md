@@ -141,7 +141,7 @@ Create a network security group rule to allow inbound connections through port 8
 ```
 ### Create NICs
 
-Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
+Create two network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -159,7 +159,7 @@ done
 
 ## Create backend servers
 
-In this example, you create three virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines .
+In this example, you create two virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines .
 
 ### Create an Availability set
 

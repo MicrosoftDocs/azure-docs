@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/22/2019
 ms.author: alkohli
 ---
 
@@ -18,24 +18,6 @@ This article details information on how to troubleshoot issues you may see when 
 ## Errors during data copy
 
 All the errors that are seen during data copy are summarized in the following sections.
-
-### ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**Error description:** The container or share name must be between 3 and 63 characters.
-
-**Suggested resolution:** The folder under the Data Box (SMB/NFS) share to which you have copied data becomes an Azure container in your storage account. 
-
-- On the **Connect and copy** page of the Data Box local web UI, download, and review the error files to identify the folder names with issues.
-- Change the folder name under the Data Box share to make sure that:
-
-    - The name has between 3 and 63 characters.
-    - The names can only have letters, numbers, and hyphens.
-    - The names can’t start or end with hyphens.
-    - The names can’t have consecutive hyphens.
-    - Examples of valid names: `my-folder-1`, `my-really-extra-long-folder-111`.
-    - Examples of names that aren’t valid: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
-
-    For more information, see the Azure naming conventions for [container names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 ### ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
