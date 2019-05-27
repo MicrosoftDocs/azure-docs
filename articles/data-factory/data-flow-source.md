@@ -87,7 +87,7 @@ Choose settings to manage files in your source.
 
 If your source is in SQL Database or SQL Data Warehouse, you have additional options for source file management.
 
-* **Query**: Enter a SQL query for your source. This setting overrides any table you've chosen in the dataset. Note that **Order By** clauses aren't supported here. But you can set a full SELECT FROM statement here.
+* **Query**: Enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. Note that **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow.
 * **Batch size**: Enter a batch size to chunk large data into reads.
 
 > [!NOTE]

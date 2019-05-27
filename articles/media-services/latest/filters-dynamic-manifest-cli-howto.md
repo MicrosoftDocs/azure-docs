@@ -19,14 +19,16 @@ ms.custom: seodec18
 ---
 # Creating filters with CLI 
 
-When delivering your content to customers (streaming Live events or Video on Demand), your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. For more information, see [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
+When delivering your content to customers (streaming Live events or Video on Demand), your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. For more information, see [Filters](filters-concept.md) and [Dynamic Manifests](filters-dynamic-manifest-overview.md).
 
 This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+
+> [!NOTE]
+> Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## Prerequisites 
 
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
-- Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
