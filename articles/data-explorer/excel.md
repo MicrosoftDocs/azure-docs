@@ -48,7 +48,8 @@ Azure Data Explorer provides two options for connecting to data in Excel:
     |Additional Set statements (separated by semicolons)     |         |   optional      |
 
 
-old
+## old content:
+
 1. Create a query and run it in Azure Data Explorer Web UI. Check that the results are satisfactory.
 
 1. Click on the **Query to Power BI** button in ?.
