@@ -66,7 +66,7 @@ For syntax and more information about these sections, see
 
 ## Parameters
 
-In the `parameters` section, you can add or edit parameters for the values that your workflow definition uses for accepting inputs at runtime. Before you can reference these parameters in other workflow sections, you must first declare the parameters in the `parameters` section.
+In the `parameters` section, you can add or edit parameters for the values that your workflow definition uses for accepting inputs at runtime. Before you can reference those parameters in other workflow sections, you must first declare those parameters in the `parameters` section.
 
 Here is the general structure for a parameter definition:
 
@@ -94,7 +94,7 @@ Here is the general structure for a parameter definition:
 | `metadata` | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app or flow, or the design-time data used by Visual Studio or other tools |
 ||||
 
-By default, this `parameters` section is empty unless your logic app creates and uses connections to other services and systems through [managed connectors](../connectors/apis-list.com). When your logic app includes connections, the `parameters` section includes the `$connections` parameter, which has JSON `Object` type:
+By default, this `parameters` attribute is empty unless your logic app creates and uses connections to other services and systems through [managed connectors](../connectors/apis-list.com). When your logic app includes connections, the `parameters` attributes includes the `$connections` parameter, which has JSON `Object` type:
 
 ```json
 "parameters": {
@@ -105,7 +105,7 @@ By default, this `parameters` section is empty unless your logic app creates and
 },
 ```
 
-Outside the `definition` section for your workflow definition but at the same level, the `$connections` attribute specifies the connection values used by your logic app at runtime. For example, this `$connections` attribute specifies the values for an Office 365 Outlook connection:
+Outside the `definition` section for your workflow definition but at the same level, the `$connections` object specifies the connection values used by your logic app at runtime. For example, this `$connections` object specifies the values for an Office 365 Outlook connection:
 
 ```json
 }
@@ -125,7 +125,7 @@ Outside the `definition` section for your workflow definition but at the same le
 }
 ```
 
-In your workflow definition, here is an example action definition that uses this connection:
+Inside your workflow definition, here is an example action definition that uses this connection at runtime by referencing the `$connections` object:
 
 ```json
 "definition": {
@@ -134,32 +134,93 @@ In your workflow definition, here is an example action definition that uses this
       "Send_an_email": {
          "inputs": {
             "body": {
-               "Body": "test",
-               "Subject": "test",
-               "To": "Esther.Fan@microsoft.com"
-                    },
-                    "host": {
-                        "connection": {
-                            "name": "@parameters('$connections')['outlook_1']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "path": "/Mail"
-                },
-                "runAfter": {},
-                "type": "ApiConnection"
-            }
-        },
-}
+               "Body": "<email-body>",
+               "Subject": "<email-subject>",
+               "To": "<recipient@domain>"
+            },
+            "host": {
+               "connection": {
+                  "name": "@parameters('$connections')['office365']['connectionId']"
+               }
+            },
+            "method": "post",
+            "path": "/Mail"
+         },
+         "runAfter": {},
+         "type": "ApiConnection"
+      }
+   },
+},
 ```
 
-You must specify both the parameters declarations and the parameter values for deployment. If you [create Azure Resource Manager templates through Visual Studio for logic app deployment](logic-apps-azure-resource-manager-templates-overview.md), you can 
+When deploying logic apps to various environments, you likely want to use different values, such as connection strings, based on those environments. If you [create Azure Resource Manager templates to automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md), you can define template parameters for accepting the values that vary at deployment and parameterize those values by referencing the template parameters instead. That way, you can store the values separately in a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files), which you deploy with your template. That way, you can change the values that you use for deployment without having to update your template.
 
-inside the upper-level parameters section that's outside your workflow definition but still inside the template's resources section.
+For information that is sensitive or must be secured, such as passwords and secrets, you can store those values in Azure Key Vault and have your parameter file retrieve those values from your key vault. For the easiest way to create a valid parameterized template, you can use Visual Studio after you've installed the Azure Logic App Tools for Visual Studio, or use the PowerShell module for creating logic app templates. For more information, see [Create Azure Resource Manager templates for logic apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md).
 
-with Azure Resource Manager templates
+Here is a partial example template that shows the template parameters and the corresponding parameterized values, which reference those template parameters:
 
-To pa the values for workflow definition parameters
+```json
+{
+   <other-template-attributes>,
+   // Template parameters
+   "parameters": {
+      "LogicAppName": {
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 80,
+         "defaultValue": "MyLogicApp",
+         "metadata": {
+            "description": "The resource name to use for the logic app"
+         }
+      },
+      "LogicAppLocation": {
+         "type": "string",
+         "min length": 1,
+         "defaultValue": "[resourceGroup().location]",
+         "metadata": {
+            "description": "The resource location to use for the logic app"
+         }
+      },
+      "office365_1_Connection_Name": {
+         "type": "string",
+         "defaultValue": "office365",
+         "metadata": {
+            "description": "The resource name to use for the Office 365 Outlook connection"
+         }
+      },
+      "office365_1_Connection_DisplayName": {
+         "type": "string",
+         "defaultValue": "",
+         "metadata": {
+            "description": "The display name to use for the Office 365 Outlook connection"
+         }
+      }
+   },
+   <other-template-attributes>,
+   "resources:": {
+      "properties": {
+         // Other logic app resource attributes
+         "definition": {<workflow-definition},
+         // Parameter values at logic app runtime
+         "parameters": {
+            "$connections": {
+               "value": {
+                  "office365": {
+                     // Reference the template parameter for the connection ID
+                     "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                     // Reference the template parameter for the connection name
+                     "connectionName": "[parameters('office365_1_Connection_Name')]",
+                     // Connector ID, must use same location as logic app
+                     "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'parameters('LogicAppLocation'), '/managedApis/', 'office365')]"
+                  }
+               }
+            }
+         },
+         "accessControl": {}
+      }
+   }
+}
+```
 
 <a name="static-results"></a>
 
