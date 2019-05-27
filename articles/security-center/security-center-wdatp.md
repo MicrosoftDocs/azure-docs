@@ -3,7 +3,7 @@ title: Windows Defender Advanced Threat Protection with Azure Security Center
 description: This document introduces the integration between Azure Security Center and Windows Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
-author: barclayn
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: barclayn
+ms.date: 05/27/2018
+ms.author: monhaber
 
 ---
 # Windows Defender Advanced Threat Protection with Azure Security Center
@@ -21,7 +21,17 @@ ms.author: barclayn
 Azure Security Center is extending its Cloud Workload Protection Platforms offering by integrating with [Windows Defender Advanced Threat Protection](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
 This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Azure Security Center.
 
-Azure Security Center customers can now use features of Windows Defender ATP:
+## Platform support
+
+This feature supports detection on Windows Server 2012 R2 and Windows Server 2016 operating systems.
+The servers must belong to a Standard service subscription.
+
+> [!NOTE]
+> When you use Azure Security Center to monitor servers, a Windows Defender ATP tenant is automatically created and the Windows Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant.
+
+## Windows Defender ATP features in Security Center
+
+When you use Windows Defender ATP you get:
 
 - **Next-generation post breach detection sensors**: Windows Defender ATP sensors for Windows servers collect a vast array of behavioral signals.
 
@@ -47,11 +57,6 @@ You can further investigate the alert by pivoting to Windows Defender ATP. There
 
 ![Windows Defender ATP page with detailed information about an alert](media/security-center-wdatp/image3.png)
 
-## Platform support
-
-This feature supports detection on Windows Server 2012 R2 and Windows Server 2016.
-
-Only servers in subscriptions for the standard service tier are supported.
 
 ## Onboarding servers to Security Center 
 
