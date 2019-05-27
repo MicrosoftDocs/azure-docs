@@ -41,14 +41,11 @@ The following Windows operating systems are supported:
 
 > [!NOTE]
 > Integration with Windows Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
->
->
 
 ### Supported platforms for Linux computers and VMs
 The following Linux operating systems are supported:
 
-> [!NOTE]
-Since the list of supported Linux operating systems is constantly changing, if you prefer, click [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) to view the most up-to-date list of supported versions, in case there have been changes since this topic was last published.
+> [!NOTE] Since the list of supported Linux operating systems is constantly changing, if you prefer, click [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) to view the most up-to-date list of supported versions, in case there have been changes since this topic was last published.
 
 64-bit
 * CentOS 6 and 7
