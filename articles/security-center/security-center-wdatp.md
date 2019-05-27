@@ -21,14 +21,6 @@ ms.author: monhaber
 Azure Security Center is extending its Cloud Workload Protection Platforms offering by integrating with [Windows Defender Advanced Threat Protection](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
 This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Azure Security Center.
 
-## Platform support
-
-This feature supports detection on Windows Server 2012 R2 and Windows Server 2016 operating systems.
-The servers must belong to a Standard service subscription.
-
-> [!NOTE]
-> When you use Azure Security Center to monitor servers, a Windows Defender ATP tenant is automatically created and the Windows Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant.
-
 ## Windows Defender ATP features in Security Center
 
 When you use Windows Defender ATP you get:
@@ -71,6 +63,12 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 
    ![Onboard computers](media/security-center-wdatp/onboard-computers.png)
 
+## Platform support
+
+Windows Defender ATP in Security Center supports detection on Windows Server 2012 R2 and Windows Server 2016 operating systems belonging to a Standard service subscription.
+
+> [!NOTE]
+> When you use Azure Security Center to monitor servers, a Windows Defender ATP tenant is automatically created and the Windows Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant.
 
 ## Enable Windows Defender ATP integration
 
