@@ -146,7 +146,7 @@ If a tag doesn't exist, it's assumed to have the default value.
 | `K4A_COLOR_FIRMWARE_VERSION` | ""                 | N/A                                  | Device color firmware version, for example "1.x.xx"                                  |
 | `K4A_DEPTH_FIRMWARE_VERSION` | ""                 | N/A                                  | Device depth firmware version, for example "1.x.xx"                                  |
 | `K4A_DEVICE_SERIAL_NUMBER`   | ""                 | N/A                                  | Recording device serial number                                                       |
-| `K4A_START_OFFSET_NS`        | "0"                | `start_timestamp_offset_usec`        | See [Timestamp Synchronization](#Timetamp-synchronization) below.                    |
+| `K4A_START_OFFSET_NS`        | "0"                | `start_timestamp_offset_usec`        | See "Timestamp Synchronization" below.                    |
 
 ## Timestamp synchronization
 
