@@ -202,9 +202,9 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform th
 
 	h. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user sign out from JIRA.
 	
-	j. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
+	i. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
 
-	k. Click **Save** button to save the settings.
+	j. Click **Save** button to save the settings.
 
 	> [!NOTE]
 	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](../ms-confluence-jira-plugin-adminguide.md) and there is also [FAQ](../ms-confluence-jira-plugin-faq.md) for your assistance
