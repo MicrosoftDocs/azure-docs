@@ -1,12 +1,12 @@
 ---
 title: Develop and debug modules in Visual Studio - Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio 2017 to develop and debug modules for Azure IoT Edge
+description: Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge
 services: iot-edge
 author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 04/03/2019
+ms.date: 05/27/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
