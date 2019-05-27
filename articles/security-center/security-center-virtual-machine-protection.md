@@ -187,7 +187,10 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |App service|10|Do not allow all ('*') resources to access your application| Do not allow set of WEBSITE_LOAD_CERTIFICATES parameter to "". Setting the parameter to ‘’ means that all certificates are loaded to your web applications personal certificate store. This can lead to abuse of the principle of least privilege as it is unlikely that the site needs access to all certificates at runtime.|
 |App service|20|CORS should not allow every resource to access your Web applications|Allow only required domains to interact with your web application. Cross origin resource sharing (CORS) should not allow all domains to access your web application.|
 |App service|20|CORS should not allow every resource to access your Function App| Allow only required domains to interact with your function application. Cross origin resource sharing (CORS) should not allow all domains to access your function application.|
-|Compute resources (batch)|1|Metric alert rules should be configured on Batch accounts|Configure metric alert rules on Batch account and enable the metrics Pool Delete Complete Events and Pool Delete Start Events|
+|
+
+
+Compute resources (batch)|1|Metric alert rules should be configured on Batch accounts|Configure metric alert rules on Batch account and enable the metrics Pool Delete Complete Events and Pool Delete Start Events|
 |Compute resources (service fabric)|10|Use Azure Active Directory for client authentication in Service Fabric|Perform Client authentication only via Azure Active Directory in Service Fabric.|
 |Compute resources (automation account)|5|Encryption should be enabled on Automation account variables|Enable encryption of Automation account variable assets when storing sensitive data.|
 |Compute resources (Load balancer)|5|Enable diagnostic logs in Load Balancer|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
