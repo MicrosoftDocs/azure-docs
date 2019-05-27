@@ -178,7 +178,7 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform th
 
 6. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon52.png)
+	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon53.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
