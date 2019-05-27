@@ -327,12 +327,10 @@ Your template has a `resources` attribute, which is an array that contains defin
       // Start logic app resource definition
       {
          "properties": {
+            <other-logic-app-resource-attributes>
             "definition": {<workflow-definition>},
-            // Parameter values to use at logic app runtime
-            "parameters": {
-               // Connection values to use at logic app runtime
-               "$connections": {},
-            },
+            "parameters": {<parameter-values-to-use-at-logic-app-runtime>},
+            "accessControl": {}
          },
          <other-logic-app-resource-attributes>
       },
@@ -346,9 +344,15 @@ Your template has a `resources` attribute, which is an array that contains defin
 }
 ```
 
-### Logic app resource definition
+For general information about template resources and their attributes, see these topics:
 
-Your logic app's resource definition starts with the `properties` attribute, which specifies your logic app's state at deployment, the ID for any integration account used by your logic app, a `definition` attribute that contains your workflow definition, and a `parameters` attribute that specifies the workflow definition parameter values to use at runtime, and other resource information for your logic app. Outside the `properties` attribute but still inside the `resources` attribute, the template describes other resources that your logic app needs, such as connection resources.
+* [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources)
+
+* [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources).
+
+### Logic app resource
+
+Your logic app's resource definition starts with the `properties` attribute, which specifies your logic app's state at deployment, the ID for any integration account used by your logic app, a `definition` attribute that contains your workflow definition, a `parameters` attribute that specifies the workflow definition parameter values to use at runtime, and other resource attributes for your logic app.
 
 ```json
 {
@@ -357,7 +361,7 @@ Your logic app's resource definition starts with the `properties` attribute, whi
       // Start logic app resource definition
       {
          "properties": {
-            "state": <"Enabled" or "Disabled">,
+            "state": "<Enabled or Disabled>",
             "integrationAccount": {<integration-account-ID>},
             "definition": {<workflow-definition>},
             // Parameter values to use at logic app runtime
@@ -366,7 +370,14 @@ Your logic app's resource definition starts with the `properties` attribute, whi
             },
             "accessControl": {}
          },
-         <other-logic-app-resource-attributes>
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "dependsOn": [<connection-dependencies>]
       },
       // End logic app resource definition
       // Start connection resource definitions
@@ -396,15 +407,10 @@ This example shows how the `resources` attribute defines the resources to create
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion": "1.0.0.0",
-   "parameters": {<previously-defined-template-parameters},
-   "variables": {},
-   "functions": [],
    "resources": [
       {
          "properties": {
-            "state": "<logic-app-deployment-state>",
+            "state": "Enabled",
             // Reference template parameter for integration account ID
             "integrationAccount": {
                "id": "[parameters('LogicAppIntegrationAccount')]"
@@ -491,12 +497,6 @@ This example shows how the `resources` attribute defines the resources to create
    "outputs": {}
 }
 ```
-
-For more information about resources and their attributes, see these topics:
-
-* [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources)
-
-* [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources).
 
 <a name="workflow-connections"></a>
 
