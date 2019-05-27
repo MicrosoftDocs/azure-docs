@@ -49,6 +49,12 @@ You can further investigate the alert by pivoting to Windows Defender ATP. There
 
 ![Windows Defender ATP page with detailed information about an alert](media/security-center-wdatp/image3.png)
 
+## Platform support
+
+Windows Defender ATP in Security Center supports detection on Windows Server 2012 R2 and Windows Server 2016 operating systems belonging to a Standard service subscription.
+
+> [!NOTE]
+> When you use Azure Security Center to monitor servers, a Windows Defender ATP tenant is automatically created and the Windows Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant.
 
 ## Onboarding servers to Security Center 
 
@@ -62,13 +68,6 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 4. After onboarding, you can monitor the machines under **Compute and apps**.
 
    ![Onboard computers](media/security-center-wdatp/onboard-computers.png)
-
-## Platform support
-
-Windows Defender ATP in Security Center supports detection on Windows Server 2012 R2 and Windows Server 2016 operating systems belonging to a Standard service subscription.
-
-> [!NOTE]
-> When you use Azure Security Center to monitor servers, a Windows Defender ATP tenant is automatically created and the Windows Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant.
 
 ## Enable Windows Defender ATP integration
 
