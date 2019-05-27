@@ -70,7 +70,7 @@ Message enrichments are available for no additional charge. Currently, you are c
 
 ## Availability
 
-This capability is available in preview, and is available in all regions except East US, West US, West Europe, [Azure Government](/azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](/azure/china/china-welcome.md).
+This capability is available in preview, and is available in all regions except East US, West US, West Europe, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## Next Steps
 
