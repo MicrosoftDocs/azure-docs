@@ -129,7 +129,10 @@
       href: how-to-configure-environment.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
-      href: how-to-enable-logging.md  
+      href: how-to-enable-logging.md 
+    - name: Establish experiment directory
+      displayName: large data, write, error
+      href: how-to-save-write-experiment-files.md 
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
