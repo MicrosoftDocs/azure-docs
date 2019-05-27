@@ -34,7 +34,7 @@ To configure Azure AD integration with MiCloud Connect, you need the following i
 
 * An Azure AD subscription
 
-  If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+  If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * A Mitel MiCloud Connect account
 
 ## Scenario description
