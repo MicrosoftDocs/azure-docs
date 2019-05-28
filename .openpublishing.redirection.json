@@ -30955,6 +30955,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference",
+      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference",
+      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/UseAndDisplayRequirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
       "redirect_document_id": false
