@@ -11,14 +11,15 @@ ms.author: raynew
 
 # Assess large numbers of VMware VMs for migration to Azure
 
+
 This article describes how to assess large numbers (> 1000) of on-premises VMware VMs for migration to Azure, using the [Azure Migrate](migrate-services-overview.md) service.
 
 In this article, you learn how to:
 > [!div class="checklist"]
-> * Set up permissions for your Azure account to create Azure Active Directory (Azure AD) apps.
-> * Verify Hyper-V requirements for migration.
-> * Set up an account that Azure Migrate will use to discover VMs on Hyper-V hosts and clusters.
-> * Create an Azure Migrate project.
+> * Plan for assessment at scale.
+> * Configure Azure permissions, and prepare VMware for assessment.
+> * Create an Azure Migrate project, and create an assessment.
+> * Review the assessment as you plan for migration.
 
 
 > [!NOTE]
@@ -40,7 +41,7 @@ Use the limits summarized in this table for planning.
 **Planning** | **Limits**
 --- | --- 
 **Azure Migrate projects** | Assess up to 35,000 VMs in a project.
-**Azure Migrate appliance** | An appliance can only connect to a single vCenter Server.<br/><br/> An appliance can only be associated with a single Azure Migrate project. Discover up to 10,000 VMs on a vCenter Server.
+**Azure Migrate appliance** | An appliance can only connect to a single vCenter Server.<br/><br/> An appliance can only be associated with a single Azure Migrate project.<br/> An appliance can discover up to 10,000 VMs on a vCenter Server.
 **Azure Migrate assessment** | You can assess up to 35,000 VMs in a single assessment.
 
 With these limits in mind, here are some example deployments:
@@ -52,6 +53,7 @@ One | < 10,000 | One Azure Migrate project.<br/> One appliance.<br/> One vCenter
 One | > 10,000 | One Azure Migrate project.<br/> Multiple appliances.<br/> Multiple vCenter accounts. | Set up appliance for every 10,000 VMs.<br/><br/> Set up vCenter accounts, and divide inventory to limit access for an account to less than 10,000 VMs.<br/> Connect each appliance to vCenter server with an account.<br/> You can analyze dependencies across machines that are discovered with different appliances.
 Multiple | < 10,000 |  One Azure Migrate project.<br/> Multiple appliances.<br/> One vCenter account for discovery. | Set up appliances, connect to vCenter Server with an account.<br/> You can analyze dependencies across machines that are discovered with different appliances.
 Multiple | > 10,000 | One Azure Migrate project.<br/> Multiple appliances.<br/> Multiple vCenter accounts. | If vCenter Server discovery < 10,000 VMs, set up an appliance for each vCenter Server.<br/><br/> If vCenter Server discovery > 10,000 VMs, set up an appliance for every 10,000 VMs.<br/> Set up vCenter accounts, and divide inventory to limit access for an account to less than 10,000 VMs.<br/> Connect each appliance to vCenter server with an account.<br/> You can analyze dependencies across machines that are discovered with different appliances.
+
 
 ## Plan discovery in a multi-tenant environment
 
@@ -75,7 +77,7 @@ Follow the instructions in [this tutorial](tutorial-prepare-vmware.md) to config
 
 ## Create a project and assessment
 
-In accordance with your planning requirements, set up the following:
+In accordance with your planning requirements, do the following:
 
 1. Create one more more Azure Migrate projects.
 2. Set up one or more Azure Migrate appliances, and create assessments.
@@ -94,4 +96,4 @@ In this article, you:
 > * Created an Azure Migrate project and ran assessments
 > * Reviewed assessments in preparation for migration.
 
-Now, [learn how](concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](how-to-modify-assessment.md)
+Now, [learn how](concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](how-to-modify-assessment.md).
