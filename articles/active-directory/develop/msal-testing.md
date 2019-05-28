@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 This article discusses suggestions for testing Microsoft Authentication Library (MSAL) applications.
 
 ## Unit testing
-The MSAL APIs use the builder pattern heavily. Builders are difficult and tedious to mock. Instead, we recommend that you wrap all your authentication logic behind an interface and mock that in your app.
+The MSAL APIs use the [builder pattern](https://wikipedia.org/wiki/Builder_pattern) heavily. Builders are difficult and tedious to mock. Instead, we recommend that you wrap all your authentication logic behind an interface and mock that in your app.
 
 ## End-to-end testing
 For end-to-end testing, you can set up test accounts, test applications, or even separate directories. Username and passwords can be deployed via the continuous integration pipeline (for example, secret build variables in Azure DevOps). Another strategy is to keep test credentials in [Key Vault](/azure/key-vault/) and configure the machine that runs the tests to access Key Vault), for example by installing a certificate. Feel free to use MSAL's [strategy for accessing Key Vault](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/Microsoft.Identity.Test.LabInfrastructure/KeyVaultSecretsProvider.cs#L112).
@@ -43,11 +43,11 @@ Daemon apps use pre-deployed secrets (passwords or certificates) to talk to Azur
 ## Native client apps
 For native clients, there are several approaches to testing:
 
-Use the [username/password grant](msal-authentication-flows.md#usernamepassword) to fetch a token in a non-interactive way. This flow is not recommended in production, but it is reasonable to use it for testing.
+* Use the [username/password grant](msal-authentication-flows.md#usernamepassword) to fetch a token in a non-interactive way. This flow is not recommended in production, but it is reasonable to use it for testing.
 
-Use a framework, like Appium or Xamarin.Test, that provides an automation interface for both your app and the MSAL created browser.
+* Use a framework, like Appium or Xamarin.Test, that provides an automation interface for both your app and the MSAL created browser.
 
-MSAL exposes an extensibility point that allows developers to inject their own browser experience. The MSAL team uses this internally to test interactive auth scenarios. Have a look at [this .NET test project](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/Microsoft.Identity.Test.Integration.net45/SeleniumTests/InteractiveFlowTests.cs) to see how to inject a [Selenium-powered browser](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/tree/master/tests/Microsoft.Identity.Test.Integration.net45/Infrastructure) that can handle authentication.
+* MSAL exposes an extensibility point that allows developers to inject their own browser experience. The MSAL team uses this internally to test interactive auth scenarios. Have a look at [this .NET test project](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/Microsoft.Identity.Test.Integration.net45/SeleniumTests/InteractiveFlowTests.cs) to see how to inject a [Selenium-powered browser](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/tree/master/tests/Microsoft.Identity.Test.Integration.net45/Infrastructure) that can handle authentication.
 
 ## Xamarin Apps
 The MSAL team are currently running tests on a Xamarin app that uses MSAL.NET; We are using [App Center](https://appcenter.ms/apps) to manage devices, test runs etc. The test framework is [Xamarin.UITest](/appcenter/test-cloud/uitest/). A limitation that we have found is that we are unable to test system browsers, only embedded browsers.
