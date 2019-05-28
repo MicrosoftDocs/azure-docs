@@ -36,6 +36,11 @@ You'll see a sign in screen. Once you sign in your Account, TenantID, and defaul
 Get-AzSubscription
 ```
 
+To see your working context (which subscription your commands are run against), use the following command:
+
+```powershell
+Get-AzContext
+```
 To change your working context to a different subscription, use the following command:
 
 ```powershell
