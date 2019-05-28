@@ -27565,6 +27565,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/docs-ref-conceptual/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference",
+      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/docs-ref-conceptual/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference",
+      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/tutorials/autosuggest-source.md",
       "redirect_url": "/azure/cognitive-services/bing-autosuggest/tutorials/autosuggest",
       "redirect_document_id": true
