@@ -33,9 +33,8 @@ Before you begin this tutorial, you should:
 
 - [Review the limitations](server-migrate-overview.md#agentless-migration-limitations) for agentless migration.
 
-
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
 
 ## Prepare VMs for migration
 
@@ -159,6 +158,7 @@ After discovery you can verify that the VMs appear in the Azure portal, as follo
 
 ## Replicate VMs
 
+
 1. Under **Migration goals** > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 2. In **Azure Migrate: Server Assessment**, click **Replicate**.
 
@@ -221,9 +221,8 @@ If this is the first VM you're replicating in the Azure Migrate project, Azure M
 - **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [Review these permissions](tutorial-prepare-vmware.md#assign-key-vault-permissions).
 
 
-
-
 ## Run a test migration
+
 
 When delta replication begins, you can run a test migration for the VMs, before running a full migration to Azure.
 
@@ -232,6 +231,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 - You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
 Do a test migration as follows:
+
 
 1. In **Migration goals** > **Servers** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
 2. Right-click the VM to test, and click **Test migrate**.
@@ -263,6 +263,9 @@ After you've verified that the test migration works as expected, you can migrate
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 6. To finish the migration, right-click the VM > **Stop migration**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
 
+
+
 ## Next steps
 
 [Learn](concepts-assessment-calculation.md) how assessments are calculated.
+
