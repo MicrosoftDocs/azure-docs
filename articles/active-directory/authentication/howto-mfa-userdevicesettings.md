@@ -39,6 +39,14 @@ This setting forces the user to complete the registration process again. Non-bro
 7. Click **save**.
 8. Click **close**.
 
+Alternatively you can complete these steps with PowerShell using the following as a guide to clear the `StrongAuthenticationMethods` attribute:
+
+```PowerShell
+$Upn = "theuser@domain.com"
+$noMfaConfig = @()
+Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
+```
+
 ## Delete users existing app passwords
 
 This setting deletes all of the app passwords that a user has created. Non-browser apps that were associated with these app passwords stop working until a new app password is created.
