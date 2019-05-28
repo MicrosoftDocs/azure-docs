@@ -43,7 +43,7 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | DC-series | None | N/A |
 | Dv2, Dsv2-series | All sizes | Any |
 | Dv3, Dsv3-series | All sizes | Any |
-| [Memory optimized sizes](../virtual-machines/linux/sizes-memory) | None | N/A |
+| [Memory optimized sizes](../virtual-machines/linux/sizes-memory.md) | None | N/A |
 | Fsv2-series | All sizes | Any |
 | H-series | All sizes | Any |
 | Hb-series | All sizes | User subscription mode |
@@ -77,9 +77,9 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 
 * **Tasks per node** - It's typical to select a node size assuming one task runs on a node at a time. However, it might be advantageous to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it is common to choose a multicore node size to accommodate the increased demand of parallel task execution.
 
-* **Load levels for different tasks** - All of the nodes in a pool are the same size. If you intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools. 
+* **Load levels for different tasks** - All of the nodes in a pool are the same size. If you intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools.
 
-* **Region availability** - A VM family or size might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
+* **Region availability** - A VM series or size might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
 * **Quotas** - The [cores quotas](batch-quota-limit.md#resource-quotas) in your Batch account can limit the number of nodes of a given size you can add to a Batch pool. To request a quota increase, see [this article](batch-quota-limit.md#increase-a-quota). 
 
