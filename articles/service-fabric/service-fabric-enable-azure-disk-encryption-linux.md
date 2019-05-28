@@ -22,7 +22,7 @@ ms.author: aljo
 >
 >
 
-In this tutorial, you'll learn how to enable disk encryption on Service Fabric cluster nodes in Linux. You'll need to follow these steps for each of the node types and virtual machine scale sets. For encrypting the nodes, we'll use the Azure Disk Encryption capability on virtual machine scale sets.
+In this tutorial, you'll learn how to enable disk encryption on Azure Service Fabric cluster nodes in Linux. You'll need to follow these steps for each of the node types and virtual machine scale sets. For encrypting the nodes, we'll use the Azure Disk Encryption capability on virtual machine scale sets.
 
 The guide covers the following topics:
 
@@ -40,7 +40,7 @@ The guide covers the following topics:
 
 The disk encryption preview for the virtual machine scale set requires self-registration. Use the following steps:
 
-1. First, run the following command: 
+1. Run the following command: 
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
