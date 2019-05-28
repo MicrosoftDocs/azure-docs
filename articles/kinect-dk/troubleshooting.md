@@ -66,11 +66,10 @@ For more information, see below clip from header file:
 */
 ```
 
-## Device does not enumerate in device manager
+## Device doesn't enumerate in device manager
 
-- Check the status LED behind the device, if it is blinking amber you have USB connectivity issue and it does not get enough power. The power supply cable should be plugged into the
-provided power adapter. While the power cable has a USB type A connected, the device requires more power than a PC USB port can supply. Therefore, don't connect to
-a PC port or USB hub.
+- Check the status LED behind the device, if it's blinking amber you have USB connectivity issue and it doesn't get enough power. The power supply cable should be plugged into the
+provided power adapter. While the power cable has a USB type A connected, the device requires more power than a PC USB port can supply. So, don't connect to it to a PC port or USB hub.
 - Check that you have power cable connected and using USB3 port for data.
 - Try changing USB3 port for the data connection (recommendation to use USB port close to motherboard, for example, in back of the PC).
 - Check your cable, damaged or lower quality cables may cause unreliable enumeration (device keeps "blinking" in device manager).
@@ -121,8 +120,8 @@ If not then perform a [factory reset](https://support.microsoft.com/help/4494277
 
 ## USB3 host controller compatibility
 
-If the device is not enumerating under device manager, it may be because it is plugged into an unsupported USB3 controller. For best results,
-ensure the USB3 driver is a Microsoft driver, it is indicated in Device Manager with a '(Microsoft)' after the name. To remove a third-party driver,
+If the device is not enumerating under device manager, it may be because it's plugged into an unsupported USB3 controller. For best results,
+ensure the USB3 driver is a Microsoft driver, it's indicated in Device Manager with a '(Microsoft)' after the name. To remove a third-party driver,
 right-click the device in Device Manager and click "Uninstall Device". Select the checkbox to delete the driver, and then hit the button 'Uninstall'
 
 ## Next steps
