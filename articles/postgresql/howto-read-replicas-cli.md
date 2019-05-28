@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 05/28/2019
 ---
 
 # Create and manage read replicas from the Azure CLI
@@ -50,8 +50,16 @@ The [az postgres server replica create](/cli/azure/postgres/server/replica?view=
 | name | mydemoserver-replica | The name of the new replica server that is created. |
 | source-server | mydemoserver | The name or resource ID of the existing master server to replicate from. |
 
+In the CLI example below, the replica is created in the same region as the master.
+
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
+```
+
+To create a cross region read replica, use the `--location` parameter. The CLI example below creates the replica in West US.
+
+```azurecli-interactive
+az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 If you haven't set the `azure.replication_support` parameter to **REPLICA** on a General Purpose or Memory Optimized master server and restarted the server, you receive an error. Complete those two steps before you create a replica.

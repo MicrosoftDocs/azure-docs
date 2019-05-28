@@ -115,6 +115,8 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
+      By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [**Safe Typing** option](#safe-typing).
+
    1. When you're done, choose **Create**.
 
       Logic Apps sets up and tests your connection, making sure that the connection works properly.
@@ -227,6 +229,8 @@ This example uses a logic app that triggers when receiving a message from an SAP
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
+      By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [**Safe Typing** option](#safe-typing).
+
 1. Provide the required parameters based on your SAP system configuration.
 
    You can optionally provide one or more SAP actions. This list of actions specifies the messages that the trigger receives from your SAP server through the data gateway. An empty list specifies that the trigger receives all messages. If the list has more than one message, the trigger receives only the messages specified in the list. Any other messages sent from your SAP server are rejected by the gateway.
@@ -311,7 +315,11 @@ On the designer toolbar, choose **Save**.
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. When you're done, choose **Create**. Logic Apps sets up and tests your connection, making sure that the connection works properly.
+      By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [**Safe Typing** option](#safe-typing).
+
+   1. When you're done, choose **Create**. 
+   
+      Logic Apps sets up and tests your connection, making sure that the connection works properly.
 
 1. Provide the path to the artifact for which you want to generate the schema.
 
@@ -413,6 +421,53 @@ To enable SNC for your requests to or from SAP system, select the **Use SNC** ch
    > not be set on the machine where you have data gateway 
    > and SNC library. If set, they would take precedence 
    > over the SNC Library value passed through the connector.
+
+<a name="safe-typing"></a>
+
+## Safe typing
+
+By default, when you create your SAP connection, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. If you choose **Safe Typing**, the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time` where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing affects the behavior for all schema generation, the send message for both the "been sent" payload and the "been received" response, and trigger. 
+
+When strong typing is used (**Safe Typing** not enabled), the schema maps the DATS and TIMS types to more straightforward XML types:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+When sending messages using strong typing, the DATS and TIMS response complies to the matching XML type format:
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+When **Safe Typing** is enabled, the schema maps the DATS and TIMS types to XML string fields with length restrictions only, for example:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+When sending messages with **Safe Typing** enabled, the DATS and TIMS response looks like this example:
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## Known issues and limitations
 

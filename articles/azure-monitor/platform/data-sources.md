@@ -35,7 +35,7 @@ The following table briefly describes the application tiers that are specific to
 | Tier | Description | Collection method |
 |:---|:---|:---|
 | [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View AAD data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
-| [Azure subscription](#azure-subscription) |  Telemetry related to the health and operation of Azure itself. | View in portal or configure collection to Azure Monitor using a log profile. |
+| [Azure subscription](#azure-subscription) | Data related to the health and management of cross-resource services in your Azure subscription such as Resource Manager and Service Health. | View in portal or configure collection to Azure Monitor using a log profile. |
 | [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
 ### Azure, other cloud, or on-premises 
