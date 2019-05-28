@@ -52,11 +52,11 @@ This cloud has been supported by earlier releases of DirSync. From build 1.1.180
 | +Certificate Revocation Lists |
 
 > [!NOTE]
-> As of AAD Connect version 1.1.647.0, setting the AzureInstance value in the registry is no longer required provided that *.windows.net is open on your proxy server(s). However, for customers that do not allow Internet connectivity from their AAD Connect server(s), the following manual configuration can be used.
+> As of Azure AD Connect version 1.1.647.0, setting the AzureInstance value in the registry is no longer required provided that *.windows.net is open on your proxy server(s). However, for customers that do not allow Internet connectivity from their Azure AD Connect server(s), the following manual configuration can be used.
 
 ### Manual Configuration
 
-The following manual configuration steps are used to ensure AAD Connect uses Azure Government synchronization endpoints.
+The following manual configuration steps are used to ensure Azure AD Connect uses Azure Government synchronization endpoints.
 
 1. Start the Azure AD Connect installation.
 2. When you see the first page where you are supposed to accept the EULA, do not continue but leave the installation wizard running.
