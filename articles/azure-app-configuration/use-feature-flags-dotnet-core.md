@@ -20,11 +20,11 @@ ms.custom: mvc
 ---
 # Tutorial: Use feature flags in a .NET Core app
 
-The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in an .NET or ASP.NET Core application. They allow you to add feature flags to your code more declaratively so that you do not have to write all the `if` statements for them manually. They manage feature flag lifecycles (for example, refresh and cache flag states, guarantee a flag state to be immutable during a request call) behind the scene. In addition, the ASP.NET Core library offers out-of-the-box integrations including MVC controller actions, views, routes, and middleware.
+The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in an .NET or ASP.NET Core application. They allow you to add feature flags to your code more declaratively so that you do not have to write all the `if` statements for them manually. They manage feature flag lifecycles (for example, refresh and cache flag states, guarantee a flag state to be immutable during a request call) behind the scenes. In addition, the ASP.NET Core library offers out-of-the-box integrations including MVC controller actions, views, routes, and middleware.
 
 The [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) quickstart shows a number of ways to add feature flags in an ASP.NET Core application. This tutorial explains these in more details. See the [ASP.NET Core feature management documentation](https://go.microsoft.com/fwlink/?linkid=2091410) for a complete reference.
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Add feature flags in key parts of your application to control feature availability.
@@ -63,7 +63,7 @@ public class Startup
 }
 ```
 
-If you use filter in your feature flags, you need to include an additional library and register it. The following example shows how to use a built-in feature filter called **PercentageFilter"**.
+If you use filters in your feature flags, you need to include an additional library and register it. The following example shows how to use a built-in feature filter called **PercentageFilter"**.
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -79,7 +79,7 @@ public class Startup
 }
 ```
 
-To operate effectively, you should keep feature flags outside of the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes taking effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI and delivers the flags to your application directly through its .NET Core client libraries. The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. You can use this NuGet package in your code by adding the following to the *Program.cs* file:
+To operate effectively, you should keep feature flags outside of the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes taking effect in the application immediately. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI and delivers the flags to your application directly through its .NET Core client libraries. The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. You can use this NuGet package in your code by adding the following to the *Program.cs* file:
 
 ```csharp
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
