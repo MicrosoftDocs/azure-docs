@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: nitinme
+ms.author: v-pawal
 ---
 
 # How to translate behind IP firewalls with the Translator Text API

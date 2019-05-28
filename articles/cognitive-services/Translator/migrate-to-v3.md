@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: nitinme
+ms.author: v-pawal
 ---
 
 # Translator Text API V2 to V3 Migration
