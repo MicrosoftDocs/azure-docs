@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/26/2019
 ms.author: juliako
 ---
 
@@ -34,6 +34,43 @@ You can also specify the start and end time on your Streaming Locator, which wil
 * **Streaming Locators** are not updatable. 
 * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
 * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
+
+## Streaming Locator creation 
+
+### Not encrypted
+
+If you want to stream your file in-the-clear (non-encrypted), set the predefined clear streaming policy: to 'Predefined_ClearStreamingOnly' (in .NET, you can use the PredefinedStreamingPolicy.ClearStreamingOnly enum).
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
+```
+
+### Encrypted 
+
+If you need to encrypt your content with the CENC encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. The  Widevine encryption will be applied to a DASH stream and PlayReady to Smooth. The key will be delivered to a playback client based on the configured DRM licenses.
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+If you also want to encrypt your HLS stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
 
 ## Associate filters with Streaming Locators
 

@@ -223,27 +223,19 @@ The following sections list the supported policy combinations when Azure is the 
 * AES_256, SHA_256, DH_GROUP_2
 * AES_128, SHA1, DH_GROUP_2
 * AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
 
 **Phase-2**
 
 * GCM_AES_256, GCM_AES_256, PFS_NONE
 * AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
 * AES_256, SHA_256, PFS_NONE
 * AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
-* CBC_DES, SHA_1, PFS_NONE 
 * AES_256, SHA_1, PFS_1
 * AES_256, SHA_1, PFS_2
 * AES_256, SHA_1, PFS_14
 * AES_128, SHA_1, PFS_1
 * AES_128, SHA_1, PFS_2
 * AES_128, SHA_1, PFS_14
-* CBC_3DES, SHA_1, PFS_1
-* CBC_3DES, SHA_1, PFS_2
-* CBC_3DES, SHA_256, PFS_2
 * AES_256, SHA_256, PFS_1
 * AES_256, SHA_256, PFS_2
 * AES_256, SHA_256, PFS_14
@@ -253,7 +245,6 @@ The following sections list the supported policy combinations when Azure is the 
 * AES_128, SHA_256, PFS_1
 * AES_128, SHA_256, PFS_2
 * AES_128, SHA_256, PFS_14
-* CBC_3DES, SHA_1, PFS_14
 
 ### Does everything need to match between the virtual hub vpngateway policy and my on-premises SDWAN/VPN device or SD-WAN configuration?
 
