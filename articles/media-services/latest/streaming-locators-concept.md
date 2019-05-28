@@ -35,7 +35,7 @@ You can also specify the start and end time on your Streaming Locator, which wil
 * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
 * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
 
-## Streaming Locator creation 
+## Create Streaming Locators  
 
 ### Not encrypted
 
@@ -92,11 +92,21 @@ You can use the REST API to [get a list of Streaming Locators](https://docs.micr
 https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/listStreamingLocators?api-version={{api-version}}`
 ```
 
-### .NET
+### CLI
 
-Use the following .NET extension API to get a list of Streaming Locators published for the specified Asset.
+Use the following CLI API to get a list of Streaming Locators published for the specified Asset.
 
-[Microsoft.Azure.Management.Media.Models.ListStreamingLocatorsResponse ListStreamingLocators(Microsoft.Azure.Management.Media.IAssetsOperations operations, string resourceGroupName, string accountName, string assetName)](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)
+[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)
+
+### SDKs
+
+Use the following operations to get a list of Streaming Locators published for the specified Asset.
+
+|Language|API|
+|---|---|
+|.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
+|Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
+|Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/assets?view=azure-node-latest#liststreaminglocators-string--string--string--object-)|
 
 ## Next steps
 
