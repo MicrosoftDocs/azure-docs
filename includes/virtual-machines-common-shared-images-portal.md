@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/25/2019
+ ms.date: 04/29/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -46,10 +46,9 @@ Create the gallery image definition inside of your gallery. In this example, the
 1. For **Publisher**, type *myPublisher*. 
 1. For **Offer**, type *myOffer*.
 1. For **SKU**, type *mySKU*.
-1. Make sure **Yes** us selected for **Enable** and then select **Review + create**.
+1. When finished, select **Review + create**.
 1. After the image definition passes validation, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
-
 
 
 ## Create an image version
@@ -70,3 +69,20 @@ Allowed characters for image version are numbers and periods. Numbers must be wi
 1. When the deployment is finished, select **Go to resource**.
 
 It can take a while to replicate the image to all of the target regions.
+
+## Share the gallery
+
+We recommend that you share access at the image gallery level. The following walks you through sharing the gallery that you just created.
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. In the menu at the left, select **Resource groups**. 
+1. In the list of resource groups, select **myGalleryRG**. The blade for your resource group will open.
+1. In the menu on the left of the **myGalleryRG** page, select **Access control (IAM)**. 
+1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
+1. Under **Role**, select **Reader**.
+1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.
+1. Under **Select**, type in the email address of the person that you would like to invite.
+1. If the user is outside of your organization, you will see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
+
+If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
+

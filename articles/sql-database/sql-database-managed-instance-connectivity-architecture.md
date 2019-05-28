@@ -81,7 +81,7 @@ When connections start inside the managed instance (as with backups and audit lo
 
 Deploy a managed instance in a dedicated subnet inside the virtual network. The subnet must have these characteristics:
 
-- **Dedicated subnet:** The managed instance's subnet can't contain any other cloud service that's associated with it, and it can't be a gateway subnet. The subnet can't contain any resource but the managed instance, and you can't later add resources in the subnet.
+- **Dedicated subnet:** The managed instance's subnet can't contain any other cloud service that's associated with it, and it can't be a gateway subnet. The subnet can't contain any resource but the managed instance, and you can't later add other types of resources in the subnet.
 - **Network security group (NSG):** An NSG that's associated with the virtual network must  define [inbound security rules](#mandatory-inbound-security-rules) and [outbound security rules](#mandatory-outbound-security-rules) before any other rules. You can use an NSG to control access to the managed instance's data endpoint by filtering traffic on port 1433 and ports 11000-11999 when managed instance is configured for redirect connections.
 - **User defined route (UDR) table:** A UDR table that's associated with the virtual network must include specific [entries](#user-defined-routes).
 - **No service endpoints:** No service endpoint should be associated with the managed instance's subnet. Make sure that the service endpoints option is disabled when you create the virtual network.

@@ -4,7 +4,7 @@ description: Learn about the available Azure disk types for Windows virtual mach
 services: "virtual-machines-windows,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 02/11/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows

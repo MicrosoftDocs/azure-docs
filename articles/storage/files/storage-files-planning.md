@@ -89,7 +89,7 @@ Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughp
 
 On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
 
-Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GIB and so on.
+Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GiB and so on.
 
 > [!TIP]
 > Baseline IOPS = 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
@@ -106,20 +106,16 @@ It is possible to decrease the size of your provisioned share below your used Gi
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
-(Sizes denoted by an * are in limited public preview)
-
 |Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Up to 300     | 66   | 44   |
 |500         | 500     | Up to 1,500   | 90   | 60   |
 |1,024       | 1,024   | Up to 3,072   | 122   | 81   |
 |5,120       | 5,120   | Up to 15,360  | 368   | 245   |
-|10,240 *     | 10,240  | Up to 30,720  | 675 | 450   |
-|33,792 *     | 33,792  | Up to 100,000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Up to 100,000 | 3,132 | 2,088   |
-|102,400 *    | 100,000 | Up to 100,000 | 6,204 | 4,136   |
-
-Currently, file share sizes up to 5 TiB are in public preview, while sizes up to 100 TiB are in limited public preview, to request access to the limited public preview complete [this survey.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | Up to 30,720  | 675 | 450   |
+|33,792      | 33,792  | Up to 100,000 | 2,088 | 1,392   |
+|51,200      | 51,200  | Up to 100,000 | 3,132 | 2,088   |
+|102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
 
 ### Bursting
 
@@ -179,7 +175,7 @@ Keep these points in mind when deciding which replication option to use:
 
 ## Data growth pattern
 
-Today, the maximum size for an Azure file share is 5 TiB (100 TiB for premium file share limited public preview). Because of this current limitation, you must consider the expected data growth when deploying an Azure file share.
+Today, the maximum size for an Azure file share is 5 TiB (100 TiB for premium file shares, which are in public preview). Because of this current limitation, you must consider the expected data growth when deploying an Azure file share.
 
 It is possible to sync multiple Azure file shares to a single Windows File Server with Azure File Sync. This allows you to ensure that older, large file shares that you may have on-premises can be brought into Azure File Sync. For more information, see [Planning for an Azure File Sync Deployment](storage-files-planning.md).
 
@@ -190,7 +186,7 @@ There are many easy options to bulk transfer data from an existing file share, s
 * **Azure File Sync**: As part of a first sync between an Azure file share (a "Cloud Endpoint") and a Windows directory namespace (a "Server Endpoint"), Azure File Sync will replicate all data from the existing file share to Azure Files.
 * **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: The Azure Import/Export service allows you to securely transfer large amounts of data into an Azure file share by shipping hard disk drives to an Azure datacenter. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy is a well known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance. AzCopy is available for Windows and Linux.
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance.
 
 ## Next steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)

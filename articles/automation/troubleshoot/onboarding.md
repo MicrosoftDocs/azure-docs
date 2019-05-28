@@ -73,6 +73,36 @@ In order to successfully deploy the solution, you need to consider altering the 
 
 Check the notifications in the top-right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
+### <a name="unlink"></a>Scenario: Errors trying to unlink a workspace
+
+#### Issue
+
+You receive the following error when trying to unlink a workspace:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### Cause
+
+This error occurs when you still have solutions active in your Log Analytics workspace that depend on your Automation Account and Log Analtyics workspace being linked.
+
+### Resolution
+
+To resolve this you'll need to remove the following solutions from your Workspace if you are using them:
+
+* Update Management
+* Change Tracking
+* Start/Stop VMs during off-hours
+
+Once you remove the solutions you can unlink your workspace. It is important to clean up any existing artifacts from those solutions from your workspace and Automation Account as well.  
+
+* Update Management
+  * Remove Update Deployments (Schedules) from your Automation Account
+* Start/Stop VMs during off-hours
+  * Remove any locks on solution components in your Automation Account under **Settings** > **Locks**.
+  * For additional steps to remove the Start/Stop VMs during off-hours solution see, [Remove the Start/Stop VM during off-hours solution](../automation-solution-vm-management.md##remove-the-solution).
+
 ## <a name="mma-extension-failures"></a>MMA Extension failures
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 

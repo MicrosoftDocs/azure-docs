@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot connection issues to Azure Database for PostgreSQL
-description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL.
+title: Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server
+description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Single Server.
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 5/6/2019
 ---
 
-# Troubleshoot connection issues to Azure Database for PostgreSQL
+# Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server
 
 Connection problems may be caused by a variety of things, including:
 
@@ -48,7 +48,7 @@ If the application persistently fails to connect to Azure Database for PostgreSQ
 ### Steps to resolve persistent connectivity issues
 
 1. Set up [firewall rules](howto-manage-firewall-using-portal.md) to allow the client IP address. For temporary testing purposes only, set up a firewall rule using 0.0.0.0 as the starting IP address and using 255.255.255.255 as the ending IP address. This will open the server to all IP addresses. If this resolves your connectivity issue, remove this rule and create a firewall rule for an appropriately limited IP address or address range.
-2. On all firewalls between the client and the internet, make sure that port 3306 is open for outbound connections.
+2. On all firewalls between the client and the internet, make sure that port 5432 is open for outbound connections.
 3. Verify your connection string and other connection settings.
 4. Check the service health in the dashboard. If you think there’s a regional outage, see [Overview of business continuity with Azure Database for PostgreSQL](concepts-business-continuity.md) for steps to recover to a new region.
 

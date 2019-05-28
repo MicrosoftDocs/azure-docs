@@ -3,8 +3,8 @@ title: Automated SaaS app user provisioning in Azure AD | Microsoft Docs
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,8 +12,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2019
-ms.author: celested
-ms.reviewer: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -269,6 +269,10 @@ No. When configured to "sync only assigned users and groups", the Azure AD user 
 This is a limitation of "group-based assignments to applications", which also affects single sign-on and is described in [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 As a workaround, you should explicitly assign (or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
+
+### Is provisioning between Azure AD and a target application using an encrypted channel?
+
+Yes. We use HTTPS SSL encryption for the server target. 
 
 ## Related articles
 

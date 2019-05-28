@@ -5,15 +5,15 @@ metadata:
   title: Bing Entity Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: How to use the Bing Entity Search API to obtain information about people, places, or other defined subjects. Tutorials explain how to build apps that use the service.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/01/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: The Bing Entity Search API enables your applications to get information about detected entities in search queries. Entities can be people, places, media titles, and more.
 sections:

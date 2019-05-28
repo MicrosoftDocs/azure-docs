@@ -52,7 +52,7 @@ PowerShell classic can be installed alongside either Az or AzureRM to cover both
 | Manage workspace commitment plans | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | Manage workspace users |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | Manage web services | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("new" web services)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>("classic" web services) |
-| Manage web service endpoints/keys |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| Manage web service endpoints/keys |  [Get-AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
 | Manage user datasets/trained models| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
 | Manage user experiments |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
 | Manage custom modules | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |

@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 05/23/2019
 ms.author: sngun
 
 ---
@@ -164,7 +164,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative</artifactId>
-      <version>2.0.7.Final</version>
+      <version>2.0.20.Final</version>
       <classifier>linux-x86_64</classifier>
     </dependency>
     ```

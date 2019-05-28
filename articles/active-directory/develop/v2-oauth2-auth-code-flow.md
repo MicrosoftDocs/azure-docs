@@ -3,8 +3,8 @@ title: Microsoft identity platform and OAuth Authorization Code Flow | Azure
 description: Building web applications using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
