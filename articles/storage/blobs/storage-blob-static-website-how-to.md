@@ -42,7 +42,7 @@ You can use the Azure CLI to enable static website hosting and then upload the f
 
    Replace the `<subscription-id>` placeholder value with the id of your subscription.
 
-3. Enable static website hosting. Enable the feature. Make sure to replace all placeholder values, including brackets, with your own values:
+3. Enable static website hosting.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -99,11 +99,46 @@ You can use the Azure PowerShell module to enable website hosting and then uploa
 3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
 
    ```powershell
-   $context = Get-AzSubscription -<subscription-id> ...
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
    Set-AzContext $context
    ```
 
    Replace the `<subscription-id>` placeholder value with the id of your subscription.
+
+4. Get the storage account context that defines the storage account you want to use.
+
+   ```powershell
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context
+   ```
+
+   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+5. Enable static website hosting.
+
+   ```powershell
+   Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
+   ```
+
+   * Replace the `<error-document-name>` placeholder with the name of the error document that will appear to users when a browser requests a page on your site that does not exist.
+
+   * Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
+
+6. Upload objects to the *$web* container from a source directory.
+
+    ```powershell
+    # upload a file
+    set-AzStorageblobcontent -File "<path-to-file>" `
+    -Container `$web `
+    -Blob "<blob-name>" `
+    -Context $ctx
+     ```
+
+   * Replace the `<path-to-file>` placeholder value with the fully qualified path to the file that you want to upload (For example: `C:\temp\index.html`).
+
+   * Replace the `<blob-name>` placeholder value with the name that you want to give the resulting blob (For example: `index.html`).
 
 ## Next steps
 
