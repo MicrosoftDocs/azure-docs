@@ -17,13 +17,13 @@ ms.reviewer: frasim
 
 ms.collection: M365-identity-device-management
 ---
-# Deploying a secure workstation
+# Deploy a secure workstation
 
 Now that you understand [Why securing workstation access is important?](concept-azure-managed-workstation.md) it is time to begin the process of deployment using the available tools. This guidance will use the defined profiles to create a workstation that is more secure from the start.
 
-![Deployment of a secure workstation](./media/secure-admin-workstations/deploying-secure-workstations.png)
+![Deployment of a secure workstation](./media/howto-azure-managed-workstation/deploying-secure-workstations.png)
 
-Prior to deploying the solution, the profile that you will be using must be selected. It's important to note that you can apply any of the selected profiles and move to another by assigning the profile in Intune based on your requirement. Multiple profiles can be used simotaniously in a deployment, and assigned using tag's or group assignments.
+Prior to deploying the solution, the profile that you will be using must be selected. It's important to note that you can apply any of the selected profiles and move to another by assigning the profile in Intune based on your requirement. Multiple profiles can be used simultaneously in a deployment, and assigned using tag's or group assignments.
 
 | Profile | Low | Enhanced | High | Specialized | Secured | Isolated |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -214,7 +214,7 @@ Running the Intune data export script `DeviceConfiguration_Export.ps1` from the 
 
 ## Additional configurations and hardening to consider
 
-The guidance provided has enabled a secured workstation, additional controls should also be considered, such as alternate browsers access, outbound HTTP whitelisted and blacklisted websites, and the ability to run custom PowerShell script.
+The guidance provided has enabled a secured workstation, additional controls should also be considered, such as alternate browsers access, outbound HTTP allowed and blocked websites, and the ability to run custom PowerShell script.
 
 ### Restrictive inbound, and outbound rules in Firewall configuration service provider (CSP)
 
@@ -252,7 +252,7 @@ Additional guidance on configuring Chrome settings can be found in their support
 
 In a secured mode, installing applications will be restricted to the Intune company portal. However, installing the portal requires access to Microsoft Store. In our secured solution, we will make the portal available to all devices using an offline mode of the company portal.
 
-Installing an Intune managed copy of the [Company Portal](https://docs.microsoft.com/en-us/Intune/store-apps-company-portal-app) will permit the ability to push down additional tools on demand to users of the secured workstations.
+Installing an Intune managed copy of the [Company Portal](https://docs.microsoft.com/Intune/store-apps-company-portal-app) will permit the ability to push down additional tools on demand to users of the secured workstations.
 
 Some organizations may be required to install win32 apps or apps that require other preparations to deploy. For these applications, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
 
@@ -277,7 +277,7 @@ Our example will use the following [free generic background image](https://i.img
 
 ### Using the Preview: MDM Security Baseline for October 2018
 
-Microsoft Intune has introduced security baseline management feature providing administrators a simple way to enforce a common baseline security posture. The baseline provides a similar means to achieve a locked down Enhanced profile workstation. 
+Microsoft Intune has introduced security baseline management feature providing administrators a simple way to enforce a common baseline security posture. The baseline provides a similar means to achieve a locked down Enhanced profile workstation.
 
 For the secure workstation, implementation this baseline is not used as it will conflict with the secure configuration deployment.
 
@@ -304,10 +304,10 @@ To enroll your device, you need the following information:
 * **Serial number** - found on the device chassis
 * **Windows Product ID** - found under **System** > **About** from the Windows Settings menu.
 * Running [Get-WindowsAutoPilotInfo](https://aka.ms/Autopilotshell) will provide a CSV hash file for device enrollment with all of the required information. 
-   * Run `Get-Windowsautopilotinfo – outputfile device1.csv` to output the information as a CSV file that can be imported in to Intune.
+   * Run `Get-WindowsAutoPilotInfo – outputfile device1.csv` to output the information as a CSV file that can be imported in to Intune.
 
 > [!NOTE]
-> The script will require elevated rights and run as remote signed. You can use the following command to allow the script to run correctly. `Set-ExecutionPolicy -ExecutionPolicy Remotesigned`
+> The script will require elevated rights and run as remote signed. You can use the following command to allow the script to run correctly. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
 You can gather this information by signing in to a Windows 10 version 1809 or higher device to gather the information, or your hardware reseller can provide this information when ordering new devices.
 
