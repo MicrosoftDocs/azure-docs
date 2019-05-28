@@ -311,7 +311,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("input", uploadFiles);
 ```
 
-This code connects the *Select and upload files* button to the hidden `file-input` element so that the. In this way, the button `click` events triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function to upload each file you selected.
+This code connects the *Select and upload files* button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function to upload each file you selected.
 
 ### Delete blobs
 
