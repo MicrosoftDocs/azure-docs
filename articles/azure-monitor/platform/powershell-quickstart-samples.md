@@ -49,18 +49,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## Retrieve Activity log for a subscription
-Use the `Get-AzLog` cmdlet.  The following are some common examples.
+Use the `Get-AzLog` cmdlet.  The following are some common examples. The Activity Log holds the last 90 days of operations. Using dates before this time results in an error message.  
+
+See what the current date/time are to verify what times to use in the commands below:
+```powershell
+Get-Date
+```
 
 Get log entries from this time/date to present:
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 Get log entries between a time/date range:
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Get log entries from a specific resource group:
@@ -84,7 +89,7 @@ Get-AzLog -Caller 'myname@company.com'
 The following command retrieves the last 1000 events from the activity log:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` supports many other parameters. See the `Get-AzLog` reference for more information.
