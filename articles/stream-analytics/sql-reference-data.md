@@ -169,6 +169,9 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
  
    Note that Stream Analytics runtime may periodically run the snapshot query in addition to the delta query to store checkpoints.
 
+## Test your query
+   It is important to verify that your query is returning the expected dataset that the Stream Analytics job will use as reference data. To test your query, go to Input under Job Topology section on portal. You can then select Sample Data on your SQL Database Reference input. After the sample becomes available, you can download the file and check to see if the data being returned is as expected. If you want a optimize your development and test iterations, it is recommended to use the [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). You can also any other tool of your preference to first ensure the query is returning the right results from you Azure SQL Database and then use that in your Stream Analytics job. 
+
 ## FAQs
 
 **Will I incur additional cost by using SQL reference data input in Azure Stream Analytics?**
@@ -187,10 +190,6 @@ The combination of both of these metrics can be used to infer if the job is quer
 **Will I require a special type of Azure SQL Database?**
 
 Azure Stream Analytics will work with any type of Azure SQL Database. However, it is important to understand that the refresh rate set for your reference data input could impact your query load. To use the delta query option, it is recommended to use temporal tables in Azure SQL Database.
-
-**Can I sample input from SQL Database reference data input?**
-
-This feature is not available.
 
 **Why does Azure Stream Analytics store snapshots in Azure Storage account?**
 
