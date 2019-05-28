@@ -4,7 +4,7 @@ title: Azure IoT Edge
 summary: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge", instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
 
 landingContent:
-  - title: Start developing for Linux IoT Edge devices
+  - title: Develop for Linux devices
     linkLists: 
       - linkListType: quickstart
         links: 
@@ -14,21 +14,11 @@ landingContent:
         links: 
           - text: Develop IoT Edge modules for Linux devices
             url: tutorial-develop-for-linux.md
-          - text: Develop a C module
-            url: tutorial-c-module.md
-          - text: Develop a C# module
-            url: tutorial-csharp-module.md
-          - text: Develop a Java module
-            url: tutorial-java-module.md
-          - text: Develop a Node.js module
-            url: tutorial-node-module.md
-          - text: Develop a Python module
-            url: tutorial-python-module.md
       - linkListType: learn
         links: 
           - text: Use Visual Studio Code to develop and debug modules
             url: how-to-vs-code-develop-module.md
-  - title: Start developing for Windows IoT Edge devices
+  - title: Develop for Windows devices
     linkLists: 
       - linkListType: quickstart
         links: 
@@ -38,14 +28,34 @@ landingContent:
         links: 
           - text: Develop IoT Edge modules for Windows devices
             url: tutorial-develop-for-windows.md
-          - text: Develop a C module
-            url: tutorial-c-module-windows.md
-          - text: Develop a C# module
-            url: tutorial-csharp-module-windows.md
       - linkListType: learn
         links: 
           - text: Use Visual Studio 2017 to develop and debug modules
             url: how-to-visual-studio-develop-module.md
+  - title: Provision IoT Edge devices
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Install IoT Edge on Linux x64
+            url: how-to-install-iot-edge-linux.md
+          - text: Install IoT Edge on Linux ARM32
+            url: how-to-install-iot-edge-linux-arm.md
+          - text: Install IoT Edge on Windows x64
+            url: how-to-install-iot-edge-windows.md
+          - text: Automatically provision Linux devices
+            url: how-to-auto-provision-simulated-device-linux.md
+          - text: Automatically provision Windows devices
+            url: how-to-auto-provision-simulated-device-windows.md
+  - title: Engage with the open source community
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: IoT Edge repository
+            url: https://github.com/Azure/iotedge
+          - text: IoT Edge GitHub issues
+            url: https://github.com/Azure/iotedge/issues
+          - text: Latest releases and changelogs
+            url: https://github.com/Azure/azure-iotedge/releases
   - title: Use IoT Edge devices as gateways
     linkLists: 
       - linkListType: learn
@@ -66,7 +76,7 @@ landingContent:
             url: tutorial-deploy-machine-learning.md
           - text: Perform image classification at the edge with Custom Vision Service
             url: tutorial-deploy-custom-vision.md
-      - linkListType: download
+      - linkListType: deploy
         links: 
           - text: Find Azure Cognitive Services modules in the Azure Marketplace
             url: https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services
@@ -90,8 +100,6 @@ landingContent:
             url: how-to-deploy-monitor-cli.md
           - text: Create a CI/CD pipeline with Azure Pipelines
             url: how-to-ci-cd.md
-          - text: Create a CI/CD pipeline with Azure DevOps Projects
-            url: how-to-devops-project.md
       - linkListType: deploy
         links:
           - text: REST API for IoT Hub
