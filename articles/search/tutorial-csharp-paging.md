@@ -276,7 +276,7 @@ The first and last page options do not send the strings "first" and "last" but i
 3. The **RunQueryAsync** method needs to be updated to calculate the page variables.
 
 ```cs
-        private async Task<ActionResult> runQueryAsync(SearchData model, int page, int leftMostPage)
+        private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
         {
             // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
             _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -338,6 +338,8 @@ The first and last page options do not send the strings "first" and "last" but i
 
                 // Calculate the page count.
                 model.pageCount = (model.resultCount + GlobalVariables.ResultsPerPage - 1) / GlobalVariables.ResultsPerPage;
+
+                // Calculate the range of page numbers to display.
                 model.currentPage = page;
 
                 if (page == 0)
@@ -407,10 +409,10 @@ This variable is a string which will simply hold "next" if the next page of resu
             @for (var i = 0; i < Model.hotels.Count; i++)
             {
                 // Display the hotel name.
-                @Html.TextAreaFor(m => Model.getHotel(i).HotelName, new { @class = "box1" })
+                @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
                 <br />
                 // Display the hotel sample room and description.
-                @Html.TextArea("idh", Model.getHotelDescription(i), new { @class = "box2" })
+                @Html.TextArea("idh", Model.GetHotelDescription(i), new { @class = "box2" })
                 <br /> <br />
             }
         </div>

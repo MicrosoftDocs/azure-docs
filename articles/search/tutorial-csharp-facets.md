@@ -165,7 +165,6 @@ Now we can use the predefined jquery functions.
                 // Search all Tags, but limit the total number to 100, and add up to 20 categories.
                 // Field names specified here must be marked as "IsFacetable" in the model, or the search call will throw an exception.
                 Facets = new List<string> { "Tags,count:100", "Category,count:20" },
-                Top = 0
             };
 
             DocumentSearchResult<Hotel> searchResult = await _indexClient.Documents.SearchAsync<Hotel>("*", sp);

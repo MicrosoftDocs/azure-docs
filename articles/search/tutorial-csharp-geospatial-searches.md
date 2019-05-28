@@ -418,7 +418,15 @@ In order to calculate the distance again in the client, we have to return **Loca
 
 2. Now run the app and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance. To verify this, enter very large and unrealistic radius parameters to locate a lot of results, and use the infinite scroll to check the distances are correctly in order.
 
-3. Try changing the **asc** (ascending) text in the **OrderBy** string to **desc** (descending) and verify the order of distances is longest first. The ascending setting is actually the default, so there is no need to enter it explicitly. 
+3. Try changing the **asc** (ascending) text in the **OrderBy** string to **desc** (descending) and verify the order of distances is longest first. The ascending setting is actually the default, so there is no need to enter it explicitly.
+
+4. Try changing the **OrderBy** statement to the following.
+
+```cs
+        OrderBy = new[] { "HotelName" },
+```
+
+5. Running the app should now display all hotels in alphabetical order. Perhaps a more realistic search would display a search in descending order of hotel rating. This would require returning the rating in the **Select** set of fields, then storing it in the **SearchData** class and adding the rating to the description for display in the view. This is left as an exercise for the student!
 
 ## Takeaways
 
