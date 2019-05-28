@@ -39472,6 +39472,7 @@
       "source_path": "articles/azure-monitor/app/app-insights-dashboards.md",
       "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
       "redirect_document_id": false
+    },
     {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md",
       "redirect_url" : "/azure/active-directory-domain-services/manage-domain",
