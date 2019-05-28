@@ -15,7 +15,7 @@ This article shows you how to create a logic app that leverages the common alert
 
 ## Overview
 
-The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a standardised and extensible JSON schema across all your different alert types. One of the best places to leverage this is through a logic app. You can now have a single logic app that handles all your alerts. The logic app described in this article creates well-defined variables for the ['essential' fields](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), and also describes how you can handle [alert type]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') specific logic.
+The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a standardised and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), and also describes how you can handle [alert type]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') specific logic.
 
 
 ## Pre-requisites 
