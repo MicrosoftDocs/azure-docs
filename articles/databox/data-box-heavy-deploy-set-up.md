@@ -67,7 +67,7 @@ Take the following steps to cable your device.
 7. Connect all the 4 power cables to the device power supplies. The green LEDs turn on and blink.
 8. Use the power buttons in the front plane to turn on the device nodes. Keep the power button depressed for a few seconds until the blue lights come on. All the green LEDs for the power supplies in the back of the device should now be solid. The front operating panel of the device also contains fault LEDs. When a fault LED is lit, it indicates a faulty PSU or a fan or an issue with the disk drives.  
 
-    ![Data Box Heavy front ops panel](media/data-box-heavy-deploy-set-up/data-box-heavy-fronts-ops-panel.png)
+    ![Data Box Heavy front ops panel](media/data-box-heavy-deploy-set-up/data-box-heavy-front-ops-panel.png)
 
 ## Cable first node for network
 
@@ -111,12 +111,13 @@ Take the following steps to set up your device using the local configuration and
 - If DHCP is enabled in your environment, network interfaces are automatically configured.
 - If DHCP is not enabled, go to Set network interfaces, and assign static IPs if needed.
 
-    ![Data Box Heavy dashboard](media/data-box-deploy-set-up/data-box-heavy-dashboard.png)
+    ![Data Box Heavy dashboard node 1](media/data-box-deploy-set-up/data-box-heavy-dashboard-1.png)
 
 ## Configure second node
 
 Do the steps detailed in the [Configure the first node](#configure-first-node) for the second node of the device.
 
+![Data Box Heavy dashboard node 2](media/data-box-deploy-set-up/data-box-heavy-dashboard-1.png)
 
 After the device setup is complete, you can connect to the device shares and copy the data from your computer to the device.
 
