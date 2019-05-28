@@ -17,7 +17,7 @@ Low-level details of the .mkv container format can be found on the [Matroska Web
 
 | Track Name | Codec Format                          |
 |:-----------|---------------------------------------|
-| COLOR      | Mode Dependent (MJPEG, NV12, or YUY2) |
+| COLOR      | Mode-Dependent (MJPEG, NV12, or YUY2) |
 | DEPTH      | b16g (16-bit Grayscale, Big-endian)   |
 | IR         | b16g (16-bit Grayscale, Big-endian)   |
 | IMU        | Custom structure, see IMU sample structure] below. |
@@ -25,7 +25,7 @@ Low-level details of the .mkv container format can be found on the [Matroska Web
 ## Using third-party tools
 
 Tools such as `ffmpeg` or the `mkvinfo` command from the [MKVToolNix](https://mkvtoolnix.download/) toolkit can be used to view and extract information
-from recording files. 
+from recording files.
 
 For example, the following command will extract the depth track as a sequence of 16-bit PNGs to the same folder:
 
@@ -33,9 +33,9 @@ For example, the following command will extract the depth track as a sequence of
 ffmpeg -i output.mkv -map 0:1 -vsync 0 depth%04d.png
 ```
 
-The `-map 0:1` parameter will extract track index 1, which for most recordings will be depth. If the recording does not contain a color track, `-map 0:0` would be used.
+The `-map 0:1` parameter will extract track index 1, which for most recordings will be depth. If the recording doesn't contain a color track, `-map 0:0` would be used.
 
-The `-vsync 0` parameter forces ffmpeg to extract frames as-is instead of trying to match a framerate of 30 fps, 15 fps or 5 fps.
+The `-vsync 0` parameter forces ffmpeg to extract frames as-is instead of trying to match a framerate of 30 fps, 15 fps, or 5 fps.
 
 ## IMU sample structure
 
@@ -51,9 +51,7 @@ The structure of the IMU data is below. All fields are little-endian.
 
 ## Identifying tracks
 
-When using third-party tools to read a Matroska file, it may be necessary to identify which track contains Color, Depth, IR, etc.
-Since the track numbers in a recording file may change based on the camera mode and which tracks are enabled,
-tags can be used to identify which track is which.
+It may be necessary to identify which track contains Color, Depth, IR, and so on. Identifying the tracks is needed when working with third-party tools to read a Matroska file. Track numbers vary based on the camera mode and set of enabled tracks. Tags are used to identify the meaning of each track.
 
 The list of tags below are each attached to a specific Matroska element, and can be used to look up the corresponding track or attachment.
 
