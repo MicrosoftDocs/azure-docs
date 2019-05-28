@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mialdrid
 ---
 # ExpressRoute partners and peering locations
@@ -142,9 +142,9 @@ The following table shows connectivity locations and the service providers for e
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Beijing** |China Telecom |
-| **Beijing2** | GDS |
+| **Beijing2** | China Telecom, GDS |
 | **Shanghai** |China Telecom |
-| **Shanghai2** | GDS |
+| **Shanghai2** | China Telecom, GDS |
 
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
 

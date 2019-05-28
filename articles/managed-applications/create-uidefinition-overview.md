@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
 
 ---
@@ -44,6 +44,8 @@ The schema of the parameters property depends on the combination of the specifie
 
 Including `$schema` is recommended, but optional. If specified, the value for `version` must match the version within the `$schema` URI.
 
+You can use a JSON editor to create your UI definition, or you can use the UI Definition Sandbox to create and preview the UI definition. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
+
 ## Basics
 The Basics step is always the first step of the wizard generated when the Azure portal parses the file. In addition to displaying the elements specified in `basics`, the portal injects elements for users to choose the subscription, resource group, and location for the deployment. Generally, elements that query for deployment-wide parameters, like the name of a cluster or administrator credentials, should go in this step.
 
@@ -55,7 +57,7 @@ The steps property can contain zero or more additional steps to display after ba
 ## Outputs
 The Azure portal uses the `outputs` property to map elements from `basics` and `steps` to the parameters of the Azure Resource Manager deployment template. The keys of this dictionary are the names of the template parameters, and the values are properties of the output objects from the referenced elements.
 
-To set the managed application resource name, you must include a value named `applicationResourceName` in the outputs property. If you do not set this value, the application assigns a GUID for the name. You can include a textbox in the user interface that requests a name from the user.
+To set the managed application resource name, you must include a value named `applicationResourceName` in the outputs property. If you don't set this value, the application assigns a GUID for the name. You can include a textbox in the user interface that requests a name from the user.
 
 ```json
 "outputs": {
@@ -68,7 +70,7 @@ To set the managed application resource name, you must include a value named `ap
 ```
 
 ## Functions
-Similar to template functions in Azure Resource Manager (both in syntax and functionality), CreateUiDefinition provides functions for working with elements' inputs and outputs, as well as features such as conditionals.
+Similar to template functions in Azure Resource Manager (both in syntax and functionality), CreateUiDefinition provides functions for working with elements' inputs and outputs, and features such as conditionals.
 
 ## Next steps
 The createUiDefinition.json file itself has a simple schema. The real depth of it comes from all the supported elements and functions. Those items are described in greater detail at:

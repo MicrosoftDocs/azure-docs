@@ -27,7 +27,7 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
 
 ## Prerequisites
 
-* You must running at least Windows 10, version April 2018 Update, and the devices must be either:
+* You must running at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
    * [Azure AD-joined](../device-management-azure-portal.md)
    or
    * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
@@ -121,7 +121,7 @@ When testing this functionality using Remote Desktop or an Enhanced VM Session, 
 
 * Password reset is not currently supported from a Remote Desktop.
 
-If Ctrl+Alt+Del is required by policy in versions of Windows 10 before 1809, **Reset password** will not work.
+If Ctrl+Alt+Del is required by policy in versions of Windows 10 before v1809, **Reset password** will not work.
 
 If lock screen notifications are turned off, **Reset password** will not work.
 

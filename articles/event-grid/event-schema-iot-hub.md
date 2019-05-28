@@ -29,6 +29,7 @@ Azure IoT Hub emits the following event types:
 | Microsoft.Devices.DeviceDeleted | Published when a device is deleted from an IoT hub. | 
 | Microsoft.Devices.DeviceConnected | Published when a device is connected to an IoT hub. |
 | Microsoft.Devices.DeviceDisconnected | Published when a device is disconnected from an IoT hub. | 
+| Microsoft.Devices.DeviceTelemetry | Published when a telemetry message is sent to an IoT hub. |
 
 ## Example event
 
@@ -52,6 +53,40 @@ The schema for DeviceConnected and DeviceDisconnected events have the same struc
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+The DeviceTelemetry event is raised when a telemetry event is sent to an IoT Hub. A sample schema for this event is shown below.
+
+```json
+[{
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+          },
+          "Location": "USA"        
+      },
+        "properties": {            
+          "Status": "Active"        
+        },
+        "systemProperties": {            
+            "iothub-content-type": "application/json",
+            "iothub-content-encoding": "utf-8",
+            "iothub-connection-device-id": "d1",
+            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+            "iothub-connection-auth-generation-id": "123455432199234570",
+            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+            "iothub-message-source": "Telemetry"        
+        }    
+    },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -125,7 +160,9 @@ For all IoT Hub events, the data object contains the following properties:
 | hubName | string | Name of the IoT Hub where the device was created or deleted. |
 | deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
-The contents of the data object are different for each event publisher. For **Device Connected** and **Device Disconnected** IoT Hub events, the data object contains the following properties:
+The contents of the data object are different for each event publisher. 
+
+For **Device Connected** and **Device Disconnected** IoT Hub events, the data object contains the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -133,7 +170,15 @@ The contents of the data object are different for each event publisher. For **De
 | deviceConnectionStateEventInfo | object | Device connection state event information
 | sequenceNumber | string | A number which helps indicate order of device connected or device disconnected events. Latest event will have a sequence number that is higher than the previous event. This number may change by more than 1, but is strictly increasing. See [how to use sequence number](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-The contents of the data object are different for each event publisher. For **Device Created** and **Device Deleted** IoT Hub events, the data object contains the following properties:
+For **Device Telemetry** IoT Hub event, the data object contains the device-to-cloud message in [IoT hub message format](../iot-hub/iot-hub-devguide-messages-construct.md) and has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| body | string | The content of the message from the device. |
+| properties | string | Application properties are user-defined strings that can be added to the message. These fields are optional. |
+| system properties | string | [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) help identify contents and source of the messages. |
+
+For **Device Created** and **Device Deleted** IoT Hub events, the data object contains the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
