@@ -39,6 +39,7 @@ Your total snapshot size exceeds the limit of 300.0 MB
 ```
 
 Try one of the following solutions to resolve the error.
+
 Experiment requirement|Storage limit solution
 ---|---
 Very large files| Move files to a datastore, and specify the datastore as your source_directory to prevent latency issues when the script folder is copied to the compute target environment at runtime.
