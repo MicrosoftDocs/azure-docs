@@ -16,10 +16,6 @@ Support for private domains is implemented by using the Private Zones feature. T
 
 For information on other internal DNS options in Azure, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-## What's the difference between Registration virtual network and Resolution virtual network in the context of private zones?
-
-You can link virtual networks to a DNS private zone as a Registration virtual network or as a Resolution virtual network. In either case, virtual machines in the virtual network successfully resolve against records in the private zone. With a Registration virtual network, DNS records are automatically registered into the zone for the virtual machines in the virtual network. When a virtual machine in a Registration virtual network is deleted, the corresponding DNS record from the linked private zone is automatically removed.
-
 ## Will Azure DNS Private Zones work across Azure regions?
 
 Yes. Private Zones is supported for DNS resolution between virtual networks across Azure regions. Private Zones works even without explicitly peering the virtual networks. All the virtual networks must be specified as Resolution virtual networks for the private zone. Customers might need the virtual networks to be peered for TCP/HTTP traffic to flow from one region to another.
@@ -32,29 +28,29 @@ No. Private zones work along with virtual networks. Customers use them to manage
 
 Yes. You can associate up to 1000 virtual networks with a single private zone.
 
-## Can a virtual network that belongs to a different subscription be added as a Resolution virtual network to a private zone?
+## Can a virtual network that belongs to a different subscription be added as a linked virtual network to a private zone?
 
 Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several RBAC roles. For example, the Classic Network Contributor RBAC role has write permissions to virtual networks. For more information on RBAC roles, see [Role-based access control](../role-based-access-control/overview.md).
 
 ## Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when you delete the virtual machine?
 
-Yes. If you delete a virtual machine within a Registration virtual network, the registered records are automatically deleted.
+Yes. If you delete a virtual machine within a linked virtual network with autoregistration enabled, the registered records are automatically deleted.
 
-## Can an automatically registered virtual machine record in a private zone from a Registration virtual network be deleted manually?
+## Can an automatically registered virtual machine record in a private zone from a linked virtual network be deleted manually?
 
 Yes. You can overwrite the automatically registered DNS records with a manually created DNS record in the zone. The following question and answer address this topic.
 
-## What happens when I try to manually create a new DNS record into a private zone that has the same hostname as an automatically registered existing virtual machine in a Registration virtual network?
+## What happens when I try to manually create a new DNS record into a private zone that has the same hostname as an automatically registered existing virtual machine in a linked virtual network?
 
-You try to manually create a new DNS record into a private zone that has the same hostname as an existing, automatically registered virtual machine in a Registration virtual network. When you do, the new DNS record overwrites the automatically registered virtual machine record. If you try to delete this manually created DNS record from the zone again, the delete succeeds. The automatic registration happens again as long as the virtual machine still exists and has a private IP attached to it. The DNS record is re-created automatically in the zone.
+You try to manually create a new DNS record into a private zone that has the same hostname as an existing, automatically registered virtual machine in a linked virtual network. When you do, the new DNS record overwrites the automatically registered virtual machine record. If you try to delete this manually created DNS record from the zone again, the delete succeeds. The automatic registration happens again as long as the virtual machine still exists and has a private IP attached to it. The DNS record is re-created automatically in the zone.
 
-## What happens when we unlink a Registration virtual network from a private zone? Will the automatically registered virtual machine records from the virtual network be removed from the zone too?
+## What happens when we unlink a linked virtual network from a private zone? Will the automatically registered virtual machine records from the virtual network be removed from the zone too?
 
-Yes. To unlink a Registration virtual network from a private zone, you update the DNS zone to remove the associated virtual network link. In this process, virtual machine records that were automatically registered are removed from the zone. 
+Yes. To unlink a linked virtual network from a private zone, you update the DNS zone to remove the associated virtual network link. In this process, virtual machine records that were automatically registered are removed from the zone.
 
-## What happens when we delete a Registration or Resolution virtual network that's linked to a private zone? Do we have to manually update the private zone to unlink the virtual network as a Registration or Resolution  virtual network from the zone?
+## What happens when we delete a linked virtual network that's linked to a private zone? Do we have to manually update the private zone to unlink the virtual network as a linked virtual network from the zone?
 
-Yes. When you delete a Registration or Resolution virtual network without unlinking it from a private zone first, your deletion operation succeeds. But the virtual network isn't automatically unlinked from your private zone, if any. You must manually unlink the virtual network from the private zone. For this reason,  unlink your virtual network from your private zone before you delete it.
+Yes. When you delete a linked virtual network without unlinking it from a private zone first, your deletion operation succeeds. But the virtual network isn't automatically unlinked from your private zone, if any. You must manually unlink the virtual network from the private zone. For this reason,  unlink your virtual network from your private zone before you delete it.
 
 ## Will DNS resolution by using the default FQDN (internal.cloudapp.net) still work even when a private zone (for example, private.contoso.com) is linked to a virtual network?
 
@@ -69,7 +65,7 @@ No. The DNS suffix on the virtual machines in your linked virtual network stays 
 Yes. During the public preview, the following limitations exist:
 
 * Reverse DNS works only for private IP space in the Registration virtual network.
-* Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix can't be resolved. An example is a private IP for a virtual machine in a virtual network that's linked as a Resolution virtual network to a private zone.
+* Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix can't be resolved. An example is a private IP for a virtual machine in a virtual network that's a linked virtual network to a private zone.
 * Conditional forwarding isn't supported, for example, to enable resolution between Azure and on-premises networks. Learn how customers can realize this scenario via other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Are there any quotas or limits on zones or records for private zones?
