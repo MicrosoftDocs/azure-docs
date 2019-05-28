@@ -13771,6 +13771,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference",
+      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference",
+      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference",
+      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference",
+      "redirect_url": "https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk.md",
       "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/sdk-csharp-quick-start",
       "redirect_document_id": false
