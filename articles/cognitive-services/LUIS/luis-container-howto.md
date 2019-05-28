@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: diberry
 ---
 
@@ -218,21 +218,24 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 |{ENDPOINT_KEY} | This key is used to start the container. Do not use the starter key. |
 |{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's `Cognitive Services` Overview page. You need to add the `luis/v2.0` routing to the endpoint URI as shown in the following example: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
-Replace these parameters with your own values in the following example `docker run` command.
+Replace these parameters with your own values in the following example `docker run` command. Run the command in the Windows console.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> The preceding command uses the directory off the `c:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
-> The preceding docker command uses the back slash, `\`, as a line continuation character. Replace or remove this based on your [host computer](#the-host-computer) operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
+* This example uses the directory off the `c:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
+* Do not change the order of the arguments unless you are very familiar with docker containers.
+* If you are using a different operating system, use the correct console/terminal, folder syntax for mounts, and line continuation character for your system. These examples assume a Windows console with a line continuation character `^`. Because the container is a Linux operating system, the target mount uses a Linux-style folder syntax.
+
 
 
 This command:

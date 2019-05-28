@@ -36,7 +36,7 @@ This section shows you how to trigger a mobile notification in the Flow mobile a
 
     ![Create a new Microsoft Flow action](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. You will see a list of workflows tha you have access to and are attached to this IoT Central rule. Click **Explore templates** or **New > Create from template** and you can choose from any of the templates available. 
+1. You will see a list of workflows that you have access to and are attached to this IoT Central rule. Click **Explore templates** or **New > Create from template** and you can choose from any of the templates available. 
 
     ![Available Microsoft Flow templates](media/howto-add-microsoft-flow/flowtemplates1.png)
 

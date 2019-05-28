@@ -39,10 +39,9 @@ To successfully complete your "content protection" system/application design, yo
   
    The example shows how to:
 
-   1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies). You need to create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients.    
 
       * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
-      * Configure DRM encryption by specifying the content key.
       * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
 
         ```
@@ -53,12 +52,11 @@ To successfully complete your "content protection" system/application design, yo
    2. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) that is configured to stream the encrypted asset. 
   
       The **Streaming Locator** has to be associated with a [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies). In the example, we set 
-      StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that we want 
-      for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and 
-      Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If 
+      StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and 
+      Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If 
       you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
-    
-      Since we want to encrypt the video, the **Content Key Policy** that we configured earlier also has to be associated with the **Streaming Locator**. 
+      
+      The Streaming Locator is also associated with the **Content Key Policy** that was defined.
     
    3. Create a test token.
 
