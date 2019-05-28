@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: batch
  ms.topic: include
- ms.date: 10/11/2018
+ ms.date: 05/28/2019
  ms.author: danlep
  ms.custom: include file
 ---
@@ -15,8 +15,7 @@
 | Azure Batch accounts per region per subscription | 1-3 |50 |
 | Dedicated cores per Batch account | 10-100 | Contact support |
 | Low-priority cores per Batch account | 10-100 | Contact support |
-| Active jobs and job schedules per Batch account | 100-300 | 1,000<sup>1</sup> |
-| Completed jobs and job schedules | Unlimited | Unlimited |
+| **[Active](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>1</sup> |
 | Pools per Batch account | 20-100 | 500<sup>1</sup> |
 
 > [!NOTE]
