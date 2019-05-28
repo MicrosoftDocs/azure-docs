@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/15/2019
+ms.date: 05/23/2019
 ms.author: rolyon
 
 ms.collection: M365-identity-device-management
@@ -38,6 +38,8 @@ Azure AD Terms of use has the following capabilities:
 - Require employees or guests to accept your Terms of use before getting access.
 - Require employees or guests to accept your Terms of use on every device before getting access.
 - Require employees or guests to accept your Terms of use on a recurring schedule.
+- Require employees or guests to accept your Terms of use prior to registering security information in Azure Multi-Factor Authentication (MFA).
+- Require employees to accept your Terms of use prior to registering security information in Azure AD self-service password reset (SSPR).
 - Present general Terms of use for all users in your organization.
 - Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../users-groups-roles/groups-dynamic-membership.md)).
 - Present specific Terms of use when accessing high business impact applications, like Salesforce.
