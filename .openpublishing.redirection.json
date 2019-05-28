@@ -31010,6 +31010,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference",
+      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
       "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
       "redirect_document_id": false
