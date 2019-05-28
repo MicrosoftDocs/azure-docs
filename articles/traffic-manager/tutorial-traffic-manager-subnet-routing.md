@@ -34,6 +34,7 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
 In order to see the Traffic Manager in action, this tutorial requires that you deploy the following:
 - two basic websites running in different Azure regions - **East US** (serves as internal website) and **West Europe** (serves as production website).
 - two test VMs for testing the Traffic Manager - one VM in **East US** and the second VM in **West Europe**.
