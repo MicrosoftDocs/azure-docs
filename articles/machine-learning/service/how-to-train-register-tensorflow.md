@@ -14,22 +14,21 @@ ms.custom: seodec18
 
 # Use Azure Machine Learning service to train and register TensorFlow models
 
-This article shows you how to train and register a TensorFlow model using Azure Machine Learning service. We'll be using the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network built on the TensorFlow framework.
+This article shows you how to train and register a TensorFlow model using Azure Machine Learning service. We'll be using the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network built on TensorFlow.
 
-With Azure Machine Learning service, you'll be able to rapidly scale out your open-source training jobs using elastic compute resources. You'll also be able to track your training runs, version models, deploy models, and much more. All from a single service.
-
-Whether you're looking to train a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service is here to support you.
+With Azure Machine Learning service, you'll be able to rapidly scale out your open-source training jobs using elastic cloud compute resources. You'll also be able to track your training runs, version models, deploy models, and much more. Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service is here to support you.
 
 ## Prerequisites
 
-- Azure Machine Learning service development environment
-  - Install the Azure Machine Learning SDK for Python
-  - Optional: Create a workspace configuration file
+- Install the Azure Machine Learning SDK for Python
+- Optional: Create a workspace configuration file
 - Sample training script files `mnist-tf.py` and `utils.py`
 
-You can follow the [quickstart](quickstart-run-cloud-notebook.md) for step-by-step instructions on setting up your environment. The sample training files can be found on our [GitHub samples page](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) along with the extended, Juypter Notebook version of this guide. The extended version includes hyperparameter tuning and model deployment as additional topics.
+You can follow the [Python SDK setup guide](setup-create-workspace.md#sdk) for step-by-step instructions on setting up your environment. The sample training files can be found on our [GitHub samples page](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) along with the extended, Juypter Notebook version of this guide.
 
-## Import packages
+## Setup the experiment
+
+### Import packages
 
 First, we'll need to import the necessary Python libraries.
 
@@ -46,7 +45,7 @@ from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 ```
 
-## Initialize workspace
+### Initialize a workspace
 
 The workspace object is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create.
 
@@ -67,7 +66,7 @@ ws = Workspace.create(name='<workspace-name>',
                       )
 ```
 
-## Create an experiment
+### Create an experiment
 
 Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "tf-mnist"
 
@@ -78,7 +77,7 @@ os.makedirs(script_folder, exist_ok=True)
 exp = Experiment(workspace=ws, name='tf-mnist')
 ```
 
-## Upload data and training scripts
+### Upload dataset and scripts
 
 The [datastore](how-to-access-data.md) is a place where data can be stored and accessed by mounting or copying the data to the compute target. Each workspace provides a default datastore. We'll upload our data and training scripts so that they can be easily accessed during training.
 
@@ -149,7 +148,7 @@ est = TensorFlow(source_directory=script_folder,
                  use_gpu=True)
 ```
 
-## Submit and monitor your run
+## Submit a run
 
 The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
 
@@ -158,7 +157,17 @@ run = exp.submit(est)
 run.wait_for_completion(show_output=True)
 ```
 
-## Register or download your model
+As the Run is executed, it will go through the following stages:
+
+- **Preparing**: A docker image is created according to the TensorFlow estimator's specifications. It's uploaded to the workspace's Azure Container Registry, and will be cached for subsequent runs. While the job is preparing, logs are streamed to the run history and can be viewed to monitor the progress of the image creation.
+
+- **Scaling**: If the compute needs to be scaled up (i.e. the Batch AI cluster requires more nodes to execute the run than currently available), the cluster will attempt to scale up in order to make the required amount of nodes available.
+
+- **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted/copied and the entry_script is executed. While the job is running, stdout and the ./logs folder are streamed to the run history and can be viewed to monitor the progress of the run.
+
+- **Post-Processing**: The ./outputs folder of the run is copied over to the run history
+
+## Register or download a model
 
 Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
 
@@ -237,7 +246,7 @@ You'll also need the network addresses and ports of the cluster for the [`tf.tra
 
 The `TF_CONFIG` environment variable is a JSON string. Here is an example of the variable for a parameter server:
 
-```
+```JSON
 TF_CONFIG='{
     "cluster": {
         "ps": ["host0:2222", "host1:2222"],
@@ -266,7 +275,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## Next Steps
 
-In this article, you trained and registered a TensorFlow model on Azure Machine Learning service. To learn how to deploy a model, continue to the deployment article.
+In this article, you trained and registered a TensorFlow model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
 
 > [!div class="nextstepaction"]
-> [How to deploy and where](how-to-deploy-and-where.md)
+> [How and where to deploy models](how-to-deploy-and-where.md)
