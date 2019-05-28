@@ -35,15 +35,14 @@ A summary of the steps to lock down egress from your existing HDInsight with Azu
 
 1. Create a subnet named **AzureFirewallSubnet** in the virtual network where your cluster exists. 
 1. Create a new firewall **Test-FW01** using the steps in [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
-1. Select the new firewall from the Azure portal. Click **Rules** under **Settings** > **Application rule collection** > **Add application rule collection**.
-
-    ![Title: Add application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 ### Configure the firewall with application rules
 
 Create an application rule collection that allows the cluster to send and receive important communications.
 
 Select the new firewall **Test-FW01** from the Azure portal. Click **Rules** under **Settings** > **Application rule collection** > **Add application rule collection**.
+
+![Title: Add application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 On the **Add application rule collection** screen, complete the following steps:
 

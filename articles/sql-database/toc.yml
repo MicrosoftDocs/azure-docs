@@ -296,6 +296,8 @@
         href: transparent-data-encryption-byok-azure-sql.md
     - name: Security attributes
       href: sql-database-security-attributes.md
+    - name: Feature restrictions
+      href: sql-database-feature-restrictions.md
   - name: Scalability
     items:
     - name: Scalability overview
