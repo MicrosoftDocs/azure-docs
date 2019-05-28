@@ -67,7 +67,7 @@ if (result == K4A_STREAM_RESULT_FAILED)
 }
 ```
 
-### Seeking within a recording
+### Seek within a recording
 
 Once we've reached the end of the file, we may want to go back and read it again. This process could be done by reading backwards with
 [`k4a_playback_get_previous_capture()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga54732e3aa0717e1ca4eb76ee385e878c.html#ga54732e3aa0717e1ca4eb76ee385e878c), but it could be very slow depending on the length of the recording.
