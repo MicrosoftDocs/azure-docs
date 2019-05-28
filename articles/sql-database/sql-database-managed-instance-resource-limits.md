@@ -54,6 +54,7 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192 - 1,920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |
+| Max sessions | 30000 | 30000 |
 
 **Notes**:
 
