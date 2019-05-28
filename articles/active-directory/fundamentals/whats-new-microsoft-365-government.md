@@ -1,5 +1,5 @@
 ---
-title: What’s New in Azure Active Directory in Microsoft 365 Government - Azure Active Directory | Microsoft Docs
+title: What’s new for Azure Active Directory in Microsoft 365 Government - Azure Active Directory | Microsoft Docs
 description: Learn about some changes to Azure Active Directory (Azure AD) in the Microsoft 365 Government cloud instance, which might impact you.
 services: active-directory
 author: eross-msft
@@ -16,7 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# What's New in Azure Active Directory in Microsoft 365 Government
+# What's new for Azure Active Directory in Microsoft 365 Government
 
 We've made some changes to Azure Active Directory (Azure AD) in the Microsoft 365 Government cloud instance, which is applicable to customers using the following services:
 
@@ -44,6 +44,7 @@ We've updated the portal endpoints for Microsoft Azure Government, Microsoft 365
 Previously customers could sign in using the worldwide Azure (portal.azure.com) and Office 365 (portal.office.com) portals. With this update, customers must now sign in using the specific Microsoft Azure Government, Microsoft 365 Government - GCC High, and Microsoft 365 Government - DoD portals.
 
 ## Endpoint mapping
+
 The following table shows the endpoints for all customers:
 
 | Name | Endpoint details |
@@ -57,7 +58,7 @@ The following table shows the endpoints for all customers:
 | Microsoft 365 Government - GCC High endpoints | For details, see [Office 365 U.S. Government GCC High endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
 | Microsoft 365 Government - DoD | For details, see [Office 365 U.S. Government DoD endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
-## Learn more
+## Next steps
 
 For more information, see these articles:
 
