@@ -36,6 +36,11 @@ With Visual Studio tooling you can develop and publish Service Fabric .Net Core 
 ## Deploy to a remote cluster
 1. In the solution explorer, right click on the application and select **Build**.
 ![build-application]
+
+> [!Note]
+> Steps 2 and 3 are only required if the service is an Actor project type. If your application does not have an actor service, skip to step 4. 
+>
+
 2. Once the build process for the application has completed, right click on the service and select edit the **csproj file**.
 ![edit-csproj]
 3. Edit the UpdateServiceFabricManifestEnabled property from True to **False**.
