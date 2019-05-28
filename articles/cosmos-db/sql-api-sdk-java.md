@@ -194,7 +194,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="1.2.0"/>1.2.0
 * Supports GeoSpatial Index
-* Validates id property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
+* Validates ID property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0
@@ -211,6 +211,11 @@ New features and functionality and optimizations are only added to the current S
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
+> All versions **1.x** of the SQL SDK for Java will be retired on **May 30, 2020**.
+> 
+>
+
+> [!WARNING]
 > All versions of the SQL SDK for Java prior to version **1.0.0** were retired on **February 29, 2016**.
 > 
 > 
@@ -224,37 +229,37 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
 | [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |Sept 21, 2018 |--- |
-| [1.16.4](#1.16.4) |Sept 10, 2018 |--- |
-| [1.16.3](#1.16.3) |Sept 09, 2018 |--- |
-| [1.16.2](#1.16.2) |June 29, 2018 |--- |
-| [1.16.1](#1.16.1) |May 16, 2018 |--- |
-| [1.16.0](#1.16.0) |March 15, 2018 |--- |
-| [1.15.0](#1.15.0) |Nov 14, 2017 |--- |
-| [1.14.0](#1.14.0) |Oct 28, 2017 |--- |
-| [1.13.0](#1.13.0) |August 25, 2017 |--- |
-| [1.12.0](#1.12.0) |July 11, 2017 |--- |
-| [1.11.0](#1.11.0) |May 10, 2017 |--- |
-| [1.10.0](#1.10.0) |March 11, 2017 |--- |
-| [1.9.6](#1.9.6) |February 21, 2017 |--- |
-| [1.9.5](#1.9.5) |January 31, 2017 |--- |
-| [1.9.4](#1.9.4) |November 24, 2016 |--- |
-| [1.9.3](#1.9.3) |October 30, 2016 |--- |
-| [1.9.2](#1.9.2) |October 28, 2016 |--- |
-| [1.9.1](#1.9.1) |October 26, 2016 |--- |
-| [1.9.0](#1.9.0) |October 03, 2016 |--- |
-| [1.8.1](#1.8.1) |June 30, 2016 |--- |
-| [1.8.0](#1.8.0) |June 14, 2016 |--- |
-| [1.7.1](#1.7.1) |April 30, 2016 |--- |
-| [1.7.0](#1.7.0) |April 27, 2016 |--- |
-| [1.6.0](#1.6.0) |March 29, 2016 |--- |
-| [1.5.1](#1.5.1) |December 31, 2015 |--- |
-| [1.5.0](#1.5.0) |December 04, 2015 |--- |
-| [1.4.0](#1.4.0) |October 05, 2015 |--- |
-| [1.3.0](#1.3.0) |October 05, 2015 |--- |
-| [1.2.0](#1.2.0) |August 05, 2015 |--- |
-| [1.1.0](#1.1.0) |July 09, 2015 |--- |
-| 1.0.1 |May 12, 2015 |--- |
-| [1.0.0](#1.0.0) |April 07, 2015 |--- |
+| [1.16.4](#1.16.4) |Sept 10, 2018 |May 30, 2020 |
+| [1.16.3](#1.16.3) |Sept 09, 2018 |May 30, 2020 |
+| [1.16.2](#1.16.2) |June 29, 2018 |May 30, 2020 |
+| [1.16.1](#1.16.1) |May 16, 2018 |May 30, 2020 |
+| [1.16.0](#1.16.0) |March 15, 2018 |May 30, 2020 |
+| [1.15.0](#1.15.0) |Nov 14, 2017 |May 30, 2020 |
+| [1.14.0](#1.14.0) |Oct 28, 2017 |May 30, 2020 |
+| [1.13.0](#1.13.0) |August 25, 2017 |May 30, 2020 |
+| [1.12.0](#1.12.0) |July 11, 2017 |May 30, 2020 |
+| [1.11.0](#1.11.0) |May 10, 2017 |May 30, 2020 |
+| [1.10.0](#1.10.0) |March 11, 2017 |May 30, 2020 |
+| [1.9.6](#1.9.6) |February 21, 2017 |May 30, 2020 |
+| [1.9.5](#1.9.5) |January 31, 2017 |May 30, 2020 |
+| [1.9.4](#1.9.4) |November 24, 2016 |May 30, 2020 |
+| [1.9.3](#1.9.3) |October 30, 2016 |May 30, 2020 |
+| [1.9.2](#1.9.2) |October 28, 2016 |May 30, 2020 |
+| [1.9.1](#1.9.1) |October 26, 2016 |May 30, 2020 |
+| [1.9.0](#1.9.0) |October 03, 2016 |May 30, 2020 |
+| [1.8.1](#1.8.1) |June 30, 2016 |May 30, 2020 |
+| [1.8.0](#1.8.0) |June 14, 2016 |May 30, 2020 |
+| [1.7.1](#1.7.1) |April 30, 2016 |May 30, 2020 |
+| [1.7.0](#1.7.0) |April 27, 2016 |May 30, 2020 |
+| [1.6.0](#1.6.0) |March 29, 2016 |May 30, 2020 |
+| [1.5.1](#1.5.1) |December 31, 2015 |May 30, 2020 |
+| [1.5.0](#1.5.0) |December 04, 2015 |May 30, 2020 |
+| [1.4.0](#1.4.0) |October 05, 2015 |May 30, 2020 |
+| [1.3.0](#1.3.0) |October 05, 2015 |May 30, 2020 |
+| [1.2.0](#1.2.0) |August 05, 2015 |May 30, 2020 |
+| [1.1.0](#1.1.0) |July 09, 2015 |May 30, 2020 |
+| 1.0.1 |May 12, 2015 |May 30, 2020 |
+| [1.0.0](#1.0.0) |April 07, 2015 |May 30, 2020 |
 | 0.9.5-prelease |Mar 09, 2015 |February 29, 2016 |
 | 0.9.4-prelease |February 17, 2015 |February 29, 2016 |
 | 0.9.3-prelease |January 13, 2015 |February 29, 2016 |
