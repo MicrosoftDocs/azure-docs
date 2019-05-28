@@ -38,14 +38,41 @@ An Azure PowerShell script is available that does the following:
 
 Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
-## Install the script
+## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
 
-* If you don’t have the Azure Az modules installed, or don’t mind uninstalling the Azure Az modules, the best option is to go with the “Install-Script” option to install the script.
-* If you need to keep the Azure Az modules, your best bet is to download the script and run it.
+* If you don’t have the Azure Az modules installed, or don’t mind uninstalling the Azure Az modules, the best option is to use the `Install-Script` option to run the script.
+* If you need to keep the Azure Az modules, your best bet is to download the script and run it directly.
 
-To determine 
+To determine if you have the Azure Az modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az modules, then you can use the `Install-Script` method.
+
+### Install using the `Install-Script` method
+
+To use this option, you must not have the Azure Az modules installed on our client machine. If they are installed, the following command displays an error. You can either uninstall the Azure Az  modules to proceed, or use the other option to download the script manually and run it.
+  
+Run the script with the following command:
+
+`Install-Script -Name AzureAppGWMigration`
+
+This command also installs the required Az modules.  
+
+### Install running the script directly
+
+If you do have some Azure Az modules installed and cannot uninstall them (or do not wish to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](https://docs.microsoft.com/en-us/powershell/gallery/how-to/working-with-packages/manual-download).
+
+To run the script:
+1. Use `Connct-AzAccount` to connect to Azure.
+1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters.
+
+   The following are the parameters for the script:
+   * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click on the **Properties** link for the gateway. The Resource ID is located on that page. You can also get the Resource ID by running the following commands within PowerShell:
+
+     ```azurepowershell
+     $appgw = Get-AzApplicationGateway -Name <v1 gateway name> -ResourceGroupName <resource group Name> 
+     $appgw.Id
+     ```
+
 
 ## Next steps
 
