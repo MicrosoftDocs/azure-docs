@@ -134,9 +134,7 @@ The third level displays virtual machines, which is similar to what is described
 |Machine|10|Add a next generation firewall|Add a Next Generation Firewall (NGFW) solution to better protect your internet facing VMs.|
 |Machine|5|Route traffic through network gateway firewall only|In order to complete the deployment of your next generation firewall solution, traffic to your protected internet facing VMs should be routed only via the next generation firewall solution.|
 |VNet|5|Enable DDoS protection standard|Applications with public IPs in these virtual networks are not protected with the DDOS protection service standard. It is advised to enable it to enable mitigation of network volumetric and protocol attacks.|
-|Machine|10|Add a next generation firewall|dd a Next Generation Firewall (NGFW) solution to better protect your Internet facing VMs.|
-|Machine|5|Route traffic through network gateway firewall only|In order to complete the deployment of your next generation firewall solution, traffic to your protected Internet facing VMs should be routed only via the next generation firewall solution.|
-Vnet|5|DDoS Protection Standard should be enabled|Applications with public IP addresses in these virtual networks are not protected with the DDOS protection service standard. It is advised to enable it to enable mitigation of network volumetric and protocol attacks.|
+
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following:
 

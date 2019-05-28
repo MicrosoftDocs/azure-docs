@@ -187,16 +187,20 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |App service|10|Do not allow all ('*') resources to access your application| Do not allow set of WEBSITE_LOAD_CERTIFICATES parameter to "". Setting the parameter to ‘’ means that all certificates are loaded to your web applications personal certificate store. This can lead to abuse of the principle of least privilege as it is unlikely that the site needs access to all certificates at runtime.|
 |App service|20|CORS should not allow every resource to access your Web applications|Allow only required domains to interact with your web application. Cross origin resource sharing (CORS) should not allow all domains to access your web application.|
 |App service|20|CORS should not allow every resource to access your Function App| Allow only required domains to interact with your function application. Cross origin resource sharing (CORS) should not allow all domains to access your function application.|
-|
-
-
-Compute resources (batch)|1|Metric alert rules should be configured on Batch accounts|Configure metric alert rules on Batch account and enable the metrics Pool Delete Complete Events and Pool Delete Start Events|
+|Compute resources (batch)|1|Metric alert rules should be configured on Batch accounts|Configure metric alert rules on Batch account and enable the metrics Pool Delete Complete Events and Pool Delete Start Events|
 |Compute resources (service fabric)|10|Use Azure Active Directory for client authentication in Service Fabric|Perform Client authentication only via Azure Active Directory in Service Fabric.|
-|Compute resources (automation account)|5|Encryption should be enabled on Automation account variables|Enable encryption of Automation account variable assets when storing sensitive data.|
+|Compute resources (automation account)|5|Automation account variables should be encrypted|Enable encryption of Automation account variable assets when storing sensitive data.|
 |Compute resources (Load balancer)|5|Enable diagnostic logs in Load Balancer|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Compute resources (search)|5|Diagnostics logs in Search services should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Compute resources (service bus)|5|Enable diagnostics logs in Service Bus|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Compute resources (stream analytics)|5|Enable diagnostics logs in Azure Stream Analytics|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+
+
+|Compute resources (search)|5|Audit enabling of diagnostic logs for Search services|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+
+
+
+|Compute resources (service bus)|5|Diagnostics logs in Service Bus should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+|Compute resources (stream analytics)|5|Diagnostics logs in Azure Stream Analytics should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+
+
 |Compute resources (service fabric)|5|Enable diagnostics logs in Service Fabric|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Compute resources (batch)|5|Enable diagnostic logs in Batch accounts|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Compute resources (event hub)|5|Diagnostics logs in Event Hub should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
@@ -205,6 +209,10 @@ Compute resources (batch)|1|Metric alert rules should be configured on Batch acc
 |Compute resources (service bus)|1|Remove all authorization rules except RootManageSharedAccessKey from Service Bus namespace |Service Bus clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
 |Compute resources (event hub)|1|All authorization rules except RootManageSharedAccessKey should be removed from Event Hub namespace|Event Hub clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
 |Compute resources (event hub)|5|Define authorization rules on the Event Hub entity|Audit authorization rules on the Event Hub entity to grant least-privileged access.|
+
+
+
+
 |Machine|50|Install monitoring agent on your machines|Install the Monitoring agent to enable data collection, updates scanning, baseline scanning, and endpoint protection on each machine.|
 |Machine|50|Enable automatic provisioning and data collection for your subscriptions |Enable automatic provisioning and data collection for machines in your subscriptions to enable data collection, updates scanning, baseline scanning, and endpoint protection on each machine added to your subscriptions.|
 |Machine|40|Resolve monitoring agent health issues on your machines|For full Security Center protection, resolve monitoring agent issues on your machines by following the instructions in the Troubleshooting guide| 
@@ -225,6 +233,10 @@ Compute resources (batch)|1|Metric alert rules should be configured on Batch acc
 |Machine|30|Install a vulnerability assessment solution on your virtual machines|Install a vulnerability assessment solution on your virtual machines|
 |Machine|1|Migrate virtual machines to new Azure Resource Manager resources|Use  Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
 |Machine|30|Remediate vulnerabilities using a vulnerability assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
+
+
+
+
 |Virtual machine scale set |4|Enable diagnostics logs in Virtual Machine Scale Sets|Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes. This is useful when a security incident occurs, or your network is compromised.|
 |Virtual machine scale set|35|Remediate vulnerabilities in security configuration on your virtual machine scale sets|Remediate vulnerabilities in security configuration on your virtual machine scale sets to protect them from attacks. |
 |Virtual machine scale set|5|Remediate endpoint protection health failures on virtual machine scale sets|Remediate endpoint protection health failures on your virtual machine scale sets to protect them from threats and vulnerabilities. |
