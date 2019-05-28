@@ -45,15 +45,15 @@ Here are the differences between these triggers:
 
 * **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If recurrences are missed, the Recurrence trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval. You can specify a start date and time as well as the time zone. If you select "Day", you can specify hours of the day and minutes of the hour, for example, every day at 2:30. If you select "Week", you can also select days of the week, such as Wednesday and Saturday. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
-* **Sliding Window**: Runs your workflow at regular time intervals that handle data in continuous chunks. If recurrences are missed, the Sliding Window trigger goes back and processes the missed recurrences. You can specify a start date and time, time zone, and a duration to delay the workflow. This trigger doesn't have options to specify days, weeks, and months, hours of the day, minutes of the hour, and days of the week. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
+* **Sliding Window**: Runs your workflow at regular time intervals that handle data in continuous chunks. If recurrences are missed, the Sliding Window trigger goes back and processes the missed recurrences. You can specify a start date and time, time zone, and a duration to delay each recurrence in your workflow. This trigger doesn't have options to specify days, weeks, and months, hours of the day, minutes of the hour, and days of the week. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
 
 ## Schedule actions
 
-After any action in your logic app workflow, you can use the Delay and Delay Until actions for adding a pause in your workflow before the next action runs.
+After any action in your logic app workflow, you can use the Delay and Delay Until actions to make your workflow wait before the next action runs.
 
-* **Delay**: Pauses for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months. For more information, see [Pause workflows with delay actions](../connectors/connectors-native-delay.md).
+* **Delay**: Wait to run the next action for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months. For more information, see [Delay the next action in workflows](../connectors/connectors-native-delay.md).
 
-* **Delay until**: Pauses until the specified date and time. For more information, see [Pause workflows with delay actions](../connectors/connectors-native-delay.md).
+* **Delay until**: Wait to run the next action until the specified date and time. For more information, see [Delay the next action in workflows](../connectors/connectors-native-delay.md).
 
 ## Patterns for start date and time
 

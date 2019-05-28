@@ -60,7 +60,7 @@ For differences between this trigger and the Recurrence trigger or for more info
 
    | Property | Required | JSON name | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Delay** | No | delay | String | The duration to delay using the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+   | **Delay** | No | delay | String | The duration to delay each recurrence using the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Time zone** | No | timeZone | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. |
    | **Start time** | No | startTime | String | Provide a start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and select a time zone such as Pacific Standard Time. Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for advanced recurrences, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
@@ -94,5 +94,5 @@ This example shows how a Sliding Window trigger definition might look in an unde
 
 ## Next steps
 
-* [Pause workflows with delay actions](../connectors/connectors-native-delay.md)
+* [Delay the next action in workflows](../connectors/connectors-native-delay.md)
 * [Connectors for Logic Apps](../connectors/apis-list.md)
