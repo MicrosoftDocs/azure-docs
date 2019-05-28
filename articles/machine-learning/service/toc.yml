@@ -130,8 +130,8 @@
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
       href: how-to-enable-logging.md 
-    - name: Establish experiment directory
-      displayName: large data, write, error
+    - name: Set input & output directories
+      displayName: large data, write, experiment files, size limit
       href: how-to-save-write-experiment-files.md 
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
