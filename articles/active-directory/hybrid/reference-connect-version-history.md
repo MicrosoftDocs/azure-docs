@@ -1024,7 +1024,7 @@ Released: May 2016
 
 * Warns and helps you verify domains if you didn’t do it before running Azure AD Connect.
 * Added support for [Microsoft Cloud Germany](reference-connect-instances.md#microsoft-cloud-germany).
-* Added support for the latest [Microsoft Azure Government cloud](reference-connect-instances.md#microsoft-azure-government-cloud) infrastructure with new URL requirements.
+* Added support for the latest [Microsoft Azure Government cloud](reference-connect-instances.md#microsoft-azure-government) infrastructure with new URL requirements.
 
 **Fixed issues and improvements:**
 
