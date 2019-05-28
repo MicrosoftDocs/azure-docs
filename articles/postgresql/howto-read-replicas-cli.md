@@ -12,8 +12,8 @@ ms.date: 5/6/2019
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure CLI. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
-> [!NOTE]
-> Azure CLI does not yet support creating replicas in a different region from the master server. To create a cross-region replica, use the [Azure portal](howto-read-replicas-portal.md).
+> [!IMPORTANT]
+> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
 
 ## Prerequisites
 - An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md) to be the master server.

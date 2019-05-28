@@ -12,8 +12,8 @@ ms.date: 04/29/2019
 
 In this article, you will learn how to create and manage read replicas within the same Azure region as the master in the Azure Database for MySQL service using the Azure CLI.
 
-> [!NOTE]
-> Azure CLI does not yet support creating replicas in a different region from the master server. To create a cross-region replica, use the [Azure portal]( howto-read-replicas-portal.md) instead.
+> [!IMPORTANT]
+> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
 
 ## Prerequisites
 
