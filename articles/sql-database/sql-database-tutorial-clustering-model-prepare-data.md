@@ -153,8 +153,10 @@ Now return the results from the query to R using the **rxSqlServerData** functio
 In the process, you define the type for the selected columns (using colClasses) to make sure that the types are correctly transferred to R.
 
 ```r
-# Query SQL Server using input_query and get the results back to data frame customer_returns
-# Define the types for selected columns (using colClasses), to make sure that the types are correctly transferred to R
+# Query SQL Server using input_query and get the results back
+# to data frame customer_returns
+# Define the types for selected columns (using colClasses),
+# to make sure that the types are correctly transferred to R
 customer_returns <- RxSqlServerData(
                      sqlQuery=input_query,
                      colClasses=c(customer ="numeric",
