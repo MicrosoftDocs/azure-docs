@@ -192,7 +192,7 @@ cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
 
 Because you stored the clustering procedure in the database, it can perform clustering efficiently against customer data stored in the same database. You can execute the procedure whenever your customer data is updated and use the updated clustering information.
 
-Suppose you want to send a promotional email to customers in cluster 3, the group that has more active return behavior (see how the clusters were defined in [part two](sql-database-tutorial-clustering-model-build.md#analyze-the-results)). The following code selects the email addresses of customers in cluster 3.
+Suppose you want to send a promotional email to customers in cluster 3, the group that has more active return behavior (you can see how the clusters were defined in [part one](sql-database-tutorial-clustering-prepare-data.md#load-the-data)). The following code selects the email addresses of customers in cluster 3.
 
 ```sql
 USE [tpcxbb_1gb]
