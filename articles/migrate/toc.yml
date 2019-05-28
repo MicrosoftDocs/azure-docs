@@ -44,8 +44,14 @@
       href: migrate-best-practices-costs.md
   - name: Migration examples-Contoso series
     href: contoso-migration-overview.md
-  - name: Discover and assess a large environment
-    href: how-to-scale-assessment.md
+  - name: Scale assessment and migration
+    items:
+    - name: Assess large numbers of VMware VMs
+      href: scale-vmware-assessment.md
+    - name: Assess large numbers of Hyper-V VMs
+      href: scale-hyper-v-assessment.md
+    - name: Scale an assessment
+      href: how-to-scale-assessment.md
   - name: Group machines
     href: how-to-create-a-group.md
   - name: Group machines using machine dependencies
