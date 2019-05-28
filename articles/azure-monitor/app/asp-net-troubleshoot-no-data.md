@@ -30,7 +30,7 @@ ms.author: mbullwin
 
 *I'm experiencing data loss in Console App or on Web App when app is about to stop.*
 
-* SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data()). Behavior of `Flush()` depends on the actual [channel](telemetry-channels#built-in-telemetrychannels) used.
+* SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data()). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetrychannels) used.
 
 ## No data from my server
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
