@@ -43,10 +43,10 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers Genera
 
 Generation 2 VMs support the following Azure Marketplace images:
 
-* Windows server 2019 Datacenter
-* Windows server 2016 Datacenter
-* Windows server 2012 R2 Datacenter
-* Windows server 2012 Datacenter
+* Windows Server 2019 Datacenter
+* Windows Server 2016 Datacenter
+* Windows Server 2012 R2 Datacenter
+* Windows Server 2012 Datacenter
 
 ## On-premises vs Azure generation 2 VMs
 
