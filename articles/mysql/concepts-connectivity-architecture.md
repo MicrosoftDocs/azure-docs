@@ -15,21 +15,15 @@ This article explains the Azure Database for MySQL connectivity architecture as 
 ## Connectivity Architecture
 The following diagram provides a high-level overview of the Azure Database for MySQL connectivity architecture.
 
-![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview.png)
+![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-The following steps describe how a connection is established to an Azure SQL database:
+The following steps describe how a connection is established to an Azure Database for MySQL:
 * Clients connect to the gateway, that has a public IP address and listens on port 3306.
 * Inside the database cluster traffic is forwarded to appropriate Azure Database for MySQL.
 
-## Connection Policy
-Azure Database for MySQL supports the following options for the connection policy setting of a MySQL Database server:
-* Proxy: In this mode, all connections are proxied via the Azure Database for MySQL gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure Database for MySQL gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload.
-
-## Connectivity from outside of Azure
+Azure Database for MySQL supports **Proxy** mode for the connection policy setting of a MySQL Database server. In this mode, all connections are proxied via the Azure Database for MySQL gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure Database for MySQL gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload.
 
 If you are connecting from outside Azure, your connections have a connection policy of Proxy by default. A policy of Proxy means that the TCP session is established via the Azure Database for MySQL gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
-
-![Overview of the connectivity architecture with proxy](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
 ## Azure Database for MySQL gateway IP addresses
 To connect to an Azure Database for MySQL from on-premises resources, you need to allow outbound network traffic to the Azure Database for MySQL gateway for your Azure region. Your connections only go via the gateway when connecting in Proxy mode, which is the default when connecting from on-premises resources.
