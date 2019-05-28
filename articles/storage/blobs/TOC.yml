@@ -34,7 +34,7 @@
       - name: Python
         href: storage-quickstart-blobs-python.md
       - name: JS/HTML
-        href: storage-quickstart-blobs-javascript-client-libraries.md
+        href: storage-quickstart-blobs-javascript-client-libraries-v10.md
       - name: Go
         href: storage-quickstart-blobs-go.md
       - name: PHP

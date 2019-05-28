@@ -15,21 +15,21 @@ ms.subservice: blobs
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# Quickstart: Upload, list, and delete blobs using JavaScript/HTML in the Browser
+# Quickstart: Upload, list, and delete blobs using Azure Storage v10 SDK for JavaScript/HTML in the Browser
 
-This quickstart demonstrates how to manage blobs from code running entirely in the browser. The approach used here shows how to use required security measures to ensure protected access to your blob storage account. To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+In this quickstart, you'll learn to use the [Azure Storage SDK V10 for JavaScript - Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) library to manage blobs from JavaScript code running entirely in the browser. The approach used here shows how to use required security measures to ensure protected access to your blob storage account.
 
 ## Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-The Azure Storage JavaScript client libraries will not work directly from the file system and must be served from a web server. This topic uses [Node.js](https://nodejs.org) to launch a simple server, but you can use any other means of running a local web server if you prefer not to install Node.
+The Azure Storage JavaScript client libraries won't work directly from the file system and must be served from a web server. This topic uses [Node.js](https://nodejs.org) to launch a basic server. If you prefer not to install Node, you can use any other means of running a local web server.
 
-To follow the steps on debugging, you'll need [Visual Studio Code](https://code.visualstudio.com) and one or both of the [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) and [Debugger for Edge](vscode:extension/msjsdiag.debugger-for-edge) extensions.
+To follow the steps on debugging, you'll need [Visual Studio Code](https://code.visualstudio.com) and either the [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Edge](vscode:extension/msjsdiag.debugger-for-edge) extension.
 
 ## Setting up storage account CORS rules
 
-Before your web application can access a blob storage from the client, the account must be configured to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS.
+Before your web application can access a blob storage from the client, you must configure your account to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS.
 
 Return to the Azure portal and select your storage account. To define a new CORS rule, navigate to the **Settings** section and click on the **CORS** link. Next, click the **Add** button to open the **Add CORS rule** window. For this quickstart, you create an open CORS rule:
 
@@ -46,7 +46,7 @@ The following table describes each CORS setting and explains the values used to 
 | Maximum age (seconds) | 86400 | The maximum amount of time the browser caches the preflight OPTIONS request. A value of *86400* allows the cache to remain for a full day. |
 
 > [!IMPORTANT]
-> Ensure any settings you use in production expose the minimum amount of access necessary to your storage account in order to maintain secure access. The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context.
+> Ensure any settings you use in production expose the minimum amount of access necessary to your storage account to maintain secure access. The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context.
 
 Next, you use the Azure cloud shell to create a security token.
 
@@ -84,14 +84,14 @@ You may find the series of values after each parameter a bit cryptic. These para
 | *resource-types* | sco     | The resources affected by the SAS are *service*, *container*, and *object*. |
 | *services*       | b       | The service affected by the SAS is the *blob* service. |
 
-Now that the SAS is generated, copy and save the value returned in the console for use in an upcoming step.
+Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step.
 
 > [!IMPORTANT]
 > In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
 
 ## Implement the HTML page
 
-In this section, you will create a basic web page and configure VS Code so that you can launch it in your browser and attach the debugger. You will then use Node.js to launch a local web server and serve up the page when your browser requests it. Finally, you will add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure Portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](ms-azuretools.vscode-azurestorage) for VS Code.
+In this section, you'll create a basic web page and configure VS Code to enable you to launch and debug the page. Next, you'll use Node.js to start a local web server and serve up the page when your browser requests it. Finally, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](vscode:extension/ms-azuretools.vscode-azurestorage) for VS Code.
 
 ### Set up the web application
 
@@ -114,14 +114,14 @@ First, create a new folder named *azure-blobs-javascript* and open it in VS Code
     <select id="file-list" multiple style="height:222px; width: 593px; overflow: scroll;" />
 </body>
 
-<!-- You will add code here later in this quickstart. -->
+<!-- You'll add code here later in this quickstart. -->
 
 </html>
 ```
 
 ### Configure the debugger
 
-To set up the debugger extension, select *Debug* > *Add Configuration...*, then select *Chrome* or *Edge*, depending on which extension you installed in the Prerequisites section earlier. This creates a *launch.json* file and opens it in the editor.
+To set up the debugger extension, select *Debug* > *Add Configuration...*, then select *Chrome* or *Edge*, depending on which extension you installed in the Prerequisites section earlier. This action creates a *launch.json* file and opens it in the editor.
 
 Next, modify the *launch.json* file so that the `url` value includes `/index.html` as shown:
 
@@ -159,7 +159,7 @@ This command will install the *http-server* package and launch the server, makin
 
 To launch *index.html* in the browser with the VS Code debugger attached, select *Debug* > *Start Debugging* or press F5 in VS Code.
 
-The UI displayed doesn't do anything yet, but you will add JavaScript code in the following section to implement each function shown. You can then set breakpoints and interact with the debugger when it is paused on your code.
+The UI displayed doesn't do anything yet, but you'll add JavaScript code in the following section to implement each function shown. You can then set breakpoints and interact with the debugger when it's paused on your code.
 
 When you make changes to *index.html*, be sure to reload the page to see the changes in the browser. In VS Code, you can also select *Debug* > *Restart Debugging* or press CTRL + SHIFT + F5.
 
@@ -173,13 +173,15 @@ Next, paste the following HTML into *index.html* after the `</body>` closing tag
 <script src="azure-storage.blob.js" charset="utf-8"></script>
 
 <script>
-// You will add code here in the following sections.
+// You'll add code here in the following sections.
 </script>
 ```
 
 This code adds a reference to the script file and provides a place for your own JavaScript code. For the purposes of this quickstart, we're using the *azure-storage.blob.js* script file so that you can open it in VS Code, read its contents, and set breakpoints. In production, you should use the more compact *azure-storage.blob.min.js* file that is also provided in the zip file.
 
-The code in *azure-storage.blob.js* exports a global variable called `azblob`, which you will use in your JavaScript code to access the blob storage APIs.
+You can find out more about each blob storage function in the [reference documentation](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Note that some of the functions in the SDK are only available in Node.js or only available in the browser.
+
+The code in *azure-storage.blob.js* exports a global variable called `azblob`, which you'll use in your JavaScript code to access the blob storage APIs.
 
 ### Add the initial JavaScript code
 
@@ -218,7 +220,7 @@ const serviceURL = azblob.ServiceURL(`https://${accountName}.blob.core.windows.n
 const containerURL = azblob.ContainerURL.fromServiceURL(serviceURL, containerName);
 ```
 
-This code uses your account info and SAS to create a ContainerURL instance that enables you to manipulate the contents of the storage container.
+This code uses your account info and SAS to create a [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) instance that enables you to create and manipulate a storage container.
 
 ### Create and delete a storage container
 
@@ -249,7 +251,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-This code calls the ContainerURL.create and delete functions without using an Aborter instance. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled. In production code, use an Aborter instance to add timeout functionality.
+This code calls the ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) and [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) functions without using an [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instance. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled. In production code, use an Aborter instance to add timeout functionality.
 
 ### List blobs
 
@@ -284,8 +286,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-<!-- TODO COMPLETE THIS BY ADDING MORE DETAILS -->
-This code calls the ContainerURL.listBlobFlatSegment function in a loop to ensure ...
+This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the *Files* list.
 
 ### Upload blobs
 
@@ -310,7 +311,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("input", uploadFiles);
 ```
 
-This code connects the *Select and upload files* button to the hidden `file-input` element, triggering its `click` event in order to display the file picker. After you select files and close the dialog box, the `input` event occurs and your `uploadFiles` function is called. This function calls the browser-only UploadBrowserDataToBlockBlob function to upload each file you selected.
+This code connects the *Select and upload files* button to the hidden `file-input` element. This enables the button `click` event to trigger the file input `click` event and display the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function to upload each file you selected.
 
 ### Delete blobs
 
@@ -338,11 +339,11 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-This code calls the BlobURL.delete function for each file selected in the list.
+This code calls the [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) function to remove  each file selected in the list. It then calls the `listFiles` function shown earlier to refresh the contents of the *Files* list.
 
 ### Run and test the web application
 
-At this point, you can launch the page and experiment to get a feel for how blob storage works. If you encounter issues (for example, when you try to list files before you've created the container) the *Status* pane will display any error message received. You can also set breakpoints in the JavaScript code to examine the values returned by the storage APIs.
+At this point, you can launch the page and experiment to get a feel for how blob storage works. If any errors occur (for example, when you try to list files before you've created the container), the *Status* pane will display the error message received. You can also set breakpoints in the JavaScript code to examine the values returned by the storage APIs.
 
 ## Clean up resources
 
@@ -350,9 +351,7 @@ To clean up the resources created during this quickstart, go to the [Azure porta
 
 ## Next steps
 
-<!-- TODO UPDATE THIS -->
-
-Explore the samples to learn how to download blobs and report progress during file uploads.
+In this quickstart, you've created a simple website that accesses blob storage from browser-based JavaScript. To learn how you can host a website itself on blob storage, continue to the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Blob storage client libraries](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)
