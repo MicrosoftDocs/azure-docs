@@ -15,21 +15,20 @@ This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-d
 
 ## Prerequisites
 
-- You must [set up multiple Azure Kinect DK units for external synchronization](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md).
+- [Set up multiple Azure Kinect DK units for external synchronization](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md).
 
 ## External synchronization constraints
 
-The following issues will not let you record with external synchronized units:
-
-- Master device cannot have SYNC IN cable connected (device fails to get into master mode if SYNC IN is connected).
-- Master device has to stream RGB camera to enable synchronization.
-- Use the same camera configuration for all units (framerate and resolution) and device firmware ([update firmware](azure-kinect-dk-update-device-firmware.md) instructions).
-- Start subordinate devices first and master last.
-- Delay off master setting is relative to master for each subordinate device.
+- Master device can't have SYNC IN cable connected.
+- Master device must stream RGB camera to enable synchronization.
+- All units must use the same camera configuration (framerate and resolution).
+- All units must run the same device firmware ([update firmware](azure-kinect-dk-update-device-firmware.md) instructions).
+- subordinate devices must start first and the master device must start last.
+- Each subordinate's *Delay off master* setting is relative to the master device.
 
 ## Record when each unit has a host PC
 
-In the example below, each device has its own dedicated host PC. It is the recommended setup.
+In the example below, each device has its own dedicated host PC. It's recommended you connect devices to dedicated PCs.
 
 ### Subordinate-1
 
@@ -37,7 +36,7 @@ In the example below, each device has its own dedicated host PC. It is the recom
 
       `k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub1.mkv`
 
-2. Device starts waiting.
+2. Device starts waiting
 
     ```
     Device serial number: 000011590212
@@ -52,7 +51,7 @@ In the example below, each device has its own dedicated host PC. It is the recom
 
     `k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub2.mkv`
  
-2. Device starts waiting.
+2. Device starts waiting
 
     ```
     Device serial number: 000011590212
@@ -63,7 +62,7 @@ In the example below, each device has its own dedicated host PC. It is the recom
 
 ### Master
 
-1. Start recording on master:
+1. Start recording on master
 
     `>k4arecorder.exe --external-sync master -r 5 -l 10 master.mkv`
 
@@ -71,29 +70,29 @@ In the example below, each device has its own dedicated host PC. It is the recom
 
 ## Recording when multiple units connected to single host PC
 
-You can have multiple Azure Kinect DKs connected to a single host PC. However, that can be very demanding to USB bandwidth and host compute. To mitigate this:
+You can have multiple Azure Kinect DKs connected to a single host PC. However, that can be very demanding to USB bandwidth and host compute. To reduce the demand:
 
 - Connect each device into own USB host controller.
 - Have a powerful GPU that can handle depth engine for each device.
 - Record only needed sensors and use lower framerate.
 
-You must start subordinate devices first and the master last.
+Always start subordinate devices first and the master last.
 
 ## Subordinate-1
 
-1. Start recorder on subordinate.
+1. Start recorder on subordinate
 
     `>k4arecorder.exe --device 1 --external-sync subordinate --imu OFF -r 5 -l 5 output-2.mkv`
 
-2. This goes into waiting state.
+2. The device goes into waiting state
 
 ## Master
 
-1. start Master device
+1. Start master device
 
     `>k4arecorder.exe --device 0 --external-sync master --imu OFF -r 5 -l 5 output-1.mkv`
 
-2. Wait recording to finish.
+2. Wait recording to finish
 
 ## Playing recording
 
@@ -103,9 +102,9 @@ You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play bac
 
 - Use manual exposure (for example, by setting using viewer before recording). RGB camera auto-exposure may impact time-synchronization and some lost depth frames if exposure is too long.
 - Restarting subordinate device will cause synchronization to be lost.
-- Some [camera modes](hardware-specification.md#depth-camera-supported-operating-modes) support 15 fps max. We recommended that you do not mix modes/frame rates between devices
+- Some [camera modes](hardware-specification.md#depth-camera-supported-operating-modes) support 15 fps max. We recommended that you don't mix modes/frame rates between devices
 - Connecting multiple units to single PC can easily saturate USB bandwidth, consider using separate host PC per device. Pay attention to CPU/GPU compute as well.
-- Disable microphone and IMU in the viewer if those are not needed. This can improve reliability.
+- Disable the microphone and IMU if they aren't needed to improve reliability.
 
 For any issues see [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md)
 
