@@ -52,7 +52,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * The Azure IoT SDK for C. 
 
 > [!TIP]
-> If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
+> If you are using Visual Studio 2017 (version 15.7 or higher), please download and install [Azure IoT Edge Tools (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
 
 ## Create a module project
 
