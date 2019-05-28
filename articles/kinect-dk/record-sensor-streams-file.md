@@ -1,6 +1,6 @@
 ---
 title: Record Azure Kinect sensor streams to a file
-description: This articles provides instructions about how to record data streams from the Sensor SDK to a file
+description: How to record data streams from the Sensor SDK to a file
 author: joylital
 ms.author: jawirth, joylital
 ms.prod: kinect-dk
@@ -39,6 +39,7 @@ You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play bac
 ## Next steps
 
 You may also review the following:
+
 > [!div class="nextstepaction"]
 >[Azure Kinect recorder](azure-kinect-dk-recorder.md)
 
