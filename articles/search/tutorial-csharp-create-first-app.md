@@ -282,7 +282,7 @@ namespace FirstAzureSearch.Models
         // The total number of pages of results.
         public int pageCount { get; set; }
 
-        public void AddHotel(string name, string desc, double rate, string bedoption, string[] tags)
+        public void AddHotel(string name, string desc, double rate, string bedOption, string[] tags)
         {
             // Populate a new Hotel class, but only with the data that has been provided.
             Hotel hotel = new Hotel();
@@ -297,7 +297,7 @@ namespace FirstAzureSearch.Models
             // Create just a single room for the hotel, containing the sample rate and room description.
             Room room = new Room();
             room.BaseRate = rate;
-            room.BedOptions = bedoption;
+            room.BedOptions = bedOption;
 
             hotel.Rooms = new Room[1];
             hotel.Rooms[0] = room;
@@ -305,13 +305,13 @@ namespace FirstAzureSearch.Models
             hotels.Add(hotel);
         }
 
-        public Hotel getHotel(int index)
+        public Hotel GetHotel(int index)
         {
             Hotel h = (Hotel)hotels[index];
             return h;
         }
 
-        public string getFullHotelDescription(int index)
+        public string GetFullHotelDescription(int index)
         {
             Hotel h = (Hotel)hotels[index];
 
@@ -474,14 +474,16 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
         <p class="sampleText">
             @Html.DisplayFor(m => m.resultCount) Results
         </p>
+
         // Show the hotel data. All pages will have ResultsPerPage entries, except for the last page.
         @for (var i = 0; i < Model.hotels.Count; i++)
         {
             // Display the hotel name.
-            @Html.TextAreaFor(m => Model.getHotel(i).HotelName, new { @class = "box1" })
+            @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
             <br />
+
             // Display the hotel sample room and description.
-            @Html.TextArea("desc", Model.getFullHotelDescription(i), new { @class = "box2" })
+            @Html.TextArea("desc", Model.GetFullHotelDescription(i), new { @class = "box2" })
             <br /> <br />
         }
     }
@@ -574,7 +576,7 @@ We need two **Index** methods, one taking no parameters (the app-first-opened ca
 
                 // Make the Azure Search call for the first page.
                 await RunQueryAsync(model, 0);
-                
+
                 // Ensure temporary data is stored for the next call.
                 TempData["page"] = 0;
                 TempData["searchfor"] = model.searchText;

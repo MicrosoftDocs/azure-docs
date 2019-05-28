@@ -15,7 +15,7 @@ Learn how to implement an efficient search for facets, greatly reducing the numb
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Specify certain fields of a data set as IsFacetable
+> * Specify certain fields of a data set as **IsFacetable**
 > * Make the single call for an Azure Search of facets
 > * Determine the conditions when a facet search makes most sense
 
@@ -26,6 +26,8 @@ To complete this tutorial, you need to:
 Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
+
+TBD
 
 
 ## Add code for a search of facets
@@ -191,6 +193,17 @@ Image
 2. Now add an "o" to make "fro" and notice the range of options is reduced to one.
 
 3. Type other combinations of two letters and see what appears. Notice though each time you do this the server is *not* being called. The facets are cached locally when the app was started and now a call is only made to the server when the user requests a search.
+
+### When to use a facet search
+
+The clear difference between facet searches and other searches such as suggestions and autocompletion, is that the search is only carried out at the start of the app, so saves a lot of calls to the server. However, when should this search be used?
+
+Facet searches are best used when:
+* The performance of other searches that call the server each time is an issue.
+* The facets returned provide the user with a list of options of reasonable length when they type in a few characters.
+* The facets returned provide a quick way to access most or ideally all of the data available.
+* The maximum counts allow most facets to be included. In our code we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. If no count is given the default maximum is 10. The maximums set must work well with the size of the data set. If too many potential facets are being cut then perhaps the search is not as helpful as it should be.
+
 
 ## Takeaways
 
