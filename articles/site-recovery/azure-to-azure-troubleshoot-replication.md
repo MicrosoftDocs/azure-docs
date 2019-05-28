@@ -76,13 +76,17 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 Some of the most common issues are listed below
 
-#### Cause 1: Known issue on SQL server 2008/2008 R2 
+#### Cause 1: Known issue in SQL server 2008/2008 R2 
 **How to fix** : There is a known issue with SQL server 2008/2008 R2. Please refer this KB article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
 #### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs 
 **How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
 
-#### Cause 3: You are using Storage spaces direct configuration
+
+#### Cause 3: Known issue in SQL Server 2016 and 2017
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+#### Cause 4: You are using Storage spaces direct configuration
 **How to fix** : Azure Site Recovery cannot create application consistent recovery point for Storage spaces direct configuration. Please refer article to correctly [configure the replication policy](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
 
 ### More causes due to VSS related issues:
