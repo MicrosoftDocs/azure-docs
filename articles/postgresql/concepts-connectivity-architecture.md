@@ -20,7 +20,6 @@ The following steps describe how a connection is established to an Azure Databas
 * Clients connect to the gateway, that has a public IP address and listens on port 5432.
 * Inside the database cluster traffic is forwarded to appropriate Azure Database for PostgreSQL.
 
-## Connection Policy
 Azure Database for PostgreSQL supports **Proxy** mode for the connection policy setting of a MySQL Database server. In this mode, all connections are proxied via the Azure Database for MySQL gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure Database for MySQL gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload.
 
 If you are connecting from outside Azure, your connections have a connection policy of Proxy by default. A policy of Proxy means that the TCP session is established via the Azure Database for MySQL gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
