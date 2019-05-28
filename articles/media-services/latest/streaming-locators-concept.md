@@ -82,7 +82,7 @@ See [Filtering, ordering, paging of Media Services entities](entities-overview.m
 
 ## List Streaming Locators by Asset name
 
-To get Streaming Locators based on the associated Asset name, use the following operation:
+To get Streaming Locators based on the associated Asset name, use the following operations:
 
 |Language|API|
 |---|---|
