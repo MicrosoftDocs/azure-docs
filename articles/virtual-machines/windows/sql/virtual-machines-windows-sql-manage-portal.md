@@ -18,39 +18,21 @@ ms.reviewer: jroth
 ---
 # Manage SQL Server VMs in Azure using the Azure portal
 
-There are now two different access points to manage your SQL Server VM on Azure using the [Azure portal](https://portal.azure.com). 
+There is a new access point to manage your SQL Server VM on Azure using the [Azure portal](https://portal.azure.com). 
 
-The first is the **SQL virtual machine** resource, which is now an independent management service and is meant to modify settings dedicated to SQL Server: 
+The **SQL virtual machines** resource is now an independent management service that allows you to view all of your SQL Server VMs simultaneously and modify settings dedicated to SQL Server: 
 
-![SQL virtual machine resource](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+![SQL virtual machines resource](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
 
-The second is the **SQL Server configuration tab** found within the typical **Virtual machine** resource: 
-
-![SQL Server configuration](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
-
-
-You can use either option to manage the following SQL Server settings, as long as the image supports them:
-- SQL Server license, such as enabling the [Azure hybrid benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
-- Connectivity and authentication, such as the port and SQL authentication
-- [Automated patching](virtual-machines-windows-sql-automated-patching.md)
-- [Automated backup](virtual-machines-windows-sql-automated-backup-v2.md)
-- [Azure Key Vault integration](virtual-machines-windows-ps-sql-keyvault.md)
-- SQL Server Machine Learning Services (In-Database)
 
 ## Remarks
 
-The **SQL virtual machine** resource is only available to SQL Server VMs that have [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+- The **SQL virtual machines** resource is the recommended method to view and manage your SQL Server VM. However, currently, [end of support (EOS)](virtual-machines-2008-eos-extend-support.md) SQL Server VMs are not supported. To manage settings for your EOS SQL Server VMs, use the deprecated [SQL Server configuration tab](#sql-server-configuration-tab) instead. 
+- The **SQL virtual machines** resource is only available to SQL Server VMs that have [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
 
 
-## Which to use
-
-The **SQL virtual machine** resource is the recommended choice for managing your SQL Server VM. However, managing [end-of-support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VM images is not supported with the **SQL virtual machine** resource and as such, those SQL Server VM images should be managed with the **SQL Server configuration** tab. 
-
-
-## How to access
-
-### SQL virtual machine resource
-To access the SQL virtual machine resource, do the following:
+## Access SQL virtual machine resource
+To access the SQL virtual machines resource, do the following:
 
 1. Open the [Azure portal](https://portal.azure.com). 
 1. Select **All Services**. 
@@ -60,20 +42,22 @@ To access the SQL virtual machine resource, do the following:
 
    ![Find SQL VM virtual machines in all services](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
 
-1. This will list all SQL Server VMs available within the subscription. Select the one you would like to manage to launch the **SQL virtual machine** resource. Use the search box if your SQL Server VM is not readily apparent. 
+1. This will list all SQL Server VMs available within the subscription. Select the one you would like to manage to launch the **SQL virtual machines** resource. Use the search box if your SQL Server VM is not readily apparent. 
 
 ![All available SQL VMs](media/virtual-machines-windows-sql-manage-portal/all-sql-vms.png)
 
-Selecting your SQL Server VM will open the **SQL virtual machine** resource: 
+Selecting your SQL Server VM will open the **SQL virtual machines** resource: 
 
 
-![SQL virtual machine resource](media/virtual-machines-windows-sql-manage-portal/sql-vm-resource.png)
+![SQL virtual machines resource](media/virtual-machines-windows-sql-manage-portal/sql-vm-resource.png)
 
   > [!TIP]
-  > The **SQL virtual machine** resource is for dedicated SQL Server settings. Select the name of the VM in the **Virtual machine** field to navigate to settings that are specific to the VM, but not exclusive to SQL Server. 
+  > The **SQL virtual machines** resource is for dedicated SQL Server settings. Select the name of the VM in the **Virtual machine** field to navigate to settings that are specific to the VM, but not exclusive to SQL Server. 
 
-### SQL Server configuration tab
-To access the SQL server configuration tab, you'll need to navigate to the **Virtual machine** resource. To do so, do the following:
+## Access SQL Server configuration tab
+The SQL Server configuration tab has been deprecated and will be removed in the future. However, at this time, it is the only method to manage  [end of support (EOS)](virtual-machines-2008-eos-extend-support.md) SQL Server VMs, and SQL Server VMs that have not been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider).
+
+To access the deprecated SQL server configuration tab, you'll need to navigate to the **Virtual machines** resource. To do so, do the following:
 
 1. Open the [Azure portal](https://portal.azure.com). 
 1. Select **All Services**. 
