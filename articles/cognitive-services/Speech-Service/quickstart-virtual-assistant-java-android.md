@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Custom voice-first virtual assistant (Preview), Java (Android) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to create a voice-first virtual assistant application in Java on Android by using the Speech SDK
+description: Learn how to create a voice-first virtual assistant application in Java on Android using the Speech SDK
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -16,7 +16,7 @@ ms.author: travisw
 
 A quickstart is also available for [speech-to-text](quickstart-java-android.md).
 
-In this article, you will create a Java application for Android using the [Cognitive Services Speech SDK](speech-sdk.md). The application will connect to a previously authored bot configured to use the Direct Line Speech channel, send a voice request, and return a voice response activity (if configured). The application is built with the Speech SDK Maven package and Android Studio 3.3. The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
+In this article, you will create a Java application for Android using the [Cognitive Services Speech SDK](speech-sdk.md). The application will connect to a previously authored bot configured to use the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), send a voice request, and return a voice response activity (if configured). The application is built with the Speech SDK Maven package and Android Studio 3.3. The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
@@ -24,8 +24,9 @@ In this article, you will create a Java application for Android using the [Cogni
 ## Prerequisites
 
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
-* A pre-configured bot created using Bot Framework version 4.2 or above. The bot would need to subscribe to the new "Direct Line Speech" channel to receive voice inputs.
-
+* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+* [Android Studio](https://developer.android.com/studio/) v3.3 or later
+ 
     > [!NOTE]
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
 
@@ -245,14 +246,18 @@ The text and graphical representation of your UI should now look like this:
     }
    ```
 
-* The `onCreate` method includes code that requests microphone and internet permissions.
-* The method `onBotButtonClicked` is, as noted earlier, the button click handler. A button press triggers a single interaction ("turn") with your bot.
-* The `registerEventListeners` method demonstrates the events used by the SpeechBotConnector and basic handling of incoming activities.
+   * The `onCreate` method includes code that requests microphone and internet permissions.
+
+   * The method `onBotButtonClicked` is, as noted earlier, the button click handler. A button press triggers a single interaction ("turn") with your bot.
+
+   * The `registerEventListeners` method demonstrates the events used by the SpeechBotConnector and basic handling of incoming activities.
 
 1. In the same file, replace the configuration strings to match your resources:
 
     * Replace `YourChannelSecret` with the Direct Line Speech channel secret for your bot.
+
     * Replace `YourSpeechSubscriptionKey` with your subscription key.
+
     * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 ## Build and run the app
@@ -275,8 +280,8 @@ Once the application and its activity have launched, click the button to begin t
 
 > [!div class="nextstepaction"]
 > [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
+> [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## See also
-
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [About voice-first virtual assistants](voice-first-virtual-assists.md)
+- [Custom wake words](speech-devices-sdk-create-kws)
