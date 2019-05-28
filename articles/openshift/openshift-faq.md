@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Red Hat OpenShift | Microsoft Docs
 description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
 services: container-service
-author: tylermsft
+author: jimzim
 ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service

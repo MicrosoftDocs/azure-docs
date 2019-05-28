@@ -2,7 +2,7 @@
 title: Tutorial - Delete an Azure Red Hat OpenShift cluster | Microsoft Docs
 description: In this tutorial, learn how to delete an Azure Red Hat OpenShift cluster using the Azure CLI
 services: container-service
-author: tylermsft
+author: jimzim
 ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
