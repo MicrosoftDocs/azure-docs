@@ -29,14 +29,14 @@ setting is configured on the [k4a_device_configuration_t](https://microsoft.gith
 
 ### Master mode
 
-```
+```C
 k4a_device_configuration_t deviceConfig;
 deviceConfig.wired_sync_mode = K4A_WIRED_SYNC_MODE_MASTER;
 ```
 
 ### Subordinate mode
 
-```
+```C
 k4a_device_configuration_t deviceConfig;
 deviceConfig.wired_sync_mode = K4A_WIRED_SYNC_MODE_SUBORDINATE
 ```
