@@ -36,7 +36,7 @@ Application Insights .NET/.NET Core SDK ships with two built-in channels:
     This channel is shipped as part of the `Microsoft.ApplicationInsights` nuget package itself, and is the default channel the SDK uses when nothing else is configured.
 
 * **ServerTelemetryChannel**
-`ServerTelemetryChannel` is a more advanced channel, which has retry policies and the capability to store data on local disk. This channel is optimized for server scenarios of long running processes with a relatively high load of telemetry and a stable internet connection. This channel retries sending telemetry, if transient errors occur. This channel also uses local disk storage to keep items on disk during network outages or high telemetry volumes. Because of these retry mechanisms and local disk storage, this channel is considered more reliable, and is recommended for all production scenarios. This channel is the default for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, which are configured as per the linked official docs.
+`ServerTelemetryChannel` is a more advanced channel, which has retry policies and the capability to store data on local disk. This channel retries sending telemetry, if transient errors occur. This channel also uses local disk storage to keep items on disk during network outages or high telemetry volumes. Because of these retry mechanisms and local disk storage, this channel is considered more reliable, and is recommended for all production scenarios. This channel is the default for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) applications, which are configured as per the linked official docs. This channel is optimized for server scenarios of long running processes. The [`Flush()`](#which-channel-should-i-use) method implemented by this channel is not synchronous.
 
     This channel is shipped as the NuGet package `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`, and is brought automatically when using either of the NuGet packages `Microsoft.ApplicationInsights.Web` or `Microsoft.ApplicationInsights.AspNetCore`.
 
@@ -133,7 +133,7 @@ Most commonly used settings for `ServerTelemetryChannel` are listed below:
 
 ## Which channel should I use?
 
-`ServerTelemetryChannel` is recommended for most production scenarios. `InMemoryChannel` is recommended if there's a need to do synchronous flush as `ServerTelemetryChannel` doesn't offer a synchronous flush, and hence some delay is required after calling `Flush()`, if the application is shutting down.
+`ServerTelemetryChannel` is recommended for most production scenarios of long running applications. The `Flush()` method implementation of `ServerTelemetryChannel` is not synchronous, and `Flush()` does not guarantee sending all pending items from memory/disk. If this channel is used in scenarios where the application is about to shut down, then it is recommended to do some delay after calling `Flush()` on this channel. The exact amount of delay required is not predictable, as it depends on factors like how many items or `Transmissions` are in memory, how many are in disk, how many are being transmitted to backed, and if channel is in the middle of exponential back-off scenarios. If there is a need to do synchronous flush, then `InMemoryChannel` is recommended.
 
 ## Frequently Asked Questions
 

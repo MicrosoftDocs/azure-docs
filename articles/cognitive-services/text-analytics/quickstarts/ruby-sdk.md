@@ -23,18 +23,12 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 ## Prerequisites
 
+* [Ruby 2.5.5 or later](https://www.ruby-lang.org/)
+* The Text analytics [SDK for Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
+ 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up. 
-
-Download and install Ruby 2.5.5 version based on your system architecture from [here](https://rubyinstaller.org/downloads/).
-
-> [!Tip]
->  While you can call the [REST API endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly with Ruby, the `Microsoft.Azure.CognitiveServices.TextAnalytics` SDK makes it easy to call the service without serializing and deserializing JSON.
->
-> A few useful links:
-> - [Ruby gem page](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
-> - [SDK code on GitHub](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics/lib/v2.1/generated/azure_cognitiveservices_textanalytics)
 
 <a name="RubyProject"></a>
 

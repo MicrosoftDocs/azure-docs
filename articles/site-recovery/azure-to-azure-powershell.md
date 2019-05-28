@@ -129,19 +129,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## Set the vault context
 
-> [!TIP]
-> The Azure Site Recovery PowerShell module (Az.RecoveryServices module) comes with easy to use aliases for most cmdlets. The cmdlets in the module take the form *\<Operation>-**AzRecoveryServicesAsr**\<Object>* and have equivalent aliases that take the form *\<Operation>-**ASR**\<Object>*. This article uses the cmdlet aliases for ease of reading.
 
-Set the vault context for use in the PowerShell session. To do this, download the vault settings file to, and import the downloaded file in the PowerShell session to set the vault context.
-
-Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault.
+Set the vault context for use in the PowerShell session. Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault.
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```
