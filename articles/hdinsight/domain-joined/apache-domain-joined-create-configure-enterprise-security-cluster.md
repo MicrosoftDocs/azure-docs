@@ -172,7 +172,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
 ### Create an user-assigned managed identity
 
-Create an user-assigned managed identity that will be used to configure Azure Azure Active Directory Domain Services (Azure AD-DS). For more information on creating a user-assigned managed identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+Create an user-assigned managed identity that will be used to configure Azure Active Directory Domain Services (Azure AD-DS). For more information on creating a user-assigned managed identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 1. Sign in to the Azure portal.
 1. Click **Create a resource** and type **managed identity**. Select **User Assigned Managed Identity** > **Create**.
