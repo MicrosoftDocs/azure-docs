@@ -124,18 +124,16 @@ Here are a couple ways you could interpret these results:
 * Cluster 1 (the largest cluster) seems to be a group of customers that are not active (all values are zero).
 * Cluster 3 seems to be a group that stands out in terms of return behavior.
 
-Perhaps you can target marketing efforts towards the customers in cluster 1 to trigger an interest in purchases.
-You can query the database for their email addresses so you can send them a marketing email.
+## Clean up resources
 
-```sql
-USE [tpcxbb_1gb]
+***If you're not going to continue with this tutorial***, delete the tpcxbb_1gb database from your Azure SQL Database server.
 
-SELECT customer.[c_email_address],
-       customer.c_customer_sk
-FROM dbo.customer
-JOIN [dbo].[return_cluster] AS r ON r.customer = customer.c_customer_sk
-WHERE r.cluster = 1
-```
+From the Azure portal, follow these steps:
+
+1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
+1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
+1. Select your TutorialDB database.
+1. On the **Overview** page, select **Delete**.
 
 ## Next steps
 

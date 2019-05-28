@@ -163,9 +163,20 @@ customer_data <- rxDataStep(customer_returns);
 head(customer_data, n = 5);
 ```
 
+You should see results similar to the following.
+
+```results
+  customer orderRatio itemsRatio monetaryRatio frequency
+1    29727          0          0      0.000000         0
+2    26429          0          0      0.041979         1
+3    60053          0          0      0.065762         3
+4    97643          0          0      0.037034         3
+5    32549          0          0      0.031281         4
+```
+
 ## Clean up resources
 
-If you're not going to continue with this tutorial, delete the tpcxbb_1gb database from your Azure SQL Database server.
+***If you're not going to continue with this tutorial***, delete the tpcxbb_1gb database from your Azure SQL Database server.
 
 From the Azure portal, follow these steps:
 

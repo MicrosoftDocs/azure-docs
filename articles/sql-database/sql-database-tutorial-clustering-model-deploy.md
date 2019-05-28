@@ -38,7 +38,7 @@ In [part two](sql-database-tutorial-clustering-model-build.md), you learned how 
 
 ## Create a stored procedure that generates the model
 
-Run the following T-SQL script to create the stored procedure.
+Run the following T-SQL script to create the stored procedure. The procedure stores the resulting customer cluster mappings in the database table **customer_return_clusters**.
 
 ```sql
 USE [tpcxbb_1gb]
@@ -156,7 +156,54 @@ END;
 GO
 ```
 
-You have now created a stored procedure that contains the R script for clustering.
+## Perform clustering in SQL Database
+
+Now that you've created the stored procedure, execute the following script to perform clustering.
+
+```sql
+--Empty table of the results before running the stored procedure
+TRUNCATE TABLE customer_return_clusters;
+
+--Execute the clustering
+--This will load the table customer_return_clusters with cluster mappings
+EXECUTE [dbo].[generate_customer_return_clusters];
+```
+
+Verify that it works and that we actually have the list of customers and their cluster mappings.
+
+```sql
+--Select data from table customer_return_clusters to verify that the clustering data was loaded
+SELECT * FROM customer_return_clusters;
+```
+
+## Use the clustering information
+
+Because you stored the clustering procedure in the database, it can perform clustering efficiently against customer data stored in the same database. You can execute the procedure whenever your customer data is updated and use the updated clustering information.
+
+Suppose you want to send a promotional email to customers in cluster 3, the group that has more active return behavior (see how the clusters were defined in [part two](sql-database-tutorial-clustering-model-build.md#analyze-the-results)). The following code selects the email addresses of customers in cluster 3.
+
+```sql
+USE [tpcxbb_1gb]
+
+SELECT customer.[c_email_address],
+    customer.c_customer_sk
+FROM dbo.customer
+JOIN [dbo].[customer_return_clusters] AS r ON r.customer = customer.c_customer_sk
+WHERE r.cluster = 3
+```
+
+You can change the r.cluster value to return email addresses for customers in other clusters.
+
+## Clean up resources
+
+When you're finished with this tutorial, you can delete the tpcxbb_1gb database from your Azure SQL Database server.
+
+From the Azure portal, follow these steps:
+
+1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
+1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
+1. Select your TutorialDB database.
+1. On the **Overview** page, select **Delete**.
 
 ## Next steps
 
