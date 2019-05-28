@@ -27,6 +27,8 @@
     href: search-fiddler.md
   - name: PowerShell
     href: search-create-index-rest-api.md
+  - name: Python
+    href: search-get-started-python.md
 - name: Tutorials
   items:
   - name: Index Azure SQL Database
@@ -322,8 +324,6 @@
       href: https://aka.ms/jfkfiles
     - name: NYC Jobs demo
       href: https://aka.ms/azjobsdemo
-    - name: Search Analyzer demo
-      href: https://alice.unearth.ai/
     - name: Search use cases
       href: https://searchsamples.azurewebsites.net/
   - name: FAQ

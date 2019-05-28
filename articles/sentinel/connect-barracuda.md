@@ -24,14 +24,14 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Barracuda Web Application Firewall (WAF) connector allows you to easily connect your Barracuda logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Azure Sentinel takes advantage of the native integration between **Barracuda** and Microsoft Azure OMS to provide seamless integration. 
+Barracuda Web Application Firewall (WAF) connector allows you to easily connect your Barracuda logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Azure Sentinel takes advantage of the native integration between **Barracuda** and Microsoft Monitoring Agent to provide seamless integration. 
 
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Configure and connect Barracuda WAF
-Barracuda Web Application Firewall can integrate and export logs directly to Azure Sentinel via Azure OMS Server.
+Barracuda Web Application Firewall can integrate and export logs directly to Azure Sentinel via Microsoft Monitoring Agent.
 1. Go to [Barracuda WAF configuration flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), and follow the instructions to set up the connection, using these parameters:
     - **Workspace ID**: copy the value of your workspace ID from the Azure Sentinel Barracuda connector page.
     - **Primary key**: copy the value of your primary key from the Azure Sentinel Barracuda connector page.

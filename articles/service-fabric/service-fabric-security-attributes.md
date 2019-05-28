@@ -13,9 +13,9 @@ ms.author: mbaldwin
 
 ---
 
-# Common security attributes for Azure Service Fabric
+# Security attributes for Azure Service Fabric
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Service Fabric. 
+This article documents the security attributes built into Azure Service Fabric. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -29,7 +29,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Service Fabric API calls are made through Azure Resource Manager. A valid JSON web token (JWT) is required. |
 
-## Network Segmentation
+## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -52,14 +52,14 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Authorization| Yes | Identity and access management (IAM) for calls via SFRP. Calls directly to cluster end point supports two roles: User and Admin. The customer can map the APIs to either role. |
 
 
-## Audit Trail
+## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Control and management plane logging and audit| Yes | All control plane operations run through processes for auditing and approvals. |
 | Data plane logging and audit| N/A | Customer owns the cluster.  |
 
-## Configuration Management
+## Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|

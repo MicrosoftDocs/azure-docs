@@ -149,6 +149,7 @@ Once you are connected to the Data Box Blob storage, the next step is to copy da
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
 
 In this tutorial, AzCopy is used to copy data to Data Box Blob storage. You can also use Azure Storage Explorer (if you prefer a GUI-based tool) or a partner software to copy the data.
+
 The copy procedure has the following steps:
 
 - Create a container
@@ -212,6 +213,8 @@ If you only want to copy source resources that do not exist in the destination, 
 #### Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+
+If there are any errors during the connect or copy operation, see [Troubleshoot issues with Data Box Blob storage](data-box-troubleshoot-rest.md).
 
 Next step is to prepare your device to ship.
 
