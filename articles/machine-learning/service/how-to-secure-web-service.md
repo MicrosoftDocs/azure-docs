@@ -68,7 +68,7 @@ When you request a certificate, you must provide the FQDN of the address that yo
 
 To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* parameter to "True" wherever it's applicable. Set the *ssl_certificate* parameter to the value of the *certificate* file. Set the *ssl_key* to the value of the *key* file.
 
-+ **Deploy on AKS and field-programmable gate array (FPGA)**
+### Deploy on AKS and field-programmable gate array (FPGA)
 
   > [!NOTE]
   > The information in this section also applies when you deploy a secure web service for the visual interface. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
@@ -116,7 +116,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
 
   For more information about *enable_ssl*, see [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) and [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
-+ **Deploy on Azure Container Instances**
+### Deploy on Azure Container Instances
 
   When you deploy to Azure Container Instances (ACI), you provide values for SSL-related parameters, as the following code snippet shows:
 
