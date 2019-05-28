@@ -56,7 +56,7 @@ Next, you use the Azure cloud shell to create a security token.
 
 The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-You can create a SAS using the Azure CLI through the Azure cloud shell, or with the Azure Storage Explorer. The following table describes the parameters you need to provide values for in order to generate a SAS with the CLI.
+You can create a SAS using the Azure CLI through the Azure cloud shell, or with the Azure Storage Explorer. The following table describes the parameters you need to provide values for to generate a SAS with the CLI.
 
 | Parameter      |Description  | Placeholder |
 |----------------|-------------|-------------|
@@ -91,7 +91,7 @@ Now that the SAS is generated, copy the return value and save it somewhere for u
 
 ## Implement the HTML page
 
-In this section, you'll create a basic web page and configure VS Code to enable you to launch and debug the page. Next, you'll use Node.js to start a local web server and serve up the page when your browser requests it. Finally, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](vscode:extension/ms-azuretools.vscode-azurestorage) for VS Code.
+In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](vscode:extension/ms-azuretools.vscode-azurestorage) for VS Code.
 
 ### Set up the web application
 
@@ -220,7 +220,7 @@ const serviceURL = azblob.ServiceURL(`https://${accountName}.blob.core.windows.n
 const containerURL = azblob.ContainerURL.fromServiceURL(serviceURL, containerName);
 ```
 
-This code uses your account info and SAS to create a [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) instance that enables you to create and manipulate a storage container.
+This code uses your account info and SAS to create a [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) instance, which is useful for creating and manipulating a storage container.
 
 ### Create and delete a storage container
 
@@ -311,7 +311,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("input", uploadFiles);
 ```
 
-This code connects the *Select and upload files* button to the hidden `file-input` element. This enables the button `click` event to trigger the file input `click` event and display the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function to upload each file you selected.
+This code connects the *Select and upload files* button to the hidden `file-input` element so that the. In this way, the button `click` events triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function to upload each file you selected.
 
 ### Delete blobs
 
