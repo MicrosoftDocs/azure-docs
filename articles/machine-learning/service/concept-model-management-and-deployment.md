@@ -62,7 +62,7 @@ For an example of registering a model stored in pickle format, see [Tutorial: Tr
 
 ## Package and debug models
 
-Before deploying a model into production, it is packaged into a Docker image. In most cases, this happens automatically in the background during deployment. For advanced scenarios, you can manually specify the image.
+Before deploying a model into production, it is packaged into a Docker image. In most cases, image creation happens automatically in the background during deployment. For advanced scenarios, you can manually specify the image.
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
@@ -77,6 +77,24 @@ For more information, see [TBD]().
 ## Use models
 
 Trained machine learning models can be deployed as web services in the cloud or locally on your development environment. You can also deploy models to Azure IoT Edge devices. Deployments can use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
+
+When using a model as a web service or IoT Edge device, you provide the following items:
+
+* The model(s) that are used to score data submitted to the service/device.
+* An entry script. This script accepts requests, uses the model(s) to score the data, and return a response.
+* A conda environment file that describes the dependencies required by the model(s) and entry script.
+* Any additional assets such as text, data, etc. that are required by the model(s) and entry script.
+
+These assets are packaged into a Docker image, and deployed as a web service or IoT Edge module.
+
+Optionally, you can use the following parameters to further tune the deployment:
+
+* Enable GPU: Used to enable GPU support in the Docker image. The image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Kubernetes Service, Azure Machine Learning Compute, or Azure Virtual Machines.
+* Extra docker file steps: A file that contains additional Docker steps to run when creating the Docker image.
+* Base image: A custom image to use as the base image. If you do not use a custom image, the base image is provided by the Azure Machine Learning service.
+
+> [!NOTE]
+> You cannot modify or change the web server used in the Docker image. Azure Machine Learning service uses a web server configuration that is tested and supported by Microsoft.
 
 ### Web service
 
