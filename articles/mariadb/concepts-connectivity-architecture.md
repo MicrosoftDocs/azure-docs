@@ -9,23 +9,23 @@ ms.date: 05/23/2019
 ---
 
 # Azure Database for MariaDB Connectivity architecture
-This article explains the Azure Database for MariaDB connectivity architecture as well as how the different components function to direct traffic to your instance of Azure Database for MariaDB. These connectivity components function to direct network traffic to the Azure Database for MariaDB with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
+This article explains the Azure Database for MariaDB connectivity architecture as well as how the different components function to direct traffic to your instance of Azure Database for MariaDB. These connectivity components function to direct network traffic to the Azure Database for MariaDB with clients connecting from within Azure and with clients connecting from outside of Azure. 
 
 ## Connectivity Architecture
 The following diagram provides a high-level overview of the Azure Database for MariaDB connectivity architecture.
-
-![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
 The following steps describe how a connection is established to an Azure Database for MariaDB:
 * Clients connect to the gateway, that has a public IP address and listens on port 3306.
 * Inside the database cluster traffic is forwarded to appropriate Azure Database for MariaDB.
 
-Azure Database for MariaDB supports **Proxy** mode for the connection policy setting of a MySQL Database server. In this mode, all connections are proxied via the Azure Database for MySQL gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure Database for MySQL gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload.
+The connections to your specific Azure Database for MariaDB from both within and outside Azure is enabled via the Azure Database for MariaDB gateways. 
+To enable connectivity, the client must have outbound firewall rules that allow only the Azure Database for MariaDB gateway IP addresses listed below (usually two IP addresses per region). This enables a TCP session is established via the Azure Database for MariaDB gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
-If you are connecting from outside Azure, your connections have a connection policy of Proxy by default. A policy of Proxy means that the TCP session is established via the Azure Database for MySQL gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
+![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
 ## Azure Database for MariaDB gateway IP addresses
-To connect to an Azure Database for MariaDB from on-premises resources, you need to allow outbound network traffic to the Azure Database for MariaDB gateway for your Azure region. Your connections only go via the gateway when connecting in Proxy mode, which is the default when connecting from on-premises resources.
+To connect to an Azure Database for MariaDB from on-premises resources, you need to allow outbound network traffic to the Azure Database for MariaDB gateway for your Azure region. Your connections only go via the gateway, which is the default when connecting from on-premises resources.
+
 The following table lists the primary and secondary IPs of the Azure Database for MariaDB gateway for all data regions. For some regions, there are two IP addresses. In these regions, the primary IP address is the current IP address of the gateway and the second IP address is a failover IP address. The failover address is the address to which we might move your server to keep the service availability high. For these regions, we recommend that you allow outbound to both the IP addresses. The second IP address is owned by Microsoft and does not listen in on any services until it is activated by Azure Database for MariaDB to accept connections.
 
 | **Region Name** | **Primary IP Address** | **Secondary IP Address** |
