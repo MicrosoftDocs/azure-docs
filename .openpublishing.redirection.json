@@ -26420,6 +26420,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure/marketplace/become-publisher.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure/marketplace/guidelines.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure/marketplace/register-dev-center.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/gtm-benefits.md",
       "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
       "redirect_document_id": true
