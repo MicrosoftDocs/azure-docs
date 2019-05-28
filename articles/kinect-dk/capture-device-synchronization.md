@@ -11,20 +11,19 @@ keywords: kinect, azure, sensor, sdk, depth, rgb, internal, external, synchroniz
 
 # Capture synchronization
 
-The Azure Kinect is capable of hardware time alignment between the color and depth sensors on a single device. In addition,
-multiple Azure Kinect devices can be connected to one another to enable cross-device synchronization.
+The Azure Kinect hardware can align the capture time of color and depth images. Alignment between the cameras on the same device is **internal synchronization**. Capture time alignment across multiple connected devices is **external synchronization**.
 
 ## Device internal synchronization
 
 Image capture between the individual cameras is synchronized in hardware. In every [k4a_capture_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__capture__t.html)
-that contains images from both the color and depth sensor, the images' timestamps are aligned based on the operating mode of the
-hardware. By default the images of a capture are center of exposure aligned. The relative timing of
+that contains images from both the color and depth sensor, the images' timestamps are aligned based on the operating mode of the hardware. By default the images of a capture are center of exposure aligned. The relative timing of
 depth and color captures can be adjusted using the `depth_delay_off_color_usec` field of [k4a_device_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html).
 
 ## Device external synchronization
 
-See [setup external synchronization](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md) for hardware setup. Once the devices are connected together, the software
-for each device must be configured to specify if the device is operating in a master or subordinate mode. This
+See [setup external synchronization](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md) for hardware setup.
+
+The software for each connected device must be configured to operate in a **master** or **subordinate** mode. This
 setting is configured on the [k4a_device_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html).
 
 ### Master mode
@@ -47,7 +46,7 @@ To programmatically retrieve the current state of the synchronization input and 
 
 ## Next steps
 
-Now you know how to enable and capture device synchronization, you also can review how to use 
+Now you know how to enable and capture device synchronization. You also can review how to use 
 
 >[!div class="nextstepaction"]
 >[Azure Kinect sensor SDK record and playback API](record-playback-api.md)
