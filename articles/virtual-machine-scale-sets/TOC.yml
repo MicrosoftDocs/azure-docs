@@ -229,7 +229,7 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Automatic OS upgrades
       href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Instance protection
+    - name: Instance protection (Preview)
       href: virtual-machine-scale-sets-instance-protection.md
     - name: Shared image galleries
       items:
