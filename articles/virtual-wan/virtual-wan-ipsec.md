@@ -12,7 +12,9 @@ ms.author: cherylmc
 
 # Virtual WAN default policies for IPsec connectivity
 
-This article shows the supported default IPsec policy combinations.
+This article shows the supported IPsec policy combinations.
+
+## Default IPsec policies
 
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
