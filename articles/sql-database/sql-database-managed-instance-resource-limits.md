@@ -15,7 +15,7 @@ ms.date: 05/22/2019
 ---
 # Overview Azure SQL Database managed instance resource limits
 
-This article provides an overview of the resource limits for Azure SQL Database managed instance, and provides information about how to request an increase to the default regional subscription limits.
+This article provides an overview of the resource limits for Azure SQL Database managed instance, and provides information about how to request an increase to these limits.
 
 > [!NOTE]
 > For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md).
@@ -26,7 +26,7 @@ Managed instance has characteristics and resource limits that depend on the unde
 
 ### Hardware generation characteristics
 
-Azure SQL Database managed instance can be deployed on two hardware generation (Gen4 and Gen5). Hardware generations have different characteristics that are described in the following table:
+Azure SQL Database managed instance can be deployed on two hardware generations: Gen4 and Gen5. Hardware generations have different characteristics that are described in the following table:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ Managed instances can be created only in [supported regions](https://azure.micro
 Managed instance currently supports deployment only on the following types of subscriptions:
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Pay-a-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
@@ -100,7 +100,7 @@ The following table shows the default regional limits for supported subscription
 
 \* You can either deploy 1 BC or 4 GP instances in one subnet, so that total number of "instance units" in the subnet never exceeds 4.
 
-** Maximum number of instances in one service tier applies if there are no instances in another service tier. In case you plan to mix GP and BC instances within same subnet, use the following section as a reference for allowed combinations. As a simple rule, the total number of subnets cannot exceed 3, and the total number of instance units cannot exceed 12.
+** Maximum number of instances in one service tier applies if there are no instances in another service tier. If you plan to mix GP and BC instances within the same subnet, use the following section as a reference for allowed combinations. As a simple rule, the total number of subnets cannot exceed 3, and the total number of instance units cannot exceed 12.
 
 
 > [!IMPORTANT]
@@ -126,7 +126,7 @@ The following examples cover deployment cases with non-empty subnets and mixed G
 
 ## Obtaining a larger quota for SQL managed instance
 
-If you need more managed instances in your current regions, you can send the support request to extend the quota using Azure portal.
+If you need more managed instances in your current regions, send a support request to extend the quota using the Azure portal.
 To initiate the process of obtaining a larger quota:
 
 1. Open **Help + support**, and click **New support request**.
