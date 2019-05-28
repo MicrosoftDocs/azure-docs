@@ -26,9 +26,7 @@ In this tutorial, you learn how to:
 Before you begin, make sure that:
 
 1. You have completed the [Tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
-2. You have received your Data Box Heavy and the order status in the portal is **Delivered**. 
-    - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
-    - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
+2. You have received your Data Box Heavy and the order status in the portal is **Delivered**.
 3. You have reviewed the [Data Box Heavy safety guidelines](data-box-heavy-safety.md).
 4. You have received four grounded power cords to use with your storage device.
 5. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must
@@ -138,4 +136,3 @@ Advance to the next tutorial to learn how to copy data on your Data Box Heavy.
 
 > [!div class="nextstepaction"]
 > [Copy your data to Azure Data Box](./data-box-deploy-copy-data.md)
-
