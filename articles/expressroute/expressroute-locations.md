@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mialdrid
 
 ---
@@ -163,7 +163,7 @@ The following table shows locations by service provider. If you want to view ava
 
 | **Service provider** | **Microsoft Azure** | **Office 365** | **Locations** |
 | --- | --- | --- | --- |
-| **China Telecom** |Supported |Not Supported |Beijing, Shanghai |
+| **China Telecom** |Supported |Not Supported |Beijing, Beijing2, Shanghai, Shanghai2 |
 | **[GDS](http://en.gds-services.com/news_detail/newsId=21.html)** |Supported |Not Supported |Beijing2, Shanghai2 |
 
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).

@@ -118,6 +118,13 @@ If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a 
   
  To use the relevant schema in Log Analytics for the CEF events, search for `CommonSecurityLog`.
 
+## Step 2: Forward Common Event Format (CEF) logs to Syslog agent
+
+Set your security solution to send Syslog messages in CEF format to your Syslog agent.​ Make sure you use the same parameters that appear in your agent configuration.​ These are usually:​
+
+- Port 514
+- Facility local4
+
 ## Step 3: Validate connectivity
 
 It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
