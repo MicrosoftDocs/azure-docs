@@ -23,17 +23,23 @@ The 2D coordinate system is 0-centered, that is, the subpixel coordinate `[0.0, 
 
 ## 3D coordinate systems
 
-Both depth and color cameras and IMU component, that is, gyroscope and accelerometer, are associated with an independent 3D coordinate space system. Points in the 3D-coordinate systems are represented as metric [X,Y,Z]-coordinate triplets with units in millimeters.
+Each camera, the accelerometer, and the gyroscope, are associated with an independent 3D coordinate space system.
+
+Points in the 3D-coordinate systems are represented as metric [X,Y,Z]-coordinate triplets with units in millimeters.
 
 ### Depth and color camera
 
-The origin `[0,0,0]` is located at the focal point of the camera. The coordinate system is oriented such that the positive X-axis points right, the positive Y-axis points down, and the positive Z-axis points forward. Depth the camera module and narrow field-of-view (NFOV) illuminator are tilted 6 degrees downwards and wide field-of-view (WFOV) is tilted an additional 1.3 degrees, as shown below.
+The origin `[0,0,0]` is located at the focal point of the camera. The coordinate system is oriented such that the positive X-axis points right, the positive Y-axis points down, and the positive Z-axis points forward. 
+
+The depth camera is tilted 6 degrees downwards of the color camera, as shown below.
+
+There are two illuminators used by the depth camera. The illuminator used in narrow field-of-view (NFOV) modes is aligned with the depth camera. The illuminator used in wide field-of-view (WFOV) modes is tilted an additional 1.3 degrees downward.
 
 ![3D coordinate conventions](./media/concepts/concepts-coordinate-systems/coordinate-systems-camera-features.png)
 
 ### Gyroscope and accelerometer
 
-The gyroscope's origin `[0,0,0]` is identical to the origin of the depth camera. The origin of the accelerometer coincides with its physical location. Both IMU coordinate systems are right-handed with the positive X-axis pointing backward, the positive Y-axis pointing left, and the positive Z-axis pointing down, as shown below.
+The gyroscope's origin `[0,0,0]` is identical to the origin of the depth camera. The origin of the accelerometer coincides with its physical location. Both the accelerometer and gyroscope  coordinate systems are right-handed. The coordinate system's positive X-axis points backward, the positive Y-axis points left, and the positive Z-axis points down, as shown below.
 
 ![IMU coordinate system](./media/concepts/concepts-coordinate-systems/coordinate-systems-gyroscope.png)
 
