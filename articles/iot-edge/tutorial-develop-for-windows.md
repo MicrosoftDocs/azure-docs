@@ -293,7 +293,7 @@ The IotEdgeModule1 code receives messages through its input queue and passes the
 
 1. In the Visual Studio cloud explorer, select the name of the IoT Edge device that you deployed to. 
 
-2. In the **Actions** menu, select **Start Monitoring D2C Message**.
+2. In the **Actions** menu, select **Start Monitoring Built-in Event Endpoint**.
 
 3. Watch the **Output** section in Visual Studio to see messages arriving at your IoT hub. 
 
