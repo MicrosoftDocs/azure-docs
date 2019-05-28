@@ -11,7 +11,9 @@ keywords: kinect, firmware, update, recovery
 
 # Azure Kinect DK device firmware update
 
-This document provides guidance on how to update device firmware on your Azure Kinect DK. Azure Kinect DK does not update firmware automatically. You can use [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md) to update firmware manually to the latest available version.
+This document provides guidance on how to update device firmware on your Azure Kinect DK.
+
+Azure Kinect DK doesn't update firmware automatically. You can use [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md) to update firmware manually to the latest available version.
 
 ## Prepare for firmware update
 

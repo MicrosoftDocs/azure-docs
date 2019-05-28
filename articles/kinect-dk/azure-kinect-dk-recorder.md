@@ -17,8 +17,7 @@ This article covers how you can use the `k4arecorder` command-line utility to re
 
 The `k4arecorder` has various command-line arguments to specify the output file and recording modes.
 
-Recordings are stored in the Matroska .mkv format using multiple video tracks for color and depth.
-Additional information such as camera calibration and metadata is stored in the mkv as well.
+Recordings are stored in the [Matroska .mkv format](sdk-record-format.md). The recording uses multiple video tracks for color and depth, and also additional information such as camera calibration and metadata.
 
 ```
 k4arecorder [options] output.mkv
