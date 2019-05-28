@@ -14,7 +14,6 @@
 
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
-
 ## Managed Disks
 
 **What is Azure Managed Disks?**
@@ -140,6 +139,24 @@ GPT partitioning can be used only on data disks, not OS disks. OS disks must use
 **What disk types support snapshots?**
 
 Premium SSD, standard SSD, and standard SSD support snapshots, without any size limit. So you can snapshot large disks (up to 32 TiB). Ultra SSDs do not support snapshots.
+
+## Uploading to a managed disk
+
+**Can I upload data to an existing managed disk?**
+
+No, upload can only be used during the creation of a new empty disk with the **ReadyToUpload** state.
+
+**How do I upload to a managed disk?**
+
+Create a managed disk with the [createOption](api/compute/disks/createorupdate#diskcreateoption) property of [creationData](api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
+
+**Can I attach a disk to a VM while it is in an upload state?**
+
+No.
+
+**Can I take a snapshot of a manged disk in an upload state?**
+
+No.
 
 ## Standard SSD disks
 
