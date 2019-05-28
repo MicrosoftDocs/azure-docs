@@ -49,7 +49,7 @@ There are three primary ways to interact with data stored in Time Series Insight
 
     * Read the [Time Series Insights JS client library](tutorial-explore-js-client-lib.md) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
 
-    * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the explorer (preview)](time-series-insights-update-explorer.md).
+    * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the Azure Time Series Insights Preview explorer](time-series-insights-update-explorer.md).
 
 - The third way to start is to use the powerful APIs to query data stored in Time Series Insights. Time Series Insights has temporal operators such as `from`, `to`, `first`, and `last`. It has aggregations and transformations such as `average`, `min`, `max`, `split by`, `order by`, and `DateHistogram`. It also has filtering operators such as `has`, `in`, `and`, `or`, `greater than`, and `REGEX`. All these operators enable downstream applications to quickly find interesting trends and patterns in your data. Use them to populate home-grown visualizations to spot anomalies.
 
