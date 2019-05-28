@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/24/2019
+ms.date: 05/28/2019
 ms.author: assafi
 ---
 
@@ -25,16 +25,11 @@ For technical details, refer to the SDK for .NET [Text Analytics reference](http
 
 ## Prerequisites
 
+* Any edition of [visual studio 2017 or later]
+* The Text Analytics [SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 You also need the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
-
-> [!Tip]
->  While you can call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to serialize and deserialize JSON.
->
-> A few useful links:
-> - [SDK NuGet page](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK code](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 ## Create the Visual Studio solution and install the SDK
 
