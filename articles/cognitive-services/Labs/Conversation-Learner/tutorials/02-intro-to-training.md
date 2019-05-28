@@ -3,7 +3,7 @@ title: Introduction to Training a Conversation Learner model - Microsoft Cogniti
 titleSuffix: Azure
 description: Learn how to train a model including branching and editing previous training via Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner

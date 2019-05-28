@@ -3,7 +3,7 @@ title: Managing user data with Conversation Learner - Microsoft Cognitive Servic
 titleSuffix: Azure
 description: Learn how to manage user data with Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner

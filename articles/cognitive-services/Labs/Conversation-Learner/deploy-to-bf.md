@@ -3,7 +3,7 @@ title: How to deploy a Conversation Learner bot - Microsoft Cognitive Services |
 titleSuffix: Azure
 description: Learn how to deploy a Conversation Learner bot.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner

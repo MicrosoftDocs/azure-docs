@@ -3,7 +3,7 @@ title: How to add Pre-Trained Entities to a Conversation Learner Model - Microso
 titleSuffix: Azure
 description: Learn how to add Pre-trained Entities to a Conversation Learner Model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner

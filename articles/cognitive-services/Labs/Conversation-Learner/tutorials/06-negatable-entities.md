@@ -3,7 +3,7 @@ title: How to use Negatable Entities with a Conversation Learner Model - Microso
 titleSuffix: Azure
 description: Learn how to use Negatable Entities with a Conversation Learner Model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner

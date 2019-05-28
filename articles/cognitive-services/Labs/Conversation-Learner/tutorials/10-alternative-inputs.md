@@ -3,7 +3,7 @@ title: How to use alternative inputs with Conversation Learner - Microsoft Cogni
 titleSuffix: Azure
 description: Learn how to use alternative inputs with Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner

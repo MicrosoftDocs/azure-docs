@@ -3,7 +3,7 @@ title: How to use cards with a Conversation Learner model, part 1 - Microsoft Co
 titleSuffix: Azure
 description: Learn how to use cards with a Conversation Learner model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner

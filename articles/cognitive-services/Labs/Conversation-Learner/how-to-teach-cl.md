@@ -3,7 +3,7 @@ title: How to teach with Conversation Learner - Microsoft Cognitive Services | M
 titleSuffix: Azure
 description: Learn how to teach with Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner

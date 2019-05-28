@@ -3,7 +3,7 @@ title: Conversation Learner default configuration - Microsoft Cognitive Services
 titleSuffix: Azure
 description: Learn about the default Conversation Learner configuration.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
