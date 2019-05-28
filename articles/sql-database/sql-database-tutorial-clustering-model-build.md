@@ -57,7 +57,7 @@ plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups s
 
 ![Elbow graph](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
 
-Based on the graph, it looks like *k = 4* would be a good value to try. That will group the customers into four clusters.
+Based on the graph, it looks like *k = 4* would be a good value to try. That *k* value will group the customers into four clusters.
 
 ## Perform clustering
 
