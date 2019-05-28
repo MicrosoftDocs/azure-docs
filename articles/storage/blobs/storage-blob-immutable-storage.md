@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -377,7 +377,7 @@ Remove an immutability policy (add -Force to dismiss the prompt):
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
 	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
