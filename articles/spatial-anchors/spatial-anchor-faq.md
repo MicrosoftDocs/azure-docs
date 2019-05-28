@@ -29,7 +29,7 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 **Q: What are the connectivity requirements for Azure Spatial Anchors?**
 
-**A:** Azure Spatial Anchors works with Wi-Fi and mobile broadband connections.,
+**A:** Azure Spatial Anchors works with Wi-Fi and mobile broadband connections.
 
 **Q: How accurately can Azure Spatial Anchors locate anchors?**
 
