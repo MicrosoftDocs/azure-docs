@@ -13,7 +13,7 @@ keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 
 Getting started with the Azure Kinect DK API? Look no further! This document will get you up and running with access to the device!
 
-First, [download](sensor-sdk-download.md)  and install the Azure Kinect Sensor SDK.
+First, [download](sensor-sdk-download.md), and install the Azure Kinect Sensor SDK.
 
 Here are the functions we'll use:
 
@@ -26,7 +26,7 @@ Here are the functions we'll use:
 
 ## Headers
 
-There's only one header that you will need, and that's k4a.h! Make sure your compiler of choice is set up with the SDK's lib and include folders. You'll also need the k4a.lib and k4a.dll files linked up.
+There's only one header that you'll need, and that's k4a.h! Make sure your compiler of choice is set up with the SDK's lib and include folders. You'll also need the k4a.lib and k4a.dll files linked up.
 
 ```C
 #include <k4a/k4a.h>
@@ -40,7 +40,7 @@ Multiple Azure Kinect DK devices can be connected to your computer. We'll first 
 uint32_t count = k4a_device_get_installed_count();
 ```
 
-Once you've determined there is actually a device connected to the computer, you can open it using [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113). You can provide the index of the device you want to open, or you can just use `K4A_DEVICE_DEFAULT` for the first one.
+Once you've determined there's a device connected to the computer, you can open it using [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113). You can provide the index of the device you want to open, or you can just use `K4A_DEVICE_DEFAULT` for the first one.
 
 ```C
 // Open the first plugged in Kinect device
@@ -53,7 +53,7 @@ As with most things in the k4a API, when you open something, you should also clo
 k4a_device_close(device);
 ```
 
-Once the device is open, we can make a really simple test to ensure it's all good. So let's read the device's serial number!
+Once the device is open, we can make a test to ensure it's all good. So let's read the device's serial number!
 
 ```C
 // Get the size of the serial number
@@ -69,7 +69,7 @@ free(serial);
 
 ## Starting the cameras
 
-Once you've opened the device, you'll need to configure the camera with a [`k4a_device_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) object. Camera configuration has a number of different options, and you'll need to choose the settings that best fit your own scenario.
+Once you've opened the device, you'll need to configure the camera with a [`k4a_device_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) object. Camera configuration has a number of different options. Choose the settings that best fit your own scenario.
 
 ```C
 // Configure a stream of 4096x3072 BRGA color data at 15 frames per second
@@ -89,7 +89,7 @@ k4a_device_stop_cameras(device);
 
 ## Error handling
 
-For the sake of brevity and clarity, we don't show error handling in some inline examples. However, error handling is always important! Many functions will return a general success/failure type [`k4a_result_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga4b419a99aa2220b076a4520dc2afd1e5.html#ga4b419a99aa2220b076a4520dc2afd1e5), or a more specific variant with detailed information such as [`k4a_wait_result_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga44c7c0c1cfba7c879e9e2da1a869e4ee.html#ga44c7c0c1cfba7c879e9e2da1a869e4ee). Be sure to check the docs or intellisense of a specific function to see what error messages you might expect to see from it!
+For the sake of brevity and clarity, we don't show error handling in some inline examples. However, error handling is always important! Many functions will return a general success/failure type [`k4a_result_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga4b419a99aa2220b076a4520dc2afd1e5.html#ga4b419a99aa2220b076a4520dc2afd1e5), or a more specific variant with detailed information such as [`k4a_wait_result_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga44c7c0c1cfba7c879e9e2da1a869e4ee.html#ga44c7c0c1cfba7c879e9e2da1a869e4ee). Check the docs or intellisense for each function to see what error messages you should expect to see from it!
 
 Along with the error types, there's also the [`K4A_SUCCEEDED`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___macros_ga8e5b48150bc243c6052793bd830c2fcd.html#ga8e5b48150bc243c6052793bd830c2fcd) and [`K4A_FAILED`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___macros_ga7c2e32349135d008b6f836c571d434b4.html#ga7c2e32349135d008b6f836c571d434b4) macros that you can use with them. So instead of just opening a k4a device, we might guard it like this:
 
@@ -166,6 +166,6 @@ int main()
 
 ## Next steps
 
-You may also review the following:
+You may also review the following articles:
 > [!div class="nextstepaction"]
 >[Using Azure Kinect sensor SDK](overview-sensor-sdk.md)
