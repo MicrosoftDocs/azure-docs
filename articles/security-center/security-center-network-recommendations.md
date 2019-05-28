@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Protect your network resources in Azure Security Center
