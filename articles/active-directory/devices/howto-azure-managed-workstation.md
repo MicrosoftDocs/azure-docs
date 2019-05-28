@@ -310,7 +310,7 @@ More information about this preview feature can be found in the article [Windows
    > [!NOTE]
    > The script will require elevated rights and run as remote signed. You can use the following command to allow the script to run correctly. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
-1. You can gather this information by signing in to a Windows 10 version 1809 or higher device to gather the information, or your hardware reseller can provide this information when ordering new devices.
+   *  You can gather this information by signing in to a Windows 10 version 1809 or higher device to gather the information, or your hardware reseller can provide this information when ordering new devices.
 1. Gather the required information and return to the **Azure portal**. Navigate to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**, select **Import**, and choose the CSV file you created or were provided.
 1. Add the now enrolled device to the security group **Secure Workstations** created earlier.
 1. From the Windows 10 device you wish to configure, browse to **Windows Settings** > **Update & Security** > **Recovery**. Choose **Get started** under **Reset this PC** and follow the prompts to reset and reconfigure the device using the profile and compliance policies configured.
