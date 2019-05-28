@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -94,7 +94,15 @@ The Graph API also provides access to users and groups from Azure AD and other d
 
 The following steps show you how the consent experience works for the application developer and user:
 
-1. Assume you have a web client application that needs to request specific permissions to access a resource or API. The Azure portal is used to declare permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registration:
+1. Assume you have a web client application that needs to request specific permissions to access a resource or API. The Azure portal is used to declare permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registrations. The Permission request path is App registrations > Application > View API Permissions > Add a permission > Microsoft Graph:
+
+	![Graph API](./media/openidoauth-tutorial/api-permission.png)
+
+	![Graph API](./media/openidoauth-tutorial/application.png)
+
+	![Graph API](./media/openidoauth-tutorial/add-permission.png)
+
+	![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
