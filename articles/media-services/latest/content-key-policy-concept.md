@@ -29,7 +29,7 @@ You create the **Content Key Policy** to configure how the content key (that pro
 
 It is recommended to let Media Services to autogenerate content keys. Typically, you would use a long lived key and check for the policies existence with **Get**. To get the key, you need to call a separate action method to get secrets or credentials, see the example that follows.
 
-**Content Key Policies** are updatable. For example, you might want to update the policy if you need to do a key  tion. You can update the primary verification key and the list of alternate verification keys in the existing policy. It can take up to 15 minutes for the Key Delivery caches to update and pick up the updated policy. 
+**Content Key Policies** are updatable. It can take up to 15 minutes for the Key Delivery caches to update and pick up the updated policy. 
 
 > [!IMPORTANT]
 > * Properties of **Content Key Policies** that are of the Datetime type are always in UTC format.
