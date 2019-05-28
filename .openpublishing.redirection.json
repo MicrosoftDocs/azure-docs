@@ -39529,36 +39529,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-features.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-features",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-dns.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started-dns",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started-enableaadds",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started-vnet",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started.md",
       "redirect_url": "/azure/active-directory-domain-services/create-instance",
       "redirect_document_id": false
