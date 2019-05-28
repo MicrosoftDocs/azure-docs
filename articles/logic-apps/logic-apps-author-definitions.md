@@ -100,66 +100,100 @@ choose **Design**.
 
 ## Parameters
 
-Parameters let you reuse values throughout your logic app 
-and are good for replacing values that you might change often. 
-For example, if you have an email address that you want use in multiple places, 
-you should define that email address as a parameter.
-
-Parameters are also useful when you need to override parameters in different environments, 
-Learn more about [parameters for deployment](#deployment-parameters) and the 
-[REST API for Azure Logic Apps documentation](https://docs.microsoft.com/rest/api/logic).
+When you have values that change often at runtime or want to reuse throughout your logic app without hardcoding, you can define parameters for those values and use parameter references instead. For example, if you have an email address that you want use at runtime in multiple places, define that email address as a parameter and then you can reference that parameter as necessary in your workflow definition. You can also use parameters when creating Azure Resource Manager template for deployment. At the template level, parameters are useful when you need to override parameters for different deployment environments. For more information, see [Parameters for deployment](#deployment-parameters) in the next section.
 
 > [!NOTE]
-> Parameters are only available in code view.
+> Parameters are available only when working with your logic app's underlying workflow definition in code view.
 
-In the [first example logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
-you created a workflow that sends emails when new posts appear in a website's RSS feed. 
-The feed's URL is hardcoded, so this example shows how to replace the query value with a parameter so that you can change feed's URL more easily.
+For example, in the [logic app from the quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), you created a workflow that sends emails when new posts appear in a website's RSS feed. In the trigger, the feed's URL is hardcoded, so this example shows how to replace the feed URL with a parameter so that you can change feed's URL more easily. Here is the trigger's underlying definition where you can replace `feedUrl` with a parameter reference:
 
-1. In code view, find the `parameters : {}` object, 
-and add a `currentFeedUrl` object:
-
-   ``` json
-   "currentFeedUrl" : {
-      "type" : "string",
-      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+```json
+"triggers": {
+   "When_a_feed_item_is_published": {
+      "inputs": {
+         "host": {
+           "connection": {
+              "name": "@parameters('$connections')['rss']['connectionId']"
+           }
+         },
+         "method": "get",
+         "path": "/OnNewFeed",
+         "queries": {
+            // Parameterize this URL so you can change the value more easily
+            "feedUrl": "http://rss.cnn.com/rss/cnn_topstories.rss"
+         }
+      },
+      "recurrence": {
+          "frequency": "Month",
+          "interval": 1
+      },
+      "splitOn": "@triggerBody()?['value']",
+      "type": "ApiConnection"
    }
+}
+```
+
+1. On your logic app's menu, select **Logic app code view**.
+
+1. In your workflow definition, find the `parameters` object where a parameter definition already exists for the `$connections` object that specifies the values for connections in your logic app:
+
+   ```json
+   "parameters": {
+      "$connections": {
+         "defaultValue": {},
+         "type": "Object"
+      }
+   },
    ```
 
-2. In the `When_a_feed-item_is_published` action, 
-find the `queries` section, and replace the query value 
-with `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
+1. Add this parameter definition for the `currentFeedUrl` string where the default type is set to the currently specified URL. For parameters to appear correctly in the Logic App Designer, make sure to include the `defaultValue` attribute, although you can specify an empty value for that attribute.
+
+   ```json
+   "parameters": {
+      "$connections": {
+         "defaultValue": {},
+         "type": "Object"
+      },
+      "currentFeedUrl": {
+         "type": "string",
+         "defaultValue": "http://rss.cnn.com/rss/cnn_topstories.rss"
+      }
+   },
+   ```
+
+1. In the `When_a_feed_item_is_published` trigger, find the `queries` attribute, and replace the `feedUrl` with a reference to the `currentFeedUrl` parameter.
+
+   `"feedUrl": "@{parameters('currentFeedUrl')}"`
+
+   To reference a workflow definition parameter, expressions start with an "at" symbol (**@**) and use the `parameters()` function to return the parameter value. For more information, see [Expressions - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#expressions) and [Parameters function - Workflow Definition Language](../logic-apps/workflow-definition-language-functions-reference.md#parameters).
 
    **Before**
+
    ``` json
-   }
+   {
       "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
+         "feedUrl": "http://rss.cnn.com/rss/cnn_topstories.rss"
        }
    },
    ```
 
    **After**
+
    ``` json
-   }
+   {
       "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
+         "feedUrl": "@{parameters('currentFeedUrl')}"
        }
    },
    ```
 
-   To join two or more strings, you can also use the `concat` function. 
-   For example, `"@concat('#',parameters('currentFeedUrl'))"` works the same 
-   as the previous example.
+1. To pass the value for the
 
-3.	When you're done, choose **Save**.
-
-Now you can change the website's RSS feed by passing a different URL 
-through the `currentFeedURL` object.
+Now you can change the website's RSS feed by passing a different URL through the `currentFeedURL` object.
 
 <a name="deployment-parameters"></a>
 
-## Deployment parameters for different environments
+## Parameters for deployment
 
 Usually, deployment lifecycles have environments for development, staging, and production. 
 For example, you might use the same logic app definition in all these environments 
@@ -200,6 +234,7 @@ Here's a basic definition:
     "outputs": {}
 }
 ```
+
 In the actual `PUT` request for the logic apps, you can provide the parameter `uri`. 
 In each environment, you can provide a different value for the `connection` parameter. 
 Because a default value no longer exists, the logic app payload requires this parameter:

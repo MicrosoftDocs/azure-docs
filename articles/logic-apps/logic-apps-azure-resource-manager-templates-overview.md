@@ -716,7 +716,7 @@ Here is an example workflow definition that corresponds with the other examples 
    // Workflow definition parameters
    "parameters": {
       "$connections": {
-         "defaultValue": {""},
+         "defaultValue": {},
          "type": "Object"
       }
    },
@@ -755,9 +755,9 @@ Here is an example workflow definition that corresponds with the other examples 
 
 ## Workflow definition parameters
 
-In your workflow definition's `parameters` attribute, you can add or edit any parameters that your workflow definition uses for accepting inputs at runtime. By default, this `parameters` attribute is empty unless your logic app creates and uses connections to other services and systems through [managed connectors](../connectors/apis-list.md). You can specify values for workflow definition parameters inside the upper-level `parameters` attribute that's outside your workflow definition but still inside the template's `resources` attribute.
+In your workflow definition's `parameters` attribute, you can add or edit any parameters that your workflow definition uses for accepting inputs at runtime. By default, this `parameters` attribute is empty unless your logic app creates and uses connections to other services and systems through [managed connectors](../connectors/apis-list.md). You can specify the values for workflow definition parameters by using the upper-level `parameters` attribute that's outside your workflow definition but still inside the template's `resources` attribute.
 
-This example includes only the `$connections` workflow definition parameter that accepts the runtime values for the connections used by your logic app's workflow definition.
+This example shows only the `$connections` workflow definition parameter that accepts the runtime values for the connections used by your logic app's workflow definition.
 
 ```json
 {
@@ -828,11 +828,11 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## References to parameters
 
-To reference template parameters, you use template expressions and [template functions](../azure-resource-manager/resource-group-template-functions.md). Template expressions use square brackets (**[]**), for example:
+To reference template parameters, you can use template expressions and [template functions](../azure-resource-manager/resource-group-template-functions.md), which are evaluated at deployment. Template expressions use square brackets (**[]**), for example:
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 
-To reference workflow definition parameters, you use [Workflow Definition Language expressions and functions](../logic-apps/workflow-definition-language-functions-reference.md). However, you might notice that some template functions and workflow definition functions have the same name. Workflow definition expressions use the "at" symbol (**@**), for example:
+To reference workflow definition parameters, you use [Workflow Definition Language expressions and functions](../logic-apps/workflow-definition-language-functions-reference.md), which are evaluated at runtime. You might notice that some template functions and workflow definition functions have the same name. Workflow definition expressions start with the "at" symbol (**@**), for example:
 
 `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
 
@@ -842,9 +842,13 @@ For more information about functions, see:
 
 * [Workflow definition functions](../logic-apps/workflow-definition-language-functions-reference.md)
 
-Although you might want to provide the values for your workflow definition's parameters by referencing your template's parameters, using template expressions inside your workflow definition can result in more complicated code. Also, template expressions are evaluated at deployment, while workflow definition expressions are evaluated at runtime.
+Using Resource Manager template syntax and expressions inside your workflow definition can result in more complicated code. However, here's a way you can pass values to your workflow definition's parameters through your template's parameters and avoid referencing template parameters in your workflow definition:
 
-Instead, in your template's `resources` attribute, define your workflow definition's parameters inside the `parameters` attribute *within* the `definition` attribute for your workflow. You can then specify values for your workflow definition's parameters inside the upper-level `parameters` attribute that's outside your workflow definition but still inside the template's `resources` attribute.
+1. In the `parameters` attribute inside your workflow's `definition` attribute, define the parameters for the values you want to use at runtime, for example:
+
+1. In the `parameters` attribute that's one level up outside your workflow definition but still inside your template's `resources` attribute, specify the values for the workflow definition parameters by referencing the template parameters you want, for example:
+
+
 
 <a name="full-example-template"></a>
 

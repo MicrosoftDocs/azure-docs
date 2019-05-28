@@ -74,7 +74,7 @@ Here is the general structure for a parameter definition:
 "parameters": {
    "<parameter-name>": {
       "type": "<parameter-type>",
-      "defaultValue": "<default-parameter-value>",
+      "defaultValue": <default-parameter-value>,
       "allowedValues": [ <array-with-permitted-parameter-values> ],
       "metadata": {
          "key": {
@@ -89,7 +89,7 @@ Here is the general structure for a parameter definition:
 |-----------|----------|------|-------------|
 | <*parameter-name*> | Yes | String | The name for the parameter that you want to declare |
 | <*parameter-type*> | Yes | int, float, string, bool, array, object, securestring, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` or `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Security recommendations for action and input parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | The type for the parameter |
-| <*default-parameter-values*> | Yes | Same as `type` | The default parameter value to use if no value is specified when the workflow instantiates. The `defaultValue` attribute is required so that the Logic App Designer can correctly show the parameter, but you can specify an empty value. |
+| <*default-parameter-value*> | Yes | Same as `type` | The default parameter value to use if no value is specified when the workflow instantiates. The `defaultValue` attribute is required so that the Logic App Designer can correctly show the parameter, but you can specify an empty value. |
 | <*array-with-permitted-parameter-values*> | No | Array | An array with values that the parameter can accept |
 | `metadata` | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app or flow, or the design-time data used by Visual Studio or other tools |
 ||||
