@@ -101,6 +101,9 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
     E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### Update to the latest version of Deployment Planner
+
+The latest updates are summarized in the Deployment Planner [version history](site-recovery-deployment-planner-history.md).
+
 If you have a previous version of Deployment Planner, do either of the following:
  * If the latest version doesn't contain a profiling fix and profiling is already in progress on your current version of the planner, continue the profiling.
  * If the latest version does contain a profiling fix, we recommend that you stop profiling on your current version and restart the profiling with the new version.
@@ -115,7 +118,7 @@ If you have a previous version of Deployment Planner, do either of the following
 
 ## Version history
 The latest Site Recovery Deployment Planner tool version is 2.4.
-See the [Site Recovery Deployment Planner version history](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+See the [Site Recovery Deployment Planner version history](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
 
 ## Next steps
 [Run Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

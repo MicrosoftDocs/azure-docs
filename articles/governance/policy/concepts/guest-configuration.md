@@ -42,7 +42,8 @@ steps:
 
 1. In the left menu of the **Subscription** page, click **Resource providers**.
 
-1. Filter for or scroll until you locate **Microsoft.GuestConfiguration**, then click **Register** on the same row.
+1. Filter for or scroll until you locate **Microsoft.GuestConfiguration**, then click **Register**
+   on the same row.
 
 #### Registration - PowerShell
 
@@ -72,9 +73,9 @@ received, the settings are checked on a 15-minute interval. Results are sent to 
 Configuration resource provider as soon as the audit completes. When a policy [evaluation
 trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the machine is
 written to the Guest Configuration resource provider. This causes Azure Policy to evaluate the Azure
-Resource Manager properties. An on-demand Policy evaluation retrieves the latest value from the
-Guest Configuration resource provider. However, it doesn't trigger a new audit of the configuration
-within the virtual machine.
+Resource Manager properties. An on-demand Azure Policy evaluation retrieves the latest value from
+the Guest Configuration resource provider. However, it doesn't trigger a new audit of the
+configuration within the virtual machine.
 
 ### Supported client types
 
@@ -91,9 +92,9 @@ The following table shows a list of supported operating system on Azure images:
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest Configuration can audit nodes running a supported OS.  If you would like to audit
-> virtual machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition
-> and modify the **If** section to include your image properties.
+> Guest Configuration can audit nodes running a supported OS. If you would like to audit virtual
+> machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition and
+> modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
@@ -113,9 +114,14 @@ has the currently deployed ranges and any upcoming changes to the IP ranges. You
 outbound access to the IPs in the regions where your VMs are deployed.
 
 > [!NOTE]
-> The Azure Datacenter IP address XML file lists the IP address ranges that are used in the Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges.
-> An updated file is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
-> It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
+> The Azure Datacenter IP address XML file lists the IP address ranges that are used in the
+> Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges. An updated file
+> is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the
+> IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one
+> week. It's a good idea to download the new XML file every week. Then, update your site to
+> correctly identify services running in Azure. Azure ExpressRoute users should note that this file
+> is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week
+> of each month.
 
 ## Guest Configuration definition requirements
 
@@ -126,7 +132,8 @@ tools](#validation-tools).
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
 
-- Validate the virtual machine has been assigned a configuration to evaluate. If no assignment is currently present, get the assignment and prepare the virtual machine by:
+- Validate the virtual machine has been assigned a configuration to evaluate. If no assignment is
+  currently present, get the assignment and prepare the virtual machine by:
   - Authenticating to the virtual machine using a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Installing the latest version of the **Microsoft.GuestConfiguration** extension
   - Installing [validation tools](#validation-tools) and dependencies, if needed
@@ -175,7 +182,7 @@ Samples for Policy Guest Configuration are available in the following locations:
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review the [Policy definition structure](definition-structure.md).
+- Review the [Azure Policy definition structure](definition-structure.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/getting-compliance-data.md).

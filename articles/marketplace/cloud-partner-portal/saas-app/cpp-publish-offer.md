@@ -1,25 +1,24 @@
 ---
-title: Publish Azure SaaS application offer | Microsoft Docs
+title: Publish Azure SaaS application offer | Azure Marketplace
 description: Publishing process and steps for a SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/16/2019
 ms.author: pbutlerm
 ---
 
 # Publish a SaaS application offer
 
 After you create a new offer by providing the information on the **New Offer** page, you can publish the offer. Select **Publish** to start the publishing process.
+
+> [!IMPORTANT] 
+> SaaS offer functionality is being migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must
+> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
+> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
+> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
+
 
 The following diagram shows the high-level steps for publishing a new SaaS application offer.
 

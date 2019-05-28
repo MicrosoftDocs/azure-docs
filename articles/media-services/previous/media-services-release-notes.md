@@ -32,7 +32,7 @@ We want to hear from our customers so that we can focus on fixing problems that 
 | --- | --- |
 | Several common HTTP headers aren't provided in the REST API. |If you develop Media Services applications by using the REST API, you find that some common HTTP header fields (including CLIENT-REQUEST-ID, REQUEST-ID, and RETURN-CLIENT-REQUEST-ID) aren't supported. The headers will be added in a future update. |
 | Percent-encoding isn't allowed. |Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). For this reason, percent-encoding isn't allowed. The value of the Name property can't have any of the following [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can be only one "." for the file name extension. |
-| The ListBlobs method that is part of the Azure Storage SDK version 3.x fails. |Media Services generates SAS URLs based on the [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. If you want to use the Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of the Storage SDK version 2.x. |
+| The ListBlobs method that is part of the Azure Storage SDK version 3.x fails. |Media Services generates SAS URLs based on the [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. If you want to use the Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) method that is part of the Storage SDK version 2.x. |
 | The Media Services throttling mechanism restricts the resource usage for applications that make excessive requests to the service. The service might return the "Service Unavailable" 503 HTTP status code. |For more information, see the description of the 503 HTTP status code in [Media Services error codes](media-services-encoding-error-codes.md). |
 | When you query entities, a limit of 1,000 entities is returned at one time because the public REST version 2 limits query results to 1,000 results. |Use Skip and Take (.NET)/top (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this section](media-services-deliver-content-overview.md#known-issues). |
@@ -40,6 +40,10 @@ We want to hear from our customers so that we can focus on fixing problems that 
 
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## March 2019
+
+The Media Hyperlapse Preview feature of Azure Media Services was deprecated.
 
 ## December 2018
 
@@ -317,10 +321,6 @@ The [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.medias
 * Currently, you can't ingest an RTMP live stream over an SSL connection.
 * You can stream over SSL only if the streaming endpoint from which you deliver your content was created after September 10, 2014. If your streaming URLs are based on the streaming endpoints created after September 10, 2014, the URL contains "streaming.mediaservices.windows.net" (the new format). Streaming URLs that contain "origin.mediaservices.windows.net" (the old format) don't support SSL. If your URL is in the old format and you want to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). To stream your content over SSL, use URLs based on the new streaming endpoint.
 
-## <a id="october_changes_14"></a>October 2014 release
-### <a id="new_encoder_release"></a>Media Services Encoder release
- The new release of the Media Services Azure Media Encoder was announced. With the latest Media Encoder, you're charged only for output GBs. Otherwise, the new encoder is feature compatible with the previous encoder. For more information, see [Media Services pricing details].
-
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 The Media Services SDK for .NET extensions is now version 2.0.0.3.
 
@@ -392,14 +392,6 @@ The Media Services .NET SDK is now version 3.0.0.5. The following updates were m
   * When you get web exceptions (for example, during an Access Control Service token request), fatal errors fail faster now.
 
 For more information, see [Retry logic in the Media Services SDK for .NET].
-
-## <a id="april_changes_14"></a>April 2014 Encoder release
-### <a name="april_14_enocer_changes"></a>Media Services Encoder updates
-* Support was added to ingest AVI files that are authored by using the Grass Valley EDIUS nonlinear editor. In this process, the video is lightly compressed by using the Grass Valley HQ/HQX codec. For more information, see [Grass Valley announces EDIUS 7 streaming through the cloud].
-*  Support was added to specify the naming convention for the files produced by the Media Services Encoder. For more information, see [Control Media Services Encoder output file names](https://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  Support was added for video and/or audio overlays. For more information, see [Create overlays](https://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  Support was added to stitch together multiple video segments. For more information, see [Stitch video segments](https://msdn.microsoft.com/library/azure/dn640504.aspx).
-* A bug was fixed that was related to transcoding MP4s where the audio was encoded with MPEG-1 Audio Layer 3 (also known as MP3).
 
 ## <a id="jan_feb_changes_14"></a>January/February 2014 releases
 ### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 and 3.0.0.3

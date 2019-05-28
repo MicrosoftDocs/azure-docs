@@ -152,7 +152,7 @@ Now that you have learned how to use JDBC to work with Hive, use the following l
 
 * [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Apache Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

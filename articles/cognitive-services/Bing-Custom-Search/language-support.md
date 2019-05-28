@@ -3,14 +3,14 @@ title: Language support - Bing Custom Search API
 titleSuffix: Azure Cognitive Services
 description: A list of supported languages and regions for the Bing Custom Search API.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
+ms.author: aahi
 ---
 
 # Language and region support for the Bing Custom Search API
@@ -23,7 +23,7 @@ You can specify a country/region using the `cc` query parameter. If you specify 
 
 The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## Countries
+## Countries/Regions
 
 |Country/region|Code|
 |-------|----|

@@ -412,11 +412,9 @@ Request parameters for this API include the default set mentioned previously as 
 
 | Field                 | Parameter type  | Description |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Query string    | Optional parameter. When specified, filters the list of purged instances that were created at or after the given ISO8601 timestamp.|
+| **`createdTimeFrom`** | Query string    | Filters the list of purged instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**   | Query string    | Optional parameter. When specified, filters the list of purged instances that were created at or before the given ISO8601 timestamp.|
 | **`runtimeStatus`**   | Query string    | Optional parameter. When specified, filters the list of purged instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) topic. |
-
-If no parameters are specified, all instances in the task hub will be purged.
 
 > [!NOTE]
 > This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances and/or History tables. More details on these tables can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.

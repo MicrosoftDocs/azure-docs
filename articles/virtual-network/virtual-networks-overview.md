@@ -3,7 +3,8 @@ title: Azure Virtual Network | Microsoft Docs
 description: Learn about Azure Virtual Network concepts and features.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 tags: azure-resource-manager
 Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
@@ -12,11 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ---
 # What is Azure Virtual Network?
 
-Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. A virtual network is scoped to a single region; however, multiple virtual networks from different regions can be connected together using Virtual Network Peering.
+Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. A virtual network is scoped to a single Azure region. An Azure [region](https://azure.microsoft.com/global-infrastructure/regions/) is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. 
+
+Virtual networks are made up of subnets. A subnet is a range of IP addresses within your virtual network. Subnets, like virtual networks, are scoped to a single Azure region. 
+
+Multiple virtual networks from different regions can be connected together using Virtual Network Peering.
 
 Azure Virtual Network provides the following key capabilities:
 
