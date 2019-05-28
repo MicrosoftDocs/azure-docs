@@ -49,7 +49,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## Retrieve Activity log for a subscription
-Use the `Get-AzLog` cmdlet.  The following are some common examples. The Activity Log holds the last 90 days of operations. Using dates before this time results in an error message.  
+Use the [Get-AzLog](https://docs.microsoft.com/en-us/powershell/module/az.monitor/get-azlog) cmdlet.  The following are some common examples. The Activity Log holds the last 90 days of operations. Using dates before this time results in an error message.  
 
 See what the current date/time are to verify what times to use in the commands below:
 ```powershell
@@ -95,7 +95,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` supports many other parameters. See the `Get-AzLog` reference for more information.
 
 > [!NOTE]
-> `Get-AzLog` only provides 15 days of history. Using the **-MaxEvents** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
+> `Get-AzLog` only provides 15 days of history. Using the **-MaxRecords** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
 > 
 > 
 
