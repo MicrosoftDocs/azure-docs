@@ -106,7 +106,7 @@ Take the following steps to set up your device using the local configuration and
 
     ![Data Box Heavy sign in to local web UI](media/data-box-heavy-deploy-set-up/data-box-heavy-unlock-device.png)
 
-5. On the Dashboard, ensure that the network interfaces are configured. There are four network interfaces on your device node, two 1 Gbps, and two 40 Gbps. Of these one of the 1 Gbps is a management interface and hence not user configurable. The remaining 3 network interfaces are dedicated to data and can be configured by the user.
+5. On the Dashboard, ensure that the network interfaces are configured. There are four network interfaces on your device node, two 1 Gbps, and two 40 Gbps. Of these one of the 1 Gbps is a management interface and hence not user configurable. The remaining three network interfaces are dedicated to data and can be configured by the user.
 
 - If DHCP is enabled in your environment, network interfaces are automatically configured.
 - If DHCP is not enabled, go to Set network interfaces, and assign static IPs if needed.
