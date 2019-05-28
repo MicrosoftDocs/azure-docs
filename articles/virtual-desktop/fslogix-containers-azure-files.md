@@ -61,7 +61,7 @@ While S2D clusters achieve the necessary performance, the cost is expensive for 
 
 S2D clusters require an operating system that is patched, updated, and maintained in a secure state. These processes and the complexity of setting up S2D disaster recovery make S2D feasible only for enterprises with a dedicated IT staff.
 
-## FSLogix Profile Containers
+## FSLogix profile containers
 
 On November 19, 2018 [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix addresses many profile container challenges, key among them are:
 
