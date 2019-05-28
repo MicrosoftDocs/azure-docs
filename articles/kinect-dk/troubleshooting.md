@@ -69,7 +69,7 @@ For more information, see below clip from header file:
 ## Device does not enumerate in device manager
 
 - Check the status LED behind the device, if it is blinking amber you have USB connectivity issue and it does not get enough power. The power supply cable should be plugged into the
-provided power adapter. Note that while the power cable has a USB type A connected, the device requires more power than a PC USB port can supply, so don't connect to it to
+provided power adapter. While the power cable has a USB type A connected, the device requires more power than a PC USB port can supply. Therefore, don't connect to
 a PC port or USB hub.
 - Check that you have power cable connected and using USB3 port for data.
 - Try changing USB3 port for the data connection (recommendation to use USB port close to motherboard, for example, in back of the PC).
@@ -87,7 +87,7 @@ a PC port or USB hub.
 
 - Check if you have any other application using the device (for example, Windows camera application). Only one application at a time can access the device.
 - Check k4aviewer.err log for error messages.
-- Open Windows camera application and check if that works.
+- Open Windows camera application and check of that works.
 - Power cycle device, wait streaming LED to power off before using the device.
 - Reboot host PC.
 - Make sure you are using latest graphics drivers on your PC.
@@ -97,7 +97,7 @@ a PC port or USB hub.
 ## Cannot find microphone
 
 - Check first that microphone array is enumerated in Device Manager.
-- If device is enumerated and works otherwise correctly in Windows, the issue may be that after firmware update Windows has assigned different container ID to Depth Camera.
+- If a device is enumerated and works otherwise correctly in Windows, the issue may be that after firmware update Windows has assigned different container ID to Depth Camera.
 - You can try to reset it by going to Device Manager, right-clicking on "Azure Kinect Microphone Array",  and select "Uninstall device". Once that is complete, detach and reattach the sensor.
 
 ![Azure Kinect Mic Array](./media/resources/mic-not-found.png)
@@ -122,7 +122,7 @@ If not then perform a [factory reset](https://support.microsoft.com/help/4494277
 ## USB3 host controller compatibility
 
 If the device is not enumerating under device manager, it may be because it is plugged into an unsupported USB3 controller. For best results,
-ensure the USB3 driver is a Microsoft driver, it is indicated in Device Manager with a '(Microsoft)' after the name. To remove a third party driver,
+ensure the USB3 driver is a Microsoft driver, it is indicated in Device Manager with a '(Microsoft)' after the name. To remove a third-party driver,
 right-click the device in Device Manager and click "Uninstall Device". Select the checkbox to delete the driver, and then hit the button 'Uninstall'
 
 ## Next steps
