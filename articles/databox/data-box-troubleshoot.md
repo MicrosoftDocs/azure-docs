@@ -90,7 +90,7 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 
 **Error description:** Azure file share limits a share to 5 TB of data. This limit has exceeded for some shares.
 
-**Suggested resolution:** On the **Connect and copy** page of the devicelocal web UI, download, and review the error files.
+**Suggested resolution:** On the **Connect and copy** page of the local web UI, download, and review the error files.
 
 Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TB.
 
