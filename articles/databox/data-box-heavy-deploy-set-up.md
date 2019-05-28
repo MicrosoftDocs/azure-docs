@@ -117,7 +117,7 @@ Take the following steps to set up your device using the local configuration and
 
 Do the steps detailed in the [Configure the first node](#configure-first-node) for the second node of the device.
 
-![Data Box Heavy dashboard node 2](media/data-box-deploy-set-up/data-box-heavy-dashboard-1.png)
+![Data Box Heavy dashboard node 2](media/data-box-deploy-set-up/data-box-heavy-dashboard-2.png)
 
 After the device setup is complete, you can connect to the device shares and copy the data from your computer to the device.
 
