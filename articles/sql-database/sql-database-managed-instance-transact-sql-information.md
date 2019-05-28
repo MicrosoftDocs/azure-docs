@@ -452,7 +452,7 @@ Cross-instance service broker isn't supported:
 - `Extended stored procedures` aren't supported, which includes `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` aren't supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
-## <a name="Environment"></a>Environmnet constraints
+## <a name="Environment"></a>Environmet constraints
 
 ### Subnet
 - In the subnet reserved for your Managed Instance you cannot place any other resources (for example virtual machines). Place these resources in others subnets.
@@ -463,7 +463,7 @@ Cross-instance service broker isn't supported:
 
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
-- Some services such as App Service Environments, Logic apps, and Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access Managed Instances in different regions if their VNets are connected using [global peering](../virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
+- Some services such as App Service Environments, Logic apps, and Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access Managed Instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ## <a name="Changes"></a> Behavior changes
 
