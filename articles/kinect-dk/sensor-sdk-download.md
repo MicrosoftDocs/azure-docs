@@ -9,15 +9,26 @@ ms.topic: conceptual
 keywords: azure, kinect,sdk, download update, latest, available, install
 ---
 
-# Download Azure Kinect sensor SDK
+# Download Azure Kinect Sensor SDK
 
-This page provides the SDK version number and downloadable link to install on your Azure Kinect device. You will download the SDK to develop for Azure Kinect.
+This page has the download links for each version of the Azure Kinect Sensor SDK. The installer provides all of the needed files to develop for the Azure Kinect.
 
-## Windows download inks
+## Azure Kinect Sensor SDK contents
+
+* Headers and libraries to build an application using the Azure Kinect DK.
+* Redistributable DLLs needed by applications using the Azure Kinect DK.
+* The [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) tool.
+* The [k4arecorder](record-sensor-streams-file.md) tool.
+* The [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md).
+
+## Windows download links
 
 Version       | Download | Source
 --------------|----------|--------
  1.0.2 | [msi](http://download.microsoft.com/download/B/4/D/B4D26442-DDA5-40C2-9913-3B23AE84A806/Azure%20Kinect%20SDK%201.0.2.msi) | [source](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/releases/tag/v1.0.2)
+
+> [!NOTE]
+> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect SDK 1.0.2". You will find the tools referenced in articles in this path.
 
 ## Change log
 
