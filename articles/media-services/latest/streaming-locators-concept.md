@@ -82,11 +82,11 @@ See [Filtering, ordering, paging of Media Services entities](entities-overview.m
 
 ## List Streaming Locators by Asset name
 
-To to get Streaming Locators based on the associated Asset name, use the following operation:
+To get Streaming Locators based on the associated Asset name, use the following operation:
 
 ### REST
 
-You can use the REST API to [get a list of Streaming Locators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) published for the specified Asset.
+[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)
 
 ```
 https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/listStreamingLocators?api-version={{api-version}}`
@@ -94,13 +94,9 @@ https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resou
 
 ### CLI
 
-Use the following CLI API to get a list of Streaming Locators published for the specified Asset.
-
 [az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)
 
 ### SDKs
-
-Use the following operations to get a list of Streaming Locators published for the specified Asset.
 
 |Language|API|
 |---|---|
