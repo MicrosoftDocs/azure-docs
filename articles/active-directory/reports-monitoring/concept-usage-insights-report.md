@@ -52,7 +52,7 @@ Clicking load more at the bottom of the list allows you to view additional appli
 
 You can also set the focus on a specific application. Select **view sign-in activity** to see the sign in activity over time for the application as well as the top errors.  
 
-When you select a day in the application usage usage graph, you get a detailed list of the sign-in activities for the application.  
+When you select a day in the application usage graph, you get a detailed list of the sign-in activities for the application.  
 
 ![Usage and Insights report](./media/concept-usage-insights-report/usage-and-insights-report.png)
 

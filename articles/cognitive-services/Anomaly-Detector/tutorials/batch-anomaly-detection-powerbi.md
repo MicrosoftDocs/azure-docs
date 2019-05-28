@@ -69,7 +69,7 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
 (table as table) => let
 
     apikey      = "[Placeholder: Your Anomaly Detector resource access key]",
-    endpoint    = "[Placeholder: Your Anomaly Detector resource endpoint]/anomalydetector/v1.0/timeseries/entire/detect,
+    endpoint    = "[Placeholder: Your Anomaly Detector resource endpoint]/anomalydetector/v1.0/timeseries/entire/detect",
     inputTable = Table.TransformColumnTypes(table,{{"Timestamp", type text},{"Value", type number}}),
     jsontext    = Text.FromBinary(Json.FromValue(inputTable)),
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",

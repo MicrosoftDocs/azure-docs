@@ -56,4 +56,4 @@ When a project is run on a VM, the files are mounted on the root directory of th
 
 ## Next steps
 
-Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/machine-learning/data-science-virtual-machine/overview).
+Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).

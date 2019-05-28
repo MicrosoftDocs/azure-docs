@@ -8,7 +8,7 @@ author: barbkess
 manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 04/18/2019
+ms.date: 05/17/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
 ---
@@ -151,7 +151,7 @@ ms.collection: M365-identity-device-management
                                                         <h3><a href="manage-apps/index.yml">Application management</a></h3>
                                                         <p>
                                                             <a href="manage-apps/what-is-single-sign-on.md">What is single sign-on (SSO)?</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on</a><br>
+                                                            <a href="manage-apps/user-provisioning.md">Automatic user provisioning</a><br>
                                                             <a href="manage-apps/application-proxy.md">Application Proxy for on-premises apps</a><br>
                                                             <a href="manage-apps/index.yml"><i>See more &gt;</i></a>
                                                         </p>

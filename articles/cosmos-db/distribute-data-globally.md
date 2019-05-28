@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ---
 # Global data distribution with Azure Cosmos DB - overview
 

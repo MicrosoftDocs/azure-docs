@@ -1,25 +1,22 @@
 ---
-# required metadata
-title: Enterprise integration with Azure Logic Apps | Microsoft Docs
-description: This overview describes how you can build enterprise integration solutions by automating tasks, workflows and business processes that integrate apps, data, services, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
+title: Enterprise integration with Azure Logic Apps
+description: Overview about building enterprise integration solutions by automating and orchestrating tasks, workflows, and business processes that integrate apps, data, services, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
 # What is Azure Logic Apps?
 
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 
-is a cloud service that helps you automate and orchestrate tasks, 
+is a cloud service that helps you schedule, automate, and orchestrate tasks, 
 business processes, and [workflows](#logic-app-concepts) 
 when you need to integrate apps, data, systems, 
 and services across enterprises or organizations. 
@@ -48,14 +45,7 @@ or both for creating logic apps that securely access and process data in real ti
 
 ## How does Logic Apps work? 
 
-Every logic app workflow starts with a trigger, 
-which fires when a specific event happens, 
-or when new available data meets specific criteria. 
-Many triggers include basic scheduling capabilities so 
-that you can specify how regularly your workloads run. 
-For more custom scheduling scenarios, 
-start your workflows with the Schedule trigger. 
-Learn more about [how to build schedule-based workflows](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
+Every logic app workflow starts with a trigger, which fires when a specific event happens, or when new available data meets specific criteria. Many triggers provided by the connectors in Logic Apps include basic scheduling capabilities so that you can set up how regularly your workloads run. For more complex scheduling or advanced recurrences, you can use a Recurrence trigger as the first step in any workflow. Learn more about [schedule-based workflows](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Each time that the trigger fires, the Logic Apps engine 
 creates a logic app instance that runs the actions in the workflow. 
@@ -251,17 +241,12 @@ For more information, see [Choose between Flow, Logic Apps, Functions, and WebJo
 Logic Apps is one of the many services hosted on Microsoft Azure. 
 So before you start, you need an Azure subscription. 
 If you don't have a subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 If you have an Azure subscription, try this 
 [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
 which monitors new content on a website through an RSS feed 
 and sends email when new content appears.
-
-## Support and feedback
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

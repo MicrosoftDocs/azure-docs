@@ -32,8 +32,6 @@
     href: create-host-pools-user-profile.md
   - name: Configure the Windows Virtual Desktop load-balancing method
     href: configure-host-pool-load-balancing.md
-  - name: Identify issues with the diagnostics feature
-    href: diagnostics-role-service.md
   - name: Prepare and customize a master VHD image
     href: set-up-customize-master-image.md
   - name: Install Office on a master VHD image
@@ -54,6 +52,8 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
+  - name: Identify issues with the diagnostics feature 
+    href: diagnostics-role-service.md   
   - name: Tenant and host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
