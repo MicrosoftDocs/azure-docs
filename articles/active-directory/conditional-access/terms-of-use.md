@@ -123,7 +123,7 @@ Once you have finalized your terms of use document, use the following procedure 
     | --- | --- |
     | **Access to cloud apps for all guests** | A conditional access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign-out and sign-in. |
     | **Access to cloud apps for all users** | A conditional access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign-out and sign-in. |
-    | **Custom policy** | Select the users, groups, and apps that this Terms of Use will be applied to. |
+    | **Custom policy** | Select the users, groups, and apps that this terms of use will be applied to. |
     | **Create conditional access policy later** | This terms of use will appear in the grant control list when creating a conditional access policy. |
 
     >[!IMPORTANT]
