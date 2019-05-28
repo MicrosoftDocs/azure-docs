@@ -120,7 +120,7 @@ Application Map acts as a visual aid to discovering dependencies between the com
 ![Application Map](./media/asp-net-dependencies/08.png)
 
 * **Navigate from the boxes** to relevant dependency and other charts.
-* **Pin the map** to the [dashboard](../../azure-monitor/app/app-insights-dashboards.md), where it will be fully functional.
+* **Pin the map** to the [dashboard](../../azure-monitor/app/overview-dashboard.md), where it will be fully functional.
 
 [Learn more](../../azure-monitor/app/app-map.md).
 
