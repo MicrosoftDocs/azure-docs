@@ -20,7 +20,7 @@
 | Maximum number of routes advertised to Microsoft peering with ExpressRoute Premium add-on |200 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in the same peering location |4 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations |4 |
-| Number of virtual network links allowed per ExpressRoute circuit |See the following table. |
+| Number of virtual network links allowed per ExpressRoute circuit |See the following "Virtual network links per ER circuit" table. |
 
 #### Number of virtual networks per ExpressRoute circuit
 | **Circuit size** | **Number of virtual network links for Standard** | **Number of virtual network links with Premium add-on** |
