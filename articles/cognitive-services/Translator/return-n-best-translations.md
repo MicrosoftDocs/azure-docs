@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
+ms.author: nitinme
 ---
 # How to return N-Best translations
 

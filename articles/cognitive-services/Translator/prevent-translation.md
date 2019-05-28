@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: nitinme
 ---
 
 # How to prevent translation of content with the Translator Text API

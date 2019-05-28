@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
+ms.author: nitinme
 ---
 
 # Translator Text API 3.0: Dictionary Examples

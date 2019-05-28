@@ -7,7 +7,7 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: nitinme
 ms.topic: conceptual
 #Customer intent: As a Custom Translator, I want to understand how data is filtered before training a model.
 ---

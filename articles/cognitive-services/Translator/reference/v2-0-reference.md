@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-jansko
+ms.author: nitinme
 ---
 
 # Translator Text API v2.0
