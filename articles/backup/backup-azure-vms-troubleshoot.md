@@ -14,7 +14,9 @@ ms.author: srinathvasireddy
 You can troubleshoot errors encountered while using Azure Backup with the information listed below:
 
 ## Backup
-## CopyingVHDsFromBackUpVaultTakingLongTime -Copying backed up data from vault timed out
+This section covers backup operation failure of Azure Virtual machine.
+
+## CopyingVHDsFromBackUpVaultTakingLongTime - Copying backed up data from vault timed out
 
 Error code: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Error message: Copying backed up data from vault timed out
@@ -235,7 +237,7 @@ Verify the VM Agent version on Windows VMs:
 ## Troubleshoot VM snapshot issues
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage or delays in a snapshot task run can cause the backup job to fail. The following conditions can cause snapshot task failure:
 
-- **Network access to Storage is blocked by using NSG**. Learn more on how to [establish network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage by using either whitelisting of IPs or through a proxy server.
+- **Network access to Storage is blocked by using NSG**. Learn more on how to [establish network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage by using either allowed list of IPs or through a proxy server.
 - **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
 
    ```
@@ -258,8 +260,8 @@ The need to resolve public internet addresses is discussed in [this Azure Suppor
 
 After name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow one of these steps:
 
-- Whitelist the Azure datacenter IP ranges:
-   1. Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be whitelisted.
+- Allow list of Azure datacenter IP ranges:
+   1. Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be in allow list.
    1. Unblock the IPs by using the [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window. Run as an Administrator.
    1. Add rules to the NSG, if you have one in place, to allow access to the IPs.
 - Create a path for HTTP traffic to flow:
