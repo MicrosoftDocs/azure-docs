@@ -148,7 +148,7 @@ No, upload can only be used during the creation of a new empty disk with the **R
 
 **How do I upload to a managed disk?**
 
-Create a managed disk with the [createOption](api/compute/disks/createorupdate#diskcreateoption) property of [creationData](api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
+Create a managed disk with the [createOption](/api/compute/disks/createorupdate#diskcreateoption) property of [creationData](/api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
 
 **Can I attach a disk to a VM while it is in an upload state?**
 
