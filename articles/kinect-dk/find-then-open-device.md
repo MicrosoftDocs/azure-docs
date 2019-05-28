@@ -21,7 +21,7 @@ The following functions are covered:
  * [`k4a_device_get_serialnum()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22)
  * [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
 
-## Discovering the number of connected devices
+## Discover the number of connected devices
 
 First get the count of currently connected Azure Kinect devices using [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc).
 
@@ -31,7 +31,7 @@ uint32_t device_count = k4a_device_get_installed_count();
 printf("Found %d connected devices:\n", device_count);
 ```
 
-## Opening a device
+## Open a device
 
 To get information about a device, or to read data from it, you need to first open a handle to the device using [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113).
 
@@ -56,7 +56,7 @@ The `index` parameter of [`k4a_device_open()`](https://microsoft.github.io/Azure
 
 Anytime you open a device you need to call [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423) when you're done using the handle. No other handles can be opened to the same device until you've closed the handle.
 
-## Identifying a specific device
+## Identify a specific device
 
 The order devices enumerate by index won't change until devices are attached or detached. To identify a physical device, you should use the device's serial number.
 
@@ -98,7 +98,7 @@ if (K4A_BUFFER_RESULT_SUCCEEDED != k4a_device_get_serialnum(device, serial_numbe
 printf("%d: Device \"%s\"\n", deviceIndex, serial_number);
 ```
 
-## Opening the default device
+## Open the default device
 
 In most applications, there will only be a single Azure Kinect DK attached to the same computer. If you only need to connect to the single expected device, you can call [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) with `index` of `K4A_DEVICE_DEFAULT` to open the first device.
 
