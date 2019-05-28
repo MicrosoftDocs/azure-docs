@@ -211,7 +211,7 @@ New features and functionality and optimizations are only added to the current S
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
-> All versions **1.x** of the SQL SDK for Java will be retired on **May 30, 2020**. Please reach out to askcosmosdb@microsoft.com if you have any questions or concerns.
+> All versions **1.x** of the SQL SDK for Java will be retired on **May 30, 2020**.
 > 
 >
 
