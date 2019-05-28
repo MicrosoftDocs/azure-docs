@@ -3,7 +3,7 @@ title: Set up your Azure Red Hat OpenShift development environment | Microsoft D
 description: Here are the prerequisites for working with Microsoft Azure Red Hat OpenShift.
 services: openshift
 keywords:  red hat openshift setup set up
-author: TylerMSFT
+author: jimzim
 ms.author: twhitney
 ms.date: 05/10/2019
 ms.topic: conceptual

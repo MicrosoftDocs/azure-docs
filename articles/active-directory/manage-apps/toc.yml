@@ -13,6 +13,8 @@
       href: view-applications-portal.md
   - name: Tutorials
     items:
+    - name: SaaS application Tutorials
+      href: https://docs.microsoft.com/azure/active-directory/saas-apps/
     - name: Configure single sign-on - portal
       href: configure-single-sign-on-portal.md
     - name: Add an on-premises app - portal
@@ -77,19 +79,13 @@
       href: end-user-experiences.md
   - name: How-to guides
     items:
-    - name: Cloud app integration
+    - name: Add a cloud app
       items:
-      - name: Adding an app
-        items:
-        - name: Choose app type
-          href: choose-application-type.md
-        - name: Common problems - gallery apps
-          href: adding-gallery-app-common-problems.md
-        - name: Common problems - non-gallery apps
-          href: adding-non-gallery-app-common-problems.md
+      - name: Choose app type
+        href: choose-application-type.md
       - name: Change name or logo
         href: change-name-or-logo-portal.md
-    - name: On-premises app integration
+    - name: Integrate an on-premises app
       items:
       - name: Configure connectors
         href: application-proxy-configure-connectors-with-proxy-servers.md
@@ -125,7 +121,139 @@
           href: application-proxy-integrate-with-tableau.md
         - name: Integrate with Qlik
           href: application-proxy-qlik.md
-      - name: Application Proxy troubleshooting
+    - name: Configure single sign-on
+      items:
+      - name: Configure non-gallery apps
+        href: configure-single-sign-on-non-gallery-applications.md
+      - name: Configure federated - gallery apps
+        href: configure-federated-single-sign-on-gallery-applications.md
+      - name: Configure federated - non-gallery apps
+        href: configure-federated-single-sign-on-non-gallery-applications.md
+      - name: Configure password - gallery apps
+        href: configure-password-single-sign-on-gallery-applications.md
+      - name: Configure password - non-gallery apps
+        href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Single sign-on with Application Proxy
+        items:
+        - name: Kerberos constrained Delegation (KCD)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
+        - name: Password vaulting
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
+        - name: Headers
+          href: application-proxy-configure-single-sign-on-with-ping-access.md
+        - name: SAML SSO
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
+    - name: Configure user provisioning
+      items:
+      - name: How long provisioning takes
+        href: application-provisioning-when-will-provisioning-finish-specific-user.md
+      - name: Configure user provisioning - gallery app
+        href: application-provisioning-config-how-to.md
+      - name: Sync an attribute for mapping - gallery app
+        href: user-provisioning-sync-attributes-for-mapping.md
+    - name: Assign users and manage access to apps
+      items:
+      - name: Configure user consent
+        href: configure-user-consent.md
+      - name: Methods for assigning users and groups to an app
+        href: methods-for-assigning-users-and-groups.md
+      - name: Assign a user to an app
+        href: assign-user-or-group-access-portal.md
+      - name: Use self-service app access
+        href: access-panel-manage-self-service-access.md
+      - name: Methods for removing a user's access to an app
+        href: methods-for-removing-user-access.md
+      - name: Remove user or group access
+        href: remove-user-or-group-access-portal.md
+      - name: Hide app from a user
+        href: hide-application-from-user-portal.md
+      - name: Disable user sign-on
+        href: disable-user-sign-in-portal.md
+      - name: Configure self-service app assignment
+        href: manage-self-service-access.md
+      - name: Home Realm Discovery
+        href: configure-authentication-for-federated-users-portal.md
+    - name: Migrate apps to Azure AD
+      items:
+      - name: Migration resources
+        href: migration-resources.md
+      - name: Migrate an ADFS app to Azure
+        href: migrate-adfs-apps-to-azure.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot adding apps
+        items:
+        - name: Common problems - gallery apps
+          href: adding-gallery-app-common-problems.md
+        - name: Common problems - non-gallery apps
+          href: adding-non-gallery-app-common-problems.md
+      - name: Troubleshoot user sign-in
+        items:
+        - name: Unexpected consent prompt
+          href: application-sign-in-unexpected-user-consent-prompt.md
+        - name: User consent error
+          href: application-sign-in-unexpected-user-consent-error.md
+        - name: Problems signing in from custom portal
+          href: application-sign-in-other-problem-deeplink.md
+        - name: Problems signing in from access panel
+          href: application-sign-in-other-problem-access-panel.md
+        - name: Error on application sign-in page
+          href: application-sign-in-problem-application-error.md
+        - name: Problem with password single sign-on - non-gallery app
+          href: application-sign-in-problem-password-sso-non-gallery.md
+        - name: Problem with password single sign-on - gallery app
+          href: application-sign-in-problem-password-sso-gallery.md
+        - name: Problem signing into a Microsoft app
+          href: application-sign-in-problem-first-party-microsoft.md
+        - name: Problem with federated single sign-on - non-gallery app
+          href: application-sign-in-problem-federated-sso-non-gallery.md
+        - name: Problem with federated single sign-on - gallery app
+          href: application-sign-in-problem-federated-sso-gallery.md
+        - name: Problem with custom-developed app
+          href: application-sign-in-problem-custom-dev.md
+      - name: Troubleshoot single sign-on
+        items:
+        - name: Configuring federated common problems - gallery apps
+          href: configure-federated-single-sign-on-gallery-applications-problems.md
+        - name: Configure federated common problems - non-gallery apps
+          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+        - name: Configure password common problems - gallery apps
+          href: configure-password-single-sign-on-gallery-applications-problems.md
+        - name: Configure password common problems - non-gallery apps
+          href: configure-password-single-sign-on-non-gallery-applications-problems.md
+      - name: Troubleshoot user provisioning
+        items:
+        - name: Taking hours - gallery app
+          href: application-provisioning-when-will-provisioning-finish.md
+        - name: Problem configuring user provisioning - gallery app
+          href: application-provisioning-config-problem.md
+        - name: Problem saving administrator credentials while configuring user provisioning gallery app
+          href: application-provisioning-config-problem-storage-limit.md
+        - name: Users are not provisioned - gallery app
+          href: application-provisioning-config-problem-no-users-provisioned.md
+        - name: Wrong users provisioned - gallery app
+          href: application-provisioning-config-problem-wrong-users-provisioned.md
+      - name: Troubleshoot app list and assignment
+        items:
+        - name: Manage the applications list for your tenant
+          href: application-types.md
+        - name: Unexpected user assigned
+          href: ways-users-get-assigned-to-applications.md
+      - name: Troubleshoot the access panel
+        items:
+        - name: Manage browser extension
+          href: manage-access-panel-browser-extension.md
+        - name: App not appearing
+          href: access-panel-troubleshoot-application-not-appearing.md
+        - name: Unexpected app appearing
+          href: access-panel-troubleshoot-unexpected-application.md
+        - name: Can't sign in
+          href: access-panel-troubleshoot-web-sign-in-problem.md
+        - name: Error installing browser extension
+          href: access-panel-extension-problem-installing.md
+        - name: Error using self-service app access
+          href: access-panel-troubleshoot-self-service-access.md
+      - name: Troubleshoot Application Proxy
         items:
         - name: Connector troubleshooting flowchart
           href: application-proxy-debug-connectors.md
@@ -159,124 +287,6 @@
           href: application-proxy-connector-installation-problem.md
         - name: Sign-in problem
           href: application-sign-in-problem-on-premises-application-proxy.md
-    - name: User provisioning
-      items:
-      - name: How long it takes
-        href: application-provisioning-when-will-provisioning-finish-specific-user.md
-      - name: Taking hours - gallery app
-        href: application-provisioning-when-will-provisioning-finish.md
-      - name: Configure user provisioning - gallery app
-        href: application-provisioning-config-how-to.md
-      - name: Problem configuring user provisioning - gallery app
-        href: application-provisioning-config-problem.md
-      - name: Problem saving administrator credentials while configuring user provisioning gallery app
-        href: application-provisioning-config-problem-storage-limit.md
-      - name: Sync an attribute for mapping - gallery app
-        href: user-provisioning-sync-attributes-for-mapping.md
-      - name: Users are not provisioned - gallery app
-        href: application-provisioning-config-problem-no-users-provisioned.md
-      - name: Wrong users provisioned - gallery app
-        href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: Application access
-      items:
-      - name: Application types
-        href: application-types.md
-      - name: Configure user consent
-        href: configure-user-consent.md
-      - name: Methods for assigning users and groups to an app
-        href: methods-for-assigning-users-and-groups.md
-      - name: Assign a user to an app
-        href: assign-user-or-group-access-portal.md
-      - name: Methods for removing a user's access to an app
-        href: methods-for-removing-user-access.md
-      - name: Unexpected user assigned
-        href: ways-users-get-assigned-to-applications.md
-      - name: Remove user or group access
-        href: remove-user-or-group-access-portal.md
-      - name: Hide app from a user
-        href: hide-application-from-user-portal.md
-      - name: Disable user sign-on
-        href: disable-user-sign-in-portal.md
-      - name: Configure self-service app assignment
-        href: manage-self-service-access.md
-      - name: Home Realm Discovery
-        href: configure-authentication-for-federated-users-portal.md
-    - name: Single sign-on
-      items:
-      - name: Configure non-gallery apps
-        href: configure-single-sign-on-non-gallery-applications.md
-      - name: Configure federated - gallery apps
-        href: configure-federated-single-sign-on-gallery-applications.md
-      - name: Configuring federated common problems - gallery apps
-        href: configure-federated-single-sign-on-gallery-applications-problems.md
-      - name: Configure federated - non-gallery apps
-        href: configure-federated-single-sign-on-non-gallery-applications.md
-      - name: Configure federated common problems - non-gallery apps
-        href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-      - name: Configure password - gallery apps
-        href: configure-password-single-sign-on-gallery-applications.md
-      - name: Configure password common problems - gallery apps
-        href: configure-password-single-sign-on-gallery-applications-problems.md
-      - name: Configure password - non-gallery apps
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Configure password common problems - non-gallery apps
-        href: configure-password-single-sign-on-non-gallery-applications-problems.md
-      - name: Application Proxy
-        items:
-        - name: Kerberos constrained Delegation (KCD)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
-        - name: Password vaulting
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
-        - name: Headers
-          href: application-proxy-configure-single-sign-on-with-ping-access.md
-        - name: SAML SSO
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: Access panel
-      items:
-      - name: Manage browser extension
-        href: manage-access-panel-browser-extension.md
-      - name: App not appearing
-        href: access-panel-troubleshoot-application-not-appearing.md
-      - name: Unexpected app appearing
-        href: access-panel-troubleshoot-unexpected-application.md
-      - name: Can't sign in
-        href: access-panel-troubleshoot-web-sign-in-problem.md
-      - name: Error installing browser extension
-        href: access-panel-extension-problem-installing.md
-      - name: How to use self-service app access
-        href: access-panel-manage-self-service-access.md
-      - name: Error using self-service app access
-        href: access-panel-troubleshoot-self-service-access.md
-    - name: Migration
-      items:
-      - name: Migration resources
-        href: migration-resources.md
-      - name: Migrate an ADFS app to Azure
-        href: migrate-adfs-apps-to-azure.md
-    - name: Troubleshoot user sign-in
-      items:
-      - name: Unexpected consent prompt
-        href: application-sign-in-unexpected-user-consent-prompt.md
-      - name: User consent error
-        href: application-sign-in-unexpected-user-consent-error.md
-      - name: Problems signing in from custom portal
-        href: application-sign-in-other-problem-deeplink.md
-      - name: Problems signing in from access panel
-        href: application-sign-in-other-problem-access-panel.md
-      - name: Error on application sign-in page
-        href: application-sign-in-problem-application-error.md
-      - name: Problem with password single sign-on - non-gallery app
-        href: application-sign-in-problem-password-sso-non-gallery.md
-      - name: Problem with password single sign-on - gallery app
-        href: application-sign-in-problem-password-sso-gallery.md
-      - name: Problem signing into a Microsoft app
-        href: application-sign-in-problem-first-party-microsoft.md
-      - name: Problem with federated single sign-on - non-gallery app
-        href: application-sign-in-problem-federated-sso-non-gallery.md
-      - name: Problem with federated single sign-on - gallery app
-        href: application-sign-in-problem-federated-sso-gallery.md
-      - name: Problem with custom-developed app
-        href: application-sign-in-problem-custom-dev.md
   - name: Reference
     items:
     - name: Application Proxy version history
