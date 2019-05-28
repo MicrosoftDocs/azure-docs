@@ -2,7 +2,7 @@
 title: Data Filtering - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: When you submit documents to be used for training a custom system, the documents undergo a series of processing and filtering steps to prepare for training.
-author: v-pawal
+author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
