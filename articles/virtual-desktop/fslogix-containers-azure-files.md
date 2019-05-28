@@ -43,11 +43,11 @@ The following table shows benefits and limitations of previous user profile tech
 
 | Technology | Modern settings | Win32 settings | OS settings | User data | Supported on server SKU | Back-end storage on Azure | Back-end storage on-premises | Version support | Subsequent sign in time |Notes|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **User Profile Disks (UPD)** | Yes | Yes | Yes | Yes | Yes | No | Yes | Win 7+ | Yes |  |
-| **Roaming User Profile (RUP), maintenance mode** | No | Yes | Yes | Yes | Yes| No | Yes | Win 7+ | No |  |
+| **User Profile Disks (UPD)** | Yes | Yes | Yes | Yes | Yes | No | Yes | Win 7+ | Yes | |
+| **Roaming User Profile (RUP), maintenance mode** | No | Yes | Yes | Yes | Yes| No | Yes | Win 7+ | No | |
 | **Enterprise State Roaming (ESR)** | Yes | No | Yes | No | See notes | Yes | No | Win 10 | No | Functions on server SKU but no supporting user interface |
 | **User Experience Virtualization (UE-V)** | Yes | Yes | Yes | No | Yes | No | Yes | Win 7+ | No |  |
-| **Cloud Files** | No | No | No | Yes | See notes | See notes  | See Notes | Win 10 RS3 | No | Not tested on server SKU. Back-end storage on Azure depends on sync client. Back-end storage on-prem needs a sync client. |
+| **OneDrive cloud files** | No | No | No | Yes | See notes | See notes  | See Notes | Win 10 RS3 | No | Not tested on server SKU. Back-end storage on Azure depends on sync client. Back-end storage on-prem needs a sync client. |
 
 #### Performance
 
@@ -55,7 +55,7 @@ UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-se
 
 #### Cost
 
-While S2D clusters achieve the necessary performance, the cost is expensive for enterprise customers, but especially expensive for small and medium business (SMB) customers.
+While S2D clusters achieve the necessary performance, the cost is expensive for enterprise customers, but especially expensive for small and medium business (SMB) customers. For this solution, businesses pay for premium storage disks, along with the cost of the VMs that use the disks for a share.
 
 #### Administrative overhead
 
@@ -94,7 +94,7 @@ Use the following instructions to set up a Windows Virtual Desktop environment.
 
 - To start building out your desktop virtualization solution, see [Create a tenant in Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory).
 - To create a host pool within your Windows Virtual Desktop tenant, see [Create a host pool with Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
-- To set up fully managed file shares in the cloud, see [Set up Azure Files share](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/).
+- To set up fully managed file shares in the cloud, see [Set up Azure Files share](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable).
 - To configure FSLogix profile containers, see [Set up a user profile share for a host pool](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile).
 - To assign users to a host pool, see [Manage app groups for Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups).
 - To access your Windows Virtual Desktop resources from a web browser, see [Connect to Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/connect-web).
