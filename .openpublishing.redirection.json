@@ -39529,13 +39529,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
-      "redirect_url": "/azure/active-directory-domain-services/join-windows-vm",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md",
-      "redirect_url": "/azure/active-directory-domain-services/join-windows-vm-template",
+      "redirect_url": "/azure/active-directory-domain-services/join-windows-vm",
       "redirect_document_id": false
     },
     {
