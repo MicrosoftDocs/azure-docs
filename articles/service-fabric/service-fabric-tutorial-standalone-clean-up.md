@@ -55,7 +55,7 @@ The cluster is successfully removed.
 
 ## Clean up AWS resources
 
-* Log in to your AWS Account
+* Sign in to your AWS Account
 * Go to the EC2 Console.
 * Select the three nodes that you created in part one of the tutorial.
 * Click on **Actions** > **Instance State** > **Terminate**
