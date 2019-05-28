@@ -49,8 +49,8 @@ GO
 CREATE procedure [dbo].[generate_customer_return_clusters]
 AS
 /*
-  This procedure uses R to classify customers into different groups based on their
-  purchase & return history.
+  This procedure uses R to classify customers into different groups
+  based on their purchase & return history.
 */
 BEGIN
     DECLARE @duration FLOAT
@@ -126,7 +126,8 @@ connStr <- paste("Driver=SQL Server; Server=", instance_name,
                "; Trusted_Connection=true; ",
                   sep="" );
 
-# Input customer data that needs to be classified. This is the result we get from our query
+# Input customer data that needs to be classified.
+# This is the result we get from the query.
 customer_returns <- RxSqlServerData(
                      sqlQuery=input_query,
                      colClasses=c(customer ="numeric",
@@ -136,12 +137,14 @@ customer_returns <- RxSqlServerData(
                                   frequency="numeric" ),
                      connectionString=connStr);
 # Output table to hold the customer cluster mappings
-return_cluster = RxSqlServerData(table = "customer_return_clusters", connectionString = connStr);
+return_cluster = RxSqlServerData(table = "customer_return_clusters",
+                                 connectionString = connStr);
 
-# set.seed for random number generator for predictability
+# Set seed for random number generator for predictability
 set.seed(10);
 
-# generate clusters using rxKmeans and output clusters to a table called "customer_return_clusters".
+# Generate clusters using rxKmeans and output clusters to a table
+# called "customer_return_clusters"
 clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency,
                    customer_returns,
                    numClusters = 4,
@@ -178,7 +181,8 @@ EXECUTE [dbo].[generate_customer_return_clusters];
 Verify that it works and that we actually have the list of customers and their cluster mappings.
 
 ```sql
---Select data from table customer_return_clusters to verify that the clustering data was loaded
+--Select data from table customer_return_clusters
+--to verify that the clustering data was loaded
 SELECT TOP (5) *
 FROM customer_return_clusters;
 ```

@@ -64,12 +64,13 @@ Based on the graph, it looks like *k = 4* would be a good value to try. That *k*
 In the following R script, you'll use the function **rxKmeans**, which is the K-Means function in the RevoScaleR package.
 
 ```r
-# Output table to hold the customer group mappings. This is a table where the cluster mappings will be saved in the database.
-# This table is generated from R
+# Output table to hold the customer group mappings.
+# This is a table where the cluster mappings will be saved in the database.
 return_cluster = RxSqlServerData(table = "return_cluster", connectionString = connStr);
 # Set the seed for the random number generator for predictability
 set.seed(10);
-# Generate clusters using rxKmeans and output key / cluster to a table in SQL database called return_cluster
+# Generate clusters using rxKmeans and output key / cluster to a table in SQL database
+# called return_cluster
 clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency,
                    customer_returns,
                    numClusters=4,
