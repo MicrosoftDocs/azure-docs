@@ -79,12 +79,48 @@
       href: end-user-experiences.md
   - name: How-to guides
     items:
-    - name: Add an app
+    - name: Add a cloud app
       items:
       - name: Choose app type
         href: choose-application-type.md
       - name: Change name or logo
         href: change-name-or-logo-portal.md
+    - name: Integrate an on-premises app
+      items:
+      - name: Configure connectors
+        href: application-proxy-configure-connectors-with-proxy-servers.md
+      - name: Configure claims-aware apps
+        href: application-proxy-configure-for-claims-aware-applications.md
+      - name: Register connector - silent install
+        href: application-proxy-register-connector-powershell.md
+      - name: Configure native client apps
+        href: application-proxy-configure-native-client-application.md
+      - name: Configure custom home page
+        href: application-proxy-configure-custom-home-page.md
+      - name: Translate inline links
+        href: application-proxy-configure-hard-coded-link-translation.md
+      - name: Configure cookie settings
+        href: application-proxy-configure-cookie-settings.md
+      - name: Publish using wildcards
+        href: application-proxy-wildcard.md
+      - name: Remove personal data
+        href: application-proxy-remove-personal-data.md
+      - name: Configure custom domain
+        href: application-proxy-configure-custom-domain.md
+      - name: Publishing walkthroughs
+        items:
+        - name: Integrate with Cloud App Security
+          href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+        - name: Integrate with Remote Desktop
+          href: application-proxy-integrate-with-remote-desktop-services.md
+        - name: Integrate with SharePoint
+          href: application-proxy-integrate-with-sharepoint-server.md
+        - name: Integrate with Teams
+          href: application-proxy-integrate-with-teams.md
+        - name: Integrate with Tableau
+          href: application-proxy-integrate-with-tableau.md
+        - name: Integrate with Qlik
+          href: application-proxy-qlik.md
     - name: Configure single sign-on
       items:
       - name: Configure non-gallery apps
@@ -97,6 +133,16 @@
         href: configure-password-single-sign-on-gallery-applications.md
       - name: Configure password - non-gallery apps
         href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Single sign-on with Application Proxy
+        items:
+        - name: Kerberos constrained Delegation (KCD)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
+        - name: Password vaulting
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
+        - name: Headers
+          href: application-proxy-configure-single-sign-on-with-ping-access.md
+        - name: SAML SSO
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Configure user provisioning
       items:
       - name: How long provisioning takes
@@ -127,52 +173,6 @@
         href: manage-self-service-access.md
       - name: Home Realm Discovery
         href: configure-authentication-for-federated-users-portal.md
-    - name: Integrate an on-premises app
-      items:
-      - name: Configure connectors
-        href: application-proxy-configure-connectors-with-proxy-servers.md
-      - name: Configure claims-aware apps
-        href: application-proxy-configure-for-claims-aware-applications.md
-      - name: Register connector - silent install
-        href: application-proxy-register-connector-powershell.md
-      - name: Configure native client apps
-        href: application-proxy-configure-native-client-application.md
-      - name: Configure custom home page
-        href: application-proxy-configure-custom-home-page.md
-      - name: Translate inline links
-        href: application-proxy-configure-hard-coded-link-translation.md
-      - name: Configure cookie settings
-        href: application-proxy-configure-cookie-settings.md
-      - name: Publish using wildcards
-        href: application-proxy-wildcard.md
-      - name: Remove personal data
-        href: application-proxy-remove-personal-data.md
-      - name: Configure custom domain
-        href: application-proxy-configure-custom-domain.md
-      - name: Single sign-on with Application Proxy
-        items:
-        - name: Kerberos constrained Delegation (KCD)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
-        - name: Password vaulting
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
-        - name: Headers
-          href: application-proxy-configure-single-sign-on-with-ping-access.md
-        - name: SAML SSO
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
-      - name: Publishing walkthroughs
-        items:
-        - name: Integrate with Cloud App Security
-          href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-        - name: Integrate with Remote Desktop
-          href: application-proxy-integrate-with-remote-desktop-services.md
-        - name: Integrate with SharePoint
-          href: application-proxy-integrate-with-sharepoint-server.md
-        - name: Integrate with Teams
-          href: application-proxy-integrate-with-teams.md
-        - name: Integrate with Tableau
-          href: application-proxy-integrate-with-tableau.md
-        - name: Integrate with Qlik
-          href: application-proxy-qlik.md
     - name: Migrate apps to Azure AD
       items:
       - name: Migration resources
