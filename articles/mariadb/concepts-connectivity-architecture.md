@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MariaDB Connectivity Architecture
+title: Azure Database for MariaDB Connectivity architecture
 description: Describes the connectivity architecture for your Azure Database for MariaDB server.
 author: kummanish
 ms.author: manishku
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ---
 
-# Azure Database for MariaDB Connectivity Architecture
+# Azure Database for MariaDB Connectivity architecture
 This article explains the Azure Database for MariaDB connectivity architecture as well as how the different components function to direct traffic to your instance of Azure Database for MariaDB. These connectivity components function to direct network traffic to the Azure Database for MariaDB with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
 
 ## Connectivity Architecture
