@@ -1191,6 +1191,8 @@ Power BI Service Administrator | Power BI administrator | a9ea8996-122f-4c74-952
 Privileged Authentication Administrator | Privileged authentication administrator | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Privileged Role Administrator | Privileged role administrator | e8611ab8-c189-46e8-94e1-60213ab1f814
 Reports Reader | Reports reader | 4a5d8f65-41da-4de4-8968-e035b65339cf
+Search Administrator | Search administrator | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
+Search Editor | Search editor | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Security Administrator | Security administrator | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Security Reader | Security reader | 5d6b6bb7-de71-4623-b4af-96380a352509
 Service Support Administrator | Service administrator | f023fd81-a637-4b56-95fd-791ac0226033
