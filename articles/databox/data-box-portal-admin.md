@@ -1,19 +1,19 @@
 ---
-title: Azure Data Box portal admin guide | Microsoft Docs 
+title: Manage Azure Data Box via Azure portal | Microsoft Docs 
 description: Describes how to use the Azure portal to administer your Azure Data Box.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ---
 
-# Use the Azure portal to administer your Data Box
+# Use the Azure portal to administer your Azure Data Box
 
-This article describes some of the complex workflows and management tasks that can be performed on the Data Box. You can manage the Data Box via the Azure portal or via the local web UI. 
+This article describes some of the complex workflows and management tasks that can be performed on the Azure Data Box. You can manage the Data Box via the Azure portal or via the local web UI.
 
 This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage Data Box, and track the status of the order as it proceeds to completion.
 
@@ -93,7 +93,7 @@ Perform the following steps to edit the order.
 
 ## Edit notification details
 
-You may need to change the users whom you want to receive the order status emails. For instance, a user needs to be informed when the device is delivered or picked up. Another user may need to be informed when the data copy is complete so he can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
+You may need to change the users whom you want to receive the order status emails. For instance, a user needs to be informed when the device is delivered or picked up. Another user may need to be informed when the data copy is complete so they can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
 
 Perform the following steps to edit notification details.
 

@@ -39,7 +39,11 @@ In RBAC, to list access, you list the role assignments. To list role assignments
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-
+    
+       
+     > [!NOTE]
+     > In the above example Microsoft.web is the resource provider is used which refers to App service instance. Similarly you can use any other resource provider and build the Scope URI. In order to understand more please refer to [Azure Resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services) and supported [Azure RM resource provider operations](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations).  
+     
 1. Replace *{filter}* with the condition that you want to apply to filter the role assignment list.
 
     | Filter | Description |

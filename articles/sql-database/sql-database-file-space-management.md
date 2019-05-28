@@ -211,6 +211,9 @@ ORDER BY end_time DESC
 
 ## Reclaim unused allocated space
 
+> [!NOTE]
+> This command can impact database performance while it is running, and if possible should be run during periods of low usage.
+
 ### DBCC shrink
 
 Once databases have been identified for reclaiming unused allocated space, modify the name of the database in the following command to shrink the data files for each database.

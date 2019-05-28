@@ -3,8 +3,8 @@ title: Writing Expressions for Attribute Mappings in Azure Active Directory | Mi
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: chmutali
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---

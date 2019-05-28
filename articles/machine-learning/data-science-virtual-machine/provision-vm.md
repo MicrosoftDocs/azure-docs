@@ -14,7 +14,7 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
 
 ---
@@ -103,6 +103,8 @@ To create a DSVM instance:
 
 After the VM is created and provisioned, you can remote desktop into it by using the admin account credentials that you configured in the preceding **Basics** section. You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through start menu tiles and desktop icons.
 
+You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+
 ## Tools installed on the Microsoft Data Science Virtual Machine
 
 Learn more about the tools that come installed on the DSVM:
@@ -113,7 +115,7 @@ You can use Microsoft Enterprise Library for scalable R or Python for your analy
 
 Machine Learning Server supports various big data statistics, predictive modeling, and machine learning tasks. It supports the full range of analytics: exploration, analysis, visualization, and modeling. By using and extending open-source R and Python, Machine Learning Server is compatible with R and Python scripts and functions. It's also compatible with CRAN, pip, and Conda packages to analyze data at the enterprise scale.
 
-Machine Learning Server addresses the in-memory limitations of open-source R by adding parallel and chunked processing of data. This means you can run analytics on much bigger data than what fits in main memory. Visual Studio Community is included on the VM. It has the R tools for Visual Studio and Python Tools for Visual Studio (PTVS) extensions that provide a full IDE for working with R or Python. We also provide other IDEs like [RStudio](http://www.rstudio.com) and [PyCharm Community edition](https://www.jetbrains.com/pycharm/) on the VM.
+Machine Learning Server addresses the in-memory limitations of open-source R by adding parallel and chunked processing of data. This means you can run analytics on much bigger data than what fits in main memory. Visual Studio Community is included on the VM. It has the R tools for Visual Studio and Python Tools for Visual Studio (PTVS) extensions that provide a full IDE for working with R or Python. We also provide other IDEs like [RStudio](https://www.rstudio.com) and [PyCharm Community edition](https://www.jetbrains.com/pycharm/) on the VM.
 
 ### Python
 

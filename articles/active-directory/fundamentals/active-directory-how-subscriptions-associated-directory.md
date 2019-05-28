@@ -27,7 +27,7 @@ All of your users have a single *home* directory for authentication. However, yo
 > [!Important]
 > When you associate a subscription to a different directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) will lose their access. Classic subscription administrators (Service Administrator and Co-Administrators) will also lose access.
 > 
-> Additionally, moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principals rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
+> Additionally, moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principals rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## Before you begin
 
@@ -60,8 +60,8 @@ Before you can associate or add your subscription, you must perform the followin
 
     The directory is changed for the subscription and you get a success message.
 
-    ![Success message about directory change](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. Use the **Directory switcher** to go to your new directory. It might take up to 10 minutes for everything to show up properly.
+    ![Success message about directory change](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. Use the **Directory switcher** to go to your new directory. It can take several hours for everything to show up properly. If it seems to be taking too long, make sure you check the **Global subscription filter** for the moved subscription, to make sure it's not simply hidden.
 
     ![Directory switcher page, with sample information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

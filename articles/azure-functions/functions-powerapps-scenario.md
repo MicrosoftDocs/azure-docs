@@ -35,8 +35,7 @@ In this topic, you learn how to:
 > * Add controls to call the function and display data.
 > * Run the app to determine whether a repair is cost-effective.
 
-> [!IMPORTANT]
-> The OpenAPI feature is currently in preview and is only available for version 1.x of the Azure Functions runtime.
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## Prerequisites
 

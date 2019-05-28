@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
 ---
-| Resource | Default limit | Note |
+| Resource | Default/maximum limit | Note |
 | --- | --- | --- |
 | Azure Application Gateway |1,000 per subscription | |
 | Front-end IP configurations |2 |1 public and 1 private |
@@ -17,6 +17,7 @@ ms.author: victorh
 | Back-end HTTP settings |100<sup>1</sup> | |
 | Instances per gateway |32 | |
 | SSL certificates |100<sup>1</sup> |1 per HTTP listeners |
+| Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 25 KB| |
 | Authentication certificates |100 | |
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |

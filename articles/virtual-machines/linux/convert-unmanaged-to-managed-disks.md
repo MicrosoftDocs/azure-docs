@@ -4,7 +4,7 @@ description: How to convert a Linux VM from unmanaged disks to managed disks by 
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -94,5 +94,18 @@ All VMs in the availability set must be deallocated before you convert the avail
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## Convert using the Azure portal
+
+You can also convert unmanaged disks to managed disks using the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the VM from the list of VMs in the portal.
+3. In the blade for the VM, select **Disks** from the menu.
+4. At the top of the **Disks** blade, select **Migrate to managed disks**.
+5. If your VM is in an availability set, there will be a warning on the **Migrate to managed disks** blade that you need to convert the availability set first. The warning should have a link you can click to convert the availability set. Once the availability set is converted or if your VM is not in an availability set, click **Migrate** to start the process of migrating your disks to managed disks.
+
+The VM will be stopped and restarted after migration is complete.
+
 ## Next steps
+
 For more information about storage options, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).

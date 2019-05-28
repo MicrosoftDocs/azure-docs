@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
+ms.date: 04/30/2019
 ---
 
 # Ansible module and version matrix
@@ -48,11 +48,10 @@ These modules are available from the Ansible official release and from the follo
 | azure_rm_virtualmachinescalesetinstance_facts | -            | -                         | -            | -            | Yes          | Yes          |
 | **Networking**                              |              |                             |              |              |              |              |
 | azure_rm_appgateway                         | -            | -                           | -            | Yes          | Yes          | Yes          |
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | Yes          | Yes          |
-| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | Yes          | Yes          |
+| azure_rm_appgwroute                         | -            | -                           | -            | -            | -          | Yes          |
+| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | -          | Yes          |
+| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | -          | Yes          |
+| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | -          | Yes          |
 | azure_rm_applicationsecuritygroup           | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_applicationsecuritygroup_facts     | -            | -                           | -            | -            | Yes          | Yes          |
 | azure_rm_cdnendpoint                        | -            | -                         | -          | -            | Yes          | Yes          |

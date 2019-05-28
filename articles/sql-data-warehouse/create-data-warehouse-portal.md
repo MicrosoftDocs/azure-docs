@@ -2,13 +2,13 @@
 title: "Quickstart: Create and query Azure SQL Data Warehouse - Azure Portal | Microsoft Docs"
 description: Create and query a data warehouse with Azure SQL Data Warehouse in the Azure portal.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 08/02/2018
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 # Quickstart: Create and query an Azure SQL data warehouse in the Azure portal
@@ -188,7 +188,7 @@ Follow these steps to clean up resources as you desire.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Start** button. To resume compute, click **Start**.
+2. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Resume** button. To resume compute, click **Resume**.
 
 3. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
 

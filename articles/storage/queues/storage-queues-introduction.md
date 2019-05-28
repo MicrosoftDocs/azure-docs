@@ -1,13 +1,14 @@
 ---
-title: Introduction to Azure Queues | Microsoft Docs
+title: Introduction to Azure Queues - Azure Storage
 description: Introduction to Azure Queues
 services: storage
-author: tamram
+author: mhopkins-msft
 
 ms.service: storage
-ms.topic: article
+ms.topic: overview
 ms.date: 02/06/2019
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
 ---
 # What are Azure Queues?

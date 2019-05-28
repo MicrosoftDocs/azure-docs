@@ -1,7 +1,6 @@
 ---
 title: Tips for using Hadoop on Linux-based HDInsight - Azure 
 description: Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -247,7 +246,7 @@ The different cluster types are affected by scaling as follows:
 For specific information on scaling your HDInsight cluster, see:
 
 * [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Manage Apache Hadoop clusters in HDInsight by using Azure CLI](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## How do I install Hue (or other Hadoop component)?
 

@@ -17,14 +17,11 @@ ms.author: mbullwin
 # Analytics in Application Insights
 Analytics is the powerful search and query tool of [Application Insights](app-insights-overview.md). Analytics is a web tool so no setup is required.
 If you've already configured Application Insights for one of your apps then you can  analyze your app's data by opening Analytics from your 
-app's [overview blade](app-insights-dashboards.md).
+app's overview blade.
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/analytics/001.png)
 
 You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) which is a free demo environment with a lot of sample data.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## Relation to Azure Monitor logs
 Application Insights analytics is based on [Azure Data Explorer](/azure/data-explorer) like Azure Monitor logs and also uses the [Kusto query language](/azure/kusto/query). It uses the same [log analytics portal](../log-query/get-started-portal.md) as Azure Monitor logs, although its data is stored in a separate partition.
@@ -34,7 +31,7 @@ You cannot directly access data in a Log Analytics workspace from Application In
 
 ## Query data in Analytics
 A typical query starts with a table name followed by a series of *operators* separated by `|`.
-For example, let's find out how many requests our app received from different countries, during the last 3 hours:
+For example, let's find out how many requests our app received from different countries/regions, during the last 3 hours:
 ```AIQL
 requests
 | where timestamp > ago(3h)
