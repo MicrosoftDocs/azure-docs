@@ -99,7 +99,7 @@ provided power adapter. While the power cable has a USB type A connected, the de
 - If a device is enumerated and works otherwise correctly in Windows, the issue may be that after firmware update Windows has assigned different container ID to Depth Camera.
 - You can try to reset it by going to Device Manager, right-clicking on "Azure Kinect Microphone Array",  and select "Uninstall device". Once that is complete, detach and reattach the sensor.
 
-![Azure Kinect Mic Array](./media/resources/mic-not-found.png)
+    ![Azure Kinect Mic Array](./media/resources/mic-not-found.png)
 
 - After that restart Azure Kinect Viewer and try again.
 
