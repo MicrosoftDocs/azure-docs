@@ -2,7 +2,7 @@
 title: Provision and manage Azure Time Series Preview | Microsoft Docs
 description: Understanding how to provision and manage Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights

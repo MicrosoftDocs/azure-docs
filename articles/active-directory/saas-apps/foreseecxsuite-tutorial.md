@@ -191,7 +191,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create ForeSee CX Suite test user
 
-In this section, you create a user called Britta Simon in ForeSee CX Suite. Work with [ForeSee CX Suite support team](mailto:support@foresee.com) to add the users or the domain which is needed to be whitelisted in the ForeSee CX Suite platform. If the domain is added by the team, users will get automatically provisioned to the ForeSee CX Suite platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in ForeSee CX Suite. Work with [ForeSee CX Suite support team](mailto:support@foresee.com) to add the users or the domain that must be added to an allow list for the ForeSee CX Suite platform. If the domain is added by the team, users will get automatically provisioned to the ForeSee CX Suite platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

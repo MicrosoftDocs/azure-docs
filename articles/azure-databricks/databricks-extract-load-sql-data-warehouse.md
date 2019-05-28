@@ -330,7 +330,7 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Provide the values to connect to the Azure SQL Data Warehouse instance. You must have created a SQL data warehouse as a prerequisite.
+4. Provide the values to connect to the Azure SQL Data Warehouse instance. You must have created a SQL data warehouse as a prerequisite. Use the fully qualified server name for **dwServer**. For example, `<servername>.database.windows.net`.
 
    ```scala
    //SQL Data Warehouse related settings
