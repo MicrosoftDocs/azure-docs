@@ -709,7 +709,7 @@ dependencies
 
 ## Flushing data
 
-Normally, the SDK sends data at times chosen to minimize the impact on the user. However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
+Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever buffer is full (typically 500 items). However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
 *C#*
 

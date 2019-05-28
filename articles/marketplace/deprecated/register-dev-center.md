@@ -24,12 +24,13 @@ To help verify that you are not logged into a personal browser account, open a n
     *   To sign in and register as a seller, visit the Azure Dev Center page located at [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  
 2.  Complete the `Help us protect your account` wizard, which verifies your identity using your phone number or email address.  
 
+<!--
     ![Boxes for phone info in the Help us protect your account wizard](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
-
+-->
 3.  In the `Registration - Account Info` section, select your account country or region from the *Account country/region* drop-down menu.  
-
+<!--
     ![Account info with box for country/region](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
-   
+-->
     >[!WARNING]
     >To sell your services in Azure Marketplace, verify that your registered entity is from one of the approved *sell-from* countries/regions. The location restriction is required for payout and taxation reasons. 
     >*   For more information, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
@@ -52,17 +53,17 @@ To help verify that you are not logged into a personal browser account, open a n
 1.  For *Company Approver*, enter the contact information for the approver. An approver verifies that you are authorized to create an account in Dev Center for your organization.  
 
     Click on the Next button.  
-
+<!--
     !["Account info" page with sections highlighted](./media/marketplace-publishers-guide/devcenterregistrationpayment.png)  
-
+-->
 8.  In the `Registration - Payment` section, you must enter your payment information to pay for your Dev Center account.  
     *   For *Promo code*, enter a promo code that covers the cost of registration.  
     *   For *Billing*, provide your credit card information. PayPal information may be used in place of a credit card in supported markets.  
 
     Click on the Next button.  
-
+<!--
     ![Dev Center payment information](./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)  
-
+-->
 9.  In the `Registration - Review` section, review your account information and confirm that everything is correct.  
 
     Read the terms and conditions of the Microsoft Azure Marketplace [publisher agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
@@ -86,9 +87,9 @@ If you have issues with Dev Center registration, then follow these steps to subm
 1.  Go to Dev Center support.  
     *   To access support, visit the Windows developer support page located at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support).  
 2.  In Contact Us section, click on the Submit an incident button. 
-
+<!--
     !["Submit an incident" button](./media/marketplace-publishers-guide/devcentersubmitincident.png)  
-
+-->
     Select `Help with Dev Center` from the *Problem type* drop-down menu.  
 
     Select `Publish and manage apps` from the *Category* drop-down menu.  
@@ -191,6 +192,6 @@ The bank and tax information is required for all commercial offers using the tra
   To access support, visit the Windows developer support page located at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
- 
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) page.  
+
 ---
