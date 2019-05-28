@@ -70,10 +70,10 @@ Create a new RScript file in RStudio and run the following script. Replace **Ser
 
 In the following query, you're separating customers along the following dimensions:
 
-* return frequency
-* return order ratio (total number of orders partially or fully returned versus the total number of orders)
-* return item ratio (total number of items returned versus the number of items purchased)
-* return amount ration (total monetary amount of items returned versus the amount purchased)
+* **frequency** = return frequency
+* **orderRatio** = return order ratio (total number of orders partially or fully returned versus the total number of orders)
+* **itemsRatio** = return item ratio (total number of items returned versus the number of items purchased)
+* **monetaryRatio** = return amount ratio (total monetary amount of items returned versus the amount purchased)
 
 ```r
 #Define the connection string to connect to the tpcxbb_1gb database
@@ -182,7 +182,7 @@ From the Azure portal, follow these steps:
 
 1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
 1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
-1. Select your TutorialDB database.
+1. Select your **tpcxbb_1gb** database.
 1. On the **Overview** page, select **Delete**.
 
 ## Next steps

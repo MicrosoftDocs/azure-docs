@@ -25,6 +25,8 @@ In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a stored procedure that generates the model
+> * Perform clustering in SQL Database
+> * Use the clustering information
 
 In [part one](sql-database-tutorial-clustering-model-prepare-data.md), you learned how to prepare the data from an Azure SQL database to perform clustering in R.
 
@@ -173,7 +175,17 @@ Verify that it works and that we actually have the list of customers and their c
 
 ```sql
 --Select data from table customer_return_clusters to verify that the clustering data was loaded
-SELECT * FROM customer_return_clusters;
+SELECT TOP (5) *
+FROM customer_return_clusters;
+```
+
+```result
+cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
+1        29727     0           0           0              0
+4        26429     0           0           0.041979       1
+2        60053     0           0           0.065762       3
+2        97643     0           0           0.037034       3
+2        32549     0           0           0.031281       4
 ```
 
 ## Use the clustering information
@@ -192,7 +204,7 @@ JOIN [dbo].[customer_return_clusters] AS r ON r.customer = customer.c_customer_s
 WHERE r.cluster = 3
 ```
 
-You can change the r.cluster value to return email addresses for customers in other clusters.
+You can change the **r.cluster** value to return email addresses for customers in other clusters.
 
 ## Clean up resources
 
@@ -202,14 +214,16 @@ From the Azure portal, follow these steps:
 
 1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
 1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
-1. Select your TutorialDB database.
+1. Select your **tpcxbb_1gb** database.
 1. On the **Overview** page, select **Delete**.
 
 ## Next steps
 
-In part three of this tutorial series, you completed this step:
+In part three of this tutorial series, you completed these steps:
 
 * Create a stored procedure that generates the model
+* Perform clustering in SQL Database
+* Use the clustering information
 
 To learn more about using R in Azure SQL Database Machine Learning Services (preview), see:
 

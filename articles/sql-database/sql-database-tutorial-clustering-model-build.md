@@ -132,7 +132,7 @@ From the Azure portal, follow these steps:
 
 1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
 1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
-1. Select your TutorialDB database.
+1. Select your **tpcxbb_1gb** database.
 1. On the **Overview** page, select **Delete**.
 
 ## Next steps
