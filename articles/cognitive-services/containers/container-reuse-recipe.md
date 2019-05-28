@@ -62,7 +62,7 @@ ENV billing={BILLING_ENDPOINT}
 ENV apikey={ENDPOINT_KEY}
 ENV EULA=accept
 ```
-Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
+Build and run the container [locally](#how-to-use-container-on-your-local-host) or from your [private registry container](#how-to-add-container-to-private-registry) as needed. 
 
 
 ### Reuse recipe: store billing and mount settings with container
@@ -81,7 +81,7 @@ ENV EULA=accept
 COPY /input /input
 ```
 
-Build and run the container [locally](#how-to-use-container-reuse-recipes-on-your-local-host) or from your [private registry container](#how-to-use-container-reuse-recipes-for-your-private-registry) as needed. 
+Build and run the container [locally](#how-to-use-container-on-your-local-host) or from your [private registry container](#how-to-add-container-to-private-registry) as needed. 
 
 ## How to use container on your local host
 

@@ -18,6 +18,10 @@
       href: ./containers/container-reuse-recipe.md
     - name: Deploy to Azure Container Instance
       href: ./containers/azure-container-instance-recipe.md
+    - name: Deploy to Azure Kubernetes 
+      href: ./containers/azure-kubernetes-recipe.md
+    - name: Deploy with Docker Compose
+      href: ./containers/docker-compose-recipe.md
   - name: Other Container Services
     items:
     - name: Azure Container Instances
