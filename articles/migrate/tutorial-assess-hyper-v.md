@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     - [Azure permissions](tutorial-prepare-hyper-v.md#set-up-azure-permissions) for Azure Migrate should be configured. 
     - Hyper-V host settings for [Azure Migrate](tutorial-prepare-hyper-v.md#verify-hyper-v-host-settings) and for the [Azure Migrate appliance](tutorial-prepare-hyper-v.md#verify-settings-for-the-azure-migrate-appliance) should be verified.
 - You should have an [account set up](tutorial-prepare-hyper-v.md#set-up-an-account-for-vm-discovery) for VM discovery.
-- Integration Services should be [enabled on VMs](tutorial-prepare-yper-v.md#enable-integration-services-on-vms) you want to discover.
+- Integration Services should be [enabled on VMs](tutorial-prepare-hyper-v.md#enable-integration-services-on-vms) you want to discover.
 - The appliance should to able to [access Azure URLs](tutorial-prepare-hyper-v.md#verify-url-access).
 
 ## Set up an Azure Migrate project
@@ -54,7 +54,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Discover and assess servers](./media/tutorial-assess-hyper-v/assess-migrate.png)
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
-2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-hyder-v.md#assign-permissions-for-assessment-and-migration).
+2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-hyper-v.md#assign-permissions-for-assessment-and-migration).
 3. In **Project Details**, specify the project name, and geography in which you want to create the project. You can create an Azure Migrate project in the regions summarized in the table.
 
     - The region specified for the project is only used to store the metadata gathered from on-premises VMs.
@@ -377,6 +377,6 @@ In this tutorial, you:
 Continue to the next tutorial to migrate Hyper-V VMs to Azure
 
 > [!div class="nextstepaction"] 
-> [Assess Hyper-V VMs](./tutorial-migrate-hyper-v.md) 
+> [Assess Hyper-V VMs](./tutorial-prepare-hyper-v.md) 
 
 

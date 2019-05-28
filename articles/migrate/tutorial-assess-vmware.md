@@ -90,7 +90,7 @@ Deploy the Azure Migrate appliance as a VMware VM:
 2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
 3. Click **Download** to download the .OVA template file.
 
-    ![Download .ova file](./media/tutorial-prepare-vmware/download-ova.png)
+    ![Download .ova file](./media/tutorial-assess-vmware/download-ova.png)
 
 
 ### Verify OVA security
@@ -121,7 +121,7 @@ Import the downloaded OVA file to vCenter Server, and create a VM from it.
 
 1. In the vSphere Client console, click **File** > **Deploy OVF Template**.
 
-    ![Deploy OVF](./media/tutorial-prepare-vmware/deploy-ovf.png)
+    ![Deploy OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. In the Deploy OVF Template Wizard > **Source**, specify the location of the OVA file.
 3. In **Name** and **Location**, specify a friendly name for the VM, and the inventory object in which the VM
