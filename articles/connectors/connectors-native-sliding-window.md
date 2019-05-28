@@ -69,7 +69,7 @@ For differences between this trigger and the Recurrence trigger or for more info
 
 ## Workflow definition - Sliding Window
 
-In your logic app's underlying workflow definition, which uses JSON, you can view the [Sliding Window trigger definition](../logic-apps/logic-apps-workflow-actions-triggers.md#sliding-window-trigger) with the options that you chose. To view this definition, on the designer toolbar, choose **Code view**. To return to the designer, choose on the designer toolbar, **Designer**.
+In your logic app's underlying workflow definition, which uses JSON, you can view the Sliding Window trigger definition with the options that you chose. To view this definition, on the designer toolbar, choose **Code view**. To return to the designer, choose on the designer toolbar, **Designer**.
 
 This example shows how a Sliding Window trigger definition might look in an underlying workflow definition where the delay for each recurrence is five seconds for an hourly recurrence:
 
