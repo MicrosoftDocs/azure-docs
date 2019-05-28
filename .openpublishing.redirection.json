@@ -26485,17 +26485,17 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/marketplace/become-publisher.md",
+      "source_path": "articles/azure/marketplace/become-publisher.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/marketplace/guidelines.md",
+      "source_path": "articles/azure/marketplace/guidelines.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/marketplace/register-dev-center.md",
+      "source_path": "articles/azure/marketplace/register-dev-center.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
       "redirect_document_id": false
     },

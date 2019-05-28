@@ -192,6 +192,6 @@ The bank and tax information is required for all commercial offers using the tra
   To access support, visit the Windows developer support page located at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
 ## Next steps
-<!-- *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
---> 
+*   Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) page.  
+
 ---
