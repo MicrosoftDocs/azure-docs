@@ -426,7 +426,7 @@ In order to calculate the distance again in the client, we have to return **Loca
         OrderBy = new[] { "HotelName" },
 ```
 
-5. Running the app should now display all hotels in alphabetical order. Perhaps a more realistic search would display a search in descending order of hotel rating. This would require returning the rating in the **Select** set of fields, then storing it in the **SearchData** class and adding the rating to the description for display in the view. This is left as an exercise for the student!
+5. Running the app should now display all hotels in alphabetical order. Perhaps a more realistic search would display a search in descending order of hotel rating. This would require returning the rating in the **Select** set of fields, then storing it in the **SearchData** class and adding the rating to the description for display in the view. This is left as an exercise for you!
 
 ## Takeaways
 
@@ -446,7 +446,6 @@ Of course, entering latitude and longitude is not the preferred user experience 
 
 ## Next steps
 
-You have completed this series of C# tutorials, well done! 
+You have completed this series of C# tutorials, well done!
 
-For further reference and tutorials, consider:
-TBD
+For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/) or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/en-us/azure/search/).

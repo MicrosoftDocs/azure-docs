@@ -116,7 +116,7 @@ We can improve the appearance of the suggestions to the user a bit by setting th
         $("#azuresuggesthighlights").autocomplete({
             html: true,
             source: "/home/suggest?highlights=true&fuzzy=false&",
-            minLength: 3,
+            minLength: 2,
             position: {
                 my: "left top",
                 at: "left-23 bottom+10"
@@ -161,6 +161,7 @@ Another variation that is slightly different from suggestions is autocompletion.
         });
     </script>
 ```
+
 2. Now change the id of the text display so it reads as follows.
 
 ```cs
@@ -194,7 +195,8 @@ public async Task<ActionResult> AutoComplete(string term)
             return new JsonResult((object)autocomplete);
         }
 ```
-Notice that we are using the same "suggester" function called "sg" in the autocomplete search (so we are only trying to autocomplete the hotel names).
+
+Notice that we are using the same *suggester* function called "sg" in the autocomplete search (so we are only trying to autocomplete the hotel names).
 
 There are a range of **AutocompleteMode** settings and we are using **OneTermWithContext**. Refer to [Azure Autocomplete](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) for a description of the range of options here.
 
@@ -286,10 +288,12 @@ Note how the autocompletion option is returned at the top of the list, followed 
                 my: "left top",
                 at: "left-23 bottom+10"
             },
+
+            // Use Ajax to set up a "success" function.
             source: function (request, response) {
-                var crazyUrl = "/Home/AutoCompleteAndSuggest?term=" + $("#azureautocomplete").val();
+                var controllerUrl = "/Home/AutoCompleteAndSuggest?term=" + $("#azureautocomplete").val();
                 $.ajax({
-                    url: crazyUrl,
+                    url: controllerUrl,
                     dataType: "json",
                     success: function (data) {
                         if (data && data.length > 0) {
@@ -297,15 +301,17 @@ Note how the autocompletion option is returned at the top of the list, followed 
                             // Show the autocomplete suggestion
                             document.getElementById("underneath").innerHTML = data[0];
 
-                            // Remove the top suggestion as its used for inline autocomplete
+                            // Remove the top suggestion as it is used for inline autocomplete.
                             var array = new Array();
                             for (var n = 1; n < data.length; n++) {
                                 array[n - 1] = data[n];
                             }
 
-                            // Show the drop down list of suggestions
+                            // Show the drop-down list of suggestions.
                             response(array);
                         } else {
+
+                            // Nothing is returned, so clear the autocomplete suggestion.
                             document.getElementById("underneath").innerHTML = "";
                         }
                     }
@@ -313,7 +319,10 @@ Note how the autocompletion option is returned at the top of the list, followed 
             }
         });
 
-        // complete on TAB and clear on ESC
+        // Complete on TAB.
+        // Clear on ESC.
+        // Clear if backspace to less than 2 characters.
+        // Clear if any arrow key hit as user is navigating the suggestions.
         $("#azureautocomplete").keydown(function (evt) {
 
             var suggestedText = document.getElementById("underneath").innerHTML;
@@ -324,31 +333,34 @@ Note how the autocompletion option is returned at the top of the list, followed 
                 document.getElementById("underneath").innerHTML = "";
                 $("#azureautocomplete").val("");
             } else if (evt.keyCode === 8 /* Backspace */) {
-                //alert("value = " + $("#azureautocomplete").val().length);
                 if ($("#azureautocomplete").val().length < 2) {
                     document.getElementById("underneath").innerHTML = "";
                 }
-            } else if (evt.keyCode >= 37 && evt.keyCode <= 40 /* any arrow */) {
+            } else if (evt.keyCode >= 37 && evt.keyCode <= 40 /* Any arrow key */) {
                 document.getElementById("underneath").innerHTML = "";
             }
         });
 
-        // Character replace function
+        // Character replace function.
         function setCharAt(str, index, chr) {
             if (index > str.length - 1) return str;
             return str.substr(0, index) + chr + str.substr(index + 1);
         }
 
-        // This function is needed to clear the "underneath" text when the user clicks on an autocomplete suggestion
+        // This function is needed to clear the "underneath" text when the user clicks on a suggestion, and to
+        // correct the case of the autocomplete option when it does not match the case of the user input.
+        // The interval function is activated with the input, blur, change, or focus events.
         $("#azureautocomplete").on("input blur change focus", function (e) {
-            var intervalDuration = 2000, // 2 second interval
+
+            // Set a 2 second interval duration.
+            var intervalDuration = 2000, 
                 interval = setInterval(function () {
 
                     // Compare the autocorrect suggestion with the actual typed string.
                     var inputText = document.getElementById("azureautocomplete").value;
                     var autoText = document.getElementById("underneath").innerHTML;
 
-                    // If the typed string is longer, then clear the suggestion.
+                    // If the typed string is longer than the suggestion, then clear the suggestion.
                     if (inputText.length > autoText.length) {
                         document.getElementById("underneath").innerHTML = "";
                     } else {
@@ -361,12 +373,12 @@ Note how the autocompletion option is returned at the top of the list, followed 
                             document.getElementById("underneath").innerHTML = autoText;
 
                         } else {
-                            // The strings do not match, so remove the suggestion.
+                            // The strings do not match, so clear the suggestion.
                             document.getElementById("underneath").innerHTML = "";
                         }
                     }
 
-                    // If the element loses focus, stop checking.
+                    // If the element loses focus, stop the interval checking.
                     if (!$input.is(':focus')) clearInterval(interval);
 
                 }, intervalDuration);
@@ -382,7 +394,7 @@ Read through the comments in the script to get a fuller understanding.
 
 Image
 
-5. Try tabbing to accept the autocomple suggesion, and try selecting suggestions using the arrow keys and tab, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
+5. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 
 Of course you may decide that it is simpler to load in a library that offers this feature for you, but now you know at least one way of how it works!
 
@@ -395,7 +407,6 @@ You should consider the following takeaways from this project:
 * Autocompletion (also known as "type-ahead") and suggestions enable the user to just type a few keys to locate exactly what they want.
 * Working with the UI can test your limits and patience with javascript/HTML/JQuery and other UI technologies.
 * Autocompletion and suggestions working together can provide a rich user experience.
-
 
 ## Next steps
 
