@@ -33,7 +33,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
 
-Also note that quotas are not guaranteed values. Quotas can vary based on changes from the Batch service or a request to change a quota value for your account.
+Also note that quotas are not guaranteed values. Quotas can vary based on changes from the Batch service or a user request to change a quota value.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
