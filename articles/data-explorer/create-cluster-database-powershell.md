@@ -72,7 +72,7 @@ The following steps are not required if you're running commands in Azure Cloud S
 1. Run the following command to check whether your cluster was successfully created:
 
     ```azurepowershell-interactive
-    Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
+    Get-AzKustoCluster -Name mykustocluster -ResourceGroupName testrg
     ```
 
 If the result contains `provisioningState` with the `Succeeded` value, then the cluster was successfully created.
@@ -96,7 +96,7 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 1. Run the following command to see the database that you created:
 
     ```azurepowershell-interactive
-    Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase
+    Get-AzKustoDatabase -ClusterName mykustocluster -ResourceGroupName testrg -Name mykustodatabase
     ```
 
 You now have a cluster and a database.
