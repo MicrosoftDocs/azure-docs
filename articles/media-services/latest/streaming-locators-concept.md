@@ -86,7 +86,7 @@ To to get the Streaming Locators based on the associated Asset name, use the fol
 
 ### REST
 
-You can use the REST API to [get a list of Streaming Locators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators).
+You can use the REST API to [get a list of Streaming Locators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) published for the specified Asset.
 
 ```
 https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/listStreamingLocators?api-version={{api-version}}`
@@ -94,7 +94,7 @@ https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resou
 
 ### .NET
 
-Use the following .NET extension API to get a list of Streaming Locators:
+Use the following .NET extension API to get a list of Streaming Locators published for the specified Asset.
 
 [Microsoft.Azure.Management.Media.Models.ListStreamingLocatorsResponse ListStreamingLocators(Microsoft.Azure.Management.Media.IAssetsOperations operations, string resourceGroupName, string accountName, string assetName)](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)
 
