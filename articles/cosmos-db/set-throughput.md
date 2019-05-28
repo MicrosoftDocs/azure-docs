@@ -72,6 +72,8 @@ You can combine the two models. Provisioning throughput on both the database and
 * The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container’s throughput.
 * The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
 
+You can configure shared and dedicated throughput on a database and container while creating them. To switch from dedicated throughput mode to shared throughput mode (and vice versa), you have to create a new container and migrate the data to the new container. You can migrate the data by using the Azure Cosmos DB [change feed](change-feed.md#change-feed-use-cases-and-scenarios) feature.
+
 ## Update throughput on a database or a container
 
 After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The minimum provisioned throughput depends on the following factors: 
