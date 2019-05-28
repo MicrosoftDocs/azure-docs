@@ -57,9 +57,9 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
 Create an instance of the `CognitiveServicesCredentials`, and instantiate the client:
 
-    ```python
-    client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
-    ```
+```python
+client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
+```
 
 ## Send a search request and get a response
 
