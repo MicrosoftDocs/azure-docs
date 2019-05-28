@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -69,6 +69,14 @@ When you edit a rule, you cannot change the type between an IP address rule and 
 To delete a rule, click the **...** on your rule and then click **remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/access-restrictions-delete.png)
+
+## Blocking a single IP Address ##
+
+When adding your first IP Restriction rule, the service will add an explicit **deny all** rule with a priority of 2147483647. In practice, the explicit **deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
+
+For the scenario where users want to explicitly block a single IP address or IP address block, but allow everything else access, it is necessary to add an explicit **Allow All** rule.
+
+![block single ip address](media/app-service-ip-restrictions/block-single-address.png)
 
 ### SCM site 
 
