@@ -60,8 +60,8 @@
      href: hardware-specification.md
    - name: Compare to Kinect for Windows
      href: windows-comparison.md
-   - name: Azure Kinect support
-     href: https://support.microsoft.com
+   - name: Azure Kinect troubleshooting
+     href: troubleshooting.md
 - name: References
   items:  
    - name: Sensor API
