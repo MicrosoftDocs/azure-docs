@@ -13916,26 +13916,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk.md",
       "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/sdk-csharp-quick-start",
       "redirect_document_id": false
@@ -27820,28 +27800,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/bing-autosuggest/language-support",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/docs-ref-conceptual/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/docs-ref-conceptual/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference",
       "redirect_document_id": true
     },
     {
@@ -31215,16 +31175,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/UseAndDisplayRequirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
       "redirect_document_id": false
@@ -31232,16 +31182,6 @@
     {
       "source_path": "articles/cognitive-services/Bing-Spell-Check/UseAndDisplayRequirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": " https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": " https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference",
       "redirect_document_id": false
     },
     {
@@ -31262,16 +31202,6 @@
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/UseAndDisplayRequirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v5-reference",
       "redirect_document_id": false
     },
     {
@@ -31297,11 +31227,6 @@
     {
       "source_path": "articles/cognitive-services/Bing-Entities-Search/use-display-requirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference",
       "redirect_document_id": false
     },
     {
@@ -32772,16 +32697,6 @@
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/sdk.md",
       "redirect_url": "/azure/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart"
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference",
-      "redirect_url": "https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/supported-countries-markets.md",
