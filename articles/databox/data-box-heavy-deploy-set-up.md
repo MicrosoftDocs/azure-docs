@@ -25,18 +25,18 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 
-1. You have completed the [Tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
-2. You have received your Data Box Heavy and the order status in the portal is **Delivered**.
-3. You have reviewed the [Data Box Heavy safety guidelines](data-box-heavy-safety.md).
+1. You've completed the [Tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
+2. You've received your Data Box Heavy and the order status in the portal is **Delivered**.
+3. You've reviewed the [Data Box Heavy safety guidelines](data-box-heavy-safety.md).
 4. You must have access to a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint. This device can't be mounted on a rack.
-5. You have received four grounded power cords to use with your storage device.
+5. You've received four grounded power cords to use with your storage device.
 6. You should have a host computer connected to the datacenter network. Your Data Box Heavy will copy the data from this computer. Your host computer must run a [Supported operating system](data-box-heavy-system-requirements.md).
 7. Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. 
 8. You need to have a laptop with RJ-45 cable to connect to the local UI and configure the device. Use the laptop to configure each node of the device once.
 9. You need one 40-Gbps cable or 10-Gbps cable per device node.
     - Choose cables that are compatible with the [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) network interface.
-    - For the 40 Gbps cable, device end of the cable needs to be QSFP+.
-    - For the 10 Gbps cable, you need an SFP+ cable that plugs into a 10-G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
+    - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
+    - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-Gbps switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 
 ## Cable your device for power
 
@@ -82,20 +82,20 @@ On one of the nodes of the device, take the following steps to cable for network
     > DATA 1 and DATA2 are switched and do not match what is displayed in the local web UI.
     > The 40 Gbps cable adapter connects when inserted the way as shown below.
 
-    ![Data Box Heavy 40 Gbps cable adaptor](media/data-box-heavy-deploy-set-up/data-box-heavy-cable-adaptor.png)
+    ![Data Box Heavy 40-Gbps cable adaptor](media/data-box-heavy-deploy-set-up/data-box-heavy-cable-adaptor.png)
 
 ## Configure first node
 
 Take the following steps to set up your device using the local configuration and the Azure portal.
 
-1. Download the device credentials from portal. Go to **General > Device details**. Copy the **Device password**. These passwords are tied to a specific order in the portal. Corresponding to the two nodes in Data Box Heavy, you will see the two device serial numbers. The device administrator password for both the nodes is the same.
+1. Download the device credentials from portal. Go to **General > Device details**. Copy the **Device password**. These passwords are tied to a specific order in the portal. Corresponding to the two nodes in Data Box Heavy, you'll see the two device serial numbers. The device administrator password for both the nodes is the same.
 
     ![Data Box Heavy device credentials](media/data-box-heavy-deploy-set-up/data-box-heavy-device-credentials.png)
 
 2. Connect your client workstation to the device via a CAT6 RJ-45 network cable.
-3. Configure the Ethernet adapter on the computer you are using to connect to device with a static IP address of `192.168.100.5` and subnet `255.255.255.0`.
+3. Configure the Ethernet adapter on the computer you're using to connect to device with a static IP address of `192.168.100.5` and subnet `255.255.255.0`.
 
-    ![Data Box Heavy connect to local web UI](media/data-box-heavy-deploy-set-up/data-box-heavy-connect-local-web-ui.png)
+    ![Data Box Heavy connects to local web UI](media/data-box-heavy-deploy-set-up/data-box-heavy-connect-local-web-ui.png)
 
 4. Connect to the local web UI of the device at the following URL: `http://192.168.100.10`. Click **Advanced** and then click **Proceed to 192.168.100.10 (unsafe)**.
 5. You see a **Sign in** page for the local web UI.
@@ -104,9 +104,9 @@ Take the following steps to set up your device using the local configuration and
     - The device is locked at this point.
     - Provide the device administrator password that you obtained in the previous step to sign into the device. Click **Sign in**.
 
-    ![Data Box Heavy sign in to local web UI](media/data-box-heavy-deploy-set-up/data-box-heavy-unlock-device.png)
+    ![Sign in to Data Box Heavy local web UI](media/data-box-heavy-deploy-set-up/data-box-heavy-unlock-device.png)
 
-5. On the Dashboard, ensure that the network interfaces are configured. There are four network interfaces on your device node, two 1 Gbps, and two 40 Gbps. Of these one of the 1 Gbps is a management interface and hence not user configurable. The remaining three network interfaces are dedicated to data and can be configured by the user.
+5. On the Dashboard, ensure that the network interfaces are configured. There are four network interfaces on your device node, two 1 Gbps, and two 40 Gbps. One of the 1-Gbps inteface is a management interface and hence not user configurable. The remaining three network interfaces are dedicated to data and can be configured by the user.
 
 - If DHCP is enabled in your environment, network interfaces are automatically configured.
 - If DHCP is not enabled, go to Set network interfaces, and assign static IPs if needed.
