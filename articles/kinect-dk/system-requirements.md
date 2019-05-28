@@ -18,7 +18,7 @@ This document provides details about the system requirements needed to install t
 - Windows 10 April 2018 release (x64) or later
 - Linux Ubuntu 18.04 (x64) with OpenGLv4.4 or later GPU driver
 
-The Sensor SDK is available for the Windows API (Win32) for native C/C++ Windows applications and isn't currently available to UWP applications. Azure Kinect DK is not supported for Windows 10 in S mode.
+The Sensor SDK is available for the Windows API (Win32) for native C/C++ Windows applications. The SDK isn't currently available to UWP applications. Azure Kinect DK isn't supported for Windows 10 in S mode.
 
 ## Development environment requirements
 
