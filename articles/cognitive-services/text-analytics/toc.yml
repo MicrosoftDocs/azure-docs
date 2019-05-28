@@ -29,6 +29,8 @@
         href: quickstarts/csharp.md
       - name: Python
         href: quickstarts/python-sdk.md
+      - name: Go
+        href: quickstarts/go-sdk.md
       - name: Ruby
         href: quickstarts/ruby-sdk.md
 
