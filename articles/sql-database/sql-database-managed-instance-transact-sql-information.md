@@ -22,6 +22,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 - [Security](#security) includes the differences in [auditing](#auditing), [certificates](#certificates), [credentials](#credential), [cryptographic providers](#cryptographic-providers), [logins and users](#logins-and-users), and the [service key and service master key](#service-key-and-service-master-key).
 - [Configuration](#configuration) includes the differences in [buffer pool extension](#buffer-pool-extension), [collation](#collation), [compatibility levels](#compatibility-levels), [database mirroring](#database-mirroring), [database options](#database-options), [SQL Server Agent](#sql-server-agent), and [table options](#tables).
 - [Functionalities](#functionalities) includes [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distributed transactions](#distributed-transactions), [extended events](#extended-events), [external libraries](#external-libraries), [filestream and FileTable](#filestream-and-filetable), [full-text Semantic Search](#full-text-semantic-search), [linked servers](#linked-servers), [PolyBase](#polybase), [replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [stored procedures, functions, and triggers](#stored-procedures-functions-and-triggers).
+- [Environment settings](#Environment) such as VNets and subnet configurations.
 - [Features that have different behavior in managed instances](#Changes).
 - [Temporary limitations and known issues](#Issues).
 
@@ -454,11 +455,15 @@ Cross-instance service broker isn't supported:
 ## <a name="Environment"></a>Environmnet constraints
 
 ### Subnet
-- In the subnet where you are placing Managed Instance you cannot place any other resources (for example virtual machines). Place these resources in others subnets.
-- The number and types of instances that you can place in subnet have some [constrinst and limits](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- In the subnet reserved for your Managed Instance you cannot place any other resources (for example virtual machines). Place these resources in others subnets.
+- Subnet must have sufficient number of available [IP addresses](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimum is 16, while recommendation is to have at least 32 IP addresses in the subnet.
+- [Service endpoints cannot be associated with the managed instance's subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Make sure that the service endpoints option is disabled when you create the virtual network.
+- The number and types of instances that you can place in subnet have some [constraints and limits](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- There are some [security rules that must be applied on the subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 ### VNET
-- VNET can be deployed using Resource model - classic model is not supported.
+- VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
+- Some services such as App Service Environments, Logic apps, and Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access Managed Instances in different regions if their VNets are connected using [global peering](../virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ## <a name="Changes"></a> Behavior changes
 
