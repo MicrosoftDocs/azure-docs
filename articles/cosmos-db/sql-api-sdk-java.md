@@ -194,7 +194,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="1.2.0"/>1.2.0
 * Supports GeoSpatial Index
-* Validates id property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
+* Validates ID property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0
