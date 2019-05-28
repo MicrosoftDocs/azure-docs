@@ -44,22 +44,41 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. Fill out the basic details of your Azure Data Share resource with the following information. 
 
-1. Fill out the basic cluster details with the following information.
-
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
+    | Name | *datashareacount* | Specify a name for your Data Share account. |
     | Subscription | Your subscription | Select the Azure subscription that you want to use for your cluster.|
     | Resource group | *test-resource-group* | Use an existing resource group or create a new resource group. |
-    | Location | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs.
+    | Location | *East US 2* | Select the region that best meets your needs. If possible, select a region that matches the region containing the data sets you will be sharing. 
     | | |
 
-1. Select **Review + create** to review your cluster details, and **Create** to provision the cluster. Provisioning typically takes about 10 minutes.
+1. Select **New** to provision your Data Share Account. This typically takes about 1 minute or less. 
 
 1. When the deployment is complete, select **Go to resource**.
 
-    ![Go to resource](media/create-cluster-database-portal/notification-resource.png)
+# Create a Data Share
 
-# Add datasets
+1. In your Data Share Account, select 'Start sharing your data'. 
+    ![StartSharing](./media/1startsharing.png "Start sharing your data")
+
+1. Select **Create**
+   
+
+1. Fill out the details for your Data Share by specifying a name for the share, a description of the type of data the share contains, and the terms of use. 
+
+    ![EnterShareDetails](./media/2entersharedetails.png "Enter Share details") 
+
+    
+1. If you would like to offer a synchronization schedule for your Data Consumer, enable the Scheduled refresh slider shown below and select a recurrence interval. 
+    ![EnableRefresh](./media/3refreshpolicy.png "Enable synchronization schedule")
+
+1. Click **Continue**
+
+1. To add Datasets to your Data Share, click **Add Datasets**. 
+
+
+1. 
+
 
 # Add recipients
 
