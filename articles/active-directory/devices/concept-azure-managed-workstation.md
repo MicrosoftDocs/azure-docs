@@ -23,7 +23,7 @@ Secured isolated workstations are critically important for the security of sensi
 
 This document explains what it takes to build a secure client workstation with detailed step by step instructions, including how to set up starting security controls. This type of workstations at times is called a privileged access workstation (PAW), which this reference is used, and built upon. The guidance however looks to cloud-based technology to manage the service, and introduces security capabilities introduced starting in Windows 10RS5, Microsoft Defender ATP, Azure Active Directory, and Intune.
 
-# Why securing workstation access is important?
+## Why securing workstation access is important
 
 The rapid adoption of cloud services and the ability to work from anywhere has created a new method for exploitation. Attackers are exploiting weak security controls on devices where administrators work and are able to gain access to privileged resources.
 
@@ -49,7 +49,7 @@ This document provides a solution to help protect your computing devices by isol
 * Microsoft Defender Advanced Threat Protection (ATP) for endpoint protection, detection, and response with cloud management
 * Azure AD PIM for managing authorization, including Just In Time (JIT) privileged access to resources
 
-## Who benefits from using a secure workstation?
+## Who benefit from using a secure workstation
 
 All users, and operators benefit from using a secure workstation. 
 An attacker who compromises a PC or device can do several things including impersonate all cached accounts, and use credentials, and tokens used on that device while they are logged on. This risk makes securing the devices used for any privileged role including administrative rights so important as devices where a privileged account is used are targets for lateral movement and privilege escalation attacks. These accounts may be used for a variety of assets such as:
@@ -90,9 +90,9 @@ Throughout the guidance, multiple security profiles and roles will be addressed 
 * **Specialized** – Developers and IT administrators are an attractive target to attackers as these roles can alter systems of interest to the attackers. The Specialized workstation takes the effort deployed in the High Security workstation, and further emphases its security by managing local applications, limiting internet web sites, and restricting productivity capabilities that are high risk such as ActiveX, Java, browser plugin's, and several other known high risk controls on a Windows device. In this profile, the workstation will enable security controls and policies described in the content, and deployed in the DeviceConfiguration_NCSC - Windows10 (1803) SecurityBaseline  script.
 * **Secured** – An attacker who can compromise an administrative account can typically cause significant business damage by data theft, data alteration, or service disruption. In this hardened state, the workstation will enable all the security controls and policies that restrict direct control of local application management, and productivity tools are removed. As a result, compromising the device is made more difficult as mail and social media are blocked which reflect the most common way phishing attacks can succeed.  The secured workstation can be deployed with the Secure Workstation - Windows10 (1809) SecurityBaseline  script.
 
-![Secured workstation](./media/concept-azure-managed-workstation/secure-workstation.png)
+   ![Secured workstation](./media/concept-azure-managed-workstation/secure-workstation.png)
 
->A secure workstation  provides an administrator a hardened workstation that has clear application control, and application guard. The workstation will use credential, device, and exploit guard to protect the host from malicious behavior. Additionally all local disks are encrypted with Bitlocker encryption.
+   A secure workstation  provides an administrator a hardened workstation that has clear application control, and application guard. The workstation will use credential, device, and exploit guard to protect the host from malicious behavior. Additionally all local disks are encrypted with Bitlocker encryption.
 
 * **Isolated** – This custom offline scenario represents the extreme end of the spectrum (no installation scripts are provided for this case). Organizations may need to manage an isolated business critical function such as a high value production line or life support systems that requires unsupported/unpatched legacy operating systems. Because security is critical and cloud services are unavailable, organizations may either manually manage/update these computers or use an isolated Active Directory forest architecture (like the Enhanced Security Admin Environment (ESAE)) to manage them. In these circumstance removing all access except basic Intune, and ATP health checking should be considered.
    * [Intune network communications requirement](https://docs.microsoft.com/intune/network-bandwidth-use)

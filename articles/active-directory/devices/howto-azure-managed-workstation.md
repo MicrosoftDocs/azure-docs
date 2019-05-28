@@ -40,7 +40,7 @@ Prior to deploying the solution, the profile that you will be using must be sele
 | URLs restricted to approved list only |   |   |   | Yes | Yes |Yes |
 | Internet (Inbound/outbound blocked) |   |   |   |  |  |Yes |
 
-## License Requirements
+## License requirements
 
 The concepts covered in this guide will assume Microsoft 365 Enterprise E5 or an equivalent SKU. Some of the recommendations in this guide can be implemented with lower SKUs. Additional information can be found on [Microsoft 365 Enterprise licensing](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
@@ -93,7 +93,7 @@ Configure your Devices setting in Active Directory to allow your administrative 
 
 As part of the rollout workstations users of the VIP, DevOps, and Secure level workstations will have no administrator rights on their machines. To configure this setting from the Azure portal, browse to **Azure Active Directory** > **Devices** > **Device settings**. Select **None** under **Additional local administrators on Azure AD joined devices**.
 
-#### Require Multi-Factor Auth to join devices
+#### Require multi-factor authentication to join devices
 
 To further strengthen the process of joining devices to Azure AD, browse to **Azure Active Directory** > **Devices** > **Device settings** choose **Yes** under **Require Multi-Factor Auth to join devices** then choose **Save**.
 
@@ -129,10 +129,12 @@ Organizations can optionally create policies to block countries where users woul
 
 As outlined in the supply chain management, ensuring the secure workstation is a trusted clean device it's recommended that when purchasing new devices,  that devices be factory set to [Windows 10 Pro in S mode](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), which limits the exposure and vulnerabilities during supply chain management. Once a device is received from your supplier, the device will be removed from S mode using Autopilot. The following guidance provides details on applying the transformation process.
 
-We want to ensure that devices are fully configured before use. Intune provides a means to **Block device use until all apps and profiles are installed**. This setting can be found in the **Azure portal** > **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page (Preview)** > **Default** > **Settings**.
+We want to ensure that devices are fully configured before use. Intune provides a means to **Block device use until all apps and profiles are installed**. 
 
-* **Show app profile installation progress** - Yes
-   * **Block device use until all apps and profiles are installed** - Yes
+1. From the **Azure portal** navigate to:
+1. **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page (Preview)** > **Default** > **Settings**.
+1. Set **Show app profile installation progress** to **Yes**.
+1. Set **Block device use until all apps and profiles are installed** to **Yes**.
 
 ### Create an Autopilot deployment profile
 
@@ -144,10 +146,10 @@ After creating a device group, you must create a deployment profile so that you 
 1. For Deployment mode, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user enrolling the device. User credentials are required to enroll the device.
 1. In the Join to Azure AD as box, **Azure AD joined** should be chosen and greyed out.
 1. Select Out-of-box experience (OOBE), configure the following option and leave others set to the default, and then select **Ok**:
-   * User account type: **Standard**
+   1. User account type: **Standard**
 1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
 1. Choose **Assignments** > **Assign to** > **Selected Groups**
-   * **Select groups to include** - Secure Workstation Users
+   1. **Select groups to include** - Secure Workstation Users
 
 ### Configure Windows Update
 
@@ -179,9 +181,9 @@ To configure Windows Defender ATP Intune integration in the Azure portal, browse
 
 1. In step 1 under **Configuring Windows Defender ATP**, click **Connect Windows Defender ATP to Microsoft Intune in the Windows Defender Security Center​**.
 1. In the Windows Defender Security Center:
-   * Select **Settings** > **Advanced features**
-   * For **Microsoft Intune connection**, choose **On**
-   * Select **Save preferences**
+   1. Select **Settings** > **Advanced features**
+   1. For **Microsoft Intune connection**, choose **On**
+   1. Select **Save preferences**
 1. After a connection is established, return to Intune and click **Refresh** at the top.
 1. Set **Connect Windows devices version 10.0.15063 and above to Windows Defender ATP** to **On**.
 1. **Save**
@@ -216,7 +218,7 @@ Running the Intune data export script `DeviceConfiguration_Export.ps1` from the 
 
 The guidance provided has enabled a secured workstation, additional controls should also be considered, such as alternate browsers access, outbound HTTP allowed and blocked websites, and the ability to run custom PowerShell script.
 
-### Restrictive inbound, and outbound rules in Firewall configuration service provider (CSP)
+### Restrictive inbound, and outbound rules in firewall configuration service provider (CSP)
 
 Additional management of both inbound, and outbound rules can be updated to reflect your permitted and blocked endpoints. As we continue to harden the secure workstation, we move the restriction to a deny all inbound and outbound as default, and add permitted sites for the outbound to reflect common and trusted web sites. The additional configuration information for the Firewall configuration service provider can be found in the article [Firewall CSP](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
 
@@ -225,7 +227,7 @@ Default restricted recommendations are:
 * Deny All inbound
 * Deny All outbound
 
-The Spanhaus Project maintains a good list that organizations can use as a starting point for blocking sites known as [The Domain Block List (DBL)](https://www.spamhaus.org/dbl/).
+The Spamhaus Project maintains a good list that organizations can use as a starting point for blocking sites known as [The Domain Block List (DBL)](https://www.spamhaus.org/dbl/).
 
 ### Managing local applications
 
@@ -254,7 +256,7 @@ In a secured mode, installing applications will be restricted to the Intune comp
 
 Installing an Intune managed copy of the [Company Portal](https://docs.microsoft.com/Intune/store-apps-company-portal-app) will permit the ability to push down additional tools on demand to users of the secured workstations.
 
-Some organizations may be required to install win32 apps or apps that require other preparations to deploy. For these applications, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
+Some organizations may be required to install Windows 32-bit apps or apps that require other preparations to deploy. For these applications, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
 
 ### Setting up custom settings using PowerShell
 
@@ -275,7 +277,7 @@ Our example will use the following [free generic background image](https://i.img
 1. Select **Assignments** > **Select groups**
    1. Add the security group **Secure Workstations** created earlier and click **Save**
 
-### Using the Preview: MDM Security Baseline for October 2018
+### Using the preview: MDM Security Baseline for October 2018
 
 Microsoft Intune has introduced security baseline management feature providing administrators a simple way to enforce a common baseline security posture. The baseline provides a similar means to achieve a locked down Enhanced profile workstation.
 
@@ -299,23 +301,19 @@ More information about this preview feature can be found in the article [Windows
 
 ## Enroll and validate your first device
 
-To enroll your device, you need the following information:
+1. To enroll your device, you need the following information:
+   * **Serial number** - found on the device chassis
+   * **Windows Product ID** - found under **System** > **About** from the Windows Settings menu.
+   * Running [Get-WindowsAutoPilotInfo](https://aka.ms/Autopilotshell) will provide a CSV hash file for device enrollment with all of the required information. 
+      * Run `Get-WindowsAutoPilotInfo – outputfile device1.csv` to output the information as a CSV file that can be imported in to Intune.
 
-* **Serial number** - found on the device chassis
-* **Windows Product ID** - found under **System** > **About** from the Windows Settings menu.
-* Running [Get-WindowsAutoPilotInfo](https://aka.ms/Autopilotshell) will provide a CSV hash file for device enrollment with all of the required information. 
-   * Run `Get-WindowsAutoPilotInfo – outputfile device1.csv` to output the information as a CSV file that can be imported in to Intune.
+   > [!NOTE]
+   > The script will require elevated rights and run as remote signed. You can use the following command to allow the script to run correctly. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
-> [!NOTE]
-> The script will require elevated rights and run as remote signed. You can use the following command to allow the script to run correctly. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
-
-You can gather this information by signing in to a Windows 10 version 1809 or higher device to gather the information, or your hardware reseller can provide this information when ordering new devices.
-
-Gather the required information and return to the **Azure portal**. Navigate to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**, select **Import**, and choose the CSV file you created or were provided.
-
-* Add the now enrolled device to the security group **Secure Workstations** created earlier.
-
-From the Windows 10 device you wish to configure, browse to **Windows Settings** > **Update & Security** > **Recovery**. Choose **Get started** under **Reset this PC** and follow the prompts to reset and reconfigure the device using the profile and compliance policies configured.
+1. You can gather this information by signing in to a Windows 10 version 1809 or higher device to gather the information, or your hardware reseller can provide this information when ordering new devices.
+1. Gather the required information and return to the **Azure portal**. Navigate to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**, select **Import**, and choose the CSV file you created or were provided.
+1. Add the now enrolled device to the security group **Secure Workstations** created earlier.
+1. From the Windows 10 device you wish to configure, browse to **Windows Settings** > **Update & Security** > **Recovery**. Choose **Get started** under **Reset this PC** and follow the prompts to reset and reconfigure the device using the profile and compliance policies configured.
 
 After the device has been configured, complete a review and check the configuration. Confirm the first device is configured correctly before continuing your deployment.
 
