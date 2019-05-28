@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -35,11 +35,11 @@ To successfully complete your "content protection" system/application design, yo
 
 1. Azure Media Services code
   
-   The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 and also use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
+   The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 using .NET. It also shows how to use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
   
    The example shows how to:
 
-   1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies). You need to create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients.    
+   1. Create and configure a [Content Key Policies](content-key-policy-concept.md). If encrypting your content with a DRM, you need to create the **Content Key Policy**. This policy is not needed for clear streaming or downloading. You create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients.    
 
       * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
       * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
@@ -49,9 +49,9 @@ To successfully complete your "content protection" system/application design, yo
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) that is configured to stream the encrypted asset. 
+   2. Create a [Streaming Locator](streaming-locators-concept.md) that is configured to stream the encrypted asset. 
   
-      The **Streaming Locator** has to be associated with a [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies). In the example, we set 
+      The **Streaming Locator** has to be associated with a [Streaming Policy](streaming-policy-concept.md). In the example, we set 
       StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and 
       Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If 
       you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
