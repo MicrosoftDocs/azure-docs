@@ -26,7 +26,7 @@ All the errors that are seen during data copy are summarized in the following se
 **Suggested resolution:** The folder under the Data Box or Data Box Heavy share(SMB/NFS) to which you have copied data becomes an Azure container in your storage account. 
 
 - On the **Connect and copy** page of the device local web UI, download, and review the error files to identify the folder names with issues.
-- Change the folder name under the Data Box share to make sure that:
+- Change the folder name under the Data Box or Data Box Heavy share to make sure that:
 
     - The name has between 3 and 63 characters.
     - The names can only have letters, numbers, and hyphens.
