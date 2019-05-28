@@ -4,7 +4,7 @@ description: This article describes how to query data from an Azure Time Series 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp

@@ -27,7 +27,7 @@ This article covers registering as a cloud marketplace publisher. Depending on y
 |:--- |:--- |:--- |:--- |  
 | 1 | Register in Microsoft Partner Network | 15 min | [Register in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 min | [Create a Microsoft ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Submit the marketplace registration form | 15 min | [Submit the marketplace nomination form](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 3 | Create a Partner Center account | 15 min | [Create a Partner Center account](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Sign into Cloud Partner Portal | 1-3 days | [Sign into Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Register in Microsoft Developer Center (Dev Center) (for Azure Marketplace transact offers) | 5-10 days | [Register in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
@@ -62,14 +62,19 @@ A Microsoft account, e.g. *\@outlook.com or \@live.com*, is used to access many 
 
 ---
 
-## 3. Submit the marketplace registration form  
+## 3. Create a Partner Center account  
 | 15 min |  
+
+After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) to the Marketplace, our onboarding team contacts you to support your publishing experience. See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
+
+<!---
 Complete this brief [registration form](https://azuremarketplace.microsoft.com/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
 
 You will be asked to include the following information:
 *	Details about your organization, including your Microsoft Partner Network ID (which you can look up in either [Partner Center](https://partnercenter.microsoft.com/partner/home) or [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
 *	A brief description of your initial app or consulting services offer that you intend to publish, including the Microsoft product or service to which your offer most closely aligns
 *	The target audience for your app or service 
+-->
 
 ---
 ## 4. Sign into Cloud Partner Portal
@@ -93,10 +98,10 @@ The individual registering in [Dev Center](https://developer.microsoft.com/store
 *	To register for a [Dev Center](https://developer.microsoft.com/store/register) account, [start the signup process here](https://developer.microsoft.com/store/register).
 *	For more information about creating a Microsoft account, visit the *Create a Microsoft account* section.
  
-Once you have completed the [Dev Center](https://developer.microsoft.com/store/register) registration, link your Cloud Partner Profile with your [Dev Center](https://developer.microsoft.com/store/register) account (see detailed steps here). This step must be completed before publishing your transact offer. 
+Once you have completed the [Dev Center](https://developer.microsoft.com/store/register) registration, link your Cloud Partner Profile with your [Dev Center](https://developer.microsoft.com/store/register) account ([see detailed steps here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile)). This step must be completed before publishing your transact offer. 
 
 >[!Note]
->To waive the $99 Developer Center registration fee, complete the [marketplace registration form](https://azuremarketplace.microsoft.com/sell/signup) and you will receive an email containing your promotional code. 
+>To waive the $99 Developer Center registration fee, complete the [marketplace registration form](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) and you will receive an email containing your promotional code. See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
 >[!Important]
 >Before you create a Microsoft Dev Center account, please verify that your organization does not already have a Dev Center account to avoid duplicate accounts. For more information, visit the [Register in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) section.

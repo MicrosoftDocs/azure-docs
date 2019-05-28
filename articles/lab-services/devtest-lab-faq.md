@@ -277,7 +277,7 @@ For a more in-depth explanation, see [Comparing custom images and formulas](devt
 
 To automate uploading VHD files to create custom images, you have two options:
 
-- Use [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) to copy or upload VHD files to the storage account that's associated with the lab.
+- Use [AzCopy](../storage/common/storage-use-azcopy-v10.md) to copy or upload VHD files to the storage account that's associated with the lab.
 - Use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Storage Explorer is a standalone app that runs on Windows, OS X, and Linux.
 
 To find the destination storage account that's associated with your lab:

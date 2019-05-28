@@ -25,13 +25,13 @@ In this article, you learn how to configure a HDInsight cluster with ESP by usin
 >
 > If the cluster storage is Azure Blob Storage (WASB), do not disable MFA.
 
-Enabling AzureAD-DS is a prerequisite before you can create a HDInsight cluster with ESP. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Enabling AzureAD-DS is a prerequisite before you can create a HDInsight cluster with ESP. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/create-instance.md). 
 
 When Azure AD-DS is enabled, all users and objects start synchronizing from Azure Active Directory (AAD) to Azure AD-DS by default. The length of the sync operation depends on the number of objects in Azure AD. The sync could take a few days for hundreds of thousands of objects. 
 
-You can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md) for instructions.
+You can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](../../active-directory-domain-services/scoped-synchronization.md) for instructions.
 
-When enabling secure LDAP, put the domain name in the subject name and the subject alternative name in the certificate. For example, if your domain name is *contoso100.onmicrosoft.com*, make sure that exact name exists in your certificate subject name and subject alternative name. For more information, see [Configure secure LDAP for an Azure AD-DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Below is an example of creating a self-signed cert and have the domain name (*contoso100.onmicrosoft.com*) in both Subject name and DnsName (Subject alternate name):
+When enabling secure LDAP, put the domain name in the subject name and the subject alternative name in the certificate. For example, if your domain name is *contoso100.onmicrosoft.com*, make sure that exact name exists in your certificate subject name and subject alternative name. For more information, see [Configure secure LDAP for an Azure AD-DS managed domain](../../active-directory-domain-services/configure-ldaps.md). Below is an example of creating a self-signed cert and have the domain name (*contoso100.onmicrosoft.com*) in both Subject name and DnsName (Subject alternate name):
 
 ```powershell
 $lifetime=Get-Date
