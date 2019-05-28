@@ -18,6 +18,8 @@ The data in your Microsoft Azure storage account is always replicated to ensure 
 
 Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
+Azure Storage regularly verifies the integrity of data stored using cyclic redundancy checks (CRCs). If data corruption is detected, it is repaired using redundant data. Azure Storage also calculates checksums on all network traffic to detect corruption of data packets when storing or retrieving data.
+
 ## Choosing a redundancy option
 
 When you create a storage account, you can select one of the following redundancy options:
@@ -48,7 +50,7 @@ For information about Azure Storage guarantees for durability and availability, 
 > Premium Storage supports only locally redundant storage (LRS).
 
 ## Changing replication strategy
-You can change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure client libraries](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
+You can change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
 
    > [!NOTE]
    > Currently, you cannot use the Portal or API to convert your account to ZRS. If you want to convert your account's replication to ZRS, see [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md) for details.

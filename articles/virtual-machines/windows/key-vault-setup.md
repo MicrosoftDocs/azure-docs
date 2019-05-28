@@ -46,7 +46,11 @@ To create a key vault by using the command-line interface (CLI), see [Manage Key
 
 For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:
 
-    az keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+    az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
+    
+Then to enable Key Vault for use with template deployment, run the following command:
+
+    az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
 ## Use templates to set up Key Vault
 While you use a template, you need to set the `enabledForDeployment` property to `true` for the Key Vault resource.

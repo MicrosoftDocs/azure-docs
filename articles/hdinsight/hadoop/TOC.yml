@@ -4,6 +4,7 @@
   items:
   - name: About Apache Hadoop on HDInsight
     href: apache-hadoop-introduction.md
+    maintainContext: true
   - name: Apache Hadoop architecture in HDInsight
     href: ../hdinsight-hadoop-architecture.md
     maintainContext: true
@@ -288,7 +289,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Apache Ambari web UI

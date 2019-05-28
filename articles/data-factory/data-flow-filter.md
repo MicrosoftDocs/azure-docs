@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/03/2019
 ---
 
-# Azure Data FactoryFilter Transformation
+# Azure data factory filter transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

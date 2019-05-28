@@ -49,6 +49,10 @@ Self-service password reset includes:
 
 Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using administrator approved authentication methods, Azure MFA helps safeguard your access to data and applications, while meeting the demand for a simple sign-in process.
 
+## License requirements
+
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
+
 ## Next steps
 
 The next step is to dive in and configure self-service password reset and Azure Multi-Factor Authentication.
