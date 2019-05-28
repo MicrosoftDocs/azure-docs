@@ -66,17 +66,18 @@ The sample dataset used in this tutorial has been saved to a **.bacpac** databas
 
 ## Load the data
 
-Create a new RScript file in RStudio and run the following script. Replace **Server**, **UID**, and **PWD** with your own connection information.
-
-In the following query, you're separating customers along the following dimensions:
+Create a new RScript file in RStudio and run the following script.
+In this query, you're separating customers along the following dimensions:
 
 * **frequency** = return frequency
 * **orderRatio** = return order ratio (total number of orders partially or fully returned versus the total number of orders)
 * **itemsRatio** = return item ratio (total number of items returned versus the number of items purchased)
 * **monetaryRatio** = return amount ratio (total monetary amount of items returned versus the amount purchased)
 
+Replace **Server**, **UID**, and **PWD** with your own connection information.
+
 ```r
-#Define the connection string to connect to the tpcxbb_1gb database
+# Define the connection string to connect to the tpcxbb_1gb database
 connStr <- paste("Driver=SQL Server",
                "; Server=", "<Azure SQL Database Server>",
                "; Database=tpcxbb_1gb",
@@ -149,17 +150,24 @@ LEFT OUTER JOIN (
 ```
 
 Now return the results from the query to R using the **rxSqlServerData** function.
-In the process, you'll define the type for the selected columns (using colClasses), to make sure that the types are correctly transferred to R.
+In the process, you define the type for the selected columns (using colClasses) to make sure that the types are correctly transferred to R.
 
 ```r
-#Query SQL Server using input_query and get the results back to data frame customer_returns
-#Define the types for selected columns (using colClasses), to make sure that the types are correctly transferred to R
-customer_returns <- RxSqlServerData(sqlQuery=input_query,colClasses=c(customer ="numeric" , orderRatio="numeric" , itemsRatio="numeric" , monetaryRatio="numeric" , frequency="numeric" ),connectionString=connStr);
+# Query SQL Server using input_query and get the results back to data frame customer_returns
+# Define the types for selected columns (using colClasses), to make sure that the types are correctly transferred to R
+customer_returns <- RxSqlServerData(
+                     sqlQuery=input_query,
+                     colClasses=c(customer ="numeric",
+                                  orderRatio="numeric",
+                                  itemsRatio="numeric",
+                                  monetaryRatio="numeric",
+                                  frequency="numeric" ),
+                     connectionString=connStr);
 
 # Transform the data from an input dataset to an output dataset
 customer_data <- rxDataStep(customer_returns);
 
-#Take a look at the data just loaded from SQL Server
+# Take a look at the data just loaded from SQL Server
 head(customer_data, n = 5);
 ```
 

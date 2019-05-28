@@ -70,8 +70,13 @@ return_cluster = RxSqlServerData(table = "return_cluster", connectionString = co
 # Set the seed for the random number generator for predictability
 set.seed(10);
 # Generate clusters using rxKmeans and output key / cluster to a table in SQL database called return_cluster
-clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency, customer_returns, numClusters=4
-         , outFile=return_cluster, outColName="cluster" , extraVarsToWrite=c("customer"), overwrite=TRUE);
+clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency,
+                   customer_returns,
+                   numClusters=4,
+                   outFile=return_cluster,
+                   outColName="cluster",
+                   extraVarsToWrite=c("customer"),
+                   overwrite=TRUE);
 
 # Read the customer returns cluster table from the database
 customer_cluster <- rxDataStep(return_cluster);

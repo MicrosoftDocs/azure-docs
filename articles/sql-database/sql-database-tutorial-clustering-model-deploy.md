@@ -53,11 +53,11 @@ AS
   purchase & return history.
 */
 BEGIN
-	DECLARE @duration FLOAT
-	, @instance_name NVARCHAR(100) = @@SERVERNAME
-	, @database_name NVARCHAR(128) = db_name()
+    DECLARE @duration FLOAT
+    , @instance_name NVARCHAR(100) = @@SERVERNAME
+    , @database_name NVARCHAR(128) = db_name()
 -- Input query to generate the purchase history & return metrics
-	, @input_query NVARCHAR(MAX) = N'
+    , @input_query NVARCHAR(MAX) = N'
 SELECT ss_customer_sk AS customer,
     round(CASE 
             WHEN (
@@ -127,10 +127,14 @@ connStr <- paste("Driver=SQL Server; Server=", instance_name,
                   sep="" );
 
 # Input customer data that needs to be classified. This is the result we get from our query
-customer_returns <- RxSqlServerData(sqlQuery = input_query,
-                     colClasses = c(customer = "numeric", orderRatio = "numeric", itemsRatio = "numeric", monetaryRatio = "numeric", frequency = "numeric"),
-                     connectionString = connStr);
-
+customer_returns <- RxSqlServerData(
+                     sqlQuery=input_query,
+                     colClasses=c(customer ="numeric",
+                                  orderRatio="numeric",
+                                  itemsRatio="numeric",
+                                  monetaryRatio="numeric",
+                                  frequency="numeric" ),
+                     connectionString=connStr);
 # Output table to hold the customer cluster mappings
 return_cluster = RxSqlServerData(table = "customer_return_clusters", connectionString = connStr);
 
