@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/28/2019
 ms.author: monhaber
 
 ---
@@ -66,7 +66,7 @@ FIM baselines start by identifying characteristics of a known-good state for the
 > ><code>  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
 </code>
 
->>![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
+    ![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
 
 ## Tracking changes to Windows files
 
@@ -75,41 +75,43 @@ In the example in the following figure,
 **Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.  
 1. Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.
 
-![Enable FIM on a file](./media/security-center-fim/fim-add-file.png)
+    ![Enable FIM on a file](./media/security-center-fim/fim-add-file.png)
 
 ## Retrieving change data
 
 File Integrity Monitoring data resides within the Azure Log Analytics / ConfigurationChange table set.  
 
-1. Set a time range to retrieve a summary of changes by resource.
+ 1. Set a time range to retrieve a summary of changes by resource.
 In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
-<code>
-> ConfigurationChange
+    <code>
 
-> | where TimeGenerated > ago(14d)
+    > ConfigurationChange
 
-> | where ConfigChangeType in ('Registry', 'Files')
+    > | where TimeGenerated > ago(14d)
 
-> | summarize count() by Computer, ConfigChangeType
+    > | where ConfigChangeType in ('Registry', 'Files')
 
-</code>
+    > | summarize count() by Computer, ConfigChangeType
+
+    </code>
 
 1. To view details of the registry changes:
 
     1. Remove **Files** from the **where** clause, 
     1. Remove the summarization line and replace it with an ordering clause:
 
-<code>
-> ConfigurationChange
+    <code>
 
-> | where TimeGenerated > ago(14d)
+    > ConfigurationChange
 
-> | where ConfigChangeType in ('Registry')
+    > | where TimeGenerated > ago(14d)
 
-> | order by Computer, RegistryKey
+    > | where ConfigChangeType in ('Registry')
 
-</code>
+    > | order by Computer, RegistryKey
+
+    </code>
 
 Reports can be exported to CSV for archival and/or channeled to a PowerBI report.  
 
