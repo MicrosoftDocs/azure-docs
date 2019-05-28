@@ -125,16 +125,16 @@ This view returns all the data in Query Store. There is one row for each distinc
 | min_timer_wait | double| YES| Minimum execution time for this query|
 | max_timer_wait | double| YES| Maximum execution time|
 | sum_lock_time | bigint| NO| Total amount of time spent for all the locks for this query execution during this time window|
-| sum_rows_affected | bigint| NO| No. of rows affected|
-| sum_rows_sent | bigint| NO| No. of rows sent to client|
-| sum_rows_examined | bigint| NO| No. of rows examined|
-| sum_select_full_join | bigint| NO| No. of full joins|
+| sum_rows_affected | bigint| NO| Number of rows affected|
+| sum_rows_sent | bigint| NO| Number of rows sent to client|
+| sum_rows_examined | bigint| NO| Number of rows examined|
+| sum_select_full_join | bigint| NO| Number of full joins|
 | sum_select_scan | bigint| NO| No, of select scans|
-| sum_sort_rows | bigint| NO| No. of rows sorted|
-| sum_no_index_used | bigint| NO| No. of times when the query did not use any indexes|
-| sum_no_good_index_used | bigint| NO| No. of times when the query execution engine did not use any good indexes|
-| sum_created_tmp_tables | bigint| NO| Total No. of temp tables created|
-| sum_created_tmp_disk_tables | bigint| NO| Total No. of temp tables created in disk (generates I/O)|
+| sum_sort_rows | bigint| NO| Number of rows sorted|
+| sum_no_index_used | bigint| NO| Number of times when the query did not use any indexes|
+| sum_no_good_index_used | bigint| NO| Number of times when the query execution engine did not use any good indexes|
+| sum_created_tmp_tables | bigint| NO| Total number of temp tables created|
+| sum_created_tmp_disk_tables | bigint| NO| Total number of temp tables created in disk (generates I/O)|
 | first_seen | timestamp| NO| The first occurrence (UTC) of the query during the aggregation window|
 | last_seen | timestamp| NO| The last occurrence (UTC) of the query during this aggregation window|
 
@@ -158,15 +158,15 @@ This view returns wait events data in Query Store. There is one row for each dis
 
 `Query_store.qs_reset()` returns void
 
-`qs_reset discards` all statistics gathered so far by Query Store. This function can only be executed by the server admin role.
+`qs_reset` discards all statistics gathered so far by Query Store. This function can only be executed by the server admin role.
 
-`Query_store.staging_data_reset()` returns void
+`Query_store.staging_data_reset()` returns void.
 
-`staging_data_reset discards` all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
+`staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
 
 **Limitations and known issues**
 
-- If a MySQL server has the parameter default_transaction_read_only on, Query Store cannot capture data.
+- If a MySQL server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
 
 ## Next steps
