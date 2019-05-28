@@ -27,7 +27,7 @@ The **SQL virtual machines** resource is now an independent management service t
 
 ## Remarks
 
-- The **SQL virtual machines** resource is the recommended method to view and manage your SQL Server VM. However, currently, [end of support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VMs are not supported. To manage settings for your EOS SQL Server VMs, use the deprecated [SQL Server configuration tab](#access-sql-server-configuration-tab) instead. 
+- The **SQL virtual machines** resource is the recommended method to view and manage your SQL Server VMs. However, currently, the **SQL virtual machines** resource does not support the management of [end of support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VMs. To manage settings for your EOS SQL Server VMs, use the deprecated [SQL Server configuration tab](#access-sql-server-configuration-tab) instead. 
 - The **SQL virtual machines** resource is only available to SQL Server VMs that have [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
 
 
