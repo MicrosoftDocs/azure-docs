@@ -108,7 +108,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     You use Secret Manager only to test the web app locally. When you deploy the app to [Azure App Service](https://azure.microsoft.com/services/app-service), for example, you use an application setting named **Connection Strings** in App Service instead of using Secret Manager to store the connection string.
 
-    You can access this secret with the App Configuration API. A colon (:) works in the configuration name with the App Configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
+    You can access this secret with the App Configuration API. A colon (:) works in the configuration name with the App Configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
 1. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider:
 
