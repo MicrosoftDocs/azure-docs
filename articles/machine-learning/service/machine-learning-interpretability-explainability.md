@@ -300,7 +300,7 @@ The explainer can be deployed along with the original model and can be used at s
 
 1. Create a scoring explainer using the explanation object:
    
-```python
+   ```python
    scoring_explainer = explainer.create_scoring_explainer(x_test)
 
    # Pickle scoring explainer
@@ -309,7 +309,7 @@ The explainer can be deployed along with the original model and can be used at s
 
 1. Configure and register an image that uses the scoring explainer model.
    
-```python
+   ```python
    # Register explainer model using the path from ScoringExplainer.save - could be done on remote compute
    run.upload_file('breast_cancer_scoring_explainer.pkl', scoring_explainer_path)
    model = run.register_model(model_name='breast_cancer_scoring_explainer', model_path='breast_cancer_scoring_explainer.pkl')
