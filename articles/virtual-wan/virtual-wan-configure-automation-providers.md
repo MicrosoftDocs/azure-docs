@@ -8,7 +8,7 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: cherylmc
-Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
+#Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---
 
 # Virtual WAN partners
