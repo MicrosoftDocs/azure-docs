@@ -4,7 +4,7 @@ description: Learn about SQL syntax, database concepts, and SQL queries for Azur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
 
 ---
