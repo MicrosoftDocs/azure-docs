@@ -160,7 +160,7 @@ In this section, you provision a web app in App Service and deploy your code to 
    az appservice plan create --name <app service plan name> --resource-group <your resource group> --sku FREE
    ```
 
-2. Now provision a web app in your App Service plan. The `-l` parameter enables the web app code to be uploaded and deployed from a local clone of a Git repository.
+2. Now provision a web app in your App Service plan. The `-l` parameter enables the web app code to be uploaded and deployed from a Git repository on your local machine.
 
    ```azurecli-interactive
    az webapp create -g <your resource group> -n <your web app name> -p <your app service plan name>  -l
@@ -182,7 +182,7 @@ In this section, you provision a web app in App Service and deploy your code to 
 5. Get the Git URL to use to push your code up to App Service.
 
    ```azurecli-interactive
-   az webapp deployment source config-local-git -g <your resource group> -n <your web app name>
+   az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
 6. Add a remote to your clone that references the Git repository for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following command in your command window.
@@ -205,13 +205,15 @@ In this section, you provision a web app in App Service and deploy your code to 
    git commit -m "updated client code to use wss"
    ```
 
-9. In order to push your changes to App Service, you need [user-level deployment credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials#userscope). Your user-level deployment credentials are valid across all of your App Service apps and all subscriptions in your Azure account. They are different from your Azure account credentials. They are used to authenticate for Git local and FTP deployments to App Service. If you have previously set user-level deployment credentials, you can use them. If you have not previously set user-level deployment credentials, run the following command to set them.
+9. To push your changes to App Service, you need either user-level or app-level credentials. Both sets of credentials enable you to authenticate for Git-local, FTP, and Webdeploy deployments. User-level credentials are valid for all apps across your Azure subscription while app-level credentials are auto-generated and valid only for a specific app. To learn more, see [Configure deployment credentials for Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). 
+
+   For this tutorial app-level credentials are sufficient. To get the app-level credentials for your web app, run the following command to return the `publishingUserName` and `publishingPassword` properties for your web app. Note these values down.
 
    ```azurecli-interactive
-   az webapp deployment user set --user-name <your new user name> --password <your new password>
+   az webapp deployment list-publishing-credentials -n <your web app name> -g <your resource group name> --query "[publishingUserName, publishingPassword]"
    ```
 
-10. To push the web application code up to App Service, enter the following command in your command window. If you are prompted for credentials, enter your user-level deployment credentials. Make sure that you push to the master branch of the App Service remote.
+10. To push the web application code up to App Service, enter the following command in your command window. If you are prompted for credentials, enter the app-level credentials that you got in the previous step. Make sure that you push to the master branch of the App Service remote.
 
     ```cmd
     git push webapp master:master
