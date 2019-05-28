@@ -99,7 +99,7 @@ For a primer on Docker and container basics, see the [Docker overview](https://d
 
 Individual containers can have their own requirements, as well, including server and memory allocation requirements.
 
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+[!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Next steps
 

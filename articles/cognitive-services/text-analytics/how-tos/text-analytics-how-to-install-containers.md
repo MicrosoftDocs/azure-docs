@@ -164,7 +164,7 @@ For more information about these options, see [Configure containers](../text-ana
 
 <!--blogs/samples/video coures -->
 
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+[!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 
