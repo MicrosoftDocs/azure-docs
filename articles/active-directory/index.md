@@ -252,7 +252,7 @@ ms.collection: M365-identity-device-management
                                                         <p>
                                                             <a href="governance/entitlement-management-overview.md">What is entitlement management?</a><br>
                                                             <a href="governance/access-reviews-overview.md">What are access reviews?</a><br>
-                                                            <a href="conditional-access/terms-of-use.md">Require Terms of use</a><br>
+                                                            <a href="conditional-access/terms-of-use.md">Require terms of use</a><br>
                                                             <a href="governance/index.yml"><i>See more &gt;</i></a>
                                                         </p>
                                                         <br><br>

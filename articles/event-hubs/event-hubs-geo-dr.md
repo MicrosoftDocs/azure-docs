@@ -22,7 +22,7 @@ ms.author: shvija
 
 When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
-The Geo-disaster recovery feature is globally available for the Event Hubs Standard SKU.
+The Geo-disaster recovery feature is globally available for both Event Hubs Standard and Dedicated SKU. Please note that you can only geo-pair namespaces across the same tier of SKU. For instance, if you have a namespace in a cluster which is offered only in our Dedicated SKU, it can only be paired with a namespace in another cluster. 
 
 ## Outages and disasters
 
