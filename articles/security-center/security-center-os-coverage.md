@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/24/2019
+ms.date: 5/27/2019
 ms.author: monhaber
 
 ---
@@ -41,20 +41,29 @@ The following Windows operating systems are supported:
 
 > [!NOTE]
 > Integration with Windows Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
->
->
 
 ### Supported platforms for Linux computers and VMs
+
 The following Linux operating systems are supported:
 
-* Ubuntu versions 12.04 LTS, 14.04 LTS, and 16.04 LTS.
-* Debian versions 6, 7, 8, and 9.
-* CentOS versions 5, 6, and 7.
-* Red Hat Enterprise Linux (RHEL) versions 5, 6, and 7.
-* SUSE Linux Enterprise Server (SLES) versions 11 and 12.
-* Oracle Linux versions 5, 6, and 7.
-* Amazon Linux 2012.09 through 2017.
-* OpenSSL 1.1.0 is only supported on x86_64 platforms, 64 bit.
+> [!NOTE]
+> Since the list of supported Linux operating systems is constantly changing, if you prefer, click [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) to view the most up-to-date list of supported versions, in case there have been changes since this topic was last published.
+
+64-bit
+* CentOS 6 and 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 and 7
+* Red Hat Enterprise Linux Server 6 and 7
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+32-bit
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS and 16.04 LTS
 
 ## VMs and Cloud Services
 VMs that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
