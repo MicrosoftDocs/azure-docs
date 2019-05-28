@@ -72,7 +72,7 @@ Message enrichments are available for no additional charge. Currently, you are c
 
 This capability is available in preview, and is available in all regions except East US, West US, West Europe, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
-## Next Steps
+## Next steps
 
 Check out these articles for more information about routing messages to an IoT Hub:
 

@@ -251,10 +251,10 @@ At this point, the resources are all set up and the routing is configured. You c
    | Device location | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
    |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
-> [!NOTE]
-> If your device does not have a twin, the value you put in here will be stamped as a string for the value in the message enrichments. To see the device twin information, go to your hub in the portal, then select  **IoT devices**, select your device, and then select **Device twin** at the top of the page.
->
-> You can edit the twin information to add tags (such as location) and set it to a specific value if you want to. For more information, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
+   > [!NOTE]
+   > If your device does not have a twin, the value you put in here will be stamped as a string for the value in the message enrichments. To see the device twin information, go to your hub in the portal, then select  **IoT devices**, select your device, and then select **Device twin** at the top of the page.
+   >
+   > You can edit the twin information to add tags (such as location) and set it to a specific value if you want to. For more information, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
 3. When you're finished, your pane should look similar to this image:
 
@@ -328,7 +328,7 @@ To remove the resource group, use the [az group delete](https://docs.microsoft.c
 az group delete --name $resourceGroup
 ```
 
-## Next Steps
+## Next steps
 
 In this tutorial, you configured and tested adding message enrichments to IoT Hub messages using the following steps:
 
