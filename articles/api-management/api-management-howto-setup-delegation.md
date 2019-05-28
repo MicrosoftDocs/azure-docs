@@ -126,7 +126,7 @@ Next, ensure the delegation endpoint does the following actions:
      > 
    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 3. Process product subscription based on the type of operation requested in **operation** - for example, billing, further questions, etc.
-4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for product subscription].
+4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for subscriptions].
 
 ## <a name="delegate-example-code"> </a> Example Code
 
@@ -180,9 +180,9 @@ For more information on delegation, see the following video:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[create a user]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[calling the REST API for product subscription]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
+[create a user]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
+[calling the REST API for subscriptions]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 

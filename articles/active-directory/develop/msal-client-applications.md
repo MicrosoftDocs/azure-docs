@@ -4,7 +4,7 @@ description: Learn about public client and confidential client applications in t
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

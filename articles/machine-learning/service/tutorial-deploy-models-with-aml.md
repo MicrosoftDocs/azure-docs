@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/29/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---

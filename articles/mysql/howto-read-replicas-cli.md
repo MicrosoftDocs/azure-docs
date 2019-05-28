@@ -5,15 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/28/2019
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI
 
 In this article, you will learn how to create and manage read replicas within the same Azure region as the master in the Azure Database for MySQL service using the Azure CLI.
-
-> [!NOTE]
-> Azure CLI does not yet support creating replicas in a different region from the master server. To create a cross-region replica, use the [Azure portal]( howto-read-replicas-portal.md) instead.
 
 ## Prerequisites
 
@@ -38,6 +35,12 @@ The `az mysql server replica create` command requires the following parameters:
 | resource-group |  myresourcegroup |  The resource group where the replica server will be created to.  |
 | name | mydemoreplicaserver | The name of the new replica server that is created. |
 | source-server | mydemoserver | The name or ID of the existing master server to replicate from. |
+
+To create a cross region read replica, use the `--location` parameter. The CLI example below creates the replica in West US.
+
+```azurecli-interactive
+az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
 
 > [!NOTE]
 > Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the master to ensure the replica is able to keep up with the master.

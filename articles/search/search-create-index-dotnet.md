@@ -9,7 +9,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/16/2019
 
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
@@ -17,6 +17,7 @@ ms.date: 04/08/2019
 > * [C#](search-create-index-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Python](search-get-started-python.md)
 > * [Postman](search-fiddler.md)
 >*
 
@@ -31,11 +32,11 @@ This article walks you through the process of creating [an Azure Search index](s
 
 The following services, tools, and data are used in this quickstart. 
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
++ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) provides the sample solution, a .NET Core console application written in C#, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files. Data is included in the solution.
++ [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) provides the sample solution, a .NET Core console application written in C#, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files. Data is included in the solution.
 
 ## Get a key and URL
 

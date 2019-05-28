@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
@@ -15,6 +15,10 @@ ms.custom:
 # What is Azure Cost Management?
 
 Cost management is the process of effectively planning and controlling costs involved in your business. Cost management tasks are normally performed by finance, management, and app teams. Azure Cost Management helps organizations plan with cost in mind. It also helps to analyze costs effectively and take action to optimize cloud spending. To learn more about how to approach cost management as an organization, take a look at the [Azure Cost Management best practices](cost-mgt-best-practices.md) article.
+
+Watch the [Azure Cost Management overview video](https://www.youtube.com/watch?v=el4yN5cHsJ0) for a quick overview about how Azure Cost Management can help you save money in Azure.
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Although related, billing differs from cost management. Billing is the process of invoicing customers for goods or services and managing the commercial relationship.  Procurement and finance teams usually conduct billing tasks.
 
@@ -37,6 +41,10 @@ If you use external systems to access or review cost management data, you can ea
 ## Consider Cloudyn
 
 [Cloudyn](overview.md) is an Azure service related to Cost Management. With Cloudyn, you can track cloud usage and expenditures for your Azure resources. It also supports other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Currently, Cost Management doesn't support showback/chargeback or other cloud service providers. However, Cloudyn is an option that _does_ support them. Currently, Cost Management doesn't support Microsoft Cloud Service Provider (CSP) accounts but Cloudyn does. If you have CSP accounts or if you want to use showback/chargeback, you can use Cloudyn to help manage your costs.
+
+Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) to see recommendations when you should use either Azure Cost Management or Cloudyn, based on your business needs.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## Additional Azure tools
 

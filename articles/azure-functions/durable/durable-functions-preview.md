@@ -31,7 +31,7 @@ Support for .NET Framework (and therefore Functions 1.0) has been dropped for Du
 
 ### Host.json schema
 
-The following snippet shows the new schema for host.json. The main change to be aware of us the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
+The following snippet shows the new schema for host.json. The main change to be aware of is the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -88,7 +88,7 @@ In the case where an abstract base class contained virtual methods, these virtua
 
 Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
-The following code is an example of a simple entity function that defines a *Counter* entity. The function defines three operations, `add`, `remove`, and `reset`, each of which update an integer value, `currentValue`.
+The following code is an example of a simple entity function that defines a *Counter* entity. The function defines three operations, `add`, `subtract`, and `reset`, each of which update an integer value, `currentValue`.
 
 ```csharp
 [FunctionName("Counter")]

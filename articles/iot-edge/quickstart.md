@@ -135,6 +135,13 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 
 2. Run PowerShell as an administrator.
 
+   >[!NOTE]
+   >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the moby runtime, and then downloads the IoT Edge runtime.
 
    ```powershell
