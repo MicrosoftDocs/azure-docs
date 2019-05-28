@@ -366,89 +366,91 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 4. Following this let's enter some HTML styling. No need to go into this in detail, this is just standard html.
 
 ```cs
-<style>
-    textarea.box1 {
-        width: 648px;
-        height: 30px;
-        border: none;
-        background-color: azure;
-        font-size: 14pt;
-        color: blue;
-    }
+<head>
+    <style>
+        textarea.box1 {
+            width: 648px;
+            height: 30px;
+            border: none;
+            background-color: azure;
+            font-size: 14pt;
+            color: blue;
+        }
 
-    textarea.box2 {
-        width: 648px;
-        height: 100px;
-        border: none;
-        background-color: azure;
-        font-size: 12pt;
-    }
+        textarea.box2 {
+            width: 648px;
+            height: 100px;
+            border: none;
+            background-color: azure;
+            font-size: 12pt;
+        }
 
-    .sampleTitle {
-        font: 32px/normal 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-        margin: 20px 0;
-        font-size: 32px;
-        text-align: left;
-    }
+        .sampleTitle {
+            font: 32px/normal 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
+            margin: 20px 0;
+            font-size: 32px;
+            text-align: left;
+        }
 
-    .sampleText {
-        font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-        margin: 20px 0;
-        font-size: 14px;
-        text-align: left;
-        height: 30px;
-    }
+        .sampleText {
+            font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
+            margin: 20px 0;
+            font-size: 14px;
+            text-align: left;
+            height: 30px;
+        }
 
-    .searchBoxForm {
-        width: 648px;
-        box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
-        background-color: #fff;
-        display: inline-block;
-        border-collapse: collapse;
-        border-spacing: 0;
-        list-style: none;
-        color: #666;
-    }
+        .searchBoxForm {
+            width: 648px;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
+            background-color: #fff;
+            display: inline-block;
+            border-collapse: collapse;
+            border-spacing: 0;
+            list-style: none;
+            color: #666;
+        }
 
-    .searchBox {
-        width: 568px;
-        font-size: 16px;
-        margin: 5px 0 1px 20px;
-        padding: 0 10px 0 0;
-        border: 0;
-        max-height: 30px;
-        outline: none;
-        box-sizing: content-box;
-        height: 35px;
-        vertical-align: top;
-    }
+        .searchBox {
+            width: 568px;
+            font-size: 16px;
+            margin: 5px 0 1px 20px;
+            padding: 0 10px 0 0;
+            border: 0;
+            max-height: 30px;
+            outline: none;
+            box-sizing: content-box;
+            height: 35px;
+            vertical-align: top;
+        }
 
-    .searchBoxSubmit {
-        background-color: #fff;
-        border-color: #fff;
-        background-image: url(/images/search.png);
-        background-repeat: no-repeat;
-        height: 20px;
-        width: 20px;
-        text-indent: -99em;
-        border-width: 0;
-        border-style: solid;
-        margin: 10px;
-        outline: 0;
-    }
+        .searchBoxSubmit {
+            background-color: #fff;
+            border-color: #fff;
+            background-image: url(/images/search.png);
+            background-repeat: no-repeat;
+            height: 20px;
+            width: 20px;
+            text-indent: -99em;
+            border-width: 0;
+            border-style: solid;
+            margin: 10px;
+            outline: 0;
+        }
 
-    .pageButton {
-        border: none;
-        color: darkblue;
-        background-color: azure;
-    }
+        .pageButton {
+            border: none;
+            color: darkblue;
+            background-color: azure;
+        }
 
-    .pageButtonDisabled {
-        border: none;
-        color: gray;
-        background-color: lightgray;
-    }
-</style>
+        .pageButtonDisabled {
+            border: none;
+            color: gray;
+            background-color: lightgray;
+        }
+    </style>
+</head>
 ```
 
 5. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of a single page of results in addition to the search text boxes for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
