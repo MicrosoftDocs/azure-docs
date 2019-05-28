@@ -36,16 +36,13 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 
 ![Registry](./media/security-center-fim/fim-registry.png)
 
-*To configure FIM to monitor registry baselines:*
-
-1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the registry key.
-> ><code>  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-</code>
-
->>![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
-
 >[!NOTE]
-> Recursive checks apply only recommended to security hives and not to custom registry paths.  
+> Recursive checks apply only to recommended security hives and not to custom registry paths.  
+
+## Adding a custom registry check
+
+FIM baselines start by identifying characteristics of a known-good state for the operating system and supporting application.  For this example, we will focus on the password policy configurations for Windows Server 2008 and higher.
+
 
 |Policy Name                 | Registry Setting|
 |---------------------------------------|-------------|
@@ -62,6 +59,14 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 
 > [!NOTE]
 > To learn more about registry settings supported by various operating system versions, refer to the [Group Policy Settings reference spreadsheet](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+
+*To configure FIM to monitor registry baselines:*
+
+1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the registry key.
+> ><code>  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+</code>
+
+>>![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
 
 ## Tracking changes to Windows files
 
