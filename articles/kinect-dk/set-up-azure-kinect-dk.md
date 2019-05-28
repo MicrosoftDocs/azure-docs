@@ -11,7 +11,7 @@ keywords: azure, kinect, dev kit, azure dk, set up, hardware, quick, usb, power,
 
 # Quickstart: Set up Azure Kinect DK
 
-This page provides guidance about how to set up your Azure Kinect hardware, test sensor stream visualization, and use the Azure Kinect Viewer.
+This page provides guidance about how to set up your Azure Kinect hardware. We'll show you how to test sensor stream visualization and use the Azure Kinect Viewer.
 
 ## System requirements
 
@@ -25,7 +25,7 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
    >Use a direct cable from the PC to the back of the device, as this works better than connecting through adapters or extensions.
 
 3. Verify the power indicator LED next to the USB cable is solid white.
-4. Device power on takes a few seconds and is ready to use when the front-facing LED streaming indicator turns off.
+4. Device power-on takes a few seconds and is ready to use when the front-facing LED streaming indicator turns off.
 
     ![Full device features](./media/quickstarts/full-device-features.png)
 
@@ -36,18 +36,22 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 
 ## Verify device streams data
 
-1. Launch `k4aviewer.exe` located under the installed tools directory (e.g. `C:\Program Files\Azure Kinect SDK\tools\k4aviewer.exe`). You can launch it from either the command line or by double-clicking the executable. Azure Kinect Viewer is also available as a link in the start menu.
+1. Launch `k4aviewer.exe` located under the installed tools directory (for example `C:\Program Files\Azure Kinect SDK\tools\k4aviewer.exe`). You can launch it from either the command line or by double-clicking the executable. Azure Kinect Viewer is also available as a link in the start menu.
 2. Select **Open Device**, then **Start**.
 
     ![Azure Kinect Viewer](./media/quickstarts/viewer.png)
 
-3. Verify that all device sensors stream data (Depth, RGB, IMU, and microphones) are visualized in the tool.
+3. Verify each sensor stream is visualized in the tool.
+    * Depth camera
+    * Color camera
+    * IMU
+    * Microphones
 
     ![Visualization Tool](./media/quickstarts/visualization-tool.png)
 
 4. You're done with your Kinect setup.  Now you can start developing your application or integrating services.
 
-If you have any issues, check Troubleshooting.
+If you have any issues, check [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md).
 
 ## Next steps
 
