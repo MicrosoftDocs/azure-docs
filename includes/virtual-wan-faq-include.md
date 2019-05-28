@@ -44,7 +44,7 @@ Yes, Virtual WAN introduces new Resource Manager resources. For more information
 
 ### How many VPN devices can connect to a single Hub?
 
-Up to 1000 connections are supported per virtual hub. Each connection consists of two tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
+Up to 1,000 connections are supported per virtual hub. Each connection consists of two tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
 
 ### Can the on-premises VPN device connect to multiple Hubs?
 
