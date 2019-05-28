@@ -1,5 +1,5 @@
 ---
-title: Testing MSAL applications | Azure
+title: Testing Microsoft Authentication Library (MSAL) applications | Azure
 description: Learn about testing Microsoft Authentication Library (MSAL) applications.
 services: active-directory
 documentationcenter: dev-center-name
@@ -49,7 +49,7 @@ For native clients, there are several approaches to testing:
 
 * MSAL exposes an extensibility point that allows developers to inject their own browser experience. The MSAL team uses this internally to test interactive auth scenarios. Have a look at [this .NET test project](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/Microsoft.Identity.Test.Integration.net45/SeleniumTests/InteractiveFlowTests.cs) to see how to inject a [Selenium-powered browser](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/tree/master/tests/Microsoft.Identity.Test.Integration.net45/Infrastructure) that can handle authentication.
 
-## Xamarin Apps
+## Xamarin apps
 The MSAL team are currently running tests on a Xamarin app that uses MSAL.NET; We are using [App Center](https://appcenter.ms/apps) to manage devices, test runs etc. The test framework is [Xamarin.UITest](/appcenter/test-cloud/uitest/). A limitation that we have found is that we are unable to test system browsers, only embedded browsers.
 
 When evaluating a test framework, it is worth also having a look at the Appium and other test frameworks, as well as other CI/CD providers in the mobile space.
