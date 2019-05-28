@@ -49,7 +49,7 @@ Click **Next: Additional settings** to configure the authority, audience, identi
 - **Audience:** You can specify audience, that is different from [https://azurehealthcareapis.com](https://azurehealthcareapis.com)
 - **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR  
 - **Smart On FHIR proxy:** You can enable SMART on FHIR proxy. For details on how to configure SMART on FHIR proxy see tutorial [Azure API for FHIR SMART on FHIR proxy](https://docs.microsoft.com/azure/healthcare-apis/use-smart-on-fhir-proxy)  
-- **Cosmos DB throughput:** Azure API for FHIR relies on Cosmos DB as a underlying database. Here you can specify Cosmos DB RU settings for your Azure API for FHIR. You can change this setting later in the Cosmos DB blade. For details on Cosmos DB RUs please read [Request Units in Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units)
+- **Cosmos DB throughput:** Azure API for FHIR relies on Cosmos DB as its underlying database. Here you can specify Cosmos DB throughput settings for your Azure API for FHIR. You can change this setting later in the Cosmos DB blade. For details on Cosmos DB RUs please read [Request Units in Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units)
 
 ![Configure allowed object IDs](media/quickstart-paas-portal/configure-audience.png)
 
