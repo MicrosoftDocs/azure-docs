@@ -104,7 +104,7 @@ Yes.
 
 ### How is Virtual WAN different from the existing Azure Virtual Network Gateway?
 
-Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps to additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1000 branches across hubs.
+Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps to additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
@@ -116,10 +116,10 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
-Number of branches is limited to 1000 connections per hub/region and a total of 2 G in the hub. The exception is West Central US, which has a total of 20 Gbps. We will be rolling 20 Gbps out to other regions in the future.
+Number of branches is limited to 1,000 connections per hub/region and a total of 2 G in the hub. The exception is West Central US, which has a total of 20 Gbps. We will be rolling 20 Gbps out to other regions in the future.
 
 ### How many VPN connections does an Azure Virtual WAN Hub support?
-An Azure Virtual WAN Hub can support up to 1000 S2S connections and 10,000 P2S connections simultaneously.
+An Azure Virtual WAN Hub can support up to 1,000 S2S connections and 10,000 P2S connections simultaneously.
 
 ### What is the maximum throughput of a VPN tunnel and a connection?
 A single tunnel is capable of supporting up to 1 Gbps. A connection can support up to 2 Gbps, if both tunnels are used together in active/active mode. 
