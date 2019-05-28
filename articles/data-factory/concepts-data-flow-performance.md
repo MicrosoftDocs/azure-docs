@@ -60,6 +60,13 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 * Increase the number of cores, which will increase the number of nodes, and provide you with more processing power to query and write to your Azure SQL DB.
 * Try "Compute Optimized" and "Memory Optimized" options to apply more resources to your compute nodes.
 
+### Unit test and performance test with debug
+
+* When unit testing data flows, set the "Data Flow Debug" button to ON.
+* Inside of the Data Flow designer, use the Data Preview tab on transformations to view the results of your transformation logic.
+* Unit test your data flows from the pipeline designer by placing a Data Flow activity on the pipeline design canvas and use the "Debug" button to test.
+* Testing in debug mode will work against a live warmed cluster environment without the need to wait for a just-in-time cluster spin-up.
+
 ### Disable indexes on write
 * Use an ADF pipeline stored procedure activity prior to your Data Flow activity that disables indexes on your target tables that are being written to from your Sink.
 * After your Data Flow activity, add another stored proc activity that enabled those indexes.

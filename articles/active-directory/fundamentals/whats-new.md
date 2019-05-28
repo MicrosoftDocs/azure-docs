@@ -55,7 +55,7 @@ For more information about the refreshed version of Azure AD Identity Protection
 **Service category:** Identity Governance  
 **Product capability:** Identity Governance
 
-Azure AD entitlement management, now in public preview, helps customers to delegate management of access packages, which defines how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments for SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and Terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
+Azure AD entitlement management, now in public preview, helps customers to delegate management of access packages, which defines how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments for SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
 
 ---
 
@@ -291,13 +291,13 @@ To help prevent administrators from accidentally locking themselves out of their
 
 ---
 
-### Improved end-user Terms of use experiences on mobile devices
+### Improved end-user terms of use experiences on mobile devices
 
 **Type:** Changed feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
-We've updated our existing Terms of use experiences to help improve how you review and consent to Terms of use on a mobile device. You can now zoom in and out, go back, download the information, and select hyperlinks. For more information about the updated Terms of use, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
+We've updated our existing terms of use experiences to help improve how you review and consent to terms of use on a mobile device. You can now zoom in and out, go back, download the information, and select hyperlinks. For more information about the updated terms of use, see [Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
 
 ---
 
@@ -667,40 +667,40 @@ For more information about how to get and use this timestamp, see [How To: Manag
 
 ---
 
-### Administrators can require users to accept a Terms of use on each device
+### Administrators can require users to accept a terms of use on each device
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
  
-Administrators can now turn on the **Require users to consent on every device** option to require your users to accept your Terms of use on every device they're using on your tenant.
+Administrators can now turn on the **Require users to consent on every device** option to require your users to accept your terms of use on every device they're using on your tenant.
 
-For more information, see the [Per-device Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
+For more information, see the [Per-device terms of use section of the Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
 
 ---
 
-### Administrators can configure a Terms of use to expire based on a recurring schedule
+### Administrators can configure a terms of use to expire based on a recurring schedule
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
  
 
-Administrators can now turn on the **Expire consents** option to make a Terms of use expire for all of your users based on your specified recurring schedule. The schedule can be annually, bi-annually, quarterly, or monthly. After the Terms of use expire, users must reaccept.
+Administrators can now turn on the **Expire consents** option to make a terms of use expire for all of your users based on your specified recurring schedule. The schedule can be annually, bi-annually, quarterly, or monthly. After the terms of use expire, users must reaccept.
 
-For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
+For more information, see the [Add terms of use section of the Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
 
 ---
 
-### Administrators can configure a Terms of use to expire based on each user’s schedule
+### Administrators can configure a terms of use to expire based on each user’s schedule
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
-Administrators can now specify a duration that user must reaccept a Terms of use. For example, administrators can specify that users must reaccept a Terms of use every 90 days.
+Administrators can now specify a duration that user must reaccept a terms of use. For example, administrators can specify that users must reaccept a terms of use every 90 days.
 
-For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
+For more information, see the [Add terms of use section of the Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
  
 ---
 

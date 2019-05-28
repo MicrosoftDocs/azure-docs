@@ -56,6 +56,8 @@ The following additional limitations apply to Windows Server node pool support i
 - Preview features in AKS such as Network Policy and cluster autoscaler, aren't endorsed for Windows Server nodes.
 - Ingress controllers should only be scheduled on Linux nodes using a NodeSelector.
 - Azure Dev Spaces is currently only available for Linux-based node pools.
+- Group managed service accounts (gMSA) support when the Windows Server nodes aren't joined to an Active Directory domain is not currently available in AKS.
+    - The open-source, upstream [aks-engine][aks-engine] project does currently provide gMSA support if you need to use this feature.
 
 ## OS concepts that are different
 
@@ -74,6 +76,7 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
