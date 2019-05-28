@@ -93,8 +93,12 @@ Optionally, you can use the following parameters to further tune the deployment:
 * Extra docker file steps: A file that contains additional Docker steps to run when creating the Docker image.
 * Base image: A custom image to use as the base image. If you do not use a custom image, the base image is provided by the Azure Machine Learning service.
 
+You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
+
+When the image is created, components required by Azure Machine Learning Service are also added. For example, assets needed to run the web service and interact with IoT Edge.
+
 > [!NOTE]
-> You cannot modify or change the web server used in the Docker image. Azure Machine Learning service uses a web server configuration that is tested and supported by Microsoft.
+> You cannot modify or change the web server or IoT Edge components used in the Docker image. Azure Machine Learning service uses a web server configuration and IoT Edge components that are tested and supported by Microsoft.
 
 ### Web service
 
