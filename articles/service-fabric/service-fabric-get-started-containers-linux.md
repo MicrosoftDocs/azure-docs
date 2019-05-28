@@ -228,13 +228,18 @@ With the 6.3 runtime release, VM isolation is supported for Linux containers, th
 
 
 ## Configure docker HEALTHCHECK 
-Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image. 
 
-![HealthCheckHealthy][1]
+Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. 
 
-![HealthCheckUnhealthyApp][2]
+Starting with the latest refresh release of v6.4, you have the option to specify that docker HEALTHCHECK evaluations should be reported as an error. If this option is enabled, an **OK** health report will appear when *health_status* is *healthy* and **ERROR** will appear when *health_status* is *unhealthy*.
 
-![HealthCheckUnhealthyDsp][3]
+The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
+
+![HealthCheckHealthy][3]
+
+![HealthCheckUnhealthyApp][4]
+
+![HealthCheckUnhealthyDsp][5]
 
 You can configure **HEALTHCHECK**  behavior for each container by specifying **HealthConfig** options as part of **ContainerHostPolicies** in ApplicationManifest.
 
@@ -243,12 +248,18 @@ You can configure **HEALTHCHECK**  behavior for each container by specifying **H
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+		      RestartContainerOnUnhealthyDockerHealthStatus="false" 
+		      TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true** and *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**. If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true**, *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**, and *TreatContainerUnhealthyStatusAsError* is set to **false**. 
+
+If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+
+If *TreatContainerUnhealthyStatusAsError* is set to **true**, **ERROR** health reports will appear when the container's *health_status* is *unhealthy*.
 
 If you want to the disable the **HEALTHCHECK** integration for the entire Service Fabric cluster, you will need to set [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) to **false**.
 
