@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/28/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/28/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.reviewer: frasim
 
 ms.collection: M365-identity-device-management
 ---
-# Building secure workstations 
+# Building secure workstations
 
 Secured isolated workstations are critically important for the security of sensitive roles like administrators, developers, and operators of critical services. Many other security controls and assurances will fail or have no effect if the underlying client workstation security has been compromised.
 
@@ -32,7 +32,7 @@ As documented in the [Verizon Threat report](https://enterprise.verizon.com/reso
 Most attackers follow the path below:
 
 * Start with reconnaissance, often specific to an industry, to find a way in
-* Analyze collected information to identify the best means to gain access (Infiltration) of a perceived low value workstation 
+* Analyze collected information to identify the best means to gain access (Infiltration) of a perceived low value workstation
 * Persistence and look at means to move [laterally](https://en.wikipedia.org/wiki/Network_Lateral_Movement)
 * Exfiltrate confidential and sensitive data
 
@@ -60,7 +60,7 @@ An attacker who compromises a PC or device can do several things including imper
 * Highly sensitive workstations like SWIFT payment terminals
 * Workstations handling trade secrets
 
-Microsoft recommends implementing elevated security controls for privileged workstations where these accounts are used to reduce risk. Additional guidance can be found in the [Azure Active Directory feature deployment guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 Roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
+Microsoft recommends implementing elevated security controls for privileged workstations where these accounts are used to reduce risk. Additional guidance can be found in the [Azure Active Directory feature deployment guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
 
 ## Why dedicated workstations
 
