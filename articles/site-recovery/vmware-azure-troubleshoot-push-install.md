@@ -229,13 +229,13 @@ This is a runtime error and is caused due to insufficient memory to install VSS.
 
 ### VSS error -2147023824 [0x80070430] - exit code 517
 
-This error occurs when Azure Site Recovery VSS Provider service is [marked for deletion](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Try to install VSS manually on the source machine by running the following command line
+This error occurs when Azure Site Recovery VSS Provider service is [marked for deletion](https://msdn.microsoft.com/library/ms838153.aspx). Try to install VSS manually on the source machine by running the following command line
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ### VSS error -2147023841 [0x8007041F] - exit code 512
 
-This error occurs when Azure Site Recovery VSS Provider service database is [locked](https://msdn.microsoft.com/en-us/library/ms833798.aspx).Try to install VSS manually on the source machine by running the following command line
+This error occurs when Azure Site Recovery VSS Provider service database is [locked](https://msdn.microsoft.com/library/ms833798.aspx).Try to install VSS manually on the source machine by running the following command line
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 

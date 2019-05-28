@@ -115,8 +115,8 @@ The integration between Microsoft Flow, Logic Apps, and Functions continues to i
 
 You can get more information on integration services by using the following links:
 
-* [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live webcast](https://aka.ms/logicappslive)
 * [Microsoft Flow frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

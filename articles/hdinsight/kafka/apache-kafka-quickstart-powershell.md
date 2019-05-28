@@ -7,9 +7,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
+ms.date: 05/02/2019
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
+
 # Quickstart: Create an Apache Kafka on HDInsight cluster
 
 [Apache Kafka](https://kafka.apache.org/) is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
@@ -25,40 +26,35 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Azure PowerShell. For more information, see the [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) document.
+* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 
-* An SSH client. The steps in this document use SSH to connect to the cluster.
+* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    The `ssh` command is provided by default on Linux, Unix, and macOS systems. On Windows 10, use one of the following methods to install the `ssh` command:
+## Sign in to Azure
 
-  * Use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). The cloud shell provides the `ssh` command, and can be configured to use either Bash or PowerShell as the shell environment.
+Sign in to your Azure subscription with the `Connect-AzAccount` cmdlet and follow the on-screen directions.
 
-  * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10). The Linux distributions available through the Microsoft Store provide the `ssh` command.
+```azurepowershell-interactive
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
 
-    > [!IMPORTANT]  
-    > The steps in this document assume that you are using one of the SSH clients mentioned above. If you are using a different SSH client and encounter problems, please consult the documentation for your SSH client.
-    >
-    > For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
-
-## Log in to Azure
-
-Log in to your Azure subscription with the `Login-AzAccount` cmdlet and follow the on-screen directions.
-
-```powershell
-Login-AzAccount
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 ```
 
 ## Create resource group
 
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. The following example prompts you for the name and location, and then creates a new resource group:
 
-```powershell
-$resourceGroup = Read-Input -Prompt "Enter the resource group name"
-$location = Read-Input -Prompt "Enter the Azure region to use"
+```azurepowershell-interactive
+$resourceGroup = Read-Host -Prompt "Enter the resource group name"
+$location = Read-Host -Prompt "Enter the Azure region to use"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
@@ -67,19 +63,24 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 While Kafka on HDInsight uses Azure Managed disks to store Kafka data, the cluster also uses Azure Storage to store information such as logs. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a new storage account.
 
-```powershell
+> [!IMPORTANT]  
+> Storage account kind `BlobStorage` can only be used as secondary storage for HDInsight clusters.
+
+```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
 New-AzStorageAccount `
-        -ResourceGroupName $resourceGroup `
-        -Name $storageName `
-        -Type Standard_LRS `
-        -Location $location
+    -ResourceGroupName $resourceGroup `
+    -Name $storageName `
+    -Location $location `
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 ```
 
 HDInsight stores data in the storage account in a blob container. Use [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) to create a new container.
 
-```powershell
+```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
 
 $storageKey = (Get-AzStorageAccountKey `
@@ -88,28 +89,27 @@ $storageKey = (Get-AzStorageAccountKey `
 $storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzStorageContainer -Name $containerName -Context $storageContext 
+
+New-AzStorageContainer -Name $containerName -Context $storageContext
 ```
 
 ## Create an Apache Kafka cluster
 
 Create an Apache Kafka on HDInsight cluster with [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
-```powershell
-# Create a Kafka 1.0 cluster
+```azurepowershell-interactive
+# Create a Kafka 1.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
-$httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
-    -UserName "admin"
-$sshCredentials = Get-Credential -Message "Enter the SSH user credentials"
+$httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
+$sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
 
 $numberOfWorkerNodes = "4"
 $clusterVersion = "3.6"
 $clusterType="Kafka"
-$clusterOS="Linux"
 $disksPerNode=2
 
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-$kafkaConfig.Add("kafka", "1.0")
+$kafkaConfig.Add("kafka", "1.1")
 
 New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
@@ -117,7 +117,7 @@ New-AzHDInsightCluster `
         -Location $location `
         -ClusterSizeInNodes $numberOfWorkerNodes `
         -ClusterType $clusterType `
-        -OSType $clusterOS `
+        -OSType "Linux" `
         -Version $clusterVersion `
         -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
@@ -331,7 +331,7 @@ You can also programmatically create producers and consumers. For an example of 
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, HDInsight, and all related resources.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 

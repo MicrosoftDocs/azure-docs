@@ -38,7 +38,7 @@ You learn how to:
 Before you start:
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support requirements](azure-to-azure-support-matrix.md) for all components.
-- You have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/install-az-ps).
+- You have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Log in to your Microsoft Azure subscription
 
@@ -129,19 +129,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## Set the vault context
 
-> [!TIP]
-> The Azure Site Recovery PowerShell module (Az.RecoveryServices module) comes with easy to use aliases for most cmdlets. The cmdlets in the module take the form *\<Operation>-**AzRecoveryServicesAsr**\<Object>* and have equivalent aliases that take the form *\<Operation>-**ASR**\<Object>*. This article uses the cmdlet aliases for ease of reading.
 
-Set the vault context for use in the PowerShell session. To do this, download the vault settings file to, and import the downloaded file in the PowerShell session to set the vault context.
-
-Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault.
+Set the vault context for use in the PowerShell session. Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault.
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```
@@ -402,8 +395,8 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 
 # Data disk
 $datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
-$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
-$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0].StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
          -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `

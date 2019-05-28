@@ -47,7 +47,7 @@ You need to add the `text/analytics/v2.0` routing to the endpoint URI as shown i
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## Eula setting
 
@@ -92,15 +92,15 @@ Replace {_argument_name_} with your own values:
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 |{BILLING_KEY} | The endpoint key of the `Cognitive Services` resource available on the Azure `Cognitive Services` Keys page. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | The billing endpoint value is available on the Azure `Cognitive Services` Overview page.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_ENDPOINT_URI} | The billing endpoint value is available on the Azure `Cognitive Services` Overview page.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
 > The ApiKey value is the **Key** from the Azure `Cognitive Services` Resource keys page. 
 
-## Keyphrase extraction container docker examples
+## Key phrase extraction container docker examples
 
-The following docker examples are for the keyphrase extraction container. 
+The following docker examples are for the key phrase extraction container. 
 
 ### Basic example 
 

@@ -19,7 +19,13 @@ Azure SQL Database is an automatically managed and flexible data service where y
 
 ## Monitoring database performance
 
-Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Azure SQL Database enables you to identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to improve performance of your workload. You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance.
+Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. You need to monitor the following resorces:
+ - **CPU usage** - you need to check are you reaching 100% of CPU usage in a longer period of time. This might indicate that you might need to upgrade you database or instance or identify and tune the queries that are using most of the compute power.
+ - **Wait statistics** - you need to check what why your queries are waiting for some resources. Queriesmig wait for data to be fetched or saved to the database files, waiting because some resource limit is reached, etc.
+ - **IO usage** - you need to check are you reaching the IO limits of the underlying storage.
+ - **Memory usage** - the amount of memory available for your database or instance is proportional to the number of vCores, and you need to check is it enough for yur workload. Page life expectancy is one of the parameter that can indicate are your pages quickly removed from the memory.
+
+Azure SQL Database enables you to identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to improve performance of your workload. You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance.
 
 You have the following options for monitoring and troubleshooting database performance:
 
@@ -79,9 +85,9 @@ If you determine that you have a running-related performance issue, your goal is
 > [!IMPORTANT]
 > For a set a T-SQL queries using these DMVs to troubleshoot CPU utilization issues, see [Identify CPU performance issues](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
-### Troubleshoot queries with parameter-sensitive query execution plan issues
+### <a name="ParamSniffing"></a> Troubleshoot queries with parameter-sensitive query execution plan issues
 
-The parameter sensitive plan (PSP) problem refers to a scenario where the query optimizer generates a query execution plan that is optimal only for a specific parameter value (or set of values) and the cached plan is then non-optimal for parameter values used in consecutive executions. Non-optimal plans can then result in query performance issues and overall workload throughput degradation.
+The parameter sensitive plan (PSP) problem refers to a scenario where the query optimizer generates a query execution plan that is optimal only for a specific parameter value (or set of values) and the cached plan is then non-optimal for parameter values used in consecutive executions. Non-optimal plans can then result in query performance issues and overall workload throughput degradation. For more information on parameter sniffing and query processing, see the [Query Processing Architecture Guide](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
 There are several workarounds used to mitigate issues, each with associated tradeoffs and drawbacks:
 
@@ -96,17 +102,17 @@ There are several workarounds used to mitigate issues, each with associated trad
 
 For additional information about resolving these types of issues, see:
 
-- This [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) blog post
-- This [elephant and mouse parameter sniffing](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blog post
-- This [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blog post
+- This [I smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blog post
+- This [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blog post
+- This [SQL Query Optimization Techniques in SQL Server: Parameter Sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) blog post
 
 ### Troubleshooting compile activity due to improper parameterization
 
 When a query has literals, either the database engine chooses to automatically parameterize the statement or a user can explicitly parameterize it in order to reduce number of compiles. A high number of compiles of a query using the same pattern but different literal values can result in high CPU utilization. Similarly, if you only partially parameterize a query that continues to have literals, the database engine does not parameterize it further.  Below is an example of a partially parameterized query:
 
 ```sql
-select * from t1 join t2 on t1.c1=t2.c1
-where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
 In the prior example, `t1.c1` takes `@p1` but `t2.c2` continues take GUID as literal. In this case, if you change value for `c2`, the query will be treated as a different query and a new compilation will occur. To reduce compilations in the prior example, the solution is to also parameterize the GUID.
@@ -114,24 +120,24 @@ In the prior example, `t1.c1` takes `@p1` but `t2.c2` continues take GUID as lit
 The following query shows the count of queries by query hash to determine if a query is properly parameterized or not:
 
 ```sql
-   SELECT  TOP 10  
-      q.query_hash
-      , count (distinct p.query_id ) AS number_of_distinct_query_ids
-      , min(qt.query_sql_text) AS sampled_query_text
-   FROM sys.query_store_query_text AS qt
-      JOIN sys.query_store_query AS q
-         ON qt.query_text_id = q.query_text_id
-      JOIN sys.query_store_plan AS p 
-         ON q.query_id = p.query_id
-      JOIN sys.query_store_runtime_stats AS rs 
-         ON rs.plan_id = p.plan_id
-      JOIN sys.query_store_runtime_stats_interval AS rsi
-         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
-   WHERE
-      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
-      AND query_parameterization_type_desc IN ('User', 'None')
-   GROUP BY q.query_hash
-   ORDER BY count (distinct p.query_id) DESC
+SELECT  TOP 10  
+  q.query_hash
+  , count (distinct p.query_id ) AS number_of_distinct_query_ids
+  , min(qt.query_sql_text) AS sampled_query_text
+FROM sys.query_store_query_text AS qt
+  JOIN sys.query_store_query AS q
+     ON qt.query_text_id = q.query_text_id
+  JOIN sys.query_store_plan AS p 
+     ON q.query_id = p.query_id
+  JOIN sys.query_store_runtime_stats AS rs 
+     ON rs.plan_id = p.plan_id
+  JOIN sys.query_store_runtime_stats_interval AS rsi
+     ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+WHERE
+  rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+  AND query_parameterization_type_desc IN ('User', 'None')
+GROUP BY q.query_hash
+ORDER BY count (distinct p.query_id) DESC
 ```
 
 ### Resolve problem queries or provide more resources
@@ -177,7 +183,7 @@ In high-CPU scenarios, the Query Store and wait statistics do not always reflect
 - High-CPU consuming queries may still be executing and the queries haven't finished
 - The high-CPU consuming queries were running when a failover occurred
 
-Query Store and wait statistics-tracking dynamic management views only show results for successfully completed and timed-out queries and do not show data for currently executing statements (until they complete).  The dynamic management view [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) allows you to track currently-executing queries and the associated worker time.
+Query Store and wait statistics-tracking dynamic management views only show results for successfully completed and timed-out queries and do not show data for currently executing statements (until they complete). The dynamic management view [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) allows you to track currently-executing queries and the associated worker time.
 
 As shown in the previous chart, the most common waits are:
 
@@ -192,6 +198,8 @@ As shown in the previous chart, the most common waits are:
 > - [Identify I/O performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identify `tempdb` performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identify memory grant waits](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
+> - [TigerToolbox - Waits and Latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## Improving database performance with more resources
 

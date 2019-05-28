@@ -4,14 +4,14 @@ description: Use Azure Cosmos DB change feed with Azure Functions
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ---
 
 # Serverless event-based architectures with Azure Cosmos DB and Azure Functions
 
-Azure Functions provides the simplest way to connect to the [change feed](). You can create small reactive Azure Functions that will be automatically triggered on each new event in your Azure Cosmos container's change feed.
+Azure Functions provides the simplest way to connect to the [change feed](change-feed.md). You can create small reactive Azure Functions that will be automatically triggered on each new event in your Azure Cosmos container's change feed.
 
 ![Serverless event-based Functions working with the Azure Cosmos DB Trigger](./media/change-feed-functions/functions.png)
 

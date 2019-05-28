@@ -4,7 +4,7 @@ description: Learn how to set provisioned throughput for your Azure Cosmos conta
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/20/2019
 ms.author: rimman
 
 ---
@@ -84,7 +84,7 @@ You can retrieve the minimum throughput of a container or a database programmati
 
 When using the .NET SDK, the [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) method allows you to retrieve the minimum throughput of a container or a database. 
 
-You can scale the provisioned throughput of a container or a database at any time. You can run the scale-down operation after the idle period of 4 hours. The idle period is defined as the time period when there was no offer replace operations (which includes scale-up and scale-down) on a container or a database. 
+You can scale the provisioned throughput of a container or a database at any time. 
 
 ## Comparison of models
 

@@ -3,8 +3,8 @@ title: Automated SaaS app user provisioning in Azure AD | Microsoft Docs
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,8 +12,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2019
-ms.author: celested
-ms.reviewer: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -138,7 +138,7 @@ When the provisioning service is started, the first sync ever run will:
 6. If the attribute mappings contain "reference" attributes, the service does additional updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
 7. Persist a watermark at the end of the initial sync, which provides the starting point for the later incremental syncs.
 
-Some applications such as ServiceNow, Google Apps, and Box support not only provisioning users, but also provisioning groups and their members. In those cases, if group provisioning is enabled in the [mappings](customize-application-attributes.md), the provisioning service synchronizes the users and the groups, and then later synchronizes the group memberships. 
+Some applications such as ServiceNow, G Suite, and Box support not only provisioning users, but also provisioning groups and their members. In those cases, if group provisioning is enabled in the [mappings](customize-application-attributes.md), the provisioning service synchronizes the users and the groups, and then later synchronizes the group memberships. 
 
 ### Incremental syncs
 
@@ -191,7 +191,7 @@ For **initial syncs**, the job time depends on many factors, including the numbe
 
 For **incremental syncs**, the job time depends on the number of changes detected in that sync cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental sync cycle. 
 
-The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and Google Apps.
+The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and G Suite.
 
 
 | Scope configuration | Users, groups, and members in scope | Initial sync time | Incremental sync time |
@@ -269,6 +269,10 @@ No. When configured to "sync only assigned users and groups", the Azure AD user 
 This is a limitation of "group-based assignments to applications", which also affects single sign-on and is described in [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 As a workaround, you should explicitly assign (or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
+
+### Is provisioning between Azure AD and a target application using an encrypted channel?
+
+Yes. We use HTTPS SSL encryption for the server target. 
 
 ## Related articles
 

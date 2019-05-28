@@ -8,9 +8,8 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-
-
 ---
+
 # Build a Python Flask web application using Azure Cosmos DB
 
 > [!div class="op_single_selector"]
@@ -19,7 +18,6 @@ ms.author: sngun
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
-> 
 
 This tutorial shows you how to use Azure Cosmos DB to store and access data from a Python Flask web application hosted on Azure App Service. This tutorial presumes that you have some prior experience using Python and Azure websites.
 
@@ -36,6 +34,7 @@ application that allows you to vote for a poll.
 ![Screenshot of the voting application created by this database tutorial](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## Database tutorial prerequisites
+
 Before following the instructions in this article, you should ensure
 that you have the following installed:
 
@@ -49,14 +48,13 @@ that you have the following installed:
 
 > [!IMPORTANT]
 > If you are installing Python 2.7 for the first time, ensure that in the Customize Python 2.7.13 screen, you select **Add python.exe to Path**.
-> 
+>
 > ![Screenshot of the Customize Python 2.7.11 screen, where you need to select Add python.exe to Path](./media/sql-api-python-application/cosmos-db-python-install.png)
-> 
-> 
 
 * [Microsoft Visual C++ Compiler for Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
 ## Step 1: Create an Azure Cosmos DB database account
+
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Python Flask web application](#step-2-create-a-new-python-flask-web-application).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -65,65 +63,75 @@ Let's start by creating an Azure Cosmos DB account. If you already have an accou
 Now let's walk through how to create a new Python Flask web application from the ground up.
 
 ## Step 2: Create a new Python Flask web application
+
 1. In Visual Studio, on the **File** menu, point to **New**, and then click **Project**.
-   
+
     The **New Project** dialog box appears.
 2. In the left pane, expand **Templates** and then **Python**, and then click **Web**. 
 3. Select **Flask  Web Project** in the center pane, then in the **Name** box type **tutorial**, and then click **OK**. Remember that Python package names should be all lowercase, as described in the [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/#package-and-module-names).
-   
+
     For those new to Python Flask, it is a web application development framework that helps you build web applications in Python faster.
-   
+
     ![Screenshot of the New Project window in Visual Studio with Python highlighted on the left, Python Flask Web Project selected in the middle, and the name tutorial in the Name box](./media/sql-api-python-application/image9.png)
+
 4. In the **Python Tools for Visual Studio** window, click **Install into a virtual environment**. 
-   
+
     ![Screenshot of the database tutorial - Python Tools for Visual Studio window](./media/sql-api-python-application/python-install-virtual-environment.png)
 5. In the **Add Virtual Environment** window, select Python 2.7 or Python 3.5 in the Select an interpreter box, accept the other defaults, and then click **Create**. This sets up the required Python virtual environment for your project.
-   
+
     ![Screenshot of the database tutorial - Python Tools for Visual Studio window](./media/sql-api-python-application/image10_A.png)
-   
+
     The output window displays `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` when the environment is successfully installed.
 
 ## Step 3: Modify the Python Flask web application
+
 ### Add the Python Flask packages to your project
+
 After your project is set up, you'll need to add the required Flask packages to your project, including pydocumentdb, the Python package for the Azure Cosmos DB SQL API.
 
 1. In Solution Explorer, open the file named **requirements.txt** and replace the contents with the following:
-   
-        flask==0.9
-        flask-mail==0.7.6
-        sqlalchemy==0.7.9
-        flask-sqlalchemy==0.16
-        sqlalchemy-migrate==0.7.2
-        flask-whooshalchemy==0.55a
-        flask-wtf==0.8.4
-        pytz==2013b
-        flask-babel==0.8
-        flup
-        pydocumentdb>=1.0.0
-2. Save the **requirements.txt** file. 
+
+    ```text
+    flask==0.9
+    flask-mail==0.7.6
+    sqlalchemy==0.7.9
+    flask-sqlalchemy==0.16
+    sqlalchemy-migrate==0.7.2
+    flask-whooshalchemy==0.55a
+    flask-wtf==0.8.4
+    pytz==2013b
+    flask-babel==0.8
+    flup
+    pydocumentdb>=1.0.0
+    ```
+
+2. Save the **requirements.txt** file.
 3. In Solution Explorer, right-click **env** and click **Install from requirements.txt**.
-   
+
     ![Screenshot showing env (Python 2.7) selected with Install from requirements.txt highlighted in the list](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
-   
+
     After successful installation, the output window displays the following:
-   
-        Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
-   
+
+    ```output
+    Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
+    ```
+
    > [!NOTE]
    > In rare cases, you might see a failure in the output window. If this happens, check if the error is related to clean up. Sometimes the clean up fails, but the installation will still be successful (scroll up in the output window to verify this). You can check your installation by [Verifying the virtual environment](#verify-the-virtual-environment). If the installation failed but the verification is successful, it's OK to continue.
-   > 
-   > 
 
 ### Verify the virtual environment
+
 Let's make sure that everything is installed correctly.
 
 1. Build the solution by pressing **Ctrl**+**Shift**+**B**.
 2. Once the build succeeds, start the website by pressing **F5**. This launches the Flask development server and starts your web browser. You should see the following page.
-   
+
     ![The empty Python Flask web development project displayed in a browser](./media/sql-api-python-application/image12.png)
+
 3. Stop debugging the website by pressing **Shift**+**F5** in Visual Studio.
 
 ### Create database, collection, and document definitions
+
 Now let's create your voting application by adding new files and updating others.
 
 1. In Solution Explorer, right-click the **tutorial** project, click **Add**, and then click **New Item**. Select **Empty Python File** and name the file **forms.py**.  
@@ -140,11 +148,11 @@ class VoteForm(Form):
         ('Virtual Machine', 'Virtual Machine')], default='Web Site')
 ```
 
-
 ### Add the required imports to views.py
+
 1. In Solution Explorer, expand the **tutorial** folder, and open the **views.py** file. 
 2. Add the following import statements to the top of the **views.py** file, then save the file. These import Azure Cosmos DB's PythonSDK and the Flask packages.
-   
+
     ```python
     from forms import VoteForm
     import config_cosmos
@@ -152,6 +160,7 @@ class VoteForm(Form):
     ```
 
 ### Create database, collection, and document
+
 * Still in **views.py**, add the following code to the end of the file. This takes care of creating the database used by the form. Do not delete any of the existing code in **views.py**. Simply append this to the end.
 
 ```python
@@ -189,8 +198,8 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-
 ### Read database, collection, document, and submit form
+
 * Still in **views.py**, add the following code to the end of the file. This takes care of setting up the form, reading the database, collection, and document. Do not delete any of the existing code in **views.py**. Simply append this to the end.
 
 ```python
@@ -240,13 +249,13 @@ def vote():
             form = form)
 ```
 
-
 ### Create the HTML files
+
 1. In Solution Explorer, in the **tutorial** folder, right-click the **templates** folder, click **Add**, and then click **New Item**. 
 2. Select **HTML Page**, and then in the name box type **create.html**. 
 3. Repeat steps 1 and 2 to create two additional HTML files: results.html and vote.html.
 4. Add the following code to **create.html** in the `<body>` element. It displays a message stating that we created a new database, collection, and document.
-   
+
     ```html
     {% extends "layout.html" %}
     {% block content %}
@@ -255,14 +264,15 @@ def vote():
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
     {% endblock %}
     ```
+
 5. Add the following code to **results.html** in the `<body`> element. It displays the results of the poll.
-   
+
     ```html
     {% extends "layout.html" %}
     {% block content %}
     <h2>Results of the vote</h2>
         <br />
-   
+
     {% for choice in vote_object.choices %}
     <div class="row">
         <div class="col-sm-5">{{choice}}</div>
@@ -275,13 +285,14 @@ def vote():
             </div>
     </div>
     {% endfor %}
-   
+
     <br />
     <a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
     {% endblock %}
     ```
+
 6. Add the following code to **vote.html** in the `<body`> element. It displays the poll and accepts the votes. On registering the votes, the control is passed over to views.py where Azure Cosmos DB recognizes the vote cast and appends the document accordingly.
-   
+
     ```html
     {% extends "layout.html" %}
     {% block content %}
@@ -293,9 +304,10 @@ def vote():
     </form>
     {% endblock %}
     ```
+
 7. In the **templates** folder, replace the contents of **index.html** with the following. This
    serves as the landing page for your application.
-   
+
     ```html
     {% extends "layout.html" %}
     {% block content %}
@@ -307,30 +319,32 @@ def vote():
     ```
 
 ### Add a configuration file and change the \_\_init\_\_.py
+
 1. In Solution Explorer, right-click the **tutorial** project, click **Add**, click **New Item**, select **Empty Python File**, and then name the file **config_cosmos.py**. This config file is required by forms in Flask. You can use it to provide a secret key as well. This key is not needed for this tutorial though.
 2. Add the following code to config_cosmos.py, you'll need to alter the values of **COSMOSDB\_HOST** and **COSMOSDB\_KEY** in the next step.
-   
+
     ```python
     CSRF_ENABLED = True
     SECRET_KEY = 'you-will-never-guess'
-   
+
     COSMOSDB_HOST = 'https://YOUR_COSMOSDB_NAME.documents.azure.com:443/'
     COSMOSDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
-   
+
     COSMOSDB_DATABASE = 'voting database'
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
+
 3. In the [Azure portal](https://portal.azure.com/), navigate to the **Keys** page by clicking **Browse**, **Azure Cosmos DB Accounts**, double-click the name of the account to use, and then click the **Keys** button in the **Essentials** area. On the **Keys** page, copy the **URI** value and paste it into the **config.py** file, as the value for the **COSMOSDB\_HOST** property. 
 4. Back in the Azure portal, on the **Keys** page, copy the value of the **Primary Key** or the **Secondary Key**, and paste it into the **config_cosmos.py** file, as the value for the **COSMOSDB\_KEY** property.
-5. In the **\_\_init\_\_.py** file, add the following lines for including the config file reading and some basic logging: 
-   
+5. In the **\_\_init\_\_.py** file, add the following lines for including the config file reading and some basic logging:
+
         app.config.from_object('config_cosmos')
         logging.basicConfig(level=logging.INFO,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         logger = logging.getLogger(__name__)
-   
+
     So that the content of the file is:
-   
+
     ```python
     import logging
     from flask import Flask
@@ -341,35 +355,40 @@ def vote():
 
     import tutorial.views
     ```
-6. After adding all the files, Solution
-   Explorer should look like this:
-   
+
+6. After adding all the files, Solution Explorer should look like this:
+
     ![Screenshot of the Visual Studio Solution Explorer window](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
 
 ## Step 4: Run your web application locally
+
 1. Build the solution by pressing **Ctrl**+**Shift**+**B**.
 2. Once the build succeeds, start the website by pressing **F5**. You should see the following on your screen.
-   
+
     ![Screenshot of the Python + Azure Cosmos DB Voting Application displayed in a web browser](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+
 3. Click **Create/Clear the Voting Database** to generate the database.
-   
+
     ![Screenshot of the Create Page of the web application – development details](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
+
 4. Then, click **Vote** and select your option.
-   
+
     ![Screenshot of the web application with a voting question posed](./media/sql-api-python-application/cosmos-db-vote.png)
 5. For every vote you cast, it increments the appropriate counter.
-   
+
     ![Screenshot of the Results of the vote page shown](./media/sql-api-python-application/cosmos-db-voting-results.png)
+
 6. Stop debugging the project by pressing Shift+F5.
 
 ## Step 5: Deploy the web application to Azure
+
 Now that you have the complete application working correctly against
 Azure Cosmos DB locally, we're going to create a web.config file, update the files on the server to match the local environment, and then view the completed app on Azure. This procedure is specific to Visual Studio 2017. If you are using a different version of Visual Studio, see [Publishing to Azure App Service](/visualstudio/python/publishing-to-azure).
 
 1. In Visual Studio **Solution Explorer**, right-click the project and select **Add > New Item...**. In the dialog that appears, selecting the **Azure web.config (Fast CGI)** template and select **OK**. This creates a `web.config` file in your project root. 
 
 2. Modify the `<system.webServer>` section in `web.config` so that the path matches the Python installation. For example, for Python 2.7 x64 the entry should appear as follows:
-    
+
     ```xml
     <system.webServer>
         <handlers>
@@ -388,29 +407,31 @@ Azure Cosmos DB locally, we're going to create a web.config file, update the fil
 4. In Visual Studio **Solution Explorer**, expand the **tutorial** folder, right-click the `static` folder, select **Add > New Item...**, select the "Azure static files web.config" template, and select **OK**. This action creates another `web.config` in the `static` folder that disables Python processing for that folder. This configuration sends requests for static files to the default web server rather than using the Python application.
 
 5. Save the files, then right-click the project in Solution Explorer (make sure you're not still running it locally) and select **Publish**.  
-   
+
      ![Screenshot of the tutorial selected in Solution Explorer, with the Publish option highlighted](./media/sql-api-python-application/image20.png)
+
 6. In the **Publish** dialog box, select **Microsoft Azure App Service**, select **Create New**, and then click **Publish**.
-   
+
     ![Screenshot of the Publish Web window with Microsoft Azure App Service highlighted](./media/sql-api-python-application/cosmos-db-python-publish.png)
+
 7. In the **Create App Service** dialog box, enter the name for your web app along with your **Subscription**, **Resource Group**, and **App Service Plan**, then click **Create**.
-   
+
     ![Screenshot of the Microsoft Azure Web Apps Window window](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
 8. In a few seconds, Visual Studio finishes copying your files to the server and displays "The page cannot be displayed because an internal server error has occurred." on the `http://<your app service>.azurewebsites.net/` page.
 
 9. In the Azure portal, open your new App Service account, then in the navigation menu, scroll down to the **Development Tools** section, select **Extensions**, then click **+ Add**.
 
 10. In the **Choose extension** page, scroll down to the most recent Python 2.7 installation and select the x86 or x64 bit option, then click **OK** to accept the legal terms.  
-   
+
 11. Use the Kudu console, which you can browse to at `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, to install the packages listed in your app's `requirements.txt` file. To do this, in the Kudu Diagnostic Console, navigate to your Python folder `D:\home\Python27` then run the following command as described in the [Kudu console](/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) section:
 
-    ```
+    ```ps
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
-    ```          
+    ```
 
-12. Restart the App Service in the Azure portal after installing the new packages by pressing the **Restart** button. 
+12. Restart the App Service in the Azure portal after installing the new packages by pressing the **Restart** button.
 
-    > [!Tip] 
+    > [!Tip]
     > If you make any changes to your app's `requirements.txt` file, be sure to again use the Kudu console to install any packages that are now listed in that file. 
 
 13. Once you've fully configured the server environment, refresh the page in the browser and the web app should appear.
@@ -421,6 +442,7 @@ Azure Cosmos DB locally, we're going to create a web.config file, update the fil
     > If the web page does not appear, or you still get the "The page cannot be displayed because an internal server error has occurred." message, open the web.config file in Kudo and add `<httpErrors errorMode="Detailed"></httpErrors>` to the system.webServer section, then refresh the page. This will provided detailed error output to the browser. 
 
 ## Troubleshooting
+
 If this is the first Python app you've run on your computer, ensure that the following folders (or the equivalent installation locations) are included in your PATH variable:
 
     C:\Python27\site-packages;C:\Python27\;C:\Python27\Scripts;
@@ -428,10 +450,11 @@ If this is the first Python app you've run on your computer, ensure that the fol
 If you receive an error on your vote page, and you named your project something other than **tutorial**, make sure that **\_\_init\_\_.py** references the correct project name in the line: `import tutorial.view`.
 
 ## Next steps
+
 Congratulations! You have completed your first Python web application using Azure Cosmos DB and published it to Azure.
 
 To add additional functionality to your web application, review the APIs available in the [Azure Cosmos DB Python SDK](sql-api-sdk-python.md).
 
 For more information about Azure, Visual Studio, and Python, see the [Python Developer Center](https://azure.microsoft.com/develop/python/). 
 
-For additional Python Flask tutorials, see [The Flask Mega-Tutorial, Part I: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
+For additional Python Flask tutorials, see [The Flask Mega-Tutorial, Part I: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).

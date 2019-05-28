@@ -97,6 +97,8 @@
     href: service-fabric-best-practices-infrastructure-as-code.md
   - name: Monitoring and diagnostics
     href: service-fabric-best-practices-monitoring.md
+  - name: Application design
+    href: service-fabric-best-practices-applications.md
   - name: Production readiness checklist
     href: service-fabric-production-readiness-checklist.md  
 - name: Samples
@@ -609,6 +611,8 @@
           href: service-fabric-cluster-azure-deployment-preparation.md
         - name: Create in Azure portal
           href: service-fabric-cluster-creation-via-portal.md
+        - name: Deploy an Azure Service Fabric Cluster across Availability Zones
+          href: service-fabric-cross-availability-zones.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
         - name: Create a custom cluster template
@@ -639,8 +643,6 @@
           href: service-fabric-cluster-config-upgrade-azure.md
         - name: Patch cluster nodes (Windows)
           href: service-fabric-patch-orchestration-application.md
-        - name: Patch cluster nodes (Linux)
-          href: service-fabric-patch-orchestration-application-linux.md  
         - name: Enable disk encryption (Windows)
           href: service-fabric-enable-azure-disk-encryption-windows.md
         - name: Enable disk encryption (Linux)

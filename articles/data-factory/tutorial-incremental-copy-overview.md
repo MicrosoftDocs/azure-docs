@@ -40,13 +40,13 @@ For step-by-step instructions, see the following tutorial: <br/>
 [Incrementally copy data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## Loading new and changed files only by using LastModifiedDate
-You can get the metadata (LastModifiedDate) of your files first, and then copy the new and changed files only to the destination store.
+You can copy the new and changed files only by using LastModifiedDate to the destination store. ADF will scan all the files from the source store, apply the file filter by their LastModifiedDate, and only copy the new and updated file since last time to the destination store.  Please be aware if you let ADF scan huge amounts of files but only copy a few files to destination, you would still expect the long duration due to file scanning is time consuming as well.   
 
 For step-by-step instructions, see the following tutorial: <br/>
 [Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 ## Loading new files only by using time partitioned folder or file name.
-You can copy new files only, where files or folders has already been time partitioned with timeslice information as part of the file or folder name (for example, /yyyy/mm/dd/file.csv). 
+You can copy new files only, where files or folders has already been time partitioned with timeslice information as part of the file or folder name (for example, /yyyy/mm/dd/file.csv). It is the most performance approach for incremental loading new files. 
 
 For step-by-step instructions, see the following tutorial: <br/>
 [Incrementally copy new files based on time partitioned folder or file name from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

@@ -4,7 +4,7 @@ description: Learn how to connect Azure Security Center data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a

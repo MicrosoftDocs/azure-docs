@@ -56,6 +56,18 @@ The following administrator roles are available:
   * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
+* **[B2C User Flow Administrator](#b2c-user-flow-administrator)**: Users with this role can create and manage B2C User Flows (aka "built-in" policies) in Azure Portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (aka Custom) policies is also outside the scope of this role.
+
+* **[B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator)**: Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
+
+* **[B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator)**: 	User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption. By adding new keys to existing key containers, this limited administrator can rollover secrets as needed without impacting existing applications. This user can see the full content of these secrets and their expiration dates even after their creation.
+	
+  <b>Important:</b> This is a sensitive role. The keyset administrator role should be carefully audited and assigned with care during preproduction and production.
+
+* **[B2C IEF Policy Administrator](#b2c-ief-policy-administrator)**: Users in this role have the ability to create, read, update, and delete all custom policies in Azure AD B2C and therefore have full control over the Identity Experience Framework in the relevant Azure AD B2C tenant. By editing policies, this user can establish direct federation with external identity providers, change the directory schema, change all user-facing content (HTML, CSS, JavaScript), change the requirements to complete an authentication, create new users, send user data to external systems including full migrations, and edit all user information including sensitive fields like passwords and phone numbers. Conversely, this role cannot change the encryption keys or edit the secrets used for federation in the tenant.
+
+  <b>Important:</b> The B2 IEF Policy Administrator is a highly sensitive role which should be assigned on a very limited basis for tenants in production. Activities by these users should be closely audited, especially for tenants in production.
+
 * **[Billing Administrator](#billing-administrator)**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
 * **[Cloud Application Administrator](#cloud-application-administrator)**: Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
@@ -107,6 +119,9 @@ The following administrator roles are available:
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Exchange Service Administrator ". It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online admininistrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
+* **[External Identity Provider Administrator](#external-identity-provider-administrator)**: This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service id, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end user experiences depends on the type of tenant:
+  * Azure Active Directory tenants for employees and partners: The addition  of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Azure Active Directory B2C tenants: The addition of a federation (e.g. with Facebook, or with another Azure Active Directory) does not immediately impact end user flows until the identity provider is added as an option in a user flow (aka built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
 * **[Global Administrator / Company Administrator](#company-administrator)**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
@@ -122,6 +137,9 @@ The following administrator roles are available:
 * **[Intune Administrator](#intune-service-administrator)**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
+  
+ * **[Kaizala Administrator](#kaizala-administrator)**: Users with this role have global permissions to manage settings within Microsoft Kaizala, when the service is present, as well as the ability to manage support tickets and monitor service health.
+Additionally, the user can access reports related to adoption & usage of Kaizala by Organization members and business reports generated using the Kaizala actions. 
 
 * **[License Administrator](#license-administrator)**: 
   Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location. This role has no access to view, create, or manage support tickets.
@@ -146,10 +164,15 @@ The following administrator roles are available:
   *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
+
+  > [!NOTE]
+  > Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+
   > [!NOTE]
   > This role was previously called "Password Administrator" in [Azure portal](https://portal.azure.com/). We are changing its name to "Helpdesk Administrator" to match its name in Azure AD PowerShell, Azure AD Graph API and Microsoft Graph API. For a short time, we will change the name to "Helpdesk (Password) Administrator" in Azure portal before the change to "Helpdesk Administrator".
-  >
-  
+
+
 * **[Power BI Administrator](#power-bi-service-administrator)**: Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
@@ -163,6 +186,10 @@ The following administrator roles are available:
   <b>Important</b>: This role grants the ability to manage assignments for all Azure AD roles including the Global Administrator role. This role does not include any other privileged abilities in Azure AD like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
 
 * **[Reports Reader](#reports-reader)**: Users with this role can view usage reporting data and the reports dashboard in Microsoft 365 admin center and the adoption context pack in Power BI. Additionally, the role provides access to sign-in reports and activity in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
+
+* **[Search Administrator](#search-administrator)**: Users in this role have full access to all Microsoft Search management features in the Microsoft 365 admin center. Search Administrators can delegate the Search Administrators and Search Editor roles to users, and create and manage content, like bookmarks, Q&As, and locations. Additionally, these users can view the message center, monitor service health, and create service requests.
+
+* **[Search Editor](#search-editor)**: Users in this role can create, manage, and delete content for Microsoft Search in the Microsoft 365 admin center, including bookmarks, Q&As, and locations.
 
 * **[Security Administrator](#security-administrator)**: Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -229,7 +256,7 @@ The following administrator roles are available:
 
 * **[Teams Communications Support Specialist](#teams-communications-support-specialist)**: Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can only view user details in the call for the specific user they have looked up. This role has no access to view, create, or manage support tickets.
 
-* **User Administrator**: Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health.
+* **[User Administrator](#user-administrator)**: Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health.
 
   | | |
   | --- | --- |
@@ -313,11 +340,39 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
+### B2C User Flow Administrator
+Create and manage all aspects of user flows.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Read and configure user flows in  Azure Active Directory B2C. |
+
+### B2C User Flow Attribute Administrator
+Create and manage the attribute schema available to all user flows.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Read and configure user attributes in  Azure Active Directory B2C. |
+
+### B2C IEF Keyset Administrator
+Manage secrets for federation and encryption in the Identity Experience Framework.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | Read and configure key sets in  Azure Active Directory B2C. |
+
+### B2C IEF Policy Administrator
+Create and manage trust framework policies in the Identity Experience Framework.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/policies/allTasks | Read and configure custom policies in  Azure Active Directory B2C. |
+
 ### Billing Administrator
 Can perform common billing related tasks like updating payment information.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -335,7 +390,7 @@ Can perform common billing related tasks like updating payment information.
 Can access and manage Desktop management tools and services including Intune.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -408,7 +463,7 @@ Full access to manage devices in Azure AD.
 Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -474,7 +529,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 Can read and manage compliance configuration and reports in Azure AD and Office 365.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -508,7 +563,7 @@ Can manage conditional access capabilities.
 Can manage all aspects of the Dynamics 365 product.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -525,7 +580,7 @@ Can manage all aspects of the Dynamics 365 product.
 Can approve Microsoft support requests to access customer organizational data.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -655,7 +710,7 @@ Can read & write basic directory information. For granting access to application
 Can manage all aspects of the Exchange product.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -673,6 +728,13 @@ Can manage all aspects of the Exchange product.
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### External Identity Provider Administrator
+Configure identity providers for use in direct federation.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | Read and configure identity providers in  Azure Active Directory B2C. |
 
 ### Guest Inviter
 Can invite guest users independent of the ‘members can invite guests’ setting.
@@ -708,7 +770,7 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 Can manage all aspects of the Azure Information Protection product.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -724,7 +786,7 @@ Can manage all aspects of the Azure Information Protection product.
 Can manage all aspects of the Intune product.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -757,6 +819,20 @@ Can manage all aspects of the Intune product.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
+### Kaizala Administrator
+Can manage settings for Microsoft Kaizala.  
+
+  > [!NOTE]
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >  
+  
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read Office 365 admin center. |
+
 ### License Administrator
 Can manage product licenses on users and groups.
 
@@ -772,7 +848,7 @@ Can manage product licenses on users and groups.
 Can manage all aspects of the Skype for Business product.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -789,7 +865,7 @@ Can manage all aspects of the Skype for Business product.
 Can read messages and updates for their organization in Office 365 Message Center only. 
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -802,7 +878,7 @@ Can read messages and updates for their organization in Office 365 Message Cente
 Do not use - not intended for general use.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -834,7 +910,7 @@ Do not use - not intended for general use.
 Do not use - not intended for general use.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -868,7 +944,7 @@ Do not use - not intended for general use.
 Can manage all aspects of the Power BI product.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -898,7 +974,7 @@ Allowed to view, set and reset authentication method information for any user (a
 Can manage role assignments in Azure AD,  and all aspects of Privileged Identity Management.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -911,7 +987,7 @@ Can manage role assignments in Azure AD,  and all aspects of Privileged Identity
 Can read sign-in and audit reports.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -923,11 +999,42 @@ Can read sign-in and audit reports.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
+### Search Administrator
+Can create and manage all aspects of Microsoft Search settings.
+
+  > [!NOTE]
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.search/allEntities/allProperties/allTasks | Create and delete all resources, and read and update all properties in microsoft.office365.search. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+
+### Search Editor
+Can create and manage the editorial content such as bookmarks, Q and As, locations, floorplan.
+
+  > [!NOTE]
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.search/content/allProperties/allTasks | Create and delete content, and read and update all properties in microsoft.office365.search. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+
 ### Security Administrator
 Can read security information and reports,  and manage configuration in Azure AD and Office 365.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -956,7 +1063,7 @@ Can read security information and reports,  and manage configuration in Azure AD
 Can read security information and reports in Azure AD and Office 365.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -976,7 +1083,7 @@ Can read security information and reports in Azure AD and Office 365.
 Can read service health information and manage support tickets.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -992,7 +1099,7 @@ Can read service health information and manage support tickets.
 Can manage all aspects of the SharePoint service.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1015,7 +1122,7 @@ Can manage all aspects of the SharePoint service.
 Can manage calling and meetings features within the Microsoft Teams service.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1032,7 +1139,7 @@ Can manage calling and meetings features within the Microsoft Teams service.
 Can troubleshoot communications issues within Teams using advanced tools.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1046,7 +1153,7 @@ Can troubleshoot communications issues within Teams using advanced tools.
 Can troubleshoot communications issues within Teams using basic tools.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1060,7 +1167,7 @@ Can troubleshoot communications issues within Teams using basic tools.
 Can manage the Microsoft Teams service.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1147,6 +1254,7 @@ Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdesk Administrator | Password administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Information Protection Administrator | Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Kaizala Administrator | Kaizala administrator | 74ef975b-6605-40af-a5d2-b9539d836353
 License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Lync Service Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
 Message Center Reader | Message center reader | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
@@ -1156,6 +1264,8 @@ Power BI Service Administrator | Power BI administrator | a9ea8996-122f-4c74-952
 Privileged Authentication Administrator | Privileged authentication administrator | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Privileged Role Administrator | Privileged role administrator | e8611ab8-c189-46e8-94e1-60213ab1f814
 Reports Reader | Reports reader | 4a5d8f65-41da-4de4-8968-e035b65339cf
+Search Administrator | Search administrator | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
+Search Editor | Search editor | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Security Administrator | Security administrator | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Security Reader | Security reader | 5d6b6bb7-de71-4623-b4af-96380a352509
 Service Support Administrator | Service administrator | f023fd81-a637-4b56-95fd-791ac0226033

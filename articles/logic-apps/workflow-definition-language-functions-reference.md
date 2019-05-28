@@ -1407,7 +1407,7 @@ And returns this result: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 Return the binary version for a data uniform resource identifier (URI).
 Use this function rather than [decodeDataUri()](#decodeDataUri).
 Although both functions work the same way,
-`decodeDataUri()` is preferred.
+`dataUriBinary()` is preferred.
 
 ```
 dataUriToBinary('<value>')
