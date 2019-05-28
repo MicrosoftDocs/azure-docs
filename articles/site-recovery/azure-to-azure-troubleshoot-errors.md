@@ -301,7 +301,7 @@ You can open 'Services' console and ensure the 'COM+ System Application' and 'Vo
 
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
-150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 1024 MB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation.
+150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 2048 MB. | - The disk is less than supported size of 2048 MB| Ensure that the disk sizes are within the supported size range and retry the operation.
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (error code 151126)
 
