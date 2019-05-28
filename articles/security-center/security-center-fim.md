@@ -63,10 +63,13 @@ FIM baselines start by identifying characteristics of a known-good state for the
 *To configure FIM to monitor registry baselines:*
 
 1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the registry key.
-> ><code>  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-</code>
 
-    ![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
+    <code>
+
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+    </code>
+
+      ![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
 
 ## Tracking changes to Windows files
 
