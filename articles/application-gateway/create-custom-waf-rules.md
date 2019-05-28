@@ -5,7 +5,7 @@ services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/18/2019
+ms.date: 5/29/2019
 ms.author: victorh
 ---
 
@@ -134,7 +134,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
-   -Operator Contains `
+   -Operator IPMatch `
    -MatchValue "192.168.5.4/24" `
    -NegationCondition $False
 
