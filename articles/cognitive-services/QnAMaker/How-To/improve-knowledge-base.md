@@ -1,7 +1,7 @@
 ---
-title: Improve knowledge base - QnA Maker
+title: Improve your knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. Your knowledge base doesn't change automatically. You must accept the suggestions for any change to take effect. These suggestions add questions but don't change or remove existing questions.
+description: Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
 author: diberry
 manager: nitinme 
 services: cognitive-services
@@ -14,75 +14,69 @@ ms.author: diberry
 
 # Use active learning to improve your knowledge base
 
-Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
+QnA Maker features *active learning*. This capability allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
 
-Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions add questions but don't change or remove existing questions.
+Your knowledge base doesn't change automatically. You must accept the suggestions for any change to take effect. These suggestions add questions, but don't change or remove existing questions.
 
 ## What is active learning?
 
 QnA Maker learns new question variations with implicit and explicit feedback.
  
-* Implicit feedback – The ranker understands when a user question has multiple answers with scores that are very close and considers this as feedback. 
-* Explicit feedback – When multiple answers with little variation in scores are returned from the knowledge base, the client application asks the user which question is the correct question. The user's explicit feedback is sent to QnA Maker with the Train API. 
+* **Implicit feedback.** When a user question has multiple answers with scores that are very close, the QnA Maker ranker considers this as feedback. 
+* **Explicit feedback.** When the knowledge base returns multiple answers with little variation in scores, the client application asks the user which question is the correct question. The user's explicit feedback is sent to QnA Maker with the Train API. 
 
 Either method provides the ranker with similar queries that are clustered.
 
 ## How active learning works
 
-Active learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
+For any specified query, active learning is triggered based on the scores of top few answers returned by QnA Maker. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
 
-All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
+QnA Maker clusters all the suggestions together by similarity. It displays top suggestions for alternate questions, based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
 
-When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
-
-Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. 
+When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject. You need to review and accept or reject those suggestions. 
 
 ## Upgrade your version to use active learning
 
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
-
-## Best practices
-
-For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
+QnA Maker supports active learning in runtime version 4.4.0 and later. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
 
 ## Score proximity between knowledge base questions
 
-When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores decreases as well, approximately within 4%. 
+When a question's score is highly confident, such as 80 percent, the range of scores that are considered for active learning are wide, approximately within 10 percent. As the confidence score decreases, such as 40 percent, the range of scores decreases as well, approximately within 4 percent. 
 
-The algorithm to determine proximity is not a simple calculation. The ranges in the preceding examples are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
+The algorithm to determine proximity is not a simple calculation. The ranges in the preceding examples are not meant to be fixed, but you can use them as a guide to understand the impact of the algorithm.
 
 ## Turn on active learning
 
 Active learning is off by default. Turn it on to see suggested questions. 
 
-1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not impact active learning.
+1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal don't impact active learning.
 
-1. To turn active learning on, click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top right corner.  
+1. To turn active learning on, select your **Name**, and go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top right corner.  
 
-    ![Turn on active learning's suggested question alternatives from the Service settings page. Select your user name in the top right menu, then select Service Settings.](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Screenshot of QnA Maker portal Service Settings](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
-1. Find the QnA Maker service then toggle **Active Learning**. 
+1. Find the QnA Maker service, and then toggle to **Active Learning**. 
 
-    [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![Screenshot of QnA Maker portal Service Settings](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
-    Once **Active Learning** is enabled, the knowledge suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
+    When active learning is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable active learning by toggling the setting again.
 
-## Add active learning suggestion to knowledge base
+## Add an active learning suggestion to the knowledge base
 
-1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**. 
+1. To see the suggested questions, on the **Edit** knowledge base page, select **View Options**. Then select **Show active learning suggestions**. 
 
-    [![On the Edit section of the portal, select Show Suggestions in order to see the active learning's new question alternatives.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![Screenshot of Edit section of the portal](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filter the knowledge base with question and answer pairs to show only suggestions by selecting **Filter by Suggestions**.
+1. Filter the knowledge base with question and answer pairs to show only suggestions, by selecting **Filter by Suggestions**.
 
-    [![Use the Filter by suggestions toggle to view only the active learning's suggested question alternatives.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Screenshot of Filter by suggestions toggle](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1.	Each question section with suggestions shows the new questions with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
+1.	Each question section with suggestions shows the new questions with either a check mark, `✔` , to accept the question, or an `x` to reject the suggestions. Select the check mark to add the question. 
 
-    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Screenshot of selecting or rejecting active learning's suggested question alternatives](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
-    You can add or delete _all suggestions_ by selecting **Add all** or **Reject all**.
+    You can add or delete all suggestions by selecting **Add all** or **Reject all**.
 
 1. Select **Save and Train** to save the changes to the knowledge base.
 
@@ -90,13 +84,13 @@ Active learning is off by default. Turn it on to see suggested questions.
 
     When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
 
-## Determine best choice when several questions have similar scores
+## Ask for clarification
 
-When a question is too close in score to other questions, the client-application developer can choose to ask for clarification.
+When a question is too close in score to other questions, you can ask QnA Maker for clarification.
 
 ### Use the top property in the GenerateAnswer request
 
-When submitting a question to QnA Maker for an answer, part of the JSON body allows for returning more than one top answer:
+When submitting a question to QnA Maker for an answer, you can use the top property of the JSON body, to return more than one top answer:
 
 ```json
 {
@@ -106,7 +100,7 @@ When submitting a question to QnA Maker for an answer, part of the JSON body all
 }
 ```
 
-When the client application (such as a chat bot) receives the response, the top 3 questions are returned:
+In the preceding example, the client application (such as a chat bot) receives a response that includes the top 3 questions:
 
 ```json
 {
@@ -147,15 +141,15 @@ When the client application (such as a chat bot) receives the response, the top 
 
 ### Client application follow-up when questions have similar scores
 
-The client application displays all the questions with an option for the user to select the question that most represents their intention. 
+The client application displays all the questions, with an option for the user to select the question that most represents their intention. 
 
-Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
+When the user selects one of the existing questions, the client application sends the user's choice as feedback by using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
 
 Use the [Azure Bot sample](https://aka.ms/activelearningsamplebot) to see active learning in an end-to-end scenario.
 
 ## Train API
 
-Active learning feedback is sent to QnA Maker with the Train API POST request. The API signature is:
+The Train API POST request sends active learning feedback to QnA Maker. The API signature is:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -167,19 +161,19 @@ Content-Type: application/json
 |HTTP request property|Name|Type|Purpose|
 |--|--|--|--|
 |URL route parameter|Knowledge base ID|string|The GUID for your knowledge base.|
-|Host subdomain|QnAMaker resource name|string|The hostname for your QnA Maker in your Azure subscription. This is available on the Settings page after you publish the knowledge base. |
-|Header|Content-Type|string|The media type of the body sent to the API. Default value is: `application/json`|
+|Host subdomain|QnAMaker resource name|string|The hostname for your QnA Maker in your Azure subscription. This is available on the **Settings** page after you publish the knowledge base. |
+|Header|Content-Type|string|The media type of the body sent to the API. The default value is: `application/json`.|
 |Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Post Body|JSON object|JSON|The training feedback|
+|Post body|JSON object|JSON|The training feedback.|
 
 The JSON body has several settings:
 
 |JSON body property|Type|Purpose|
 |--|--|--|--|
 |`feedbackRecords`|array|List of feedback.|
-|`userId`|string|The user ID of the person accepting the suggested questions. The user ID format is up to you. For example, an email address can be a valid user ID in your architecture. Optional.|
-|`userQuestion`|string|Exact text of the question. Required.|
-|`qnaID`|number|ID of question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`userId`|string|The user ID of the person accepting the suggested questions. The user ID format is up to you. For example, an email address can be a valid user ID in your architecture. This property is optional.|
+|`userQuestion`|string|Exact text of the question. This property is required.|
+|`qnaID`|number|The ID of the question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 An example JSON body looks like:
 
@@ -195,13 +189,13 @@ An example JSON body looks like:
 }
 ```
 
-A successful response returns a status of 204 and no JSON response body. 
+A successful response returns a status of 204, and no JSON response body. 
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 
 ## Active learning is saved in the exported knowledge base
 
-When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
+When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the .tsv file retains the active learning data. 
 
 The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
 
@@ -225,6 +219,8 @@ The `SuggestedQuestions` column is a JSON object of information of implicit, `au
 When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base. 
 
 ## Next steps
- 
+
+For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
+
 > [!div class="nextstepaction"]
 > [Use metadata with GenerateAnswer API](metadata-generateanswer-usage.md)
