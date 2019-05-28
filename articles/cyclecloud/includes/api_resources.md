@@ -55,6 +55,8 @@ Status of the cluster
 |Name|Description|Schema|
 |---|---|---|
 |**nodes**  <br>*optional*|An optional list of nodes in this cluster, only included if nodes=true is in the query  <br>**Example** : `[ "[node](#node)" ]`|< [Node](#node) > array|
+|**state**  <br>*optional*|The current state of the cluster, if it has been started at least once  <br>**Example** : `"string"`|string|
+|**targetState**  <br>*optional*|The desired state of the cluster (eg Started or Terminated)  <br>**Example** : `"string"`|string|
 |**maxCount**  <br>*required*|The maximum number of nodes that may be added to this cluster  <br>**Example** : `0`|integer|
 |**maxCoreCount**  <br>*required*|The maximum number of cores that may be added to this cluster  <br>**Example** : `0`|integer|
 |**nodearrays**  <br>*required*|**Example** : `[ "object" ]`|< [nodearrays](#clusterstatus-nodearrays) > array|

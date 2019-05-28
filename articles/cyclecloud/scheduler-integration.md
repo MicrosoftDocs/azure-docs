@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Scheduler Integration
 
-The Azure CycleCloud platform has built-in, first-class support for several grid scheduling software solutions allowing for simplified resource and job management in the cloud. Azure CycleCloud can automatically create, manage, and scale several well known and widely adopted scheduling technologies including but not limited to: [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net), [HTCondor](https://research.cs.wisc.edu/htcondor/), [PBS Pro](http://pbspro.org/), and [Torque](http://www.adaptivecomputing.com/products/open-source/torque/).
+The Azure CycleCloud platform has built-in, first-class support for several grid scheduling software solutions allowing for simplified resource and job management in the cloud. Azure CycleCloud can automatically create, manage, and scale several well known and widely adopted scheduling technologies including but not limited to: [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net), [HTCondor](https://research.cs.wisc.edu/htcondor/), and [PBS Professional](http://pbspro.org/).
 
 ## Open Grid Scheduler (Grid Engine)
 
@@ -208,7 +208,7 @@ CycleCloud supports a `standard set <autostop-attributes>` of autostop attribute
 
 ## PBS Professional OSS
 
-The [PBS Professional PSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Pro cluster are the 'master' node which provides a shared filesystem on which the PBS Pro software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+[PBS Professional OSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster my-pbspro]
@@ -228,21 +228,21 @@ The [PBS Professional PSS (PBS Pro)](http://pbspro.org/) can easily be enabled o
     run_list = role[pbspro_execute_role]
 ```
 
-Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the 'cyclecloud add_node' command. For example, to add 10 more execute nodes:
+Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. For example, to add 10 more execute nodes:
 
 ```azurecli-interactive
 cyclecloud add_node my-pbspro -t execute -c 10
 ```
 
-## PBS Pro Configuration Reference
+## PBS Professional Configuration Reference
 
-The following are the PBS Pro specific configuration options you can toggle to customize functionality:
+The following are the PBS Professional specific configuration options you can toggle to customize functionality:
 
-| PBS Pro-Specific Configuration Options | Description                                                                                                                                                                                                                                                                                                                                                          |
+| PBS Pro Specific Configuration Options | Description                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | pbspro.slots                           | The number of slots for a given node to report to PBS Pro. The number of slots is the number of concurrent jobs a node can execute, this value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, etc.                                                               |
 | pbspro.slot_type                       | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource 'slot_type=<type>', that job will *only* run on a machine of the same slot type. This allows you to create different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
-| pbspro.version                         | Default: '14.2.1-0'. This is the PBS Pro version to install and run. This is currently the default and *only* option. In the future additional versions of the PBS Pro software may be supported.                                                                                                                                                                    
+| pbspro.version                         | Default: '18.1.3-0'. This is the PBS Professional version to install and run. This is currently the default and *only* option. In the future additional versions of the PBS Professional software may be supported.                                                                                                                                                                    
 
 CycleCloud supports a standard set <autostop-attributes> of autostop attributes for PBS Pro:
 

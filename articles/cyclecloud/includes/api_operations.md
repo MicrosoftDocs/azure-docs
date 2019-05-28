@@ -456,6 +456,8 @@ This operation contains information for the nodes and nodearrays in a given clus
 ```json
 {
   "nodes" : [ { } ],
+  "state" : "string",
+  "targetState" : "string",
   "maxCount" : 0,
   "maxCoreCount" : 0,
   "nodearrays" : [ "object" ]
