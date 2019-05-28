@@ -57,7 +57,7 @@ Azure Site Recovery has limits on data change rate, based on the type of disk. T
 
 If a spike is from an occasional data burst and the data change rate is greater than 10 MB/s (for Premium) and 2 MB/s (for Standard) for some time and comes down, replication will catch up. But if the churn is well beyond the supported limit most of the time, consider one of these options if possible:
 
-* **Exclude the disk that's causing a high data-change rate**: You can exclude the disk by using [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
+* **Exclude the disk that's causing a high data-change rate**: You can exclude the disk by using [PowerShell](./azure-to-azure-exclude-disks.md).To exclude the disk you have to disable the replication first. 
 * **Change the tier of the disaster recovery storage disk**: This option is possible only if the disk data churn is less than 10 MB/s. Let's say a VM with a P10 disk is having a data churn of greater than 8 MB/s but less than 10 MB/s. If the customer can use a P30 disk for target storage during protection, the problem can be solved.
 
 ## <a name="Network-connectivity-problem"></a>Network connectivity problems
