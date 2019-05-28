@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
@@ -138,7 +138,7 @@ Click **Applications** > **Add**.
 
 The **New application** window provides the following fields to specify the settings of your new application and application package.
 
-**Application id**
+**Application ID**
 
 This field specifies the ID of your new application, which is subject to the standard Azure Batch ID validation rules. The rules for providing an application ID are as follows:
 
@@ -172,7 +172,7 @@ To add an application package version for an existing application, select an app
 
 ![Add application package blade in Azure portal][8]
 
-As you can see, the fields match those of the **New application** window, but the **Application id** box is disabled. As you did for the new application, specify the **Version** for your new package, browse to your **Application package** .zip file, then click **OK** to upload the package.
+As you can see, the fields match those of the **New application** window, but the **Application ID** box is disabled. As you did for the new application, specify the **Version** for your new package, browse to your **Application package** .zip file, then click **OK** to upload the package.
 
 ### Update or delete an application package
 To update or delete an existing application package, open the details for the application, click **Packages**, click the **ellipsis** in the row of the application package that you want to modify, and select the action that you want to perform.
