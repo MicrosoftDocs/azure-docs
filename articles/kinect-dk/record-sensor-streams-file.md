@@ -38,7 +38,7 @@ You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play bac
 
 ## Next steps
 
-You may also review the following:
+You may also review the following articles:
 
 > [!div class="nextstepaction"]
 >[Azure Kinect recorder](azure-kinect-dk-recorder.md)
