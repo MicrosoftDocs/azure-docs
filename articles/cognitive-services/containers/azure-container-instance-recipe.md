@@ -15,7 +15,7 @@ ms.author: diberry
 # https://github.com/Azure/cognitiveservices-aci
 ---
 
-# "Recipe: Deploy and run container on Azure Container Instance (ACI)
+# Deploy and run container on Azure Container Instance (ACI)
 
 With the following steps, scale Azure Cognitive Services applications in the cloud easily with Azure[Container Instance](https://docs.microsoft.com/azure/container-instances/) (ACI). This help you focus on building your applications instead of managing the infrastructure.
 

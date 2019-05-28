@@ -16,7 +16,7 @@ ms.author: diberry
 # SME: Siddhartha Prasad <siprasa@microsoft.com>
 ---
 
-# Recipe: Create containers for reuse
+# Create containers for reuse
 
 Use these container recipes to create Cognitive Services Containers that can be reused. Containers can be built with some or all configuration settings so that they are not needed when the container is started.
 
