@@ -17,33 +17,37 @@ First, [download](sensor-sdk-download.md)  and install the Azure Kinect Sensor S
 
 Here are the functions we'll use:
 
-   `k4a_device_get_installed_count()`
-   `k4a_device_open()`
-   `k4a_device_get_serialnum()`
-   `k4a_device_start_cameras()`
-   `k4a_device_stop_cameras()`
-   `k4a_device_close()`
+ * [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc)
+ * [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)
+ * [`k4a_device_get_serialnum()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22)
+ * [`k4a_device_start_cameras()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb)
+ * [`k4a_device_stop_cameras()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4fa0e0a011a7105309ad97f081a5d6b8.html#ga4fa0e0a011a7105309ad97f081a5d6b8)
+ * [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
 
 ## Headers
 
 There's only one header that you will need, and that's k4a.h! Make sure your compiler of choice is set up with the SDK's lib and include folders. You'll also need the k4a.lib and k4a.dll files linked up.
 
-`#include <k4a/k4a.h>`
+```C
+#include <k4a/k4a.h>
+```
 
 ## Finding a Kinect device
 
-Multiple Azure Kinect DK devices can be connected to your computer. We'll first start by finding out how many, or if any are connected at all using the `k4a_device_get_installed_count` function. This function should work right away, without any additional setup.
+Multiple Azure Kinect DK devices can be connected to your computer. We'll first start by finding out how many, or if any are connected at all using the [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc) function. This function should work right away, without any additional setup.
 
-`uint32_t count = k4a_device_get_installed_count();`
+```C
+uint32_t count = k4a_device_get_installed_count();
+```
 
-Once you've determined there is actually a device connected to the computer, you can open it using `k4a_device_open`. You can provide the index of the device you want to open, or you can just use `K4A_DEVICE_DEFAULT`] for the first one.
+Once you've determined there is actually a device connected to the computer, you can open it using [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113). You can provide the index of the device you want to open, or you can just use `K4A_DEVICE_DEFAULT` for the first one.
 
 ```C
 // Open the first plugged in Kinect device
 k4a_device_t device = NULL;
 k4a_device_open(K4A_DEVICE_DEFAULT, &device);
 ```
-As with most things in the k4a API, when you open something, you should also close it when you're finished with it! When you're shutting down, remember to make a call to `k4a_device_close`.
+As with most things in the k4a API, when you open something, you should also close it when you're finished with it! When you're shutting down, remember to make a call to [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423).
 
 ```C
 k4a_device_close(device);
@@ -57,7 +61,7 @@ size_t serial_size = 0;
 k4a_device_get_serialnum(device, NULL, &serial_size);
 
 // Allocate memory for the serial, then acquire it
-char *serial = static_cast<char*>(malloc(serial_size));
+char *serial = (char*)(malloc(serial_size));
 k4a_device_get_serialnum(device, serial, &serial_size);
 printf("Opened device: %s\n", serial);
 free(serial);
@@ -65,7 +69,7 @@ free(serial);
 
 ## Starting the cameras
 
-Once you've opened the device, you'll need to configure the camera with a `k4a_device_configuration_t` object. Camera configuration has a number of different options, and you'll need to choose the settings that best fit your own scenario.
+Once you've opened the device, you'll need to configure the camera with a [`k4a_device_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) object. Camera configuration has a number of different options, and you'll need to choose the settings that best fit your own scenario.
 
 ```C
 // Configure a stream of 4096x3072 BRGA color data at 15 frames per second
@@ -85,9 +89,9 @@ k4a_device_stop_cameras(device);
 
 ## Error handling
 
-For the sake of brevity and clarity, we don't show error handling in some inline examples. However, error handling is always important! Many functions will return a general success/failure type `k4a_result_t`, or a more specific variant with detailed information such as `k4a_wait_result_t`. Be sure to check the docs or intellisense of a specific function to see what error messages you might expect to see from it!
+For the sake of brevity and clarity, we don't show error handling in some inline examples. However, error handling is always important! Many functions will return a general success/failure type [`k4a_result_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga4b419a99aa2220b076a4520dc2afd1e5.html#ga4b419a99aa2220b076a4520dc2afd1e5), or a more specific variant with detailed information such as [`k4a_wait_result_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga44c7c0c1cfba7c879e9e2da1a869e4ee.html#ga44c7c0c1cfba7c879e9e2da1a869e4ee). Be sure to check the docs or intellisense of a specific function to see what error messages you might expect to see from it!
 
-Along with the error types, there's also the `K4A_SUCCEEDED` and `K4A_FAILED` macros that you can use with them. So instead of just opening a k4a device, we might guard it like this:
+Along with the error types, there's also the [`K4A_SUCCEEDED`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___macros_ga8e5b48150bc243c6052793bd830c2fcd.html#ga8e5b48150bc243c6052793bd830c2fcd) and [`K4A_FAILED`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___macros_ga7c2e32349135d008b6f836c571d434b4.html#ga7c2e32349135d008b6f836c571d434b4) macros that you can use with them. So instead of just opening a k4a device, we might guard it like this:
 
 ```C
 // Open the first plugged in Kinect device
@@ -114,15 +118,15 @@ int main()
     if (count == 0)
     {
         printf("No k4a devices attached!\n");
-        return;
+        return 1;
     }
 
     // Open the first plugged in Kinect device
     k4a_device_t device = NULL;
-    if ( K4A_FAILED( k4a_device_open(K4A_DEVICE_DEFAULT, &device) ) )
+    if (K4A_FAILED(k4a_device_open(K4A_DEVICE_DEFAULT, &device)))
     {
         printf("Failed to open k4a device!\n");
-        return;
+        return 1;
     }
 
     // Get the size of the serial number
@@ -130,7 +134,7 @@ int main()
     k4a_device_get_serialnum(device, NULL, &serial_size);
 
     // Allocate memory for the serial, then acquire it
-    char *serial = static_cast<char*>(malloc(serial_size));
+    char *serial = (char*)(malloc(serial_size));
     k4a_device_get_serialnum(device, serial, &serial_size);
     printf("Opened device: %s\n", serial);
     free(serial);
@@ -142,11 +146,11 @@ int main()
     config.color_resolution = K4A_COLOR_RESOLUTION_3072P;
 
     // Start the camera with the given configuration
-    if ( K4A_FAILED( k4a_device_start_cameras(device, &config) ) )
+    if (K4A_FAILED(k4a_device_start_cameras(device, &config)))
     {
         printf("Failed to start cameras!\n");
         k4a_device_close(device);
-        return;
+        return 1;
     }
 
     // Camera capture and application specific code would go here
@@ -155,8 +159,7 @@ int main()
     k4a_device_stop_cameras(device);
     k4a_device_close(device);
 
-	return 0;
-}
+    return 0;
 }
 
 ```
