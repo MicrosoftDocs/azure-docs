@@ -113,7 +113,7 @@ Take the following steps to set up your device using the local configuration and
 
     ![Data Box Heavy dashboard](media/data-box-deploy-set-up/data-box-heavy-dashboard.png)
 
-## Configure the second node
+## Configure second node
 
 Do the steps detailed in the [Configure the first node](#configure-first-node) for the second node of the device.
 
