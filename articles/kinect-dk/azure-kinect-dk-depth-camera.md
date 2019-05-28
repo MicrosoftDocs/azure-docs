@@ -81,7 +81,7 @@ Pixels are invalidated when they're outside of the active IR illumination mask. 
 
 ### Signal strength
 
-Pixels are invalidated when they contain a saturated IR signal. When pixels are saturated,  phase information accuracy was lost. The image below, shows the example of invalidation by a saturated IR signal. See arrows pointed to the example pixels in both the depth and IR images.
+Pixels are invalidated when they contain a saturated IR signal. When pixels are saturated,  phase information is lost. The image below, shows the example of invalidation by a saturated IR signal. See arrows pointed to the example pixels in both the depth and IR images.
 
 ![Invalidation Saturation](./media/concepts/depth-camera-invalidation-saturation.png)
 
