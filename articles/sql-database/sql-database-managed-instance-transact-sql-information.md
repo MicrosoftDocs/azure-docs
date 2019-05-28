@@ -451,6 +451,15 @@ Cross-instance service broker isn't supported:
 - `Extended stored procedures` aren't supported, which includes `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` aren't supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
+## <a name="Environment"></a>Environmnet constraints
+
+### Subnet
+- In the subnet where you are placing Managed Instance you cannot place any other resources (for example virtual machines). Place these resources in others subnets.
+- The number and types of instances that you can place in subnet have some [constrinst and limits](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+
+### VNET
+- VNET can be deployed using Resource model - classic model is not supported.
+
 ## <a name="Changes"></a> Behavior changes
 
 The following variables, functions, and views return different results:
