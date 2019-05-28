@@ -3,18 +3,16 @@ title: 'Azure Virtual WAN default IPsec policies | Microsoft Docs'
 description: This article provides information about IPsec policies for Virtual WAN.
 services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: cherylmc
-
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies
 ---
 
 # Virtual WAN default policies for IPsec connectivity
 
-This article lists the supported default IPsec policy combinations.
+This article shows the supported default IPsec policy combinations.
 
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
