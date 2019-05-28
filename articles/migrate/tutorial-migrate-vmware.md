@@ -43,6 +43,9 @@ You discovered the on-premises VMs when you set up the Azure Migrate appliance. 
 
 ## Replicate VMs
 
+1. In the Azure Migrate project you created in the [first tutorial](tutorial-prepare-hyper-v.md) > **Migration goals**, click **Servers**.
+2. In **Azure Migrate: Server Assessment**, click **Replicate**.
+
 1. In the Azure Migrate dashboard, under **Migrate**, verify the machines that appear, and click **Migrate Servers** to open the Server Migration wizard.
 2. In  **Select virtual machines** > **Import settings from an Azure Migrate assessment**, click **Yes** if you want to use the VM sizes and disk type recommended in an assessment. Click **No** to specify the settings manually.
 3. In **Select group and assessment**, if you indicated you want to use settings from an assessment, select the group and assessment from which you want to import the settings. You can only import settings from assessments created for the same VMware site.
