@@ -40,19 +40,19 @@ Current Firmware Versions:
     Certificate Type:         Microsoft
 ```
 
-If you have more than one device attached, you can specify which device you want to query by adding the full serial number to the command, such as: 
+If there's more than one device attached, you can specify which device you want to query by adding the full serial number to the command, such as:
 
 `AzureKinectFirmwareTool.exe -q 000036590812`
 
 ## Update device firmware
 
-The most common use of this tool is to update device firmware using the -u option. A firmware update can take few minutes, depending on which firmware files must be updated.
+The most common use of this tool is to update device firmware. Do the update by calling the tool using the `-u` option. A firmware update can take few minutes, depending on which firmware files must be updated.
 
 For step-by-step firmware update instruction, see [Azure Kinect firmware update](azure-kinect-dk-update-device-firmware.md).  
 
 `AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin`
 
-If you have more than one device attach, you can specify which device you want to query by adding the full serial number to the command. 
+If there's more than one device attached, you can specify which device you want to query by adding the full serial number to the command.
 
 `AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin 000036590812`
 
@@ -60,7 +60,7 @@ If you have more than one device attach, you can specify which device you want t
 
 An attached Azure Kinect DK can be reset using -r option, if you must get the device into a known state.
 
-If you have more than one device attached, you can specify which device you want to query by adding the full serial number to the command.
+If there's more than one device attached, you can specify which device you want to query by adding the full serial number to the command.
 
 `AzureKinectFirmwareTool.exe -r 000036590812`
 

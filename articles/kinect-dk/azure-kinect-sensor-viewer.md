@@ -16,9 +16,10 @@ Azure Kinect viewer `k4aviewer.exe` can be used to visualize all device data str
 * Verify sensors are working correctly.
 * Help positioning the device.
 * Experiment with camera settings.
+* Read device configuration.
 * Playback recordings made with [Azure Kinect Recorder](azure-kinect-dk-recorder.md).
 
-The tool works also as sample application on how to use API and enables to configured device properties or read information out from device.
+Azure Kinect Viewer is [open source](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/tools/k4aviewer) and can be used as an example for how to use the APIs.
 
 ## Use viewer
 
@@ -81,7 +82,7 @@ The bottom half is the gyroscope portion and shows rotational movement in radian
 
 ## Microphone input
 
-The microphone view shows a representation of the sound heard on each microphone. If there's no sound, the graph is shown as empty.  If there is sound, you'll see a dark blue waveform with a (usually smaller) light blue waveform overlaid on top of it.
+The microphone view shows a representation of the sound heard on each microphone. If there's no sound, the graph is shown as empty, otherwise, you'll see a dark blue waveform with a light blue waveform overlaid on top of it.
 
 The dark wave represents the minimum and maximum values observed by the microphone over that time slice. The light wave represents the root mean square of the values observed by the microphone over that time slice.
 
