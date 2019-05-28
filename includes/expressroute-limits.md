@@ -13,11 +13,11 @@
 | --- | --- |
 | ExpressRoute circuits per subscription |10 |
 | ExpressRoute circuits per region per subscription, with Azure Resource Manager |10 |
-| Maximum number of routes for Azure private peering with ExpressRoute Standard |4,000 |
-| Maximum number of routes for Azure private peering with ExpressRoute Premium add-on |10,000 |
-| Maximum number of routes for Azure private peering from the VNet address space for an ExpressRoute connection |200 | 
-| Maximum number of routes for Microsoft Azure peering with ExpressRoute Standard |200 |
-| Maximum number of routes for Microsoft Azure peering with ExpressRoute Premium add-on |200 |
+| Maximum number of routes advertised to Azure private peering with ExpressRoute Standard |4,000 |
+| Maximum number of routes advertised to Azure private peering with ExpressRoute Premium add-on |10,000 |
+| Maximum number of routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection |200 | 
+| Maximum number of routes advertised to Microsoft and/or Azure Public peering with ExpressRoute Standard |200 |
+| Maximum number of routes advertised to Microsoft and/or Azure Public peering with ExpressRoute Premium add-on |200 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in the same peering location |4 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations |4 |
 | Number of virtual network links allowed per ExpressRoute circuit |See the following table. |
