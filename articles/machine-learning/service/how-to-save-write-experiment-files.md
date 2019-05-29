@@ -29,6 +29,8 @@ Azure Machine Learning executes training scripts by copying the entire script fo
 
 * **For large data and dependency files:** Store your files in an Azure Machine Learning [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).  It has the advantages of accessing data from a remote compute target, which means things like authentication and mounting are managed by Azure Machine Learning service. Learn more about specifying a datastore as your source directory, and uploading files to your datastore in the [Access data from your datastores](how-to-access-data.md) article.
 
+<a name="limits"></a>
+
 ### Storage limits of experiment snapshots
 
 For experiments, Azure Machine Learning also makes an experiment snapshot of your code based on the directory you suggest when you configure the run. This has a total limit of 300 MB and/or 2000 files. If you exceed this limit, you'll see the following error:
