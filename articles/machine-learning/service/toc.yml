@@ -78,6 +78,9 @@
     - name: "Predict churn"
       displayName: Basic Sample, training, classification, sample 5
       href:  ui-sample-classification-predict-churn.md
+  - name: Azure Open Datasets
+    href: https://docs.microsoft.com/azure/open-datasets/samples
+    maintainContext: true
 - name: Concepts
   items:
   - name: Workspace
