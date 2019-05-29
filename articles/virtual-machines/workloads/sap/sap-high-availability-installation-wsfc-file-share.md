@@ -322,7 +322,7 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 | service/ha_check_node | **1** |
 
 Restart the SAP ASCS/SCS instance. 
-Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance]([high-availability-guide]:high-availability-guide.md). 
+Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance][high-availability-guide]. 
 
 ## Install a DBMS instance and SAP application servers
 

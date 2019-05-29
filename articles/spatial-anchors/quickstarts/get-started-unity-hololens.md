@@ -14,7 +14,7 @@ ms.service: azure-spatial-anchors
 ---
 # Quickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors
 
-In this quickstart, you will create a Unity HoloLens app that uses [Azure Spatial Anchors](../overview.md). Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences with objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app built with Unity that can save and recall a spatial anchor.
+In this quickstart, you'll create a Unity HoloLens app that uses [Azure Spatial Anchors](../overview.md). Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences with objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app built with Unity that can save and recall a spatial anchor.
 
 You'll learn how to:
 
@@ -31,7 +31,7 @@ You'll learn how to:
 To complete this quickstart:
 
 
-- You need a Windows computer on which <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> or later and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
+- You need a Windows computer on which <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> or later and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload. Install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
 - You need a HoloLens device on which [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 October 2018 Update](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (also known as RS5) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 - On your app, you need to enable the **SpatialPerception** capability. This setting is in **Build Settings** > **Player Settings** > **Publishing Settings** > **Capabilities**.
 - On your app, you need to enable **Virtual Reality Supported** with **Windows Mixed Reality SDK**. This setting is in **Build Settings** > **Player Settings** > **XR Settings**.
