@@ -1,6 +1,6 @@
 ---
-title: Concept - Share Subscription  
-description: What is a Share Subscription in Azure Data Share
+title: Concept - Data Share
+description: What is a Data Share in Azure Data Share
 services: azure-data-share
 author: joannapea
 
@@ -9,6 +9,6 @@ ms.topic: tutorial
 ms.date: 07/14/2019
 ms.author: joannapea
 ---
-# What is a Share Subscription in Azure Data Share? 
+# What is a Data Share in Azure Data Share? 
 
  
