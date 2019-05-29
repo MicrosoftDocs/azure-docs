@@ -234,7 +234,7 @@ For more information on network security groups, see the [overview of network se
 
 ### Controlling outbound traffic to HDInsight clusters
 
-For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic).
+For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 
 #### Forced tunneling to on-premise
 
