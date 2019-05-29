@@ -72,6 +72,22 @@ Yes. During the public preview, the following limitations exist:
 
 See the [Azure subscription and service limits](../azure-subscription-service-limits.md#azure-dns-limits) article.
 
+## What are the usage limits for Azure Private DNS?
+
+The following default limits apply when you use Azure Private DNS.
+
+**Private DNS zones**
+
+| Resource | Default limit |
+| --- | --- |
+|Private DNS zones per subscription|1000|
+|Record sets per Private DNS zone|25,000|
+|Records per record set|20|
+|Virtual Network Links per private DNS zone|1000|
+|Virtual Networks Links per private DNS zones with auto-registration enabled|100|
+|Number of private DNS zones a virtual network can get linked to with auto-registration enabled|1|
+|Number of private DNS zones a virtual network can get linked|1000|
+
 ## Is there portal support for private zones?
 
 Yes, and private zones that are already created via APIs, PowerShell, the CLI, and SDKs are visible on the Azure portal.
