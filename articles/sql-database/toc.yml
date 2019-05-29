@@ -370,6 +370,12 @@
       href: sql-database-temporal-tables.md
     - name: Job automation 
       href: sql-database-job-automation-overview.md
+    - name: Linked servers
+      href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json
+    - name: Service Broker
+      href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json
+    - name: Database mail
+      href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
     - name: Machine Learning Services
       items:
       - name: Overview
