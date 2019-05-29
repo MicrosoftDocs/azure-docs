@@ -479,10 +479,10 @@ For more information about this update, see [Azure AD Connect: Version release h
 
 ---
 
-### Updates to the Terms of Use (ToU) end-user UI
+### Updates to the terms of use end-user UI
 
 **Type:** Changed feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
 We're updating the acceptance string in the TOU end-user UI.
@@ -637,25 +637,25 @@ For more information about Azure AD Password Protection, see [Eliminate bad pass
 
 ---
 
-### New "all guests" conditional access policy template created during Terms of Use (ToU) creation
+### New "all guests" conditional access policy template created during terms of use creation
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
-During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
+During the creation of your terms of use, a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
 
 For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
-### New "custom" conditional access policy template created during Terms of Use (ToU) creation
+### New "custom" conditional access policy template created during terms of use creation
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
-During the creation of your Terms of Use (ToU), a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
+During the creation of your terms of use, a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
 
 For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -722,10 +722,10 @@ If you must continue to use dedicated circuits, you'll need to talk to your Micr
 ### Microsoft Graph APIs for administrative scenarios for TOU
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Developer Experience
  
-We've added Microsoft Graph APIs for administration operation of Azure AD Terms of Use. You are able to create, update, delete the Terms of Use object.
+We've added Microsoft Graph APIs for administration operation of Azure AD terms of use. You are able to create, update, delete the terms of use object.
 
 ---
 
@@ -910,10 +910,10 @@ For more information, see:
 
 ---
  
-### Azure AD Terms of Use now has per user reporting
+### Azure AD terms of use now has per user reporting
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
  
 Administrators can now select a given ToU and see all the users that have consented to that ToU and what date/time it took place.
@@ -955,11 +955,11 @@ For more information, see [Configuring single sign-on to applications that are n
 ### Azure AD Terms of use now generally available
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
  
 
-Azure AD Terms of Use have moved from public preview to generally available.
+Azure AD terms of use have moved from public preview to generally available.
 
 For more information, see the [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -1459,10 +1459,10 @@ For more information, see:
 
 ---
 
-### Terms of Use update to mobile experience 
+### Terms of use update to mobile experience 
 
 **Type:** Changed feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
 
 When the terms of use are displayed, you can now click **Having trouble viewing? Click here**. Clicking this link opens the terms of use natively on your device. Regardless of the font size in the document or the screen size of device, you can zoom and read the document as needed. 

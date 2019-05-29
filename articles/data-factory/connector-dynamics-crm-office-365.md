@@ -202,7 +202,7 @@ To copy data from Dynamics, set the source type in the copy activity to **Dynami
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **DynamicsSource**. | Yes |
-| query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
+| query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
 
 >[!NOTE]
 >The PK column will always be copied out even if the column projection you configure in the FetchXML query doesn't contain it.

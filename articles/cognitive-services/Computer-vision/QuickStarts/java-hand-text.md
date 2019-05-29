@@ -94,9 +94,6 @@ public class Main {
 
             URIBuilder builder = new URIBuilder(uriBase);
 
-            // Request parameter.
-            builder.setParameter("mode", "Handwritten");
-
             // Prepare the URI for the REST API method.
             URI uri = builder.build();
             HttpPost request = new HttpPost(uri);
