@@ -58,14 +58,15 @@ Azure Cosmos DB is a globally distributed, multi-master database service that pr
 
 With Availability Zone support, Azure Cosmos DB will ensure replicas are placed across multiple zones within a given region to provide high availability and resiliency during zonal failures. There are no changes to latency and other SLAs in this configuration. In the event of a single zone failure, zone redundancy provides full data durability with RPO=0 and availability with RTO=0. 
 
-Zone redundancy is a *supplemental capability* to the multi-master replication feature. Zone redundancy alone cannot be relied upon to achieve regional resiliency. For example, in the event of regional outages or low latency access across the regions, it’s helpful to have multiple write regions in addition to zone redundancy. 
+Zone redundancy is a *supplemental capability* to the [multi-master replication](how-to-multi-master.md) feature. Zone redundancy alone cannot be relied upon to achieve regional resiliency. For example, in the event of regional outages or low latency access across the regions, it’s advised to have multiple write regions in addition to zone redundancy. 
 
-You can opt into zone redundancy when configuring a multi-region writes for your Azure Cosmos account at no extra cost. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
+When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
 
-This feature is available in preview mode with limited availability in following azure regions:
+This feature is available in preview mode with limited availability in following Azure regions:
 
-* Southeast Asia 
 * UK South
+* Southeast Asia 
+
 
 
 > [!NOTE] 
@@ -73,7 +74,7 @@ This feature is available in preview mode with limited availability in following
 
 The following table summarizes the high availability capability of various account configurations: 
 
-|KPI  |Single Region without Availability Zones (Non-AZ)  |Single Region with Availability Zones (AZ)  |Multi-regions with Availability Zones (AZ, 2 regions) – Recommended Setting |
+|KPI  |Single Region without Availability Zones (Non-AZ)  |Single Region with Availability Zones (AZ)  |Multi-regions with Availability Zones (AZ, 2 regions) – Most Recommended Setting |
 |---------|---------|---------|---------|
 |Write availability SLA     |   99.99%      |    99.99%     |  99.999%  |
 |Read availability SLA   |   99.99%      |   99.99%      |  99.999%       |
@@ -86,7 +87,7 @@ The following table summarizes the high availability capability of various accou
 |Regional outage –availability  |  Availability loss       |  Availability loss       |  No availability loss  |
 |Throughput    |  X RU/s provisioned throughput      |  X RU/s provisioned throughput       |  2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions.   |
 
-You can enable zone redundancy when adding a region for new or existing Azure Cosmos accounts. Currently, you can only enable zone redundancy by using PowerShell or Azure Resource Manager templates. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following powershell snippet enables zone redundancy for the "Southeast Asia" region:
+You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. Currently, you can only enable zone redundancy by using PowerShell or Azure Resource Manager templates. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following powershell snippet enables zone redundancy for the "Southeast Asia" region:
 
 ```powershell
 $locations = @( 
