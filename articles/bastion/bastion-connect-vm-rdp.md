@@ -24,6 +24,12 @@ This article shows you how to securely and seamlessly RDP to your Windows VMs in
 
 Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network. In this preview, Bastion assumes that you are using RDP to connect to a Windows VM, and SSH to connect to your Linux VMs. For information about connection to a Linux VM, see [Connect to a VM - Linux](bastion-connect-vm-ssh.md).
 
+In order to make a connection, the following roles are required:
+
+* Reader role on the virtual machine
+* Reader role on the NIC with private IP of the virtual machine
+* Reader role on the Azure Bastion resource
+
 ## <a name="rdp"></a>Connect using RDP
 
 1. In the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Windows virtual machine when using an RDP connection.

@@ -31,6 +31,12 @@ The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVA
 
 Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network. In this preview, when you use Bastion to connect, it assumes that you are using RDP to connect to a Windows VM, and SSH to connect to your Linux VMs.
 
+In order to make a connection, the following roles are required:
+
+* Reader role on the virtual machine
+* Reader role on the NIC with private IP of the virtual machine
+* Reader role on the Azure Bastion resource
+
 ## <a name="username"></a>Connect: Using username and password
 
 

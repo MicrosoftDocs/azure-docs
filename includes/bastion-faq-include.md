@@ -30,6 +30,14 @@ You don't need to install an agent or any software on your browser or on your Az
 
 During the public preview, use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
 
+## <a name="roles"></a>Are any roles required to access a virtual machine?
+
+In order to make a connection, the following roles are required:
+
+* Reader role on the virtual machine
+* Reader role on the NIC with private IP of the virtual machine
+* Reader role on the Azure Bastion resource
+
 ## <a name="regions"></a>What regions are available during preview?
 
 You can deploy and use the Bastion resource in any of these preview regions via the [Azure portal - preview link](https://aka.ms/BastionHost).
