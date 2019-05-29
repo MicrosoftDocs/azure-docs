@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Develop IoT Edge modules for Windows devices
 
-Use Visual Studio 2017 to develop and deploy code to Windows devices running IoT Edge.
+Use Visual Studio to develop and deploy code to Windows devices running IoT Edge.
 
 In the quickstart, you created an IoT Edge device using a Windows virtual machine and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for all the other tutorials, which will go into more detail about specific programming languages or Azure services. 
 
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up your development machine.
-> * Use the IoT Edge tools for Visual Studio 2017 to create a new project.
+> * Use the IoT Edge tools for Visual Studio to create a new project.
 > * Build your project as a container and store it in an Azure container registry.
 > * Deploy your code to an IoT Edge device. 
 
@@ -36,17 +36,17 @@ This tutorial walks through the development of an IoT Edge module. An *IoT Edge 
 
 When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For Windows container development, this concept is simpler because Windows containers only run on Windows operating systems. But you could, for example, use your Windows development machine to build modules for Linux IoT Edge devices. In that scenario, you'd have to make sure that your development machine was running Linux containers. As you go through this tutorial, keep in mind the difference between *development machine OS* and the *container OS*.
 
-This tutorial targets Windows devices running IoT Edge. Windows IoT Edge devices use Windows containers. We recommend using Visual Studio 2017 to develop for Windows devices, so that's what this tutorial will use. You can use Visual Studio Code as well, although there are differences in support between the two tools.
+This tutorial targets Windows devices running IoT Edge. Windows IoT Edge devices use Windows containers. We recommend using Visual Studio to develop for Windows devices, so that's what this tutorial will use. You can use Visual Studio Code as well, although there are differences in support between the two tools.
 
-The following table lists the supported development scenarios for **Windows containers** in Visual Studio Code and Visual Studio 2017.
+The following table lists the supported development scenarios for **Windows containers** in Visual Studio Code and Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Azure services** | Azure Functions <br> Azure Stream Analytics |   |
 | **Languages** | C# (debugging not supported) | C <br> C# |
-| **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-This tutorial teaches the development steps for Visual Studio 2017. If you would rather use Visual Studio Code, refer to the instructions in [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
+This tutorial teaches the development steps for Visual Studio 2019. If you would rather use Visual Studio Code, refer to the instructions in [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md). If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
 
 ## Prerequisites
 
@@ -89,19 +89,19 @@ Use the Docker documentation to install on your development machine:
 
 ## Set up Visual Studio and tools
 
-Use the IoT extensions for Visual Studio 2017 to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio and the IoT Edge extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio. 
+Use the IoT extensions for Visual Studio 2019 to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio and the IoT Edge extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio. 
 
-1. If you don't already have Visual Studio on your development machine, [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) with the following workloads: 
+1. If you don't already have Visual Studio on your development machine, [Install Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) with the following workloads: 
 
    * Azure development
    * Desktop development with C++
    * .NET Core cross-platform development
 
-1. If you do already have Visual Studio 2017 on your development machine, make sure that its version is 15.7 or higher. Follow the steps in [Modify Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017) to add the required workloads if you don't have them already.
+1. If you do already have Visual Studio 2019 on your development machine. Follow the steps in [Modify Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) to add the required workloads if you don't have them already.
 
-2. Download and install the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extension for Visual Studio 2017. 
+2. Download and install the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension for Visual Studio 2019. 
 
-3. When your installations are complete, open Visual Studio.
+3. When your installations are complete, open Visual Studio 2019 and select **Continue without code**.
 
 4. Select **View** > **Cloud Explorer**. 
 
@@ -117,21 +117,24 @@ Use the IoT extensions for Visual Studio 2017 to develop IoT Edge modules. These
 
 ## Create a new module project
 
-The Azure IoT Edge Tools extension provides project templates for all supported IoT Edge module languages in Visual Studio 2017. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
+The Azure IoT Edge Tools extension provides project templates for all supported IoT Edge module languages in Visual Studio. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
 
-1. Run Visual Studio as an administrator.
+1. Select **File** > **New** > **Project...**
 
-2. Select **File** > **New** > **Project**. 
-
-3. In the new project window, select the **Azure IoT** project type and choose the **Azure IoT Edge** project. Rename the project and solution, or accept the default **AzureIoTEdgeApp1**. Select **OK** to create the project. 
+2. In the new project window, 2. In the new project window, search **IoT Edge** project and choose the **Azure IoT Edge (Windows amd64)** project. Click **Next**. 
 
    ![Create a new Azure IoT Edge project](./media/tutorial-develop-for-windows/new-project.png)
+
+3. In the configure your new project window, rename the project and solution to something descriptive like **CTutorialApp**. Click **Create** to create the project.
+
+   ![Configure a new Azure IoT Edge project](./media/tutorial-develop-for-windows/configure-project.png)
+ 
 
 4. In the IoT Edge application and module window, configure your project with the following values: 
 
    | Field | Value |
    | ----- | ----- |
-   | Application platform | Uncheck **Linux Amd64**, and check **WindowsAmd64**. |
+
    | Select a template | Select **C Module**. | 
    | Module project name | Accept the default **IoTEdgeModule1**. | 
    | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/iotedgemodule1. |
@@ -327,7 +330,7 @@ The commands in this section are for your IoT Edge device, not your development 
 
 ## Next steps
 
-In this tutorial, you set up Visual Studio 2017 on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language: 
+In this tutorial, you set up Visual Studio 2019 on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language: 
 
 > [!div class="nextstepaction"] 
 > [C](tutorial-c-module-windows.md)
