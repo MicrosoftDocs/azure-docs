@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
 
@@ -20,36 +20,59 @@ ms.custom: seodec18
 
 # Use an SSL certificate in your application code in Azure App Service
 
-This how-to guide shows how to use one of SSL certificates you have uploaded or imported into your App Service app in your application code. An example of the use case is that your app accesses an external service that requires certificate authentication. 
+This how-to guide shows how to use public or private certificates in your application code. An example of the use case is that your app accesses an external service that requires certificate authentication.
 
-This approach to using SSL certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above. An alternative is to include the certificate file in your application directory and load it directly (see [Alternative: load certificate as a file](#file)). However, this alternative does not let you hide the private key in the certificate from the application code or the developer. Furthermore, if your application code is in an open source repository, keeping a certificate with a private key in the repository is not an option.
+This approach to using certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above. Alternatively, you can [include the certificate file in your app repository](#load-certificate-from-file), but it's not a recommended practice for private certificates.
 
 When you let App Service manage your SSL certificates, you can maintain the certificates and your application code separately and safeguard your sensitive data.
 
-## Prerequisites
+## Upload a private certificate
 
-To complete this how-to guide:
+Before uploading a private certificate, make sure [it satisfies all the requirements](app-service-web-tutorial-custom-ssl.md#prepare-a-private-certificate), except that it doesn't need to be configured for Server Authentication.
 
-- [Create an App Service app](/azure/app-service/)
-- [Map a custom DNS name to your web app](app-service-web-tutorial-custom-domain.md)
-- [Upload an SSL certificate](app-service-web-tutorial-custom-ssl.md) or [import an App Service Certificate](web-sites-purchase-ssl-web-site.md) to your web app
+When you're ready to upload, run the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
+```azurecli-interactive
+az webapp config ssl upload --name <app-name> --resource-group <resource-group-name> --certificate-file <path-to-PFX-file> --certificate-password <PFX-password> --query thumbprint
+```
 
-## Load your certificates
+Copy the certificate thumbprint and see [Load your certificate](#load-your-certificate).
 
-To use a certificate that is uploaded to or imported into App Service, first make it accessible to your application code. You do this with the `WEBSITE_LOAD_CERTIFICATES` app setting.
+## Upload a public certificate
 
-In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, open your web app page.
+Public certificates are supported in the *.cer* format. To upload a public certificate, the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, and navigate to your app.
 
-In the left navigation, click **SSL certificates**.
+Click **SSL settings** > **Public Certificates (.cer)** > **Upload Public Certificate** from the left navigation of your app.
 
-![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
+In **Name**, type a name for the certificate. In **CER Certificate file**, select your CER file.
 
-All your uploaded and imported SSL certificates for this web app are shown here with their thumbprints. Copy the thumbprint of the certificate you want to use.
+Click **Upload**.
 
-In the left navigation, click **Application settings**.
+![Upload public certificate](./media/app-service-web-ssl-cert-load/private-cert-upload.png)
 
-Add an app setting called `WEBSITE_LOAD_CERTIFICATES` and set its value to the thumbprint of the certificate. To make multiple certificates accessible, use comma-separated thumbprint values. To make all certificates accessible, set the value to `*`. Take note that this will place the certificate into the `CurrentUser\My` store.
+Once the certificate is uploaded, copy the certificate thumbprint and see [Load your certificate](#load-your-certificate).
+
+## Import an App Service certificate
+
+See [Buy and configure an SSL certificate for Azure App Service](web-sites-purchase-ssl-web-site.md).
+
+Once the certificate is imported, copy the certificate thumbprint and see [Load your certificate](#load-your-certificate).
+
+## Load your certificate
+
+To use an uploaded or imported certificate in your app code, first make its thumbprint accessible to your application code with the `WEBSITE_LOAD_CERTIFICATES` app setting.
+
+Set the `WEBSITE_LOAD_CERTIFICATES` app setting to your app by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
+```
+
+To make all your certificates accessible, set the value to `*`.
+
+> [!NOTE]
+> This setting places the certificate in the [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store for most pricing tiers, but in the **Isolated** tier (i.e. app runs in an [App Service Environment](environment/intro.md)), it places the certificate in the [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store.
+>
 
 ![Configure app setting](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 
@@ -85,11 +108,17 @@ certStore.Close();
 ```
 
 <a name="file"></a>
-## Alternative: load certificate as a file
+## Load certificate from file
 
-This section shows how to and load a certificate file that is in your application directory. 
+If you need to load a certificate file from your application directory, it's better to upload it using [FTPS](deploy-ftp.md) instead of [Git](deploy-local-git.md), for example. It's best to keep sensitive data like a private certificate out of source control.
 
-The following C# example loads a certificate called `mycert.pfx` from the `certs` directory of your app's repository.
+Even though you're loading the file directly in your .NET code, the library still verifies if the current user profile is loaded. To load the current user profile, set the `WEBSITE_LOAD_USER_PROFILE` app setting by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+```
+
+Once this setting is set, the following C# example loads a certificate called `mycert.pfx` from the `certs` directory of your app's repository.
 
 ```csharp
 using System;
@@ -102,4 +131,3 @@ string certPath = Server.MapPath("~/certs/mycert.pfx");
 X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
 ...
 ```
-
