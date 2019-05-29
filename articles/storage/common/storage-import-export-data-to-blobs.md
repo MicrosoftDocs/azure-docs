@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/29/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -53,7 +53,7 @@ Perform the following steps to prepare the drives.
 6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
     ```
     A journal file is created in the same folder where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
     
@@ -63,12 +63,12 @@ Perform the following steps to prepare the drives.
     |---------|---------|
     |/j:     |The name of the journal file, with the .jrn extension. A journal file is generated per drive. We recommend that you use the disk serial number as the journal file name.         |
     |/id:     |The session ID. Use a unique session number for each instance of the command.      |
-    |/sk:     |The Azure Storage account key.         |
     |/t:     |The drive letter of the disk to be shipped. For example, drive `D`.         |
     |/bk:     |The BitLocker key for the drive. Its numerical password from output of `manage-bde -protectors -get D:`      |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage.         |
     |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
+    |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed during the upload of block blobs to Azure.          |
 7. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
     
     > [!IMPORTANT]

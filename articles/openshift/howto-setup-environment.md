@@ -4,7 +4,7 @@ description: Here are the prerequisites for working with Microsoft Azure Red Hat
 services: openshift
 keywords:  red hat openshift setup set up
 author: jimzim
-ms.author: twhitney
+ms.author: jzim
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
