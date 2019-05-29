@@ -23,11 +23,14 @@ The Azure Content Moderator API is a cognitive service that checks text, image, 
 
 The following are a few scenarios in which a software developer or team would use Content Moderator:
 
-- Online marketplaces that moderate product catalogs and other user-generated content
-- Gaming companies that moderate user-generated game artifacts and chat rooms
-- Social messaging platforms that moderate images, text, and videos added by their users
-- Enterprise media companies that implement centralized moderation for their content
-- K-12 education solution providers filtering out content that is inappropriate for students and educators
+- Online marketplaces that moderate product catalogs and other user-generated content.
+- Gaming companies that moderate user-generated game artifacts and chat rooms.
+- Social messaging platforms that moderate images, text, and videos added by their users.
+- Enterprise media companies that implement centralized moderation for their content.
+- K-12 education solution providers filtering out content that is inappropriate for students and educators.
+
+> [!NOTE]
+> You cannot use Content Moderator to detect illegal child exploitation images. However, qualified organizations can use the [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") to screen for this type of content.
 
 ## What it includes
 

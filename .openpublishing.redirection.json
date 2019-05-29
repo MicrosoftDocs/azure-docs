@@ -37314,6 +37314,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/FAQs.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/sdk-and-samples.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/samples-dotnet",
       "redirect_document_id": false
