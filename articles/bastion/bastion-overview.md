@@ -23,14 +23,6 @@ Azure Bastion lets you to securely and seamlessly RDP & SSH directly to your VMs
 
 Once you provision an Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all your VMs in the same virtual network. The deployment is per virtual network, not per subscription/account or virtual machine.
 
-You do not need to onboard in order to participate in the public preview. Use the steps in [this article](bastion-create-host-portal.md) to create a new Azure Bastion resource. Currently, when accessing and using this service, you must use the [Azure portal - preview](https://aka.ms/BastionHost), rather than the regular Azure portal.
-
-The public preview is limited to the following Azure public regions:
-
-[!INCLUDE [region](../../includes/bastion-regions-include.md)]
-
-## <a name="faq"></a>FAQ
-
 [!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]
 
 ## Next steps
