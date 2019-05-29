@@ -17,7 +17,7 @@ ms.date: 05/24/2019
 ms.author: rogirdh
 ms.custom: 
 ---
-# (Preview) Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
+# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure (preview)
 
 Microsoft and Oracle have partnered to provide low latency, high throughput cross-cloud connectivity, allowing you to take advantage of the best of both clouds. 
 
@@ -64,10 +64,9 @@ Additionally, you can set up [security lists](https://docs.cloud.oracle.com/iaas
  
 ## Identity
 
-Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.md) (AAD).
-AAD is Microsoft’s cloud-based identity and access management service. It helps your employees and users sign in and access various resources. AAD also allows you to manage your users and their permissions.
+Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.md) (Azure AD). Azure AD is Microsoft’s cloud-based identity and access management service. It helps your employees and users sign in and access various resources. Azure AD also allows you to manage your users and their permissions.
 
-Currently, this integration allows you to manage in one central location, which is Azure Active Directory. AAD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
+Currently, this integration allows you to manage in one central location, which is Azure Active Directory. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
 

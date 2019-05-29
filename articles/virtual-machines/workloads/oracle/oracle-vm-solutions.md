@@ -97,7 +97,9 @@ In addition to having an HA and DR solution architected in Azure, you should hav
   * Use the same private and public port numbers for load balanced endpoints dedicated to T3 access.
   * Include the following JVM parameter when starting WebLogic Server:
 
-         `-Dweblogic.rjvm.enableprotocolswitch=true`
+    ```
+    -Dweblogic.rjvm.enableprotocolswitch=true
+    ```
 
 For related information, see KB article **860340.1** at <https://support.oracle.com>.
 

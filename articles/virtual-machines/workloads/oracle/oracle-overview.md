@@ -49,7 +49,7 @@ Run enterprise applications in Azure on supported Oracle operating systems. The 
 
 * Enable Oracle Real Application Clusters (RAC) in Azure using [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
-## Preview - Integration of Azure with OCI
+## Integration of Azure with OCI (preview)
 
 Run Oracle applications in Azure infrastructure, connected to backend databases in Oracle Cloud Infrastructure (OCI). This solution uses the following capabilities: 
 
@@ -58,7 +58,7 @@ Run Oracle applications in Azure infrastructure, connected to backend databases 
 
 ### Deploy Oracle applications on Azure
 
-Use Terraform templates to set up Oracle applications validated and supported to run in the cross-cloud configuration and enabled to run in Azure:
+Use Terraform templates to set up Azure infrastructure and install Oracle applications validated and supported to run in the cross-cloud configuration:
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
