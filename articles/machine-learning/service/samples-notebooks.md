@@ -26,7 +26,8 @@ This article shows you how to access the repository from the following developme
 - [Data Science Virtual Machine (DSVM)](#data-science-virtual-machine)
 - [Azure Notebooks](#azure-notebooks)
 
-Once you've cloned the repository, you can find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
+> [!NOTE]
+> Once you've cloned the repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
 
 ## Azure Machine Learning Notebook VM
 
