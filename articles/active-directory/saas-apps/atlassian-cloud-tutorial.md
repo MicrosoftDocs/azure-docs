@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 05/29/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -193,19 +193,19 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 To enable Azure AD users to sign in to Atlassian Cloud, provision the user accounts manually in Atlassian Cloud by doing the following:
 
-1. In the **Administration** pane, select **Users**.
+1. Sign in to the Atlassian Cloud as an Administrator, select specific **product** and then click **Users** in the **Administration** pane.
 
 	![The Atlassian Cloud Users link](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_14.png)
 
-2. To create a user in Atlassian Cloud, select **Invite user**.
+2. To create a user in Atlassian Cloud, select **Invite users**.
 
 	![Create an Atlassian Cloud user](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png)
 
-3. In the **Email address** box, enter the user's email address, and then assign the application access.
+3. In the **Email address(es)** text box, enter the user's email address, and then assign the application access.
 
 	![Create an Atlassian Cloud user](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_16.png)
 
-4. To send an email invitation to the user, select **Invite users**. An email invitation is sent to the user and, after accepting the invitation, the user is active in the system.
+4. To send an email invitation to the user, select **Invite user**. An email invitation is sent to the user and, after accepting the invitation, the user is active in the system.
 
 > [!NOTE]
 > You can also bulk-create users by selecting the **Bulk Create** button in the **Users** section.
