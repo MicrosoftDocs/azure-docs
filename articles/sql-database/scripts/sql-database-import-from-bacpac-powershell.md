@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 05/24/2019
 ---
 # Use PowerShell to import a BACPAC file into an Azure SQL database
 

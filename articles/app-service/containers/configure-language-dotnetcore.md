@@ -47,7 +47,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard ASP.NET pattern:
+In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard ASP.NET pattern:
 
 ```csharp
 include Microsoft.Extensions.Configuration;

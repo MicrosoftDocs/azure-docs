@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/10/2019
+ ms.date: 05/28/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -88,6 +88,4 @@ Prices vary depending on the storage type and availability that you select.
   * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
 
 See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different storage types and availability options.
-
-
 
