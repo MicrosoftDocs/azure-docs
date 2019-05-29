@@ -18,12 +18,16 @@
         href: server-migrate-overview.md
       - name: Migrate VMware VMs with agentless migration
         href: tutorial-migrate-vmware.md
+      - name: Migrate VMware VMs with agent-based migration
+        href: tutorial-migrate-vmware-agent.md
   - name: Hyper-V assessment and migration
     items:
     - name: Prepare Hyper-V for assessment and migration
       href: tutorial-prepare-hyper-v.md
     - name: Assess Hyper-V VMs for migration
       href: tutorial-assess-hyper-v.md
+    - name: Migrate Hyper-V VMs
+      href: tutorial-migrate-hyper-v.md
 - name: Concepts
   items:
   - name: Azure Migrate architecture
