@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 05/09/2019
 ms.author: crdun
 ---
 # Create an iOS app
@@ -26,15 +26,14 @@ This tutorial shows how to add [Azure App Service Mobile Apps](app-service-mobil
 
 To complete this tutorial, you need a Mac and [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 
-## Step I: Create a new Azure mobile app backend
+## Create a new Azure mobile app backend
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Step II: Configure the backend project
-
+## Create a database connection and configure the client and server project
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Step III: Download and run the iOS app
+## Run the iOS app
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

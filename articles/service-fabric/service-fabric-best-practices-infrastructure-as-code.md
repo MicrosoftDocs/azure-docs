@@ -92,6 +92,47 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
 microservices_sfpkg.close()
 ```
 
+## Azure Virtual Machine Operating System Automatic Upgrade Configuration 
+Upgrading your virtual machines is a user initiated operation, and it is recommended that you use [Virtual Machine Scale Set Automatic Operating System upgrade](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) for Azure Service Fabric clusters host patch management; Patch Orchestration Application is an alternative solution that is intended for when hosted outside of Azure, although POA can be used in Azure, with overhead of hosting POA in Azure being a common reason to prefer Virtual Machine Operating System Automatic Upgrade over POA. The following are the Compute Virtual Machine Scale Set Resource Manager template properties to enable Auto OS upgrade:
+
+```json
+"upgradePolicy": {
+   "mode": "Automatic",
+   "automaticOSUpgradePolicy": {
+        "enableAutomaticOSUpgrade": true,
+        "disableAutomaticRollback": false
+    }
+},
+```
+When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out one Update Domain at a time to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher.
+
+Ensure the following registry key is set to false to prevent your windows host machines from initiating uncoordinated updates: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+
+The following are the Compute Virtual Machine Scale Set Resource Manager template properties to set the WindowsUpdate registry key to false:
+```json
+"osProfile": {
+        "computerNamePrefix": "{vmss-name}",
+        "adminUsername": "{your-username}",
+        "secrets": [],
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "enableAutomaticUpdates": false
+        }
+      },
+```
+
+## Azure Service Fabric Cluster Upgrade Configuration
+The following is the Service Fabric cluster Resource Manager template property to enable automatic upgrade:
+```json
+"upgradeMode": "Automatic",
+```
+To manually upgrade your cluster, download the cab/deb distribution to a cluster virtual machine, and then invoke the following PowerShell:
+```powershell
+Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
+Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
+Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
+```
+
 ## Next steps
 
 * Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)

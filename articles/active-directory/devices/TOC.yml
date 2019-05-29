@@ -22,6 +22,8 @@
   items:
   - name: SSO to on-premises resources
     href: azuread-join-sso.md
+  - name: Azure managed workstations
+    href: concept-azure-managed-workstation.md
 - name: How-to guides
   expanded: true
   items:
@@ -39,6 +41,8 @@
     href: assign-local-admin.md
   - name: Enable enterprise state roaming
     href: enterprise-state-roaming-enable.md
+  - name: Deploy Azure managed workstations
+    href: howto-azure-managed-workstation.md
   - name: Troubleshoot hybrid Azure AD joined Windows current devices
     href: troubleshoot-hybrid-join-windows-current.md
   - name: Troubleshoot hybrid Azure AD joined legacy Windows devices

@@ -30,7 +30,7 @@ If you want to add a new, empty data disk on your VM, use the [az vm disk attach
 az vm disk attach \
    -g myResourceGroup \
    --vm-name myVM \
-   --disk myDataDisk \
+   --name myDataDisk \
    --new \
    --size-gb 50
 ```
@@ -42,7 +42,7 @@ To attach an existing disk, find the disk ID and pass the ID to the [az vm disk 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 
-az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
+az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
 ## Connect to the Linux VM to mount the new disk
