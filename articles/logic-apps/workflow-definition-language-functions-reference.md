@@ -475,6 +475,8 @@ And returns this result:
 }
 ```
 
+## All functions - alphabaetical list
+
 <a name="actions"></a>
 
 ### actions
