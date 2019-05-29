@@ -37,7 +37,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## May 2019
 
-### Breaking change: Future support for only TLS 1.2 protocols on the Application Proxy service
+### Service change: Future support for only TLS 1.2 protocols on the Application Proxy service
 
 **Type:** Plan for change  
 **Service category:** App Proxy  
@@ -105,13 +105,13 @@ For more information about the identity security score feature, see [What is the
 
 ---
 
-### New app registration experience is now available (General availability)
+### New App registrations experience is now available (General availability)
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** Developer Experience
 
-The new app registration experience is now in general availability. This new experience includes all the features you’re familiar with from the [Azure portal](https://portal.azure.com/) and the [Application Registration portal](http://apps.dev.microsoft.com/), but improves upon them by providing:
+The new App registrations experience is now in general availability. This new experience includes all the features you’re familiar with from the [Azure portal](https://portal.azure.com/) and the [Application Registration portal](http://apps.dev.microsoft.com/), but improves upon them by providing:
 
 - **Better app management.** Instead of seeing your apps across different portals, you can now see all your apps in one location.
 
@@ -119,14 +119,14 @@ The new app registration experience is now in general availability. This new exp
 
 - **More detailed information.** You can find more details about your app, including quick start guides and more.
 
-For more information, see [Microsoft identity platform]( https://docs.microsoft.com/azure/active-directory/develop/).
+For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/) and the following [//build 2019: Celebrating 1M third-party active apps, the Microsoft identity platform, and more](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/build-2019-Celebrating-1M-third-party-active-apps-the-Microsoft/ba-p/501087) blog post.
 
 ---
 
 ### New capabilities available in the Risky Users API for Identity Protection
 
 **Type:** New feature  
-**Service category:** Identity Protection
+**Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
 We're pleased to announce that you can now use the Risky Users API to retrieve users' risk history, dismiss risky users, and to confirm users as compromised. This change helps you to more efficiently update the risk status of your users and understand their risk history.
