@@ -18,7 +18,6 @@ This tutorial describes how to connect to and copy data from your host computer 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prerequisites
 > * Connect to Data Box Heavy
 > * Copy data to Data Box Heavy
 
@@ -246,7 +245,6 @@ Repeat the above steps to copy data on to the second node of the device.
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
-> * Prerequisites
 > * Connect to Data Box Heavy
 > * Copy data to Data Box Heavy
 
