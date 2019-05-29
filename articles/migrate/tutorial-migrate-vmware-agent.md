@@ -392,7 +392,7 @@ In some scenarios, failover requires additional processing that takes around eig
 - Manually remove any Site Recovery provider/agent from the VM. If you migrate VMware VMs or physical servers, uninstall the Mobility service from the VM.
 - For increased resilience:
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
-    - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](azure-to-azure-quickstart.md).
+    - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-quickstart.md).
 - For increased security:
     - Lock down and limit inbound traffic access with Azure Security Center [Just in time administration]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
     - Restrict network traffic to management endpoints with [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview).

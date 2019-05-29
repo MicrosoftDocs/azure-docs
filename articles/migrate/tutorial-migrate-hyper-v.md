@@ -245,7 +245,7 @@ We recommended that for test failover, you choose a network that's isolated from
 
 - The test network should have same number of subnets as your production network. Subnets should have the same names.
 - The test network should use the same IP address range.
-- Update the DNS of the test network with the IP address specified for the DNS VM in **Compute and Network** settings. Read [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations) for more details.
+- Update the DNS of the test network with the IP address specified for the DNS VM in **Compute and Network** settings. Read [test failover considerations for Active Directory](../site-recovery/site-recovery-active-directory.md#test-failover-considerations) for more details.
 
 ### Run a test failover for a single VM
 
