@@ -201,27 +201,23 @@ For more information, see [Azure AD audit log API overview](https://docs.microso
 
 ---
 
-### Administrators can now require users to accept terms of use from the combined registration page
-
-**Type:** New feature  
-**Service category:** Terms of Use  
-**Product capability:** Identity Governance
-
-Administrators can now create a conditional access policy that requires a user to accept an organization's terms of use before registering using the combined registration process.
-
-For more information about conditional access policies for the combined registration process, see [Conditional access policies for combined registration](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration). For more information about the Azure AD terms of use feature, see [Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
-
----
-
-[730466](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=730466&triage=true&fullScreen=false&_a=edit)
-
-### Conditional access for the Azure AD combined MFA and password reset registration experience public preview
+### Administrators can now use conditional access for the combined registration process (Public preview)
 
 **Type:** New feature  
 **Service category:** Conditional Access  
-**Product capability:** Identity Security & Protection
+**Product capability:** Identity Security & Protection  
 
-For more information, see this blog: https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348
+Administrators can now create conditional access policies for use by the combined registration page. This includes applying policies to allow registration if:
+
+- Users are on a trusted network.
+
+- Users are a low sign-in risk.
+
+- Users are on a managed device.
+
+- Users agree to the organization’s terms of use (TOU).
+
+For more information about conditional access and password reset, you can see the [Conditional access for the Azure AD combined MFA and password reset registration experience blog post](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348). For more information about conditional access policies for the combined registration process, see [Conditional access policies for combined registration](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration). For more information about the Azure AD terms of use feature, see [Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
