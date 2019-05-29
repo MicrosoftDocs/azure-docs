@@ -6,7 +6,7 @@
     - name: What is VMware Solution by CloudSimple
       href: cloudsimple-vmware-solutions-overview.md
     - name: Key concepts for administration
-      href: https://docs.azure.cloudsimple.com/key-concepts/
+      href: key-concepts.md
   - name: Quickstart
     expanded: true
     items:
@@ -21,7 +21,7 @@
   - name: Concepts
     items:
     - name: Service
-      href: https://docs.azure.cloudsimple.com/cloudsimple-service/
+      href: cloudsimple-service.md
     - name: Nodes
       href: cloudsimple-node.md
     - name: Private cloud
@@ -45,13 +45,13 @@
     - name: VMware on private cloud
       href: vmware-components.md
     - name: Security overview
-      href: https://docs.azure.cloudsimple.com/cloudsimple-security/
+      href: cloudsimple-security.md
     - name: Node quota
       href: node-quota.md
     - name: Maintenance and updates
       href: cloudsimple-maintenance-updates.md
     - name: FAQ
-      href: https://docs.azure.cloudsimple.com/cloudsimple-faq/
+      href: cloudsimple-faq.md
   - name: Tutorials
     items:
     - name: Enable resource provider
