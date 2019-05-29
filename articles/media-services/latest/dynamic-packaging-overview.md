@@ -91,10 +91,32 @@ Dynamic Packaging supports MP4 files, which contain video encoded with [H.264](h
 
 ## Audio codecs supported by dynamic packaging
 
-Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 or E-AC3), Dolby Atmos, or [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless). Streaming of Dolby Atmos content is supported for standards like MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
+### MP4 files support
 
-> [!NOTE]
-> Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
+Dynamic Packaging supports MP4 files, which contain audio encoded with 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 or E-AC3)
+* Dolby Atmos
+   
+   Streaming of Dolby Atmos content is supported for standards like MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DTS codecs supported by DASH-CSF, DASH-CMAF, HLS-M2TS, and HLS-CMAF packaging formats are:  
+
+    * DTS Digital Surround (dtsc)
+    * DTS-HD High Resolution and DTS-HD Master Audio  (dtsh)
+    * DTS Express (dtse)
+    * DTS-HD Lossless (no core) (dtsl)
+
+### HLS support
+
+Dynamic Packaging supports HLS (version 4 or above) for Assets that have multiple audio tracks with multiple codecs and languages.
+
+### Not supported
+
+Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
 
 ## Dynamic Encryption
 
