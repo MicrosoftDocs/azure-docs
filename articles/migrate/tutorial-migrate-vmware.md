@@ -257,7 +257,7 @@ After you've verified that the test migration works as expected, you can migrate
     - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
     - If you don't want to shut down the VM, select **No**
 
-    ![Migrate VMs](./media/tutorial-migrate-vmware/migrate clean-up.png) 
+    ![Migrate VMs](./media/tutorial-migrate-vmware/clean-up.png) 
 3. Click **OK**.
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
