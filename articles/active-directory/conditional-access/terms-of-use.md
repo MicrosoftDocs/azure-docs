@@ -1,24 +1,22 @@
 ---
 title: Terms of use - Azure Active Directory | Microsoft Docs
-description: Describes how to get started using Azure Active Directory terms of use to present information to employees or guests before getting access.
+description: Get started using Azure Active Directory terms of use to present information to employees or guests before getting access.
+
 services: active-directory
-author: rolyon
-manager: mtillman
-editor: ''
-ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/23/2019
-ms.author: rolyon
+ms.topic: conceptual
+ms.date: 05/29/2019
+
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: jocastel
 
 ms.collection: M365-identity-device-management
 ---
+# Azure Active Directory terms of use
 
-# Azure Active Directory terms of use feature
 Azure AD terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with terms of use.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
@@ -34,7 +32,9 @@ For additional videos, see:
 - [How to roll out terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## What can I do with terms of use?
+
 Azure AD terms of use has the following capabilities:
+
 - Require employees or guests to accept your terms of use before getting access.
 - Require employees or guests to accept your terms of use on every device before getting access.
 - Require employees or guests to accept your terms of use on a recurring schedule.
@@ -50,140 +50,136 @@ Azure AD terms of use has the following capabilities:
 - Create and manage terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
 
 ## Prerequisites
+
 To use and configure Azure AD terms of use, you must have:
 
 - Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.
-    - If you don't have one of theses subscriptions, you can [get Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) or [enable Azure AD Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+   - If you don't have one of theses subscriptions, you can [get Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) or [enable Azure AD Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 - One of the following administrator accounts for the directory you want to configure:
-    - Global Administrator
-    - Security Administrator
-    - Conditional Access Administrator
+   - Global Administrator
+   - Security Administrator
+   - Conditional Access Administrator
 
 ## Terms of use document
 
 Azure AD terms of use uses the PDF format to present content. The PDF file can be any content, such as existing contract documents, allowing you to collect end-user agreements during user sign-in. To support users on mobile devices, the recommended font size in the PDF is 24 point.
 
 ## Add terms of use
+
 Once you have finalized your terms of use document, use the following procedure to add it.
 
 1. Sign in to Azure as a Global Administrator, Security Administrator, or Conditional Access Administrator.
-
 1. Navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
-    ![Terms of use blade](./media/terms-of-use/tou-blade.png)
+   ![Terms of use blade](./media/terms-of-use/tou-blade.png)
 
 1. Click **New terms**.
 
-    ![Add TOU](./media/terms-of-use/new-tou.png)
+   ![Add TOU](./media/terms-of-use/new-tou.png)
 
 1. In the **Name** box, enter a name for the terms of use that will be used in the Azure portal.
-
 1. In the **Display name** box, enter a title that users see when they sign in.
-
 1. For **Terms of use document**, browse to your finalized terms of use PDF and select it.
-
 1. Select the language for your terms of use document. The language option allows you to upload multiple terms of use, each with a different language. The version of the terms of use that an end user will see will be based on their browser preferences.
-
 1. To require end users to view the terms of use prior to accepting them, set **Require users to expand the terms of use** to **On**.
-
 1. To require end users to accept your terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**. For more information, see [Per-device terms of use](#per-device-terms-of-use).
-
 1. If you want to expire terms of use consents on a schedule, set **Expire consents** to **On**. When set to On, two additional schedule settings are displayed.
 
-    ![Expire consents](./media/terms-of-use/expire-consents.png)
+   ![Expire consents](./media/terms-of-use/expire-consents.png)
 
 1. Use the **Expire starting on** and **Frequency** settings to specify the schedule for terms of use expirations. The following table shows the result for a couple of example settings:
 
-    | Expire starting on | Frequency | Result |
-    | --- | --- | --- |
-    | Today's date  | Monthly | Starting today, users must accept the terms of use and then reaccept every month. |
-    | Date in the future  | Monthly | Starting today, users must accept the terms of use. When the future date occurs, consents will expire and then users must reaccept every month.  |
+   | Expire starting on | Frequency | Result |
+   | --- | --- | --- |
+   | Today's date  | Monthly | Starting today, users must accept the terms of use and then reaccept every month. |
+   | Date in the future  | Monthly | Starting today, users must accept the terms of use. When the future date occurs, consents will expire and then users must reaccept every month.  |
 
-    For example, if you set the expire starting on date to **Jan 1** and frequency to **Monthly**, here is how expirations might occur for two users:
+   For example, if you set the expire starting on date to **Jan 1** and frequency to **Monthly**, here is how expirations might occur for two users:
 
-    | User | First accept date | First expire date | Second expire date | Third expire date |
-    | --- | --- | --- | --- | --- |
-    | Alice | Jan 1 | Feb 1 | Mar 1 | Apr 1 |
-    | Bob | Jan 15 | Feb 1 | Mar 1 | Apr 1 |
+   | User | First accept date | First expire date | Second expire date | Third expire date |
+   | --- | --- | --- | --- | --- |
+   | Alice | Jan 1 | Feb 1 | Mar 1 | Apr 1 |
+   | Bob | Jan 15 | Feb 1 | Mar 1 | Apr 1 |
 
 1. Use the **Duration before re-acceptance requires (days)** setting to specify the number of days before the user must reaccept the terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expirations might occur for two users:
 
-    | User | First accept date | First expire date | Second expire date | Third expire date |
-    | --- | --- | --- | --- | --- |
-    | Alice | Jan 1 | Jan 31 | Mar 2 | Apr 1 |
-    | Bob | Jan 15 | Feb 14 | Mar 16 | Apr 15 |
+   | User | First accept date | First expire date | Second expire date | Third expire date |
+   | --- | --- | --- | --- | --- |
+   | Alice | Jan 1 | Jan 31 | Mar 2 | Apr 1 |
+   | Bob | Jan 15 | Feb 14 | Mar 16 | Apr 15 |
 
-    It is possible to use the **Expire consents** and **Duration before re-acceptance requires (days)** settings together, but typically you use one or the other.
+   It is possible to use the **Expire consents** and **Duration before re-acceptance requires (days)** settings together, but typically you use one or the other.
 
 1. Under **Conditional Access**, use the **Enforce with conditional access policy template** list to select the template to enforce the terms of use.
 
-    ![Conditional access templates](./media/terms-of-use/conditional-access-templates.png)
+   ![Conditional access templates](./media/terms-of-use/conditional-access-templates.png)
 
-    | Template | Description |
-    | --- | --- |
-    | **Access to cloud apps for all guests** | A conditional access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign-out and sign-in. |
-    | **Access to cloud apps for all users** | A conditional access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign-out and sign-in. |
-    | **Custom policy** | Select the users, groups, and apps that this terms of use will be applied to. |
-    | **Create conditional access policy later** | This terms of use will appear in the grant control list when creating a conditional access policy. |
+   | Template | Description |
+   | --- | --- |
+   | **Access to cloud apps for all guests** | A conditional access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign-out and sign-in. |
+   | **Access to cloud apps for all users** | A conditional access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign-out and sign-in. |
+   | **Custom policy** | Select the users, groups, and apps that this terms of use will be applied to. |
+   | **Create conditional access policy later** | This terms of use will appear in the grant control list when creating a conditional access policy. |
 
-    >[!IMPORTANT]
-    >Conditional access policy controls (including terms of use) do not support enforcement on service accounts. We recommend excluding all service accounts from the conditional access policy.
+   >[!IMPORTANT]
+   >Conditional access policy controls (including terms of use) do not support enforcement on service accounts. We recommend excluding all service accounts from the conditional access policy.
 
-     Custom conditional access policies enable granular terms of use, down to a specific cloud application or group of users. For more information, see [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md).
+    Custom conditional access policies enable granular terms of use, down to a specific cloud application or group of users. For more information, see [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md).
 
 1. Click **Create**.
 
-    If you selected a custom conditional access template, then a new screen appears that allows you to create the custom conditional access policy.
+   If you selected a custom conditional access template, then a new screen appears that allows you to create the custom conditional access policy.
 
-    ![Custom policy](./media/terms-of-use/custom-policy.png)
+   ![Custom policy](./media/terms-of-use/custom-policy.png)
 
-    You should now see your new terms of use.
+   You should now see your new terms of use.
 
-    ![Add TOU](./media/terms-of-use/create-tou.png)
+   ![Add TOU](./media/terms-of-use/create-tou.png)
 
 ## View report of who has accepted and declined
+
 The Terms of use blade shows a count of the users who have accepted and declined. These counts and who accepted/declined are stored for the life of the terms of use.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
-    ![Terms of use blade](./media/terms-of-use/view-tou.png)
+   ![Terms of use blade](./media/terms-of-use/view-tou.png)
 
 1. For a terms of use, click the numbers under **Accepted** or **Declined** to view the current state for users.
 
-    ![Terms of use consents](./media/terms-of-use/accepted-tou.png)
+   ![Terms of use consents](./media/terms-of-use/accepted-tou.png)
 
 1. To view the history for an individual user, click the ellipsis (**...**) and then **View History**.
 
-    ![View History menu](./media/terms-of-use/view-history-menu.png)
+   ![View History menu](./media/terms-of-use/view-history-menu.png)
 
-    In the view history pane, you see a history of all the accepts, declines, and expirations.
+   In the view history pane, you see a history of all the accepts, declines, and expirations.
 
-    ![View History pane](./media/terms-of-use/view-history-pane.png)
+   ![View History pane](./media/terms-of-use/view-history-pane.png)
 
 ## View Azure AD audit logs
+
 If you want to view additional activity, Azure AD terms of use includes audit logs. Each user consent triggers an event in the audit logs that is stored for **30 days**. You can view these logs in the portal or download as a .csv file.
 
 To get started with Azure AD audit logs, use the following procedure:
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
-
 1. Select a terms of use.
-
 1. Click **View audit logs**.
 
-    ![Terms of use blade](./media/terms-of-use/audit-tou.png)
+   ![Terms of use blade](./media/terms-of-use/audit-tou.png)
 
 1. On the Azure AD audit logs screen, you can filter the information using the provided lists to target specific audit log information.
 
-    You can also click **Download** to download the information in a .csv file for use locally.
+   You can also click **Download** to download the information in a .csv file for use locally.
 
-    ![Audit logs](./media/terms-of-use/audit-logs-tou.png)
+   ![Audit logs](./media/terms-of-use/audit-logs-tou.png)
 
-    If you click a log, a pane appears with additional activity details.
+   If you click a log, a pane appears with additional activity details.
 
-    ![Activity details](./media/terms-of-use/audit-log-activity-details.png)
+   ![Activity details](./media/terms-of-use/audit-log-activity-details.png)
 
 ## What terms of use looks like for users
+
 Once a terms of use is created and enforced, users, who are in scope, will see the following screen during sign-in.
 
 ![User web sign-in](./media/terms-of-use/user-tou.png)
@@ -199,55 +195,51 @@ The following screen shows how terms of use looks on mobile devices.
 Users are only required to accept the terms of use once and they will not see the terms of use again on subsequent sign-ins.
 
 ### How users can review their terms of use
+
 Users can review and see the terms of use that they have accepted by using the following procedure.
 
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
-
 1. In the upper right corner, click your name and select **Profile**.
 
-    ![Profile](./media/terms-of-use/tou14.png)
+   ![Profile](./media/terms-of-use/tou14.png)
 
 1. On your Profile page, click **Review terms of use**.
 
-    ![Profile - Review terms of use](./media/terms-of-use/tou13a.png)
+   ![Profile - Review terms of use](./media/terms-of-use/tou13a.png)
 
 1. From there, you can review the terms of use you have accepted.
 
 ## Edit terms of use details
+
 You can edit some details of terms of use, but you can't modify an existing document. The following procedure describes how to edit the details.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
-
 1. Select the terms of use you want to edit.
-
 1. Click **Edit terms**.
-
 1. In the Edit terms of use pane, change the name, display name, or require users to expand values.
 
-    If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or conditional access policy, you must create a new terms of use.
+   If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or conditional access policy, you must create a new terms of use.
 
-    ![Edit terms of use](./media/terms-of-use/edit-tou.png)
+   ![Edit terms of use](./media/terms-of-use/edit-tou.png)
 
 1. Click **Save** to save your changes.
 
-    Once you save your changes, users will not have to reaccept these edits.
+   Once you save your changes, users will not have to reaccept these edits.
 
 ## Add a terms of use language
+
 The following procedure describes how to add a terms of use language.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
-
 1. Select the terms of use you want to edit.
-
 1. In the details pane, click the **Languages** tab.
 
-    ![Add TOU](./media/terms-of-use/languages-tou.png)
+   ![Add TOU](./media/terms-of-use/languages-tou.png)
 
 1. Click **Add language**.
-
 1. In the Add terms of use language pane, upload your localized PDF and select the language.
 
-    ![Add TOU](./media/terms-of-use/language-add-tou.png)
+   ![Add TOU](./media/terms-of-use/language-add-tou.png)
 
 1. Click **Add** to add the language.
 
@@ -289,28 +281,29 @@ If a user is using browser that is not supported, they will be asked to use a di
 ![Unsupported browser](./media/terms-of-use/per-device-browser-unsupported.png)
 
 ## Delete terms of use
+
 You can delete old terms of use using the following procedure.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
-
 1. Select the terms of use you want to remove.
-
 1. Click **Delete terms**.
-
 1. In the message that appears asking if you want to continue, click **Yes**.
 
-    ![Delete terms of use](./media/terms-of-use/delete-tou.png)
+   ![Delete terms of use](./media/terms-of-use/delete-tou.png)
 
-    You should no longer see your terms of use.
+   You should no longer see your terms of use.
 
 ## Deleted users and active terms of use
+
 By default, a deleted user is in a deleted state in Azure AD for 30 days, during which time they can be restored by an administrator if necessary. After 30 days, that user is permanently deleted. In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. One a user has been permanently deleted, subsequent data about that user will be removed from the active terms of use. Audit information about deleted users remains in the audit log.
 
 ## Policy changes
+
 Conditional access policies take effect immediately. When this happens, the administrator will start to see “sad clouds” or "Azure AD token issues". The administrator must sign out and sign in again in order to satisfy the new policy.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Users in scope will need to sign-out and sign-in in order to satisfy a new policy if:
+>
 > - a conditional access policy is enabled on a terms of use
 > - or a second terms of use is created
 
