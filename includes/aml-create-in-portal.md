@@ -36,7 +36,7 @@ ms.date: 09/24/2018
    Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources. This location is where the workspace is created.
 
-   ![Create workspace](./media/aml-create-in-portal/workspace-create-Main-tab-05-2019.png)
+   ![Create workspace](./media/aml-create-in-portal/workspace-create-main-tab-05-2019.png)
 
 1. To start the creation process, select **Review + Create**.
 
