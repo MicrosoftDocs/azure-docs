@@ -526,4 +526,4 @@ apply sampling to those items already sampled in the SDK itself.'
 ## Next steps
 
 * [Filtering](../../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
-* [Read this MSDN article](https://msdn.microsoft.com/magazine/mt808502.aspx).
+* Read the Developer Network article [Optimize Telemetry with Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).
