@@ -26,24 +26,16 @@ To access the Translator Text API you will need to [sign up for Microsoft Azure]
 ## Authorization
 All calls to Translator Text API require a subscription key to authenticate. The API supports three modes of authentication:
 
-<ul>
-<li> 
-    Using an access token. Use the subscription key referenced in **step** 9 to generate an access token by making a POST request to the authorization service. See the token service documentation for details. Pass the access token to the Translator service using the Authorization header or the access_token query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests within these 10 minutes.
-</li><br/>
-<li>
-Using a subscription key directly. Pass your subscription key as a value in `Ocp-Apim-Subscription-Key` header included with your request to the Translator API. In this mode, you do not have to call the authentication token service to generate an access token.
-</li><br/>
-<li>
-Using a [Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This allows you to use a single secret key to authenticate requests for multiple services. <br/>
-When you use a multi-service secret key, you must include two authentication headers with your request. The first passes the secret key, the second specifies the region associated with your subscription. 
-<br/><ul>
-<li>`Ocp-Apim-Subscription-Key`</li>
-<li>`Ocp-Apim-Subscription-Region`</li><br/>
-</ul>
-Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
-<br/><br/>
-Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
-</ul>
+- An access token. Use the subscription key referenced in **step** 9 to generate an access token by making a POST request to the authorization service. See the token service documentation for details. Pass the access token to the Translator service using the Authorization header or the `access_token` query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests during these 10 minutes.
+- A subscription key directly. Pass your subscription key as a value in the `Ocp-Apim-Subscription-Key` header included with your request to the Translator API. In this mode, you don't have to call the authentication token service to generate an access token.
+- A [Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This mode allows you to use a single secret key to authenticate requests for multiple services. <br/>
+When you use a multi-service secret key, you must include two authentication headers with your request. The first header passes the secret key. The second header specifies the region associated with your subscription:
+   - `Ocp-Apim-Subscription-Key`
+   - `Ocp-Apim-Subscription-Region`
+
+The region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
+
+The available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
 
 Consider your subscription key and the access token as secrets that should be hidden from view.
 
