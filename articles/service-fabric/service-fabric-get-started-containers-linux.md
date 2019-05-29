@@ -137,9 +137,9 @@ docker rm my-web-site
 ## Push the image to the container registry
 After you verify that the application runs in Docker, push the image to your registry in Azure Container Registry.
 
-Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+Run `docker login` to sign in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could sign in using your registry username and password.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -235,11 +235,11 @@ Starting with the latest refresh release of v6.4, you have the option to specify
 
 The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
 
-![HealthCheckHealthy][3]
+![HealthCheckHealthy][1]
 
-![HealthCheckUnhealthyApp][4]
+![HealthCheckUnhealthyApp][2]
 
-![HealthCheckUnhealthyDsp][5]
+![HealthCheckUnhealthyDsp][3]
 
 You can configure **HEALTHCHECK**  behavior for each container by specifying **HealthConfig** options as part of **ContainerHostPolicies** in ApplicationManifest.
 

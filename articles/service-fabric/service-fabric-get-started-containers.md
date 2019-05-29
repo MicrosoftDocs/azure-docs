@@ -171,9 +171,9 @@ docker rm my-web-site
 
 After you verify that the container runs on your development machine, push the image to your registry in Azure Container Registry.
 
-Run ``docker login`` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+Run ``docker login`` to sign in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could sign in using your registry username and password.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -304,8 +304,6 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
 Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
-
-# Add the certificate to all the VMs in the cluster.
 Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
 Encrypt the password using the [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet.
