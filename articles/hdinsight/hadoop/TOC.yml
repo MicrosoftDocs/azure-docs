@@ -423,7 +423,7 @@
     items:
     - name: HDInsight virtual network architecture
       href: ../hdinsight-virtual-network-architecture.md
-    - name: HDInsight restrict outbound traffic
+    - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md

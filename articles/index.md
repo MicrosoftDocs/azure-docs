@@ -987,7 +987,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                            <a href="/azure/cognitive-services/Anomaly-Detector/overview">
                                                 <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                 <p>Anomaly Finder</p>
                                             </a>
@@ -4088,7 +4088,7 @@ featureFlags:
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                                                <a class="barLink" href="/azure/cognitive-services/Anomaly-Detector/overview">
                                                                     <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                                     <span>Anomaly Finder</span>
                                                                 </a>
