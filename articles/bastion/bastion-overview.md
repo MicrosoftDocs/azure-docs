@@ -31,7 +31,7 @@ The public preview is limited to the following Azure public regions:
 
 ## <a name="faq"></a>FAQ
 
-For frequently asked questions about Azure Bastion, see the [FAQ](bastion-faq.md).
+[!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]
 
 ## Next steps
 

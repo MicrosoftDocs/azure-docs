@@ -56,7 +56,7 @@ This section helps you create a new Azure Bastion resource from the Azure portal
     * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
     * **Public IP address name**: The name of the public IP address resource.
     * **Public IP address SKU**: Prepopulated by default to **Standard**.
-    * **Assignment**: Prepopulated by default to Static.
+    * **Assignment**: Prepopulated by default to **Static**.
 
 1. When you have finished specifying the settings, click **Review + Create**. This validates the values. Once validation passes, you can begin the creation process.
 1. On the Create a bastion page, click **Create**.
