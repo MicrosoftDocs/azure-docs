@@ -68,7 +68,7 @@ When you create a custom rule, select **Add custom rule** under **CUSTOM RULES**
 
 Azure-managed Default Rule Set is enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group,  select the **check box** in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
 
- ![Change WAF Rule Set](./media/waf-front-door-create-portal/managed_new.png)
+ ![Change WAF Rule Set](./media/waf-front-door-create-portal/managed.png)
 
 ## Next steps
 
