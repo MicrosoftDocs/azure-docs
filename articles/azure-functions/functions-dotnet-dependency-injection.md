@@ -58,7 +58,7 @@ namespace MyNamespace
 
 ## Using injected dependencies
 
-ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `BloggingService` dependency is injected into a HTTP-triggered function.
+ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `BloggingService` dependency is injected into an HTTP-triggered function.
 
 ```csharp
 namespace MyNamespace
@@ -89,17 +89,17 @@ The use of constructor injection means that you may not build static functions i
 
 ## Service lifetimes
 
-Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes), transient, scoped, and singleton.
+Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): transient, scoped, and singleton.
 
-In a functions app, a scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution.  Later requests for that service during the execution reuse the existing service instance.  A singleton service lifetime matches the host lifetime and is reused across function executions on that instance.
+In a functions app, a scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance. A singleton service lifetime matches the host lifetime and is reused across function executions on that instance.
 
-Singleton lifetime services are recommended for connections and clients, for example a `SqlConnection`, `CloudBlobClient`, or `HttpClient`.
+Singleton lifetime services are recommended for connections and clients, for example `SqlConnection`, `CloudBlobClient`, or `HttpClient` instances.
 
-View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample).
+View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample) on GitHub.
 
 ## Logging services
 
-If you need your own logging provider, the recommended way is to register an `ILoggerProvider`.  For Application Insights, Functions adds Application Insights automatically for you.  
+If you need your own logging provider, the recommended way is to register an `ILoggerProvider` instance. Application Insights is added by Azure Functions automatically.
 
 > [!WARNING]
 > Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
