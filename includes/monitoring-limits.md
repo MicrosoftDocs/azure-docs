@@ -13,7 +13,7 @@ ms.custom: "include file"
 | --- | --- | --- |
 | Autoscale settings |100 per region per subscription. | Same as default. |
 | Metric alerts (classic) |100 active alert rules per subscription. | Call support. |
-| Metric alerts |100 active alert rules per subscription. | Call support. |
+| Metric alerts |1000 active alert rules per subscription (in public clouds) and 100 active alert rules per subscription in Azure China and Azure Government. | Call support. |
 | Activity log alerts | 100 active alert rules per subscription. | Same as default. |
 | Log alerts | 512 | Call support. |
 | Action groups |2,000 action groups per subscription. | Call support. |
