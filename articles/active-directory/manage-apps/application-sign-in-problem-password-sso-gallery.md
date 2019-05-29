@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 Access Panel is a web-based portal. It lets users who have Azure Active Directory (Azure AD) work or school accounts access cloud-based apps that they have permissions for. Users who have Azure AD editions can also use self-service group and app management capabilities through Access Panel. Access Panel is separate from the Azure portal. Users don't need an Azure subscription to use Access Panel.
 
-To use password-based single sign-on (SSO) in Access Panel, the Access Panel extension must be installed in the user’s browser. This extension is downloaded automatically when a user selects an app that's configured for password-based SSO.
+To use password-based single sign-on (SSO) in Access Panel, the Access Panel extension must be installed in the user’s browser. This extension is downloaded automatically when the user selects an app that's configured for password-based SSO.
 
 ## Browser requirements for Access Panel
 
@@ -74,7 +74,7 @@ The prerequisites include:
 
 -   You must have the "Edit settings" permission to edit the Group Policy Object (GPO). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-To configure the group policy and deploy it to users, follow the tutorial [How to Deploy the Access Panel extension for Internet Explorer using Group Policy](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
+To configure the group policy and deploy it to users, see [How to Deploy the Access Panel extension for Internet Explorer using Group Policy](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
 
 ## Troubleshoot Access Panel in Internet Explorer
 
@@ -137,10 +137,10 @@ To configure single sign-on for an app, follow these steps:
 
 9. Assign users to the app.
 
-10. Additionally, you can provide credentials on behalf of user. To do this, follow these steps:
+10. You can also provide credentials on behalf of user. To do this, follow these steps:
     1. Select the rows of those users.
     2. Select **Update Credentials**.
-    3. Enter the user names and passwords on behalf of the users. (Otherwise, the users will be prompted to enter credentials at startup).
+    3. Enter the user names and passwords for the users. (Otherwise, the users will be prompted to enter credentials at startup).
 
 ### Assign users to the app
 
