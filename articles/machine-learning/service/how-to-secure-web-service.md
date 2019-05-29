@@ -14,7 +14,7 @@ ms.date: 04/29/2019
 ms.custom: seodec18
 ---
 
-# Use SSL to secure web a service through Azure Machine Learning
+# Use SSL to secure a web service through Azure Machine Learning
 
 This article shows you how to secure a web service that's deployed through the Azure Machine Learning service.
 
@@ -64,7 +64,7 @@ When you request a certificate, you must provide the FQDN of the address that yo
 > [!WARNING]
 > Use *self-signed* certificates only for development. Don't use them in production environments. Self-signed certificates can cause problems in your client applications. For more information, see the documentation for the network libraries that your client application uses.
 
-## Enable SSL and deploy
+## <a id="enable"></a> Enable SSL and deploy
 
 To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* parameter to "True" wherever it's applicable. Set the *ssl_certificate* parameter to the value of the *certificate* file. Set the *ssl_key* to the value of the *key* file.
 
