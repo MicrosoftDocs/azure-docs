@@ -40,7 +40,12 @@ In [part two](sql-database-tutorial-clustering-model-build.md), you learned how 
 
 ## Create a stored procedure that generates the model
 
-Run the following T-SQL script to create the stored procedure. The procedure stores the resulting customer cluster mappings in the database table **customer_return_clusters**.
+Run the following T-SQL script to create the stored procedure. The procedure recreates the steps developed in parts one and two of this tutorial series:
+
+* classify customers based on their purchase and return history
+* generate four clusters of customers using a K-Means algorithm
+
+The procedure stores the resulting customer cluster mappings in the database table **customer_return_clusters**.
 
 ```sql
 USE [tpcxbb_1gb]
@@ -221,7 +226,7 @@ When you're finished with this tutorial, you can delete the tpcxbb_1gb database 
 From the Azure portal, follow these steps:
 
 1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
-1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
+1. In the **Filter by name...** field, enter **tpcxbb_1gb**, and select your subscription.
 1. Select your **tpcxbb_1gb** database.
 1. On the **Overview** page, select **Delete**.
 

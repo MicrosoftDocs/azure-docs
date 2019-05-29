@@ -32,7 +32,7 @@ In this article, you'll learn how to:
 
 In [part two](sql-database-tutorial-clustering-model-build.md), you'll learn how to create and train a K-Means clustering model.
 
-In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can perform clustering based on new data.
+In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to create a stored procedure in an Azure SQL database that can perform clustering based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -67,14 +67,14 @@ The sample dataset used in this tutorial has been saved to a **.bacpac** databas
 ## Load the data
 
 Create a new RScript file in RStudio and run the following script.
-In this query, you're separating customers along the following dimensions:
+In the SQL query, you're separating customers along the following dimensions:
 
 * **frequency** = return frequency
 * **orderRatio** = return order ratio (total number of orders partially or fully returned versus the total number of orders)
 * **itemsRatio** = return item ratio (total number of items returned versus the number of items purchased)
 * **monetaryRatio** = return amount ratio (total monetary amount of items returned versus the amount purchased)
 
-Replace **Server**, **UID**, and **PWD** with your own connection information.
+In the **paste** function, replace **Server**, **UID**, and **PWD** with your own connection information.
 
 ```r
 # Define the connection string to connect to the tpcxbb_1gb database
@@ -191,7 +191,7 @@ You should see results similar to the following.
 From the Azure portal, follow these steps:
 
 1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
-1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
+1. In the **Filter by name...** field, enter **tpcxbb_1gb**, and select your subscription.
 1. Select your **tpcxbb_1gb** database.
 1. On the **Overview** page, select **Delete**.
 

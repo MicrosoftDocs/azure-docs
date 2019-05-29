@@ -28,7 +28,7 @@ In this article, you'll learn how to:
 
 In [part one](sql-database-tutorial-clustering-model-prepare-data.md), you learned how to prepare the data from an Azure SQL database to perform clustering in R.
 
-In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can perform clustering based on new data.
+In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to create a stored procedure in an Azure SQL database that can perform clustering based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,11 +38,11 @@ In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn 
 
 ## Define the number of clusters
 
-You'll use the **K-Means** clustering algorithm, one of the simplest and most well-known ways of grouping data.
+To cluster your customer data, you'll use the **K-Means** clustering algorithm, one of the simplest and most well-known ways of grouping data.
 You can read more about K-Means in [A complete guide to K-means clustering algorithm](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
 
-The algorithm accepts two inputs: The data itself, and a predefined number "k" representing the number of clusters to generate.
-The output is k clusters with the input data partitioned among the clusters.
+The algorithm accepts two inputs: The data itself, and a predefined number "*k*" representing the number of clusters to generate.
+The output is *k* clusters with the input data partitioned among the clusters.
 
 To determine the number of clusters for the algorithm to use, use a plot of the within groups sum of squares, by number of clusters extracted. The appropriate number of clusters to use is at the bend or "elbow" of the plot.
 
@@ -137,7 +137,7 @@ Here are a couple ways you could interpret these results:
 From the Azure portal, follow these steps:
 
 1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
-1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
+1. In the **Filter by name...** field, enter **tpcxbb_1gb**, and select your subscription.
 1. Select your **tpcxbb_1gb** database.
 1. On the **Overview** page, select **Delete**.
 
