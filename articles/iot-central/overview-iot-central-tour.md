@@ -87,35 +87,27 @@ The analytics page shows charts that help you understand how the devices connect
 
 The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job.md) article.
 
-## Device Templates
+## Device templates
 
-![Device Templates page](media/overview-iot-central-tour/templates.png)
+![Device Templates page](media/overview-iot-central-tour/rules_landing_page1.png)
 
-The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
+* The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
 
-## Event Rules
+* It contains link to the rules where operators, builders, and administrators creates and manages the event rules. To learn more, see the [Create an event rule](howto-create-event-rules.md) article.
 
-The Device template page contains link to the rules where operators, builders, and administrators creates and manages the event rules. An event rule triggers when the selected device event is reported by the device. To learn more, see the [Create an event rule](howto-create-event-rules.md) article.
-
-![Event Rules page](media/overview-iot-central-tour/rules_landing_page1.png)
-
-## Continuous Data Export
+## Continuous data export
 
 ![Continuous Data Export page](media/overview-iot-central-tour/export.png)
 
 The continuous data export page is where an administrator defines how to export data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data.md) article.
 
-## UI Customization
-
-The administration page contains link to Customize our application where administrators customizes the UI of the application by applying custom themes and modifying the help links to point to your own custom help resources. To learn more, see the  [Customize the Azure IoT Central UI](howto-customize-ui.md) article.
-
-![UI Customization](media/overview-iot-central-tour/customizeui.png)
-
 ## Administration
 
 ![Administration page](media/overview-iot-central-tour/administration.png)
 
-The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
+* The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
+
+* It contains link to Customize our application where administrators customizes the UI of the application by applying custom themes and modifying the help links to point to your own custom help resources. To learn more, see the  [Customize the Azure IoT Central UI](howto-customize-ui.md) article.
 
 ## Next steps
 
