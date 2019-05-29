@@ -15,7 +15,7 @@ ms.subservice: blobs
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# Quickstart: Upload, list, and delete blobs using Azure Storage v10 SDK for JavaScript/HTML in the Browser
+# Quickstart: Upload, list, and delete blobs using Azure Storage v10 SDK for JavaScript/HTML in the browser
 
 In this quickstart, you'll learn to use the [Azure Storage SDK V10 for JavaScript - Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) library to manage blobs from JavaScript code running entirely in the browser. The approach used here shows how to use required security measures to ensure protected access to your blob storage account.
 
