@@ -261,7 +261,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 4. Fill in **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
 
-5. Fill in the **Event Types** fields. Uncheck **Subscribe to all event types** and select **Device Connected** and **Device Disconnected** from the menu.
+5. Fill in the **Event Types** fields. In the dropdown list, select only **Device Connected** and **Device Disconnected** from the menu. Click anywhere else on the screen to close the list and save your selections.
 
    ![Set event types to look for](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
@@ -335,7 +335,7 @@ Instead of using the [Azure portal](https://portal.azure.com), you can accomplis
 
 ## Clean up resources
 
-This tutorial used resources that incur charges on your Azure subscription. When you're done trying out the tutorial and testing your results, disable or delete resources that you don't want to keep.
+This tutorial used resources that incur charges on your Azure subscription. When you're finished trying out the tutorial and testing your results, disable or delete resources that you don't want to keep.
 
 If you don't want to lose the work on your logic app, disable it instead of deleting it.
 
