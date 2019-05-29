@@ -5,7 +5,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
-ms.date: 05/08/2019
+ms.date: 09/26/2018
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -145,7 +145,7 @@ webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
 webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Identify the public URL for the service. It ends in `.azds.io`. In the output shown above, the public URL is on the second line.
+Identify the public URL for the service in the output of the `up` command. It ends in `.azds.io`.
 
 Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the *azds trace* terminal window. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
@@ -158,7 +158,12 @@ Open this URL in a browser window, and you should see the web app load. As the c
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
-1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change [line 73 that reads `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) to something like: `<h2>Hello k8s in Azure!</h2>`
+1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change [line 73 that reads `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) to something like: 
+
+    ```html
+    <h2>Hello k8s in Azure!</h2>
+    ```
+
 1. Save the file. Moments later, in the Terminal window you'll see a message saying a file in the running container was updated.
 1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
 

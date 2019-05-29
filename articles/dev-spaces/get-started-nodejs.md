@@ -5,7 +5,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
-ms.date: 05/08/2019
+ms.date: 09/26/2018
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -131,7 +131,7 @@ Scan the console output for information about the public URL that was created by
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identify the public URL for the service. It ends in `.azds.io`.
+Identify the public URL for the service in the output of the `up` command. It ends in `.azds.io`.
 
 Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the *azds trace* terminal window. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
@@ -225,7 +225,15 @@ Similar to the `up` command, code is synced to the development environment when 
 
 ![](media/common/vscode-status-bar-url.png)
 
-Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` on [line 13 of `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). Refresh the browser page, or press the 'Say It Again' button, and you should hit the breakpoint and be able to step through code.
+Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` on [line 13 of `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
+
+    ```javascript
+    app.get('/api', function (req, res) {
+        res.send('Hello from webfrontend');
+    });
+    ```
+
+Refresh the browser page, or press the 'Say It Again' button, and you should hit the breakpoint and be able to step through code.
 
 You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
 
