@@ -19,10 +19,11 @@ The following steps describe how a connection is established to an Azure Databas
 * Clients connect to the gateway, that has a public IP address and listens on port 3306.
 * Inside the database cluster traffic is forwarded to appropriate Azure Database for MySQL.
 
-The connections to your specific Azure Database for MySQL from both within and outside Azure is enabled via the Azure Database for MySQL gateways. 
-To enable connectivity, the client must have outbound firewall rules that allow only the Azure Database for MySQL gateway IP addresses listed below (usually two IP addresses per region). This enables a TCP session is established via the Azure Database for MySQL gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
+Connections to your Azure Database for MySQL are established through a gateway that is responsible for routing incoming connections to the physical location of your server in our clusters. The following diagram illustrates the traffic flow.
 
 ![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+
+In many cases when connecting to your server from outside of Azure, such as from corporate networks, it is necessary to open up the client side firewall to allow outbound traffic to be able to reach our gateways. Below you can find a complete list of the IP addresses used by our gateways per region.
 
 ## Azure Database for MySQL gateway IP addresses
 To connect to an Azure Database for MySQL from on-premises resources, you need to allow outbound network traffic to the Azure Database for MySQL gateway for your Azure region. Your connections only go via the gateway, which is the default when connecting from on-premises resources.
