@@ -51,7 +51,7 @@ The following example shows a typical Azure AD Application Proxy CORS scenario. 
 
 ![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
-The CORSWebClient app works when you host it on premises, but either fails to load or errors out when published through Azure AD Application Proxy. If you published the CORSWebClient and CORSWebService apps separately as different apps through Application Proxy, the two apps are hosted at different domains. An AJAX request from CORSWebClient to CORSWebService is a cross-origin request, and it fails.
+The CORSWebClient app works when you host it on-premises, but either fails to load or errors out when published through Azure AD Application Proxy. If you published the CORSWebClient and CORSWebService apps separately as different apps through Application Proxy, the two apps are hosted at different domains. An AJAX request from CORSWebClient to CORSWebService is a cross-origin request, and it fails.
 
 ![Application Proxy CORS request](./media/application-proxy-understand-cors-issues/image2.png)
 
