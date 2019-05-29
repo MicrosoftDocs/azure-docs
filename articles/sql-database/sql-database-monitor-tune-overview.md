@@ -47,6 +47,17 @@ To diagnose and resolve performance issues, begin by understanding the state of 
 
 For a workload with performance issues, the performance issue may be due to CPU contention (a **running-related** condition) or individual queries are waiting on something (a **waiting-related** condition).
 
+The causes or **running-related** issues might be:
+- **Compilation issues** - SQL Query Optimizer might produce sub-optimal plan due to stale statistics, incorrect estimation of the number of rows that will be processed or estimate of required memory required memory. If you know that query was executed faster in the past or on other instance (either Managed Instance or SQL Server instance), take the actual execution plans and compare see are they different. Try to apply query hints or rebuilds statistics or indexes to get the better plan. Enable Automatic plan correction in Azure SQL Database to automatically mitigate these issues.
+- **Execution issues** - if the query plan is optimal then it might hitting some limit in the database such as log write throughput or it might use defragmented indexes that should be rebuilt. A large number of concurrent queries that are spending the resources might also be the cause of execution issues. Waiting related issues are in most of the cases related to the execution issues, because the query that are not running are probably waiting for some resources.
+The causes or **waiting-related** issues might be:
+- **Blocking** - one query might hold the lock on some objects in database while others are trying to access the same objects. You can easily identify the blocking queries using DMV or monitoring tools.
+- **IO issues** - queries might be waiting for the pages to be written to the data or log files. In this case you will see `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV.
+- **TempDB issues** - if you are using a lot of temporary tables or you see a lot of TempDB spills in your plans your queries you might have an issue with TempDB throughput. 
+- **Memory-related issues** - you might not have enough memory for your workload so your page life expectancy might drop, or your queries are getting less memory grant than needed. In some cases, built-in intelligence in Query Optimizer will fix these issues.
+ 
+In the following sections will be explained how to identify and troubleshoot some of these issues.
+
 ## Running-related performance issues
 
 As a general guideline, if your CPU utilization is consistently at or above 80%, you have a running-related performance issue. If you have a running-related issue, it may be caused by insufficient CPU resources or it may be related to one of the following conditions:
@@ -57,7 +68,7 @@ As a general guideline, if your CPU utilization is consistently at or above 80%,
 
 If you determine that you have a running-related performance issue, your goal is to identify the precise issue using one or more methods. The most common methods for identifying running-related issues are:
 
-- Use the [Azure portal](#monitor-databases-using-the-azure-portal) to monitor CPU percentage utilization.
+- Use the [Azure portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) to monitor CPU percentage utilization.
 - Use the following [dynamic management views](sql-database-monitoring-with-dmvs.md):
 
   - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returns CPU, I/O, and memory consumption for an Azure SQL Database database. One row exists for every 15 seconds, even if there is no activity in the database. Historical data is maintained for one hour.
