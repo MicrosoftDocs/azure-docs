@@ -232,7 +232,7 @@ If you plan on using **network security groups** to control network traffic, per
 
 For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
 
-### Controlling outbound traffic to HDInsight clusters
+### Controlling outbound traffic from HDInsight clusters
 
 For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 
