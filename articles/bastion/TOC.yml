@@ -19,7 +19,7 @@
     - name: Copy and paste
       href: bastion-vm-copypaste.md
     - name: Full screen view
-      href: bastion-vm-fullscreen.md
+      href: bastion-vm-full-screen.md
   - name: Working with NSGs
     href: bastion-nsg.md
 - name: Reference
