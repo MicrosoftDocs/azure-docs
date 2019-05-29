@@ -212,7 +212,7 @@ The query should run with no errors. When it is complete, you have the sample da
 
 4. In the bottom of the **Start/Stop Region** box that appears in the middle pane, select **Start**. After a few seconds, the region starts.
 
-     ![SQL Start/Stop box](/media/11-demo-sql.png)
+     ![SQL Start/Stop box](media/11-demo-sql.png)
 
      ![CICS Region BANKDEMO - Started screen](media/12-demo-cics.png)
 
