@@ -91,11 +91,11 @@ You can train ensemble models using automated machine learning with the [Caruana
 
 ## Training metric output
 
-There are multiple ways to view training accuracy metrics for iteration.
+There are multiple ways to view training accuracy metrics for each run iteration.
 
-* Use the Jupyter widget
+* Use the Jupyter widget.
 * Use the `get_metrics()` function on any `Run` object.
-* View the metrics in the Azure Portal in your experiment
+* View the metrics in the Azure Portal in your experiment.
 
 ### Classification metrics
 
