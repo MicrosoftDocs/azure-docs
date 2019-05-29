@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -203,6 +203,9 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform th
 	h. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user sign out from JIRA.
 	
 	i. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
+	
+	> [!Note]
+	> In case you want to enable default login form for admin login on login page when force azure login is enabled, you need to add query parameter in the browser URL. (https://<domain:port>/login.action?force_azure_login=false)
 
 	j. Click **Save** button to save the settings.
 
