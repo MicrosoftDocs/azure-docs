@@ -37,6 +37,8 @@ You can build your developer portal in two ways:
 
 ## Edit and customize the portal and publish the changes
 
+By performing the steps below you'll edit the content of the portal (text), add a new page, and customize the look. Finally, you'll publish your changes.
+
 1. Go to your API Management service instance in the Azure portal.
 1. Click on the **New developer portal (preview)** button in the top navigation bar. A new browser tab will open with an administrative version of the developer portal.
 1. // Change text
