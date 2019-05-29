@@ -15,19 +15,13 @@ ms.custom: seodec18
 
 # MLOps: Manage, deploy, and monitor models with Azure Machine Learning Service
 
-In this article, you can learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
+In this article, learn about how to use Azure Machine Learning service to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach, which improves the quality and consistency of your machine learning solutions. Azure Machine Learning Service provides the following MLOps capabilities:
 
-The following diagram illustrates the basic deployment workflow when using Azure Machine Learning service:
-
-[![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
-
-The MLOps / deployment workflow includes the following steps:
-1. **Register the model** in a registry hosted in your Azure Machine Learning Service workspace
-1. **Use** the model in a web service in the cloud, on an IoT device, or for analytics with Power BI.
-1. **Monitor and collect data**
-1. **Update** a deployment to use a new image.
-
-The workflow may optionally include steps such as converting an ML model to a different format, or creating a **CI/CD workflow** to train and deploy a model when changes are checked in.
+* Integration with Azure Pipelines. Define continuous integration and deployment workflows for your models.
+* A model registry that maintains multiple versions of your trained models.
+* Model validation. Automatically validate your trained models and select the optimal configuration for deploying them into production.
+* Deploy your models as a web service in the cloud, locally, or to IoT edge devices.
+* Monitor your deployed model's performance, so you can drive improvements in the next version of the model.
 
 To hear more on the concepts behind MLOps and how they apply to the Azure Machine Learning service, watch the following video.
 
@@ -35,9 +29,14 @@ To hear more on the concepts behind MLOps and how they apply to the Azure Machin
 
 ## Integration with Azure Pipelines
 
-You can use Azure Pipelines to create a continuous integration process that trains a model. The pipeline can run the training process whenever a change is checked in to your code repository. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
+You can use Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a Data Scientist checks a change into the Git repo for a project, the Azure Pipeline will start a training run. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
-For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article.
+The [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) makes it easier to work with Azure Pipelines. It provides the following enhancements to Azure Pipelines:
+
+* Enables workspace selection when defining a service connection.
+* Enables release pipelines to be triggered by trained models created in a training pipeline.
+
+For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning Service MLOps](https://aka.ms/mlops) repository.
 
 ## Convert and optimize models
 
