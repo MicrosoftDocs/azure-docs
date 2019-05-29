@@ -29,7 +29,7 @@ For this reason, we recommend
 
 * **Storing your files in an Azure Machine Learning [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning service. Learn more about specifying a datastore as your source directory, and uploading files to your datastore in the [Access data from your datastores](how-to-access-data.md) article.
 
-* **If your experiment requires one or two data files and dependency scripts,** place the files in the same folder directory as your training script. Specify this folder as your `source_directory` directly in your training script, or in the code that calls your training script.
+* **If you only need a couple data files and dependency scripts and can't use a datastore,** place the files in the same folder directory as your training script. Specify this folder as your `source_directory` directly in your training script, or in the code that calls your training script.
 
 <a name="limits"></a>
 
@@ -42,7 +42,7 @@ While attempting to take snapshot of .
 Your total snapshot size exceeds the limit of 300.0 MB
 ```
 
-Storing your experiment files on a datastore should resolve this error. If you cannot use a datastore, the below table offers possible alternate solutions.
+To resolve this error, store your experiment files on a datastore. If you can't use a datastore, the below table offers possible alternate solutions.
 
 Experiment&nbsp;description|Storage limit solution
 ---|---
