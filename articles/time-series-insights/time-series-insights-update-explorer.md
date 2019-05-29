@@ -32,7 +32,7 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 
 [![The Explorer view](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
-- <a href="#environment-dropdown">Environment panel</a>: Displays your Azure Time Series Insights environments.
+- <a href="#environment-drop-down-list">Environment panel</a>: Displays your Azure Time Series Insights environments.
 - <a href="#navigation-menu">Navigation menu</a>: Use it to switch between the **Analyze** and **Model** pages.
 - <a href="#hierarchy-tree">Hierarchy tree</a>: Use it to select specific model and data elements to be charted.
 - <a href="#preview-well">Time series well</a>: Displays your currently selected data elements in table format with color coding.
@@ -102,14 +102,14 @@ With the chart, you can display Time Series Insights instances as lines. You can
 
 - **Selected date range**: Controls which data elements are available for visualization.
 
-- **Inner-date range slider tool**: Use the two endpoint controls by dragging them over the time span you want.
+- **Inner date range slider tool**: Use the two endpoint controls by dragging them over the time span you want.
 
 - **Time span collapse control**: Collapses and expands the time span panel editor.
 
 - **Y-axis format control**: Cycles through the available y-axis view options:
 
-    * `Default`: Each line has an individual y axis.
-    * `Stacked`: Use it to stack multiple lines on the same y axis, with the y-axis data changing based on the line selected.
+    * `Default`: Each line has an individual y-axis.
+    * `Stacked`: Use it to stack multiple lines on the same y-axis, with the y-axis data changing based on the line selected.
     * `Shared`: All y-axis data displayed together.
 
 - **Current data element**: The currently selected data element and its associated details.
@@ -120,7 +120,7 @@ To  drill further into a specific data slice, left-click a data point on the cur
 
 After you perform the **Zoom** action, you see your selected data set. Select the y-axis format control to cycle through the three y-axis representations of your Time Series Insights data.
 
-  [![Preview chart y axis](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
+  [![Preview chart y-axis](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
 
 Here, you can see an example of shared Y axes:
 
@@ -132,19 +132,19 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
   [![Time selection panel](media/v2-update-explorer/explorer-twelve.png)](media/v2-update-explorer/explorer-twelve.png#lightbox)
 
-- **Inner-date range slider tool**: Use the two endpoint controls by dragging them over the time span you want. This inner date range is constrained by the outer-date range slider control.
+1. **Inner date range slider tool**: Use the two endpoint controls by dragging them over the time span you want. This inner date range is constrained by the outer date range slider control.
 
-- **Increase and decrease date range buttons**: Increase or decrease your time span by selecting either button for the interval you want.
+1. **Increase and decrease date range buttons**: Increase or decrease your time span by selecting either button for the interval you want.
 
-- **Time span collapse control**: This web control lets you hide all the controls except for the inner-date range slider tool.
+1. **Time span collapse control**: This web control lets you hide all the controls except for the inner date range slider tool.
 
-- **Outer-date range slider control**: Use the endpoint controls to select the outer date range, which will be available for your inner-date range control.
+1. **Outer date range slider control**: Use the endpoint controls to select the outer date range, which will be available for your inner date range control.
 
-- **Quick times date-range drop-down list**: Use it to quickly switch between preset time span selections, such as the last **30 minutes**, the **last 12 hours**, or a **custom range**. Changing this value also changes the available interval ranges discussed in the interval-size slider tool.
+1. **Quick Times date-range drop-down list**: Use it to quickly switch between preset time span selections, such as the last **30 minutes**, the **last 12 hours**, or a **custom range**. Changing this value also changes the available interval ranges discussed in the interval-size slider tool.
 
-- **Interval-size slider tool**: Use it to zoom in and out of intervals over the same time span. This action provides more precise control of movement between large slices of time. It displays smooth trends down to slices as small as a millisecond. You can use it to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection, which balances resolution, query speed, and granularity.
+1. **Interval-size slider tool**: Use it to zoom in and out of intervals over the same time span. This action provides more precise control of movement between large slices of time. It displays smooth trends down to slices as small as a millisecond. You can use it to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection, which balances resolution, query speed, and granularity.
 
-- **Date range to-and-from web control**: With this web control, you can easily select the date and time ranges you want. You can also use the control to switch between different time zones. After you make the changes to apply to your current workspace, select **Save**.
+1. **Date range to-and-from web control**: With this web control, you can easily select the date and time ranges you want. You can also use the control to switch between different time zones. After you make the changes to apply to your current workspace, select **Save**.
 
    [![To and from selection panel](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
@@ -213,7 +213,7 @@ To learn more about supported query operations and data types, see [Time Series 
 
 **Measure**: A drop-down list that displays all the numeric columns (**Doubles**) you can use as elements for your current chart.
 
-**Split by**: This drop-down list displays all the available categorical columns (Strings) in your model that you can group your data by. You can add up to five terms to view on the same x axis. Enter the parameters you want, and then select **Add** to add a fresh term.
+**Split by**: This drop-down list displays all the available categorical columns (Strings) in your model that you can group your data by. You can add up to five terms to view on the same x-axis. Enter the parameters you want, and then select **Add** to add a fresh term.
 
   [![Queried and filtered view one](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
 
