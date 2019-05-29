@@ -58,7 +58,7 @@ First, create a virtual machine on your private cloud by using the vCenter UI. T
     | ------------ | ------------- |
     | **Name** | Enter a name to identify the interface.  |
     | **Network** | Select from the list of configured distributed port groups in your private cloud vSphere.  |
-    | **Adapter** | Select a vSphere adaptor from the list of available types configured for the VM. For more information, see the VMware article <a href="https://kb.vmware.com/s/article/1001805" target="_blank">Choosing a network adapter for your virtual machine</a>. |
+    | **Adapter** | Select a vSphere adapter from the list of available types configured for the VM. For more information, see the VMware article <a href="https://kb.vmware.com/s/article/1001805" target="_blank">Choosing a network adapter for your virtual machine</a>. |
     | **Power on at Boot** | Choose whether to enable the NIC hardware when the VM is booted. The default is **Enable**. |
 
     For disks, select **Add disk** and then configure the following settings:
@@ -70,7 +70,7 @@ First, create a virtual machine on your private cloud by using the vCenter UI. T
     | **SCSI Controller** | Select a SCSI controller for the disk.  |
     | **Mode** | The mode specifies how the disk participates in snapshots. Choose one of these options: <br> **Independent persistent**: All changes written to the disk are written permanently.<br> **Independent non-persistent**: Changes written to the disk are discarded when you power off or reset the virtual machine. Independent non-persistent mode allows you to always restart the VM in the same state. For more information, see the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware documentation</a>.
 
-7. After validation is finished, review the settings and select **Create**. To make any changes, select the tabs at the top or select.
+7. After validation is finished, review the settings and select **Create**. To make changes, select the tabs at the top or select.
 
     ![Create CloudSimple Virtual Machine - Review + Create](media/create-cloudsimple-virtual-machine-review.png)
 
