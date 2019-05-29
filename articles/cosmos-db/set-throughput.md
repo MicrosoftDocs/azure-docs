@@ -67,12 +67,11 @@ The following image shows how a physical partition can host one or more logical 
 You can combine the two models. Provisioning throughput on both the database and the container is allowed. The following example shows how to provision throughput on an Azure Cosmos database and a container:
 
 * You can create an Azure Cosmos database named *Z* with provisioned throughput of *"K"* RUs. 
-* Next, create five containers named *A*, *B*, *C*, *D*, and *E* within the database.
-* You can explicitly configure *"P"* RUs of provisioned throughput on the container named *B*.
+* Next, create five containers named *A*, *B*, *C*, *D*, and *E* within the database. When creating container B,make sure to enable **Provision dedicated throughput for this container** option and explicitly configure *"P"* RUs of provisioned throughput on this container.
 * The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container’s throughput.
 * The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
 
-You can configure shared and dedicated throughput on a database and container while creating them. To switch from dedicated throughput mode to shared throughput mode (and vice versa), you have to create a new container and migrate the data to the new container. You can migrate the data by using the Azure Cosmos DB [change feed](change-feed.md#change-feed-use-cases-and-scenarios) feature.
+You can configure shared and dedicated throughput only while creating the database and container. 
 
 ## Update throughput on a database or a container
 
