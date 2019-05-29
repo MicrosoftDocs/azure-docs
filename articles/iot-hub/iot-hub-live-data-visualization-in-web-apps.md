@@ -95,9 +95,9 @@ From the web-apps-node-iot-hub-data-visualization directory, open the web app in
 
 Take a moment to examine the following files:
 
-* **Server.js** is a service-side script that initializes the web socket and event hub wrapper class and provides a callback to the event hub for incoming messages to broadcast them to the web socket.
+* **Server.js** is a service-side script that initializes the web socket and the Event Hub wrapper class. It provides a callback to the Event Hub wrapper class that the class uses to broadcast incoming messages to the web socket.
 
-* **Event-hub-reader.js** is a service-side script that connects to the IoT hub's built-in endpoint using the specified connection string and consumer group, extracts the DeviceId and EnqueuedTimeUtc from metadata, and then relays the message using the provided callback method.
+* **Event-hub-reader.js** is a service-side script that connects to the IoT hub's built-in endpoint using the specified connection string and consumer group. It extracts the DeviceId and EnqueuedTimeUtc from metadata on incoming messages and then relays the message using the callback method registered by server.js.
 
 * **Chart-device-data.js** is a client-side script that listens on the web socket, keeps track of each DeviceId, and stores the last 50 points of incoming data for each device. It then binds the selected device data to the chart object.
 
@@ -241,6 +241,22 @@ In this section, you provision a web app in App Service and deploy your code to 
     ```azurecli-interactive
     az webapp browse -g <your resource group> -n <your web app name>
     ```
+
+## Troubleshooting
+
+If you encounter any issues with this sample, try the following steps. If you still have problems, send us Feedback at the bottom of this topic.
+
+* Client issues:
+  * If a device does not appear in the list, or no graph is being drawn, make sure the device code is running on your device.
+  * In the browser, open the developer tools (in many browsers the F12 key will open it), and find the console. Look for any warnings or errors printed there.
+    * Also, you can debug client-side script in /js/chat-device-data.js.
+* Local website issues:
+  * Watch the output in the window where node was launched for console output.
+  * Debug the server code, specifically server.js and /scripts/event-hub-reader.js.
+* Azure App Service issues:
+  * In Azure portal, go to your web app. Under **Monitoring** in the left pane, select **App Service logs**. Turn **Application Logging (File System)** to on, set **Level** to Error, and then select **Save**. Then open **Log stream** (under **Monitoring**).
+  * From your web app in Azure portal, under **Development Tools**  select  **Console** and validate node and npm versions with `node -v` and `npm -v`.
+  * If you see an error about not finding a package, you may have run the steps out of order. When the site is deployed (with `git push`) the app service runs `npm install`, which runs based on the current version of node it has configured. If that is changed in configuration later, you'll need to make a meaningless change to the code and push again.
 
 ## Next steps
 
