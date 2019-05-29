@@ -1,7 +1,7 @@
 ---
-title: Use HeadPose to adjust the face rectangle
+title: Use the HeadPose to attribute
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the HeadPose attribute to automatically rotate the face rectangle.
+description: Learn how to use the HeadPose attribute to automatically rotate the face rectangle or detect head gestures in a video feed.
 author: PatrickFarley
 manager: nitinme
 
