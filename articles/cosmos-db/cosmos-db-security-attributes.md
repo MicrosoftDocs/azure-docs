@@ -35,7 +35,7 @@ This article documents the common security attributes built into Azure Cosmos DB
 | Service Endpoint support| Yes |  |
 | vNET Injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](vnet-service-endpoint.md). |
 | Network Isolation and Firewalling support| Yes | With firewall support, you can configure your Azure Cosmos account to allow access only from an approved set of IP addresses, a range of IP addresses and/or cloud services. See [Configure IP firewall in Azure Cosmos DB](how-to-configure-firewall.md).|
-| Support for forced tunneling |  |  |
+| Support for forced tunneling | Yes | Can be configured at the client side on the VNET where the virtual machines are located.   |
 
 ## Detection
 
