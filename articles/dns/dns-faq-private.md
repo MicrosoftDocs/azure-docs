@@ -12,7 +12,7 @@ ms.author: victorh
 
 ## Does Azure DNS support private domains?
 
-Support for private domains is supported using Azure Private DNS Zones feature. Private DNS zones are managed by using the same tools as internet-facing Azure DNS zones. They're resolvable only from within your specified virtual networks. For more information, see the [overview](private-dns-overview.md).
+Support for private domains is supported using Azure Private DNS Zones feature. Private DNS zones are managed using the same tools as internet-facing Azure DNS zones. They're resolvable only from within your specified virtual networks. For more information, see the [overview](private-dns-overview.md).
 
 For information on other internal DNS options in Azure, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
