@@ -2,13 +2,13 @@
 title: Restore an Azure SQL Data Warehouse  (PowerShell) | Microsoft Docs
 description: PowerShell tasks for restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ---
 
