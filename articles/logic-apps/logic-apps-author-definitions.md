@@ -100,12 +100,30 @@ choose **Design**.
 
 ## Parameters
 
-When you have values that change often at runtime or want to reuse throughout your logic app without hardcoding, you can define parameters for those values and use parameter references instead. For example, if you have an email address that you want use at runtime in multiple places, define that email address as a parameter and then you can reference that parameter as necessary in your workflow definition. You can also use parameters when creating Azure Resource Manager template for deployment. At the template level, parameters are useful when you need to override parameters for different deployment environments. For more information, see [Parameters for deployment](#deployment-parameters) in the next section.
+The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an Azure Resource Manager template for your workflow definition, define parameters for accepting the values you want, replace the values with parameter references, and store those values in a separate parameter file. That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app.
 
 > [!NOTE]
-> Parameters are available only when working with your logic app's underlying workflow definition in code view.
+> You can add and edit parameters only when working with your logic app's underlying workflow definition in code view or in the template.
 
-For example, in the [logic app from the quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), you created a workflow that sends emails when new posts appear in a website's RSS feed. In the trigger, the feed's URL is hardcoded, so this example shows how to replace the feed URL with a parameter so that you can change feed's URL more easily. Here is the trigger's underlying definition where you can replace `feedUrl` with a parameter reference:
+For example, suppose you want to use the same logic app definition but connect to different databases across your environments. Or, you want to use the same logic app definition across different regions for high availability but want each logic app instance to use that region's database.
+
+Here are the general steps for this scenario:
+
+1. Create an Azure Resource Manager template that includes your workflow definition.
+
+1. Define a template parameter for the value to use at deployment.
+
+1. Define a workflow definition parameter for the value to use at runtime.
+
+1. Specify a reference to that template parameter from your logic app's resource definition, which then passes that value into your workflow definition. You can then store that value in a [parameter file], which passes
+
+* Define parameters for accepting the values that you want in your workflow definition.
+
+* Replace those values with parameter references in your workflow definition.
+
+For example, in the [quickstart for creating your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you create a workflow that sends emails when new posts appear in a website's RSS feed. In the trigger, the feed's URL is hardcoded. This example shows how to replace the feed URL with a template parameter and workflow definition parameter so that you can change feed's URL more easily.
+
+Here is the trigger's underlying definition where you can replace `feedUrl` with a parameter reference:
 
 ```json
 "triggers": {
@@ -120,7 +138,7 @@ For example, in the [logic app from the quickstart](../logic-apps/quickstart-cre
          "path": "/OnNewFeed",
          "queries": {
             // Parameterize this URL so you can change the value more easily
-            "feedUrl": "http://rss.cnn.com/rss/cnn_topstories.rss"
+            "feedUrl": "http://feeds.reuters.com/reuters/topNews"
          }
       },
       "recurrence": {
@@ -149,30 +167,33 @@ For example, in the [logic app from the quickstart](../logic-apps/quickstart-cre
 1. Add this parameter definition for the `currentFeedUrl` string where the default type is set to the currently specified URL. For parameters to appear correctly in the Logic App Designer, make sure to include the `defaultValue` attribute, although you can specify an empty value for that attribute.
 
    ```json
-   "parameters": {
+   }
+      "definition": {<workflow-definition>},
+      "parameters": {
       "$connections": {
          "defaultValue": {},
          "type": "Object"
       },
       "currentFeedUrl": {
          "type": "string",
-         "defaultValue": "http://rss.cnn.com/rss/cnn_topstories.rss"
+         "defaultValue": "http://feeds.reuters.com/reuters/topNews"
       }
    },
+ 
    ```
 
 1. In the `When_a_feed_item_is_published` trigger, find the `queries` attribute, and replace the `feedUrl` with a reference to the `currentFeedUrl` parameter.
 
    `"feedUrl": "@{parameters('currentFeedUrl')}"`
 
-   To reference a workflow definition parameter, expressions start with an "at" symbol (**@**) and use the `parameters()` function to return the parameter value. For more information, see [Expressions - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#expressions) and [Parameters function - Workflow Definition Language](../logic-apps/workflow-definition-language-functions-reference.md#parameters).
+   To reference a workflow definition parameter, expressions start with an "at" symbol (**@**) and use the `parameters()` function to return the parameter value. The curly braces (**{}**) converts the function result to a string. For more information, see [Expressions - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#expressions) and [Parameters function - Workflow Definition Language](../logic-apps/workflow-definition-language-functions-reference.md#parameters).
 
    **Before**
 
    ``` json
    {
       "queries": {
-         "feedUrl": "http://rss.cnn.com/rss/cnn_topstories.rss"
+         "feedUrl": "http://feeds.reuters.com/reuters/topNews"
        }
    },
    ```
@@ -195,43 +216,38 @@ Now you can change the website's RSS feed by passing a different URL through the
 
 ## Parameters for deployment
 
-Usually, deployment lifecycles have environments for development, staging, and production. 
-For example, you might use the same logic app definition in all these environments 
-but use different databases. Likewise, you might want to use the same definition 
-across different regions for high availability but want each logic app instance 
-to use that region's database.
 
 > [!NOTE]
 > This scenario differs from taking parameters at *runtime*
 > where you should use the `trigger()` function instead.
 
-Here's a basic definition:
+Here's a basic logic app workflow definition:
 
 ``` json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
+   "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+   "contentVersion": "1.0.0.0",
+   "actions": {
+      "readData": {
+         "type": "Http",
+         "inputs": {
+            "method": "GET",
+            "uri": "@parameters('uri')"
+         }
+      }
+   },
+   "parameters": {
+      "uri": {
+         "type": "string"
+      }
+   },
+   "triggers": {
         "request": {
-          "type": "request",
-          "kind": "http"
+          "type": "Request",
+          "kind": "Http"
         }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
+   },
+   "outputs": {}
 }
 ```
 
@@ -241,22 +257,19 @@ Because a default value no longer exists, the logic app payload requires this pa
 
 ``` json
 {
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
+   "properties": {
+      "definition": {
+         /// Use the definition from above here
+      },
+      "parameters": {
+         "$connection": {
+            "value": "https://my.connection.that.is.per.enviornment"
+         }
+      }
+   },
+   "location": "westus"
 }
 ```
-
-To learn more, see the 
-[REST API for Azure Logic Apps documentation](https://docs.microsoft.com/rest/api/logic/).
 
 ## Process strings with functions
 
