@@ -1,0 +1,55 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Kinect DK Documentation
+metadata: 
+  title: Azure Kinect DK Documentation | Microsoft Docs
+  description:  Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and SDKs.
+  ms.prod: kinect-dk
+  author: tesych
+  ms.author: tesych
+  ms.topic: landing-page
+  ms.date: 06/25/2019  
+abstract:
+  description: Start with our Azure Kinect DK.
+sections:
+- items:
+    image:
+      alt: 
+      src: ./media/index/device-image.jpg
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: what-is-azure-kinect-dk.md
+          html: <p>Learn about the Azure Kinect DK.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Azure Kinect DK?
+        - href: overview-sensor-sdk.md
+          html: <p>Get started with Sensor SDK.</p>
+          image:
+            src: ../media/index/i_get-started.svg
+          title: Using Azure Kinect Sensor SDK
+        - href: sensor-sdk-download.md
+          html: <p>Start using Azure Kinect Sensor SDK.</p>
+          image:
+            src: ./media/index/kinect-viewer.svg
+          title: Download Sensor SDK
+- title: Introduction
+  items:
+  - type: paragraph
+    text: |
+      You can use the Speech SDK to add the following capabilities (and more) to your apps&colon; 
+      <div class="row"><div class="column"><ul>
+      <li><b><a href="speech-to-text.md">speech-to-text</a></b> (speech-recognition/SR)</li>
+      <li><b><a href="speech-devices-sdk-create-kws.md">custom wake-word</a></b> (keyword-spotter/KWS)</li>
+      <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">intent</a></b></li>
+      <li><b><a href="speech-translation.md">translation</a></b></li>
+      <li><b><a href="speech-container-howto.md">on-premises container</a></b></li></ul></div><div class="column"><ul>
+      <li><b><a href="text-to-speech.md">text-to-speech</a></b> (TTS)</li>
+      <li><b><a href="conversation-transcription-service.md">conversation-transcription</a></b> (CTS)</li>
+      <li><b><a href="how-to-phrase-lists.md">phrase list personalization</a>/<a href="how-to-custom-speech.md">custom speech adaptation</a></b></li>
+      <li><b><a href="voice-first-virtual-assistants.md">voice-first virtual assistant</a></b></li>
+      <li><b><a href="call-center-transcription.md">call center transcription</a></b></li></ul></div></div>

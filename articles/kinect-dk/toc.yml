@@ -1,4 +1,5 @@
 - name: Overview 
+  href: index.yml
   items: 
   - name: About Azure Kinect DK
     href: what-is-azure-kinect-dk.md
