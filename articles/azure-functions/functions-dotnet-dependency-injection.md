@@ -61,19 +61,12 @@ namespace MyNamespace
 ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `BloggingService` dependency is injected into a HTTP-triggered function.
 
 ```csharp
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-
 namespace MyNamespace
 {
     public class HttpTrigger
     {
         private readonly BloggingContext _context;
-        
+
         public HttpTrigger(BloggingContext context)
         {
             _context = context;
