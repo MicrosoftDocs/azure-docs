@@ -249,9 +249,9 @@ If you encounter any issues with this sample, try the following steps. If you st
 * Client issues:
   * If a device does not appear in the list, or no graph is being drawn, make sure the device code is running on your device.
   * In the browser, open the developer tools (in many browsers the F12 key will open it), and find the console. Look for any warnings or errors printed there.
-    * Also, you can debug client-side script in /js/chat-device-data.js.
+    * You can debug client-side script in /js/chat-device-data.js.
 * Local website issues:
-  * Watch the output in the window where node was launched for console output.
+  * Watch the output in the window where you launched node for console output.
   * Debug the server code, specifically server.js and /scripts/event-hub-reader.js.
 * Azure App Service issues:
   * In Azure portal, go to your web app. Under **Monitoring** in the left pane, select **App Service logs**. Turn **Application Logging (File System)** to on, set **Level** to Error, and then select **Save**. Then open **Log stream** (under **Monitoring**).
