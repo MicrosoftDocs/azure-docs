@@ -39,7 +39,7 @@ Added HLS (version 4 or above) support in Dynamic Packaging for Assets that have
 
 For more information, see [Dynamic Packaging](dynamic-packaging-overview.md).
 
-### Media Services availability in Korea Central and Korea South 
+### Korea regional pair is open for Media Services 
 
 Media Services is now available in Korea Central and Korea South regions. 
 
