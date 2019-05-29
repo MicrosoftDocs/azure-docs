@@ -104,7 +104,7 @@ For more information, see [Running Azure IoT Edge in a container](https://github
 
 ### IoT Edge device container
 
-The IoT Edge device container is a complete IoT Edge device, ready to be launched on any machine with a container engine. The device container includes the IoT Edge runtime and a container engine itself. Each instance of the container is a fully functional self-provisioning IoT Edge device. The device container supports remote debugging of modules, as long as there is a network route to the module. The device container is good for quickly creating large numbers of IoT Edge devices to test at-scale scenarios or DevOps pipelines. It also supports deployment to kubernetes via helm. 
+The IoT Edge device container is a complete IoT Edge device, ready to be launched on any machine with a container engine. The device container includes the IoT Edge runtime and a container engine itself. Each instance of the container is a fully functional self-provisioning IoT Edge device. The device container supports remote debugging of modules, as long as there is a network route to the module. The device container is good for quickly creating large numbers of IoT Edge devices to test at-scale scenarios or Azure Pipelines. It also supports deployment to kubernetes via helm. 
 
 For more information, see [Azure IoT Edge device container](https://github.com/toolboc/azure-iot-edge-device-container).
 
