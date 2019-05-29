@@ -176,7 +176,7 @@ For **Device Telemetry** IoT Hub event, the data object contains the device-to-c
 | -------- | ---- | ----------- |
 | body | string | The content of the message from the device. |
 | properties | string | Application properties are user-defined strings that can be added to the message. These fields are optional. |
-| system properties | string | [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) help identify contents and source of the messages. |
+| system properties | string | [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) help identify contents and source of the messages. Device telemetry message must be in a valid JSON format with the contentType set to JSON and contentEncoding set to UTF-8 in the message system properties. If this is not set, then IoT Hub will write the messages in base 64 encoded format.  |
 
 For **Device Created** and **Device Deleted** IoT Hub events, the data object contains the following properties:
 
