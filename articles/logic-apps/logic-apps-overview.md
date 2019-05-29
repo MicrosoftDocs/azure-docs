@@ -1,19 +1,16 @@
 ---
-# required metadata
-title: Enterprise integration with Azure Logic Apps | Microsoft Docs
-description: This overview describes how you can build enterprise integration solutions by automating tasks, workflows, and business processes that integrate apps, data, services, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
+title: Enterprise integration with Azure Logic Apps
+description: Overview about building enterprise integration solutions by automating and orchestrating tasks, workflows, and business processes that integrate apps, data, services, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
 # What is Azure Logic Apps?
