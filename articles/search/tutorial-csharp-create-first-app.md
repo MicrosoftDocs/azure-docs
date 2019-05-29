@@ -441,13 +441,15 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
         .pageButton {
             border: none;
             color: darkblue;
-            background-color: azure;
+            font-weight: normal;
+            width: 50px;
         }
 
         .pageButtonDisabled {
             border: none;
-            color: gray;
-            background-color: lightgray;
+            color: lightgray;
+            font-weight: bold;
+            width: 50px;
         }
     </style>
 </head>

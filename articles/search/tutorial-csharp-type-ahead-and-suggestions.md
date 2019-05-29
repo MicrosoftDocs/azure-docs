@@ -18,6 +18,7 @@ In this tutorial, you learn how to:
 > * Add a drop down list of suggestions for your user in an Azure Search
 > * Add a drop down list of autocompleted words in an Azure Search
 > * Combine suggestions and autocompletion to further improve the user experience
+> * Employ a few tricks when developing UI scripts
 
 ## Prerequisites
 
@@ -242,7 +243,7 @@ There are libraries that offer this functionality - often called "inline autocom
             _serviceClient = CreateSearchServiceClient(_configuration);
             _indexClient = _serviceClient.Indexes.GetClient("hotels");
 
-            //Call autocomplete API and return results
+            // Setup the type-ahead search parameters.
             AutocompleteParameters ap = new AutocompleteParameters()
             {
                 AutocompleteMode = AutocompleteMode.OneTermWithContext,
@@ -251,7 +252,7 @@ There are libraries that offer this functionality - often called "inline autocom
             };
             AutocompleteResult autocompleteResult = await _indexClient.Documents.AutocompleteAsync(term, "sg", ap);
 
-            // Call suggest API and return results
+            // Setup the suggest search parameters.
             SuggestParameters sp = new SuggestParameters()
             {
                 UseFuzzyMatching = false,
@@ -265,13 +266,16 @@ There are libraries that offer this functionality - often called "inline autocom
             List<string> results = new List<string>();
             if (autocompleteResult.Results.Count > 0)
             {
+                // Add just the top result for type-ahead.
                 results.Add(autocompleteResult.Results[0].Text);
             } else
             {
+                // There were no type-ahead suggestions, so add an empty string.
                 results.Add("");
             }
             for (int n=0; n<suggestResult.Results.Count; n++)
             {
+                // Now add up to eight suggestions.
                 results.Add(suggestResult.Results[n].Text);
             }
             return new JsonResult((object)results);
@@ -421,6 +425,7 @@ You should consider the following takeaways from this project:
 * Autocompletion (also known as "type-ahead") and suggestions enable the user to just type a few keys to locate exactly what they want.
 * Working with the UI can test your limits and patience with javascript/HTML/JQuery and other UI technologies.
 * Autocompletion and suggestions working together can provide a rich user experience.
+* Test autocompletion functions with both keyboard and mouse options and using the **setInterval** function can be very useful in verifying and correcting UI elements.
 
 ## Next steps
 
