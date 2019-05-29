@@ -169,7 +169,7 @@ In this section, you provision a web app in App Service and deploy your code to 
 3. Now add Application Settings for the environment variables that specify the IoT hub connection string and the Event hub consumer group. Individual settings are space delimited in the `-settings` parameter. Use the service connection string for your IoT hub and the consumer group you created previously in this tutorial. Do not quote the values.
 
    ```azurecli-interactive
-   az webapp config appsettings set -g <your resource group> -n <your web app name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=HostName=<your IoT hub connection string>
+   az webapp config appsettings set -g <your resource group> -n <your web app name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=<your IoT hub connection string>
    ```
 
 4. Enable the Web Sockets protocol for the web app and set the web app to receive HTTPS requests only (HTTP requests are redirected to HTTPS).
@@ -191,35 +191,21 @@ In this section, you provision a web app in App Service and deploy your code to 
    git remote add webapp <Git clone URL>
    ```
 
-7. Because the web app is configured for HTTPS-only, you must change the web socket protocol used to send data to the client javascript to secure web sockets. Open the `web-apps-node-iot-hub-data-visualization/public/js/chart-device-data.js` file in your favorite editor and change the line near the top of the file where the protocol is set from `ws://` to `wss://`. Then save the file and quit the editor.
+7. To push your changes to App Service, you need either user-level or app-level credentials. Both sets of credentials enable you to authenticate for Git-local, FTP, and WebDeploy deployments. User-level credentials are valid for all apps across your Azure subscription while app-level credentials are auto-generated and valid only for a specific app. To learn more, see [Configure deployment credentials for Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). 
 
-   ```javascript
-   // if deployed to a site requiring SSL, change to wss://
-   var protocol = 'wss://';
-   ```
-
-8. Commit the changes.
-
-   ```cmd
-   git add .
-   git commit -m "updated client code to use wss"
-   ```
-
-9. To push your changes to App Service, you need either user-level or app-level credentials. Both sets of credentials enable you to authenticate for Git-local, FTP, and Webdeploy deployments. User-level credentials are valid for all apps across your Azure subscription while app-level credentials are auto-generated and valid only for a specific app. To learn more, see [Configure deployment credentials for Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). 
-
-   For this tutorial app-level credentials are sufficient. To get the app-level credentials for your web app, run the following command to return the `publishingUserName` and `publishingPassword` properties for your web app. Note these values down.
+   For this tutorial app-level credentials are sufficient. To get the app-level credentials for your web app, run the following command and copy the values of the `publishingUserName` and `publishingPassword` properties in the response.
 
    ```azurecli-interactive
-   az webapp deployment list-publishing-credentials -n <your web app name> -g <your resource group name> --query "[publishingUserName, publishingPassword]"
+   az webapp deployment list-publishing-credentials -n <your web app name> -g <your resource group name>
    ```
 
-10. To push the web application code up to App Service, enter the following command in your command window. If you are prompted for credentials, enter the app-level credentials that you got in the previous step. Make sure that you push to the master branch of the App Service remote.
+8. To push the web application code up to App Service, enter the following command in your command window. If you are prompted for credentials, enter the app-level credentials that you got in the previous step. Make sure that you push to the master branch of the App Service remote.
 
     ```cmd
     git push webapp master:master
     ```
 
-11. The progress of the deployment will update in your command window. A successful deployment will end with lines similar to the following output:
+9. The progress of the deployment will update in your command window. A successful deployment will end with lines similar to the following output:
 
     ```cmd
     remote:
@@ -227,16 +213,16 @@ In this section, you provision a web app in App Service and deploy your code to 
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  app-service-site -> master
+    6b132dd..7cbc994  master -> master
     ```
 
-12. Run the following command to query the state of your web app and make sure it is running:
+10. Run the following command to query the state of your web app and make sure it is running:
 
     ```azurecli-interactive
     az webapp show -g <your resource group> -n <your web app name> --query state
     ```
 
-13. Run the following command to open a browser to your web app. A web page similar to the one you saw when you ran the web app locally opens. Assuming that your device is running and sending data, you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
+11. Run the following command to open a browser to your web app. A web page similar to the one you saw when you ran the web app locally opens. Assuming that your device is running and sending data, you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
 
     ```azurecli-interactive
     az webapp browse -g <your resource group> -n <your web app name>
