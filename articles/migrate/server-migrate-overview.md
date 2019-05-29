@@ -24,7 +24,7 @@ Although agentless replication is easier from a deployment perspective, it curre
 
 **Limitation** | **Details**
 --- | ---
-**Simultaneous replication** | A maximum of 50 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, you can create multiple batches.<br/> Replicating more at a single time will impact performance.
+**Simultaneous replication** | A maximum of 50 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, create multiple batches of VMs.<br/> Replicating more at a single time will impact performance.
 **VM disks** | A VM that you want to migrate must have 60 or less disks.
 **VM operating system** | In general, Azure Migrate can migrate any Windows Server or Linux operating system.<br/> However, Azure Migrate might require some changes on VMs so that they can run in Azure.<br/> Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+<br/><br/> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7,8<br/><br/> For other operating systems, you need to make adjustments manually before migration. The deployment article explains how to do this.
 **Linux /boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks.
