@@ -26,8 +26,13 @@ Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-pagi
 
 ## Install and run the project from GitHub
 
+TBD
+
+Image
 
 ## Build a geospatial filter into an Azure Search
+
+A geospatial search removes all data items that are outside of a specified radius of a certain point. In order to implement this we need to accept three new inputs: latitude, longitude, and radius. Also, providing the distance back to the user with the results would seem to be an obvious requirement of our view of the results. Because of the strict ordering based on distance, using an infinite paging system seems to make sense too for this scenario.
 
 ### Add code to calculate distances
 
@@ -294,13 +299,13 @@ The next task is to implement these two actions.
                 // Call suggest API and return results
                 SearchParameters sp = new SearchParameters()
                 {
-                    // "Location" must match the field name in the Hotel class.
+                    // "Location" is a field name and must match a field name in the Hotel class.
                     // Distance (the radius) is in kilometers.
                     // Point order is Longitude then Latitude.
                     Filter = $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') le {model.radius}",
 
                     // Must return the Location to calculate the distance.
-                    Select = new[] { "HotelName", "Description", "Tags", "Rooms", "Location", "LastRenovationDate" },
+                    Select = new[] { "HotelName", "Description", "Tags", "Rooms", "Location" },
                     SearchMode = SearchMode.All,
                 };
 
@@ -382,9 +387,11 @@ The next task is to implement these two actions.
 
 ## Test the code so far
 
-1. If you compile and run the project, enter some text such as "bar" and coordinates such as "47" for latitude "-122" for longitude and "1000" for the radius.
+1. If you compile and run the project, enter some text such as "bar" and coordinates such as "47" for latitude "-122" for longitude and an excessive "2000" for the radius.
 
-2. You should get some results, and they are all within the 1000 Km radius, but are they in the logical order you would expect (nearest first)?
+Image
+
+2. You should get some results, and they are all within the 2000 Km radius, but are they in the logical order you would expect (nearest first)?
 
 3. Try some other text using the same coordinates and verify that the results are not in the order you would expect.
 
@@ -417,6 +424,8 @@ The **geo.distance** function embedded in the **OrderBy** string takes two param
 In order to calculate the distance again in the client, we have to return **Location** as one of our **Select** parameters.
 
 2. Now run the app and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance. To verify this, enter very large and unrealistic radius parameters to locate a lot of results, and use the infinite scroll to check the distances are correctly in order.
+
+Image
 
 3. Try changing the **asc** (ascending) text in the **OrderBy** string to **desc** (descending) and verify the order of distances is longest first. The ascending setting is actually the default, so there is no need to enter it explicitly.
 

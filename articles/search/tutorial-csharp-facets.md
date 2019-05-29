@@ -29,6 +29,7 @@ Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-pagi
 
 TBD
 
+Image
 
 ## Add code for a search of facets
 

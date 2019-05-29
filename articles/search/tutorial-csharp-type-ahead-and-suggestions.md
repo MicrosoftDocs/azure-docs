@@ -27,6 +27,9 @@ Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-pagi
 
 ## Install and run the project from GitHub
 
+TBD
+
+
 ## Add suggestions to an Azure Search
 
 Let's start with the simplest case of offering up alternatives to the user: simply a drop-down list of suggestions.
@@ -95,9 +98,15 @@ The **Top** parameter specifies how many results to return, in this case 8 (the 
 
 Note too that if the **highlights** parameter is set to true (not in this first example) that bold html tags are added to the output.
 
-4. Run the app. Do you get a range of options when you enter "pa", for example?
+4. Run the app. Do you get a range of options when you enter "po", for example?
 
 Image
+
+5. In the code, set **UseFuzzyMatching** to true, and run the app again. Now enter "po" and notice that the search assumes you got one letter wrong!
+ 
+Image
+
+If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in more detail.
 
 ## Add suggestions with highlighting
 
@@ -142,6 +151,11 @@ We can improve the appearance of the suggestions to the user a bit by setting th
  
 Image
  
+4. The logic used in the highlighting script above is not fool proof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want.
+
+Image
+
+One of the questions a developer needs to answer is when is a script working "well enough" and when should its quirks be addressed. We will not be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if taking this idea further.
 
 ## Add autocompletion to an Azure Search
 
@@ -200,7 +214,7 @@ Notice that we are using the same *suggester* function called "sg" in the autoco
 
 There are a range of **AutocompleteMode** settings and we are using **OneTermWithContext**. Refer to [Azure Autocomplete](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) for a description of the range of options here.
 
-4. Run the app. Notice how the range of options are just single words. 
+4. Run the app. Notice how the range of options are just single words.
 
 Image
 

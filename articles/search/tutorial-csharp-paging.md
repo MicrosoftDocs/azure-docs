@@ -371,7 +371,11 @@ The first and last page options do not send the strings "first" and "last" but i
 
 1. Search on some text that will give plenty of results (such as "bar" or "pool"). Can you page neatly through the results?
 
+2. Try clicking on the right-most and later left-most page numbers. Do the page numbers adjust appropriately to center the page you are on?
 
+3. Are the "first" and "last" options useful? Some popular web searches use these options, and others do not!
+
+Now save off this project and let's try an alternative to this form of paging.
 
 ## Extend your app to add infinite paging
 
@@ -411,6 +415,7 @@ This variable is a string which will simply hold "next" if the next page of resu
                 // Display the hotel name.
                 @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
                 <br />
+
                 // Display the hotel sample room and description.
                 @Html.TextArea("idh", Model.GetHotelDescription(i), new { @class = "box2" })
                 <br /> <br />
@@ -446,8 +451,13 @@ There are only three actions that can be sent to the controller: the first runni
 
 1. Delete any unused actions, such as the **Prev** action from the previous tutorial.
 
+2. In the **SearchData** class (in the SearchData.cs file) add a **paging** field.
 
-3. Change the **Index(model)** action to handle this field when it is set to "next".
+```cs
+        public string paging { get; set; }
+```
+
+3. Change the **Index(model)** action to handle the **paging** field when it is set to "next".
 
 ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -465,14 +475,14 @@ There are only three actions that can be sent to the controller: the first runni
 
                 if (model.paging != null && model.paging == "next")
                 {
-                    // Increment the page
+                    // Increment the page.
                     page = (int)TempData["page"] + 1;
 
                     // Recover the search text.
                     model.searchText = TempData["searchfor"].ToString();
                 } else
                 {
-                    // First call. Check for valid lat/lon/radius input
+                    // First call. Check for valid text input.
                     if (model.searchText == null)
                     {
                         model.searchText = "";
@@ -480,7 +490,7 @@ There are only three actions that can be sent to the controller: the first runni
                     page = 0;
                 }
 
-                // Call search API and return results
+                // Call the search API and return results.
                 SearchParameters sp = new SearchParameters()
                 {
                     Select = new[] { "HotelName", "Description", "Tags", "Rooms" },
