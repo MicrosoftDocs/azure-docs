@@ -135,9 +135,9 @@ Next, you must update your DNS to point to the web service.
 
 + **For Container Instances:**
 
-Use the tools from your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of the service.
+  Use the tools from your domain name registrar to update the DNS record for your domain name. The record must point to the IP address    of the service.
 
-There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
+  There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
 
 + **For AKS:**
 
