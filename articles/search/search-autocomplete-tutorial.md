@@ -38,7 +38,7 @@ This exercise walks you through the following tasks:
 
 An Azure Search service is optional for this exercise because the solution uses a live sandbox service hosting a prepared NYCJobs demo index. If you want to run this example on your own search service, see [Configure NYC Jobs index](#configure-app) for instructions.
 
-* [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
 * Download the [DotNetHowToAutoComplete sample](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
