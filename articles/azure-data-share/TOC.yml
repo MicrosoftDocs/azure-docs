@@ -5,13 +5,24 @@
   - name: What is Azure Data Share?
     href: overview.md
 - name: Tutorials
-    expanded: true
-    items:
+  expanded: true
+  items:
     - name: Share data with your Azure customers & partners
         href: tutorial-shareyourdata.md
     - name: Subscribe to an Azure Data Share
         href: tutorial-subscribetodatashare.md
-
+- name: Concepts
+  items:
+  - name: Share Subscription
+    href: concept-sharesubscription.md
+  - name: Snapshot
+    href: concept-snapshot.md
+  - name: Recipient 
+    href: concept-recipient.md
+  - name: Data Share
+    href: concept-datashare.md
+  - name: Synchronization
+    href: concept-synchronization.md
 - name: Resources
 
   items:

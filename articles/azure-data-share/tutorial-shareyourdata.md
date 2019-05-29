@@ -68,18 +68,29 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![EnterShareDetails](./media/2entersharedetails.png "Enter Share details") 
 
-    
-1. If you would like to offer a synchronization schedule for your Data Consumer, enable the Scheduled refresh slider shown below and select a recurrence interval. 
-    ![EnableRefresh](./media/3refreshpolicy.png "Enable synchronization schedule")
-
 1. Click **Continue**
 
 1. To add Datasets to your Data Share, click **Add Datasets**. 
+    ![EnableRefresh](./media/4add_dataset.png "Add Datasets")
 
+1. Select the Dataset Type that you would like to add. Navigate to the container, folder, filesystem or file that you would like to share and click 'Add Datasets'.
 
-1. 
+1. Click **Continue**
 
+1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. 
 
-# Add recipients
+1. Click **Continue**
 
-# Review & Create
+1. In the Settings tab, if you would like to offer a synchronization schedule for your Data Consumer, enable the Scheduled refresh slider shown below and select a recurrence interval. 
+
+1. Select a Start time and Recurrence interval. 
+
+1. Click **Continue**
+
+1. In the Review + Create tab, review your Package Contents, Settings, Recipients and Synchronization Settings. Once you have verified these settings are correct, click **Create**
+
+Your Azure Data Share has now been created. 
+
+For instructions on how to check whether your Data Consumer has accepted your invitation, click here. 
+
+For instructions on how to check whether your Data Consumer has created a Share Subscription, click here. 
