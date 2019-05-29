@@ -29,7 +29,7 @@ An Azure PowerShell script is available that does the following:
 
 ### Caveats\Limitations
 
-* The new Standard_v2 or WAF_v2 gateway has new public and private IP addresses. It is not possible to move the IP addresses associated with the existing v1 gateway seamlessly to v2. However, you can allocate an existing (unallocated) public or private IP address to the new v2 gateway.
+* The new v2 gateway has new public and private IP addresses. It is not possible to move the IP addresses associated with the existing v1 gateway seamlessly to v2. However, you can allocate an existing (unallocated) public or private IP address to the new v2 gateway.
 * You must provide an IP address space for another subnet within your virtual network where your v1 gateway is located. The script can't create the v2 gateway in any existing subnets that already have a v1 gateway. However, if the existing subnet already has a v2 gateway, that may still work provided there's enough IP address space.
 * To  migrate an SSL configuration, you must specify all the SSL certs used in your v1 gateway.
 * Migration is not supported for v1 gateways with FIPS mode enabled.
@@ -49,7 +49,7 @@ To determine if you have the Azure Az modules installed, run `Get-InstalledModul
 
 ### Install using the `Install-Script` method
 
-To use this option, you must not have the Azure Az modules installed on our client machine. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
+To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
   
 Run the script with the following command:
 
@@ -57,7 +57,7 @@ Run the script with the following command:
 
 This command also installs the required Az modules.  
 
-### Install running the script directly
+### Install using the script directly
 
 If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](https://docs.microsoft.com/en-us/powershell/gallery/how-to/working-with-packages/manual-download).
 
@@ -68,7 +68,7 @@ To run the script:
    `AzureAppGwMigration.ps1 -resourceId <v1 application gateway Resource ID> -subnetAddressRange <subnet space you want to use> -appgwName <string to use to append> -sslCertificates <comma-separated SSLCert objects as above> -trustedRootCertificates <comma-separated Trusted Root Cert objects as above> -privateIpAddress <private IP string> -publicIpResourceName <public IP name string> -validateMigration -enableAutoScale`
 
    Parameters for the script:
-   * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click on the **Properties** link for the gateway. The Resource ID is located on that page. 
+   * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click on the **Properties** link for the gateway. The Resource ID is located on that page.
 
      You can also run the following Azure PowerShell commands to get the Resource ID:
 
@@ -99,20 +99,22 @@ To run the script:
     * **publicIpResourceId: [String]: Optional**. The resourceId of a public IP address resource in your subscription that you want to allocate to the new v2 gateway. If this is not specified, the script allocates a new public IP in the same resource group. The name is the v2 gateway’s name with *-IP* appended.
    * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the v2 gateway creation and the configuration copy. By default, no validation is done.
    * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new v2 gateway after it is created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created v2 gateway.
+1. Run the script using the appropriate parameters.
 
-#### Example
+    **Example**
 
-```azurepowershell
-AzureAppGWMigration.ps1 `
-   -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
-   -subnetAddressRange 10.0.0.0/24 `
-   -appgwname "MynewV2gw" `
-   -sslCertificates $Certs `
-   -trustedRootCertificates $trustedCert `
-   -privateIpAddress "10.0.0.1" `
-   -publicIpResourceName "MyPublicIP" `
-   -validateMigration -enableAutoScale
-```
+   ```azurepowershell
+   AzureAppGWMigration.ps1 `
+      -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
+      -subnetAddressRange 10.0.0.0/24 `
+      -appgwname "MynewV2gw" `
+      -sslCertificates $Certs `
+      -trustedRootCertificates $trustedCert `
+      -privateIpAddress "10.0.0.1" `
+      -publicIpResourceName "MyPublicIP" `
+      -validateMigration -enableAutoScale
+   ```
+
 ## Migrate client traffic
 
 First double check that the script successfully created a new v2 gateway with the exact configuration migrated over from your v1 gateway. You can verify this from the Azure portal.
@@ -135,7 +137,7 @@ Here are a few scenarios where your current application gateway (Standard) may r
 * **Your clients connect to the frontend IP address of your application gateway**.
 
    Update your clients to use the IP address(es) associated with the newly created v2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
- 
+
 ## Common questions
 
 ### Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?

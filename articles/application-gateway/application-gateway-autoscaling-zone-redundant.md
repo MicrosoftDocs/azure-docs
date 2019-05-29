@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/22/2019
+ms.date: 5/30/2019
 ms.author: victorh
 ---
 
@@ -137,6 +137,9 @@ The following table compares the features available with each SKU.
 |Netwatcher integration|Not supported.|
 |Azure Support Center integration|Not yet available.
 
+## Migrate from v1 to v2
+
+An Azure PowerShell script is available in the PowerShell gallery to help you migrate from your v1 Application Gateway/WAF to the v2 Autoscaling SKU. This script helps you copy the configuration from your v1 gateway. Traffic migration is still your responsibility. For more details, see [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
 ## Next steps
 
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)

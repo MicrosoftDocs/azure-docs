@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 5/30/2019
 ms.author: victorh
 ---
 
@@ -189,6 +189,11 @@ Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azu
 ### Can I use the same port for both public-facing and private-facing listeners?
 
 No.
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see,  [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
+
 
 ## Configuration - SSL
 
