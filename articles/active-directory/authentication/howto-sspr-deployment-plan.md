@@ -17,13 +17,14 @@ ms.collection: M365-identity-device-management
 ---
 # Deploy Azure AD self-service password reset
 
-Self-service password reset (SSPR) is an Azure Active Directory feature that enables employees to immediately reset their passwords without needing to contact a help desk or other support mechanism. Employees must register for or be registered for the SSPR service by their administrator. During registration, the employee chooses one or more alternative authentication methods enabled by administrators.
+Self-service password reset (SSPR) is an Azure Active Directory feature that enables employees to reset their passwords without needing to contact a help desk or other support mechanism. Employees must register for or be registered for self-service password reset before using the service. During registration, the employee chooses one or more authentication methods enabled by their organization.
 
 ## How SSPR benefits your organization
 
-SSPR enables employees to quickly get unblocked and continue working no matter where they are or the time of day. By doing this themselves, they reduce non-productive time and support costs are eliminated for most password issues—the most common help-desk task.
+SSPR enables employees to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, they reduce non-productive time and support costs for most password issues, one of the most common and expensive help desk tasks.
 
-You can help users get registered quickly by deploying SSPR alongside another “popular app” in your organization. This will generate a large volume of sign ins and will drive up registration (if you have registration enforced).  
+Help users get registered quickly by deploying SSPR alongside another application or service in your organization. This will generate a large volume of sign ins and will drive up registration.
+
 Before deploying SSPR, you may want to determine how many password reset related help desk calls happen per week/month and the average cost of each call. You can use this data post deployment to show the value SSPR is bringing to your organization.  
 
 ## How SSPR works
@@ -33,7 +34,8 @@ For hybrid users, the password is written back to the on-premises Active Directo
 
 ## Environments with multiple identity management systems
 
-If there are multiple identity management systems within an environment such as on-premise Identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to the master Active Directory may need to be synchronized to the other systems using a sync engine such as PCNS plug-in with MIM (Microsoft Identity Manager). To find information on this more complex scenario, see Deploy the MIM Password Change Notification Service on a domain controller. 
+If there are multiple identity management systems within an environment such as on-premise Identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to the master Active Directory may need to be synchronized to the other systems using a sync engine such as PCNS plug-in with MIM (Microsoft Identity Manager). To find information on this more complex scenario, see Deploy the MIM Password Change Notification Service on a domain controller.
+
 Before you get started, check out these videos to learn more about deployment and rollout:  
 
 ## Deploying self-service password reset
