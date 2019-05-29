@@ -52,7 +52,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 - Even in an rare and unfortunate event when the Azure region is permanently irrecoverable, there is no data loss if your multi-region Cosmos account is configured with the default consistency level of *Strong*. In the event of a permanently irrecoverable write region, for the multi-region Cosmos accounts configured with bounded-staleness consistency, the potential data loss window is restricted to the staleness window (*K* or *T*); for session, consistent-prefix and eventual consistency levels, the potential data loss window is restricted to a maximum of five seconds. 
 
-## Availability Zone support (preview)
+## Availability Zone support
 
 Azure Cosmos DB is a globally distributed, multi-master database service that provides high availability and resiliency during regional outages. In addition to cross region resiliency, you can now enable **zone redundancy** when selecting a region to associate with your Azure Cosmos database. 
 
@@ -62,12 +62,10 @@ Zone redundancy is a *supplemental capability* to the [multi-master replication]
 
 When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
 
-This feature is available in preview mode with limited availability in following Azure regions:
+This feature is available in following Azure regions:
 
 * UK South
 * Southeast Asia 
-
-
 
 > [!NOTE] 
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles. 
