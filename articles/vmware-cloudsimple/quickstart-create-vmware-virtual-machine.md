@@ -1,10 +1,10 @@
 ---
 title: Azure VMware Solution by CloudSimple quickstart - Consume VMware VMs on Azure 
-description: Learn how to configure and consume VMware VMs from the Azure portal by using Azure VMware Solution by CloudSimple 
+description: In this quickstart, you'll learn how to configure and consume VMware VMs from the Azure portal by using Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 04/11/2019 
-ms.topic: article 
+ms.topic: quickstart 
 ms.service: vmware 
 ms.reviewer: cynthn 
 manager: dikamath 
@@ -15,7 +15,7 @@ To create a virtual machine in the Azure portal, you can use virtual machine tem
 
 ## Create a VM template
 
-First, create a virtual machine on your private cloud by using the vCenter UI. To create a template, follow the instructions in [Clone a Virtual Machine to a Template in the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-FE6DE4DF-FAD0-4BB0-A1FD-AFE9A40F4BFE.html). Store the VM template on your private cloud vCenter.
+First, create a virtual machine on your private cloud by using the vCenter UI. To create a template, follow the instructions in the VMware article [Clone a Virtual Machine to a Template in the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-FE6DE4DF-FAD0-4BB0-A1FD-AFE9A40F4BFE.html). Store the VM template on your private cloud vCenter.
 
 ## Create a virtual machine in the Azure portal
 
@@ -44,7 +44,7 @@ First, create a virtual machine on your private cloud by using the vCenter UI. T
     | **Password** |  The password of the VM admin (for Windows templates). |
     | **Confirm password** | The password provided in the previous field. |
 
-5. Select the number of cores and the memory capacity for the VM. Select **Expose to Guest OS** if you want to expose the full CPU virtualization to the guest operating system. Applications that require hardware virtualization can run on virtual machines without binary translation or paravirtualization. For more information, see <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html" target="_blank">Expose VMware Hardware Assisted Virtualization</a>. When you're done, select **Next: Configurations**.
+5. Select the number of cores and the memory capacity for the VM. Select **Expose to Guest OS** if you want to expose the full CPU virtualization to the guest operating system. Applications that require hardware virtualization can run on virtual machines without binary translation or paravirtualization. For more information, see the VMware article <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html" target="_blank">Expose VMware Hardware Assisted Virtualization</a>. When you're done, select **Next: Configurations**.
 
     ![Create CloudSimple Virtual Machine - Size](media/create-cloudsimple-virtual-machine-size.png)
 
@@ -58,23 +58,23 @@ First, create a virtual machine on your private cloud by using the vCenter UI. T
     | ------------ | ------------- |
     | **Name** | Enter a name to identify the interface.  |
     | **Network** | Select from the list of configured distributed port groups in your private cloud vSphere.  |
-    | **Adapter** | Select a vSphere adaptor from the list of available types configured for the VM. For more information, see <a href="https://kb.vmware.com/s/article/1001805" target="_blank">Choosing a network adapter for your virtual machine</a>. |
+    | **Adapter** | Select a vSphere adaptor from the list of available types configured for the VM. For more information, see the VMware article <a href="https://kb.vmware.com/s/article/1001805" target="_blank">Choosing a network adapter for your virtual machine</a>. |
     | **Power on at Boot** | Choose whether to enable the NIC hardware when the VM is booted. The default is **Enable**. |
 
     For disks, select **Add disk** and then configure the following settings:
 
-    | Setting | Description | 
-    | ------------ | ------------- | 
-    | Name | Enter a name to identify the disk.  | 
-    | Size | Select one of the available sizes.  | 
-    | SCSI Controller | Select a SCSI controller for the disk.  |
-    | Mode | Determines how the disk participates in snapshots. Choose one of these options: <br> - Independent persistent: All data written to the disk is written permanently.<br> - Independent non-persistent: Changes written to the disk are discarded when you power off or reset the virtual machine.  Independent non-persistent mode allows you to always restart the VM in the same state. For more information, see the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware documentation</a>.
+    | Setting | Description |
+    | ------------ | ------------- |
+    | **Name** | Enter a name to identify the disk.  |
+    | **Size** | Select one of the available sizes.  |
+    | **SCSI Controller** | Select a SCSI controller for the disk.  |
+    | **Mode** | The mode specifies how the disk participates in snapshots. Choose one of these options: <br> **Independent persistent**: All changes written to the disk are written permanently.<br> **Independent non-persistent**: Changes written to the disk are discarded when you power off or reset the virtual machine. Independent non-persistent mode allows you to always restart the VM in the same state. For more information, see the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware documentation</a>.
 
-7. Once validation completes, review the settings and click **Create**. To make any changes, click the tabs at the top or click.
+7. After validation is finished, review the settings and select **Create**. To make any changes, select the tabs at the top or select.
 
-    ![Create CloudSimple virtual machine - review](media/create-cloudsimple-virtual-machine-review.png)
+    ![Create CloudSimple Virtual Machine - Review + Create](media/create-cloudsimple-virtual-machine-review.png)
 
 ## Next steps
 
 * [View list of CloudSimple virtual machines](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
-* [Manage CloudSimple virtual machine from Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)
+* [Manage CloudSimple virtual machines from Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)
