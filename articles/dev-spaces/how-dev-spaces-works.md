@@ -76,7 +76,7 @@ We'll cover more details of how Azure Dev Spaces works in each of the below sect
 ## Prepare your AKS cluster
 
 Preparing your AKS cluster involves:
-* Verifying your AKS cluster is in a region [supported by Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Verifying your AKS cluster is in a region [supported by Azure Dev Spaces][supported-regions].
 * Verifying you are running Kubernetes 1.10.3 or later.
 * Enabling Azure Dev Spaces on your cluster using `az aks use-dev-spaces`
 
@@ -438,3 +438,7 @@ To get started with team development, see the following how-to articles:
 * [Team Development - .NET Core with CLI and Visual Studio Code](team-development-netcore.md)
 * [Team Development - .NET Core with Visual Studio](team-development-netcore-visualstudio.md)
 * [Team Development - Node.js with CLI and Visual Studio Code](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations
