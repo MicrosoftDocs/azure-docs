@@ -56,11 +56,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account.
 
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Get share credentials 1](media/data-box-heavy-deploy-copy-data/get-share-credentials1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Click **OK**.
     
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Get share credentials 1](media/data-box-heavy-deploy-copy-data/get-share-credentials2.png)
 
 3. To access the shares associated with your storage account (*devicemanagertest1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
@@ -81,11 +81,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Connect to share via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer1.png)
 
     You should now see the shares as folders.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
+    ![Connect to share via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer2.png)    
 
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
     
@@ -200,11 +200,16 @@ To optimize the performance, use the following robocopy parameters when copying 
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+Open the target folder to view and verify the copied files.
+
+![View copied files](media/data-box-heavy-deploy-copy-data/view-copied-files-1.png)
+
+
+If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     
-   ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+![Verify free and used space on dashboard](media/data-box-heavy-deploy-copy-data/verify-used-space-dashboard.png)
 
 Repeat the above steps to copy data on to the second node of the device.
 
