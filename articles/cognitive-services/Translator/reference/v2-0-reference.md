@@ -34,7 +34,7 @@ All calls to Translator Text API require a subscription key to authenticate. The
 Using a subscription key directly. Pass your subscription key as a value in `Ocp-Apim-Subscription-Key` header included with your request to the Translator API. In this mode, you do not have to call the authentication token service to generate an access token.
 </li><br/>
 <li>
-Using a multi-service subscription. This allows you to use a single secret key to authenticate requests for multiple services. <br/>
+Using a [Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This allows you to use a single secret key to authenticate requests for multiple services. <br/>
 When you use a multi-service secret key, you must include two authentication headers with your request. The first passes the secret key, the second specifies the region associated with your subscription. 
 <br/><ul>
 <li>`Ocp-Apim-Subscription-Key`</li>
