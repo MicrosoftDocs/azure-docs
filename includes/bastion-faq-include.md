@@ -5,14 +5,14 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 05/28/2019
+ ms.date: 05/29/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 
 ## <a name="preview"></a>How do I participate in the public preview?
 
-You do not need to onboard in order to participate in the public preview. Use the steps in [this article](bastion-create-host-portal.md) to create a new Azure Bastion resource. Currently, when accessing and using this service, you must use the [Azure portal - preview](https://aka.ms/BastionHost) instead of the regular Azure portal. The public preview is available in [these public regions](#regions).
+You do not need to onboard in order to participate in the public preview. Use the steps in [this article](../articles/bastion/bastion-create-host-portal.md) to create a new Azure Bastion resource. Currently, when accessing and using this service, you must use the [Azure portal - preview](https://aka.ms/BastionHost) instead of the regular Azure portal. The public preview is available in [these public regions](#regions).
 
 ## <a name="publicip"></a>Do I need a public IP on my virtual machine?
 
