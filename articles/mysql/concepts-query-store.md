@@ -154,7 +154,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 | count_star | bigint(20) | NO| Number of wait events sampled during the interval for the query |
 | sum_timer_wait_ms | double | NO| Total wait time (in milliseconds) of this query during the interval |
 
-**Functions**
+## Functions
 
 `Query_store.qs_reset()` returns void
 
@@ -164,7 +164,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 
 `staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
 
-**Limitations and known issues**
+## Limitations and known issues
 
 - If a MySQL server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
