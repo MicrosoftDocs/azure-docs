@@ -87,14 +87,14 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 ## Visualize data
 
-1. The **Perspective View** tool provides a simultaneous view of up to four unique queries. The **Perspective View** button is in the upper-right corner of the chart.
+1. Use the **Perspective View** tool for a simultaneous view of up to four unique queries. The **Perspective View** button is in the upper-right corner of the chart.
 
    [![Perspective view](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
 
-1. Use the **Chart** to visually explore your data. Chart tools include:
+1. View a chart to visually explore your data, and use the **Chart** tools:
 
-    - **Select/click**, which enables a selection of a specific timespan or of a single data series.
-    - Within a timespan selection, you can zoom or explore events. 
+    - **Select** or **click** a specific timespan or a single data series.
+    - Within a timespan selection, you can zoom or explore events.
     - Within a data series, you can split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, ping that series, or explore events from the selected series.
     - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name. You also can view all data series or any pinned or unpinned series. You can select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
     - When you view multiple terms simultaneously, you can stack, unstack, see additional data about a data series, and use the same y-axis across all terms. Use the buttons in the upper-right corner of the chart.
@@ -105,7 +105,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
     [![Heatmap](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
 
-1. **Events**: When you choose to explore events by selecting or right-clicking, the events panel is made available. Here, you can see all of your raw events and export your events as JSON or CSV files. Time Series Insights stores all raw data.
+1. When you explore events by selecting or right-clicking, the **Events** panel is made available. Here, you can see all of your raw events and export your events as JSON or CSV files. Time Series Insights stores all raw data.
 
     [![Events](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
 
