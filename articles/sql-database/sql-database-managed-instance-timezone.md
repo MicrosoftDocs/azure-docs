@@ -10,7 +10,7 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
 manager: craigg
-ms.date: 05/22/2019
+ms.date: 05/29/2019
 ---
 # Time zones in Azure SQL Database Managed Instance
 
@@ -24,7 +24,9 @@ Use [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-tra
 
 ## Supported time zones
 
-A set of supported time zones is inherited from the underlying operating system of the managed instance. It's regularly updated to get new time zone definitions and reflect changes to the existing ones. 
+A set of supported time zones is inherited from the underlying operating system of the managed instance. It's regularly updated to get new time zone definitions and reflect changes to the existing ones.
+
+[Daylight saving time/time zone changes policy](https://aka.ms/time) guarantees historical accuracy from 2010 forward.
 
 A list with names of the supported time zones is exposed through the [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system view.
 
