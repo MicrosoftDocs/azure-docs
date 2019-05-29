@@ -3,7 +3,7 @@ title: Visualize data from Azure Data Explorer using Sisense
 description: In this article, learn how to set up Azure Data Explorer as a data source for Sisense, and visualize the data.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 5/29/2019
@@ -11,7 +11,7 @@ ms.date: 5/29/2019
 
 # Visualize data from Azure Data Explorer in Sisense
 
-Sisense is an analytics business intelligence platform that enables you to build analytics apps that deliver highly interactive user experiences. The business intelligence and dashboard reporting software allow you to access and combine data in a few clicks. You can connect to structured and unstructured data sources, join tables from multiple sources with minimal scripting and coding, and create interactive web dashboards and reports. In this article, you will learn how to set up Azure Data Explorer as a data source for Sisense, and visualize data from a sample cluster.
+Sisense is an analytics business intelligence platform that enables you to build analytics apps that deliver highly interactive user experiences. The business intelligence and dashboard reporting software allows you to access and combine data in a few clicks. You can connect to structured and unstructured data sources, join tables from multiple sources with minimal scripting and coding, and create interactive web dashboards and reports. In this article, you'll learn how to set up Azure Data Explorer as a data source for Sisense, and visualize data from a sample cluster.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ You need the following to complete this article:
 
 * [Download and install Sisense app](https://documentation.sisense.com/latest/getting-started/download-install.htm) 
 
-* Create a cluster and database that include the StormEvents sample data. For more information, see [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) and [Ingest sample data into Azure Data Explorer](ingest-sample-data.md).
+* Create a cluster and database that includes the StormEvents sample data. For more information, see [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) and [Ingest sample data into Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
