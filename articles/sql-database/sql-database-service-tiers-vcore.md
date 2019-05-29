@@ -13,7 +13,7 @@ ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
 ---
-# Choose among the vCore-based service tiers and migrate from the DTU-based service tiers
+# Choose among the vCore service tiers and migrate from the DTU service tiers
 
 The virtual core (vCore)-based purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price. It also lets you choose the generation of hardware:
 
@@ -40,7 +40,7 @@ The following table explains the differences between the three tiers:
 |Memory|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Serverless compute**:<br/>Gen5: 3 GB per vCore|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
 |Storage|Uses remote storage.<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Single database serverless compute**:<br/>5 GB - 1 TB<br/>**Managed instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage and beyond. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
 |Memory|**Gen4**: 7 GB per core<br>**Gen5**: 5.1 GB per core | **Gen4**: 7 GB per core<br>**Gen5**: 5.1 GB per core |**Gen4**: 7 GB per core<br>**Gen5**: 5.1 GB per core|
-|Storage|Uses remote storage.<br/>**Single database**: 5 GB – 4 TB<br/>**Managed instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single database**: 5 GB – 4 TB<br/>**Managed instance**: 32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage and beyond. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
+|Storage|Uses remote storage.<br/>**Single database**: 5 GB – 4 TB<br/>**Managed instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single database**: 5 GB – 4 TB<br/>**Managed instance**: 32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
 |I/O throughput (approximate)|**Single database**: 500 IOPS per vCore with 7000 maximum IOPS.<br/>**Managed instance**: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per core with 200,000 maximum IOPS|TBD|
 |Availability|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
 |Backups|[Read-access geo-redundant storage (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|Snapshot-based backups in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours or days).|
@@ -51,7 +51,7 @@ The following table explains the differences between the three tiers:
 > You can get a free Azure SQL database at the basic service tier in conjunction with an Azure free account. For more information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
 
 - For more information about vCore resource limits, see [vCore resource limits in a single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in a managed instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- For more information about the general-purpose and business-critical service tiers, see [General-purpose and business-critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
+- For more information about the general purpose and business critical service tiers, see [General purpose and business critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
 - For more information about the hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
 
 ## Azure Hybrid Benefit
