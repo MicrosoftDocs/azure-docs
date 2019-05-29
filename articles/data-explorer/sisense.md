@@ -86,11 +86,11 @@ You need the following to complete this article:
 
     * In the **Build** window, select **Build**.
 
-    ![Build window](media/sisense/build-window.png)
+      ![Build window](media/sisense/build-window.png)
 
-    * Wait until build process is complete and **Build Succeeded**.
+    * Wait until build process is complete and then select **Build Succeeded**.
 
-    ![Build succeeded](media/sisense/build-succeeded.png)
+      ![Build succeeded](media/sisense/build-succeeded.png)
 
 ## Create Sisense dashboards
 
@@ -106,7 +106,7 @@ You need the following to complete this article:
 
     ![Add fields to StormEvents dashboard](media/sisense/storm-dashboard-add-field.png)  
 
-1. **+ Add More Data** to add additional columns to your graph. 
+1. Select **+ Add More Data** to add additional columns to your graph. 
 
     ![Add more data to graph](media/sisense/add-more-data.png)
 
