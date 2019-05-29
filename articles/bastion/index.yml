@@ -4,11 +4,11 @@ title: Azure Bastion Documentation
 metadata:
   document_id: 
   title: Bastion
-  meta.description: Learn how to use Bastion.
+  meta.description: Learn how to securely connect to a virtual machine using Azure Bastion.
   author: cherylmc
-  ms.service: Bastion
+  ms.service: bastion
   ms.topic: landing-page
-  ms.date: 05/13/2019
+  ms.date: 05/29/2019
   ms.author: cherylmc
 abstract:
   description:  Learn how to use Azure Bastion to connect to a virtual machine.
@@ -21,14 +21,12 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/bastion/bastion-create-host-portal">Create and modify a Bastion host</a>
-    - html: <a href="/azure/bastion-faq">Read the Bastion FAQ</a>  
+    - html: <a href="/azure/bastion-faq">Read the Bastion FAQ</a>
 - title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: Command-line interface
-      html: <p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">The Azure CLI</a></p>
     - title: REST
       html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Classic REST API Reference</a></p>
