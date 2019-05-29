@@ -15,7 +15,11 @@
     - name: RDP (Windows)
       href: bastion-connect-vm-rdp.md
   - name: Manage the virtual machine experience
-    href: bastion-vm-manage.md
+    items:
+    - name: Copy and paste
+      href: bastion-vm-copypaste.md
+    - name: Full screen view
+      href: bastion-vm-fullscreen.md
   - name: Working with NSGs
     href: bastion-nsg.md
 - name: Reference

@@ -27,14 +27,9 @@ There are two ways that you can create a Bastion host resource:
 
 ## Before you begin
 
-Send an email to request onboarding for your subscription. In this email, include the following information:
+You do not need to onboard in order to participate in the public preview. Simply use these steps to create a new Azure Bastion resource. The public preview is limited to the following Azure public regions:
 
-* Subscription ID: <>
-* Company Name:
-* Your Name:
-* Email Address (Corporate Email):
-
-After your subscription has been provisioned for the preview, we will respond with a confirmation. Once your subscription has been provisioned, you can move forward with the next steps.
+[!INCLUDE [region](../../includes/bastion-regions-include.md)]
 
 ## <a name="createhost"></a>Create a bastion host
 
