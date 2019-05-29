@@ -223,6 +223,62 @@ In this section, you'll learn how to receive and process messages after you rece
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
+<<<<<<< HEAD
+=======
+3. Download the **publish profile** for the function:
+    1. Select your function app. 
+    2. Select the **Overview** tab if it isn't already selected. 
+    3. Select **Get publish profile** on the toolbar. 
+
+        ![Get publish profile for the function](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
+    4. Save the file to your project's folder. 
+4. In Visual Studio, right-click **SBEventGridIntegration**, and then select **Publish**. 
+5. Select *Start** on the **Publish** page. 
+6. On the **Pick a publish target** page, do the following steps, select **Import Profile**. 
+
+    ![Visual Studio - Import Profile button](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
+7. Select the **publish profile file** you downloaded earlier. 
+8. Select **Publish** on the **Publish** page. 
+
+    ![Visual Studio - Publish](./media/service-bus-to-event-grid-integration-example/select-publish.png)
+9. Confirm that you see the new Azure function **ReceiveMessagesOnEvent**. Refresh the page if needed. 
+
+    ![Confirm that the new function is created](./media/service-bus-to-event-grid-integration-example/function-receive-messages.png)
+10. Get the URL to the new function and note it down. 
+
+### Event Grid subscription
+
+1. Delete the existing Event Grid subscription:
+    1. On the **Service Bus Namespace** page, select **Events** on the left menu. 
+    2. Select the existing event subscription. 
+    3. On the **Event Subscription** page, select **Delete**.
+2. Follow instructions in the [Connect the function and namespace via Event Grid](#connect-the-function-and-namespace-via-event-grid) section to create an Event Grid subscription using the new function URL.
+3. Follow instruction in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic and monitor the function. 
+
+## Receive messages by using Logic Apps
+Connect a logic app with Azure Service Bus and Azure Event Grid by following these steps:
+
+1. Create a logic app in the Azure portal.
+    1. Select **+ Create a resource**, select **Integration**, and then select **Logic App**. 
+    2. On the **Logic App - Create** page, enter a **name** for the logic app.
+    3. Select your Azure **subscription**. 
+    4. Select **Use existing** for the **Resource group**, and select the resource group that you used for other resources (like Azure function, Service Bus namespace) that you created earlier. 
+    5. Select the **Location** for the logic app. 
+    6. Select **Create** to create the logic app. 
+2. On the **Logic Apps Designer** page, select **Blank Logic App** under **Templates**. 
+3. On the designer, do the following steps:
+    1. Search for **Event Grid**. 
+    2. Select **When a resource event occurs (preview) - Azure Event Grid**. 
+
+        ![Logic Apps Designer - select Event Grid trigger](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
+4. Select **Sign in**, enter your Azure credentials, and select **Allow Access**. 
+5. On the **When a resource event occurs** page, do the following steps:
+    1. Select your Azure subscription. 
+    2. For **Resource Type**, select **Microsoft.ServiceBus.Namespaces**. 
+    3. For **Resource Name**, select your Service Bus namespace. 
+    4. Select **Add new parameter**, and select **Suffix Filter**. 
+    5. For **Suffix Filter**, enter the name of your second Service Bus topic subscription. 
+>>>>>>> ab2b1b663456b6fc0f1b92ce39a5d66ee317ff01
 
         ![Logic Apps Designer - configure event](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Select **+ New Step** in the designer, and do the following steps:
