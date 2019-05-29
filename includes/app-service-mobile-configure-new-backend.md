@@ -20,7 +20,26 @@ ms.custom: "include file"
     [Cordova](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/cordova)
     [Windows (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)
         
-2. Azure Mobile Apps support .NET and Node backend SDK. Depending on your app type, download the [.NET](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet) or [Node](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/node) project for open source repository.
+2. Azure Mobile Apps support .NET and Node backend SDK.
+
+    1. **Node.js backend** : If you’re going to use Node.js quickstart app, follow the instructions below:
+
+        1. Download `Zumo` Node.js server project from the [github repository](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/node/TodoSample).
+
+        2. 
+
+    2. **.NET backend** : If you’re going to use .NET quickstart app, follow the instructions below:
+
+        1. Download `Zumo` .NET server project from the [github repository](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet/Quickstart).
+
+        2. Build the .NET server project locally in Visual Studio.
+
+        3. In Visual Studio, open Solution Explorer, right click on `ZUMOAPPNAMEService` project, click **Publish**, you will see a `Publish to App Service` window. If you are working on Mac computer, please check out other ways to deploy the app [here](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git).
+
+        4. Select `App Service` as publish target, then click **Select Existing**, then click **Publish** button at the bottom of the window.
+
+        5. You will need to log into Visual Studio with your Azure subscription first. Select the `Subscription`, `Resource Group`, and then select the name of your app. When you are ready, click **OK**, this will deploy the .NET server project that you have locally into the App Service backend. When deployment finishes, you will be redirect to `http://{zumoappname}.azurewebsites.net/` in the browser.
+
 
 3. You will have to add a database connection or connect to an existing connection. First, determine whether you’ll create a data store or use an existing one.
 
