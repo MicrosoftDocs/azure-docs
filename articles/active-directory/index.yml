@@ -198,7 +198,7 @@ conceptualContent:
           text:  Start an access review
         - url: /azure/active-directory/conditional-access/terms-of-use
           itemType: how-to-guide
-          text:  Using Terms of use
+          text:  Require terms of use
       footerLink: 
         url: /azure/active-directory/governance/index
         text: See more
