@@ -138,6 +138,6 @@ For notebooks on training models using deep-learning-framework specific estimato
 
 * [Track run metrics during training](how-to-track-experiments.md)
 * [Train PyTorch models](how-to-train-pytorch.md)
-* [Train TensorFlow models](how-to-train-register-tensorflow.md)
+* [Train TensorFlow models](how-to-train-tensorflow.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)
