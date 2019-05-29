@@ -37,7 +37,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Feature Manager** > **+Create** to add the following feature flags:
+6. Select **Feature Manager** > **+Create** to add the following feature flags:
 
     | Key | State |
     |---|---|
