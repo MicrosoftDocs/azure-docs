@@ -83,7 +83,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## Deploy Azure Container Registry
 
-First run the **az login** command to log in to your Azure account.
+First run the **az login** command to sign in to your Azure account.
 
 ```bash
 az login
@@ -111,9 +111,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 Throughout the rest of this tutorial, we use "acrName" as a placeholder for the container registry name that you chose. Please make note of this value.
 
-## Log in to your container registry
+## Sign in to your container registry
 
-Log in to your ACR instance before pushing images to it. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
+Sign in to your ACR instance before pushing images to it. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
 ```bash
 az acr login --name <acrName>
