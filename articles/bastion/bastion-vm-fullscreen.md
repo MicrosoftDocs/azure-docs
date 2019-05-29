@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 ---
 
-# Change to VM full screen view using Azure Bastion
+# Change to virtual machine full screen view using Azure Bastion
 
 This article helps you change the virtual machine view to full screen and back in your browser. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](bastion-create-host-portal.md). Then, connect to the VM that you want to work with using either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
 
@@ -20,13 +20,17 @@ This article helps you change the virtual machine view to full screen and back i
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
-1. During the remote session, launch the Bastion clipboard access tool palette by selecting the two arrows that located on the left center of the session.
+## Launch the clipboard tool
 
-    ![tools](./media/bastion-vm-manage/left.png)
+During the remote session, launch the Bastion clipboard access tool palette by selecting the two arrows that located on the left center of the session.
 
-2. Select the **Fullscreen** button to switch the session to a full screen experience. Once you switch, the session will reinitialize to full screen.
+![tools](./media/bastion-vm-manage/left.png)
 
-    ![fullscreen](./media/bastion-vm-manage/fullscreen.png)
+## Select fullscreen
+
+Select the **Fullscreen** button to switch the session to a full screen experience. Once you switch, the session will reinitialize to full screen.
+
+![fullscreen](./media/bastion-vm-manage/fullscreen.png)
  
 ## Next steps
 
