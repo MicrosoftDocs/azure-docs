@@ -41,10 +41,10 @@ Before you begin, make sure:
 1. Ensure that the device is powered off and all the cables are removed. Spool and securely place the 4 power cords in the tray that you can access from the back of the device.
 2. If the device is shipping in US or Europe, the shipping carrier is FedEx.
 
-    a. Call the local number for your shipping carrier to schedule the pickup.
-    b. Reach out to [Data Box Operations](mailto:DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
-    c. Ensure that the shipping label is displayed on the clear screen at the front of the device.
-    d. Make sure that the old shipping labels from the previous shipment are removed from the device.
+    1. Call the local number for your shipping carrier to schedule the pickup.
+    2. Reach out to [Data Box Operations](mailto:DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
+    3. Ensure that the shipping label is displayed on the clear screen at the front of the device.
+    4. Make sure that the old shipping labels from the previous shipment are removed from the device.
 3. Once the Data Box Heavy is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 ## Verify data upload to Azure
@@ -91,7 +91,7 @@ In this tutorial, you learned about Azure Data Box topics such as:
 > * Verify data upload to Azure
 > * Erasure of data from Data Box Heavy
 
-Advance to the following article to learn how to manage Data Box via the local web UI.
+Advance to the following article to learn how to manage Data Box Heavy via the local web UI.
 
 > [!div class="nextstepaction"]
 > [Use local web UI to administer Azure Data Box](./data-box-local-web-ui-admin.md)
