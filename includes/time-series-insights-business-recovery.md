@@ -41,7 +41,7 @@ Integrating Time Series Insights with these other services provides additional d
 
 ### Time Series Insights
 
-There are several ways to keep your Time Series Insights data, apps, and services running even if they're disrupted. You might also determine that a complete, duplicate backup copy of your Azure Time Series environment is required:
+There are several ways to keep your Time Series Insights data, apps, and services running even if they're disrupted. You might also determine that a complete backup copy of your Azure Time Series environment is required:
 
 * As a Time Series Insights-specific failover instance to redirect data and traffic to.
 * For auditing and data preservation purposes.
