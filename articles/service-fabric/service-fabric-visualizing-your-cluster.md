@@ -57,7 +57,7 @@ To connect to a Service Fabric cluster, you need the clusters management endpoin
 ### Connect to a secure cluster
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
 
-If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or log in using AAD.
+If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or sign in using AAD.
 
 ## Understand the Service Fabric Explorer layout
 You can navigate through Service Fabric Explorer by using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.
