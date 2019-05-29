@@ -54,6 +54,9 @@ For the Configure virtual machines blade:
 
 For the Virtual machine setting blade:
 
+>[!NOTE]
+> If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 1. Select the **Image source** and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account containing the .vhd file.
 2. Enter the user principal name and password for the domain account that will join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
 3. Select the virtual network that has connectivity to the Active Directory server, then choose a subnet to host the virtual machines.

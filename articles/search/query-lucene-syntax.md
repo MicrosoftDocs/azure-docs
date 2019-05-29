@@ -74,7 +74,7 @@ The example above is the tilde (~), but the same principle applies to every oper
  Special characters must be escaped to be used as part of the search text. You can escape them by prefixing them with backslash (\\). Special characters that need to be escaped include the following:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- For example, to escape a wildcard character, use \\*.
+ For example, to escape a wildcard character, use \\\*.
 
 ### Encoding unsafe and reserved characters in URLs
 
