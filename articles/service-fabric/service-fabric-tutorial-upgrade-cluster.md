@@ -202,8 +202,5 @@ In this tutorial, you learned how to:
 > * Upgrade the cluster runtime
 > * Monitor the upgrade
 
-[!div class="checklist"]
-> * Get the version of the cluster runtime
-> * Upgrade the cluster runtime
-> * Monitor the upgrade
-
+> [!div class="nextstepaction"]
+> [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
