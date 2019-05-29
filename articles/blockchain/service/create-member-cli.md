@@ -48,7 +48,7 @@ There are several parameters and properties you need to pass. Replace the follow
 | **location** | Azure region where the blockchain member is created. For example, `eastus`. Choose the location that is closest to your users or your other Azure applications.
 | **password** | The member account password. The member account password is used to authenticate to the blockchain member's public endpoint using basic authentication.
 | **consortium** | Name of the consortium to join or create.
-| **consortiumManagementAccountPassword** | The consortium management password. This is used for joining a consortium.
+| **consortiumAccountPassword** | The consortium account password is also known as the member account password for the default transaction node. The consortium account address (default transaction node member account) and consortium account password (default transaction node member account password) are used for consortium management.
 | **skuName** | Tier type. Use S0 for Standard and B0 for Basic.
 
 ```azurecli-interactive
@@ -69,7 +69,7 @@ The following shows example output of a successful create operation.
     "ConsortiumMemberDisplayName": "mymembername",
     "consortium": "myConsortiumName",
     "consortiumManagementAccountAddress": "0xfe5fbb9d1036298abf415282f52397ade5d5beef",
-    "consortiumManagementAccountPassword": null,
+    "consortiumAccountPassword": null,
     "consortiumRole": "ADMIN",
     "dns": "mymembername.blockchain.azure.com",
     "protocol": "Quorum",
