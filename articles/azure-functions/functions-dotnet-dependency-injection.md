@@ -17,11 +17,11 @@ ms.author: jehollan, glenga, cshoe
 
 Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
 
-Azure Functions builds on top of the ASP.NET Core Dependency Injection features.  You should understand services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using them in functions.
+Azure Functions builds on top of the ASP.NET Core Dependency Injection features. You should understand services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app.
 
 ## Prerequisites
 
-Before you can use dependency injection, you must install install the following:
+Before you can use dependency injection, you must install the following prerequisites:
 
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) NuGet package. You can install this package by running the following command from the package console:
 
@@ -102,24 +102,26 @@ View or download a [sample of different service lifetimes](https://aka.ms/functi
 If you need your own logging provider, the recommended way is to register an `ILoggerProvider`.  For Application Insights, Functions adds Application Insights automatically for you.  
 
 > [!WARNING]
-> Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment. 
+> Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
 
 ## Function app provided services
 
-The function host will register many services itself.  Below are services that are safe to take a dependency on.  Other host services are not supported to register or depend on.  If there are other services you want to take a dependency on, please [create an issue and discussion on GitHub](https://github.com/azure/azure-functions-host).
+The function host registers many services. The following services are safe to take as a dependency in your application:
 
 |Service Type|Lifetime|Description|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Runtime configuration|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsible for providing the ID of the host instance|
 
+If there are other services you want to take a dependency on, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
+
 ### Overriding Host Services
 
-Overriding services provided by the host is currently not supported.  If there are services you want to overriding, please [create an issue and discussion on GitHub](https://github.com/azure/azure-functions-host).
+Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and discussion on GitHub](https://github.com/azure/azure-functions-host).
 
 ## Next steps
 
 For more information, see the following resources:
 
-* [How to monitor your function app](functions-monitoring.md)
-* [Best practices for functions](functions-best-practices.md)
+- [How to monitor your function app](functions-monitoring.md)
+- [Best practices for functions](functions-best-practices.md)
