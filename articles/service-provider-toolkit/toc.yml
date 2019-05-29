@@ -30,6 +30,14 @@
   - name: View and manage service providers 
     displayName: managed services offer, azure marketplace, publish
     href: ./how-to/view-manage-service-providers.md
+- name: Reference
+  items:
+  - name: Azure SDK for .NET
+    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
+  - name: Azure SDK for .NET (NuGet)
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+  - name: OpenAPI
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
 - name: Resources
   items:
   - name: Azure roadmap
