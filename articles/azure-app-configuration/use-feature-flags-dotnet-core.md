@@ -27,7 +27,7 @@ The Feature Management libraries also manage feature flag lifecycles behind the 
 
 The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows several ways to add feature flags in an ASP.NET Core application. This tutorial explains these methods in more detail. For a complete reference, see the [ASP.NET Core feature management documentation](https://go.microsoft.com/fwlink/?linkid=2091410).
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Add feature flags in key parts of your application to control feature availability.
