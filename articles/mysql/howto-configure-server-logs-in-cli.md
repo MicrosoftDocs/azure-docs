@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 05/29/2019
 ---
 # Configure and access server logs by using Azure CLI
 You can download the Azure Database for MySQL server logs by using Azure CLI, the Azure command-line utility.
@@ -47,4 +47,4 @@ az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-
 ```
 
 ## Next steps
-- Learn about [server logs in Azure Database for MySQL](concepts-server-logs.md).
+- Learn about [slow query logs in Azure Database for MySQL](concepts-server-logs.md).
