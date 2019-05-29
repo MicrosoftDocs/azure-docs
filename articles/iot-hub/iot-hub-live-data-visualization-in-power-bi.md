@@ -174,6 +174,6 @@ Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/e
 
 You’ve successfully used Power BI to visualize real-time sensor data from your Azure IoT hub.
 
-For an alternate way to visualize data from Azure IoT Hub, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+For another way to visualize data from Azure IoT Hub, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
