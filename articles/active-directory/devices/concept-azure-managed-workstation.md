@@ -27,7 +27,7 @@ This document explains what it takes to build a secure client workstation with d
 
 The rapid adoption of cloud services and the ability to work from anywhere has created a new method for exploitation. Attackers are exploiting weak security controls on devices where administrators work and are able to gain access to privileged resources.
 
-As documented in the [Verizon Threat report](https://enterprise.verizon.com/resources/reports/dbir/), and [Security Intelligence Report](https://aka.ms/sie) privileged misuse, and supply chain attacks are among the top five mechanisms used to breach organizations, and the second most commonly detected tactic in incidents reported in 2018.
+As documented in the [Verizon Threat report](https://enterprise.verizon.com/resources/reports/dbir/), and [Security Intelligence Report](https://aka.ms/sir) privileged misuse, and supply chain attacks are among the top five mechanisms used to breach organizations, and the second most commonly detected tactic in incidents reported in 2018.
 
 Most attackers follow the path below:
 
