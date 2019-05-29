@@ -40,11 +40,11 @@ Your total snapshot size exceeds the limit of 300.0 MB
 
 Try one of the following solutions to resolve the error.
 
-Experiment requirement|Storage limit solution
+Experiment&nbsp;requirement|Storage limit solution
 ---|---
 Very large files| Move files to a datastore, and specify the datastore as your source_directory to prevent latency issues when the script folder is copied to the compute target environment at runtime.
 Many/ large files, but don't want a datastore| Override limit by setting SNAPSHOT_MAX_SIZE_BYTES to whatever your experiment needs. <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`
-Must use specific script directory| Make an ignore file (`.gitignore` or `.amlignore`) to prevent files from being included in the experiment snapshot that are not really a part of the source code. Place this file in the directory and add the files names to ignore to it. The `.amlignore` file uses the same syntax and patterns as the `.gitignore` file. If both files exist, the `.amlignore` file takes precedence.
+Must use specific script directory| Make an ignore file (`.gitignore` or `.amlignore`) to prevent files from being included in the experiment snapshot that are not really a part of the source code. Place this file in the directory and add the files names to ignore in it. The `.amlignore` file uses the same syntax and patterns as the `.gitignore` file. If both files exist, the `.amlignore` file takes precedence.
 Pipeline|Use a different subdirectory for each step or create an ignore file.
 Jupyter notebooks| You are likely using a directory that has more than 300 MB worth of data or files inside. Move your notebook into a new, empty, subdirectory with the following steps.  <br> 1. Create a new folder.<br> 2. Move Jupyter notebook into empty folder. <br> 3. Run the code again.
 
