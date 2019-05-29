@@ -1,7 +1,10 @@
 - name: Azure Dev Spaces
+  href: ./index.yml
   items:
   - name: Overview
-    href: index.yml
+    items: 
+    - name: About Azure Dev Spaces
+      href: about.md
   - name: Quickstarts
     items:
     - name: Team development
