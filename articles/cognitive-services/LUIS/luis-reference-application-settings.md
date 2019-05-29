@@ -81,10 +81,10 @@ The following utterances show how diacritics normalization impacts utterances:
 This includes both french and canadian subcultures.
 
 |Diacritics set to false|Diacritics set to false|
-|-|-|
+|--|--|
 |`é`|`e`|
 |`à`|`a`|
-|`è`|`e|
+|`è`|`e`|
 |`ù`|`u`|
 |`â`|`a`| 
 |`ê`|`e`| 
@@ -100,7 +100,7 @@ This includes both french and canadian subcultures.
 #### German `de-de` diacritics
 
 |Diacritics set to false|Diacritics set to false|
-|-|-|
+|--|--|
 |`ä`|`a`|
 |`ö `|`o`| 
 |`ü `|`u`| 
@@ -108,10 +108,9 @@ This includes both french and canadian subcultures.
 #### Italian `it-it` diacritics
 
 |Diacritics set to false|Diacritics set to false|
-|-|-|
-|-|-|
+|--|--|
 |`à`|`a`|
-|`è`|`e|
+|`è`|`e`|
 |`é`|`e`|
 |`ì`|`i`| 
 |`í`|`i`| 
@@ -126,7 +125,6 @@ This includes both french and canadian subcultures.
 This includes both spanish and canadian mexican.
 
 |Diacritics set to false|Diacritics set to false|
-|-|-|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
