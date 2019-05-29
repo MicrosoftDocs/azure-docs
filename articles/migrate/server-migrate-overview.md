@@ -32,7 +32,7 @@ Limitations are as follows:
     - SUSE Linux Enterprise Server 12 SP1+
     - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS
     - Debian 7,8
-    - For other operating systems, you need to make adjustments manually before migration. The [migrate tutorial](azure-migrate-vmware.md) explains how to do this.
+    - For other operating systems, you need to make adjustments manually before migration. The [migrate tutorial](tutorial-migrate-vmware.md) explains how to do this.
 - **Linux boot**: If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks.
 - **UEFI boot**: VMs with UEFI boot aren't supported for migration.
 - **Encrypted disks/volumes (BitLocker, cryptfs)**: VMs with encrypted disks/volumes aren't supported for migration.
