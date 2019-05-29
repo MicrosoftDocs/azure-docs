@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin    
 ms.date: 05/29/2019
-ms.author: Dale.Koetke
+ms.author: dalek
 
 ---
 # Manage usage and costs for Application Insights
