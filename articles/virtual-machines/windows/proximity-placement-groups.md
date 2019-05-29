@@ -95,4 +95,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## Next steps
 
-You can also use the [Azure CLI](../linux/proximity-placement-groups.ms) to create proximity placement groups.
+You can also use the [Azure CLI](../linux/proximity-placement-groups.md) to create proximity placement groups.
