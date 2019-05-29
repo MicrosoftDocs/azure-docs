@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/29/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -132,7 +132,7 @@ The following administrator roles are available:
 
 * **[Guest Inviter](#guest-inviter)**: Users in this role can manage Azure Active Directory B2B guest user invitations when the **Members can invite** user setting is set to No. More information about B2B collaboration at [About Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). It does not include any other permissions.
 
-* **[Information Protection Administrator](#information-protection-administrator)**: Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
+* **[Azure Information Protection Administrator](#azure-information-protection-administrator)**: Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
 
 * **[Intune Administrator](#intune-service-administrator)**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
   > [!NOTE]
@@ -337,6 +337,22 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Azure Information Protection Administrator
+Can manage all aspects of the Azure Information Protection service.
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
@@ -763,22 +779,6 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
-### Information Protection Administrator
-Can manage all aspects of the Azure Information Protection product.
-
-  > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
