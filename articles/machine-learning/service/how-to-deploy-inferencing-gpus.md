@@ -155,7 +155,7 @@ Deploy the model to your AKS cluster and wait for it to create your service.
 aks_service = Model.deploy(ws,
                            models=[model],
                            inference_config=inference_config, 
-                           deployment_config=aks_config,
+                           deployment_config=gpu_aks_config,
                            deployment_target=aks_target,
                            name=aks_service_name)
 

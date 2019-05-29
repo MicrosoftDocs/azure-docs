@@ -19,7 +19,7 @@ This article demonstrates how to enable monitoring for a Stream Analytics job. S
 
 Before you begin this process, you must have the following prerequisites:
 
-* Visual Studio 2017 or 2015
+* Visual Studio 2019 or 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) downloaded and installed
 * An existing Stream Analytics job that needs to have monitoring enabled
 
