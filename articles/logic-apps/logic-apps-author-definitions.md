@@ -100,7 +100,7 @@ choose **Design**.
 
 ## Parameters
 
-The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an Azure Resource Manager template for your workflow definition, define parameters for accepting the values you want, replace the values with parameter references, and store those values in a separate parameter file. That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app.
+The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition, define parameters for accepting the values you want, replace the values with parameter references, and store those values in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app.
 
 > [!NOTE]
 > You can add and edit parameters only when working with your logic app's underlying workflow definition in code view or in the template.
