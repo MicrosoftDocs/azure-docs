@@ -68,15 +68,9 @@ Yes. During the public preview, the following limitations exist:
 * Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix can't be resolved. An example is a private IP for a virtual machine in a virtual network that's a linked virtual network to a private zone.
 * Conditional forwarding isn't supported, for example, to enable resolution between Azure and on-premises networks. Learn how customers can realize this scenario via other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-## Are there any quotas or limits on zones or records for private zones?
-
-See the [Azure subscription and service limits](../azure-subscription-service-limits.md#azure-dns-limits) article.
-
 ## What are the usage limits for Azure Private DNS?
 
 The following default limits apply when you use Azure Private DNS.
-
-**Private DNS zones**
 
 | Resource | Default limit |
 | --- | --- |
