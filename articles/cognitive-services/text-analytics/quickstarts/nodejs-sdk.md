@@ -22,44 +22,45 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 ## Prerequisites
 
+* [Node.js](https://nodejs.org/)
+* The Text Analytics [SDK for Node.js](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics)
+    You can install the SDK with:
+
+    `npm install azure-cognitiveservices-textanalytics`
+
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
-> [!Tip]
->  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from Javascript, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
->
-> A few useful links:
-> - [SDK npm package](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics)
-> - [SDK code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics)
+## Create a Node.js application and install the SDK
 
-## Create the solution and install the SDK
+After installing Node.js, create a node project. Create a new directory for your app, and navigate to its directory.
 
-- Install [Node](https://nodejs.org/en/)
-- Create a node project.
-    - ```mkdir myapp && cd myapp```
-    - Run ```npm init``` and follow the steps
-    - This will create a node application with a packaje.json file
-- Install the `ms-rest-azure` and `azure-cognitiveservices-textanalytics` NPM packages
-    - ```npm install azure-cognitiveservices-textanalytics ms-rest-azure```
-    - This will update the package.json with the dependencies.
+```mkdir myapp && cd myapp```
+
+Run ```npm init``` to create a node application with a package.json file. Install the `ms-rest-azure` and `azure-cognitiveservices-textanalytics` NPM packages:
+
+```npm install azure-cognitiveservices-textanalytics ms-rest-azure```
+
+Your app's package.json file will be updated with the dependencies.
 
 ## Authenticate your credentials
 
-1. Create a new file `index.js` in the project root and import the installed libraries
+Create a new file `index.js` in the project root and import the installed libraries
 
-    ```javascript
-    const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
-    const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
-    ```
+```javascript
+const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
+const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
+```
 
-2. Create a variable for your Text Analytics subscription key.
+Create a variable for your Text Analytics subscription key.
 
-    ```javascript
-    let credentials = new CognitiveServicesCredentials(
-      "enter-your-key-here"
-    );
-    ```
+```javascript
+let credentials = new CognitiveServicesCredentials(
+    "enter-your-key-here"
+);
+```
+
 > [!Tip]
 > For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-net)
 >
@@ -68,41 +69,42 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 
 Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use the correct Azure region for your Text Analytics subscription.
 
-   ```javascript
-        //Replace 'westus' with the correct region for your Text Analytics subscription
-        let client = new TextAnalyticsAPIClient(
-          credentials,
-          "https://westus.api.cognitive.microsoft.com/"
-        );
-   ```
+```javascript
+//Replace 'westus' with the correct region for your Text Analytics subscription
+let client = new TextAnalyticsAPIClient(
+    credentials,
+    "https://westus.api.cognitive.microsoft.com/"
+);
+```
 
 ## Sentiment analysis
 
-1. Create a list of objects, containing the documents you want to analyze.
+Create a list of objects, containing the documents you want to analyze. The payload to the API consists of a list of `documents`, which contain an `id`, `language`, and `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value. 
 
-    ```javascript
-    const inputDocuments = {documents:[
-        {language:"en", id:"1", text:"I had the best day of my life."},
-        {language:"en", id:"2", text:"This was a waste of my time. The speaker put me to sleep."},
-        {language:"es", id:"3", text:"No tengo dinero ni nada que dar..."},
-        {language:"it", id:"4", text:"L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
-    ]}
-    ```
+```javascript
+const inputDocuments = {documents:[
+    {language:"en", id:"1", text:"I had the best day of my life."},
+    {language:"en", id:"2", text:"This was a waste of my time. The speaker put me to sleep."},
+    {language:"es", id:"3", text:"No tengo dinero ni nada que dar..."},
+    {language:"it", id:"4", text:"L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
+]}
+```
 
-2. Call `client.sentiment` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+Call `client.sentiment` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
-    ```javascript
-     const operation = client.sentiment({multiLanguageBatchInput: inputDocuments})
-      operation
-        .then(result => {
-          console.log(result.documents);
-        })
-        .catch(err => {
-          throw err;
-        });
-    ```
+```javascript
+const operation = client.sentiment({multiLanguageBatchInput: inputDocuments})
+operation
+.then(result => {
+    console.log(result.documents);
+})
+.catch(err => {
+    throw err;
+});
+```
 
-3. Run your code by executing `node index.js`
+Run your code with `node index.js` in your console window.
+
 ### Output
 
 ```console
@@ -114,40 +116,40 @@ Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use
 
 ## Language detection
 
-1. Create a list of Input objects, containing your documents.
+Create a list of objects containing your documents. The payload to the API consists of a list of `documents`, which contain an `id` and `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value.
 
-    ```javascript
-    // The documents to be submitted for language detection. The ID can be any value.
-    const inputDocuments = {
-        documents: [
-          { id: "1", text: "This is a document written in English." },
-          { id: "2", text: "Este es un document escrito en Español." },
-          { id: "3", text: "这是一个用中文写的文件" }
-        ]
-      };
-    ```
+```javascript
+// The documents to be submitted for language detection. The ID can be any value.
+const inputDocuments = {
+    documents: [
+        { id: "1", text: "This is a document written in English." },
+        { id: "2", text: "Este es un document escrito en Español." },
+        { id: "3", text: "这是一个用中文写的文件" }
+    ]
+    };
+```
 
-2. Call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
+Call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
-    ```javascript
-        const operation = client.detectLanguage({
-          languageBatchInput: inputDocuments
-        });
-        operation
-          .then(result => {
-            result.documents.forEach(document => {
-              console.log(`ID: ${document.id}`);
-              document.detectedLanguages.forEach(language =>
-                console.log(`\tLanguage: ${language.name}`)
-              );
-            });
-          })
-          .catch(err => {
-            throw err;
-          });
-    ```
+```javascript
+const operation = client.detectLanguage({
+    languageBatchInput: inputDocuments
+});
+operation
+    .then(result => {
+    result.documents.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        document.detectedLanguages.forEach(language =>
+        console.log(`\tLanguage: ${language.name}`)
+        );
+    });
+    })
+    .catch(err => {
+    throw err;
+    });
+```
 
-4. Run your code by executing `node index.js`
+Run your code with `node index.js` in your console window.
 
 ### Output
 
@@ -160,42 +162,42 @@ ID: 3 Language Chinese_Simplified
 
 ## Entity recognition
 
-1. Create a list of objects, containing your documents.
+Create a list of objects, containing your documents. The payload to the API consists of a list of `documents`, which contain an `id`, `language`, and `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value.
 
-    ```javascript
+```javascript
 
-        const inputDocuments = {documents:[
-            {language:"en", id:"1", text:"Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800"},
-            {language:"es", id:"2", text:"La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."},
-          ]}
+    const inputDocuments = {documents:[
+        {language:"en", id:"1", text:"Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800"},
+        {language:"es", id:"2", text:"La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."},
+        ]}
 
-    }
-    ```
+}
+```
 
-2. Call `client.entities()` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
+Call `client.entities()` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
 
-    ```javascript
-    const operation = client.entities({
-        multiLanguageBatchInput: inputDocuments
+```javascript
+const operation = client.entities({
+    multiLanguageBatchInput: inputDocuments
+});
+operation
+    .then(result => {
+    result.documents.forEach(document => {
+        console.log(`Document ID: ${document.id}`)
+        document.entities.forEach(e =>{
+        console.log(`\tName: ${e.name} Type: ${e.type} Sub Type: ${e.type}`)
+        e.matches.forEach(match => (
+            console.log(`\t\tOffset: ${match.offset} Length: ${match.length} Score: ${match.entityTypeScore}`)
+        ))
+        })
     });
-    operation
-      .then(result => {
-        result.documents.forEach(document => {
-          console.log(`Document ID: ${document.id}`)
-          document.entities.forEach(e =>{
-            console.log(`\tName: ${e.name} Type: ${e.type} Sub Type: ${e.type}`)
-            e.matches.forEach(match => (
-              console.log(`\t\tOffset: ${match.offset} Length: ${match.length} Score: ${match.entityTypeScore}`)
-            ))
-          })
-        });
-      })
-      .catch(err => {
-        throw err;
-      });
-    ```
+    })
+    .catch(err => {
+    throw err;
+    });
+```
 
-4. Run your code by executing `node index.js`
+Run your code with `node index.js` in your console window.
 
 ### Output
 
@@ -228,7 +230,7 @@ Document ID: 2
 
 ## Key phrase extraction
 
-1. Create a list of objects, containing your documents.
+Create a list of objects, containing your documents. The payload to the API consists of a list of `documents`, which contain an `id`, `language`, and `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value.
 
     ```javascript
      let inputLanguage = {
@@ -241,7 +243,7 @@ Document ID: 2
       };
     ```
 
-2. Call `client.keyPhrases()` and get the result. Then iterate through the results, and print each document's ID, and any detected key phrases.
+Call `client.keyPhrases()` and get the result. Then iterate through the results and print each document's ID, and any detected key phrases.
 
     ```javascript
        let operation = client.keyPhrases({
@@ -256,7 +258,7 @@ Document ID: 2
         });
     ```
 
-4. Run your code by executing `node index.js`
+Run your code with `node index.js` in your console window.
 
 ### Output
 
