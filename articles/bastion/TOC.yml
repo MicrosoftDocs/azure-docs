@@ -14,7 +14,7 @@
       href: bastion-connect-vm-ssh.md
     - name: RDP (Windows)
       href: bastion-connect-vm-rdp.md
-  - name: Manage the virtual machine experience
+  - name: Manage a virtual machine session experience
     items:
     - name: Copy and paste
       href: bastion-vm-copypaste.md
