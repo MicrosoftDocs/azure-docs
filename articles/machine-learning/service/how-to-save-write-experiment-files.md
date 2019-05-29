@@ -53,7 +53,7 @@ Jupyter notebooks| Create a `.amlignore` file or move your notebook into a new, 
 
 ## Where to write files
 
-Due to the isolation of training experiments, the changes to files that happen during runs are not necessarily persisted outside of your environment. If your script modifies the files local to compute, the changes are not persisted for your next experiment run, and they're not propagated back to the client machine automatically. Therefore, the changes made during the first experiment run don't and shouldn't affect those in the second. 
+Due to the isolation of training experiments, the changes to files that happen during runs are not necessarily persisted outside of your environment. If your script modifies the files local to compute, the changes are not persisted for your next experiment run, and they're not propagated back to the client machine automatically. Therefore, the changes made during the first experiment run don't and shouldn't affect those in the second.
 
 When writing changes, we recommend writing files to an Azure Machine Learning datastore. See [Access data from your datastores](how-to-access-data.md).
 
@@ -64,7 +64,7 @@ If you don't require a datastore, write files to the `./outputs` and/or `./logs`
 
 * **For output such as status messages or scoring results,** write files to the `./outputs` folder, so they are persisted as artifacts in run history. Be mindful of the number and size of files written to this folder, as latency may occur when the contents are uploaded to run history. If latency is a concern, writing files to a datastore is recommended.
 
-* **To save written file as logs in run history,** write files to `./logs` folder . The logs are uploaded in real time, so this method is suitable for streaming live updates from a remote run.
+* **To save written file as logs in run history,** write files to `./logs` folder. The logs are uploaded in real time, so this method is suitable for streaming live updates from a remote run.
 
 ## Next steps
 
