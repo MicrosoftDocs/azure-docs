@@ -112,12 +112,12 @@ This view returns all the data in Query Store. There is one row for each distinc
 | **Name** | **Data Type** | **IS_NULLABLE** | **Description** |
 |---|---|---|---|
 | schema_name| varchar| NO | Name of the schema |
-| query_id| bigint | NO| Unique id generated for the specific query, if the same query executes in different schema, a new id will be generated |
+| query_id| bigint | NO| Unique ID generated for the specific query, if the same query executes in different schema, a new ID will be generated |
 | timestamp_id | timestamp| NO| Timestamp in which the query is executed. This is based on the query_store_interval configuration|
 | query_digest_text| longtext| NO| The normalized query text after removing all the literals|
 | query_text | longtext| NO| First appearance of the actual query with literals|
 | query_digest_truncated | bit| YES| Whether the query text has been truncated. Value will be Yes if the query is longer than 1 KB|
-| execution_count | bigint| NO| The number of times the query got executed for this timestamp id / during the configured interval period|
+| execution_count | bigint| NO| The number of times the query got executed for this timestamp ID / during the configured interval period|
 | warning_count | bigint| NO| Number of warnings this query generated during the internal|
 | error_count | bigint| NO| Number of errors this query generated during the interval|
 | sum_timer_wait | double| YES| Total execution time of this query during the interval|
@@ -146,7 +146,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 |---|---|---|---|
 | interval_start | timestamp | NO| Start of the interval (15-minute increment)|
 | interval_end | timestamp | NO| End of the interval (15-minute increment)|
-| query_id | bigint(20) | NO| Generated unique-id on the normalized query (from query-store)|
+| query_id | bigint(20) | NO| Generated unique ID on the normalized query (from query-store)|
 | query_digest_id | varchar(32) | NO| The normalized query text after removing all the literals (from query-store) |
 | query_digest_text | longtext | NO| First appearance of the actual query with literals (from query-store) |
 | event_type | varchar(32) | NO| Category of the wait event |
