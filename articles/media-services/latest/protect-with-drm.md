@@ -70,21 +70,21 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ## Create an output asset  
 
-The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job.  
+The output [Asset](assets-concept.md) stores the result of your encoding job.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateOutputAsset)]
  
 ## Get or create an encoding Transform
 
-When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code below. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. 
+When creating a new [Transform](transforms-jobs-concept.md) instance, you need to specify what you want it to produce as an output. The required parameter is a `transformOutput` object, as shown in the code below. Each TransformOutput contains a **Preset**. Preset describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired TransformOutput. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. 
 
-Before creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
+Before creating a new **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#EnsureTransformExists)]
 
 ## Submit Job
 
-As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
+As mentioned above, the **Transform** object is the recipe and a [Job](transforms-jobs-concept.md) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
 In this tutorial, we create the job's input based on a file that is ingested directly from an [HTTPs source URL](job-input-from-http-how-to.md).
 
@@ -92,17 +92,17 @@ In this tutorial, we create the job's input based on a file that is ingested dir
 
 ## Wait for the Job to complete
 
-The job takes some time to complete and when it does you want to be notified. The code sample below shows how to poll the service for the status of the [Job](https://docs.microsoft.com/rest/api/media/jobs). Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete and when it does you want to be notified. The code sample below shows how to poll the service for the status of the **Job**. Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
-## Create a ContentKeyPolicy
+## Create a Content Key Policy
 
-A content key provides secure access to your Assets. You need to create a content key policy that configures how the content key is delivered to end clients. The content key is associated with StreamingLocator. Media Services also provides the key delivery service that delivers encryption keys and licenses to authorized users. 
+A content key provides secure access to your Assets. You need to create a [Content Key Policy](content-key-policy-concept.md) when encrypting your content with a DRM. The policy configures how the content key is delivered to end clients. The content key is associated with a Streaming Locator. Media Services also provides the key delivery service that delivers encryption keys and licenses to authorized users. 
 
-You need to set the requirements (restrictions) on the content key policy that must be met to deliver keys with the specified configuration. In this example, we set the following configurations and requirements:
+You need to set the requirements (restrictions) on the **Content Key Policy** that must be met to deliver keys with the specified configuration. In this example, we set the following configurations and requirements:
 
 * Configuration 
 
@@ -116,19 +116,19 @@ When a stream is requested by a player, Media Services uses the specified key to
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## Create a StreamingLocator
+## Create a Streaming Locator
 
 After the encoding is complete, and the content key policy is set, the next step is to make the video in the output Asset available to clients for playback. You accomplish this in two steps: 
 
-1. Create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+1. Create a [Streaming Locator](streaming-locators-concept.md)
 2. Build the streaming URLs that clients can use. 
 
-The process of creating the **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating the **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the predefined StreamingPolicies, which tells Azure Media Services how to publish the content for streaming. In this example, we set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming". 
+When creating a **Streaming Locator**, you need to specify the desired `StreamingPolicyName`. In this tutorial, we are using one of the predefined Streaming Policies, which tells Azure Media Services how to publish the content for streaming. In this example, we set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming". 
 
 > [!IMPORTANT]
-> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
+> When using a custom [Streaming Policy](streaming-policy-concept.md), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateStreamingLocator)]
 
@@ -136,13 +136,13 @@ When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/str
         
 In this tutorial, we specify for the content key policy to have a token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) formats and that is what we configure in the sample.
 
-The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the key delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the StreamingLocator, the system creates a random one for us. In order to generate the test token, we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
+The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the key delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the Streaming Locator, the system creates a random one for us. In order to generate the test token, we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
 ## Build a streaming URL
 
-Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs. To build a URL, you need to concatenate the [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) host name and the **StreamingLocator** path. In this sample, the *default* **StreamingEndpoint** is used. When you first create a Media Service account, this *default* **StreamingEndpoint** will be in a stopped state, so you need to call **Start**.
+Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs. To build a URL, you need to concatenate the [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) host name and the **Streaming Locator** path. In this sample, the *default* **Streaming Endpoint** is used. When you first create a Media Service account, this *default* **Streaming Endpoint** will be in a stopped state, so you need to call **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
