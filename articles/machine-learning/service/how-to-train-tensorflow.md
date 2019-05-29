@@ -273,7 +273,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## Next Steps
+## Next steps
 
 In this article, you trained and registered a TensorFlow model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
 
