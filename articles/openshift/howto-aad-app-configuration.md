@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory integration for Azure Red Hat OpenShift | Microsoft Docs
 description:  Learn how to create an Azure AD security group and user for testing apps on your Microsoft Azure Red Hat OpenShift cluster.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: openshift
 manager: jeconnoc
 ms.topic: conceptual
@@ -57,7 +57,7 @@ To grant cluster admin access, the memberships in an Azure AD security group are
 
 ## Create an Azure AD app registration
 
-You can automatically create an Azure Active Directory (Azure AD) app registration client as part of creating the cluster by omitting the `--aad-client-app-id` flag to the `az openshoft create` command. This tutorial shows you how to create the Azure AD app registration for completeness.
+You can automatically create an Azure Active Directory (Azure AD) app registration client as part of creating the cluster by omitting the `--aad-client-app-id` flag to the `az openshift create` command. This tutorial shows you how to create the Azure AD app registration for completeness.
 
 If your organization doesn't already have an Azure Active Directory (Azure AD) app registration to use as a service principal, follow these instructions to create one.
 

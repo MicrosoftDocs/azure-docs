@@ -122,7 +122,7 @@ As an external user, you first need to accept the invite to your Azure AD organi
 
     ![Review permissions](./media/pim-resource-roles-external-users/invite-accept.png)
 
-1. You might be asked to accept a Terms of use and specify whether you want to stay signed in.
+1. You might be asked to accept a terms of use and specify whether you want to stay signed in.
 
     The Azure portal opens. If you are just eligible for a role, you won't have access to resources.
 
