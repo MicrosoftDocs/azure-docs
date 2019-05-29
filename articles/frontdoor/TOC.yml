@@ -50,6 +50,8 @@
     items:
     - name: Overview
       href: waf-overview.md
+    - name: Bot protection
+      href: waf-front-door-policy-bot-protection.md
     - name: Custom rules
       href: waf-front-door-custom-rules.md
     - name: Policy settings
