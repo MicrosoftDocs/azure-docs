@@ -19,7 +19,7 @@ This guide shows you how to specify a face detection model for the Azure Face AP
 
 The Face API uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers have the option to specify which version of the face detection model they'd like to use; they can choose the model that best fits their use case.
 
-If you're a new user, we recommend you use the latest model. Read on to learn how to specify it in your face detection operations. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#evaluate-different-models) section to evaluate the new model and compare results using your current data set.
+Read on to learn how to specify the face detection model in certain face operations. If you are an advanced user and are not sure whether you should use the latest model, skip to the [Evaluate different models](#evaluate-different-models) section to evaluate the new model and compare results using your current data set.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ You should be familiar with the concept of AI face detection. If you aren't, see
 
 ## Detect faces with specified model
 
-Face detection identifies the visual landmarks of human faces and finds their bounding-box locations. It also extracts the face's features and stores them for use in identification. All of this information forms the representation of one face.
+Face detection identifies the visual landmarks of human faces and finds their bounding-box locations. It also extracts the face's features and stores them for use in identification. All of this information forms the representation of a face.
 
-The detection model is used **Need to add a description**, so you can specify a model version when performing the Detect operation.
+The Face API uses face detection whenever it converts an image of a face into some other form of data.
 
 When using the [Face - Detect] API, assign the model version with the `detectionModel` parameter. The available values are:
 
@@ -52,7 +52,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true, detectionModel: "detection_02");
 ```
 
-## Identify faces with specified model
+## Add face to Person
 
 The Face API can extract face data from an image and associate it with a **Person** object (through the [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API call, for example), and multiple **Person** objects can be stored together in a **PersonGroup**. Then, a new face can be compared against a **PersonGroup** (with the [Face - Identify] call), and the matching person within that group can be identified.
 
@@ -77,7 +77,7 @@ Correspondingly, you can also specify which detection model to use when detectin
 
 There is no change in the [Face - Identify] API; you only need to specify the model version in detection.
 
-## Find similar faces with specified model
+## Add face to FaceList
 
 You can also specify a detection model for similarity search. You can assign the model version with `detectionModel` when adding face to a created face list with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the original `detection_01` model is used. 
 
