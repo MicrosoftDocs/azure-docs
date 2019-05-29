@@ -37,15 +37,17 @@ The two built-in roles are:
     * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
     * Downloads *kubeconfig* for *clusterUser* role.
 
-## Assign role permissions to a user
+These RBAC roles can be applied to an Azure Active Directory (AD) user or group.
 
-To assign one of the Azure roles to a user, you need to get the resource ID of the AKS cluster and the ID of the user account. The following example commands do the following steps:
+## Assign role permissions to a user or group
+
+To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group. The following example commands do the following steps:
 
 * Gets the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
-* Uses the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands get your user ID.
+* Uses the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
 * Finally, assigns a role using the [az role assignment create][az-role-assignment-create] command.
 
-The following example assigns the *Azure Kubernetes Service Cluster Admin Role*:
+The following example assigns the *Azure Kubernetes Service Cluster Admin Role* to an individual user account:
 
 ```azurecli-interactive
 # Get the resource ID of your AKS cluster
@@ -61,6 +63,9 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!TIP]
+> If you want to assign permissions to an Azure AD group, update the `--assignee` parameter with the object ID for the group rather than a user as shown in the previous example. To obtain the object ID for a group, use the [az ad group show][az-ad-group-show] command. The following example gets the object ID for the Azure AD group named *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 You can change the previous assignment to the *Cluster User Role* as needed.
 
@@ -116,7 +121,7 @@ users:
 
 ## Remove role permissions
 
-To remove role assignments, use the [az role assignment delete][az-role-assignment-delete] command. Specify the account ID and cluster resource ID, as obtained in the previous commands:
+To remove role assignments, use the [az role assignment delete][az-role-assignment-delete] command. Specify the account ID and cluster resource ID, as obtained in the previous commands. If you assigned the role to a group rather than a user, specify the appropriate group object ID rather than account object ID for the `--assignee` parameter:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
@@ -144,3 +149,4 @@ For enhanced security on access to AKS clusters, [integrate Azure Active Directo
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
 [aad-integration]: azure-ad-integration.md
+[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

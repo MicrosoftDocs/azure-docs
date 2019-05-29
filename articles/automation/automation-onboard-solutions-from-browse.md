@@ -14,9 +14,9 @@ ms.custom: mvc
 
 Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), from your [Automation account](automation-onboard-solutions-from-automation-account.md), when browsing virtual machines, or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions when browsing virtual machines in Azure.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com
 
 ## Enable solutions
 
@@ -53,27 +53,10 @@ If the workspace selected is not linked to an Automation Account, you'll see the
 
 ![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
-
-The following table shows the supported mappings:
-
-|**Log Analytics Workspace Region**|**Azure Automation Region**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP and EastUS mappings for Log Analytics workspaces to Automation Accounts are not an exact region to region mapping but is the correct mapping.
-
-<sup>2</sup> Due to capacity restraints the region is not available when creating new resources. This includes Automation Accounts and Log Analytics workspaces. However, preexisting linked resources in the region should continue to work.
+> [!NOTE]
+> When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+>
+> For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
 Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
 
@@ -116,6 +99,8 @@ If you used the Start/Stop VMs during off-hours solution, optionally you may wan
 * Start and stop VM runbooks
 * Variables
 
+Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
+
 ## Troubleshooting
 
 When onboarding multiple machines, there may be machines that show as **Cannot enable**. There are different reasons why some machines may not be enabled. The following sections show possible reasons for the **Cannot enable** state on a VM when attempting to onboard.
@@ -146,7 +131,7 @@ When onboarding multiple machines, there may be machines that show as **Cannot e
 
 **Cause**: Virtual machines that use the classic deployment model are not supported.
 
-**Solution**: Migrate the virtual machine to the resource manager deployment model. To learn how to do this, see [Migrate classic deployment model resources](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solution**: Migrate the virtual machine to the Resource Manager deployment model. To learn how to do this, see [Migrate classic deployment model resources](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### VM is stopped. (deallocated)
 

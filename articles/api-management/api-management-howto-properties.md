@@ -51,7 +51,7 @@ Property values can contain literal strings and [policy expressions](/azure/api-
 
 Once the property is created, you can edit it by clicking on the property. If you change the property name, any policies that reference that property are automatically updated to use the new name.
 
-For information on editing a property using the REST API, see [Edit a property using the REST API](/rest/api/apimanagement/property?Patch).
+For information on editing a property using the REST API, see [Edit a property using the REST API](/rest/api/apimanagement/2019-01-01/property?patch).
 
 ## To delete a property
 
@@ -62,7 +62,7 @@ To delete a property, click **Delete** beside the property to delete.
 > 
 > 
 
-For information on deleting a property using the REST API, see [Delete a property using the REST API](/rest/api/apimanagement/property?Delete).
+For information on deleting a property using the REST API, see [Delete a property using the REST API](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## To search and filter Named Values
 

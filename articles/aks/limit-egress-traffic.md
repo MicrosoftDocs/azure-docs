@@ -19,9 +19,10 @@ By default, AKS clusters have unrestricted outbound (egress) internet access. Th
 This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.  This feature is currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ## Before you begin
 
@@ -59,14 +60,14 @@ In AKS, there are two sets of ports and addresses:
 * The [optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and authorize any of the services and components used in your AKS cluster.
 
 > [!NOTE]
-> Limiting egress traffic only works on new AKS clusters created after you enable the feature flag registration. You can't limit egress traffic on an existing AKS cluster created before the feature flag was registered.
+> Limiting egress traffic only works on new AKS clusters created after you enable the feature flag registration. For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command before you limit the egress traffic.
 
 ## Required ports and addresses for AKS clusters
 
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
-* TCP port *9000*
+* TCP port *9000* for the tunnel front pod to communicate with the tunnel end on the API server.
 
 The following FQDN / application rules are required:
 
@@ -103,9 +104,6 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 
 In this article, you learned what ports and addresses to allow if you restrict egress traffic for the cluster. You can also define how the pods themselves can communicate and what restrictions they have within the cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -115,3 +113,6 @@ In this article, you learned what ports and addresses to allow if you restrict e
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

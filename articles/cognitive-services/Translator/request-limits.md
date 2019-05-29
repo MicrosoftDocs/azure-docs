@@ -16,10 +16,20 @@ ms.author: erhopf
 
 This article provides throttling limits for the Translator Text API. Services include translation, transliteration, sentence length detection, language detection, and alternate translations.
 
-## Character limits per request
+## Character and array limits per request
 
 Each Translate request is limited to 5,000 characters. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
 
+The following table lists array element and character limits for each operation of the Translator Text API.
+
+| Operation | Maximum Size of Array Element |	Maximum Number of Array Elements |	Maximum Request Size (characters) |
+|:----|:----|:----|:----|
+| Translate | 5,000	| 100	| 5,000 |
+| Transliterate | 5,000	| 10	| 5,000 |
+| Detect | 10,000 |	100 |	50,000 |
+| BreakSentence | 10,000	| 100 |	5,0000 |
+| Dictionary Lookup| 100 |	10	| 1,000 |
+| Dictionary Examples | 100 for text and 100 for translation (200 total)| 10|	2,000 |
 
 ## Character limits per hour
 
@@ -33,7 +43,7 @@ Your character limit per hour is based on your Translator Text subscription tier
 | S3 / C3 | 120 million characters per hour |
 | S4 / C4 | 200 million characters per hour |
 
-Limits for [multi-service subscriptions](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-reference#authentication) are the same as the S1 tier.
+Limits for [multi-service subscriptions](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) are the same as the S1 tier.
 
 These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 character per second.
 

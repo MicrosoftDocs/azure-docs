@@ -19,7 +19,13 @@ Azure SQL Database is an automatically managed and flexible data service where y
 
 ## Monitoring database performance
 
-Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Azure SQL Database enables you to identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to improve performance of your workload. You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance.
+Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. You need to monitor the following resoruces:
+ - **CPU usage** - you need to check are you reaching 100% of CPU usage in a longer period of time. This might indicate that you might need to upgrade you database or instance or identify and tune the queries that are using most of the compute power.
+ - **Wait statistics** - you need to check what why your queries are waiting for some resources. Queriesmig wait for data to be fetched or saved to the database files, waiting because some resource limit is reached, etc.
+ - **IO usage** - you need to check are you reaching the IO limits of the underlying storage.
+ - **Memory usage** - the amount of memory available for your database or instance is proportional to the number of vCores, and you need to check is it enough for your workload. Page life expectancy is one of the parameter that can indicate are your pages quickly removed from the memory.
+
+Azure SQL Database enables you to identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to improve performance of your workload. You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance.
 
 You have the following options for monitoring and troubleshooting database performance:
 
@@ -33,25 +39,6 @@ You have the following options for monitoring and troubleshooting database perfo
 > [!TIP]
 > See [performance guidance](sql-database-performance-guidance.md) to find techniques that you can use to improve performance of Azure SQL Database after identifying the performance issue using one or more of the above methods.
 
-## Monitor databases using the Azure portal
-
-In the [Azure portal](https://portal.azure.com/), you can monitor an individual databases utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
-
-- CPU percentage
-- DTU percentage
-- Data IO percentage
-- Database size percentage
-
-Once you've added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) articles for more information about service tiers.  
-
-![Service tier monitoring of database performance.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
-
-You can also configure alerts on the performance metrics. Click the **Add alert** button in the **Metric** window. Follow the wizard to configure your alert. You have the option to alert if the metrics exceed a certain threshold or if the metric falls below a certain threshold.
-
-For example, if you expect the workload on your database to grow, you can choose to configure an email alert whenever your database reaches 80% on any of the performance metrics. You can use this as an early warning to figure out when you might have to switch to the next highest compute size.
-
-The performance metrics can also help you determine if you are able to downgrade to a lower compute size. Assume you are using a Standard S2 database and all performance metrics show that the database on average does not use more than 10% at any given time. It is likely that the database will work well in Standard S1. However, be aware of workloads that spike or fluctuate before making the decision to move to a lower compute size.
-
 ## Troubleshoot performance issues
 
 To diagnose and resolve performance issues, begin by understanding the state of each active query and the conditions that cause performance issues relevant to each workload state. To improve Azure SQL Database performance, understand that each active query request from your application is either in a running or a waiting state. When troubleshooting a performance issue in Azure SQL Database, keep the following chart in mind as you read through this article to diagnose and resolve performance issues.
@@ -59,6 +46,18 @@ To diagnose and resolve performance issues, begin by understanding the state of 
 ![Workload states](./media/sql-database-monitor-tune-overview/workload-states.png)
 
 For a workload with performance issues, the performance issue may be due to CPU contention (a **running-related** condition) or individual queries are waiting on something (a **waiting-related** condition).
+
+The causes or **running-related** issues might be:
+- **Compilation issues** - SQL Query Optimizer might produce sub-optimal plan due to stale statistics, incorrect estimation of the number of rows that will be processed or estimate of required memory required memory. If you know that query was executed faster in the past or on other instance (either Managed Instance or SQL Server instance), take the actual execution plans and compare see are they different. Try to apply query hints or rebuilds statistics or indexes to get the better plan. Enable Automatic plan correction in Azure SQL Database to automatically mitigate these issues.
+- **Execution issues** - if the query plan is optimal then it might hitting some limit in the database such as log write throughput or it might use defragmented indexes that should be rebuilt. A large number of concurrent queries that are spending the resources might also be the cause of execution issues. Waiting related issues are in most of the cases related to the execution issues, because the query that are not running are probably waiting for some resources.
+
+The causes or **waiting-related** issues might be:
+- **Blocking** - one query might hold the lock on some objects in database while others are trying to access the same objects. You can easily identify the blocking queries using DMV or monitoring tools.
+- **IO issues** - queries might be waiting for the pages to be written to the data or log files. In this case you will see `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV.
+- **TempDB issues** - if you are using a lot of temporary tables or you see a lot of TempDB spills in your plans your queries you might have an issue with TempDB throughput. 
+- **Memory-related issues** - you might not have enough memory for your workload so your page life expectancy might drop, or your queries are getting less memory grant than needed. In some cases, built-in intelligence in Query Optimizer will fix these issues.
+ 
+In the following sections will be explained how to identify and troubleshoot some of these issues.
 
 ## Running-related performance issues
 
@@ -70,7 +69,7 @@ As a general guideline, if your CPU utilization is consistently at or above 80%,
 
 If you determine that you have a running-related performance issue, your goal is to identify the precise issue using one or more methods. The most common methods for identifying running-related issues are:
 
-- Use the [Azure portal](#monitor-databases-using-the-azure-portal) to monitor CPU percentage utilization.
+- Use the [Azure portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) to monitor CPU percentage utilization.
 - Use the following [dynamic management views](sql-database-monitoring-with-dmvs.md):
 
   - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returns CPU, I/O, and memory consumption for an Azure SQL Database database. One row exists for every 15 seconds, even if there is no activity in the database. Historical data is maintained for one hour.
