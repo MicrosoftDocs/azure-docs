@@ -49,7 +49,7 @@ The algorithm to determine proximity is not a simple calculation. The ranges in 
 
 Active learning is off by default. Turn it on to see suggested questions. 
 
-1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal don't impact active learning.
+1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal don't affect active learning.
 
 1. To turn active learning on, select your **Name**, and go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top right corner.  
 
@@ -58,7 +58,7 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 1. Find the QnA Maker service, and then toggle to **Active Learning**. 
 
-    [![Screenshot of QnA Maker portal Service Settings](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![Screenshot of QnA Maker portal Service Settings](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     When active learning is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable active learning by toggling the setting again.
 

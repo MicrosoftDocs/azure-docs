@@ -31,9 +31,9 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 1. On the **Create** page, in step 1, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. If the Azure portal times out, select **Try again** on the site. After you connect, your Azure dashboard appears.
 
-1. After you successfully create a new QnA Maker service in Azure, return to qnamaker.ai/create. Select your QnA service from the drop-down lists in step 2. If you created a new QnA service, be sure to refresh the page.
+1. After you successfully create a new QnA Maker service in Azure, return to qnamaker.ai/create. Select your QnA Maker service from the drop-down lists in step 2. If you created a new QnA Maker service, be sure to refresh the page.
 
-   ![Screenshot of selecting a QnA service knowledge base](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+   ![Screenshot of selecting a QnA Maker service knowledge base](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
 1. In step 3, name your knowledge base **My Sample QnA KB**.
 

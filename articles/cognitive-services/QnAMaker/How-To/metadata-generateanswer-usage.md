@@ -167,8 +167,6 @@ Because results are required only for the restaurant "Paradise", you can set a f
 }
 ```
 
-<name="keep-context"></a>
-
 ## Use question and answer results to keep conversation context
 
 The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer set. You can use this information in your client application to store the context of the previous conversation for use in later conversations. 
