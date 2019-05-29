@@ -47,7 +47,7 @@ The following steps show you how to create a Hive ODBC Data Source.
    |  Data Source Name |Give a name to your data source |
    |  Host(s) |Enter `HDInsightClusterName.azurehdinsight.net`. For example, `myHDICluster.azurehdinsight.net` |
    |  Port |Use **443**. (This port has been changed from 563 to 443.) |
-   |  Database |Use **>default**. |
+   |  Database |Use **default**. |
    |  Mechanism |Select **Windows Azure HDInsight Service** |
    |  User Name |Enter HDInsight cluster HTTP user username. The default username is **admin**. |
    |  Password |Enter HDInsight cluster user password. Select the checkbox **Save Password (Encrypted)**.|
