@@ -56,6 +56,8 @@ The following administrator roles are available:
   * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
+* **[Azure Information Protection Administrator](#azure-information-protection-administrator)**: Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
+
 * **[B2C User Flow Administrator](#b2c-user-flow-administrator)**: Users with this role can create and manage B2C User Flows (aka "built-in" policies) in Azure Portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (aka Custom) policies is also outside the scope of this role.
 
 * **[B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator)**: Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
@@ -131,8 +133,6 @@ The following administrator roles are available:
   >
 
 * **[Guest Inviter](#guest-inviter)**: Users in this role can manage Azure Active Directory B2B guest user invitations when the **Members can invite** user setting is set to No. More information about B2B collaboration at [About Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). It does not include any other permissions.
-
-* **[Azure Information Protection Administrator](#azure-information-protection-administrator)**: Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
 
 * **[Intune Administrator](#intune-service-administrator)**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
   > [!NOTE]
@@ -1233,6 +1233,7 @@ Graph displayName | Azure portal display name | directoryRoleTemplateId
 Application Administrator | Application administrator | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Authentication Administrator | Authentication administrator | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Azure Information Protection Administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Billing Administrator | Billing administrator | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Desktop Analytics Administrator | Desktop Analytics Administrator | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Cloud Application Administrator | Cloud application administrator | 158c047a-c907-4556-b7ef-446551a6b5f7
@@ -1252,7 +1253,6 @@ Directory Writers | Directory writers | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdesk Administrator | Password administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
-Information Protection Administrator | Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala Administrator | Kaizala administrator | 74ef975b-6605-40af-a5d2-b9539d836353
 License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
