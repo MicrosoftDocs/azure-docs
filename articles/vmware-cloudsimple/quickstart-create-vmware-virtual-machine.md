@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Quickstart: Consume VMware VMs on Azure
 
-To create a virtual machine in the Azure portal, you can use virtual machine templates that your CloudSimple admin has enabled for your subscription. You can find these VM templates on the VMware infrastructure.
+To create a virtual machine in the Azure portal, you can use virtual machine templates available on your private cloud vCenter. A vCenter admin can create additional templates on the private cloud.
 
 ## Create a VM template
 
@@ -70,7 +70,7 @@ First, create a virtual machine on your private cloud by using the vCenter UI. T
     | **SCSI Controller** | Select a SCSI controller for the disk.  |
     | **Mode** | The mode specifies how the disk participates in snapshots. Choose one of these options: <br> **Independent persistent**: All changes written to the disk are written permanently.<br> **Independent non-persistent**: Changes written to the disk are discarded when you power off or reset the virtual machine. Independent non-persistent mode allows you to always restart the VM in the same state. For more information, see the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware documentation</a>.
 
-7. After validation is finished, review the settings and select **Create**. To make changes, select the tabs at the top or select.
+7. After validation is finished, review the settings and select **Create**. To make changes, select the tabs at the top or select **Previous: Configuration**.
 
     ![Create CloudSimple Virtual Machine - Review + Create](media/create-cloudsimple-virtual-machine-review.png)
 
