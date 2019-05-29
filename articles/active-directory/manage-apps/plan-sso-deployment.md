@@ -1,6 +1,6 @@
 ---
-title: Planning a single sign-on deployment
-description: Guide to help you plan, deploy, and manage SSO in your organization
+title: Plan an Azure Active Directory single sign-on deployment
+description: Guide to help you plan, deploy, and manage SSO in your organization.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,9 +14,10 @@ ms.reviewer: jeedes
 
 ms.collection: M365-identity-device-management
 ---
-# Planning a single sign-on deployment
+# Plan a single sign-on deployment
 
 ## About single sign-on (SSO)
+The following introductory information about SSO can help you understand the feature, and help others to understand its value.
 
 ### What is SSO?
 
@@ -48,7 +49,7 @@ When technology projects fail, it's typically due to mismatched expectations on 
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate to your users abut how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/end-user-experiences), and craft your communications to match your selection. 
+Communication is critical to the success of any new service. Proactively communicate to your users abut how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), and craft your communications to match your selection. 
 
 ## Plan your SSO protocol
 
@@ -58,7 +59,7 @@ There are two primary ways in which you can enable your users to single sign-on 
 
 * **With federated single sign-on** Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on. We recommend using Federated SSO with Azure AD when an application supports it, instead of password-based SSO and ADFS.
 
-* **With password-based single sign-on users sign in to the application with a username and password the first time, they access it. After the first sign-on, Azure AD supplies the username and password to the application. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This option leverages the existing sign-in process provided by the application, enables an administrator to manage the passwords, and doesn't require the user to know the password.
+* **With password-based single sign-on** users sign in to the application with a username and password the first time, they access it. After the first sign-on, Azure AD supplies the username and password to the application. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This option leverages the existing sign-in process provided by the application, enables an administrator to manage the passwords, and doesn't require the user to know the password.
 
 ### Considerations for federation-based SSO
 
@@ -137,7 +138,7 @@ Some of the key topics to plan for while setting up access reviews include:
 
 1. Completing an access review includes taking away app access permissions to users who no longer need access. Plan for handling potential support requests from denied users. A deleted user will remain deleted in Azure AD for 30 days during which time they can be restored by an administrator if necessary. After 30 days, that user is permanently deleted. Using the Azure Active Directory portal, a Global Administrator can explicitly permanently delete a recently deleted user before that time period is reached.
 
-### Plan Auditing
+### Plan auditing
 
 Azure AD provides [reports containing technical and business insights](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
 
@@ -220,7 +221,7 @@ If you can’t locate your application, see [Custom Application documentation](h
 
 Optionally, you can use claims issued in the SAML token for the enterprise application using [Microsoft’s guidance documentation](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Ensure this maps to what you expect to receive in the SAML response for your application. If you encounter issues during configuration, use our guidance on [how to Debug SSO integration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
 
-Note: Custom application onboarding is an Azure AD Premium P1 or P2 licenses feature.
+Custom application onboarding is an Azure AD Premium P1 or P2 licenses feature.
 
 ### Provide SSO change communications to end users
 
@@ -232,7 +233,7 @@ Implement your communication plan. Ensure you are letting your end users know th
 
 Following are some useful test cases you can conduct on both corporate owned and personal devices to ensure your SSO configurations are working as expected.
 
-Note: The scenarios below assume that a user is navigating to an application URL and going through an authentication flow initiated by the service provider (SP-Initiated Auth Flow).
+The scenarios below assume that a user is navigating to an application URL and going through an authentication flow initiated by the service provider (SP-Initiated Auth Flow).
 
 | Scenario| Expected Result on SP-Initiated Auth Flow by User |
 |-|-|
