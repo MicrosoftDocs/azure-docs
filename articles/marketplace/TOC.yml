@@ -8,15 +8,13 @@
   - name: Azure Marketplace and AppSource overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
-    - name: Become a publisher on the marketplace
-      href: ./become-publisher.md
-      items:
-      - name: Create a Microsoft account
-        href: ./guidelines.md
-      - name: Register in Dev Center
-        href: ./register-dev-center.md
-      - name: Azure partner customer usage attribution
-        href: ./azure-partner-customer-usage-attribution.md
+#    - name: Become a publisher on the marketplace
+#      href: ./become-publisher.md
+#      items:
+#      - name: Create a Microsoft account
+#        href: ./guidelines.md
+#      - name: Register in Dev Center
+#        href: ./register-dev-center.md
     - name: One marketplace, two storefronts
       href: ./comparing-appsource-azure-marketplace.md
     - name: Publishing options and considerations
@@ -30,6 +28,8 @@
         href: ./private-offers.md
       - name: Standard Contract
         href: ./standard-contract.md
+      - name: Azure partner customer usage attribution
+        href: ./azure-partner-customer-usage-attribution.md
     - name: Publishing guide by offer type
       href: ./publisher-guide-by-offer-type.md
       items:

@@ -128,7 +128,7 @@
       href: how-to-auto-provision-simulated-device-windows.md
   - name: Develop and debug custom modules
     items:
-    - name: Visual Studio 2017
+    - name: Visual Studio 2019
       href: how-to-visual-studio-develop-module.md
     - name: Visual Studio Code
       href: how-to-vs-code-develop-module.md
