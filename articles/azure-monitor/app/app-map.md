@@ -190,11 +190,9 @@ For further information on Java correlation and how to configure cloud role name
 ### Client/browser-side JavaScript
 
 ```javascript
-appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
-  envelope.tags["ai.cloud.role"] = "your role name";
-  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
-});
+appInsights.addTelemetryInitializer((envelope) => {
+  envelope.tags.push({"ai.cloud.role":"your role name"});
+  envelope.tags.push({"ai.cloud.roleInstance":"your role instance"});
 });
 ```
 
