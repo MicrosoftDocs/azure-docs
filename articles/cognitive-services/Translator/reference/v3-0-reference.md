@@ -140,7 +140,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400036| The target language ("To" field) is missing or invalid.|
 | 400042| One of the options specified ("Options" field) is not valid.|
 | 400043| The client trace ID (ClientTraceId field or X-ClientTranceId header) is missing or invalid.|
-| 400050| The input text is too long. View [request limits](.../request-limits).|
+| 400050| The input text is too long. View [request limits](../request-limits).|
 | 400064| The "translation" parameter is missing or invalid.|
 | 400070| The number of target scripts (ToScript parameter) does not match the number of target languages (To parameter).|
 | 400071| The value is not valid for TextType.|
@@ -148,7 +148,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400073| The script parameter is not valid.|
 | 400074| The body of the request is not valid JSON.|
 | 400075| The language pair and category combination is not valid.|
-| 400077| The maximum request size has been exceeded. View [request limits](.../request-limits).|
+| 400077| The maximum request size has been exceeded. View [request limits](../request-limits).|
 | 400079| The custom system requested for translation between from and to language does not exist.|
 | 401000| The request is not authorized because credentials are missing or invalid.|
 | 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Please use a subscription to Translator Text API."|
