@@ -11,19 +11,31 @@ ms.date: 05/28/2019
 
 # Host a static website in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account. This article shows you how to enable static website hosting by using the Azure Portal, the Azure CLI, or PowerShell.
+You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
 
-To learn more about static website hosting in Azure Storage, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
+This article shows you how to enable static website hosting by using the Azure Portal, the Azure CLI, or PowerShell.
 
-## Use Azure portal
+<a id="portal" />
 
-For a step-by-step tutorial that shows you how to use the Azure portal to enable static website hosting, and then to upload the files of your website, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+## Use the Azure portal
+
+For a step-by-step tutorial, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+
+<a id="portal-find-url" />
+
+### Find the website URL by using the Azure Portal
+
+You can view content from a browser by using the public URL of the website.
+
+In the pane that appears beside the account overview page of your storage account, select **Static Website**. The URL of your site appears in the **Primary endpoint** field.
+
+![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+
+<a id="cli" />
 
 ## Use the Azure CLI
 
-The Azure CLI is Azure's command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it from the command line. To learn more, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-
-These steps help you to use the CLI to enable static website hosting, and then upload the files of your website.
+You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
@@ -53,13 +65,7 @@ These steps help you to use the CLI to enable static website hosting, and then u
 
    * Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
 
-5. Verify that the static website is enabled by querying the web endpoint URL.
-
-    ```azurecli-interactive
-    az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
-    ```
-
-6. Upload objects to the *$web* container from a source directory.
+5. Upload objects to the *$web* container from a source directory.
 
    > [!NOTE]
    > If you're using Azure Cloud Shell, make sure to add a `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
@@ -79,9 +85,27 @@ These steps help you to use the CLI to enable static website hosting, and then u
      >
      > If you're using Azure Cloud Shell, you'll have to reference a file share that is visible to the Cloud Shell. This location could be the file share of the Cloud share itself or an existing file share that you mount from the Cloud Shell. To learn how to do this, see [Persist files in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
+<a id="cli-find-url" />
+
+### Find the website URL by using the Azure CLI
+
+You can view content from a browser by using the public URL of the website.
+
+Find the URL by using the following command:
+
+```azurecli-interactive
+az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
+```
+
+* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+<a id="powershell" />
+
 ## Use PowerShell
 
-You can use the Azure PowerShell module to enable website hosting, and then to upload the files of your website.
+You can enable static website hosting by using the Azure PowerShell module.
 
 1. Open a Windows PowerShell command window.
 
@@ -142,6 +166,21 @@ You can use the Azure PowerShell module to enable website hosting, and then to u
    * Replace the `<path-to-file>` placeholder value with the fully qualified path to the file that you want to upload (For example: `C:\temp\index.html`).
 
    * Replace the `<blob-name>` placeholder value with the name that you want to give the resulting blob (For example: `index.html`).
+
+<a id="powershell-find-url" />
+
+### Find the website URL by using PowerShell
+
+You can view content from a browser by using the public URL of the website.
+
+Find the URL by using the following command:
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId <subscription-d>
+Set-AzContext $context
+```
+
+Replace the `<subscription-id>` placeholder value with the id of your subscription.
 
 ## Next steps
 
