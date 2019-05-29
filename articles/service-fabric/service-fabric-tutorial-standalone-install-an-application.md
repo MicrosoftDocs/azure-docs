@@ -1,6 +1,6 @@
 ---
 title: Tutorial install an application on your standalone Service Fabric cluster - Azure Service Fabric | Microsoft Docs
-description: In this tutorial you learn how to install an application into your standalone Service Fabric cluster.
+description: In this tutorial, you learn how to install an application into your standalone Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -19,9 +19,9 @@ ms.custom: mvc
 ---
 # Tutorial: Deploy an application on your Service Fabric standalone cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you create a standalone cluster hosted on AWS and deploy an application into it.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and deploy an application into it.
 
-This tutorial is part three of a series.  Service Fabric standalone clusters offers you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
+This tutorial is part three of a series.  Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
 
 In part three of the series, you learn how to:
 
@@ -33,7 +33,7 @@ In part three of the series, you learn how to:
 
 Before you begin this tutorial:
 
-* [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Download the voting sample application
