@@ -15,11 +15,13 @@ ms.date: 01/25/2019
 ---
 # Monitoring and performance tuning
 
-Azure SQL Database is an automatically managed and flexible data service where you can easily monitor usage, add or remove resources (CPU, memory, I/O), find recommendations that can improve performance of your database, or let database adapt to your workload and automatically optimize performance.
+Azure SQL Database is an automatically managed and flexible data service where you can easily monitor usage, add or remove resources (CPU, memory, I/O), find recommendations that can improve performance of your database, or let database adapt to your workload and automatically optimize performance. There are tow main acitvities that you need to do in Azure SQL Database:
+- [Monitoring database performance](#monitoring-database-performance) in order to make sure that the resources assigned to your database can handle your workload. If you see that you are hitting the resource limits, you would need to identify top resource consuming queries and optimize them, or to add more resources by upgrading service tier.
+- [Troubleshoot performance issues](#troubleshoot-performance-issues) in order to identify why some potential issue happened, identify root cause of the issue and the action that will fix the issue.
 
 ## Monitoring database performance
 
-Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. You need to monitor the following resoruces:
+Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. You need to monitor the following resources:
  - **CPU usage** - you need to check are you reaching 100% of CPU usage in a longer period of time. This might indicate that you might need to upgrade you database or instance or identify and tune the queries that are using most of the compute power.
  - **Wait statistics** - you need to check what why your queries are waiting for some resources. Queriesmig wait for data to be fetched or saved to the database files, waiting because some resource limit is reached, etc.
  - **IO usage** - you need to check are you reaching the IO limits of the underlying storage.
@@ -30,8 +32,9 @@ Azure SQL Database enables you to identify opportunities to improve and optimize
 You have the following options for monitoring and troubleshooting database performance:
 
 - In the [Azure portal](https://portal.azure.com), click **SQL databases**, select the database, and then use the Monitoring chart to look for resources approaching their maximum. DTU consumption is shown by default. Click **Edit** to change the time range and values shown.
-- Use [Query Performance Insight](sql-database-query-performance.md) to identify the queries that spend the most of resources.
-- Use [SQL Database Advisor](sql-database-advisor-portal.md) to view recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues.
+- Tools such as SQL Server Management Studio provide many usefull reports where you can monitor resource utilization and identify top resouce consuming queries.
+- Use [Query Performance Insight](sql-database-query-performance.md) the [Azure portal](https://portal.azure.com) in  to identify the queries that spend the most of resources. This feature is available in Single Database and Elastic Pools only.
+- Use [SQL Database Advisor](sql-database-advisor-portal.md) to view recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. This feature is available in Single Database and Elastic Pools only.
 - Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of your database performance. Once a performance issue is detected, a diagnostic log is generated with details and Root Cause Analysis (RCA) of the issue. Performance improvement recommendation is provided when possible.
 - [Enable automatic tuning](sql-database-automatic-tuning-enable.md) and let Azure SQL database automatically fix identified performance issues.
 - Use [dynamic management views (DMVs)](sql-database-monitoring-with-dmvs.md), [extended events](sql-database-xevent-db-diff-from-svr.md), and the [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) for more detailed troubleshooting of performance issues.
