@@ -2,7 +2,7 @@
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018	
+ms.date: 6/15/2019	
 ms.author: victorh
 ---
 **Public DNS zones**

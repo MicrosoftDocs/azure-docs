@@ -12,7 +12,7 @@ ms.author: victorh
 
 ## Does Azure DNS support private domains?
 
-Support for private domains is implemented by using the Private Zones feature. This feature is currently available in public preview. Private zones are managed by using the same tools as internet-facing Azure DNS zones. They're resolvable only from within your specified virtual networks. For more information, see the [overview](private-dns-overview.md).
+Support for private domains is supported using Azure Private DNS Zones feature. Private DNS zones are managed by using the same tools as internet-facing Azure DNS zones. They're resolvable only from within your specified virtual networks. For more information, see the [overview](private-dns-overview.md).
 
 For information on other internal DNS options in Azure, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -59,14 +59,6 @@ Yes. Private Zones doesn't replace the default DNS resolutions by using the Azur
 ## Will the DNS suffix on virtual machines within a linked virtual network be changed to that of the private zone?
 
 No. The DNS suffix on the virtual machines in your linked virtual network stays as the default Azure-provided suffix ("*.internal.cloudapp.net"). You can manually change this DNS suffix on your virtual machines to that of the private zone.
-
-## Are there any limitations for private zones?
-
-Yes. During the public preview, the following limitations exist:
-
-* Reverse DNS works only for private IP space in the Registration virtual network.
-* Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix can't be resolved. An example is a private IP for a virtual machine in a virtual network that's a linked virtual network to a private zone.
-* Conditional forwarding isn't supported, for example, to enable resolution between Azure and on-premises networks. Learn how customers can realize this scenario via other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## What are the usage limits for Azure Private DNS?
 
