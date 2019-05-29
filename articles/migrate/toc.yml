@@ -12,6 +12,12 @@
       href: tutorial-prepare-vmware.md
     - name: Assess VMware VMs for migration
       href: tutorial-assess-vmware.md
+    - name: Migrate VMware VMs
+      items:
+      - name: About migration options for VMware VMs
+        href: server-migrate-overview.md
+      - name: Migrate VMware VMs with agentless migration
+        href: tutorial-migrate-vmware.md
   - name: Hyper-V assessment and migration
     items:
     - name: Prepare Hyper-V for assessment and migration

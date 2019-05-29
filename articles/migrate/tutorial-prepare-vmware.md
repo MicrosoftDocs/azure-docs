@@ -77,7 +77,7 @@ The tenant/global admin can grant permissions as follows
 
 The tenant/global admin has permissions to assign the role to the account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-### Assign permissions for assessment and migration
+### Assign key vault permissions
 
 Server migration creates a key vault to manage access keys to the replication storage account in your subscription. For the key vault to manage the storage account you need resource group permissions as follows:
 

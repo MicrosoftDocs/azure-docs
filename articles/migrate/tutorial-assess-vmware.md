@@ -7,7 +7,6 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: raynew
-ms.custom: mvc
 ---
 
 # Assess VMware VMs for migration
@@ -54,7 +53,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Discover and assess servers](./media/tutorial-assess-vmware/assess-migrate.png)
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
-2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-permissions-for-assessment-and-migration).
+2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-key-vault-permissions).
 3. In **Project Details**, specify the project name, and geography in which you want to create the project. You can create an Azure Migrate project in the regions summarized in the table.
 
     - The region specified for the project is only used to store the metadata gathered from on-premises VMs.
