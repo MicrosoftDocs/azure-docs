@@ -86,7 +86,7 @@ If you haven't yet set up a project, follow the next procedure.
 3. In **Overview**, click **Assess and migrate servers**.
 4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
 5. In **Discover, assess and migrate servers**, click **Add tools**.
-6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-permissions-for-assessment-and-migration).
+6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-key-vault-permissions).
 7. In **Project Details**, specify the project name, and geography in which you want to create the project. You can create an Azure Migrate project in the regions summarized in the table.
 
     - The region specified for the project is only used to store the metadata gathered from on-premises VMs.
