@@ -115,8 +115,6 @@ You can also reuse this set up to include metrics from your Prometheus server. U
 Here are good reference articles on how to use Telegraf, InfluxDB, Prometheus, and Docker
  - [How To Monitor System Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
 
- - [Monitor Docker resource metrics with Grafana, InfluxDB, and Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
-
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Here is an image of a full Grafana dashboard that has metrics from Azure Monitor and Application Insights.
