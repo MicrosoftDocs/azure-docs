@@ -95,7 +95,7 @@ There are multiple ways to view training accuracy metrics for each run iteration
 
 * Use the Jupyter widget.
 * Use the `get_metrics()` function on any `Run` object.
-* View the metrics in the Azure Portal in your experiment.
+* View the metrics in the Azure portal in your experiment.
 
 ### Classification metrics
 
