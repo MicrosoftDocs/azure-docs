@@ -13,7 +13,7 @@ manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain member node so that I can perform actions on a blockchain.
 ---
 
-# Quickstart: Use Truffle to connect to a an Azure Blockchain Service network
+# Quickstart: Use Truffle to connect to an Azure Blockchain Service network
 
 Truffle is a blockchain development environment you can use to connect to an Azure Blockchain Service node.
 
