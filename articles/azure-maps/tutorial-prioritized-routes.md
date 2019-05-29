@@ -211,7 +211,7 @@ This section shows how to use the Maps route service API to find multiple routes
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instance. The `routeURL` represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
+   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a `Pipeline` instance. The `routeURL` represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
 
 2. After setting up credentials and the URL, add the following JavaScript code to construct a route from start to end point for a truck carrying USHazmatClass2 classed cargo and display the results.
 
