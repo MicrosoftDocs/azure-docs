@@ -297,6 +297,8 @@
       items:
       - name: Applications and service principals
         href: app-objects-and-service-principals.md
+      - name: How and why apps are added to Azure AD
+        href: active-directory-how-applications-are-added.md
       - name: Single tenant and multi-tenant apps
         href: single-and-multi-tenant-apps.md
     - name: Permissions and consent
