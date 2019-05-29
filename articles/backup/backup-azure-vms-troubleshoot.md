@@ -14,15 +14,16 @@ ms.author: srinathvasireddy
 You can troubleshoot errors encountered while using Azure Backup with the information listed below:
 
 ## Backup
+This section covers backup operation failure of Azure Virtual machine.
 
-### CopyingVHDsFromBackUpVaultTakingLongTime -Copying backed up data from vault timed out
+## CopyingVHDsFromBackUpVaultTakingLongTime - Copying backed up data from vault timed out
 
 Error code: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Error message: Copying backed up data from vault timed out
 
 This could happen due to transient storage errors or insufficient storage account IOPS for backup service to transfer data to the vault within the timeout period. Configure VM backup using these [best practices](backup-azure-vms-introduction.md#best-practices) and retry the backup operation.
 
-### UserErrorVmNotInDesirableState - VM is not in a state that allows backups.
+## UserErrorVmNotInDesirableState - VM is not in a state that allows backups.
 
 Error code: UserErrorVmNotInDesirableState <br/>
 Error message: VM is not in a state that allows backups.<br/>
@@ -32,7 +33,7 @@ The backup operation failed because the VM is in Failed state. For successful ba
 * If the VM is in a transient state between **Running** and **Shut down**, wait for the state to change. Then trigger the backup job.
 *  If the VM is a Linux VM and uses the Security-Enhanced Linux kernel module, exclude the Azure Linux Agent path **/var/lib/waagent** from the security policy and make sure the Backup extension is installed.
 
-### UserErrorFsFreezeFailed - Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot
+## UserErrorFsFreezeFailed - Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot
 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
@@ -42,7 +43,7 @@ Error message: Failed to freeze one or more mount-points of the VM to take a fil
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
 
-### ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/operation failed due to a COM+ error
+## ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/operation failed due to a COM+ error
 
 Error code: ExtensionSnapshotFailedCOM <br/>
 Error message: Snapshot operation failed due to COM+ error
@@ -50,8 +51,8 @@ Error message: Snapshot operation failed due to COM+ error
 Error code: ExtensionInstallationFailedCOM  <br/>
 Error message: Extension installation/operation failed due to a COM+ error
 
-Error code: ExtensionInstallationFailedMDTC
-Error message: Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator
+Error code: ExtensionInstallationFailedMDTC <br/>
+Error message: Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator <br/>
 
 The Backup operation failed due to an issue with Windows service **COM+ System** application.  To resolve this issue, follow these steps:
 
@@ -65,7 +66,7 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 	* Start the MSDTC service
 * Start the Windows service **COM+ System Application**. After the **COM+ System Application** starts, trigger a backup job from the Azure portal.</ol>
 
-### ExtensionFailedVssWriterInBadState - Snapshot operation failed because VSS writers were in a bad state
+## ExtensionFailedVssWriterInBadState - Snapshot operation failed because VSS writers were in a bad state
 
 Error code: ExtensionFailedVssWriterInBadState <br/>
 Error message: Snapshot operation failed because VSS writers were in a bad state.
@@ -75,7 +76,7 @@ Restart VSS writers that are in a bad state. From an elevated command prompt, ru
   * ```net stop serviceName```
   * ```net start serviceName```
 
-### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
+## ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
 Error code: ExtensionConfigParsingFailure<br/>
 Error message: Failure in parsing the config for the backup extension.
@@ -104,7 +105,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
 	* Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
 3. Trigger a VM backup job.
 
-### ExtensionStuckInDeletionState - Extension state is not supportive to backup operation
+## ExtensionStuckInDeletionState - Extension state is not supportive to backup operation
 
 Error code: ExtensionStuckInDeletionState <br/>
 Error message: Extension state is not supportive to backup operation
@@ -117,7 +118,7 @@ The Backup operation failed due to inconsistent state of Backup Extension. To re
 * After deleting backup extension retry the backup operation
 * The subsequent backup operation will install the new extension in the desired state
 
-### ExtensionFailedSnapshotLimitReachedError - Snapshot operation failed as snapshot limit is exceeded for some of the disks attached
+## ExtensionFailedSnapshotLimitReachedError - Snapshot operation failed as snapshot limit is exceeded for some of the disks attached
 
 Error code: ExtensionFailedSnapshotLimitReachedError  <br/>
 Error message: Snapshot operation failed as snapshot limit is exceeded for some of the disks attached
@@ -131,7 +132,7 @@ The snapshot operation failed as the snapshot limit has exceeded for some of the
 	* Ensure the value of **isanysnapshotfailed** is set as false in /etc/azure/vmbackup.conf
 	* Schedule Azure Site Recovery at a different time, such that it does not conflict the backup operation.
 
-### ExtensionFailedTimeoutVMNetworkUnresponsive - Snapshot operation failed due to inadequate VM resources.
+## ExtensionFailedTimeoutVMNetworkUnresponsive - Snapshot operation failed due to inadequate VM resources.
 
 Error code: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Error message: Snapshot operation failed due to inadequate VM resources.
@@ -153,7 +154,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 
 **Step 3**: Try [increasing the size of VM](https://azure.microsoft.com/blog/resize-virtual-machines/) and retry the operation
 
-### Common VM backup errors
+## Common VM backup errors
 
 | Error details | Workaround |
 | ------ | --- |
@@ -236,7 +237,7 @@ Verify the VM Agent version on Windows VMs:
 ## Troubleshoot VM snapshot issues
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage or delays in a snapshot task run can cause the backup job to fail. The following conditions can cause snapshot task failure:
 
-- **Network access to Storage is blocked by using NSG**. Learn more on how to [establish network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage by using either whitelisting of IPs or through a proxy server.
+- **Network access to Storage is blocked by using NSG**. Learn more on how to [establish network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage by using either allowed list of IPs or through a proxy server.
 - **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
 
    ```
@@ -259,8 +260,8 @@ The need to resolve public internet addresses is discussed in [this Azure Suppor
 
 After name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow one of these steps:
 
-- Whitelist the Azure datacenter IP ranges:
-   1. Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be whitelisted.
+- Allow list of Azure datacenter IP ranges:
+   1. Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be in allow list.
    1. Unblock the IPs by using the [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window. Run as an Administrator.
    1. Add rules to the NSG, if you have one in place, to allow access to the IPs.
 - Create a path for HTTP traffic to flow:
