@@ -40,7 +40,7 @@ Applications you can run in a cross-cloud configuration include:
 * Oracle Retail applications
 * Hyperion
 
-The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. In practice, your solution could include additional tiers such as a web tier in Azure. For more information, see the following sections.
+The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecutre, your solution could include additional tiers such as a web tier in Azure. For more information, see the following sections.
 
 ![Azure OCI solution overview](media/oracle-oci-overview/crosscloud.png)
 
@@ -54,7 +54,7 @@ Enterprise customers often choose to diversify and deploy workloads over multipl
 
 To address these customer challenges, Oracle and Microsoft enable an integrated multi-cloud experience. Cross-cloud networking is established by connecting an [ExpressRoute](../../../expressroute/expressroute-introduction.md) circuit in Microsoft Azure with a [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) circuit in OCI. This connectivity is possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. This setup allows for secure, fast connectivity between the two clouds without the need for an intermediate service provider.
 
-Using ExpressRoute and FastConnect, customers can to peer a virtual network in Azure with a virtual cloud network in OCI, provided that the private IP address space does not overlap. Peering the two networks allows a resource in the virtual network to communicate to a resource in the OCI virtual cloud network as if they were both in the same network.
+Using ExpressRoute and FastConnect, customers can peer a virtual network in Azure with a virtual cloud network in OCI, provided that the private IP address space does not overlap. Peering the two networks allows a resource in the virtual network to communicate to a resource in the OCI virtual cloud network as if they were both in the same network.
 
 ## Network security
 
@@ -67,7 +67,7 @@ Additionally, you can set up [security lists](https://docs.cloud.oracle.com/iaas
 Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.md) (AAD).
 AAD is Microsoft’s cloud-based identity and access management service. It helps your employees and users sign in and access various resources. AAD also allows you to manage your users and their permissions.
 
-Currently, this integration allows you to manage in one central location, which is Azure Active Directory. AAD synchronizes any changes in the directory with the corresponding Oracle directory.
+Currently, this integration allows you to manage in one central location, which is Azure Active Directory. AAD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
 
