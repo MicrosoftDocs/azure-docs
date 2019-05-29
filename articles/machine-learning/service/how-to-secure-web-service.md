@@ -73,11 +73,12 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
   > [!NOTE]
   > The information in this section also applies when you deploy a secure web service for the visual interface. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-  When you deploy to AKS, you can create a new AKS cluster or attach an existing one.
-    -  If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)**.
-    - If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)**. Both return a configuration object that has an **enable_ssl** method.
+When you deploy to AKS, you can create a new AKS cluster or attach an existing one.
+  
+-  If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)**.
+- If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)**. Both return a configuration object that has an **enable_ssl** method.
 
-  The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you purchase.
+The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you purchase.
 
   * When you use a certificate from Microsoft, you must use the *leaf_domain_label* parameter. This parameter generates the DNS name for the service. For example, a value of "myservice" creates a domain name of "myservice\<six-random-characters>.\<azureregion>.cloudapp.azure.com", where \<azureregion> is the region that contains the service. Optionally, you can use the *overwrite_existing_domain* parameter to overwrite the existing *leaf_domain_label*.
 
@@ -114,29 +115,29 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-  For more information about *enable_ssl*, see [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) and [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
+For more information about *enable_ssl*, see [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) and [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 ### Deploy on Azure Container Instances
 
-  When you deploy to Azure Container Instances (ACI), you provide values for SSL-related parameters, as the following code snippet shows:
+When you deploy to Azure Container Instances, you provide values for SSL-related parameters, as the following code snippet shows:
 
-    ```python
-    from azureml.core.webservice import AciWebservice
+```python
+from azureml.core.webservice import AciWebservice
 
-    aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
-    ```
+aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+```
 
-  For more information, see [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none-).
+For more information, see [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none-).
 
 ## Update your DNS
 
 Next, you must update your DNS to point to the web service.
 
-+ **For ACI:**
++ **For Container Instances:**
 
-  Use the tools from your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of the service.
+Use the tools from your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of the service.
 
-  There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
+There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
 
 + **For AKS:**
 
@@ -150,4 +151,4 @@ Next, you must update your DNS to point to the web service.
 ## Next steps
 Learn how to:
 + [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
-+ [Securely run experiments and inference inside an Azure Virtual Network](how-to-enable-virtual-network.md)
++ [Securely run experiments and inference inside an Azure virtual network](how-to-enable-virtual-network.md)
