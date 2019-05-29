@@ -108,7 +108,7 @@ After the installation, be sure to check for any additional updates since a numb
 
 7. Choose the type of license format to upload: a license file or a 16-character license code. For example, for a file, in **License file**, browse to the **mflic** file uploaded previously to the VM and select **Install Licenses**.
 
-     ![Micro Focus License Administration dialog box](/edia/07-enterprise-server.png)
+     ![Micro Focus License Administration dialog box](media/07-enterprise-server.png)
 
 When Enterprise Developer loads, your deployment of a Micro Focus development and test environment on Azure is complete!
 
