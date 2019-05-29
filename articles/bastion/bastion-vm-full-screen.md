@@ -30,9 +30,9 @@ During the remote session, launch the Bastion clipboard access tool palette by s
 
 Select the **Fullscreen** button to switch the session to a full screen experience. Once you switch, the session will reinitialize to full screen.
 
-![full screen](./media/bastion-vm-manage/fullscreen.png)
+![full screen](./media/bastion-vm-manage/full-screen.png)
  
 ## Next steps
 
 Read the [Bastion FAQ](bastion-faq.md).
-Learn how to [Copy and paste](bastion-vm-copypaste.md) to and from an Azure VM.
+Learn how to [Copy and paste](bastion-vm-copy-paste.md) to and from an Azure VM.
