@@ -8,6 +8,7 @@
   - name: Example user scenarios
     href: text-analytics-user-scenarios.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: REST API
       items:
