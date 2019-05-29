@@ -91,7 +91,7 @@ For a complete list of configuration parameters, please see the [GitHub Page](ht
     disableExceptionTracking: boolean,
 
     // Set false to enable autocollection of [Fetch requests](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (disabled by default)
-    disableFetchTracking: boolean; // default is true
+    disableFetchTracking: boolean, // default is true
     
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
