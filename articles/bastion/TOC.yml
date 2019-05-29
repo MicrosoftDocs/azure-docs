@@ -17,7 +17,7 @@
   - name: Manage a virtual machine session experience
     items:
     - name: Copy and paste
-      href: bastion-vm-copypaste.md
+      href: bastion-vm-copy-paste.md
     - name: Full screen view
       href: bastion-vm-full-screen.md
   - name: Working with NSGs
