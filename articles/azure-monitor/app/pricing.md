@@ -138,7 +138,7 @@ To disable the daily volume cap e-mails, under the **Configure** section of your
 
 ## Legacy Enterprise (Per Node) pricing tier
 
-For early adopters of Azure Application Insights, there are still two possible two pricing tiers: Basic and Enterprise. The Basic pricing tier is the same as described above and is the default tier. It includes all Enterprise tier features, at no additional cost. The Basic tier bills primarily on the volume of data that's ingested. 
+For early adopters of Azure Application Insights, there are still two possible pricing tiers: Basic and Enterprise. The Basic pricing tier is the same as described above and is the default tier. It includes all Enterprise tier features, at no additional cost. The Basic tier bills primarily on the volume of data that's ingested. 
 
 > [!NOTE]
 > These legacy pricing tiers have been renamed. The Enterprise pricing tier is now called **Per Node** and the Basic pricing tier is now called **Per GB**. These new names are used below and in the Azure portal.  
