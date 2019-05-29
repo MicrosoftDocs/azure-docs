@@ -74,6 +74,7 @@ As of now, following versions of Confluence are supported:
 - Confluence: 6.10.0
 - Confluence: 6.11.0
 - Confluence: 6.12.0
+- Confluence: 6.15.3
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04
@@ -176,7 +177,7 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 
 5. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon52.png)
+	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon53.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
@@ -200,6 +201,11 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 
 	h. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user signs out from Confluence. 
 
+	i. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
+	
+	> [!Note]
+	> In case you want to enable default login form for admin login on login page when the force azure login is enabled, you need to add query parameter in the browser URL. (https://<domain:port>/login.action?force_azure_login=false)
+	
 	i. Click **Save** button to save the settings.
 
 	> [!NOTE]
