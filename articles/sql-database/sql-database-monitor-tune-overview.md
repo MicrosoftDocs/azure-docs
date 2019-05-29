@@ -15,9 +15,9 @@ ms.date: 01/25/2019
 ---
 # Monitoring and performance tuning
 
-Azure SQL Database enables you to easily monitor usage, add or remove resources (CPU, memory, I/O), troubleshoot the potential issues, and find recommendations that can improve performance of your database. Azure SQL Database has many features that can automatically fix the issues in your databases if you want to let database adapt to your workload and automatically optimize performance. Howerer, there are some custom issue that you might need to troubleshoot. This article explains some best practices and tools that you can use to troubleshoot the database issues.
+Azure SQL Database enables you to easily monitor usage, add or remove resources (CPU, memory, I/O), troubleshoot the potential issues, and find recommendations that can improve performance of your database. Azure SQL Database has many features that can automatically fix the issues in your databases if you want to let database adapt to your workload and automatically optimize performance. However, there are some custom issues that you might need to troubleshoot. This article explains some best practices and tools that you can use to troubleshoot the performance issues.
 
-There are two main activities that you need to do in order to ensure that you database is runnung without issues:
+There are two main activities that you need to do in order to ensure that you database is running without issues:
 - [Monitoring database performance](#monitoring-database-performance) in order to make sure that the resources assigned to your database can handle your workload. If you see that you are hitting the resource limits, you would need to identify top resource consuming queries and optimize them, or to add more resources by upgrading service tier.
 - [Troubleshoot performance issues](#troubleshoot-performance-issues) in order to identify why some potential issue happened, identify root cause of the issue and the action that will fix the issue.
 
