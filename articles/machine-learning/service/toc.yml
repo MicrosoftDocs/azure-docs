@@ -6,6 +6,9 @@
   - name: What is Azure Machine Learning service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
+  - name: How the service works
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
 - name: Setup
   items:
   - name: Create a workspace
@@ -61,25 +64,28 @@
   - name: Visual interface experiments
     items:
     - name: "Predict price"
-      displayName: Sample 1, training, regression
+      displayName: Basic Sample, training, regression, sample 1
       href:  ui-sample-regression-predict-automobile-price-basic.md
     - name: "Predict price (advanced)"
-      displayName: Sample 2, training, regression
+      displayName: Advanced Sample, training, regression, sample 2
       href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
     - name: "Predict credit risk"
-      displayName: Sample 3, training, classification
-      href: ui-sample-classification-predict-credit-risk-basic.md
+      displayName: Basic Sample, training, classification, sample 3
+      href:  ui-sample-classification-predict-credit-risk-basic.md
     - name: "Predict credit risk (advanced)"
-      displayName: Sample 4, training, classification
+      displayName: Advanced Sample, training, classification, sample 4
       href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
     - name: "Predict churn"
-      displayName: Sample 5, training, CRM, classification
-      href: ui-sample-classification-predict-churn.md
+      displayName: Basic Sample, training, classification, sample 5
+      href:  ui-sample-classification-predict-churn.md
 - name: Concepts
   items:
-  - name: How the service works
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
+  - name: Workspace
+    displayName: concept definitions architecture
+    href: concept-workspace.md
+  - name: Visual interface
+    displayName: concept
+    href: ui-concept-visual-interface.md
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -89,8 +95,6 @@
   - name: Model interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
-  - name: Accelerate with GPUs
-    href: concept-accelerate-inferencing-with-gpus.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
   - name: Optimize with ONNX and ONNX Runtime
@@ -125,7 +129,10 @@
       href: how-to-configure-environment.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
-      href: how-to-enable-logging.md  
+      href: how-to-enable-logging.md 
+    - name: Set input & output directories
+      displayName: large data, write, experiment files, size limit
+      href: how-to-save-write-experiment-files.md 
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
@@ -134,6 +141,18 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
+    - name: Explore data
+      displayName: data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
+      href: how-to-explore-prepare-data.md
+    - name: Version & manage data definitions
+      displayName: data, etl, dataset, data preparation, dataprep, version
+      href: how-to-manage-dataset-definitions.md
+    - name: Snapshot your data
+      displayName: snapshots, profile, summary statistics, data copy
+      href: how-to-create-dataset-snapshots.md
+    - name: Get data from a datastore
+      displayName: blob get fileshare access storage
+      href: how-to-access-data.md
     - name: 'Prepare with azureml.dataprep'
       items:
       - name: Load data
@@ -145,18 +164,6 @@
       - name: Write data
         displayName: data, etl, data prep, dataprep
         href: how-to-write-data.md
-    - name: 'Prepare with datasets (preview)'
-      displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
-      href: how-to-explore-prepare-data.md
-    - name: Version & manage data definitions
-      displayName: data, etl, dataset, data preparation, dataprep, version
-      href: how-to-manage-dataset-definitions.md
-    - name: Snapshot your data
-      displayName: snapshots, profile, summary statistics, data copy
-      href: how-to-create-dataset-snapshots.md
-    - name: Get data from a datastore
-      displayName: blob get fileshare access storage
-      href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments
@@ -197,6 +204,8 @@
     - name: Where and how to deploy
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
+    - name: GPUs
+      href: how-to-deploy-inferencing-gpus.md
     - name: FPGAs
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
@@ -224,6 +233,10 @@
     items:
     - name: Create an ML pipeline
       href: how-to-create-your-first-pipeline.md  
+    - name: 'CI/CD of ML workflows with Azure Pipelines'
+      displayName: continuous, integration, delivery
+      href: /azure/devops/pipelines/targets/azure-machine-learning
+      mainContext: true
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -235,9 +248,6 @@
   - name: Machine learning SDK
     displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
-  - name: Data prep SDK
-    displayName: api core package python data prep
-    href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk

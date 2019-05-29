@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Enable password hash synchroniza
 description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: mstephen
 
 ---
 # Enable password hash synchronization to Azure Active Directory Domain Services
@@ -78,6 +78,6 @@ A few minutes after you have changed your password, the new password is usable i
 * [How to update your own password](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Getting started with Password Management in Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Enable password hash synchronization to Azure Active Directory Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Administer an Azure Active Directory Domain Services-managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [Join a Windows virtual machine to an Azure Active Directory Domain Services-managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure Active Directory Domain Services-managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

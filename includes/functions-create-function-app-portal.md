@@ -36,4 +36,4 @@ ms.custom: include file
 
     ![Define new function app settings](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-5. Select **Go to resource** to view your new function app.
+5. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.

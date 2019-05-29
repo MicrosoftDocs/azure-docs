@@ -373,7 +373,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### Missing updates list
@@ -628,7 +628,7 @@ However, Update Management might still report that machine as being non-complian
 
 Deploying updates by update classification doesn't work on CentOS out of the box. To properly deploy updates for CentOS, select all classifications to ensure updates are applied. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you may be required to rerun the update deployment. To verify, check the update log.
 
-## Remove a VM for Update Management
+## Remove a VM from Update Management
 
 To remove a VM from Update Management:
 

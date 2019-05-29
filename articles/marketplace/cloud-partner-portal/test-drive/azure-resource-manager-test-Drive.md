@@ -389,7 +389,7 @@ Otherwise, create a new Tenant in Azure Active Directory.
 
 ![List of Azure Active Directory tenants](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Define the organization, domain and Country for the Azure AD tenant](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Define the organization, domain and country/region for the Azure AD tenant](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirm the selection](./media/azure-resource-manager-test-drive/subdetails6.png)
 

@@ -35,7 +35,7 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-
 
     ```javascript
     'use strict';
-    const Search = require('azure-cognitiveservices-imagesearch');
+    const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
 
@@ -50,7 +50,7 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-
 
     //instantiate the image search client 
     let credentials = new CognitiveServicesCredentials(serviceKey);
-    let imageSearchApiClient = new Search.ImageSearchAPIClient(credentials);
+    let imageSearchApiClient = new ImageSearchAPIClient(credentials);
 
     ```
 

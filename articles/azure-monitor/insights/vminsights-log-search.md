@@ -96,7 +96,7 @@ For convenience, the IP address of the remote end of a connection is included in
 
 | Property | Description |
 |:--|:--|
-|RemoteCountry |The name of the country hosting RemoteIp.  For example, *United States* |
+|RemoteCountry |The name of the country/region hosting RemoteIp.  For example, *United States* |
 |RemoteLatitude |The geolocation latitude. For example, *47.68* |
 |RemoteLongitude |The geolocation longitude. For example, *-122.12* |
 
@@ -125,7 +125,7 @@ Ports on a machine that actively accept incoming traffic or could potentially ac
 >- East US  
 >- West Europe
 >
-> Collecting this data is enabled in the other [supported regions](vminsights-onboard.md#log-analytics) for Azure Monitor for VMs. 
+> Collecting this data is enabled in the other [supported regions](vminsights-enable-overview.md#log-analytics) for Azure Monitor for VMs. 
 
 Every record in VMBoundPort is identified by the following fields: 
 

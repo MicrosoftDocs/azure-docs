@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
@@ -319,6 +319,11 @@ The latency in Security Center scans for vulnerabilities, updates, and issues is
 - Endpoint Protection issues – data is updated within 8 hours
 
 Security Center typically scans for new data every hour, and refreshes the recommendations accordingly. 
+
+> [!NOTE]
+> Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md). The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+>
+>
 
 ### Why do I get the message "VM Agent is Missing?"
 The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

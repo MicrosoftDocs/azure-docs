@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
-ms.author: harijay
+ms.author: alsin
 ---
 
 # Azure Serial Console for Windows
 
-The Serial Console in the Azure portal provides access to a text-based console for Windows virtual machines (VMs) and virtual machine scale set (virtual machine scale set) instances. This serial connection connects to the COM1 serial port of the VM or virtual machine scale set instance, providing access to it independent of the network or operating system state. The serial console can only be accessed by using the Azure portal and is allowed only for those users who have an access role of Contributor or higher to the VM or virtual machine scale set.
+The Serial Console in the Azure portal provides access to a text-based console for Windows virtual machines (VMs) and virtual machine scale set instances. This serial connection connects to the COM1 serial port of the VM or virtual machine scale set instance, providing access to it independent of the network or operating system state. The serial console can only be accessed by using the Azure portal and is allowed only for those users who have an access role of Contributor or higher to the VM or virtual machine scale set.
 
 Serial Console works in the same manner for VMs and virtual machine scale set instances. In this doc, all mentions to VMs will implicitly include virtual machine scale set instances unless otherwise stated.
 
@@ -166,7 +166,9 @@ The serial console can be disabled for a specific VM or virtual machine scale se
 > To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions include, but are not limited to, administrator or owner roles. Custom roles can also have write permissions.
 
 ### Subscription-level disable
-The serial console can be disabled for an entire subscription through the [Disable Console REST API call](/rest/api/serialconsole/console/disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter "default" for **default**, and then select **Run**. Azure CLI commands aren't yet available.
+The serial console can be disabled for an entire subscription through the [Disable Console REST API call](/rest/api/serialconsole/console/disableconsole). This action requires contributor level access or above to the subscription. You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter "default" for **default**, and then select **Run**. Azure CLI commands aren't yet available.
+
+To reenable serial console for a subscription, use the [Enable Console REST API call](/rest/api/serialconsole/console/enableconsole).
 
 ![REST API Try It](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

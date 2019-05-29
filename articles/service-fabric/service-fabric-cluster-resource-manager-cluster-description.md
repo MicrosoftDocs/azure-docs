@@ -29,7 +29,7 @@ The Cluster Resource Manager supports several features that describe a cluster:
 * Node Capacities
 
 ## Fault domains
-A Fault Domain is any area of coordinated failure. A single machine is a Fault Domain (since it can fail on its own for various reasons, from power supply failures to drive failures to bad NIC firmware). Machines connected to the same Ethernet switch are in the same Fault Domain, as are machines sharing a single source of power or in a single location. Since it's natural for hardware faults to overlap, Fault Domains are inherently hierarchal and are represented as URIs in Service Fabric.
+A Fault Domain is any area of coordinated failure. A single machine is a Fault Domain (since it can fail on its own for various reasons, from power supply failures to drive failures to bad NIC firmware). Machines connected to the same Ethernet switch are in the same Fault Domain, as are machines sharing a single source of power or in a single location. Since it's natural for hardware faults to overlap, Fault Domains are inherently hierarchical and are represented as URIs in Service Fabric.
 
 It is important that Fault Domains are set up correctly since Service Fabric uses this information to safely place services. Service Fabric doesn't want to place services such that the loss of a Fault Domain (caused by the failure of some component) causes a service to go down. In the Azure environment Service Fabric uses the Fault Domain information provided by the environment to correctly configure the nodes in the cluster on your behalf. For Service Fabric Standalone, Fault Domains are defined at the time that the cluster is set up 
 
@@ -91,13 +91,17 @@ There’s no real limit to the total number of fault or Upgrade Domains in an en
 ![Fault and Upgrade Domain Layouts][Image4]
 </center>
 
-There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is simple to set up. The 1 Upgrade Domain per Node model is most like what people are used to. During upgrades each node is updated independently. This is similar to how small sets of machines were upgraded manually in the past. 
+There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is simple to set up. The 1 Upgrade Domain per Node model is most like what people are used to. During upgrades each node is updated independently. This is similar to how small sets of machines were upgraded manually in the past.
 
 The most common model is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. This is the model used by default in Service Fabric clusters in Azure. For clusters with many nodes everything ends up looking like the dense matrix pattern above.
 
+> [!NOTE]
+> Service Fabric clusters hosted in Azure do not support changing the default strategy. Only Standalone clusters offer that customization.
+>
+
 ## Fault and Upgrade Domain constraints and resulting behavior
 ### *Default approach*
-By default, the Cluster Resource Manager keeps services balanced across Fault and Upgrade Domains. This is modeled as a [constraint](service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraint states: “For a given service partition, there should never be a difference greater than one in the number of service objects (stateless service instances or stateful service replicas) between any two domains on the same level of hierarchy”. Let’s say this constraint provides a “maximum difference” guarantee. The Fault and Upgrade Domain constraint prevents certain moves or arrangements that violate the rule stated above. 
+By default, the Cluster Resource Manager keeps services balanced across Fault and Upgrade Domains. This is modeled as a [constraint](service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraint states: “For a given service partition, there should never be a difference greater than one in the number of service objects (stateless service instances or stateful service replicas) between any two domains on the same level of hierarchy”. Let’s say this constraint provides a “maximum difference” guarantee. The Fault and Upgrade Domain constraint prevents certain moves or arrangements that violate the rule stated above.
 
 Let's look at one example. Let's say that we have a cluster with six nodes, configured with five Fault Domains and five Upgrade Domains.
 

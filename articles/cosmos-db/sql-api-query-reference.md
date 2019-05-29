@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 
@@ -1303,7 +1303,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- Here is the result set.  
+  Here is the result set.  
   
 ```  
 [{  
@@ -1334,6 +1334,17 @@ ROUND(<numeric_expression>)
   
   Returns a numeric expression.  
   
+  **Remarks**
+  
+  The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero.  
+  
+  |<numeric_expression>|Rounded|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0.5|1|
+  |6.5000|7||
+  
   **Examples**  
   
   The following example rounds the following positive and negative numbers to the nearest integer.  
@@ -1342,7 +1353,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- Here is the result set.  
+  Here is the result set.  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  

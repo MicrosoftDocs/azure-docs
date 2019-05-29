@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/15/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -126,7 +126,9 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 > [!IMPORTANT]
 > The following Linux file types are not supported: symbolic links, character files, block files, sockets, and pipes. These file types will result in failures during the **Prepare to ship** step.
 
-- To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
+Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+
+To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

@@ -71,7 +71,7 @@
     - name: Python samples
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples.md
+      href: powershell-samples-sql.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
@@ -163,6 +163,8 @@
       - name: Trigger Azure Functions 
         displayName: change feed
         href: change-feed-functions.md
+    - name: Built-in analytics with Apache Spark
+      href: spark-api-introduction.md
     - name: Server-side programming
       items:
         - name: Stored procedures, triggers, and UDFs
@@ -214,6 +216,8 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
+    - name: Limits
+      href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
@@ -273,6 +277,8 @@
             href: cassandra-spark-table-copy-ops.md
         - name: Manage using Resource Manager templates
           href: manage-cassandra-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-cassandra.md
     - name: MongoDB API
       items: 
       - name: Introduction
@@ -352,6 +358,8 @@
           displayName: custom commands
         - name: Manage using Resource Manager templates
           href: manage-mongodb-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-mongodb.md
     - name: Gremlin API
       displayName: graph, graph database
       items: 
@@ -390,6 +398,8 @@
           maintainContext: true
         - name: Manage using Resource Manager templates
           href: manage-gremlin-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-gremlin.md
     - name: Table API
       items:
       - name: Introduction
@@ -442,6 +452,8 @@
           href: table-storage-design-guide.md
         - name: Manage using Resource Manager templates
           href: manage-table-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-table.md
       - name: Reference
         items:
           - name: .NET
@@ -462,10 +474,6 @@
         href: etcd-api-introduction.md
       - name: Azure Kubernetes with Azure Cosmos DB
         href: bootstrap-kubernetes-cluster.md
-    - name: Spark API
-      items:
-      - name: Introduction
-        href: spark-api-introduction.md
   - name: How-to guides
     items:
     - name: Manage Azure Cosmos account
@@ -514,11 +522,15 @@
         href: data-explorer.md
       - name: Manage indexing policies
         href: how-to-manage-indexing-policy.md
+      - name: Define unique keys
+        href: how-to-define-unique-keys.md
       - name: SQL subquery examples
         displayName: subquery, exists
         href: how-to-sql-subquery.md
     - name: Change Feed
       items:
+      - name: Azure Cosmos DB Trigger logs
+        href: how-to-configure-cosmos-db-trigger-logs.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
