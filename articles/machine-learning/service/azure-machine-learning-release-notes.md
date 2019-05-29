@@ -20,11 +20,44 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-05-28
+
+### Azure Machine Learning Data Prep SDK v1.1.4
+
++ **New features**
+  + You can now use the following expression language functions to extract and parse datetime values into new columns.
+    + `RegEx.extract_record()` extracts datetime elements into a new column.
+    + `create_datetime()` creates datetime objects from separate datetime elements.
+  + When calling `get_profile()`, you can now see that quantile columns are labeled as (est.) to clearly indicate that the values are approximations.
+  + You can now use ** globbing when reading from Azure Blob Storage.
+    + e.g. `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **Bug fixes**
+  + Fixed a bug related to reading a Parquet file from a remote source (Azure Blob).
+
 ## 2019-05-14
 
 ### Azure Machine Learning SDK for Python v1.0.39
 + **Changes**
   + Run configuration auto_prepare_environment option is being deprecated, with auto prepare becoming the default.
+
+## 2019-05-08
+
+### Azure Machine Learning Data Prep SDK v1.1.3
+
++ **New features**
+  + Added support to read from a PostgresSQL database, either by calling read_postgresql or using a Datastore.
+    + See examples in how-to guides:
+      + [Data Ingestion notebook](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Datastore notebook](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Bug fixes and improvements**
+  + Fixed issues with column type conversion:
+  + Now correctly converts a boolean or numeric column to a boolean column.
+  + Now does not fail when attempting to set a date column to be date type.
+  + Improved JoinType types and accompanying reference documentation. When joining two dataflows, you can now specify one of these types of join:
+    + NONE, MATCH, INNER, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, FULL.
+  + Improved data type inferencing to recognize more date formats.
 
 ## 2019-05-06
 
@@ -365,7 +398,7 @@ Azure Machine Learning service is now generally available.
 With this release, we are announcing a new managed compute experience through the [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute target replaces Azure Batch AI compute for Azure Machine Learning. 
 
 This compute target:
-+ Is used for model training and batch inferencing
++ Is used for model training and batch inference/scoring
 + Is single- to multi-node compute
 + Does the cluster management and job scheduling for the user
 + Autoscales by default

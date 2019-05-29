@@ -73,7 +73,6 @@ The following table provides coverage information for Azure Maps routing.
 | Togo                           |        ✓       |                       |             |
 | Tunisia                        |        ✓       |                       |             |
 | Uganda                         |        ✓       |                       |             |
-| Western Sahara                 |        ✓       |                       |             |
 | Zambia                         |        ✓       |                       |             |
 | Zimbabwe                       |        ✓       |                       |             |
 
