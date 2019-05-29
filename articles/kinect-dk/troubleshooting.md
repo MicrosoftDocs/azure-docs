@@ -1,5 +1,5 @@
 ---
-title: Known issues and troubleshooting
+title: Azure Kinect known issues and troubleshooting
 description: Known issues and troubleshooting Azure Kinect device
 author: joylital
 ms.author: joylital
