@@ -47,7 +47,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 1. **Submit the training run.**
 
-  ![Automated Machine learning](./media/how-to-automated-ml/automl-concept-diagram.png)
+  ![Automated Machine learning](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
 During training, the Azure Machine Learning service creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
 
