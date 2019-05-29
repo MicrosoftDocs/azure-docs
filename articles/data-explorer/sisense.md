@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 5/27/2019
+ms.date: 5/29/2019
 ---
 
 # Visualize data from Azure Data Explorer in Sisense
@@ -92,7 +92,9 @@ You need the following to complete this article:
 
     ![Build succeeded](media/sisense/build-succeeded.png)
 
-1. In **Analytics** tab, select **+** > **New Dashboard** to start building dashboards on top of this dataset.
+## Create Sisense dashboards
+
+1. In **Analytics** tab, select **+** > **New Dashboard** to create dashboards on this dataset.
 
     ![New dashboard](media/sisense/new-dashboard.png)
 
