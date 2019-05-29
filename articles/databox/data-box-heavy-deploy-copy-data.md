@@ -42,7 +42,13 @@ Based on the storage account selected, Data Box Heavy creates up to:
 
 These shares are created on both the nodes of the device.
 
-Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
+Under block blob and page blob shares:
+- First-level entities are containers.
+- Second-level entities are blobs.
+
+Under shares for Azure Files:
+- First-level entities are shares.
+- Second-level entities are files.
 
 The following table shows the UNC path to the shares on your Data Box Heavy and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
@@ -52,55 +58,75 @@ The following table shows the UNC path to the shares on your Data Box Heavy and 
 | Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
 | Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
+The steps to connect using a Windows or a Linux client are different.
+
+> [!NOTE]
+> Follow the same steps to connect to both the nodes of the device in parallel.
+
+### Connect on a Windows system
+
 If using a Windows Server host computer, follow these steps to connect to the Data Box Heavy.
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account.
 
-    ![Get share credentials 1](media/data-box-heavy-deploy-copy-data/get-share-credentials1.png)
+    ![Get share credentials 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Click **OK**.
     
-    ![Get share credentials 1](media/data-box-heavy-deploy-copy-data/get-share-credentials2.png)
+    ![Get share credentials 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
-3. To access the shares associated with your storage account (*devicemanagertest1* in the following example) from your host computer, open a command window. At the command prompt, type:
+3. To access the shares associated with your storage account (*databoxe2etest* in the following example) from your host computer, open a command window. At the command prompt, type:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     Depending upon your data format, the share paths are as follows:
-    - Azure Block blob - `\\10.126.76.172\devicemanagertest1_BlockBlob`
-    - Azure Page blob - `\\10.126.76.172\devicemanagertest1_PageBlob`
-    - Azure Files - `\\10.126.76.172\devicemanagertest1_AzFile`
+    - Azure Block blob - `\\10.100.10.100\databoxe2etest_BlockBlob`
+    - Azure Page blob - `\\10.100.10.100\databoxe2etest_PageBlob`
+    - Azure Files - `\\10.100.10.100\databoxe2etest_AzFile`
     
 4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\10.100.10.100\databoxe2etest_BlockBlob /u:databoxe2etest
+    Enter the password for 'databoxe2etest' to connect to '10.100.10.100':
     The command completed successfully.
     ```
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Connect to share via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
     You should now see the shares as folders.
     
-    ![Connect to share via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer2.png)    
+    ![Connect to share via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-2.png)
 
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
     
-If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+### Connect on a Linux system
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+If using a Linux client, use the following command to mount the SMB share.
 
-You can follow the above steps to connect to the other node of the device in parallel.
+```
+sudo mount -t nfs -o vers=2.1 10.126.76.172:/databoxe2etest_BlockBlob /home/databoxubuntuhost/databox
+```
+
+The `vers` parameter is the version of SMB that your Linux host supports. Plug in the appropriate version in the above command.
+
+For versions of SMB that the Data Box supports, see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients).
+
 
 ## Copy data to Data Box
 
-Once you're connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
+Once you're connected to the Data Box shares, the next step is to copy data.
 
-- Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy the VHDs to page blob. If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
--  While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
+### Copy considerations
+
+Before you begin the data copy, review the following considerations:
+
+- Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy the VHDs to page blob.
+
+    If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
+-  While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box Heavy limits](data-box-heavy-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - We recommend that:
     - You don't use both SMB and NFS at the same time.
@@ -109,60 +135,45 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
   In these cases, the final outcome can't be determined.
 - Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 
-After you've connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
+After you've connected to the SMB share, begin data copy.
+
+1. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
     
+    ```
     robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
-  
- The attributes are described in the following table.
+    ```
+    The attributes are described in the following table.
     
-|Attribute  |Description  |
-|---------|---------|
-|/e     |Copies subdirectories including empty directories.         |
-|/r:     |Specifies the number of retries on failed copies.         |
-|/w:     |Specifies the wait time between retries, in seconds.         |
-|/is     |Includes the same files.         |
-|/nfl     |Specifies that file names aren't logged.         |
-|/ndl    |Specifies that directory names aren't logged.        |
-|/np     |Specifies that the progress of the copying operation (the number of files or directories copied so far) will not be displayed. Displaying the progress significantly lowers the performance.         |
-|/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
-|/fft     | Use to reduce the time stamp granularity for any file system.        |
-|/b     | Copies files in Backup mode.        |
-|/z    | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
-| /zb     | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
-|/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |
-|log+:\<LogFile>| Appends the output to the existing log file.|    
+    |Attribute  |Description  |
+    |---------|---------|
+    |/e      |Copies subdirectories including empty directories.         |
+    |/r:     |Specifies the number of retries on failed copies.         |
+    |/w:     |Specifies the wait time between retries, in seconds.         |
+    |/is     |Includes the same files.         |
+    |/nfl    |Specifies that file names aren't logged.         |
+    |/ndl    |Specifies that directory names aren't logged.        |
+    |/np     |Specifies that the progress of the copying operation (the number of files or directories copied so far) will not be displayed. Displaying the progress significantly lowers the performance.         |
+    |/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
+    |/fft    | Use to reduce the time stamp granularity for any file system.        |
+    |/b      | Copies files in Backup mode.        |
+    |/z      | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
+    | /zb    | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
+    |/efsraw | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |
+    |log+:\<LogFile>| Appends the output to the existing log file.|
+    
  
-The following sample shows the output of the robocopy command to copy files to the Data Box.
-    
-    C:\Users>robocopy
-        -------------------------------------------------------------------------------
-        ROBOCOPY     ::     Robust File Copy for Windows
-    -------------------------------------------------------------------------------
-    
-        Started : Thursday, March 8, 2018 2:34:53 PM
-            Simple Usage :: ROBOCOPY source destination /MIR
-    
-                    source :: Source Directory (drive:\path or \\server\share\path).
-            destination :: Destination Dir  (drive:\path or \\server\share\path).
-                    /MIR :: Mirror a complete directory tree.
-    
-        For more usage information run ROBOCOPY /?    
-    
-    ****  /MIR can DELETE files as well as copy them !
-    
-    C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:32
+    The following sample shows the output of the robocopy command to copy files to the Data Box.
+
+    ```   
+    C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.100.10.100\devicemanagertest1_AzFile\templates /MT:24
     -------------------------------------------------------------------------------
         ROBOCOPY     ::     Robust File Copy for Windows
     -------------------------------------------------------------------------------
-    
-        Started : Thursday, March 8, 2018 2:34:58 PM
+        Started : Thursday, April 4, 2019 2:34:58 PM
         Source : C:\Git\azure-docs-pr\contributor-guide\
-            Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
-    
+        Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
         Files : *.*
-    
-        Options : *.* /DCOPY:DA /COPY:DAT /MT:32 /R:5 /W:60
-    
+        Options : *.* /DCOPY:DA /COPY:DAT /MT:24 /R:5 /W:60
     ------------------------------------------------------------------------------
     
     100%        New File                 206        C:\Git\azure-docs-pr\contributor-guide\article-metadata.md
@@ -189,27 +200,44 @@ The following sample shows the output of the robocopy command to copy files to t
         Files :        17        17         0         0         0         0
         Bytes :     3.9 k     3.9 k         0         0         0         0          
     C:\Users>
-       
+    ```       
 
-To optimize the performance, use the following robocopy parameters when copying the data. (The numbers below represent the best case scenarios.)
+2. To optimize the performance, use the following robocopy parameters when copying the data. (The numbers below represent the best case scenarios.)
 
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
-|    Data Box Heavy       |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |
-
-
-For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
-
-Open the target folder to view and verify the copied files.
-
-![View copied files](media/data-box-heavy-deploy-copy-data/view-copied-files-1.png)
+    | Platform    | Mostly small files < 512 KB    | Mostly medium files 512 KB-1 MB  | Mostly large files > 1 MB                             |
+    |-------------|--------------------------------|----------------------------|----------------------------|
+    | Data Box Heavy | 6 Robocopy sessions <br> 24 threads per sessions | 6 Robocopy sessions <br> 16 threads per sessions | 6 Robocopy sessions <br> 16 threads per sessions |
 
 
-If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+    For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
+3. Open the target folder to view and verify the copied files.
+
+    ![View copied files](media/data-box-heavy-deploy-copy-data/view-copied-files-1.png)
+
+
+4. As the data is copied:
+
+    - The file names, sizes, and format are validated to ensure those meet the Azure object and storage limits as well as Azure file and container naming conventions.
+    - To ensure data integrity, checksum is also computed inline.
+
+    If you have any errors during the copy process, download the error files for troubleshooting. Select the arrow icon to download the error files.
+
+    ![Download error files](media/data-box-heavy-deploy-copy-data/download-error-files.png)
+
+    For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+
+5. Open the error file in Notepad. The following error file indicates that the data is not aligned correctly.
+
+    ![Open error file](media/data-box-heavy-deploy-copy-data/open-error-file.png)
     
-![Verify free and used space on dashboard](media/data-box-heavy-deploy-copy-data/verify-used-space-dashboard.png)
+    For a page blob, the data needs to be 512 bytes aligned. After this data is removed, the error resolves as shown in the following screenshot.
+
+    ![Error resolved](media/data-box-heavy-deploy-copy-data/error-resolved.png)
+
+6. After the copy is complete, go to **View Dashboard** page. Verify the used space and the free space on your device.
+    
+    ![Verify free and used space on dashboard](media/data-box-heavy-deploy-copy-data/verify-used-space-dashboard.png)
 
 Repeat the above steps to copy data on to the second node of the device.
 
