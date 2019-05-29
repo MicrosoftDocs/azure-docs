@@ -19,7 +19,10 @@ ms.custom: "include file"
     [Xamarin.Forms](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.forms)
     [Cordova](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/cordova)
     [Windows (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)
-        
+
+> [!NOTE]
+> If you use the iOS project you need to download "azuresdk-iOS-*.zip" from [here](https://github.com/Azure/azure-mobile-apps-ios-client/releases) and move the downloaded file into the project's root.
+
 2. You will have to add a database connection or connect to an existing connection. First, determine whether you’ll create a data store or use an existing one.
 
 3. **Create a new data store** : If you’re going to create a data store, use the following quickstart:
@@ -29,13 +32,13 @@ ms.custom: "include file"
 4. **Existing data source** : Follow the instructions below if you want to use an existing database connection
     1. SQL Database Connection String format - 
     `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
-      
+
        **{your_SQLServer}** Name of the server, this can be found in the overview page for your database and is usually in the form of “server_name.database.windows.net”.
         **{port}** usually 1433.
         **{your_catalogue}** Name of the database.
         **{your_username}** User name to access your database.
         **{your_password}** Password to access your database.
-        
+
         [Learn more about SQL Connection String format](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
 
     2. Add the connection string to your **mobile app**
