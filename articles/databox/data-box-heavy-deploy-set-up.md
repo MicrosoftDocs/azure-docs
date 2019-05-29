@@ -132,4 +132,4 @@ In this tutorial, you learned about Azure Data Box Heavy topics such as:
 Advance to the next tutorial to learn how to copy data on your Data Box Heavy.
 
 > [!div class="nextstepaction"]
-> [Copy your data to Azure Data Box](./data-box-deploy-copy-data.md)
+> [Copy your data to Azure Data Box](./data-box-heavy-deploy-copy-data.md)

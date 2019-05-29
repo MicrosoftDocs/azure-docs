@@ -1,17 +1,17 @@
 ---
-title: Tutorial to copy data via SMB on Azure Data Box | Microsoft Docs
-description: Learn how to copy data to your Azure Data Box via SMB
+title: Tutorial to copy data via SMB on Azure Data Box Heavy | Microsoft Docs
+description: Learn how to copy data to your Azure Data Box Heavy via SMB
 services: databox
 author: alkohli
 
 ms.service: databox
-ms.subservice: pod
+ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
+#Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Copy data to Azure Data Box via SMB
+# Tutorial: Copy data to Azure Data Box Heavy via SMB
 
 This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
@@ -19,8 +19,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Prerequisites
-> * Connect to Data Box
-> * Copy data to Data Box
+> * Connect to Data Box Heavy
+> * Copy data to Data Box Heavy
 
 
 ## Prerequisites
@@ -29,20 +29,22 @@ Before you begin, make sure that:
 
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
-3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+3. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
+    - Be connected to a high-speed network. For fastest copy speeds, two 40-GbE connections (one per node) can be utilized in parallel. If you do not have 40-GbE connection available, we recommend that you have at least two 10-GbE connections (one per node).
 
-## Connect to Data Box
+## Connect to Data Box Heavy shares
 
-Based on the storage account selected, Data Box creates up to:
+Based on the storage account selected, Data Box Heavy creates up to:
 - Three shares for each associated storage account for GPv1 and GPv2.
 - One share for premium storage.
 - One share for blob storage account.
 
+These shares are created on both the nodes of the device.
+
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
-The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
+The following table shows the UNC path to the shares on your Data Box Heavy and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
 |                   |                                                            |
 |-------------------|--------------------------------------------------------------------------------|
@@ -50,9 +52,9 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 | Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
 | Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
-If using a Windows Server host computer, follow these steps to connect to the Data Box.
+If using a Windows Server host computer, follow these steps to connect to the Data Box Heavy.
 
-1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
+1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account.
 
     ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
@@ -90,8 +92,8 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
-    
 
+You can follow the above steps to connect to the other node of the device in parallel.
 
 ## Copy data to Data Box
 
@@ -102,14 +104,14 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - We recommend that:
     - You don't use both SMB and NFS at the same time.
-    - Copy the same data to same end destination on Azure. 
+    - Copy the same data to same end destination on Azure.
      
   In these cases, the final outcome can't be determined.
 - Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 
 After you've connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
     
-    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
+    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
   
  The attributes are described in the following table.
     
@@ -189,11 +191,11 @@ The following sample shows the output of the robocopy command to copy files to t
     C:\Users>
        
 
-To optimize the performance, use the following robocopy parameters when copying the data.
+To optimize the performance, use the following robocopy parameters when copying the data. (The numbers below represent the best case scenarios.)
 
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
+|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |
 |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |
+|    Data Box Heavy       |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |
 
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
@@ -204,7 +206,7 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-
+Repeat the above steps to copy data on to the second node of the device.
 
 ## Next steps
 
@@ -212,12 +214,12 @@ In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
 > * Prerequisites
-> * Connect to Data Box
-> * Copy data to Data Box
+> * Connect to Data Box Heavy
+> * Copy data to Data Box Heavy
 
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
 > [!div class="nextstepaction"]
-> [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
+> [Ship your Azure Data Box to Microsoft](./data-box-heavy-deploy-picked-up.md)
 
