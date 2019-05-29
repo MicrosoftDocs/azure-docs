@@ -114,6 +114,9 @@ You need the following to complete this article:
 
     ![Storm dashboard](media/sisense/final-dashboard.png)
 
+You can now explore your data with visual analytics, build additional dashboards, and
+transform data into actionable insights to make an impact on your business.
+
 ## Next steps
 
 * [Write queries for Azure Data Explorer](write-queries.md)
