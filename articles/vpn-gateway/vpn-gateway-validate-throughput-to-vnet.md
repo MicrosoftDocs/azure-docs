@@ -123,7 +123,7 @@ You may experience slow file coping when using Windows Explorer or dragging and 
 - Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](../storage/common/storage-e2e-troubleshooting.md).
 
 ## On-premises device external facing interface
-If the on-premises VPN device Internet-facing IP address is included in the [local network](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definition in Azure, you may experience inability to bring up the VPN, sporadic disconnects, or performance issues.
+If the on-premises VPN device Internet-facing IP address is included in the [local network](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) address space definition in Azure, you may experience inability to bring up the VPN, sporadic disconnects, or performance issues.
 
 ## Checking latency
 Use tracert to trace to Microsoft Azure Edge device to determine if there are any delays exceeding 100 ms between hops.
