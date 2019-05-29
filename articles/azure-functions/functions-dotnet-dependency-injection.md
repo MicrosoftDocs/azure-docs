@@ -58,18 +58,20 @@ namespace MyNamespace
 
 ## Using injected dependencies
 
-ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `BloggingService` dependency is injected into an HTTP-triggered function.
+ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependency are injected into an HTTP-triggered function.
 
 ```csharp
 namespace MyNamespace
 {
     public class HttpTrigger
     {
-        private readonly BloggingContext _context;
+        private readonly IMyService _service;
+        private readonly HttpClient _client;
 
-        public HttpTrigger(BloggingContext context)
+        public HttpTrigger(IMyService service, HttpClient client)
         {
-            _context = context;
+            _service = service;
+            _client = client;
         }
 
         [FunctionName("GetPosts")]
@@ -78,6 +80,8 @@ namespace MyNamespace
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
+            var res = await _client.GetAsync("https://microsoft.com");
+            await _service.AddResponse(res);
 
             return new OkResult();
         }
@@ -85,7 +89,7 @@ namespace MyNamespace
 }
 ```
 
-The use of constructor injection means that you may not build static functions if you want to take advantage of dependency injection.
+The use of constructor injection means that you should not use static functions if you want to take advantage of dependency injection.
 
 ## Service lifetimes
 
