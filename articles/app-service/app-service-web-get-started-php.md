@@ -4,7 +4,7 @@ description: Deploy your first PHP Hello World in Azure App Service Web Apps in 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin;cfowler
+ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 

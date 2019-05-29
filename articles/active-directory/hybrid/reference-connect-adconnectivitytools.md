@@ -29,10 +29,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### DESCRIPTION
 
-Runs local Dns connectivity tests.
-In order to configure the Active Directory connector, user must have both name resolution
-for the forest they are attempting to connect to as well as in the domain controllers
-associated to this forest.
+Runs local Dns connectivity tests. In order to configure the Active Directory connector, the user must have both name resolution
+for the forest they are attempting to connect to as well as in the domain controllers associated to this forest.
 
 ### EXAMPLES
 

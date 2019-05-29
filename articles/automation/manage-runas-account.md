@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/21/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -49,7 +49,7 @@ To create or update a Run As account, you must have specific privileges and perm
 |Create or remove an Automation certificate|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributor on Resource Group         |Automation Account Resource Group|
 |Create or remove an Automation connection|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributor on Resource Group |Automation Account Resource Group|
 
-<sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a **Global Administrator** in Azure AD.
+<sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be what is defined in the preceding table.
 
 If you aren't a member of the subscription’s Active Directory instance before you're added to the **Global Administrator** role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page. Users who were added to the **Global Administrator** role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 
