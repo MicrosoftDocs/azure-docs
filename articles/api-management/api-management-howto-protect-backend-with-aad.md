@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Protect an API by using OAuth 2.0 with Azure Active Directory and API Management
 
-This guide shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD). 
+This guide shows you how to configure your Azure API Management instance to protect and access a back-end API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD). 
 
 ## Prerequisites
 To follow the steps in this article, you must have:
@@ -31,7 +31,7 @@ To follow the steps in this article, you must have:
 Here is a quick overview of the steps:
 
 1. Register an application (backend-app) in Azure AD to represent the API.
-2. Register another application (client-app) in Azure AD to represent a client application that needs to call the API.
+2. Register the API Management Developer Console (client-app) in Azure AD, which needs to call the API.
 3. In Azure AD, grant permissions to allow the client-app to call the backend-app.
 4. Configure the Developer Console to use OAuth 2.0 user authorization.
 5. Add the **validate-jwt** policy to validate the OAuth token for every incoming request.
@@ -42,23 +42,33 @@ To protect an API with Azure AD, the first step is to register an application in
 
 1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
 
-2. Select **New registration**. 
+1. Select **New registration**. 
 
-1. When the **Register an application page** appears, enter your application's registration information: 
-    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `backend-app`. 
-    - In the **Supported account types** section, select **Accounts in any organizational directory**. 
+1. When the **Register an application** page appears, enter your application's registration information: 
+    - In the **Name** section, enter a meaningful application name that will be displayed to API Management administrators, for example `backend-app`. 
+    - In the **Supported account types** section, select **Accounts in this organizational directory only**. 
 
-1. Leave the **Redirect URI** section empty for now.
+1. Leave the **Redirect URI** section empty.    
 
 1. Select **Register** to create the application. 
 
+Once the application has been registered, and since the app registered is an API, we must return to the app registration in order to expose the API with at least one scope so that the other apps can be granted permissions to use this API.
+
 1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
 
-When the application is created, make a note of the **Application ID**, for use in a subsequent step. 
+1. Select **Expose an API** and if the **Application ID URI** is blank, select the **Set** link to assign it a unique URI.
 
-## Register another application in Azure AD to represent a client application
+1. Select **Add a Scope** and provide a **Scope Name** appropriate to describe a function your API exposes, such as `Read`, `Calculate` or `List`.
 
-Every client application that calls the API needs to be registered as an application in Azure AD as well. For this example, the sample client application is the Developer Console in the API Management developer portal. Here's how to register another application in Azure AD to represent the Developer Console.
+1. Select **Admins and users** so that the any API Management Developer Console user can approve accessing the API, and not just administrative users.
+
+1. Provide a logical display name and description for both users and administrators who will be accessing this API.  This is how users will know what the API will be doing and accessing before they grant it OAuth permission.
+
+1. Select **Add scope** to save the new scope just created.
+
+## Register another application in Azure AD to represent the developer console
+
+Using OAuth, both calling and consuming apps need to be registered as an application in Azure AD. In this case, the  consuming/client application is the Developer Console. Here's how to register another application in Azure AD to represent the Developer Console.
 
 1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
 
@@ -66,9 +76,9 @@ Every client application that calls the API needs to be registered as an applica
 
 1. When the **Register an application page** appears, enter your application's registration information: 
     - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `client-app`. 
-    - In the **Supported account types** section, select **Accounts in any organizational directory**. 
+    - In the **Supported account types** section, select **Accounts in this organizational directory only**. 
 
-1. In the **Redirect URI** section, select `Web` and enter the URL `https://contoso5.portal.azure-api.net/signin`
+1. Leave the **Redirect URI** section empty for now or add a placeholder value as a __reminder to update this later__.
 
 1. Select **Register** to create the application. 
 
@@ -86,26 +96,19 @@ Make a note of the key value.
 
 Now that you have registered two applications to represent the API and the Developer Console, you need to grant permissions to allow the client-app to call the backend-app.  
 
-1. Navigate to **App registrations**. 
+1. While still on the `client-app` app registration, select **API permissions**.
 
-2. Select `client-app`, and in the list of pages for the app go to **API permissions**.
+1. **Add a permission** and select the tab labeled **My APIs**.
 
-3. Select **Add a Permission**.
+1. Select the API app you registered earlier.
 
-4. Under **Select an API**, find and select `backend-app`.
-
-5. Under **Delegated Permissions**, select the appropriate permissions to `backend-app`.
-
-6. Select **Add permissions** 
-
-> [!NOTE]
-> If **Azure Active Directory** is not listed under permissions to other applications, select **Add** to add it from the list.
+1. Choose **Delegated permissions** and check-mark at least one of the scopes created for the API earlier.  Once chosen, select **Add permissions** to save the scope assignment.
 
 ## Enable OAuth 2.0 user authorization in the Developer Console
 
-At this point, you have created your applications in Azure AD, and have granted proper permissions to allow the client-app to call the backend-app. 
+At this point, you have registered your API and the Developer Console applications in Azure AD, and have granted proper permissions to allow the two to interact. 
 
-In this example, the Developer Console is the client-app. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
+In this example, the Developer Console is the `client-app`. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
 
 1. In Azure portal, browse to your API Management instance.
 
@@ -124,23 +127,31 @@ In this example, the Developer Console is the client-app. The following steps de
 
 7. Copy the **OAuth 2.0 Authorization Endpoint**, and paste it into the **Authorization endpoint URL** text box.
 
-8. Copy the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. In addition to pasting in the token endpoint, add a body parameter named **resource**. For the value of this parameter, use the **Application ID** for the back-end app.
+8. Copy the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. 
 
-9. Next, specify the client credentials. These are the credentials for the client-app.
+9. In addition to pasting in the token endpoint, add a body parameter named **resource**. For the value of this parameter, use the **Application ID** for the `back-end` API app.
 
-10. For **Client ID**, use the **Application ID** for the client-app.
+10. Next, specify the client credentials. These are the credentials for the Developer Console `client-app` generated earlier.
 
-11. For **Client secret**, use the key you created for the client-app earlier. 
+11. For **Client ID**, use the **Application ID** for the client-app.
 
-12. Immediately following the client secret is the **redirect_url** for the authorization code grant type. Make a note of this URL.
+12. For **Client secret**, use the secret/key you generated for the client-app. 
 
-13. Select **Create**.
+13. Immediately following the client secret is the **redirect_url** for the authorization code grant type. Make a note of this URL as we will need to add this to our app registration later.
 
-14. Go back to the **Settings** page of your client-app.
+14. Select **Create**.
 
-15. Select **Reply URLs**, and paste the **redirect_url** in the first row. In this example, you replaced `https://localhost` with the URL in the first row.  
+## Update client-app app registration with correct redirect URL
+
+1. Navigate to **App registrations** in the Azure Portal
+
+1. Go back to the **Authentication** page of your client-app \(The app registered to represent the Developer Console).
+
+1. In the **Redirect URIs** section, add a new **redirect_url** to replace the previous placeholder.  This URL must match exactly what is generated by the API Management OAuth 2.0 creation step above.
 
 Now that you have configured an OAuth 2.0 authorization server, the Developer Console can obtain access tokens from Azure AD. 
+
+## Enforce OAuth 2.0 on the API
 
 The next step is to enable OAuth 2.0 user authorization for your API. This enables the Developer Console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
 
@@ -159,9 +170,9 @@ The next step is to enable OAuth 2.0 user authorization for your API. This enabl
 > [!NOTE]
 > This section does not apply to the **Consumption** tier, which does not support the developer portal.
 
-Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token on behalf of the user, before calling the API.
+Now that the OAuth 2.0 user authorization is enabled on the an API, the Developer Console obtains an access token on behalf of the user, before calling the API.
 
-1. Browse to any operation under the `Echo API` in the developer portal, and select **Try it**. This brings you to the Developer Console.
+1. Browse to any operation under the API OAuth was added to in the developer portal, and select **Try it**. This brings you to the Developer Console.
 
 2. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
 
@@ -195,9 +206,9 @@ You can use the [Validate JWT](api-management-access-restriction-policies.md#Val
 </validate-jwt>
 ```
 
-## Build an application to call the API
+## Build an API application to enforce OAuth
 
-In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure Active Directory code samples](../active-directory/develop/sample-v1-code.md).
+In this guide, you used Azure Active Directory and the Developer Console in API Management to call an API theoretically protected by OAuth 2.0, however the API itself was not modified to enforce or require OAuth for access. To learn more about how to build an API application to implement and enforce OAuth 2.0, see [Azure Active Directory code samples](../active-directory/develop/sample-v1-code.md).
 
 ## Next steps
 * Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-scenarios.md).
