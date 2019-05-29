@@ -229,16 +229,20 @@
             href: msal-js-initializing-client-applications.md
         - name: Handle errors and exceptions
           href: msal-handling-exceptions.md
+        - name: Test MSAL applications
+          href: msal-testing.md
         - name: Logging
           href: msal-logging.md
         - name: Single sign-on (JS)
           href: msal-js-sso.md
         - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md
-        - name: Provide your own HttpClient (.NET)
-          href: msal-net-provide-httpclient.md
+          href: msal-js-prompt-behavior.md  
         - name: Integrate with Azure AD B2C
-          href: msal-b2c-overview.md
+          items:
+          - name: JavaScript
+            href: msal-b2c-overview.md
+          - name: .NET
+            href: msal-net-aad-b2c-considerations.md
         - name: Considerations and known issues
           items:
             - name: MSAL.NET
@@ -252,9 +256,7 @@
               - name: Xamarin iOS
                 href: msal-net-xamarin-ios-considerations.md
               - name: Universal Windows Platform
-                href: msal-net-uwp-considerations.md
-              - name: Apply an AAD B2C policy
-                href: msal-net-aad-b2c-considerations.md
+                href: msal-net-uwp-considerations.md              
             - name: MSAL.js
               items:
               - name: Considerations using IE
@@ -360,6 +362,8 @@
               href: msal-net-instantiate-confidential-client-config-options.md
             - name: Get consent for several resources
               href: msal-net-user-gets-consent-for-multiple-resources.md
+            - name: Provide your own HttpClient
+              href: msal-net-provide-httpclient.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service

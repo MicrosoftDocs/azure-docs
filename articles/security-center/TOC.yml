@@ -60,6 +60,8 @@
     href: security-center-powershell-onboarding.md
   - name: Security Center settings
     href: security-center-policies-overview.md
+  - name: Compare baselines using File Integrity Monitoring
+    href: security-center-file-integrity-monitoring-baselines.md
     items:
     - name: Data collection
       href: security-center-enable-data-collection.md
