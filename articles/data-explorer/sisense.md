@@ -102,7 +102,7 @@ You need the following to complete this article:
 
     ![Create dashboard](media/sisense/create-dashboard.png)
 
-1. In **Storm Events Dashboard** under **New Widget**, select **+ Select Data** to create a new widget. 
+1. Under **New Widget**, select **+ Select Data** to create a new widget. 
 
     ![Add fields to StormEvents dashboard](media/sisense/storm-dashboard-add-field.png)  
 
