@@ -13764,11 +13764,13 @@
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-portal.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
-    },    {
+    },    
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-powershell.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
-    },    {
+    },    
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
