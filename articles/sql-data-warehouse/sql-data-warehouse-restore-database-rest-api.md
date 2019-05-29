@@ -2,7 +2,7 @@
 title: Restore an Azure SQL Data Warehouse - REST API | Microsoft Docs
 description: Restore an Azure SQL Data Warehouse using REST APIs.
 services: sql-data-warehouse
-author: julie-MSFT
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
