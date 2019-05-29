@@ -85,7 +85,7 @@ To access a diagnostics tool and instructions for configuring the extension, see
 To configure an app from the Azure AD gallery, you need to do these things:
 
 -   Add an app from the Azure AD gallery
--   [Configure the application for password single sign-on](#configure-the-app-for-password-single-sign-on)
+-   [Configure the application for password single sign-on](#configure-the-app-for-password-sso)
 -   [Assign users to the app](#assign-users-to-the-app)
 
 ### Add an app from the Azure AD gallery
