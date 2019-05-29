@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/28/2019
+ms.date: 05/29/2019
 ms.author: monhaber
 
 ---
@@ -34,7 +34,7 @@ In fact, many regulatory compliance standards such as PCI-DSS & ISO 17799 requir
 
 The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary may configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
 
-![Registry](./media/security-center-fim/fim-registry.png)
+![Registry](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > Recursive checks apply only to recommended security hives and not to custom registry paths.  
@@ -69,7 +69,7 @@ FIM baselines start by identifying characteristics of a known-good state for the
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     </code>
 
-      ![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
+      ![Enable FIM on a registry](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
 ## Tracking changes to Windows files
 
@@ -78,7 +78,7 @@ In the example in the following figure,
 **Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.  
 1. Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.
 
-    ![Enable FIM on a file](./media/security-center-fim/fim-add-file.png)
+    ![Enable FIM on a file](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
 ## Retrieving change data
 
@@ -116,6 +116,6 @@ In the following example, we are retrieving all changes in the last fourteen day
 
     </code>
 
-Reports can be exported to CSV for archival and/or channeled to a PowerBI report.  
+Reports can be exported to CSV for archival and/or channeled to a Power BI report.  
 
-![FIM data](./media/security-center-fim/fim-data.png)
+![FIM data](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)
