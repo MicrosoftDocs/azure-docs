@@ -176,7 +176,7 @@
       href: how-to-train-ml-models.md
     - name: Use PyTorch
       href: how-to-train-pytorch.md
-    - name: Use TensorFlow & Keras
+    - name: Use TensorFlow
       href: how-to-train-tensorflow.md
     - name: Tune hyperparameters
       displayName: parameter
