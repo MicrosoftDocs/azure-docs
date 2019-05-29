@@ -70,7 +70,7 @@ If you are indexing data provided by another Azure service (Azure storage, Azure
 If you are using cognitive search AI enrichments, create your service in the same region as your Cognitive Services resource. Co-location of services is a requirement for AI enrichment.
 
 > [!Note]
-> Central India is currently unavailable for new services. For services already in Central India, you can scale up with no restrictions, and your service is fully supported in that region. This restriction is temporary and we will remove this note when it longer applies.
+> Central India is currently unavailable for new services. For services already in Central India, you can scale up with no restrictions, and your service is fully supported in that region. The restriction on this region is temporary and we will remove this note when it longer applies.
 
 ## Select a pricing tier (SKU)
 
