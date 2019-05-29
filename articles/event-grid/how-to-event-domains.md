@@ -200,6 +200,23 @@ Get-AzureRmEventGridDomainKey `
 
 And then use your favorite method of making an HTTP POST to publish your events to your Event Grid domain.
 
+## Search lists of topics or subscriptions
+
+In order to make searching and managing of large numbers of topics or subscriptions, Event Grid's APIs support list an pagination.
+
+### Using CLI
+
+To use it make sure you’re using the Azure CLI Event Grid extension version 0.4.1 or newer.
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid topic list \
+    --odata-query "contains(name, 'my-test-filter')"
+```
+
 ## Next steps
 
 * For more information on high-level concepts in Event domains and why they're useful, see the [conceptual overview of Event Domains](event-domains.md).
