@@ -32,9 +32,7 @@ Select **Analyze** and choose a database, which will begin the analysis. Dependi
 
 The **Recommendations** window will show a list of recommendations if any were found.
 
-<!--
 ![Performance Recommendations new page](./media/concepts-performance-recommendations/performance-recommendations-result.png)
--->
 
 Recommendations are not automatically applied. To apply the recommendation, copy the query text and run it from your client of choice. Remember to test and monitor to evaluate the recommendation.
 
