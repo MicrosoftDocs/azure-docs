@@ -13761,6 +13761,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-portal.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-powershell.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
@@ -26420,17 +26435,17 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/azure/marketplace/become-publisher.md",
+      "source_path": "articles/marketplace/become-publisher.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/azure/marketplace/guidelines.md",
+      "source_path": "articles/marketplace/guidelines.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/azure/marketplace/register-dev-center.md",
+      "source_path": "articles/marketplace/register-dev-center.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
       "redirect_document_id": false
     },
