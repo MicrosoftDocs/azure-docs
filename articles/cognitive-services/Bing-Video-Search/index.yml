@@ -90,8 +90,8 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">Bing Video Search API v7</a></p>
-            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">Bing Video Search API v5</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference">Bing Video Search API v7</a></p>
+            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v5-reference/">Bing Video Search API v5</a></p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-videosearch?view=azure-node-latest">Node.js</a></p>
