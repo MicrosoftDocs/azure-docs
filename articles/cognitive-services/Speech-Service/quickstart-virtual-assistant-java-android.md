@@ -283,5 +283,5 @@ Once the application and its activity have launched, click the button to begin t
 > [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## See also
-- [About voice-first virtual assistants](voice-first-virtual-assists.md)
-- [Custom wake words](speech-devices-sdk-create-kws)
+- [About voice-first virtual assistants](voice-first-virtual-assistants.md)
+- [Custom wake words](speech-devices-sdk-create-kws.md)
