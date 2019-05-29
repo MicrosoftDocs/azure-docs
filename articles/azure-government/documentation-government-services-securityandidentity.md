@@ -120,7 +120,7 @@ The following information identifies the Azure Government boundary for Azure Key
 
 Azure Active Directory is generally available in Azure Government.
 
-For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).
+For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.yml).
 
 ### Variations
 
