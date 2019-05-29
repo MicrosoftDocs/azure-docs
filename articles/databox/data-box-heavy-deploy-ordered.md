@@ -85,7 +85,7 @@ Perform the following steps in the Azure portal to order a device.
 
 5. Select **Data Box Heavy**. The maximum usable capacity for a single order is 770 TB.
 
-    [![Select Data Box Heavy](media/data-box-heavy-deploy-ordered/select-data-box-heavy.png)]
+    [![Select Data Box Heavy](media/data-box-heavy-deploy-ordered/select-data-box-heavy.png)
 
 6. In **Order**, specify the **Order details**. Enter or select the following information and select **Next**.
     
