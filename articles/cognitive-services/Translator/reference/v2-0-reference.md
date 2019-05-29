@@ -24,11 +24,26 @@ Translator Text API V2 can be seamlessly integrated into your applications, webs
 To access the Translator Text API you will need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## Authorization
-All calls to Translator Text API require a subscription key to authenticate. The API supports two modes of authentication:
+All calls to Translator Text API require a subscription key to authenticate. The API supports three modes of authentication:
 
-* Using an access token. Use the subscription key referenced in **step** 9 to generate an access token by making a POST request to the authorization service. See the token service documentation for details. Pass the access token to the Translator service using the Authorization header or the access_token query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests within these 10 minutes.
-
-* Using a subscription key directly. Pass your subscription key as a value in `Ocp-Apim-Subscription-Key` header included with your request to the Translator API. In this mode, you do not have to call the authentication token service to generate an access token.
+<ul>
+<li> 
+    Using an access token. Use the subscription key referenced in **step** 9 to generate an access token by making a POST request to the authorization service. See the token service documentation for details. Pass the access token to the Translator service using the Authorization header or the access_token query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests within these 10 minutes.
+</li><br/>
+<li>
+Using a subscription key directly. Pass your subscription key as a value in `Ocp-Apim-Subscription-Key` header included with your request to the Translator API. In this mode, you do not have to call the authentication token service to generate an access token.
+</li><br/>
+<li>
+Using a multi-service subscription. This allows you to use a single secret key to authenticate requests for multiple services. <br/>
+When you use a multi-service secret key, you must include two authentication headers with your request. The first passes the secret key, the second specifies the region associated with your subscription. 
+<br/><ul>
+<li>`Ocp-Apim-Subscription-Key`</li>
+<li>`Ocp-Apim-Subscription-Region`</li><br/>
+</ul>
+Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
+<br/><br/>
+Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
+</ul>
 
 Consider your subscription key and the access token as secrets that should be hidden from view.
 
