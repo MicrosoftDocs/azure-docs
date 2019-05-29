@@ -129,8 +129,8 @@ Generation 2 VMs can also be created using virtual machine scale sets. You can c
 
   * Select **Configuration** in the **Disks** section and update the **Size** to the desired value.
   
-  * Start the VM
-  
+  * Navigate back to the VM properties page and **Start** the VM.
+
   You may see a warning for OS disks larger than 2 TB. The warning does not apply to generation 2 VMs; however, OS disk sizes larger than 4 TB are **not recommended.**
 
 * **Do generation 2 VMs support Accelerated Networking?**  
