@@ -27,7 +27,7 @@ Before you begin, make sure that:
 
 1. You've completed the [Tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
 2. You've received your Data Box Heavy and the order status in the portal is **Delivered**.
-3. You've reviewed the [Data Box Heavy safety guidelines](data-box-heavy-safety.md).
+3. You've reviewed the [Data Box Heavy safety guidelines](data-box-safety.md).
 4. You must have access to a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint. This device can't be mounted on a rack.
 5. You've received four grounded power cords to use with your storage device.
 6. You should have a host computer connected to the datacenter network. Your Data Box Heavy will copy the data from this computer. Your host computer must run a [Supported operating system](data-box-heavy-system-requirements.md).
