@@ -4,6 +4,8 @@
   items:
   - name: About Azure Migrate
     href: migrate-overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Tutorials
   items:
   - name: VMware VM assessment and migration
