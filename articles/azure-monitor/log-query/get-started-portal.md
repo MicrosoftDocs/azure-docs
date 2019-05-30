@@ -58,15 +58,30 @@ Run a query by clicking the **Run** button or pressing **Shift+Enter**. Consider
 - Cursor: Place your cursor somewhere inside the query to execute it. The current query is considered to be the code up until a blank line is found.
 - Time range - A time range of _last 24 hours_ is set by default. To use a different range, use the time-picker or add an explicit time range filter to your query.
 
+
 ## Understand the query scope
-The scope of the query is displayed at the top left of the Log Analytics window. Only records within the scope are included in any query results. The scope is defined by one of three different types of Azure resource:
+The scope of the query is displayed at the top left of the Log Analytics window. Only records within the scope are included in any query results. 
 
-- **Log Analytics workspace:** All records in that workspace regardless of how they were created.
-- **Resource type other than Log Analytics workspace:** All records created by that resource in all Log Analytics workspaces that you can access. 
-- **Resource **
+![Scope](media/get-started-portal/scope.png)
 
-If you select a resource type that contains other resources such as a subscription or a resource group, then the scope is all records created by all contained resources in all Log Analytics workspaces that you can access. For example, if you select a resource group, then the scope will be all records created by the resources in that resource group. 
+The scope is defined by one of three different types of Azure resource:
 
+| Resource | Description
+|:---|:---|
+| Log Analytics workspace | All records in that Log Analytics workspace regardless of how they were created. |
+| Resource other than Log Analytics workspace | All records created by that resource in all Log Analytics workspaces that you can access.<br><br>For example, if the scope is a virtual machine then all records created by that virtual machine are included in the query. If the virtual machine writes log data to multiple workspaces, then all those workspaces will be included in the query.  |
+| Resource that contains other resources | All records created by all resources contained by that resource.<br><br>For example, if the scope is a resource group then all records created by all resources in that resource group are included in the query. If the scope is an Azure subscription, then records created by all resources in that subscription are included. These records may span multiple workspaces. |
+
+### Query limits
+It can significantly affect performance when a query has to consolidate data across multiple Azure regions. In this case, your query may receive a warning or be blocked from running.
+
+If your query receives a warning, it will still run but may take excessive time to complete.
+
+![Query warning](media/get-started-portal/query-warning.png)
+
+If your query is blocked, then you will be given the option to reduce the number of workspace regions. This refers to the region that the workspace is included in, not the region of the resource. Reduce the number of regions and attempt to run the query again.
+
+![Query failed](media/get-started-portal/query-failed.png)
 
 
 
