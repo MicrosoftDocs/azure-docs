@@ -11,12 +11,12 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Add geospatial filters to an Azure Search
 
-Learn how to implement a geospatial filter, searching both on text and on a latitude, longitude and a radius from that point. If a geographical location of every piece of data (hotel, in our example) is known, then very valuable searches for your users can be carried out trying to locate a suitable result.
+Learn how to implement a geospatial filter, searching both on text and on a geographical area defined by a latitude, longitude and a radius from that point. If a geographical location of every piece of data (hotel, in our example) is known, then very valuable searches for your users can be carried out trying to locate suitable results.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Search based on text then filtered on a given latitude, longitude and radius
-> * Order results based on distance from a specified location and other criteria
+> * Order results based on specified criteria, including distance from a specified point
 
 ## Prerequisites
 
@@ -36,9 +36,9 @@ A geospatial search removes all data items that are outside of a specified radiu
 
 ### Add code to calculate distances
 
-Although when you request a geospatial search, the distance between the data points and the point you specify is calculated, these distances are not returned in the response. 
+Although when you request a geospatial filter, the distance between the data points and the point you specify must calculated by Azure Search, these distances are not returned in the response. You must calculate these distances in the client if you want to display them to your user.
 
-1. You must calculate the distances in the client if you want to display them to your user. To do this, add the following code to your home controller.
+1. Add the following code to your home controller, it calculates distances between two points in kilometers.
 
 ```cs
         const double EarthRadius = 6371;
@@ -67,7 +67,7 @@ We'll need to add more code to the controller, but let's update the models and v
         public double DistanceInKilometers { get; set; }
 ```
 
-3. Change the **AddHotel** method in the SearchData.cs file to set the **DistanceInKilometers** variable.
+3. Change the **AddHotel** method in the SearchData.cs file to set the **DistanceInKilometers** field.
 
 ```cs
         public void AddHotel(string name, string desc, double rate, string bedOption, string[] tags, double distanceInKm)
@@ -91,24 +91,22 @@ We'll need to add more code to the controller, but let's update the models and v
             hotel.Rooms = new Room[1];
             hotel.Rooms[0] = room;
 
-            hotel.LastRenovationDate = lastUpdated;
-
             hotels.Add(hotel);
         }
 ```
 
-4. In the **GetHotelDescription** method change the setting of **firstLine** to the following.
+4. In the **GetFullHotelDescription** method change the setting of **fullDescription** to the following.
 
 ```cs
-            var firstLine = "Distance: " + h.DistanceInKilometers.ToString("0.#") + " Km.";
-            firstLine += " Sample room: ";
-            firstLine += h.Rooms[0].BedOptions;
-            firstLine += " $" + h.Rooms[0].BaseRate;
-            firstLine += "\n" + fullDescription;
-            return firstLine;
+            var fullDescription = "Distance: " + h.DistanceInKilometers.ToString("0.#") + " Km.";
+            fullDescription += " Sample room: ";
+            fullDescription += h.Rooms[0].BedOptions;
+            fullDescription += " $" + h.Rooms[0].BaseRate;
+            fullDescription += "\n" + description;
+            return fullDescription;
 ```
 
-5. Finally add some public properties for the latitude, longitude and radius variables, to the **SearchData** class. These will be used to communicate the user's input from the view to the controller.
+5. Finally add some public properties for the latitude, longitude and radius variables, to the **SearchData** class, perhaps after the **paging** field. These will be used to communicate the user's input from the view to the controller.
 
 ```cs
         public string lat { get; set; }
@@ -121,7 +119,7 @@ We'll need to add more code to the controller, but let's update the models and v
 
 For this sample we need three numbers in addition to the search text. This means defining a few new styles to accommodate the numbers.
 
-1. Add the following styles to the &lt;head&gt; section of the index.cshtml file.
+1. Add the following styles to the &lt;style&gt; section of the index.cshtml file.
 
 ```cs
        .geoForm {
@@ -163,7 +161,7 @@ For this sample we need three numbers in addition to the search text. This means
         }
 ```
 
-2. Now replace the &lt;body&gt; section of the view file with the following code.
+2. Now replace the entire &lt;body&gt; section of the view file with the following code.
 
 ```cs
 <body>
@@ -176,7 +174,6 @@ For this sample we need three numbers in addition to the search text. This means
     @using (Html.BeginForm("Geo", "Home", FormMethod.Post))
     {
         // Display the search text box, with the search icon to the right of it.
-
         <br />
 
         <div id="geoinput" class="geoForm">
@@ -206,15 +203,16 @@ For this sample we need three numbers in addition to the search text. This means
                 @Html.DisplayFor(m => m.resultCount) Results
             </p>
 
-            <div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()">
+            <div id="myDiv" style="width: 800px; height: 440px; overflow-y: scroll;" onscroll="scrolled()">
                 <!-- Show the hotel data. All pages will have ResultsPerPage entries, except for the last page. -->
                 @for (var i = 0; i < Model.hotels.Count; i++)
                 {
                     // Display the hotel name.
                     @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
                     <br />
+
                     // Display the hotel sample room and description.
-                    @Html.TextArea("idh", Model.GetHotelDescription(i), new { @class = "box2" })
+                    @Html.TextArea("idh", Model.GetFullHotelDescription(i), new { @class = "box2" })
                     <br /> <br />
                 }
             </div>
@@ -237,16 +235,19 @@ For this sample we need three numbers in addition to the search text. This means
         }
     }
 </body>
+```
 
 Notice how the first search from the view triggers the **Geo** action in the controller and that subsequent calls from the view are triggered using the infinite paging method (when the scroll bar reaches the limit) and they call the **GeoNext** action.
 
 The next task is to implement these two actions.
 
-```
+
 
 ### Add code to handle the actions in the home controller
 
-1. The first call to the controller that contains text, latitude, longitude and a radius is a call to the **Geo** action. This is a substantial method that must set a number of temporary variables and set defaults for the four inputs if none are provided.
+1. First, delete the unused methods **Index(searchData model)** and **Next(searchData model)** (but not **Index()**).
+
+2. The first call to the controller that contains text, latitude, longitude and a radius is a call to the **Geo** action. This is a substantial method that must set a number of temporary variables and set defaults for the four inputs if none are provided. In the home controller add this action.
 
 ```cs
        public async Task<ActionResult> Geo(SearchData model)
@@ -367,7 +368,7 @@ The next task is to implement these two actions.
         }
 ```
 
-2. Now add the code for **NextGeo**, a short method that just specifies that the next page is needed. Then, instead of returning a view, a list of items to append to the current view is returned.
+3. Now add the code for **NextGeo**, a short method that just specifies that the next page is needed. Then, instead of returning a view, a list of items to append to the current view is returned.
 
 ```cs
         public async Task<ActionResult> NextGeo(SearchData model)
@@ -379,25 +380,29 @@ The next task is to implement these two actions.
             for (int n = 0; n < model.hotels.Count; n++)
             {
                 hotels.Add(model.GetHotel(n).HotelName);
-                hotels.Add(model.GetHotelDescription(n));
+                hotels.Add(model.GetFullHotelDescription(n));
             }
             return new JsonResult(hotels);
         } 
 ```
 
+
+
 ## Test the code so far
 
-1. If you compile and run the project, enter some text such as "bar" and coordinates such as "47" for latitude "-122" for longitude and an excessive "2000" for the radius.
+1. If you compile and run the project, enter some text such as "bar" and coordinates such as "47" for latitude "-122" for longitude and an excessive "2000" for the radius (just so we get a number of results).
 
 Image
 
-2. You should get some results, and they are all within the 2000 Km radius, but are they in the logical order you would expect (nearest first)?
+You should get some results, and they are all within the 2000 Km radius, but are they in the logical order you would expect (nearest first)?
 
-3. Try some other text using the same coordinates and verify that the results are not in the order you would expect.
+2. Try some other text using the same coordinates and verify that the results are not in the order you would expect.
+
+The current order of results we have does not make a lot of sense.
 
 ## Add code to order Azure Search results
 
-1. We need to make an addition to our Azure Search parameters to specify that the results should be ordered on the distance they are from the point the user has indicated. We do this by setting the **OrderBy** parameter. Change the **SearchParameters** initialization to the following.
+1. We need to make an addition to our Azure Search parameters to specify that the results should be ordered on the distance they are from the point the user has indicated. We do this by setting the **OrderBy** parameter. Change the **SearchParameters** initialization (in the **Geo** action of the home controller) to the following.
 
 ```cs
                 SearchParameters sp = new SearchParameters()
@@ -411,7 +416,7 @@ Image
                     // As the user has specified a distance, seems right to return the data in distance order.
                     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
 
-                    // Must return the Location to calculate the distance.
+                    // Must return the Location to calculate the distance in the client.
                     Select = new[] { "HotelName", "Description", "Tags", "Rooms", "Location" },
                     SearchMode = SearchMode.All,
                 };
@@ -419,23 +424,25 @@ Image
 
 Notice that **OrderBy** takes a list of strings, so we could add multiple criteria for ordering which would come into play if several returned objects had the same value for the first in the list. This is a bit unlikely with floating point distances, so we will leave our entry with just ordering on the basis of distance.
 
-The **geo.distance** function embedded in the **OrderBy** string takes two parameters. The first is the name of a field containing lat/lon data (**Location** in this case). If there were multiple fields containing position data, we could choose which field to compare. The second parameter is a keyword for the geo.distance function (**geography'POINT(...)'**). In this latter case we entry the longitude and latitude (note the order of these two) entered by the user. The two parameters to **geo.distance** could both be field names, both geography points, or one of each as we have in our example.
+The **geo.distance** function embedded in the **OrderBy** string takes two parameters. In our case the first is the name of a field containing lat/lon data (**Location** in the hotels database). If there were multiple fields containing position data, we could choose which field to compare. The second parameter is a known input for the geo.distance function (**geography'POINT(...)'**). In this latter case we entry the longitude and latitude (note the order of these two) entered by the user. The two parameters to **geo.distance** could both be field names, both geography points, or one of each as we have in our example.
 
 In order to calculate the distance again in the client, we have to return **Location** as one of our **Select** parameters.
 
-2. Now run the app and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance. To verify this, enter very large and unrealistic radius parameters to locate a lot of results, and use the infinite scroll to check the distances are correctly in order.
+2. Now run the app and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance and use the infinite scroll to check this for all the results.
 
 Image
 
 3. Try changing the **asc** (ascending) text in the **OrderBy** string to **desc** (descending) and verify the order of distances is longest first. The ascending setting is actually the default, so there is no need to enter it explicitly.
 
-4. Try changing the **OrderBy** statement to the following.
+4. Just to educate yourself on the **OrderBy** parameter, comment out the existing line and try the following **OrderBy** statement.
 
 ```cs
         OrderBy = new[] { "HotelName" },
 ```
 
-5. Running the app should now display all hotels in alphabetical order. Perhaps a more realistic search would display a search in descending order of hotel rating. This would require returning the rating in the **Select** set of fields, then storing it in the **SearchData** class and adding the rating to the description for display in the view. This is left as an exercise for you!
+5. Running the app should now display all hotels in alphabetical order. 
+ 
+A more realistic alternative to a distance ordering display would be descending order of hotel rating. This would require returning the rating in the **Select** set of fields, then storing it in the **SearchData** class and adding the rating to the description for display in the view. Perhaps a distance ordering could be the second criteria so the nearest hotel of any rating appears before others of the same rating but that are further away. No need to do this now, but something to consider when deciding on the display order of results.
 
 ## Takeaways
 
@@ -443,8 +450,7 @@ Great job finishing the fifth and final tutorial in this series.
 
 You should consider the following takeaways from this project:
 
-* Geospatial filters provide a lot of valuable context to many user searches. Location is important.
-* To fully develop spatial filters additional APIs providing city locations should be investigated, so a user can search on "20 kilometers from the center of New York" rather than having to know and enter latitude and longitude.
+* Geospatial filters provide a lot of valuable context to many user searches. Location is important to most users.
 * Ordering should rarely, if ever, be left to the order of the data. Entering one or more **OrderBy** criteria is good practice.
 
 Of course, entering latitude and longitude is not the preferred user experience for most people. To take this example further consider either entering a city name with a radius, or perhaps even locating a point on a map and selecting a radius. To investigate these options try the following resources:
@@ -455,6 +461,6 @@ Of course, entering latitude and longitude is not the preferred user experience 
 
 ## Next steps
 
-You have completed this series of C# tutorials, well done!
+You have completed this series of C# tutorials - you should have gained a lot of knowledge of the Azure Search APIs.
 
 For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/) or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/en-us/azure/search/).
