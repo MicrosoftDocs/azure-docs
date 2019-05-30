@@ -41,7 +41,7 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
 
 4. Select the subscription that needs an increased quota.
 
-![Select subscription newSR](./media/resource-manager-core-quotas-request/select-subscription-SR.png)
+![Select subscription newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
 5. Select **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** dropdown. 
 
