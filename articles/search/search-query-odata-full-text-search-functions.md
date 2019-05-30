@@ -72,7 +72,7 @@ All the above parameters are equivalent to the corresponding [search request par
 The `search.ismatch` function returns a value of type `Edm.Boolean`, which allows you to compose it with other filter sub-expressions using the Boolean [logical operators](search-query-odata-logical-operators.md).
 
 > [!NOTE]
-> Azure Search does not support using `search.ismatch` or `search.ismatchscoring` inside lambda expressions. This means it is not possible to write filters over collections of objects that can correlate full-text search matches with strict filter matches on the same object. For more details on this limitation as well as examples, see [Understanding collection filters in Azure Search](search-query-odata-understanding-collection-filters.md).
+> Azure Search does not support using `search.ismatch` or `search.ismatchscoring` inside lambda expressions. This means it is not possible to write filters over collections of objects that can correlate full-text search matches with strict filter matches on the same object. For more details on this limitation as well as examples, see [Understanding collection filters in Azure Search](search-query-odata-understanding-collections.md).
 
 ### search.ismatchscoring
 

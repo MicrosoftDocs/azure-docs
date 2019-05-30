@@ -22,20 +22,20 @@ translation.priority.mt:
 ---
 # OData expression syntax reference for Azure Search
 
-Azure Search uses [OData expressions](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) as parameters throughout the API. Most commonly, OData expressions are used for the `$orderby` and `$filter` parameters. These expressions can get somewhat complex, containing multiple clauses, functions, and operators. However, even simple OData expressions like property paths are used in many parts of the Azure Search REST API. For example, path expressions are used to refer to sub-fields of complex fields everywhere in the API, such as when listing sub-fields in a [suggester](index-add-suggesters.md), a [scoring function](index-add-scoring-profiles.md), the `$select` parameter, or even [fielded search in Lucene queries](query-lucene-syntax.md). This article provides the formal grammar of all these forms of OData expressions used in Azure Search as a browsable reference.
+Azure Search uses [OData expressions](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) as parameters throughout the API. Most commonly, OData expressions are used for the `$orderby` and `$filter` parameters. These expressions can be complex, containing multiple clauses, functions, and operators. However, even simple OData expressions like property paths are used in many parts of the Azure Search REST API. For example, path expressions are used to refer to sub-fields of complex fields everywhere in the API, such as when listing sub-fields in a [suggester](index-add-suggesters.md), a [scoring function](index-add-scoring-profiles.md), the `$select` parameter, or even [fielded search in Lucene queries](query-lucene-syntax.md).
+
+This article describes all these forms of OData expressions using a formal grammar. There is also an [interactive diagram](#syntax-diagram) to help visually explore the grammar.
 
 ## Formal grammar
 
-The following is an EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammar that specifies the subset of the OData language used by Azure Search. Rules are listed "top-down", starting with the most complex expressions, and breaking them down into more primitive expressions. At the very top are the grammar rules that correspond to specific parameters of the Azure Search REST API:
+We can describe the subset of the OData language supported by Azure Search using an EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammar. Rules are listed "top-down", starting with the most complex expressions, and breaking them down into more primitive expressions. At the top are the grammar rules that correspond to specific parameters of the Azure Search REST API:
 
 - [`$filter`](search-filters.md), defined by the `filter_expression` rule.
 - [`$orderby`](query-odata-filter-orderby-syntax.md#order-by-syntax), defined by the `order_by_expression` rule.
 - [`$select`](https://docs.microsoft.com/rest/api/searchservice/Search-Documents#request), defined by the `select_expression` rule.
-- Field paths, defined by the `field_path` rule. These are used throughout the API to refer to fields, whether fields at the top level of an index, or sub-fields with one or more [complex field](search-howto-complex-data-types.md) ancestors.
+- Field paths, defined by the `field_path` rule. Field paths are used throughout the API. They can refer to either top-level fields of an index, or sub-fields with one or more [complex field](search-howto-complex-data-types.md) ancestors.
 
 After the EBNF is a browsable [syntax diagram](https://en.wikipedia.org/wiki/Syntax_diagram) that allows you to interactively explore the grammar and the relationships between its rules.
-
-### EBNF
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -201,9 +201,9 @@ query_type ::= "'full'" | "'simple'"
 search_mode ::= "'any'" | "'all'"
 ```
 
-### Syntax diagram
+## Syntax diagram
 
-Click here to view the interactive syntax diagram:
+To visually explore the OData language grammar supported by Azure Search, try the interactive syntax diagram:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/)

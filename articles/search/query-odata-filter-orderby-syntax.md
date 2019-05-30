@@ -27,7 +27,7 @@ Azure Search supports a subset of the OData expression syntax for **$filter**, *
 This article provides an overview of the OData expression language used in filters, order-by, and select expressions. The language is presented "bottom-up", starting with the most basic elements and building on them. If you want to skip right to the reference for each parameter, see:
 
 - [Filter syntax](#filter-syntax)
-- [Order-by syntax](#orderby-syntax)
+- [Order-by syntax](#order-by-syntax)
 
 ## Syntax overview and common elements
 
