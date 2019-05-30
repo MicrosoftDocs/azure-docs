@@ -23,7 +23,7 @@ With Media Services, you can deliver your live and on-demand content encrypted d
 
 To specify encryption options on your stream, you need to create a [Streaming Policy](streaming-policy-concept.md) and associate it with your [Streaming Locator](streaming-locators-concept.md). You create the [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) to configure how the content key (that provides secure access to your [Assets](assets-concept.md)) is delivered to end clients. You need to set the requirements (restrictions) on the Content Key Policy that must be met in order for keys with the specified configuration to be delivered to clients. This Content Key Policy is not needed for clear streaming or downloading. 
 
-Usually, you associate your **Content Key Policy** with your **Streaming Locator**. Alternatively, you can specify the Content Key Policy inside a Streaming Policy (when creating a custom Streaming Policy for advanced scenarios). 
+Usually, you associate your **Content Key Policy** with your [Streaming Locator](streaming-locators-concept.md). Alternatively, you can specify the Content Key Policy inside a [Streaming Policy](streaming-policy-concept.md) (when creating a custom Streaming Policy for advanced scenarios). 
 
 It is recommended to let Media Services to autogenerate content keys. Typically, you would use a long lived key and check for the policies existence with **Get**. To get the key, you need to call a separate action method to get secrets or credentials, see the example that follows.
 
