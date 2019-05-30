@@ -67,3 +67,4 @@ You can automate this exporting process using the Azure CLI. The command below s
 ## Next steps
 
 In this article, you've learned how to augment your application to achieve geo-resiliency during runtime for App Configuration. Alternatively, you can embed configuration data from App Configuration at build or deployment time. For more information, see [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md).
+
