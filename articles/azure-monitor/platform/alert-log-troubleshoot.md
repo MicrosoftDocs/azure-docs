@@ -176,6 +176,7 @@ The following sample event in Azure Activity Log is for an alert rule that has b
 Each log alert rule created in Azure Monitor as part of its configuration must specify an analytics query that the alert service will run periodically. The analytics query might have correct syntax at the time of rule creation or update. But sometimes, over a period of time, the query provided in the log alert rule can develop syntax issues and cause the rule execution to fail. Some common reasons why an analytics query provided in a log alert rule can develop errors are:
 
 - The query is written to [run across multiple resources](../log-query/cross-workspace-query.md). And one or more of the specified resources no longer exist.
+- [metric measurement type log alert](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configured has an alert query doesn't comply with the syntax norms
 - There has been no data flow to the analytics platform. The [query execution gives an error](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because there's no data for the provided query.
 - Changes in [query language](https://docs.microsoft.com/azure/kusto/query/) include a revised format for commands and functions. So the query provided earlier in an alert rule is no longer valid.
 
