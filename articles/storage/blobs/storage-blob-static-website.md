@@ -49,7 +49,7 @@ Users can view site content from a browser by using the public URL of the websit
 
 |Tool| Guidance |
 |----|----|
-|**Azure Portal** | [Find the website URL by using the Azure Portal](storage-blob-static-website-how-to.md#portal-find-url) |
+|**Azure portal** | [Find the website URL by using the Azure portal](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Azure CLI** | [Find the website URL by using the Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Azure PowerShell module** | [Find the website URL by using PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
@@ -65,7 +65,7 @@ If the server returns a 404 error, and you have not specified an error document 
 
 You can modify the public access level of the **$web** container, but this has no impact on the primary static website endpoint because these files are served through anonymous access requests. That means public (read-only) access to all files.
 
-The following screenshot shows the public access level setting in the Azure Portal
+The following screenshot shows the public access level setting in the Azure portal
 
 ![Screenshot showing how to set public access level in the portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
@@ -105,7 +105,7 @@ To enable metrics on your static website pages, see [Enable metrics on static we
 ## Next steps
 
 * [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
-* [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
+* [Use the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
 * [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
