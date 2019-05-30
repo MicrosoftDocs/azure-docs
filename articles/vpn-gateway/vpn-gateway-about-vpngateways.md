@@ -19,7 +19,7 @@ A VPN gateway is a specific type of virtual network gateway that is used to send
 
 A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet you create, which is called the *gateway subnet*. The VMs that are located in the gateway subnet are created when you create the virtual network gateway. Virtual network gateway VMs are configured to contain routing tables and gateway services specific to the gateway. You can't directly configure the VMs that are part of the virtual network gateway and you should never deploy additional resources to the gateway subnet.
 
-Creating a virtual network gateway can take up to 45 minutes to complete. When you create a virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the settings that you specify. One of the settings you configure is the gateway type. The gateway type 'vpn' specifies that the type of virtual network gateway created is a VPN gateway. After you create a VPN gateway, you can create an IPsec/IKE VPN tunnel connection between that VPN gateway and another VPN gateway (VNet-to-VNet), or create a cross-premises IPsec/IKE VPN tunnel connection between the VPN gateway and an on-premises VPN device (Site-to-Site). You can also create a Point-to-Site VPN connection (VPN over IKEv2 or SSTP), which lets you connect to your virtual network from a remote location, such as from a conference or from home.
+Creating a virtual network gateway can take up to 45 minutes to complete. When you create a virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the settings that you specify. One of the settings you configure is the gateway type. The gateway type 'vpn' specifies that the type of virtual network gateway created is a VPN gateway. After you create a VPN gateway, you can create an IPsec/IKE VPN tunnel connection between that VPN gateway and another VPN gateway (VNet-to-VNet), or create a cross-premises IPsec/IKE VPN tunnel connection between the VPN gateway and an on-premises VPN device (Site-to-Site). You can also create a Point-to-Site VPN connection (VPN over OpenVPN, IKEv2 or SSTP), which lets you connect to your virtual network from a remote location, such as from a conference or from home.
 
 ## <a name="configuring"></a>Configuring a VPN Gateway
 
@@ -80,7 +80,7 @@ This type of connection is a variation of the Site-to-Site connection. You creat
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>Point-to-Site (VPN over IKEv2 or SSTP)
+## <a name="P2S"></a>Point-to-Site VPN
 
 A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet.
 
