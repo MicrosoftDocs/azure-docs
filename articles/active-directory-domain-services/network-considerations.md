@@ -48,6 +48,8 @@ The following guidelines help you select a virtual network to use with Azure AD 
 ![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
 * Deploy Azure AD Domain Services to a **separate dedicated subnet** within your Azure virtual network.
+* Do not apply User Defined Route (UDR) 0.0.0.0/0 -> NVA to the subnet (which would overide the system default route  0.0.0.0/0 address prefix -> internet) as it breaks the service because domain controllers won't be able to communicate with each other.
+* Ensure Virtual Network Service Endpoint policies are not applied to the subnet.
 * Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
 * Do not overly restrict the number of IP addresses available within the dedicated subnet for your managed domain. This restriction prevents the service from making two domain controllers available for your managed domain.
 * **Do not enable Azure AD Domain Services in the gateway subnet** of your virtual network.
