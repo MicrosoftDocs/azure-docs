@@ -64,7 +64,8 @@ kubectl create namespace ingress-basic
 helm install stable/nginx-ingress \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set nodeSelector."beta.kubernetes.io/os"=linux \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="40.121.63.72"
 ```
 
