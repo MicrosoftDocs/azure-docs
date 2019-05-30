@@ -66,7 +66,7 @@ Azure Stream Analytics automatically scans for refreshed reference data blobs at
 3. Reference data blobs are **not** ordered by the blob’s "Last Modified" time but only by the time and date specified in the blob name using the {date} and {time} substitutions.
 3. To avoid having to list large number of blobs, consider deleting very old blobs for which processing will no longer be done. Please note that ASA might go have to reprocess a small amount in some scenarios like a restart.
 
-## Azure SQL Database (Preview)
+## Azure SQL Database
 
 Azure SQL Database reference data is retrieved by your Stream Analytics job and is stored as a snapshot in memory for processing. The snapshot of your reference data is also stored in a container in a storage account that you specify in the configuration settings. The container is auto-created when the job starts. If the job is stopped or enters a failed state, the auto-created containers are deleted when the job is restarted.  
 
