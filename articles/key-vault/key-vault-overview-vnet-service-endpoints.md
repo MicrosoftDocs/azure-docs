@@ -62,7 +62,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure Backup|Allow backup and restore of relevant keys and secrets during Azure Virtual Machines backup, by using [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online & SharePoint Online|Allow access to customer key for Azure Storage Service Encryption with [Customer Key](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Azure App Service|[Deploy Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Azure App Service|[Deploy Azure Web App Certificate through Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) with a customer-managed key.|

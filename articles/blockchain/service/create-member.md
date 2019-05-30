@@ -40,7 +40,7 @@ Azure Blockchain Service is created with a defined set of compute and storage re
     Consortium name | For a new consortium, enter a unique name. If joining a consortium through an invite, the value is the consortium you are joining.
     Description | Description of the consortium.
     Protocol |  Preview supports the Quorum protocol.
-    Pricing | The node configuration for your new service. Select **Standard**. 2 validator nodes and 1 transaction node is the default setting.
+    Pricing | The node configuration for your new service. Select **Standard**. 2 validator nodes and 1 transaction node are the default settings.
     Transaction node password | The password for the member's default transaction node. Use the password for basic authentication when connecting to blockchain member's default transaction node public endpoint.
 
 1. Select **Create** to provision the service. Provisioning takes about 10 minutes.

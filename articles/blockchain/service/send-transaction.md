@@ -180,7 +180,7 @@ You can get the public key from the transaction node list. Copy the public key f
 
 ## Create smart contract
 
-1. In folder **contracts**, create a new file named `SimpleStorage.sol`. Add the following code.
+1. In the **contracts** folder, create a new file named `SimpleStorage.sol`. Add the following code.
 
     ```solidity
     pragma solidity >=0.4.21 <0.6.0;
@@ -202,7 +202,7 @@ You can get the public key from the transaction node list. Copy the public key f
     }
     ```
     
-1. In folder **migrations**, create a new file named `2_deploy_simplestorage.js`. Add the following code.
+1. In the **migrations** folder, create a new file named `2_deploy_simplestorage.js`. Add the following code.
 
     ```solidity
     var SimpleStorage = artifacts.require("SimpleStorage.sol");
@@ -220,10 +220,10 @@ You can get the public key from the transaction node list. Copy the public key f
     |-------|-------------
     | \<alpha node public key\> | Public key of the alpha node
     | \<Ethereum account address\> | Ethereum account address created in the default transaction node
-    
+
     In this example, the initial value of the **storeData** value is set to 42.
 
-    **privateFor** defines the nodes to which the contract is available. In this example, the default transaction node's account can cast private transactions to the **alpha** node. You need to add public keys for all private transaction participants. If you don't include **privateFor:** and **from:**, the smart contract transactions are public and can be seen by all consortium members.
+    **privateFor** defines the nodes to which the contract is available. In this example, the default transaction node's account can cast private transactions to the **alpha** node. You add public keys for all private transaction participants. If you don't include **privateFor:** and **from:**, the smart contract transactions are public and can be seen by all consortium members.
 
 1. Save all files by selecting **File > Save All**.
 
