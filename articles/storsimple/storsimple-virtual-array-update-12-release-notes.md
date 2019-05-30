@@ -53,7 +53,7 @@ No new issues were release-noted in Update 1.2. All the release-noted issues are
 
 ## Next steps
 
-[Install Update 1.2](storsimple-virtual-array-install-update-11.md) on your StorSimple Virtual Array.
+Download KB4502035 and [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
 ## References
 
