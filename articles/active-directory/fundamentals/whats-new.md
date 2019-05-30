@@ -111,15 +111,15 @@ For more information about the identity security score feature, see [What is the
 **Service category:** Authentications (Logins)  
 **Product capability:** Developer Experience
 
-The new App registrations experience is now in general availability. This new experience includes all the features you’re familiar with from the [Azure portal](https://portal.azure.com/) and the [Application Registration portal](http://apps.dev.microsoft.com/), but improving on them by providing:
+The new App registrations experience is now in general availability. This new experience includes all the features you’re familiar with from the [Azure portal](https://portal.azure.com/) and the [Application Registration portal](http://apps.dev.microsoft.com/), improving on them by providing:
 
 - **Better app management.** Instead of seeing your apps across different portals, you can now see all your apps in one location.
 
 - **Simplified app registration.** From the improved navigation experience to the revamped permission selection experience, it’s now easier to register and manage your apps.
 
-- **More detailed information.** You can find more details about your app, including quick start guides and more.
+- **More detailed information.** You can find more details about your app, including quickstart guides and more.
 
-For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/) and the following [//build 2019: Celebrating 1M third-party active apps, the Microsoft identity platform, and more](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/build-2019-Celebrating-1M-third-party-active-apps-the-Microsoft/ba-p/501087) blog post.
+For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/) and the following [New App registrations experience is now generally available!](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) blog announcement.
 
 ---
 
@@ -570,10 +570,10 @@ For more information about the apps, see [SaaS application integration with Azur
 **Type:** Changed feature  
 **Service category:** Self Service Password Reset  
 **Product capability:** User Authentication
- 
+
 In response to customer feedback, we’ve enhanced the combined MFA/SSPR registration preview experience, helping your users to more quickly register their security info for both MFA and SSPR. 
 
-**To turn on the enhanced experience for your users today, follow these steps:**
+**To turn on the enhanced experience for your users' today, follow these steps:**
 
 1. As a global administrator or user administrator, sign in to the Azure portal and go to **Azure Active Directory > User settings > Manage settings for access panel preview features**. 
 
