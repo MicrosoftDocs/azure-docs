@@ -29,19 +29,19 @@ To support a wider range of credentials and increase usability, Azure Active Dir
 
 An additional benefit of this work is improved error messaging. Here are some examples of the improved error messaging when signing in to an application that supports Azure Active Directory users only.
 
-1. The username is mistyped or the username has not yet been synced to Azure AD:
+- The username is mistyped or the username has not yet been synced to Azure AD:
   
     ![the username is mistyped or not found](./media/signin-realm-discovery/typo-username.png)
   
-2. The domain name is mistyped:
+- The domain name is mistyped:
   
     ![the domain name is mistyped or not found](./media/signin-realm-discovery/typo-domain.png)
   
-3. User tries to sign in with a known consumer domain:
+- User tries to sign in with a known consumer domain:
   
     ![sign-in with a known consumer domain](./media/signin-realm-discovery/consumer-domain.png)
   
-4. The password is mistyped but the username is accurate:  
+- The password is mistyped but the username is accurate:  
   
     ![password is mistyped with good username](./media/signin-realm-discovery/incorrect-password.png)
   
