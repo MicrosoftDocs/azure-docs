@@ -18,7 +18,7 @@ ms.author: pepogors
 
 ---
 # Use Visual Studio to create and and publish .Net Core applications targeting a remote Linux Service Fabric cluster
-With Visual Studio tooling you can develop and publish Service Fabric .Net Core applications targeting Linux. The cluster runtime must be 6.4.649.1 or above to deploy a .Net Core application targeting Linux from Visual Studio.
+With Visual Studio tooling you can develop and publish Service Fabric .Net Core applications targeting a Linux Service Fabric cluster. The SDK version must be 3.3.664 or above to deploy a .Net Core application targeting Linux Service Fabric clusters from Visual Studio.
 
 > [!Note]
 > Visual Studio doesn't support debugging Service Fabric applications which target Linux.
@@ -30,24 +30,18 @@ With Visual Studio tooling you can develop and publish Service Fabric .Net Core 
 3. In the **New Project** dialog, choose **Cloud -> Service Fabric Application**.
 ![create-application]
 4. Name the application and click **Ok**.
-5. On the **New Service Fabric Service** page, select a service the type of service that you would like to create under the **.Net Core Section**.
+5. On the **New Service Fabric Service** page, select the type of service you would like to create under the **.Net Core Section**.
 ![create-service]
 
-## Deploy to a remote cluster
+## Deploy to a remote Linux cluster
 1. In the solution explorer, right click on the application and select **Build**.
 ![build-application]
-
-> [!Note]
-> Steps 2 and 3 are only required if the service is an Actor project type. If your application does not have an actor service, skip to step 4. 
->
-
 2. Once the build process for the application has completed, right click on the service and select edit the **csproj file**.
 ![edit-csproj]
-3. Edit the UpdateServiceFabricManifestEnabled property from True to **False**.
+3. Edit the UpdateServiceFabricManifestEnabled property from True to **False** if the service is an **actor project type**. If your application does not have an actor service, skip to step 4.
 ```xml
     <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
 ```
-
 > [!Note]
 > Setting UpdateServiceFabricManifestEnabled to false, will disable updates to the ServiceManifest.xml during a build. Any change such as add, remove, or rename to the service will not be reflected in the ServiceManifest.xml. If any changes are made you must either update the ServiceManifest manually or temporarily set UpdateServiceFabricManifestEnabled to true and build the service that will update the ServiceManifest.xml and then revert it back to false.
 >
