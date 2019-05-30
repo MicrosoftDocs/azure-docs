@@ -163,45 +163,68 @@ DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 
 ## Scan queries (commonly slow and expensive)
 
-```json
-"QueryMetrics": {
-    "TotalTime": "00:00:04.5299799",
-    "RetrievedDocumentCount": 157743,
-    "RetrievedDocumentSize": 1578730753,
-    "OutputDocumentCount": 0,
-    "IndexHitRatio": 0,
-    "QueryPreparationTimes": {
-      "CompileTime": "00:00:00.0001000",
-      "LogicalPlanBuildTime": "00:00:00.0000400",
-      "PhysicalPlanBuildTime": "00:00:00.0000700",
-      "QueryOptimizationTime": "00:00:00"
-    },
-    "QueryEngineTimes": {
-      "IndexLookupTime": "00:00:00.0245700",
-      "DocumentLoadTime": "00:00:03.5928200",
-      "WriteOutputTime": "00:00:00",
-      "RuntimeExecutionTimes": {
-        "TotalTime": "00:00:00.8825200",
-        "SystemFunctionExecutionTime": "00:00:00",
-        "UserDefinedFunctionExecutionTime": "00:00:00"
-    }
-},
+A scan query refers to a query that wasn't served by the index, due to which, many documents are loaded before returning the result set.
+
+The following is an example of a scan query:
+
+```sql
+SELECT VALUE c.description 
+FROM   c 
+WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-This above output is returned by a scan query. A scan query refers to a query that wasn't served by the index, due to which, many documents are loaded before returning the result set. Note the following values from the previous output:
+The above query results in a scan because the condition with the system function UPPER is not served from the index. Executing this query against a large collection produced the following query metrics for the first continuation:
 
-```json
-"RetrievedDocumentCount": 157743,
-"RetrievedDocumentSize": 1578730753,
+```
+QueryMetrics
+
+Retrieved Document Count                 :          60,951
+Retrieved Document Size                  :     399,998,938 bytes
+Output Document Count                    :               7
+Output Document Size                     :             510 bytes
+Index Utilization                        :            0.00 %
+Total Query Execution Time               :        4,500.34 milliseconds
+  Query Preparation Times
+    Query Compilation Time               :            0.09 milliseconds
+    Logical Plan Build Time              :            0.05 milliseconds
+    Physical Plan Build Time             :            0.04 milliseconds
+    Query Optimization Time              :            0.01 milliseconds
+  Index Lookup Time                      :            0.01 milliseconds
+  Document Load Time                     :        4,177.66 milliseconds
+  Runtime Execution Times
+    Query Engine Times                   :          322.16 milliseconds
+    System Function Execution Time       :           85.74 milliseconds
+    User-defined Function Execution Time :            0.00 milliseconds
+  Document Write Time                    :            0.01 milliseconds
+Client Side Metrics
+  Retry Count                            :               0
+  Request Charge                         :        4,059.95 RUs
 ```
 
-This query loaded 157,743 documents, which totaled 1,578,730,753 bytes. Loading this many bytes will result in high cost or request unit charge. It also takes a long time to execute the query, which is clear with the total time spent property:
+Note the following values from the query metrics output:
 
-```json
-"TotalTime": "00:00:04.5299799"
+```
+Retrieved Document Count                 :          60,951
+Retrieved Document Size                  :     399,998,938 bytes
+```
+
+This query loaded 60,951 documents, which totaled 399,998,938 bytes. Loading this many bytes results in high cost or request unit charge. In addition, it takes a long time to execute the query, which is clear with the total time spent property:
+
+```
+Total Query Execution Time               :        4,500.34 milliseconds
 ```
 
 Meaning that the query took 4.5 seconds to execute (and this was only one continuation).
+
+In order to optimize this example query, avoid the use of UPPER in the filter. Instead, when documents are created or updated, the `c.description` values must be inserted in all uppercase characters. The query then becomes: 
+
+```sql
+SELECT VALUE c.description 
+FROM   c 
+WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
+```
+
+This query is now able to be served from the index.
 
 ## <a id="References"></a>References
 
