@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Sign in users and acquire an access token from a JavaScript single-page application
 
-In this quickstart, you learn how to use a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API.
+In this quickstart, you learn how to use a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API.
 
 ![How the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
