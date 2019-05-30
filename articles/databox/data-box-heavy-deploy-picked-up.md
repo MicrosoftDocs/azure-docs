@@ -29,7 +29,7 @@ In this tutorial, you will learn about topics such as:
 
 Before you begin, make sure:
 
-- You've have completed the [Tutorial: Copy data to Azure Data Box and verify](data-box-heavy-deploy-copy-data.md).
+- You've completed the [Tutorial: Copy data to Azure Data Box and verify](data-box-heavy-deploy-copy-data.md).
 - Copy jobs are complete. Prepare to ship can't run if copy jobs are in progress.
 
 ## Prepare to ship
