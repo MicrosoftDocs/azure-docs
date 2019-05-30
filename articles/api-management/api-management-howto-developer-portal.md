@@ -32,15 +32,20 @@ This article shows you how to access the new Azure API Management developer port
 
 You can build your developer portal in two ways:
 
-- **Managed version** - by editing and customizing the portal built-into an API Management instance and accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`. This documentation article describes the managed version.
-- **Self-hosted version** - by deploying your own portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. For details and instructions, refer to the [GitHub repository with the source code of the portal][1].
+- **Managed version** - by editing and customizing the portal built-into your API Management instance and accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`.
+- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. For details and instructions, refer to the [GitHub repository with the source code of the portal][1].
 
-## Edit and customize the portal and publish the changes
+## Access the managed version of the portal
 
-By performing the steps below you'll edit the content of the portal (text), add a new page, and customize the look. Finally, you'll publish your changes.
+By performing the steps below you'll access the managed version of the portal.
 
 1. Go to your API Management service instance in the Azure portal.
-1. Click on the **New developer portal (preview)** button in the top navigation bar. A new browser tab will open with an administrative version of the developer portal.
+1. Click on the **New developer portal (preview)** button in the top navigation bar. A new browser tab with an administrative version of the portal will open. If you are accessing the portal for the first time, the default content will be automatically provisioned.
+
+## Edit and customize the managed version of the portal
+
+In the video below we demonstrate how to add a new page, edit the content of the portal, customize the website's look, and publish the changes.
+
 1. // Change text
 1. // Save
 1. // Add a page
@@ -48,8 +53,6 @@ By performing the steps below you'll edit the content of the portal (text), add 
 1. // Change colors
 1. // Save
 1. // Publish
-
-## YouTube tutorial
 
 ## Next steps
 
