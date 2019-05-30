@@ -24,7 +24,7 @@ For example, a builder can create a device template for an IoT-connected fan tha
 
 - Fan speed setting
 
-- Location property
+- Location measurement
 
 - Rules that send alerts
 
@@ -56,10 +56,11 @@ Measurements are the data that comes from your device. You can add multiple meas
 - **Telemetry** measurements are the numerical data points that your device collects over time. They're represented as a continuous stream. An example is temperature.
 - **Event** measurements are point-in-time data that represents something of significance on the device. A severity level represents the importance of an event. An example is a fan motor error.
 - **State** measurements represent the state of the device or its components over a period of time. For example, a fan mode can be defined as having **Operating** and **Stopped** as the two possible states.
+- **Location** measurements are the longitude and latitude coordinates of the device over a period of time in. For example, a fan can be moved from one location to another.
 
-### Create a telemetry measurement
+### Create a Telemetry Measurement
 
-To add a new telemetry measurement, select **+ New Measurement**, choose **Telemetry** as the measurement type, and enter the details on the form.
+To add a new telemetry measurement, select **+ New**, choose **Telemetry** as the measurement type, and enter the details on the form.
 
 > [!NOTE]
 > The field names in the device template must match the property names in the corresponding device code in order for the telemetry measurement to be displayed in the application when a real device is connected. Do the same when you configure settings, device properties, and commands as you continue to define the device template in the following sections.
@@ -74,14 +75,14 @@ For example, you can add a new temperature telemetry measurement:
 
 After you select **Save**, the **Temperature** measurement appears in the list of measurements. In a short while, you see the visualization of the temperature data from the simulated device.
 
-When displaying telemetry, you can choose from the following aggregation options: Average, Minimum, Maximum, Sum, and Count. **Average** is selected as the default aggregation on the chart. 
+When displaying telemetry, you can choose from the following aggregation options: Average, Minimum, Maximum, Sum, and Count. **Average** is selected as the default aggregation on the chart.
 
 > [!NOTE]
 > The data type of the telemetry measurement is a floating point number.
 
-### Create an event measurement
+### Create an Event Measurement
 
-To add a new event measurement, select **+ New Measurement** and select **Event** as the measurement type. Enter the details on the **Create Event** form.
+To add a new event measurement, select **+ New** and select **Event** as the measurement type. Enter the details on the **Create Event** form.
 
 Provide the **Display Name**, **Field Name**, and **Severity** details for the event. You can choose from the three available levels of severity: **Error**, **Warning**, and **Information**.
 
@@ -102,9 +103,9 @@ To view more details about an event, select the event icon on the chart:
 > [!NOTE]
 > The data type of the event measurement is string.
 
-### Create a state measurement
+### Create a State Measurement
 
-To add a new state measurement, select the **+ New Measurement** button and select **State** as the measurement type. Enter the details on the **Create State** form.
+To add a new state measurement, select the **+ New** button and select **State** as the measurement type. Enter the details on the **Create State** form.
 
 Provide the details for **Display Name**, **Field Name**, and **Values** of the state. Each value can also have a display name that will be used when the value appears in charts and tables.
 
@@ -122,6 +123,26 @@ If the device sends too many data points in a small duration, the state measurem
 
 > [!NOTE]
 > The data type of the state measurement is string.
+
+### Create a Location Measurement
+
+To add a new location measurement, select **+ New**, choose **Location** as the measurement type, and enter the details on the form.
+
+For example, you can add a new location telemetry measurement:
+
+| Display Name        | Field Name    |
+| --------------------| ------------- |
+| NW Territory        | nwterritory   |
+
+!["Create Location" form with details for location measurement](./media/howto-set-up-template/measurementsform.png)
+
+After you select **Save**, the **Location** measurement appears in the list of measurements. In a short while, you see the visualization of the location data from the simulated device.
+
+When displaying location, you can choose from the following options: latest location and location history. **Location history** is only applied over the selected time range.
+
+> [!NOTE]
+> The data type of the location measurement is longitude, latitude and the option of altitude.
+
 
 ## Settings
 
@@ -147,7 +168,7 @@ After you select **Save**, the **Fan Speed** setting appears as a tile. An opera
 
 ## Properties
 
-Properties are metadata that's associated with the device, such as device location and serial number. Add multiple properties to your device template that appear as tiles on the **Properties** tab. A property can have a type such as number, text, date, toggle, device property, label, or location. An operator can specify the values for properties when they create a device, and they can edit these values at any time. Device properties are read-only and are sent from the device to the application. An operator cannot change device properties. When a real device connects, the device property tile is updates in the application.
+Properties are metadata that's associated with the device, such as a fixed device location and serial number. Add multiple properties to your device template that appear as tiles on the **Properties** tab. A property can have a type such as number, text, date, toggle, device property, label, or a fixed location. An operator can specify the values for properties when they create a device, and they can edit these values at any time. Device properties are read-only and are sent from the device to the application. An operator cannot change device properties. When a real device connects, the device property tile is updates in the application.
 
 There are two categories of properties:
 
@@ -166,14 +187,17 @@ After you select **Save**, the last serviced date for the device appears as a ti
 
 After you create the tile, you can change the application property value in the **Device Explorer**.
 
-### Create a location property through Azure Maps
+### Create a location property
 
-You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates of a street address. Or you can map latitude and longitude coordinates. Azure Maps enables this capability in IoT Central.
+You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates or a street address. Azure Maps enables this capability in IoT Central.
 
 You can add two types of location properties:
 
 - **Location as an application property**, which is stored in the application. The device doesn't recognize application properties.
-- **Location as a device property**, which the device reports to the application.
+- **Location as a device property**, which the device reports to the application. Note that this is best used for a static location. If
+
+> [!NOTE]
+> Location as a property does not record a history. If history is desired, use a location measurement.
 
 #### Add location as an application property
 
@@ -186,7 +210,7 @@ You can create a location property as an application property by using Azure Map
 3. Configure **Display Name**, **Field Name**, and (optionally) **Initial Value** for the location.
 
     | Display Name  | Field Name | Initial Value |
-    | --------------| -----------|---------| 
+    | --------------| -----------|---------|
     | Installation address | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
    !["Configure Location" form with details for location](./media/howto-set-up-template/locationcloudproperty2.png)
@@ -256,13 +280,13 @@ Now when an operator views the dashboard in the **Device Explorer**, they can se
 
 ### Add an Azure Maps location in the dashboard
 
-If you configured a location property, you can visualize the location by using a map in your device dashboard.
+If you configured a location measurement, you can visualize the location by using a map in your device dashboard.
 
 1. Navigate to the **Dashboard** tab.
 
-1. On the device dashboard, select **Map** from the library.
+2. On the device dashboard, select **Map** from the library.
 
-1. Give the map a title. The following example has the title **Installation Location**. Then choose the location property that you previously configured on the **Properties** tab. In the following example, **Installation address** is selected.
+3. Give the map a title. The following example has the title **Device Current Location**. Then choose the location measurement that you previously configured on the **Measurements** tab. In the following example, **NW Territory** is selected.
 
    !["Configure Map" form with details for title and properties](./media/howto-set-up-template/locationcloudproperty5map.png)
 

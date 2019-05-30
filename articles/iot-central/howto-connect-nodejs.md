@@ -64,6 +64,19 @@ Add the following event on the **Measurements** page:
 > [!NOTE]
 > The data type of the Event measurement is string.
 
+### Location measurements
+
+Add the following location measurement on the **Measurements** page:
+
+| Display Name | Field Name  |
+| ------------ | ----------- |
+| Location     | location    |
+
+> [!NOTE]
+> The data type of the Location measurement is a floating point number for longitude, latitude and optional altitude.
+
+Enter field names exactly as shown in the table into the device template. If the field names don't match the property names in the corresponding device code, the state can't be displayed in the application.
+
 ### Device properties
 
 Add the following device properties on the **Properties** page:
@@ -139,12 +152,14 @@ The following steps show how to create a client application that implements the 
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = 47.6740;
+    var locLat = 122.1215;
     var client = clientFromConnectionString(connectionString);
     ```
 
     Update the placeholder `{your device connection string}` with the [device connection string](tutorial-add-device.md#generate-connection-string). In this sample, you initialize `targetTemperature` to zero, you could use the current reading from the device or a value from the device twin.
 
-1. To send telemetry, state, and event measurements to your Azure IoT Central application, add the following function to the file:
+1. To send telemetry, state, event, and location measurements to your Azure IoT Central application, add the following function to the file:
 
     ```javascript
     // Send device measurements.
@@ -153,12 +168,18 @@ The following steps show how to create a client application that implements the 
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLon - (Math.random() / 100);
+      var locationLat = locLat - (Math.random / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -315,6 +336,10 @@ As an operator in your Azure IoT Central application, for your real device you c
 * View the telemetry on the **Measurements** page:
 
     ![View telemetry](media/howto-connect-nodejs/viewtelemetry.png)
+
+* View the location measurements on the **Measurements** page:
+
+    ![View location measurements](media/howto-connect-nodejs/viewtelemetry.png)
 
 * View the device property values sent from your device on the **Properties** page. The device property tiles update when the device connects:
 
