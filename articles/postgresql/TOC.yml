@@ -31,7 +31,7 @@
         href: connect-csharp.md
       - name: Go
         href: connect-go.md
-  - name: Hyperscale
+  - name: Hyperscale (Citus)
     items:
     - name: Create DB - Portal
       href: quickstart-create-hyperscale-portal.md

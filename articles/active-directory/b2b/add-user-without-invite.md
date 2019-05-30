@@ -13,7 +13,7 @@ ms.date: 05/21/2018
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: sasubram
 
 ms.collection: M365-identity-device-management

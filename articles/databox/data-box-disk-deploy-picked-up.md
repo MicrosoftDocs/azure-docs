@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -50,7 +50,12 @@ Take the following steps if returning the device in US or Canada.
     - Affix the label on the device.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
-3. Schedule a pickup with UPS.
+3. Schedule a pickup with UPS. To schedule a pickup:
+
+    - Call the local UPS (country/region-specific toll free number).
+    - In your call, quote the reverse shipment tracking number as shown in your printed label.
+    - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
+    - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
 
 ### Pick up in Europe
@@ -69,7 +74,7 @@ Take the following steps if returning the device in Europe.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 3. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number.
-4. Go to the country DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
+4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
 
     ![DHL return shipment](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     

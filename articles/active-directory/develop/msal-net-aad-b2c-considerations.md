@@ -4,7 +4,7 @@ description: Learn about specific considerations when using Azure AD B2C with th
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

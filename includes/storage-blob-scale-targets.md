@@ -17,4 +17,4 @@ ms.author: tamram
 | Maximum number of stored access policies per blob container | 5 |
 |Target throughput for single blob |Up to storage account ingress/egress limits<sup>1</sup> |
 
-<sup>1</sup> Single object throughput depends on several factors, including, but not limited to: concurrency, request size, performance tier, speed of source for uploads, and destination for downloads. To take advantage of [high-throughput block blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) performance enhancements, use a Put Blob or Put Block request size of > 4 MiB (> 256 MiB for premium-performance block blob storage or for Data Lake Storage Gen2).
+<sup>1</sup> Single object throughput depends on several factors, including, but not limited to: concurrency, request size, performance tier, speed of source for uploads, and destination for downloads. To take advantage of [high-throughput block blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) performance enhancements, use a Put Blob or Put Block request size of > 4 MiB (> 256 KiB for premium-performance block blob storage or for Data Lake Storage Gen2).

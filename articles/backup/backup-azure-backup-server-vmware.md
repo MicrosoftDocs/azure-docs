@@ -33,7 +33,7 @@ By default, Azure Backup Server communicates with VMware servers over HTTPS. To 
 
 ### Before you start
 
-- If you don't want to use HTTPS you can [disable the default setting](backup-azure-backup-server-vmware.md).
+- If you don't want to use HTTPS you can [disable HTTPS certificate validation for all VMware servers](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - You typically connect from a browser on the Azure Backup Server machine to the vCenter/ESXi server using the vSphere Web Client. The first time you do this the connection isn't secure and will show the following.
 - It's important to understand how Azure Backup Server handles backups.
     - As a first step Azure Backup Server backs up data to local disk storage. Azure Backup Server uses a storage pool, a set of disks and volumes on which Azure Backup Server stores disk recovery points for its protected data. The storage pool can be directly attached storage (DAS), a fiber channel SAN, or iSCSI storage device or SAN. It's important to ensure that you have sufficient storage for local back up of your VMware VM data.
@@ -95,7 +95,7 @@ Set up a secure channel as follows:
 
 
 
-### Disable default HTTPS
+### Disable HTTPS certificate validation
 
 If you have secure boundaries within your organization, and don't want to use the HTTPS protocol between VMware servers and the Azure Backup Server machine, disable HTTPS as follows: u
 1. Copy and paste the following text into a .txt file.

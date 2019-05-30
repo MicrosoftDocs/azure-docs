@@ -8,7 +8,7 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
 ---
 # How to model complex data types in Azure Search
@@ -22,7 +22,7 @@ To get started, we recommend the [Hotels data set](https://github.com/Azure-Samp
 > [!Note]
 > Support for complex types is generally available in `api-version=2019-05-06`. 
 >
-> If your search solution is built on earlier workarounds of flattened datasets in a collection, you should change your index to include complex types as supported in the newest API version. For more information about upgrading API versions, see [Upgrade to the newest REST API version](search-api-migration.md) or [Upgrade to the newest .NET SDK version](search-dotnet-sdk-migration.md).
+> If your search solution is built on earlier workarounds of flattened datasets in a collection, you should change your index to include complex types as supported in the newest API version. For more information about upgrading API versions, see [Upgrade to the newest REST API version](search-api-migration.md) or [Upgrade to the newest .NET SDK version](search-dotnet-sdk-migration-version-9.md).
 
 ## Example of a complex structure
 
@@ -30,26 +30,26 @@ The following JSON document is composed of simple fields and complex fields. Com
 
 ```json
 {
-	"HotelId": "1",
-	"HotelName": "Secret Point Motel",
-	"Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
-	"Address": {
-		"StreetAddress": "677 5th Ave",
-		"City": "New York",
-		"StateProvince": "NY"
-	},
-	"Rooms": [
-		{
-			"Description": "Budget Room, 1 Queen Bed (Cityside)",
-			"Type": "Budget Room",
-			"BaseRate": 96.99,
-		},
-		{
-			"Description": "Deluxe Room, 2 Double Beds (City View)",
-			"Type": "Deluxe Room",
-			"BaseRate": 150.99,
-		},
-	]
+  "HotelId": "1",
+  "HotelName": "Secret Point Motel",
+  "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Address": {
+    "StreetAddress": "677 5th Ave",
+    "City": "New York",
+    "StateProvince": "NY"
+  },
+  "Rooms": [
+    {
+      "Description": "Budget Room, 1 Queen Bed (Cityside)",
+      "Type": "Budget Room",
+      "BaseRate": 96.99,
+    },
+    {
+      "Description": "Deluxe Room, 2 Double Beds (City View)",
+      "Type": "Deluxe Room",
+      "BaseRate": 150.99,
+    },
+  ]
 }
 ```
 
@@ -62,67 +62,34 @@ The following example shows a JSON index schema with simple fields, collections,
 <!---
 For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
 
-Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with Knowledge Store](knowledge-store-howto.md).
+Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with knowledge store](knowledge-store-howto.md).
 -->
 
 ```json
 {
-	"name": "hotels",
-	"fields": [
-		{	"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true 	},
-		{	"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
-		{ "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
-		{	"name": "Address", "type": "Edm.ComplexType",
-			"fields": [{
-					"name": "StreetAddress",
-					"type": "Edm.String",
-					"filterable": false,
-					"sortable": false,
-					"facetable": false,
-					"searchable": true 	},
-				{
-					"name": "City",
-					"type": "Edm.String",
-					"searchable": true,
-					"filterable": true,
-					"sortable": true,
-					"facetable": true
-				},
-				{
-					"name": "StateProvince",
-					"type": "Edm.String",
-					"searchable": true,
-					"filterable": true,
-					"sortable": true,
-					"facetable": true
-				}
-			]
-		},
-		{
-			"name": "Rooms",
-			"type": "Collection(Edm.ComplexType)",
-			"fields": [{
-					"name": "Description",
-					"type": "Edm.String",
-					"searchable": true,
-					"analyzer": "en.lucene"
-				},
-				{
-					"name": "Type",
-					"type": "Edm.String",
-					"searchable": true
-				},
-				{
-					"name": "BaseRate",
-					"type": "Edm.Double",
-					"filterable": true,
-					"facetable": true
-				},
-			]
-		}
-	]
+  "name": "hotels",
+  "fields": [
+    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true 	},
+    { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+    { "name": "Address", "type": "Edm.ComplexType",
+      "fields": [
+        { "name": "StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true },
+        { "name": "City", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+        { "name": "StateProvince", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true }
+      ]
+    },
+    { "name": "Rooms", "type": "Collection(Edm.ComplexType)",
+      "fields": [
+        { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+        { "name": "Type", "type": "Edm.String", "searchable": true },
+        { "name": "BaseRate", "type": "Edm.Double", "filterable": true, "facetable": true }
+      ]
+    }
+  ]
 }
 ```
+
 ## Updating complex fields
 
 All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main rules here, adding a field does not require an index rebuild, but most modifications do.

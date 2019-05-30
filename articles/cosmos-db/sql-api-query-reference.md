@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 
@@ -711,7 +711,8 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |[Mathematical functions](#bk_mathematical_functions)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.|  
 |[Type checking functions](#bk_type_checking_functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
 |[String functions](#bk_string_functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
-|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|  
+|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|
+|[Date and Time functions](#bk_date_and_time_functions)|The date and time functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format.|
 |[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
   
 ###  <a name="bk_mathematical_functions"></a> Mathematical functions  
@@ -1302,7 +1303,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- Here is the result set.  
+  Here is the result set.  
   
 ```  
 [{  
@@ -1333,6 +1334,17 @@ ROUND(<numeric_expression>)
   
   Returns a numeric expression.  
   
+  **Remarks**
+  
+  The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero.  
+  
+  |<numeric_expression>|Rounded|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0.5|1|
+  |6.5000|7||
+  
   **Examples**  
   
   The following example rounds the following positive and negative numbers to the nearest integer.  
@@ -1341,7 +1353,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- Here is the result set.  
+  Here is the result set.  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
@@ -3118,7 +3130,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> Date and Time functions
+ The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ Returns the current UTC date and time as an ISO 8601 string.
+  
+ **Syntax**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **Return Types**
+  
+  Returns the current UTC date and time ISO 8601 string value. 
+
+  This is expressed in the format YYYY-MM-DDThh:mm:ss.sssZ where:
+  
+  |||
+  |-|-|
+  |YYYY|four-digit year|
+  |MM|two-digit month (01 = January, etc.)|
+  |DD|two-digit day of month (01 through 31)|
+  |T|signifier for beginning of time elements|
+  |hh|two digit hour (00 through 23)|
+  |mm|two digit minutes (00 through 59)|
+  |ss|two digit seconds (00 through 59)|
+  |.sss|three digits of decimal fractions of a second|
+  |Z|UTC (Coordinated Universal Time) designator||
+  
+  For more details on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **Remarks**
+
+  GetCurrentDateTime is a nondeterministic function. 
+  
+  The result returned is UTC (Coordinated Universal Time).
+
+  **Examples**  
+  
+  The following example shows how to get the current UTC Date Time using the GetCurrentDateTime built-in function.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ Here is an example result set.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970. 
+  
+ **Syntax**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **Return Types**  
+  
+  Returns a numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+
+  **Remarks**
+
+  GetCurrentTimestamp is a nondeterministic function. 
+  
+  The result returned is UTC (Coordinated Universal Time).
+
+  **Examples**  
+  
+  The following example shows how to get the current timestamp using the GetCurrentTimestamp built-in function.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ Here is an example result set.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> Spatial functions  
  The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   

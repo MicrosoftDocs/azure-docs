@@ -3,6 +3,7 @@ title: Introduction to Azure Storage - Cloud storage on Azure | Microsoft Docs
 description: Azure Storage is Microsoft's cloud storage solution. Azure Storage provides storage for data objects that is highly available, secure, durable, massively scalable, and redundant.
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/02/2019
@@ -68,7 +69,7 @@ For more information about Azure Files, see [Introduction to Azure Files](../fil
 
 The Azure Queue service is used to store and retrieve messages. Queue messages can be up to 64 KB in size, and a queue can contain millions of messages. Queues are generally used to store lists of messages to be processed asynchronously.
 
-For example, say you want your customers to be able to upload pictures, and you want to create thumbnails for each picture. You could have your customer wait for you to create the thumbnails while uploading the pictures. An alternative would be to use a queue. When the customer finishes his upload, write a message to the queue. Then have an Azure Function retrieve the message from the queue and create the thumbnails. Each of the parts of this processing can be scaled separately, giving you more control when tuning it for your usage.
+For example, say you want your customers to be able to upload pictures, and you want to create thumbnails for each picture. You could have your customer wait for you to create the thumbnails while uploading the pictures. An alternative would be to use a queue. When the customer finishes their upload, write a message to the queue. Then have an Azure Function retrieve the message from the queue and create the thumbnails. Each of the parts of this processing can be scaled separately, giving you more control when tuning it for your usage.
 
 For more information about Azure Queues, see [Introduction to Queues](../queues/storage-queues-introduction.md).
 
@@ -80,7 +81,9 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 ## Disk storage
 
-Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
+An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+
+For more information about managed disks, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## Types of storage accounts
 
@@ -153,7 +156,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Azure Storage data movement API and library references
 * [Storage Import/Export Service REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [Storage Data Movement Client Library for .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+* [Storage Data Movement Client Library for .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### Tools and utilities
 * [Azure PowerShell Cmdlets for Storage](https://docs.microsoft.com/powershell/module/az.storage)

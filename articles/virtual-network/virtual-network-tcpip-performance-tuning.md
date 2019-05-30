@@ -62,7 +62,7 @@ Keep in mind that increasing the MTU won't necessarily create a more efficient n
 
 #### Azure and VM MTU
 
-The default MTU for Azure VMs is 1,500 bytes. The Azure Virtual Network stack will attempt to fragment a packet at 1,400 bytes. But the Virtual Network stack will allow packets up to 2,006 bytes when the Don't Fragment bit is set in the IP header.
+The default MTU for Azure VMs is 1,500 bytes. The Azure Virtual Network stack will attempt to fragment a packet at 1,400 bytes.
 
 Note that the Virtual Network stack isn't inherently inefficient because it fragments packets at 1,400 bytes even though VMs have an MTU of 1,500. A large percentage of network packets are much smaller than 1,400 or 1,500 bytes.
 
@@ -259,7 +259,7 @@ To use accelerated networking, you need to explicitly enable it on each applicab
 
 Receive side scaling (RSS) is a network driver technology that distributes the receiving of network traffic more efficiently by distributing receive processing across multiple CPUs in a multiprocessor system. In simple terms, RSS allows a system to process more received traffic because it uses all available CPUs instead of just one. For a more technical discussion of RSS, see [Introduction to receive side scaling](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-To get the best performance when accelerated networking is enabled on a VM, you need to enable RSS. RSS can also provide benefits on VMs that don’t use accelerated networking. For an overview of how to determine if RSS is enabled and how to enable it, see [Optimize network throughput for Azure virtual machines](http://aka.ms/FastVM).
+To get the best performance when accelerated networking is enabled on a VM, you need to enable RSS. RSS can also provide benefits on VMs that don’t use accelerated networking. For an overview of how to determine if RSS is enabled and how to enable it, see [Optimize network throughput for Azure virtual machines](https://aka.ms/FastVM).
 
 ### TCP TIME_WAIT and TIME_WAIT assassination
 
@@ -299,7 +299,7 @@ The throughput limit applies to the virtual machine. Throughput is not affected 
 
 - **Protocol**: All outbound traffic over all protocols counts towards the limit.
 
-For more information, see [Virtual machine network bandwidth](http://aka.ms/AzureBandwidth).
+For more information, see [Virtual machine network bandwidth](https://aka.ms/AzureBandwidth).
 
 ### Internet performance considerations
 

@@ -71,3 +71,25 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
+
+
+
+## Next steps
+
+ View your telemetry:
+
+- [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
+- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems
+- [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
+- [Create dashboards](../../azure-monitor/app/overview-dashboard.md)
+
+ Add more telemetry:
+
+- [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
+- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to let you insert trace calls.
+- [Add Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so that you can insert trace and log calls
+
+Do more with Status Monitor v2:
+
+- Review the [Detailed instructions](status-monitor-v2-detailed-instructions.md) for an explanation of the commands found in this guide.
+- Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
