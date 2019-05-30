@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
 ---
-# Azure Data Box Heavy system requirements
+# Azure Data Box Heavy system requirements (preview)
 
 This article describes the important system requirements for your Azure Data Box Heavy device and for the clients connecting to the device. We recommend you review the information carefully before you deploy your Data Box Heavy, and then refer back to it as necessary during the deployment and subsequent operation.
 
