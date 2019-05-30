@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -22,24 +22,24 @@ Truffle is a blockchain development environment you can use to connect to an Azu
 ## Prerequisites
 
 * [Create an Azure Blockchain member](create-member.md)
-* Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), and [Truffle](https://github.com/trufflesuite/truffle).
-
-    To set up quickly on Windows 10, install [Ubuntu on Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) for a Unix Bash shell terminal then install [Truffle](https://github.com/trufflesuite/truffle). The Ubuntu on Windows distribution includes Node.js and Git.
+* Install [Truffle](https://github.com/trufflesuite/truffle). Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Web3.
 
 ## Create Truffle project
 
-1. Open a Bash shell terminal.
-1. Change directory to where you want to create the Truffle project directory. For example,
-
-    ``` bash
-    cd /mnt/c
-    ```
-
+1. Open a Node.js command prompt or shell.
+1. Change directory to where you want to create the Truffle project directory.
 1. Create a directory for the project and change your path to the new directory. For example,
 
     ``` bash
     mkdir truffledemo
     cd truffledemo
+    ```
+
+1. Initialize the Truffle project.
+
+    ``` bash
+    truffle init
     ```
 
 1. Install Ethereum JavaScript API web3 in the project folder. Currently, version web3 version 1.0.0-beta.37 is required.
@@ -49,12 +49,6 @@ Truffle is a blockchain development environment you can use to connect to an Azu
     ```
 
     You may receive npm warnings during installation.
-
-1. Initialize the Truffle project.
-
-    ``` bash
-    truffle init
-    ```
 
 1. Launch Truffle's interactive development console.
 
@@ -66,7 +60,7 @@ Truffle is a blockchain development environment you can use to connect to an Azu
 
 ## Connect to transaction node
 
-We'll use Web3 to connect to the transaction node. You can get the Web3 connection string from the Azure portal.
+Use *Web3* to connect to the transaction node. You can get the *Web3* connection string from the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
@@ -86,8 +80,7 @@ We'll use Web3 to connect to the transaction node. You can get the Web3 connecti
     truffle(develop)> var Web3 = require("Web3");
     truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
     truffle(develop)> var web3 = new Web3(provider);
-    truffle(develop)>
-     ```
+    ```
 
     You can call methods on the **web3** object to interact with your transaction node.
 
