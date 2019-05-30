@@ -180,11 +180,12 @@ The following sections provide details about how to connect your ServiceNow prod
 ### Prerequisites
 Ensure the following prerequisites are met:
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow supported versions: London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- ServiceNow supported versions: Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins must do the following in their ServiceNow instance**:
 - Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see the following information as required:
 
+    - [Set up OAuth for Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 	- [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
