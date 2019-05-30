@@ -40,16 +40,15 @@ Train your models using these compute resources:
 
 ## Deployment targets
 
-Deploy your models on these compute resources:
+The following compute resources can be used to host your web service deployment.
 
-
-| Compute resource | SDK  |  Visual interface 
-| ---- |:----:|:----:|
-| Azure Container Instances | ✓ |  ✓ | 
-| Azure Kubernetes Service |  ✓ |   &nbsp; | 
-| Azure IoT Edge |  ✓ |    &nbsp; | 
-| Field-programmable gate array (FPGA) |  ✓ |   &nbsp; | 
-
+| Compute target | Usage | Description |
+| ----- | ----- | ----- |
+| [Local web service](how-to-deploy-and-where.md#local) | Testing/debug | Good for limited testing and troubleshooting.
+| [Azure Kubernetes Service (AKS)](how-to-deploy-and-where.md#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. The is the only option available for the visual interface. |
+| [Azure Container Instances (ACI)](how-to-deploy-and-where.md#aci) | Testing | Good for low scale, CPU-based workloads. |
+| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
+| [Azure IoT Edge](how-to-deploy-and-where.md#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
 
 ## Managed compute
 
@@ -65,7 +64,7 @@ All other compute resources must be created outside the workspace and then attac
 
 ## Unmanaged compute
 
-An unmanaged compute resource is *not* managed by Azure Machine Learning service. You create this type of compute outside Azure Machine Learning and then attach it to your workspace before use. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads.
+An unmanaged compute resource is *not* managed by Azure Machine Learning service. You create this type of compute outside Azure Machine Learning, then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads.
 
 ## Next steps
 
