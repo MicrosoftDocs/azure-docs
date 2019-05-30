@@ -36,7 +36,7 @@ To best plan your Time Series Insights environment for long-term success, consid
 - <a href="#understand-data-retention">Data retention period</a>
 - <a href="#understand-ingress-capacity">Ingress capacity</a>
 - <a href="#shape-your-events">Shaping your events</a>
-- <a href="#ensure-you-have-reference-data">Ensuring you have reference data in place</a>
+- <a href="#ensure-that-you-have-reference-data">Ensuring that you have reference data in place</a>
 
 ## Understand storage capacity
 
@@ -75,7 +75,7 @@ From a throttling perspective, an ingressed data packet that has a packet size o
 
 The following table summarizes the ingress capacity for each SKU:
 
-|SKU  |Events count / month / unit  |Events size / month / unit  |Events count / minute / unit  | Size / minute / unit   |
+|SKU  |Events count (per month, per unit)  |Events size (per month, per unit)  |Events count (per minute, per unit)  | Size (per minute, per unit)  |
 |---------|---------|---------|---------|---------|
 |S1     |   30 million     |  30 GB     |  720    |  720 KB   |
 |S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
