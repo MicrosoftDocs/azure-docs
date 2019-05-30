@@ -61,7 +61,7 @@
           href: storage-blob-scalable-app-create-vm.md
         - name: 2 - Upload large data to an Azure storage account
           href: storage-blob-scalable-app-upload-files.md
-        - name: 3- Download large data from a Azure storage account
+        - name: 3- Download large data from an Azure storage account
           href: storage-blob-scalable-app-download-files.md
         - name: 4 - Verify throughput and latency metrics
           href: storage-blob-scalable-app-verify-metrics.md
