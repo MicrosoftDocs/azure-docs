@@ -13,7 +13,7 @@ ms.date: 05/28/2019
 
 You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
 
-This article shows you how to enable static website hosting by using the Azure Portal, the Azure CLI, or PowerShell.
+This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
 
 <a id="portal" />
 
@@ -25,7 +25,7 @@ After you enable static website hosting, you can view the pages of your site fro
 
 <a id="portal-find-url" />
 
-### Find the website URL by using the Azure Portal
+### Find the website URL by using the Azure portal
 
 In the pane that appears beside the account overview page of your storage account, select **Static Website**. The URL of your site appears in the **Primary endpoint** field.
 
@@ -51,7 +51,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
    az account set --subscription <subscription-id>
    ```
 
-   Replace the `<subscription-id>` placeholder value with the id of your subscription.
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
 4. Enable static website hosting.
 
@@ -130,7 +130,7 @@ You can enable static website hosting by using the Azure PowerShell module.
    Set-AzContext $context
    ```
 
-   Replace the `<subscription-id>` placeholder value with the id of your subscription.
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
 5. Get the storage account context that defines the storage account you want to use.
 
@@ -180,7 +180,7 @@ $context = Get-AzSubscription -SubscriptionId <subscription-d>
 Set-AzContext $context
 ```
 
-Replace the `<subscription-id>` placeholder value with the id of your subscription.
+Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
 <a id="metrics" />
 
@@ -219,7 +219,7 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 ## Next steps
 
 * [Static website hosting in Azure Storage](storage-blob-static-website.md)
-* [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
+* [Use the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
 * [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
