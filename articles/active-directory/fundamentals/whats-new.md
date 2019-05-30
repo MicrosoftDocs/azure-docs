@@ -111,7 +111,7 @@ For more information about the identity security score feature, see [What is the
 **Service category:** Authentications (Logins)  
 **Product capability:** Developer Experience
 
-The new App registrations experience is now in general availability. This new experience includes all the features you’re familiar with from the [Azure portal](https://portal.azure.com/) and the [Application Registration portal](http://apps.dev.microsoft.com/), improving on them by providing:
+The new [App registrations](https://aka.ms/appregistrations) experience is now in general availability. This new experience includes all the key features you’re familiar with from the [Azure portal](https://portal.azure.com/) and the [Application Registration portal](http://apps.dev.microsoft.com/), improving on them by providing:
 
 - **Better app management.** Instead of seeing your apps across different portals, you can now see all your apps in one location.
 
@@ -119,7 +119,7 @@ The new App registrations experience is now in general availability. This new ex
 
 - **More detailed information.** You can find more details about your app, including quickstart guides and more.
 
-For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/) and the [New App registrations experience is now generally available!](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) blog announcement.
+For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/) and the [App registrations experience is now generally available!](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) blog announcement.
 
 ---
 
