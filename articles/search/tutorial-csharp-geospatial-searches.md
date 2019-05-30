@@ -32,11 +32,11 @@ Image
 
 ## Build a geospatial filter into an Azure Search
 
-A geospatial search removes all data items that are outside of a specified radius of a certain point. In order to implement this we need to accept three new inputs: latitude, longitude, and radius. Also, providing the distance back to the user with the results would seem to be an obvious requirement of our view of the results. Because of the strict ordering based on distance, using an infinite paging system seems to make sense too for this scenario.
+A geospatial search removes all data items that are outside of a specified radius of a certain point. In order to implement this we need to accept three new inputs: latitude, longitude, and radius. Also, providing the distance back to the user with the results would seem to be an obvious requirement of our view of the results. Because of the strict ordering based on distance, using an infinite scrolling system seems to make sense for this scenario.
 
 ### Add code to calculate distances
 
-Although when you request a geospatial filter, the distance between the data points and the point you specify must calculated by Azure Search, these distances are not returned in the response. You must calculate these distances in the client if you want to display them to your user.
+Although when you request a geospatial filter, the distance between the data points and the point you specify must be calculated by Azure Search, these distances are not returned in the response. You must calculate these distances in the client if you want to display them to your user.
 
 1. Add the following code to your home controller, it calculates distances between two points in kilometers.
 
@@ -114,12 +114,11 @@ We'll need to add more code to the controller, but let's update the models and v
         public string radius { get; set; }
 ```
 
-. 
-### Add html to handle the input of lat-lon co-ordinates
+### Add HTML to handle the input of lat-lon co-ordinates
 
 For this sample we need three numbers in addition to the search text. This means defining a few new styles to accommodate the numbers.
 
-1. Add the following styles to the &lt;style&gt; section of the index.cshtml file.
+1. Add the following styles to the **&lt;style&gt;** section of the index.cshtml file.
 
 ```cs
        .geoForm {
@@ -161,7 +160,7 @@ For this sample we need three numbers in addition to the search text. This means
         }
 ```
 
-2. Now replace the entire &lt;body&gt; section of the view file with the following code.
+2. Now replace the entire **&lt;body&gt;** section of the view file with the following code.
 
 ```cs
 <body>
@@ -203,17 +202,15 @@ For this sample we need three numbers in addition to the search text. This means
                 @Html.DisplayFor(m => m.resultCount) Results
             </p>
 
-            <div id="myDiv" style="width: 800px; height: 440px; overflow-y: scroll;" onscroll="scrolled()">
+            <div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()">
                 <!-- Show the hotel data. All pages will have ResultsPerPage entries, except for the last page. -->
                 @for (var i = 0; i < Model.hotels.Count; i++)
                 {
                     // Display the hotel name.
                     @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
-                    <br />
 
                     // Display the hotel sample room and description.
                     @Html.TextArea("idh", Model.GetFullHotelDescription(i), new { @class = "box2" })
-                    <br /> <br />
                 }
             </div>
 
@@ -226,7 +223,7 @@ For this sample we need three numbers in addition to the search text. This means
                             // Append the returned data to the current list of hotels.
                             for (var i = 0; i < data.length; i += 2) {
                                 div.innerHTML += '\n<textarea class="box1">' + data[i] + '</textarea>';
-                                div.innerHTML += '\n<textarea class="box2">' + data[i + 1] + '</textarea><br /><br />';
+                                div.innerHTML += '\n<textarea class="box2">' + data[i + 1] + '</textarea>';
                             }
                         });
                     }
@@ -237,7 +234,7 @@ For this sample we need three numbers in addition to the search text. This means
 </body>
 ```
 
-Notice how the first search from the view triggers the **Geo** action in the controller and that subsequent calls from the view are triggered using the infinite paging method (when the scroll bar reaches the limit) and they call the **GeoNext** action.
+Notice how the first search from the view triggers the **Geo** action in the controller and that subsequent calls from the view are triggered using the infinite scrolling method (when the vertical scroll bar reaches the lower limit) and they call the **GeoNext** action.
 
 The next task is to implement these two actions.
 
@@ -390,7 +387,7 @@ The next task is to implement these two actions.
 
 ## Test the code so far
 
-1. If you compile and run the project, enter some text such as "bar" and coordinates such as "47" for latitude "-122" for longitude and an excessive "2000" for the radius (just so we get a number of results).
+1. If you compile and run the project, enter some text such as "bar" and coordinates such as "47" for latitude "-122" for longitude and an excessive "2000" for the radius (just so we get plenty of results).
 
 Image
 
@@ -463,4 +460,4 @@ Of course, entering latitude and longitude is not the preferred user experience 
 
 You have completed this series of C# tutorials - you should have gained a lot of knowledge of the Azure Search APIs.
 
-For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/) or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/en-us/azure/search/).
+For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/?products=azure) or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/en-us/azure/search/).

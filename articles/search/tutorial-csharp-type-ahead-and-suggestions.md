@@ -43,7 +43,7 @@ Let's start with the simplest case of offering up alternatives to the user: simp
 
 The key here is that we have set the **id** of the search box to **azureautosuggest**.
 
-2. Following this call, enter this script.
+2. Following this statement, after the closing **</div>**, enter this script.
 
 ```cs
 <script>
@@ -125,7 +125,7 @@ Now we can use the predefined autocomplete jquery functions.
         }
 ```
 
-The **Top** parameter specifies how many results to return, in this case 8 (the default is 5). A "suggester" has to be specified on the Azure index, which is done when the data is set up. In this case the suggester is called "sg" and simply searches the **HotelName** field - nothing else. Fuzzy matching allows "near misses" to be included in the output.
+The **Top** parameter specifies how many results to return, in this case 8 (if unspecified, the default is 5). A "suggester" has to be specified on the Azure index, which is done when the data is set up. In this case the suggester is called "sg" and simply searches the **HotelName** field - nothing else. Fuzzy matching allows "near misses" to be included in the output.
 
 Note too that if the **highlights** parameter is set to true (not in this first example) that bold html tags are added to the output.
 
@@ -136,7 +136,7 @@ using System.Collections.Generic;
 using System.Linq;
 ```
 
-3. Run the app. Do you get a range of options when you enter "po", for example? Now try "pa". 
+3. Run the app. Do you get a range of options when you enter "po", for example? Now try "pa".
 
 Image
 
@@ -148,7 +148,7 @@ Image
 
 If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in more detail.
 
-## Add suggestions with highlighting
+## Add highlighting to the suggestions
 
 We can improve the appearance of the suggestions to the user a bit by setting the **highlights** parameter to true. However, first we need to add some code to the view to display the bolded text.
 
@@ -191,7 +191,7 @@ We can improve the appearance of the suggestions to the user a bit by setting th
  
 Image
  
-4. The logic used in the highlighting script above is not fool proof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing just "mo".
+4. The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing just "mo".
 
 Image
 

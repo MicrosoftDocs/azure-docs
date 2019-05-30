@@ -1,6 +1,6 @@
 ---
 title: Tutorial on paging the results of an Azure Search
-description: This tutorial builds on the Create your first app in Azure Search tutorial with the choice of two types of paging. The first paging system uses a range of page numbers as well as next and previous options. The second paging system uses infinite paging, triggered by vertical scrolling.
+description: This tutorial builds on the Create your first app in Azure Search tutorial with the choice of two types of paging. The first paging system uses a range of page numbers as well as next and previous options. The second paging system uses infinite scrolling, triggered by vertical scrolling.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -11,12 +11,12 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Page the results of an Azure Search
 
-Learn how to implement two different systems of paging, the first based on page numbers and the second on infinite paging. This tutorial builds on the Create your first app in Azure Search tutorial. Both systems of paging are popular across the internet and selecting the right one can depend on the type of search that is being carried out and the user experience you would like with the results.
+Learn how to implement two different systems of paging, the first based on page numbers and the second on infinite scrolling. This tutorial builds on the Create your first app in Azure Search tutorial. Both systems of paging are popular across the internet and selecting the right one can depend on the type of search that is being carried out and the user experience you would like with the results.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Page results with first/previous/next/last options in addition to a range of page numbers
-> * Page results based on a vertical scroll, often called "infinite paging"
+> * Page results based on a vertical scroll, often called "infinite scrolling"
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ To complete this tutorial, you need to:
 
 Have the [C# Tutorial: Create your first app in Azure Search](tutorial-csharp-create-first-app.md) project up and running.
 
-## Extend your app to add numbered paging
+## Extend your app with numbered paging
 
 Numbered paging is the paging system of choice of the main internet search engines and most other search websites. Numbered paging typically includes a "next" and "previous" option in addition to a range of actual page numbers. Also a "first page" and "last page" option might also be available. This certainly gives a user a lot of control over navigating through page based results.
 
@@ -365,13 +365,13 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 Now save off this project and let's try an alternative to this form of paging.
 
-## Extend your app to add infinite paging
+## Extend your app with infinite scrolling
 
-Infinite paging is triggered when a user scrolls to the end of the results being displayed. In this event a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, these are appended to the current page and the scroll bar changes to show that more results are available.
+Infinite scrolling is triggered when a user scrolls to the end of the results being displayed. In this event a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, these are appended to the current page and the scroll bar changes to show that more results are available.
 
 The important point here is that the page being displayed is not replaced, but appended to with the new results. A user can always scroll back up to the very first results of the search.
 
-To implement infinite paging, let's start with the project before adding any of the page number scrolling elements.
+To implement infinite scrolling, let's start with the project before adding any of the page number scrolling elements.
 
 ### Start with the first Azure Search app
 
@@ -403,11 +403,9 @@ This variable is a string which will simply hold "next" if the next page of resu
             {
                 // Display the hotel name.
                 @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
-                <br />
 
                 // Display the hotel sample room and description.
                 @Html.TextArea("idh", Model.GetFullHotelDescription(i), new { @class = "box2" })
-                <br /> <br />
             }
         </div>
 ```
@@ -424,7 +422,7 @@ This variable is a string which will simply hold "next" if the next page of resu
                         // Append the returned data to the current list of hotels.
                         for (var i = 0; i < data.length; i += 2) {
                             div.innerHTML += '\n<textarea class="box1">' + data[i] + '</textarea>';
-                            div.innerHTML += '\n<textarea class="box2">' + data[i + 1] + '</textarea><br /><br />';
+                            div.innerHTML += '\n<textarea class="box2">' + data[i + 1] + '</textarea>';
                         }
                     });
                 }
@@ -436,7 +434,7 @@ Note the call in the script above that tests to see if the user has scrolled to 
 
 4. Delete the old page handling section that begins with **@if (Model != null && Model.pageCount > 1)** and ends just before the end &lt;/body&gt; tag. No need for this with our infinite page system!
 
-### Handle the next action
+### Handle the Next action
 
 There are only three actions that can be sent to the controller: the first running of the app which calls **Index()**, the first search by the user which calls **Index(model)** and the calls for more results via **Next(model)**.
 
@@ -564,7 +562,7 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 2. Scroll down all the way to the bottom of the results. Note how all information is now on the one view page as you can scroll all the way back to the top without triggering any server calls.
 
-More sophisticated infinite paging systems might use the mouse wheel or similar other mechanism to trigger the loading of a new page of results. We will not be taking infinite paging any further in these tutorials, but it has a certain charm to it as it avoids extra mouse clicks and you might want to investigate other options further!
+More sophisticated infinite scrolling systems might use the mouse wheel or similar other mechanism to trigger the loading of a new page of results. We will not be taking infinite scrolling any further in these tutorials, but it has a certain charm to it as it avoids extra mouse clicks and you might want to investigate other options further!
 
 ## Takeaways
 
@@ -573,15 +571,15 @@ Good job on finishing this tutorial.
 You should consider the following takeaways from this project:
 
 * Numbered paging is perhaps the most robust for searches where the order of the results is somewhat arbitrary, meaning there may well be something of interest to your users on the later pages.
-* Infinite paging is perhaps most robust when the order of results is particularly important. For example, if the results are ordered on the distance from the center of a destination city.
-* Numbered paging allows for some better navigation, for example, a user can remember that an interesting result was on page 6, whereas no such easy navigation exists in infinite paging.
-* Infinite paging has an easy appeal, just scrolling down with no fussy page numbers to click on.
-* A key feature of infinite paging is that you are appending to an existing page, not replacing that page. This keeps it efficient.
+* Infinite scrolling is perhaps most robust when the order of results is particularly important. For example, if the results are ordered on the distance from the center of a destination city.
+* Numbered paging allows for some better navigation, for example, a user can remember that an interesting result was on page 6, whereas no such easy navigation exists in infinite scrolling.
+* Infinite scrolling has an easy appeal, just scrolling up and down with no fussy page numbers to click on.
+* A key feature of infinite scrolling is that you are appending to an existing page, not replacing that page. This keeps it efficient.
 
 
 ## Next steps
 
-The next two tutorials use numbered paging. The later tutorial on geospatial filtering uses infinite paging.
+The next two tutorials use numbered paging. The later tutorial on geospatial filtering uses infinite scrolling.
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Add autocompletion and suggestions to an Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)

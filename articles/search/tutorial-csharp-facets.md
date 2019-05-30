@@ -109,7 +109,7 @@ In order to initiate a facet search we need to add some javascript to the index.
     </div>
 ```
 
-2. Now add the javascript (just below the code above works fine) for an autocomplete function based on the above id.
+2. Now add the javascript (after the closing **</div>** shown above works fine) for an autocomplete function based on the above id.
 
 ```cs
     <script>

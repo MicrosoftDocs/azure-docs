@@ -375,6 +375,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
             background-color: azure;
             font-size: 14pt;
             color: blue;
+            padding-left: 5px;
         }
 
         textarea.box2 {
@@ -383,6 +384,8 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
             border: none;
             background-color: azure;
             font-size: 12pt;
+            padding-left: 5px;
+            margin-bottom: 24px;
         }
 
         .sampleTitle {
@@ -482,17 +485,15 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
         {
             // Display the hotel name.
             @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
-            <br />
 
             // Display the hotel sample room and description.
             @Html.TextArea("desc", Model.GetFullHotelDescription(i), new { @class = "box2" })
-            <br /> <br />
         }
     }
 }
 ```
 
-6. Finally we complete the view with paging buttons. We keep this simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and infinite paging.
+6. Finally we complete the view with paging buttons. We keep this simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and infinite scrolling.
 
 ```cs
     @if (Model != null && Model.pageCount > 1)
@@ -598,7 +599,7 @@ Also note the **async** declaration of the method and the **await** call to **Ru
 
 Finally note the **catch** block uses the error model that was created for us by default.
 
-### Add Paging methods
+### Add paging methods
 
 As mentioned before a subsequent tutorial has a good look at paging. For this first tutorial we are going to make things simple for ourselves by adding **Next** and **Prev** controller methods. 
 
@@ -656,7 +657,7 @@ As mentioned before a subsequent tutorial has a good look at paging. For this fi
         }
 ```
 
-### Note the Error handling and other default views and methods
+### Note the error handling and other default views and methods
 
 Depending on which version of .NET Core you are using, a slightly different set of default views are created by default. For .NET Core 2.1 the default views are Index, About, Contact, Privacy and Error. For .NET Core 2.2, for example, the default views are just Index, Privacy and Error. In either case, you can view these default pages when running the app and just examine how simply they are handled in the controller here.
 
@@ -798,7 +799,6 @@ It is important to verify that our error handling features work as they should, 
 
 3. Remove **Throw new Exception()** when you are satisfied the error handling works as it should.
 
-
 ## Takeaways
 
 First and foremost, congratulations on getting your first Azure Search app up and running. Great job.
@@ -811,10 +811,9 @@ You should consider the following takeaways from this project:
 * This app performed an elementary search, defined by what is set up in **searchParameters**. This one class can be populated with many members that add sophistication to a search. All that is needed is to add these parameters to the code you have just written, so not much additional work is needed.
 * The Model-View-Controller architecture takes a bit of getting used to, if you are new to it, but it does cleanly define what runs on the client, what on the server, and how to cleanly communicate (with good scalability) data between the two.
 
-
 ## Next steps
 
-In order to provide the best user experience using Azure Search, we need to add more features, notably better paging (page numbers or perhaps infinite paging, depending on the application) and autocomplete/suggestions. We should also consider more sophisticated search parameters (conditional searches, for example - all hotels with a room price less than $N, and geo-spatial searches on hotels within a specified radius of a given point).
+In order to provide the best user experience using Azure Search, we need to add more features, notably better paging (page numbers or perhaps infinite scrolling,depending on the application) and autocomplete/suggestions. We should also consider more sophisticated search parameters (conditional searches, for example - all hotels with a room price less than $N, and geo-spatial searches on hotels within a specified radius of a given point).
 
 These next steps are addressed are in a series of tutorials. Let's start with paging.
 
