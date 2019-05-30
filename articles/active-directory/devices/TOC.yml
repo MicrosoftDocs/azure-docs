@@ -22,6 +22,8 @@
   items:
   - name: SSO to on-premises resources
     href: azuread-join-sso.md
+  - name: Primary Refresh Tokens
+    href: concept-primary-refresh-token.md
   - name: Azure managed workstations
     href: concept-azure-managed-workstation.md
 - name: How-to guides
