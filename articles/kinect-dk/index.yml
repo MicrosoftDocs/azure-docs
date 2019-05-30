@@ -81,3 +81,12 @@ sections:
                   Vision Services
                </a>
             </p>
+    - title: Contact us
+      html: <p><a href="https://feedback.azure.com/forums/920053">
+                  Share your ideas
+               </a>
+            </p>
+            <p><a href="https://github.com/microsoft/Azure-Kinect-Sensor-SDK">
+                  Contribute to the sensor SDK
+               </a>
+            </p>
