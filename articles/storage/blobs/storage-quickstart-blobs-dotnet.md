@@ -23,15 +23,17 @@ Use the Azure Blob Storage client library for .NET to:
 * Download the blob to your local computer
 * List all of the blobs in a container
 
-[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core), or later, for your operating system
+* [NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet-core), or later, for your operating system
 
-## Create the app
+## Getting started
+
+### Create the project
 
 Create a .NET Core application named **blob-quickstart**.
 
@@ -79,7 +81,7 @@ Time Elapsed 00:00:03.08
 C:\QuickStarts\blob-quickstart> _
 ```
 
-## Install the package
+### Install the package
 
 While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
 
@@ -87,9 +89,58 @@ While still in the application directory, install the Azure Blob Storage client 
 dotnet add package Microsoft.Azure.Storage.Blob
 ```
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
+### Setup up the app framework
 
-## Configure your storage connection string
+From the project directory:
+
+1. Open the Program.cs file in your editor
+2. Remove the **Console.WriteLine** statement
+3. Add **using** directives
+4. Create a **ProcessAsync** method where the main code for the example will reside
+5. Asynchronously call the **ProcessAsync** method from **Main**
+
+Your app should look like the following C# code:
+
+```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+
+namespace blob_quickstart
+{
+    class Program
+    {
+        public static void Main()
+        {
+            Console.WriteLine("Azure Blob Storage - .NET quickstart sample");
+            Console.WriteLine();
+            ProcessAsync().GetAwaiter().GetResult();
+
+            Console.WriteLine("Press any key to exit the sample application.");
+            Console.ReadLine();
+        }
+
+        private static async Task ProcessAsync()
+        {
+        }
+    }
+}
+```
+
+### Copy your credentials from the Azure portal
+
+The sample application needs to authenticate access to your storage account. To authenticate, add your storage account credentials to the application as a connection string. View your storage account credentials by following these steps:
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+2. Locate your storage account.
+3. In the **Settings** section of the storage account overview, select **Access keys**. Here, you can view your account access keys and the complete connection string for each key.
+4. Find the **Connection string** value under **key1**, and select the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step.
+
+    ![Screenshot showing how to copy a connection string from the Azure portal](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
+
+### Configure your storage connection string
 
 After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
 
@@ -137,7 +188,6 @@ The following diagram shows the relationship between these resources.
 
 You'll learn how to:
 
-   * [Setup up the app framework](#setup-up-the-app-framework)
    * [Authenticate the client](#authenticate-the-client)
    * [Create a container](#create-a-container)
    * [Set permissions on a container](#set-permissions-on-a-container)
@@ -145,46 +195,6 @@ You'll learn how to:
    * [List the blobs in a container](#list-the-blobs-in-a-container)
    * [Download blobs](#download-blobs)
    * [Clean up resources](#clean-up-resources)
-
-### Setup up the app framework
-
-From the project directory:
-
-1. Open the Program.cs file in your editor
-2. Remove the **Console.WriteLine** statement
-3. Add **using** directives
-4. Create a **ProcessAsync** method where the main code for the example will reside
-5. Asynchronously call the **ProcessAsync** method from **Main**
-
-Your app should look like the following C# code:
-
-```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.Azure.Storage;
-using Microsoft.Azure.Storage.Blob;
-
-namespace blob_quickstart
-{
-    class Program
-    {
-        public static void Main()
-        {
-            Console.WriteLine("Azure Blob Storage - .NET quickstart sample");
-            Console.WriteLine();
-            ProcessAsync().GetAwaiter().GetResult();
-
-            Console.WriteLine("Press any key to exit the sample application.");
-            Console.ReadLine();
-        }
-
-        private static async Task ProcessAsync()
-        {
-        }
-    }
-}
-```
 
 ### Authenticate the client
 
@@ -362,20 +372,6 @@ Press any key to delete the example files and example container.
 When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your **MyDocuments** folder for the two files. You can open them and observe that they are identical. Copy the blob's URL from the console window and paste it into a browser to view the contents of the blob.
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the example does, open the Program.cs file to look at the code.
-
-## Resources for developing .NET applications with blobs
-
-See these additional resources for .NET development with Blob storage:
-
-### Binaries and source code
-
-* Download the NuGet package for the latest version of the [.NET client library](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) for Azure Blob Storage.
-* View the [Microsoft Azure Storage Blob SDK for .NET source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) on GitHub.
-
-### Client library reference and samples
-
-* See the [.NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the .NET client library.
-* Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the .NET client library.
 
 ## Next steps
 
