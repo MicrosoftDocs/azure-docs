@@ -190,12 +190,6 @@ If you are using Storage Spaces, when adding nodes to the cluster on the **Confi
 
 If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they do not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/windows-server/storage/storage-spaces/overview).
 
-You can run the following PowerShell cmdlet to disable this check prior to deploying the cluster:
-
-```powershell
-Get-StorageSubSystem | Where AutomaticClusteringEnabled -eq $true | Set-StorageSubSystem -AutomaticClusteringEnabled $false
-```
-
 ## Next Steps
 
 For more information about storage and performance, see [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
