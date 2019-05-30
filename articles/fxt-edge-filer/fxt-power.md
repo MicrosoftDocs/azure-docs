@@ -48,14 +48,14 @@ After an Edge Filer node is in use as part of a cluster, you should use the clus
 
 Follow these instructions to safely power off an FXT Edge Server node:
 
-1. Sign in to the cluster Control Panel. <!-- add link to directions for this -->
+1. Sign in to the cluster Control Panel. (Directions in [Open the Settings pages](fxt-cluster-config-overview.md#open-the-settings-pages))
 1. Click the **Settings** tab, then load the **Cluster** > **FXT Nodes** page. 
 1. In the list of cluster nodes, find the one you want to shut down. Click the **Power down** button in its **Actions** column. 
-1. Wait a few moments. The node will shut down and power itself off. 
+1. Wait a few moments. The node will shut down and power itself off.
 
-## Next steps 
+## Next steps
 
 After you finish installing power cables, continue setting up the nodes: 
 
 * Attach network cables and use the Cable Management Arm (CMA) as described in [Make network connections to the Azure FXT Edge Filer node](fxt-network.md).
-<!-- this file is in a separate PR * Power on the nodes and initialize them by setting the root passwords. Read [Set initial passwords](fxt-node-password.md) for details. -->
+* Power on the nodes and initialize them by setting the root passwords. Read [Set initial passwords](fxt-node-password.md) for details. 

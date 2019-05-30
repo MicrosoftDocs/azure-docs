@@ -226,4 +226,3 @@ After you have unpacked and racked the device continue setup by attaching networ
 
 * [Make network connections to the Azure FXT Edge Filer node](fxt-network.md)
 * [Connect power to the Azure FXT Edge Filer](fxt-power.md)
-

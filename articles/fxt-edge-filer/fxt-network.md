@@ -33,7 +33,7 @@ Identify the various ports on the back of your FXT Edge Filer.
 
 * Connect the RJ-45 ports to your data center's network source as described in [Network ports](#network-ports).  
 * Securely connect the [iDRAC/IPMI port](#ipmi-port) to a separate network with a secure DHCP server. 
-* Use the USB ports and the VGA port to connect a keyboard and monitor to the node for initial setup. You must boot the node and set an initial password <!-- [set an initial password](fxt-node-password.md)--> to activate the node's other ports. <!-- Read [Set initial passwords](fxt-node-password.md) for details.  (this article will be included in the next PR) -->
+* Use the USB ports and the VGA port to connect a keyboard and monitor to the node for initial setup. You must boot the node and [set an initial password](fxt-node-password.md) to activate the node's other ports. Read [Set initial passwords](fxt-node-password.md) for details. 
 
 Before booting the node you also must connect AC power, described in [Connect power to the Azure FXT Edge Filer](fxt-power.md).
 
@@ -67,7 +67,7 @@ The type of connections to use for your system depends on your data center envir
   * 25GbE copper twinaxial cable 
   * 10GbE copper twinaxial cable
 
-* The 1GbE network ports are used for cluster management traffic. Check the **Use 1Gb mgmt network** option when creating the cluster <!-- (described in [Configure the management network](fxt-cluster-create.md#configure-the-management-network)) -->. Cable the ports with Cat3 or Cat5 cable as described in the supported cables list. 
+* The 1GbE network ports are used for cluster management traffic. Check the **Use 1Gb mgmt network** option when creating the cluster (described in [Configure the management network](fxt-cluster-create.md#configure-the-management-network)). Cable the ports with Cat3 or Cat5 cable as described in the supported cables list. 
 
   You can leave the 1GbE ports uncabled if you plan to use the high-speed ports for all traffic. By default, the 1GbE network ports are not used if a higher speed data port is available.  
 
@@ -130,13 +130,12 @@ Each node requires at least one IP address, but node addresses are assigned when
 
 The total number of IP addresses required depends on the number of nodes in that make up your cache. 
 
-Configure the IP address range by using the Control Panel software after the nodes have been installed. <!-- To learn more, read [Gather information for the cluster](fxt-cluster-create.md#gather-information-for-the-cluster). (Article to be included in next check-in) -->
+Configure the IP address range by using the Control Panel software after the nodes have been installed. To learn more, read [Gather information for the cluster](fxt-cluster-create.md#gather-information-for-the-cluster). 
  
 ## Next steps
 
 After you finish installing network cables, continue with one of these articles: 
 
 * Read [Connect power to the Azure FXT Edge Filer](fxt-power.md) if you have not already attached power cables and learned how to power on the nodes.
-<!-- two articles to come 
 * [Set initial passwords](fxt-node-password.md) to activate the node.
-* If you have installed and activated at least three nodes in the data center, read [Create the FXT Edge Filer cluster](fxt-cluster-create.md) to learn how to configure them as a clustered cache system.  -->
+* If you have installed and activated at least three nodes in the data center, read [Create the FXT Edge Filer cluster](fxt-cluster-create.md) to learn how to configure them as a clustered cache system. 
