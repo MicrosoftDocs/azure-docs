@@ -26,8 +26,8 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 
-1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
-2. You've received your Data Box and the order status in the portal is **Delivered**.
+1. You've completed the [Tutorial: Set up Azure Data Box Heavy](data-box-deploy-set-up.md).
+2. You've received your Data Box Heavy and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. For fastest copy speeds, two 40-GbE connections (one per node) can be utilized in parallel. If you do not have 40-GbE connection available, we recommend that you have at least two 10-GbE connections (one per node).
@@ -111,12 +111,11 @@ sudo mount -t nfs -o vers=2.1 10.126.76.172:/databoxe2etest_BlockBlob /home/data
 
 The `vers` parameter is the version of SMB that your Linux host supports. Plug in the appropriate version in the above command.
 
-For versions of SMB that the Data Box supports, see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients).
+For versions of SMB that the Data Box Heavy supports, see [Supported file systems for Linux clients](data-box-heavy-system-requirements.md#supported-file-systems-for-linux-clients).
 
+## Copy data to Data Box Heavy
 
-## Copy data to Data Box
-
-Once you're connected to the Data Box shares, the next step is to copy data.
+Once you're connected to the Data Box Heavy shares, the next step is to copy data.
 
 ### Copy considerations
 
@@ -126,7 +125,7 @@ Before you begin the data copy, review the following considerations:
 
     If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
 -  While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box Heavy limits](data-box-heavy-limits.md).
-- If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
+- If data, which is being uploaded by Data Box Heavy, is concurrently uploaded by other applications outside of Data Box Heavy, then this could result in upload job failures and data corruption.
 - We recommend that:
     - You don't use both SMB and NFS at the same time.
     - Copy the same data to same end destination on Azure.
@@ -161,7 +160,7 @@ After you've connected to the SMB share, begin data copy.
     |log+:\<LogFile>| Appends the output to the existing log file.|
     
  
-    The following sample shows the output of the robocopy command to copy files to the Data Box.
+    The following sample shows the output of the robocopy command to copy files to the Data Box Heavy.
 
     ```   
     C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.100.10.100\devicemanagertest1_AzFile\templates /MT:24
@@ -170,7 +169,7 @@ After you've connected to the SMB share, begin data copy.
     -------------------------------------------------------------------------------
         Started : Thursday, April 4, 2019 2:34:58 PM
         Source : C:\Git\azure-docs-pr\contributor-guide\
-        Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
+        Dest : \\10.100.10.100\devicemanagertest1_AzFile\templates\
         Files : *.*
         Options : *.* /DCOPY:DA /COPY:DAT /MT:24 /R:5 /W:60
     ------------------------------------------------------------------------------
@@ -224,7 +223,7 @@ After you've connected to the SMB share, begin data copy.
 
     ![Download error files](media/data-box-heavy-deploy-copy-data/download-error-files.png)
 
-    For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+    For more information, see [View error logs during data copy to Data Box Heavy](data-box-logs.md#view-error-log-during-data-copy-to-data-box). For a detailed list of errors during data copy, see [Troubleshoot Data Box Heavy issues](data-box-troubleshoot.md).
 
 5. Open the error file in Notepad. The following error file indicates that the data is not aligned correctly.
 
@@ -242,15 +241,15 @@ Repeat the above steps to copy data on to the second node of the device.
 
 ## Next steps
 
-In this tutorial, you learned about Azure Data Box topics such as:
+In this tutorial, you learned about Azure Data Box Heavy topics such as:
 
 > [!div class="checklist"]
 > * Connect to Data Box Heavy
 > * Copy data to Data Box Heavy
 
 
-Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
+Advance to the next tutorial to learn how to ship your Data Box Heavy back to Microsoft.
 
 > [!div class="nextstepaction"]
-> [Ship your Azure Data Box to Microsoft](./data-box-heavy-deploy-picked-up.md)
+> [Ship your Azure Data Box Heavy to Microsoft](./data-box-heavy-deploy-picked-up.md)
 
