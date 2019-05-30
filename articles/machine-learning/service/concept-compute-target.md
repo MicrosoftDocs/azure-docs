@@ -31,12 +31,12 @@ Train your models using these compute resources:
 |Compute resource | GPU acceleration | Automated<br/> hyperparameter tuning | Automated<br/> machine learning | Azure Machine Learning Pipelines | Visual interface
 |----|:----:|:----:|:----:|:----:| :----:|
 |[Local computer](how-to-set-up-training-targets.md#local)| Maybe | &nbsp; | ✓ | &nbsp; |  &nbsp; |
-|[Azure Machine Learning compute](how-to-set-up-training-targets#amlcompute)| ✓ | ✓ | ✓ | ✓ | ✓ |
-|[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |  &nbsp; |
+|[Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Remote VM](how-to-set-up-training-targets.md#vm) | ✓ | ✓ | ✓ | ✓ |  &nbsp; |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |  &nbsp; |
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
-|[Azure HDInsight](how-to-set-up-training-targets#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
-|[Azure Batch](how-to-set-up-training-targets#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
+|[Azure HDInsight](how-to-set-up-training-targets.md#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
+|[Azure Batch](how-to-set-up-training-targets.md#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
 
 ## Deployment targets
 

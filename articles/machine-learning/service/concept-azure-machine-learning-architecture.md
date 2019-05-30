@@ -24,7 +24,7 @@ Learn about the architecture, concepts, and workflow for Azure Machine Learning 
 
 The machine learning workflow generally follows this sequence:
 
-1. Develop machine learning training scripts in **Python**.
+1. Develop machine learning training scripts in **Python** or with the visual interface.
 1. Create and configure a **compute target**.
 1. **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
 1. **Query the experiment** for logged metrics from the current and past runs. If the metrics don't indicate a desired outcome, loop back to step 1 and iterate on your scripts.
