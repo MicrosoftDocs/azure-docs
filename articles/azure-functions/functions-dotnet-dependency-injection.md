@@ -21,15 +21,11 @@ Azure Functions builds on top of the ASP.NET Core Dependency Injection features.
 
 ## Prerequisites
 
-Before you can use dependency injection, you must install the following packages:
+Before you can use dependency injection, you must install the following NuGet packages:
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) NuGet package. You can install this package by running the following command from the package console:
+- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-    ```powershell
-    Install-Package Microsoft.Azure.Functions.Extensions
-    ```
-    
--  [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
+- [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
 
 ## Registering services
 
