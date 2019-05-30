@@ -180,7 +180,7 @@ You can get the public key from the transaction node list. Copy the public key f
 
 ## Create smart contract
 
-1. In folder **contracts**, create a new file named `SimpleStorage.sol`. Add the following code.
+1. In the **contracts** folder, create a new file named `SimpleStorage.sol`. Add the following code.
 
     ```solidity
     pragma solidity >=0.4.21 <0.6.0;
@@ -202,7 +202,7 @@ You can get the public key from the transaction node list. Copy the public key f
     }
     ```
     
-1. In folder **migrations**, create a new file named `2_deploy_simplestorage.js`. Add the following code.
+1. In the **migrations** folder, create a new file named `2_deploy_simplestorage.js`. Add the following code.
 
     ```solidity
     var SimpleStorage = artifacts.require("SimpleStorage.sol");
