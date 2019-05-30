@@ -30,12 +30,19 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
     If you want to copy more data to the device, you can unlock the device, copy more data, and run prepare to ship again.
 
-    If there are errors in this step, you will need to download the error log and resolve the errors. Once the errors are resolved, run **Prepare to ship**.
+    If there are errors in this step, download the error log and resolve the errors. Once the errors are resolved, run **Prepare to ship**.
 
-4. After the prepare to ship is successfully complete (with no errors), download the list of files (also known as the manifest) copied in this process. You can later use this list to verify the files uploaded to Azure. For more information, see [Inspect BOM files during Prepare to ship](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
+4. After the prepare to ship is successfully complete (with no errors), download the list of files (also known as the manifest) copied in this process. 
+
+    ![Download list of files or BOM files](media/data-box-prepare-to-ship/download-list-of-files.png)
+
+   You can later use this list to verify the files uploaded to Azure. For more information, see [Inspect BOM files during Prepare to ship](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
-    ![Prepare to ship 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
+    ![Sample BOM file](media/data-box-prepare-to-ship/sample-bom-file.png)
 
 5. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
+
+    ![Shut down first device node](media/data-box-prepare-to-ship/shut-down-device-node.png)
+
 6. Repeat all the above steps for the other device node.
 7. Once the device has completely shut down, all the LEDs at the back of the device would have turned off. The next step is to remove all the cables and ship the device to Microsoft.
