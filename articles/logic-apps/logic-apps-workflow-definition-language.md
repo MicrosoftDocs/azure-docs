@@ -125,7 +125,7 @@ Outside the `definition` section for your workflow definition but at the same le
 }
 ```
 
-In your workflow definition, here is an example action definition that uses this connection at runtime by referencing the `$connections` object:
+Here is an example action definition that uses this connection at runtime by referencing the `$connections` object:
 
 ```json
 "definition": {
