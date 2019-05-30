@@ -15,8 +15,8 @@ sections:
 - items:
     html: <img src="./media/index/device-image.jpg" style="max-width:100%" alt="Azure Kinect device">
 - items:
-    - type: paragraph
-      text: Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.
+  - type: paragraph
+    text: Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.
 - items:
     - type: list
       style: cards
@@ -82,14 +82,5 @@ sections:
             </p>
             <p><a href="https://azure.microsoft.com/services/cognitive-services/directory/vision/">
                   Vision Services
-               </a>
-            </p>
-    - title: Contact us
-      html: <p><a href="https://feedback.azure.com/forums/920053">
-                  Share your ideas
-               </a>
-            </p>
-            <p><a href="https://github.com/microsoft/Azure-Kinect-Sensor-SDK">
-                  Contribute to the sensor SDK
                </a>
             </p>
