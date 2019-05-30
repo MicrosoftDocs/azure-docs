@@ -48,10 +48,7 @@ In this guide, you will learn how to:
 1. Select **Review + create** and then **Create** when complete.
 
 ## Get the Visual Studio tools
-1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
-1. In the Visual Studio installer make sure the following Workload is selected:
-    * ASP.NET and web development
-1. Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)
+Install the latest version of [Visual Studio](https://www.visualstudio.com/vs/). For Visual Studio 2019 on Windows you need to install the Azure Development workload. For Visual Studio 2017 on Windows you need to install the ASP.NET and web development workload as well as [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## Create a web app running in a container
 
@@ -59,7 +56,7 @@ In this section, you'll create an ASP.NET Core web app and get it running in a c
 
 ### Create an ASP.NET web app
 
-From within Visual Studio 2017, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
+From within Visual Studio, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
