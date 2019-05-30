@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 ms.author: apimpm
 ---
 
@@ -58,6 +58,6 @@ Learn more about the new developer portal:
 - [Instructions on self-hosting the portal][2]
 - [Public roadmap of the project][3]
 
-[1](https://aka.ms/apimdevportal)
-[2](https://github.com/Azure/api-management-developer-portal/wiki)
-[3](https://github.com/Azure/api-management-developer-portal/projects)
+[1]: https://aka.ms/apimdevportal
+[2]: https://github.com/Azure/api-management-developer-portal/wiki
+[3]: https://github.com/Azure/api-management-developer-portal/projects
