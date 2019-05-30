@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Application configuration options
 
-In your code, you initialize a new public or confidential client (or user-agent for MSAL.js) application to authenticate and acquire tokens. There are a number of configuration options that you can set when you initialize the client app in MSAL. These options fall into two groups:
+In your code, you initialize a new public or confidential client (or user-agent for MSAL.js) application to authenticate and acquire tokens. You can set a number of configuration options when you initialize the client app in Microsoft Authentication Library (MSAL). These options fall into two groups:
 
 - Registration options, including:
     - [Authority](#authority) (composed of the identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the app, and possibly the tenant ID).
@@ -47,7 +47,7 @@ The authority URL is composed of the instance and the audience.
 The authority can be:
 - An Azure AD cloud authority.
 - An Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- An ADFS authority. See [ADFS support](https://aka.ms/msal-net-adfs-support).
+- An Active Directory Federation Services (ADFS) authority. See [ADFS support](https://aka.ms/msal-net-adfs-support).
 
 Azure AD cloud authorities have two parts:
 - The identity provider *instance*
@@ -99,12 +99,12 @@ The client ID is the unique application (client) ID assigned to your app by Azur
 The redirect URI is the URI the identity provider will send the security tokens back to.
 
 ### Redirect URI for public client apps
-If you're a public client app developer using MSAL:
+If you're a public client app developer who's using MSAL:
 - You don't need to pass `RedirectUri` because it's automatically computed by MSAL. This redirect URI is set to one of these values, depending on the platform:
    - `urn:ietf:wg:oauth:2.0:oob` for all Windows platforms
    - `msal{ClientId}://auth` for Xamarin Android and iOS
 
-You do need to configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
+- You do need to configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
 
 ![Redirect URI in App registrations](media/msal-client-application-configuration/redirect-uri.png)
 
