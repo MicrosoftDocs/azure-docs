@@ -169,7 +169,7 @@ The following steps show how to create a client application that implements the 
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
       var locationLong = locLon - (Math.random() / 100);
-      var locationLat = locLat - (Math.random / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,

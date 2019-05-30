@@ -194,7 +194,7 @@ You can give geographic context to your location data in Azure IoT Central and m
 You can add two types of location properties:
 
 - **Location as an application property**, which is stored in the application. The device doesn't recognize application properties.
-- **Location as a device property**, which the device reports to the application. Note that this is best used for a static location. If
+- **Location as a device property**, which the device reports to the application. Note that this is best used for a static location.
 
 > [!NOTE]
 > Location as a property does not record a history. If history is desired, use a location measurement.
