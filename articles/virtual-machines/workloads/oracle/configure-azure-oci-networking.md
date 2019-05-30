@@ -78,9 +78,6 @@ You can enable the network interconnection from the Azure and OCI consoles. Belo
     * Paste the ExpressRount service key into the ‘Provider Service Key’ field. 
     * Select the same geographic peering location that you selected while setting up the Azure ExpressRoute circuit.
 
-You now have secure connectivity between the two clouds.
-When provisioning a Virtual Network Gateway to connect your VNET to the Express Route circuit, you need to provision an Ultra Performance Gateway for high throughput. Additionally, your GatewaySubnet that will house the Gateway must have at least a /27 address space.
-
 After these steps above are done, the private virtual circuit is provisioned automatically between the two clouds. 
 
  
