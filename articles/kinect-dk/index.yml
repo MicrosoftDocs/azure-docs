@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/25/2019  
 abstract:
-  description: Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and SDKs.
+  description: Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.
 sections:
 - items:
     html: <img src="./media/index/device-image.jpg" style="max-width:100%" alt="Azure Kinect device">
@@ -58,13 +58,13 @@ sections:
   items:
   - type: paragraph
     text:
-      Get familiar with Azure Kinect and its SDKs; 
+      Get familiar with Azure Kinect and its SDKs
       <div class="row"><div class="column"><ul>
       <li><b><a href="system-requirements.md">Sensor SDK system requirements</a></b></li>
       <li><b><a href="azure-kinect-dk-depth-camera.md">learn about depth camera</a></b></li>
-      <li><b><a href="azure-kinect-dk-coordinate-systems.md">coordinate system</a></b></li>
+      <li><b><a href="azure-kinect-dk-coordinate-systems.md">coordinate system</a></b></li></ul></div><div class="column"><ul>
       <li><b><a href="azure-kinect-sensor-viewer.md">learn how to use viewer</a></b></li>
-      <li><b><a href="azure-kinect-dk-recorder.md">learn how to use recorder</a></b></li></ul></div><div class="column"><ul>
+      <li><b><a href="azure-kinect-dk-recorder.md">learn how to use recorder</a></b></li>
 - title: Reference
   items:
   - type: list
