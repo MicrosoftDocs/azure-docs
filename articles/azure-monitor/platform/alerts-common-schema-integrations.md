@@ -1,7 +1,7 @@
 ---
 title: How to integrate the common alert schema with Logic Apps 
 description: Learn how to create a logic app that leverages the common alert schema to handle all your alerts.
-author: anantr
+author: ananthradhakrishnan
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -15,10 +15,10 @@ This article shows you how to create a logic app that leverages the common alert
 
 ## Overview
 
-The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a standardised and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), and also describes how you can handle [alert type]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') specific logic.
+The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a standardized and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), and also describes how you can handle [alert type]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') specific logic.
 
 
-## Pre-requisites 
+## Prerequisites 
 
 This article assumes that the reader is familiar with 
 * Setting up alert rules ([metric](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [activity log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
@@ -27,7 +27,7 @@ This article assumes that the reader is familiar with
 
 ## Create a logic app leveraging the common alert schema
 
-1. Follow the steps outlined [here](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app) to create your logic app. 
+1. Follow the [steps outlined to create your logic app](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
 
 1.  Select the trigger: **When a HTTP request is received**.
 
@@ -128,7 +128,7 @@ This article assumes that the reader is familiar with
       if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
     ```
     
-     You can learn more about writing logic app expressions [here](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
+     Learn more about [writing logic app expressions](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
 
     
 
