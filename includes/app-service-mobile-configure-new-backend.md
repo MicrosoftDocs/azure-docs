@@ -26,40 +26,41 @@ ms.custom: "include file"
 
 2. You will have to add a database connection or connect to an existing connection. First, determine whether you’ll create a data store or use an existing one.
 
-3. **Create a new data store**: If you’re going to create a data store, use the following quickstart:
+    - **Create a new data store**: If you’re going to create a data store, use the following quickstart:
 
-    [Quickstart: Getting started with single databases in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
+        [Quickstart: Getting started with single databases in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
 
-4. **Existing data source**: Follow the instructions below if you want to use an existing database connection
-    1. SQL Database Connection String format - 
-    `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
+    - **Existing data source**: Follow the instructions below if you want to use an existing database connection
 
-       **{your_SQLServer}** Name of the server, this can be found in the overview page for your database and is usually in the form of “server_name.database.windows.net”.
-        **{port}** usually 1433.
-        **{your_catalogue}** Name of the database.
-        **{your_username}** User name to access your database.
-        **{your_password}** Password to access your database.
+        1. SQL Database Connection String format - 
+        `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
 
-        [Learn more about SQL Connection String format](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
+           **{your_SQLServer}** Name of the server, this can be found in the overview page for your database and is usually in the form of “server_name.database.windows.net”.
+            **{port}** usually 1433.
+            **{your_catalogue}** Name of the database.
+            **{your_username}** User name to access your database.
+            **{your_password}** Password to access your database.
 
-    2. Add the connection string to your **mobile app**
-        In App Service, you can manage connection strings for your application by using the **Configuration** option in the menu.
+            [Learn more about SQL Connection String format](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
 
-        To add a connection string:
+        2. Add the connection string to your **mobile app**
+            In App Service, you can manage connection strings for your application by using the **Configuration** option in the menu.
 
-        1. Click on the **Application settings** tab.
+            To add a connection string:
 
-        2. Click on **[+] New connection string**.
+            1. Click on the **Application settings** tab.
 
-        3. You will need to provide **Name**, **Value** and **Type** for your connection string.
+            2. Click on **[+] New connection string**.
 
-        4. Type **Name** as `MS_TableConnectionString`
+            3. You will need to provide **Name**, **Value** and **Type** for your connection string.
 
-        5. Value should be the connecting string you formed in the step before.
+            4. Type **Name** as `MS_TableConnectionString`
 
-        6. If you are adding a connection string to a SQL Azure database choose **SQLAzure** under **type**.
+            5. Value should be the connecting string you formed in the step before.
 
-5. Azure Mobile Apps has SDKs for .NET and Node.js backends.
+            6. If you are adding a connection string to a SQL Azure database choose **SQLAzure** under **type**.
+
+3. Azure Mobile Apps has SDKs for .NET and Node.js backends.
 
     1. #### Node.js backend
         If you’re going to use Node.js quickstart app, follow the instructions below.
