@@ -61,7 +61,7 @@ You can resolve the preceding CORS issue in any one of several ways.
 
 ### Option 1: Set up a custom domain
 
-Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
+Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
 
 ### Option 2: Publish the parent directory
 
