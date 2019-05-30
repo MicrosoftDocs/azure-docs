@@ -297,11 +297,9 @@ Now that your event subscription is set up, let's test by connecting a device.
 
    ![ConnectionString for device](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### Start Raspberry Pi simulator
 
-1. Let's use the Raspberry Pi web simulator to simulate device connection.
+Let's use the Raspberry Pi web simulator to simulate device connection.
 
 [Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 

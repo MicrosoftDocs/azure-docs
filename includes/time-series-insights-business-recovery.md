@@ -25,7 +25,7 @@ Make sure you enable the relevant Azure features to provide global, cross-region
 > [!NOTE]
 > If Azure is configured to enable cross-region availability, no additional cross-region availability configuration is required in Azure Time Series Insights.
 
-### IoT and Event hubs
+### IoT and event hubs
 
 Some Azure IoT services also include built-in business disaster recovery features:
 
@@ -55,8 +55,8 @@ To create a duplicate environment:
 
 Finally:
 
-* If your primary region is affected during a disaster incident, reroute operations to the backup Time Series Insights environment.
-* Use your second region to back up and recover all Time Series Insights telemetry and query data.
+1. If your primary region is affected during a disaster incident, reroute operations to the backup Time Series Insights environment.
+1. Use your second region to back up and recover all Time Series Insights telemetry and query data.
 
 > [!IMPORTANT]
 > If a failover occurs:
@@ -65,3 +65,4 @@ Finally:
 > * A momentary spike in message processing might occur, as operations are rerouted.
 > 
 > For more information, see [Mitigate latency in Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
+
