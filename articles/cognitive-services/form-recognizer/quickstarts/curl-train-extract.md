@@ -44,7 +44,7 @@ When your Form Recognizer resource finishes deploying, find and select it from t
 
 ## Train a Form Recognizer model
 
-First, you'll need a set of training data. You can use data in an Azure blob or your own local training data. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Or you can use a single empty form. The form's file name needs to include the word "empty."
+First, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form. The form's file name needs to include the word "empty."
 
 To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the cURL command that follows. Before you run the command, make these changes:
 
