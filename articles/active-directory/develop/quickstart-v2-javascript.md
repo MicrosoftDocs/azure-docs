@@ -76,10 +76,10 @@ This quickstart requires the following setup:
 
 Select the option that's suitable to your development environment:
 
-* To run with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
+* To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 . To open the files, use an editor such as [Visual Studio Code](https://code.visualstudio.com/).
 
-* (Optional) To run with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extract the zip file to a local folder (for example, *C:\Azure-Samples*).
+* (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extract the zip file to a local folder (for example, *C:\Azure-Samples*).
 
 
 
@@ -121,7 +121,7 @@ var msalConfig = {
 
 * If you're using [Node.js](https://nodejs.org/en/download/):
 
-    1. Run the following command from the project directory to start the server:
+    1. To start the server, run the following command from the project directory:
 
         ```batch
         npm install
@@ -132,7 +132,7 @@ var msalConfig = {
     1. Select **Sign In** to start the sign-in, and then call Microsoft Graph API.
 
 
-* If you're using [Visual Studio](https://visualstudio.microsoft.com/downloads/), select the project solution, and then select F5 to run your project.
+* If you're using [Visual Studio](https://visualstudio.microsoft.com/downloads/), select the project solution, and then select F5 to run the project.
 
 After the browser loads the application, select **Sign In**. The first time that you sign in, you're prompted to provide your consent to allow the application to access your profile and to sign you in. After you're signed in successfully, your user profile information should be displayed on the page.
 
