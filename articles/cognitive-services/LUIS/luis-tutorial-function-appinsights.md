@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
 ---
 
 # Add LUIS results to Application Insights and Azure functions
-This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
+This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or Power BI to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
-The bot is built with the Bot Framework 3.x and the Azure Web app bot.
+The bot is built with the Bot Framework 3.x and the Azure Web app bot. A [Bot Framework 4.x with LUIS tutorial](luis-nodejs-tutorial-bf-v4.md) is also available.
 
 In this tutorial, you learn how to:
 
@@ -107,7 +107,7 @@ Open Application Insights to see the LUIS entries.
 
 1. In the portal, select **All resources** then filter by the web app bot name. Click on the resource with the type **Application Insights**. The icon for Application Insights is a light bulb. 
 
-    ![[Search for app insights in the Azure Portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ![[Search for app insights in the Azure portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. Search for `LUIS-results` and hit enter on the keyboard. The list is narrowed to just LUIS query results added with this tutorial.
 
@@ -124,7 +124,7 @@ Open Application Insights to see the LUIS entries.
 > If you want to save the dependency list and return to it later, click on **...More** and click **Save favorite**.
 
 ## Query Application Insights for intent, score, and utterance
-Application Insights gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) language, as well as export it to [PowerBI](https://powerbi.microsoft.com). 
+Application Insights gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) language, as well as export it to [Power BI](https://powerbi.microsoft.com). 
 
 1. Click on **Analytics** at the top of the dependency listing, above the filter box. 
 
@@ -147,7 +147,7 @@ Application Insights gives you the power to query the data with the [Kusto](http
     ![Analytics top intent](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-Learn more about the [Kusto query language](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Learn more about the [Kusto query language](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) or [export the data to Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 ## Next steps
 
