@@ -61,7 +61,7 @@ To learn about the built-in policies that are monitored by Security Center, see 
 |\[Preview]: Adaptive Application Controls should be enabled on virtual machines|Azure Security Center monitors possible application whitelist configuration.|
 |\[Preview]: Missing Network Security Groups for virtual machines should be configured|Azure Security Center monitors network security groups that have too-permissive rules, as recommended.|
 |\[Preview]: Vulnerabilities in security configuration on your machines should be remediated|Azure Security Center monitors servers that don't satisfy the configured baseline as recommended.| 
-|\[Preview]: Endpoint protection should be installed on virutal machines|Azure Security Center monitors servers that don't have an installed Microsoft System Center Endpoint Protection agent as recommended.|
+|\[Preview]: Endpoint protection should be installed on virtual machines|Azure Security Center monitors servers that don't have an installed Microsoft System Center Endpoint Protection agent as recommended.|
 |\[Preview]: Disk encryption should be applied on virtual machines|Azure Security Center monitors virtual machines that don't have disk encryption enabled as recommended.|
 |\[Preview]: Vulnerabilities should be remediated by a Vulnerability Assessment solution|Monitor vulnerabilities that are detected by the vulnerability assessment solution and VMs that don't have a vulnerability assessment solution in Azure Security Center as recommended.|
 |\[Preview]: Monitor unprotected web application in Azure Security Center|Azure Security Center monitors web applications that lack web application firewall protection as recommended.|
