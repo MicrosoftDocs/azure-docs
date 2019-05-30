@@ -65,7 +65,7 @@ If the server returns a 404 error, and you have not specified an error document 
 
 You can modify the public access level of the **$web** container, but this has no impact on the primary static website endpoint because these files are served through anonymous access requests. That means public (read-only) access to all files.
 
-The following screenshot shows the public access level setting in the Azure portal
+The following screenshot shows the public access level setting in the Azure portal:
 
 ![Screenshot showing how to set public access level in the portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
