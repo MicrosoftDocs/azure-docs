@@ -222,11 +222,7 @@ In this section, you provision a web app in App Service and deploy your code to 
     az webapp show -n <your web app name> -g <your resource group name> --query state
     ```
 
-11. Run the following command to open a browser to your web app. A web page similar to the one you saw when you ran the web app locally opens. Assuming that your device is running and sending data, you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
-
-    ```azurecli-interactive
-    az webapp browse -n <your web app name> -g <your resource group name>
-    ```
+11. Navigate to `https://<your web app name>.azurewebsites.net` in a browser. A web page similar to the one you saw when you ran the web app locally displays. Assuming that your device is running and sending data, you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
 
 ## Troubleshooting
 
