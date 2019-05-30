@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2018
+ms.date: 05/30/2018
 ms.author: monhaber
 
 ---
@@ -38,7 +38,6 @@ By monitoring identity activities, you can take proactive actions before an inci
 > [!NOTE]
 > If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under “unavailable assessments” which is discussed below.
 Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
->
 >
 
 See [Recommendations](security-center-identity-access.md#recommendations) for a list of the Identity and Access recommendations provided by Security Center.
