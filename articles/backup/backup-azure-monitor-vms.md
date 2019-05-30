@@ -64,7 +64,7 @@ To set up email notifications for alerts
    | Alert Level | Alerts sent |
    | --- | --- |
    | Critical | for Backup failure, recovery failure |
-   | Warning | for Backup jobs succeeded with warnings (for example: some writers failed while creating a snapshot) |
+   | Warning | for Backup succeeded with warnings for Azure Backup Agent (MAB) (for example: some writers failed while creating a snapshot) |
    | Informational | currently, no informational alerts are available for Azure VM backup |
 
 ### Situations where email isn't sent even if notifications are configured
