@@ -205,7 +205,7 @@ Set-AzSqlDatabase
 
 A serverless database can be moved into a provisioned compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
-## Modify serverless configuration
+## Modifying serverless configuration
 
 ### Maximum vCores
 

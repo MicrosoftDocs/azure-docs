@@ -250,10 +250,11 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 
- - If this error is a transient issue, then retry will succeed. 
+ - If this error is a transient issue, then retry will succeed.
  - If `docker pull` fails continuously, then there could be a problem with the docker daemon. The problem can generally be mitigated by restarting the docker daemon. 
  - If you continue to see this issue after restarting docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, try a command such as `ping www.bing.com`.
  - You should always have a retry mechanism on all docker client operations.
@@ -383,7 +384,29 @@ curl $redirect_url
 
 ### Why does the Azure portal not list all my repositories or tags? 
 
-If you are using the Edge browser, you can see at most 100 repositories or tags listed. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+If you are using the Microsoft Edge browser, you can see at most 100 repositories or tags listed. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+
+### How do I collect http traces on Windows?
+
+#### Prerequisites
+
+- Enable decrypting https in fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Enable Docker to use a proxy through the Docker ui: <https://docs.docker.com/docker-for-windows/#proxies>
+- Be sure to revert when complete.  Docker won't work with this enabled and fiddler not running.
+
+#### Windows containers
+
+Configure Docker proxy to 127.0.0.1:8888
+
+#### Linux containers
+
+Find the ip of the Docker vm virtual switch:
+
+```powershell
+(Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
+```
+
+Configure the Docker proxy to output of the previous command and the port 8888 (for example 10.0.75.1:8888)
 
 ## Tasks
 
