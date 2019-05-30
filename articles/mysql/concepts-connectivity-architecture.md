@@ -9,26 +9,17 @@ ms.date: 05/22/2019
 ---
 
 # Azure Database for MySQL Connectivity architecture
-This article explains the Azure Database for MySQL connectivity architecture as well as how the different components function to direct traffic to your instance of Azure Database for MySQL. These connectivity components function to direct network traffic to the Azure Database for MySQL with clients connecting from within Azure and with clients connecting from outside of Azure. 
-
+This article explains the Azure Database for MySQL connectivity architecture as well as how the traffic is directed to your Azure Database for MySQL instance from clients both within and outside Azure.
 
 ## Connectivity Architecture
-The following diagram provides a high-level overview of the Azure Database for MySQL connectivity architecture.
-
-The following steps describe how a connection is established to an Azure Database for MySQL:
-* Clients connect to the gateway, that has a public IP address and listens on port 3306.
-* Inside the database cluster traffic is forwarded to appropriate Azure Database for MySQL.
-
-Connections to your Azure Database for MySQL are established through a gateway that is responsible for routing incoming connections to the physical location of your server in our clusters. The following diagram illustrates the traffic flow.
+Connection to your Azure Database for MySQL SQL is established through a gateway that is responsible for routing incoming connections to the physical location of your server in our clusters. The following diagram illustrates the traffic flow.
 
 ![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-In many cases when connecting to your server from outside of Azure, such as from corporate networks, it is necessary to open up the client side firewall to allow outbound traffic to be able to reach our gateways. Below you can find a complete list of the IP addresses used by our gateways per region.
+As client connect to the database they get a connection string which connects to the gateway. This gateway has a public IP address that listens to port 3306. Inside the database cluster traffic is forwarded to appropriate Azure Database for MySQL. Therefore, in order to connect to your server, such as from corporate networks, it is necessary to open up the client side firewall to allow outbound traffic to be able to reach our gateways. Below you can find a complete list of the IP addresses used by our gateways per region.
 
 ## Azure Database for MySQL gateway IP addresses
-To connect to an Azure Database for MySQL from on-premises resources, you need to allow outbound network traffic to the Azure Database for MySQL gateway for your Azure region. Your connections only go via the gateway, which is the default when connecting from on-premises resources.
-
-The following table lists the primary and secondary IPs of the Azure Database for MySQL gateway for all data regions. For some regions, there are two IP addresses. In these regions, the primary IP address is the current IP address of the gateway and the second IP address is a failover IP address. The failover address is the address to which we might move your server to keep the service availability high. For these regions, we recommend that you allow outbound to both the IP addresses. The second IP address is owned by Microsoft and does not listen in on any services until it is activated by Azure Database for MySQL to accept connections.
+The following table lists the primary and secondary IPs of the Azure Database for MySQL gateway for all data regions. The primary IP address is the current IP address of the gateway and the second IP address is a failover IP address in case of failure of the primary. As mentioned, customers should allow outbound to both the IP addresses. The second IP address does not listen in on any services until it is activated by Azure Database for MySQL to accept connections.
 
 | **Region Name** | **Primary IP Address** | **Secondary IP Address** |
 |:----------------|:-------------|:------------------------|
