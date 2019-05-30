@@ -12,7 +12,7 @@ ms.subservice: files
 ---
 
 # How to create an premium Azure file share
-Premium file shares (preview) are offered on solid-state disk (SSD) storage media and are useful for IO-intensive workloads, including hosting databases and high-performance computing (HPC). Premium file shares are hosted in a special purpose storage account kind, called a FileStorage account. Premium file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
+Premium file shares are offered on solid-state disk (SSD) storage media and are useful for IO-intensive workloads, including hosting databases and high-performance computing (HPC). Premium file shares are hosted in a special purpose storage account kind, called a FileStorage account. Premium file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
 This article shows you how to create this new account type using [Azure portal](https://portal.azure.com/), Azure PowerShell, and Azure CLI.
 
@@ -26,7 +26,7 @@ To access Azure resources including premium Azure file shares, you'll need an Az
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-### Create a filestorage (preview) storage account
+### Create a filestorage storage account
 
 Now you're ready to create your storage account.
 
@@ -43,7 +43,7 @@ Every storage account must belong to an Azure resource group. A resource group i
 1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
 1. Select a location for your storage account, or use the default location.
 1. For **Performance** select **Premium**.
-1. Select **Account kind** and choose **FileStorage (preview)**.
+1. Select **Account kind** and choose **FileStorage**.
 1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
 
     ![How to create a storage account for a premium file share](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
@@ -55,7 +55,7 @@ Once your storage account resource has been created, navigate to it.
 
 ### Create a premium file share
 
-1. In the left menu for the storage account, scroll to the **File service** section, then select **Files (preview)**.
+1. In the left menu for the storage account, scroll to the **File service** section, then select **Files**.
 1. Select **+File share** to create a premium file share.
 1. Enter a name and a desired quota for your file share, then select **Create**.
 
@@ -108,9 +108,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### Create a FileStorage (preview) storage account
+### Create a FileStorage storage account
 
-To create a filestorage (preview) storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
+To create a filestorage storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
