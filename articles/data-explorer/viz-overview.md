@@ -12,16 +12,21 @@ ms.date: 5/30/2019
 
 # Data Visualization with Azure Data Explorer 
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Use Azure Data Explorer to build complex analytics solutions for vast amounts of data. Azure Data Explorer can integrate with various visualization tools, so you can visualize your data and share the results across your organization. You can then
-transform data into actionable insights to make an impact on your business.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Use Azure Data Explorer to build complex analytics solutions for vast amounts of data. Azure Data Explorer integrates with various visualization tools, so you can visualize your data and share the results across your organization. This data can be transformed into actionable insights to make an impact on your business.
 
-Data visualization and reporting is the final step in the data analytics process. There are numerous options available for visualization, so select the service which best aligns with your needs. 
+Data visualization and reporting is the final step in the data analytics process. There are many options available for visualization, so select the service that best aligns with your needs. 
 
 * Azure Data Explorer visualizations:
 Using Kusto query language the [`render operator`](https://docs.microsoft.com/en-us/azure/kusto/query/renderoperator) offers various visualization types to depict query results. Query visualizations are helpful in anomaly detection and forecasting, machine learning, and more.
 
-* [PowerBI](https://powerbi.microsoft.com):
-Azure Data Explorer provides the capability to connect to PowerBI using various methods such as the [built-in connector in WebUI](https://docs.microsoft.com/en-us/azure/data-explorer/power-bi-connector), [import a query from Azure Data Explorer into PowerBI](https://docs.microsoft.com/en-us/azure/data-explorer/power-bi-imported-query), or a [SQL query](https://docs.microsoft.com/en-us/azure/data-explorer/power-bi-sql-query).
+* [Power BI](https://powerbi.microsoft.com):
+Azure Data Explorer provides the capability to connect to Power BI using various methods: 
+
+  * [Built-in connector in Web UI](/azure/data-explorer/power-bi-connector)
+
+  * [Query import from Azure Data Explorer into Power BI](/azure/data-explorer/power-bi-imported-query)
+ 
+  * [SQL query](/azure/data-explorer/power-bi-sql-query).
 
 * [Microsoft Excel](https://products.office.com/en-us/excel):
 Azure Data Explorer provides the capability to connect to Excel using the [built-in connector in Web UI](), or [import a query from Azure Data Explorer into Excel]()
