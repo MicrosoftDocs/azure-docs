@@ -58,7 +58,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Office 365 groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
 
 **Prerequisite role:** See [Roles to manage resources in a catalog](entitlement-management-delegate.md#roles-to-manage-resources-in-a-catalog)
 
@@ -72,9 +72,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 1. Click a resource type: **Groups**, **Applications**, or **SharePoint sites**.
 
-    If you are a catalog creator, you can add any Office 365 group or Azure AD security group you own to your catalog. If there is a group that you want to assign to users, but you do not own the group, you will need to have a User administrator add that group to your catalog.
-
-    If you are a catalog creator, you can add any Azure AD enterprise application you own, including both SaaS applications and your own applications federated to Azure AD, to your catalog. If there is an application that you want to assign users to but do not own, you will need to have a User administrator add that application to your catalog. Once the application is part of the catalog, you can select any of the application's roles in an access package.
+    If you don't see a resource that you want to add or you are unable to add a resource, make sure you have the required Azure AD directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Roles to manage resources in a catalog](entitlement-management-delegate.md#roles-to-manage-resources-in-a-catalog).
 
 1. Select one or more resources of the type that you would like to add to the catalog.
 

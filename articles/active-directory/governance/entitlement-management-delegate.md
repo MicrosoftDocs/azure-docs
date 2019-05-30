@@ -61,9 +61,9 @@ The following table lists the tasks that each of these roles can perform.
 
 ## Roles to manage resources in a catalog
 
-To manage groups, applications, and SharePoint Online sites in a catalog you must have the appropriate Azure AD directory role and entitlement management role. For more information, see [manage resources in a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
+To manage groups, applications, and SharePoint Online sites in a catalog you must have the required Azure AD directory role and entitlement management role. The following table lists these roles.
 
-| Directory role | Catalog owner | Cloud-created security group | Cloud-created unified group | Application | SharePoint Online site |
+| Directory role | Catalog owner | Cloud-created security group | Cloud-created Office 365 group | Application | SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [User administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -112,3 +112,4 @@ If you want to delegate management of a catalog or access packages in the catalo
 ## Next steps
 
 - [Add approvers](entitlement-management-access-package-edit.md#policy-request)
+- [Add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
