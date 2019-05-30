@@ -47,5 +47,4 @@ The following features are available to try during public preview:
 ## Next steps
 
 - [Create an Azure Bastion host resource](bastion-create-host-portal.md).
-- View the [Subscription and service limits](../azure-subscription-service-limits.md#networking-limits).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
