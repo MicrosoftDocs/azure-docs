@@ -1,6 +1,6 @@
 ---
 title: Set up connectivity between Azure and Oracle Cloud Infrastructure | Microsoft Docs
-description: Connect Azure ExpressRoute with Oracle Cloud Infrastructure (OCI) FastConnect to 
+description: Connect Azure ExpressRoute with Oracle Cloud Infrastructure (OCI) FastConnect to enable cross-cloud Oracle application solutions
 documentationcenter: virtual-machines
 author: dlepow
 manager: jeconnoc
@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2019
+ms.date: 06/04/2019
 ms.author: danlep
 ---
 
 # Set up a cross-cloud network between Azure and Oracle Cloud Infrastructure  
 
-This article describes how to configure the network interconnection between Oracle Cloud Infrastructure (OCI) and Microsoft Azure. To connect the two clouds, you configure an Azure ExpressRoute circuit to connect to an OCI FastConnect circuit. Use this network as part of your [multi-cloud Oracle application solution](oracle-oci-overview.md).
+This article describes how to configure the network interconnection between Oracle Cloud Infrastructure (OCI) and Microsoft Azure. To connect the two clouds, you configure an Azure ExpressRoute circuit to connect to an OCI FastConnect circuit. Use this network as the foundation of your [cross-cloud Oracle application solution](oracle-oci-overview.md) (preview).
  
 Peering the Azure and OCI networks allows resources in the two virtual networks to communicate as if it they are in the same virtual network. This setup allows for secure, fast connectivity between the two clouds without the need for an intermediate service provider, which is generally needed for ExpressRoute and FastConnect circuits.
+
+The following image shows a high-level view of the cross-cloud network:
+
+![](media/oracle-asm/azure-oci-connect.png)
 
 > [!NOTE]
 > * ExpressRoute typically charges for outbound data transfers. However, there are no egress charges across the clouds over the link between ExpressRoute and FastConnect.
 > * Depending on your application scenario, you might to provision a separate ExpressRoute or FastConnect circuit to connect your on-premises network to Azure or OCI via a private connection. 
-
-## Prerequisites
-
-* To establish connectivity between Azure and OCI, you must have an active Azure subscription as well as an active OCI tenancy.
-
-* Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. See [preview limitations](oracle-oci-overview.md#preview-limitations).
 
 ## Terminology
 
@@ -45,50 +43,49 @@ Network concepts in Azure and OCI have many similarities, but different names mi
 Routing | route tables | route tables |
 | Security rules | network security groups (NSGs) | security lists |
 
+## Prerequisites
+
+* To establish connectivity between Azure and OCI, you must have an active Azure subscription and an active OCI tenancy.
+
+* Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. See [preview limitations](oracle-oci-overview.md#preview-limitations).
 ## Create virtual networks and gateways
 
 To deploy a multi-cloud solution between OCI and Azure you must already have:
 
-* An Azure virtual network with subnets and a VPN gateway. For sample steps, see the tutorial to [Creaete and manage a VPN gateway](../../../vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md).
- 
-* An OCI virtual cloud network with subnets and an attached dynamic routing gateway (DRG). For instructions on how to set up your Oracle Cloud environment see Overview of Networking. 
+* An Azure virtual network with subnets and a VPN gateway. For sample steps, see the tutorial to [Create and manage a VPN gateway](../../../vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md).
 
-* No overlapping IP addresses between your OCI and Azure networks. 
+    * When provisioning a VPN gateway to connect your virtual network to an ExpressRoute circuit, you need to use the **UltraPerformance Gateway** SKU for high throughput. 
+    * The gateway subnet that houses the gateway must have at least a /27 address space.
 
-### Additional considerations
+* An OCI virtual cloud network with subnets and an attached DRG. For instructions on how to set up your Oracle Cloud environment, see the [Oracle documentation](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm). 
 
-* You might need to provision a dynamic routing gateway (DRG) before provisioning a FastConnect connection. 
-* When provisioning a virtual network gateway to connect your virtual network to the ExpressRoute circuit, you need to use the UltraPerformance Gateway SKU for high throughput. Additionally, your gateway subnet that houses the gateway must have at least a /27 address space.
+* No overlapping IP addresses between your OCI and Azure networks.
 
+## Enable network interconnection
 
-## Enable network connection
-
-You can enable the network interconnection from the Azure and OCI consoles. Below are the high-level steps to enable direct interconnection. For more details see [direct interconnection](NEED A LINK HERE).
+You can enable the network interconnection by using the Azure portal and the OCI console. Below are the high-level steps to enable direct interconnection. For more details, see the [Oracle documentation](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Provision an [Azure ExpressRoute](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) circuit. 
 
-    * In **Provider**, select **Oracle Cloud Infrastructure**.
+    * In **Provider**, select **Oracle Cloud FastConnect**.
     *  In **Peering location**, select a peering location in close proximity to the OCI region that you are connecting to.
     * In **Location**, specify an Azure region that supports cross-cloud connectivity such as *East US*.
 1. Once provisioned, view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key appears in the **Service key field**. Copy the service key for your circuit.
-1. Sign in to the Oracle console
-1. Provision a FastConnect circuit. 
+1. Sign in to the OCI console.
+1. Provision a [FastConnect circuit](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectprovider.htm). 
     * Add **Microsoft Azure** as your provider.
-    * Paste the ExpressRount service key into the ‘Provider Service Key’ field. 
+    * In **Provider Service Key**, paste the ExpressRoute service key. 
     * Select the same geographic peering location that you selected while setting up the Azure ExpressRoute circuit.
 
-After these steps above are done, the private virtual circuit is provisioned automatically between the two clouds. 
+After you complete these steps, the private virtual circuit is provisioned automatically between the two clouds. Provisioning can take approximately XXXX minutes.
 
- 
- 
-	
-	
-	
-	
+## Verify the connection 
 
-
-
+Anything to try here?
 
 ## Next steps
 
+See the [Oracle documentation](NEED LINK HERE) for whitepapers and reference architectures for cross-cloud Oracle application solutions.
+
+ 
