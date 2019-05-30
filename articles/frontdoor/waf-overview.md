@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/29/2019
+ms.date: 05/30/2019
 ms.author: kumud;tyao 
 ---
 
@@ -36,13 +36,13 @@ You can configure a WAF policy and associate that policy to one or more Front Do
 
 - managed rule sets that are a collection of Azure-managed pre-configured set of rules.
 
-When both are present, custom rules are executed before executing rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are: ALLOW, BLOCK, LOG, and REDIRECT. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
+When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are: ALLOW, BLOCK, LOG, and REDIRECT. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
 
-Rules within a policy are executed in a prioritized order where priority is a unique integer that defines the order of rule execution. Smaller integer value denotes a higher priority and those are evaluated before rules with a higher integer value. Once a rule is matched, the corresponding action that was defined in the rule is applied to the request. Once such a match is processed, rules with lower priorities are not processed further.
+Rules within a policy are processed in a prioritized order where priority is a unique integer that defines the order of rules being processed. Smaller integer value denotes a higher priority and those are evaluated before rules with a higher integer value. Once a rule is matched, the corresponding action that was defined in the rule is applied to the request. Once such a match is processed, rules with lower priorities are not processed further.
 
 A web application delivered by Front Door can have only one WAF policy associated with it at a time. However, you can have a Front Door configuration without any WAF policies associated with it. If a WAF policy is present, it is replicated to all of our edge locations to ensure consistency in security policies across the world.
 
-## WAF Modes
+## WAF modes
 
 WAF policy can be configured to run in the following two modes:
 
@@ -50,7 +50,7 @@ WAF policy can be configured to run in the following two modes:
 
 - **Prevention mode:** When configured to run in prevention mode, WAF takes the specified action if a request matches a rule and if a match is found, no further rules with lower priority are evaluated. Any matched requests are also logged in the WAF logs.
 
-## WAF Actions
+## WAF actions
 
 WAF customers can choose to run from one of the actions when a request matches a rule’s conditions:
 
@@ -59,7 +59,7 @@ WAF customers can choose to run from one of the actions when a request matches a
 - **Log:**  Request is logged in the WAF logs and WAF continues evaluating lower priority rules.
 - **Redirect:** WAF redirects the request to the specified URI. The URI specified is a policy level setting. Once configured, all requests that match the **Redirect** action will be sent to that URI.
 
-## WAF Rules
+## WAF rules
 
 A WAF policy can consist of two types of security rules - custom rules, authored by the customer and managed rulesets, Azure-managed pre-configured set of rules.
 
@@ -87,7 +87,7 @@ Azure-managed rule sets provide an easy way to deploy protection against a commo
 - Java attacks
 - Local file inclusion
 - PHP injection attacks
-- Remote command execution
+- Remote command processing
 - Remote file inclusion
 - Session fixation
 - SQL injection protection
