@@ -136,8 +136,6 @@ Advanced filtering has the following limitations:
 * Five advanced filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
-* The key can only have one level of nesting (like data.key1)
-* Custom event schemas can be filtered only on top-level fields
 
 The same key can be used in more than one filter.
 

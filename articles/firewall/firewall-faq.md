@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 5/30/2019
 ms.author: victorh
 ---
 
@@ -13,7 +13,7 @@ ms.author: victorh
 
 ## What is Azure Firewall?
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
 
 ## What capabilities are supported in Azure Firewall?
 
@@ -29,7 +29,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 ## What is the typical deployment model for Azure Firewall?
 
-You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network. Global VNet peering is supported, but it is not recommended due to potential performance and latency issues across regions. For best performance, deploy one firewall per region.
+You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network. Global VNet peering is supported, but it isn't recommended because of potential performance and latency issues across regions. For best performance, deploy one firewall per region.
 
 The advantage of this model is the ability to centrally exert control on multiple spoke VNETs across different subscriptions. There are also cost savings as you don't need to deploy a firewall in each VNet separately. The cost savings should be measured versus the associate peering cost based on the customer traffic patterns.
 
@@ -57,7 +57,7 @@ Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewa
 
 ## How does Azure Firewall work differently from existing services such as NVAs in the marketplace?
 
-Azure Firewall is a basic firewall service that can address certain customer scenarios. It's expected that you will have a mix of third-party NVAs and Azure Firewall. Working better together is a core priority.
+Azure Firewall is a basic firewall service that can address certain customer scenarios. It's expected that you'll have a mix of third-party NVAs and Azure Firewall. Working better together is a core priority.
 
 ## What is the difference between Application Gateway WAF and Azure Firewall?
 
@@ -66,6 +66,11 @@ The Web Application Firewall (WAF) is a feature of Application Gateway that prov
 ## What is the difference between Network Security Groups (NSGs) and Azure Firewall?
 
 The Azure Firewall service complements network security group functionality. Together, they provide better "defense-in-depth" network security. Network security groups provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription. Azure Firewall is a fully stateful, centralized network firewall as-a-service, which provides network- and application-level protection across different subscriptions and virtual networks.
+
+## Are Network Security Groups (NSGs) supported on the Azure Firewall subnet?
+
+Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the Azure Firewall subnet, and are disabled to ensure no service interruption.
+
 
 ## How do I set up Azure Firewall with my service endpoints?
 
@@ -116,11 +121,11 @@ Yes. However, configuring the UDRs to redirect traffic between subnets in the sa
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Forced tunneling is not supported by default, but it can be enabled with help from Support.
+Forced tunneling isn't supported by default, but it can be enabled with help from Support.
 
 Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity. By default, Azure Firewall doesn't support forced tunneling to an on-premises network.
 
-However, if your configuration requires forced tunneling to an on-premises network, Microsoft will support it on a case by case basis. Contact Support so that we can review your case. If accepted, we'll whitelist your subscription and ensure the required firewall Internet connectivity is maintained.
+However, if your configuration requires forced tunneling to an on-premises network, Microsoft will support it on a case by case basis. Contact Support so that we can review your case. If accepted, we'll allow your subscription and ensure the required firewall Internet connectivity is maintained.
 
 ## Are there any firewall resource group restrictions?
 

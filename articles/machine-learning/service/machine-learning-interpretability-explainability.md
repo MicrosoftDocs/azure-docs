@@ -101,7 +101,7 @@ The `explain` package is designed to work with both local and remote compute tar
 
 1. Train your model in a local Jupyter notebook. 
 
-    ``` python
+    ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
     from sklearn.datasets import load_breast_cancer
     from sklearn import svm
@@ -122,8 +122,9 @@ The `explain` package is designed to work with both local and remote compute tar
     # "features" and "classes" fields are optional
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
+
     or
-    
+
     ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
@@ -148,16 +149,18 @@ The `explain` package is designed to work with both local and remote compute tar
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0])
-    
+
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
+
     or
+
     ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4])
-    
+
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -169,10 +172,10 @@ While you can train on the various compute targets supported by Azure Machine Le
 
 1. Create a training script in a local Jupyter notebook (for example, run_explainer.py).
 
-    ``` python  
+    ```python  
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
-    
+
     # Train your model here
 
     # explain predictions on your local machine   
@@ -196,8 +199,7 @@ While you can train on the various compute targets supported by Azure Machine Le
 
 3. Download the explanation in your local Jupyter notebook. 
 
-
-    ``` python
+    ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
     # Get model explanation data
     client = ExplanationClient.from_run(run)
@@ -235,6 +237,7 @@ The following plots provide a global view of the trained model along with its pr
 [![Visualization Dashboard Global](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### Local visualizations
+
 You can click on any individual data point at any time of the preceding plots to load the local feature importance plot for the given data point.
 
 |Plot|Description|
@@ -249,7 +252,7 @@ To load the visualization dashboard, use the following code:
 from azureml.contrib.explain.model.visualize import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
-``` 
+```
 
 ## Raw feature transformations
 
@@ -288,33 +291,37 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
 The explainer can be deployed along with the original model and can be used at scoring time to provide the local explanation information. The process of deploying a scoring explainer is similar to deploying a model and includes the following steps:
 
 1. Create an explanation object:
+
    ```python
    from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
 
    explainer = TabularExplainer(model, x_test)
-   ``` 
+   ```
 
 1. Create a scoring explainer using the explanation object:
+   
    ```python
    scoring_explainer = explainer.create_scoring_explainer(x_test)
 
    # Pickle scoring explainer
    scoring_explainer_path = scoring_explainer.save('scoring_explainer_deploy')
-   ``` 
+   ```
 
 1. Configure and register an image that uses the scoring explainer model.
+   
    ```python
    # Register explainer model using the path from ScoringExplainer.save - could be done on remote compute
    run.upload_file('breast_cancer_scoring_explainer.pkl', scoring_explainer_path)
    model = run.register_model(model_name='breast_cancer_scoring_explainer', model_path='breast_cancer_scoring_explainer.pkl')
    print(model.name, model.id, model.version, sep = '\t')
-   ``` 
+   ```
 
 1. [Optional] Retrieve the scoring explainer from cloud and test the explanations
+
    ```python
    from azureml.contrib.explain.model.scoring.scoring_explainer import ScoringExplainer
 
-   # Retreive the scoring explainer model from cloud"
+   # Retrieve the scoring explainer model from cloud"
    scoring_explainer_model = Model(ws, 'breast_cancer_scoring_explainer')
    scoring_explainer_model_path = scoring_explainer_model.download(target_dir=os.getcwd(), exist_ok=True)
 
@@ -329,6 +336,7 @@ The explainer can be deployed along with the original model and can be used at s
 1. Deploy the image to a compute target:
 
    1. Create a scoring file (before this step, follow the steps in [Deploy models with the Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
+
         ```python
         %%writefile score.py
         import json
@@ -361,8 +369,10 @@ The explainer can be deployed along with the original model and can be used at s
             local_importance_values = scoring_explainer.explain(data)
             # You can return any data type as long as it is JSON-serializable
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
-        ``` 
-    1. Define the deployment configuration (This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and 1 GB of memory)
+        ```
+
+   1. Define the deployment configuration (This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and 1 GB of memory)
+
         ```python
         from azureml.core.webservice import AciWebservice
 
@@ -371,9 +381,9 @@ The explainer can be deployed along with the original model and can be used at s
                                                        tags={"data": "breastcancer",  
                                                              "method" : "local_explanation"}, 
                                                        description='Get local explanations for breast cancer data')
-        ``` 
+        ```
 
-    1. Create a file with environment dependencies
+   1. Create a file with environment dependencies
 
         ```python
         from azureml.core.conda_dependencies import CondaDependencies 
@@ -386,17 +396,20 @@ The explainer can be deployed along with the original model and can be used at s
 
         with open("myenv.yml","w") as f:
             f.write(myenv.serialize_to_string())
-            
+
         with open("myenv.yml","r") as f:
             print(f.read())
-        ``` 
-    1. Create a custom dockerfile with g++ installed
+        ```
+
+   1. Create a custom dockerfile with g++ installed
 
         ```python
         %%writefile dockerfile
         RUN apt-get update && apt-get install -y g++  
-        ``` 
-    1. Deploy the created image (time estimate: 5 minutes)
+        ```
+
+   1. Deploy the created image (time estimate: 5 minutes)
+
         ```python
         from azureml.core.webservice import Webservice
         from azureml.core.image import ContainerImage
@@ -418,6 +431,7 @@ The explainer can be deployed along with the original model and can be used at s
         ``` 
 
 1. Test the deployment
+
     ```python
     import requests
 
@@ -434,7 +448,7 @@ The explainer can be deployed along with the original model and can be used at s
     print("POST to url", service.scoring_uri)
     # can covert back to Python objects from json string if desired
     print("prediction:", resp.text)
-    ``` 
+    ```
 
 1. Clean up: To delete a deployed web service, use `service.delete()`.
 

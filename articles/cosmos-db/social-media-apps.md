@@ -4,7 +4,7 @@ description: Learn about a design pattern for Social Networks by leveraging the 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 05/28/2019
 ms.author: maquaran
 
 ---
