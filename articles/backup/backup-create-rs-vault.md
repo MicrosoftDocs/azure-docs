@@ -55,7 +55,7 @@ To create a Recovery Services vault:
 
      ![Refresh the list of backup vaults](./media/backup-create-rs-vault/refresh-button.png)
 
-## Set storage redundancy
+**Set storage redundancy**
 
 Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 
