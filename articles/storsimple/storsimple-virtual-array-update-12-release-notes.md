@@ -1,18 +1,16 @@
 ---
-title: StorSimple Virtual Array Update 1.2 release notes| Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array Update 1.2 release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 1.2.
 services: storsimple
 author: alkohli
 
 ms.service: storsimple
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 05/29/2019
 ms.author: alkohli
 ---
 
 # StorSimple Virtual Array Update 1.2 release notes
-
-## Overview
 
 The following release notes identify the critical open issues and the resolved issues for Microsoft Azure StorSimple Virtual Array updates.
 
