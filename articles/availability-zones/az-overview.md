@@ -81,7 +81,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Add zone redundant region for Azure Cosmos DB](../cosmos-db/high-availability.md##availability-zone-support)
+- [Add zone redundant region for Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 
 
 ## Next steps
