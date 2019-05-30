@@ -119,7 +119,7 @@ The new App registrations experience is now in general availability. This new ex
 
 - **More detailed information.** You can find more details about your app, including quickstart guides and more.
 
-For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/) and the following [New App registrations experience is now generally available!](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) blog announcement.
+For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/) and the [New App registrations experience is now generally available!](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) blog announcement.
 
 ---
 
