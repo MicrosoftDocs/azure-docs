@@ -44,7 +44,7 @@ If you have a large number of managed images that you need to maintain and would
 1. Select **Shared Image Galleries** under **Virtual machine bases** on the left menu.
 1. Attach an existing shared image gallery to your lab by clicking on the **Attach** button and selecting your gallery in the dropdown.
 1. Go to the attached gallery and configure your gallery to **enable or disable** shared images for VM creation.
-1. Lab users can then create a virtual machine using the enabled images by clicking on **+Add** and finding the image under **choose your base** page.
+1. Lab users can then create a virtual machine using the enabled images by clicking on **+Add** and finding the image in the **choose your base** page.
 
 ## Use Azure Resource Manager template
 
@@ -118,7 +118,7 @@ To learn more, see these Resource Manager template samples on our public GitHub.
 ## API to configure a shared image gallery for your lab
 
 - Use API version 2018-10-15-preview.
-- To attach your gallery, do the following:
+- To attach your gallery, send the request as shown in the following snippet:
     
     ``` 
     PUT [Lab Resource Id]/SharedGalleries/[newGalleryName]
