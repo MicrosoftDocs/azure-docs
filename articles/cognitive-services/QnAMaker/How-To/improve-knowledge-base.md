@@ -177,7 +177,7 @@ QnAMakerActiveLearningDialog = new WaterfallDialog(ActiveLearningDialogName)
     .AddStep(DisplayQnAResult);
 ```
 
-The **CallTrain** method above calls into the [ActiveLearningHelper.cs](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/csharp_dotnetcore/Helpers/ActiveLearningHelper.cs) file which contains the **ActiveLearningHelper** class, which determines which queries to send back to the Train API then sends those queries:
+The **CallTrain** method above calls into the [ActiveLearningHelper.cs](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/csharp_dotnetcore/Helpers/ActiveLearningHelper.cs) file, which contains the **ActiveLearningHelper** class, which determines which queries to send back to the Train API then sends those queries:
 
 ```csharp
 using System;
