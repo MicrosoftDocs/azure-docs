@@ -63,7 +63,7 @@ The following table lists the tasks that each of these roles can perform.
 
 To add groups (cloud-created security groups or cloud-created Office 365 groups), applications, or SharePoint Online sites to a catalog you must have the required Azure AD directory role and entitlement management role. The following table lists these roles. To remove resources from a catalog, you must have the same roles.
 
-| Directory role | Entitlement management role | Can add security group | Can add Office 365 group | Can add application | Can add SharePoint Online site |
+| Directory role | Entitlement management role | Can add security group | Can add Office 365 group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [User administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
