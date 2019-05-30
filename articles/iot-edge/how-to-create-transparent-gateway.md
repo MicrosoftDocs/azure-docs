@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/25/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -23,33 +23,34 @@ This article provides detailed instructions for configuring an IoT Edge device t
 There are three general steps to set up a successful transparent gateway connection. This article covers the first step:
 
 1. **The gateway device needs to be able to securely connect to downstream devices, receive communications from downstream devices, and route messages to the proper destination.**
-2. The downstream device needs to be able to securely connect to its gateway device. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
-3. The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
+2. The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
+3. The downstream device needs to be able to securely connect to its gateway device. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
 
-For a device to function as a gateway, it needs to be able to securely connect to downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the gateway device. This identity check prevents your devices from connecting to potentially malicious gateways.
+
+For a device to function as a gateway, it needs to be able to securely connect to its downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the gateway device. This identity check prevents your devices from connecting to potentially malicious gateways.
 
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). For all practical purposes, a downstream device could even be an application running on the IoT Edge gateway device itself. 
 
-You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), and a series of certificates, signed with this CA, and a CA for the IoT Edge device.
+You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
 
 ![Gateway certificate setup](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 The gateway presents its IoT Edge device CA certificate to the downstream device during the initiation of the connection. The downstream device checks to make sure the IoT Edge device CA certificate is signed by the root CA certificate. This process allows the downstream device to confirm that the gateway comes from a trusted source.
 
-The following steps walk you through the process of creating the certificates and installing them in the right places. You can use any machine to generate the certificates, and then copy them over to your IoT Edge device. 
+The following steps walk you through the process of creating the certificates and installing them in the right places on the gateway. You can use any machine to generate the certificates, and then copy them over to your IoT Edge device. 
 
 ## Prerequisites
 
 An Azure IoT Edge device to configure as a gateway. Use the IoT Edge installation steps for one of the following operating systems:
-* [Windows](./how-to-install-iot-edge-windows.md)
-* [Linux x64](./how-to-install-iot-edge-linux.md)
-* [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
+  * [Windows](./how-to-install-iot-edge-windows.md)
+  * [Linux x64](./how-to-install-iot-edge-linux.md)
+  * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
 This article refers to the *gateway hostname* at several points. The gateway hostname is declared in the **hostname** parameter of the config.yaml file on the IoT Edge gateway device. It's used to create the certificates in this article, and is referred to in the connection string of the downstream devices. The gateway hostname needs to be resolvable to an IP Address, either using DNS or a host file entry.
 
 ## Generate certificates with Windows
 
-Use the steps in this section to generate test certificates on a Windows device. You can generate the certificates on a Windows IoT Edge device. Or, you can generate the certificates on your Windows development machine and then copy them to any IoT Edge device. 
+Use the steps in this section to generate test certificates on Windows. You can use a Windows machine to generate the certificates, and then copy them over to any IoT Edge device running on any supported operating system. 
 
 The certificates generated in this section are intended for testing purposes only. 
 
@@ -78,13 +79,13 @@ The Azure IoT Edge git repository contains scripts that you can use to generate 
 
 1. Open a PowerShell window in administrator mode. 
 
-2. Clone the git repo that contains scripts to generate non-production certificates. These scripts help you create the necessary certificates to set up a transparent gateway. Use the `git clone` command or [download the ZIP](https://github.com/Azure/azure-iot-sdk-c/archive/master.zip). 
+2. Clone the git repo that contains scripts to generate non-production certificates. These scripts help you create the necessary certificates to set up a transparent gateway. Use the `git clone` command or [download the ZIP](https://github.com/Azure/iotedge/archive/master.zip). 
 
    ```powershell
    git clone https://github.com/Azure/iotedge.git
    ```
 
-3. Navigate to the directory in which you want to work. Throughout this article, we'll call this directory *\<WRKDIR>*. All files will be created in this working directory.
+3. Navigate to the directory in which you want to work. Throughout this article, we'll call this directory *\<WRKDIR>*. All certificates and keys will be created in this working directory.
 
 4. Copy the configuration and script files from the cloned repo into your working directory. 
 
@@ -107,7 +108,7 @@ The Azure IoT Edge git repository contains scripts that you can use to generate 
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
-7. Bring the functions, used by the scripts, into PowerShell's global namespace.
+7. Bring the functions used by the scripts into PowerShell's global namespace.
    
    ```powershell
    . .\ca-certs.ps1
@@ -115,7 +116,7 @@ The Azure IoT Edge git repository contains scripts that you can use to generate 
 
    The PowerShell window will display a warning that the certificates generated by this script are only for testing purposes, and should not be used in production scenarios.
 
-8. Verify that OpenSSL has been installed correctly and make sure there won't be name collisions with existing certificates. If there are problems, the script should describe how to fix them on your system.
+8. Verify that OpenSSL has been installed correctly and make sure that there won't be name collisions with existing certificates. If there are problems, the script should describe how to fix them on your system.
 
    ```powershell
    Test-CACertsPrerequisites
@@ -125,13 +126,13 @@ The Azure IoT Edge git repository contains scripts that you can use to generate 
 
 In this section, you create three certificates and then connect them in a chain. Placing the certificates in a chain file allows you to install them easily on your IoT Edge gateway device and any downstream devices.  
 
-1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory, *\<WRKDIR>*.
+1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory.
 
    ```powershell
    New-CACertsCertChain rsa
    ```
 
-   This script command creates several certificate and key files, but we're going to reference one in particular later in this article:
+   This script command creates several certificate and key files, but we're going to refer to one in particular later in this article:
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
 2. Create the IoT Edge device CA certificate and private key with the following command. Provide the gateway hostname, which can be found in the iotedge\config.yaml file on the gateway device. The gateway hostname is used to name the files and during certificate generation. 
@@ -140,7 +141,7 @@ In this section, you create three certificates and then connect them in a chain.
    New-CACertsEdgeDevice "<gateway hostname>"
    ```
 
-   This script command creates several certificate and key files, including two that we're going to reference later in this article:
+   This script command creates several certificate and key files, including two that we're going to refer to later in this article:
    * `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
 
@@ -148,7 +149,9 @@ Now that you have the certificates, skip ahead to [Install certificates on the g
 
 ## Generate certificates with Linux
 
-Use the steps in this section to generate test certificates on a Linux device. You can generate the certificates on your IoT Edge device itself, or use a separate machine and copy the final certificates to any IoT Edge device running any supported operating system. 
+Use the steps in this section to generate test certificates on Linux. You can use a Linux machine to generate the certificates, and then copy them over to any IoT Edge device running on any supported operating system. 
+
+The certificates generated in this section are intended for testing purposes only. 
 
 ### Prepare creation scripts
 
@@ -162,7 +165,7 @@ The Azure IoT Edge git repository contains scripts that you can use to generate 
 
 2. Navigate to the directory in which you want to work. We'll refer to this directory throughout the article as *\<WRKDIR>*. All certificate and key files will be created in this directory.
   
-3. Copy the config and script files from the IoT Edge repo, wherever you cloned it on your machine, into your working directory.
+3. Copy the config and script files from the cloned IoT Edge repo into your working directory.
 
    ```bash
    cp <path>/iotedge/tools/CACertificates/*.cnf .
@@ -187,7 +190,7 @@ In this section, you create three certificates and then connect them in a chain.
    ./certGen.sh create_root_and_intermediate
    ```
 
-   The script creates several certificates and keys. Make note of one, which you'll reference in the next section:
+   The script creates several certificates and keys. Make note of one, which we'll refer to in the next section:
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`
 
 2. Create the IoT Edge device CA certificate and private key with the following command. Provide the gateway hostname, which can be found in the iotedge/config.yaml file on the gateway device. The gateway hostname is used to name the files and during certificate generation. 
@@ -196,7 +199,7 @@ In this section, you create three certificates and then connect them in a chain.
    ./certGen.sh create_edge_device_certificate "<gateway hostname>"
    ```
 
-   The script creates several certificates and keys. Make note of two, which you'll reference in the next section: 
+   The script creates several certificates and keys. Make note of two, which we'll refer to in the next section: 
    * `<WRKDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<gateway hostname>.key.pem`
 
@@ -240,9 +243,9 @@ Now that you've made a certificate chain, you need to install it on the IoT Edge
 
 ## Deploy EdgeHub to the gateway
 
-When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. For your device to work as a gateway, you need both system modules. If you haven't deployed any modules to your gateway device before, create a deployment for your device to start the second system module, the IoT Edge hub. The deployment will look empty because you don't add any modules in the wizard, but it will deploy both system modules. 
+When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. For your device to work as a gateway, you need both system modules. If you haven't deployed any modules to your gateway device before, create an initial deployment for your device to start the second system module, the IoT Edge hub. The deployment will look empty because you don't add any modules in the wizard, but it will make sure that both system modules are running. 
 
-You can check which modules are running on a device with the command `iotedge list`.
+You can check which modules are running on a device with the command `iotedge list`. If the list only returns the module **edgeAgent** without **edgeHub**, use the following steps:
 
 1. In the Azure portal, navigate to your IoT hub.
 
@@ -266,7 +269,7 @@ You can check which modules are running on a device with the command `iotedge li
 
 ## Open ports on gateway device
 
-Standard IoT Edge devices don't need any inbound connectivity to function, because all communication with IoT Hub is done through outbound connections. However, gateway devices are different because they need to be able to receive messages from their downstream devices. If a firewall is between the downstream devices and the gateway device, then the required port needs to be open in the firewall as well.
+Standard IoT Edge devices don't need any inbound connectivity to function, because all communication with IoT Hub is done through outbound connections. Gateway devices are different because they need to receive messages from their downstream devices. If a firewall is between the downstream devices and the gateway device, then communication needs to be possible through the firewall as well.
 
 For a gateway scenario to work, at least one of the IoT Edge hub's supported protocols must be open for inbound traffic from downstream devices. The supported protocols are MQTT, AMQP, and HTTPS. 
 
@@ -295,7 +298,7 @@ The below route is an example that would send messages from any downstream devic
 For more information about message routing, see [Deploy modules and establish routes](./module-composition.md#declare-routes).
 
 
-## Enabling extended offline operation
+## Enable extended offline operation
 
 Starting with the [v1.0.4 release](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) of the IoT Edge runtime, the gateway device and downstream devices connecting to it can be configured for extended offline operation. 
 

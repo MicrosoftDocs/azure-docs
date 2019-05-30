@@ -1,10 +1,10 @@
 ---
 title: Authenticate downstream devices - Azure IoT Edge | Microsoft Docs
-description: How to authenticate downstream or leaf devices to IoT Hub, and route their connection through Azure IoT Edge gateway devices. 
+description: How to authenticate downstream devices or leaf devices to IoT Hub, and route their connection through Azure IoT Edge gateway devices. 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/15/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # Authenticate a downstream device to Azure IoT Hub
 
-In a transparent gateway scenario, downstream (or leaf) devices need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection.
+In a transparent gateway scenario, downstream devices (sometimes called leaf devices or child devices) need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection.
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the second step:
 
@@ -21,7 +21,7 @@ There are three general steps to set up a successful transparent gateway connect
 2. **The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device.**
 3. The downstream device needs to be able to securely connect to its gateway device. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
 
-Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys (sometimes referred to as shared access keys), X.509 self-signed certificates, or X.509 certificate authority (CA) signed certificates. The authentication steps are very similar for those used to set up any non-IoT-Edge device with IoT Hub, with small differences for the gateway relationship.
+Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys (sometimes referred to as shared access keys), X.509 self-signed certificates, or X.509 certificate authority (CA) signed certificates. The authentication steps are very similar for those used to set up any non-IoT-Edge device with IoT Hub, with small differences to declare the gateway relationship.
 
 The steps in this article show manual device provisioning, not automatic provisioning with the Azure IoT Hub Device Provisioning Service. 
 
@@ -124,8 +124,11 @@ The easiest way to do test this scenario is to use the same machine that you use
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device name>*.cert.pem`
+   * `<WRKDIR>\certs\iot-device-<device id>*.cert.pfx`
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
+
+   You'll reference these files in the leaf device applications that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protoco](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
 You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with X.509 self-signed authentication and assigns a parent device: 
 
@@ -175,8 +178,11 @@ The easiest way to test this scenario is to use the same machine that you used t
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device id>*.cert.pem`
+   * `<WRKDIR>\certs\iot-device-<device id>*.cert.pfx`
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
+
+   You'll reference these files in the leaf device applications that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protoco](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
 You can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example creates a new IoT device with X.509 CA signed authentication and assigns a parent device: 
 
@@ -189,7 +195,197 @@ For more information about Azure CLI commands for device creation and parent/chi
 
 ### Connect to IoT Hub through a gateway
 
-Each Azure IoT SDK handles X.509 authentication a little differently. However, the same process is used to authenticate regular IoT devices to IoT Hub with X.509 certificates also applies to downstream devices. The only difference is that you need to add a pointer to the gateway device to route the connection or, in offline scenarios, to handle the authentication on behalf of IoT Hub.  In general, you can simply replace the value of **Hostname** in the connection string to be the hostname of your gateway device. 
+Each Azure IoT SDK handles X.509 authentication a little differently. However, the same process is used to authenticate regular IoT devices to IoT Hub with X.509 certificates also applies to downstream devices. The only difference is that you need to add a pointer to the gateway device to route the connection or, in offline scenarios, to handle the authentication on behalf of IoT Hub. In general, you can follow the same X.509 authentication steps for all IoT Hub devices, then simply replace the value of **Hostname** in the connection string to be the hostname of your gateway device. 
+
+The following sections show some examples for different SDK languages. 
+
+#### .NET
+
+For an example of a C# program authenticating to IoT Hub with X.509 certificates, see [Set up X.509 security in your Azure IoT hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates). Some of the key lines of that sample are included here to demonstrate the authentication process.
+
+When declaring the hostname for your DeviceClient instance, use the IoT Edge gateway device's hostname. The hostname can be found in the gateway device's config.yaml file. 
+
+If you're using the test certificates provided by the IoT Edge git repository, the key to the certificates is **1234**.
+
+```csharp
+try
+{
+    var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");
+    var auth = new DeviceAuthenticationWithX509Certificate("<device-id>", cert);
+    var deviceClient = DeviceClient.Create("<gateway hostname>", auth, TransportType.Amqp_Tcp_Only);
+
+    if (deviceClient == null)
+    {
+        Console.WriteLine("Failed to create DeviceClient!");
+    }
+    else
+    {
+        Console.WriteLine("Successfully created DeviceClient!");
+        SendEvent(deviceClient).Wait();
+    }
+
+    Console.WriteLine("Exiting...\n");
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error in sample: {0}", ex.Message);
+}
+```
 
 #### C
 
+For an example of a C program authenticating to IoT Hub with X.509 certificates, see the C IoT SDK's [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample) sample. Some of the key lines of that sample are included here to demonstrate the authentication process.
+
+When defining the connection string for your downstream device, use the IoT Edge gateway device's hostname for the **HostName** parameter. The hostname can be found in the gateway device's config.yaml file. 
+
+```C
+// If your downstream device uses X.509 authentication (self signed or X.509 CA) then
+// resulting connection string should look like the following:
+// "HostName=<gateway device hostname>;DeviceId=<device_id>;x509=true"
+static const char* connectionString = "[Downstream device IoT Edge connection string]";
+
+// Path to the Edge "owner" root CA certificate
+static const char* edge_ca_cert_path = "[Path to root CA certificate]";
+
+// When the downstream device uses X.509 authentication, a certificate and key 
+// in PRM format must be provided.
+static const char * x509_device_cert_path = "[Path to primary or secondary device cert]";
+static const char * x509_device_key_path = "[Path to primary or secondary device key]";
+
+int main(void)
+{
+    // Create the iothub handle here
+    device_handle = IoTHubDeviceClient_CreateFromConnectionString(connectionString, protocol);
+
+    // Provide the Azure IoT device client with the same root
+    // X509 CA certificate that was used to set up the IoT Edge gateway runtime
+    if (edge_ca_cert_path != NULL)
+    {
+        cert_string = obtain_edge_ca_certificate();
+        (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
+    }
+
+    if ((x509_device_cert_path != NULL) && (x509_device_key_path != NULL))
+    {
+        const char *x509certificate = obtain_file_contents(x509_device_cert_path);
+        const char *x509privatekey = obtain_file_contents(x509_device_key_path);
+        if ((IoTHubDeviceClient_SetOption(device_handle, OPTION_X509_CERT, x509certificate) != IOTHUB_CLIENT_OK) ||
+            (IoTHubDeviceClient_SetOption(device_handle, OPTION_X509_PRIVATE_KEY, x509privatekey) != IOTHUB_CLIENT_OK)
+            )
+        {
+            printf("failure to set options for x509, aborting\r\n");
+            exit(1);
+        }
+    }
+}
+```
+
+#### Node.js
+
+For an example of a Node.js program authenticating to IoT Hub with X.509 certificates, see the Node.js IoT SDK's [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js) sample. Some of the key lines of that sample are included here to demonstrate the authentication process.
+
+When defining the connection string for your downstream device, use the IoT Edge gateway device's hostname for the **HostName** parameter. The hostname can be found in the gateway device's config.yaml file. 
+
+If you're using the test certificates provided by the IoT Edge git repository, the key to the certificates is **1234**.
+
+```node
+// String containing Hostname and Device Id in the following format:
+//  "HostName=<gateway device hostname>;DeviceId=<device_id>;x509=true"
+var connectionString = '<DEVICE CONNECTION STRING WITH x509=true>';
+var certFile = '<PATH-TO-CERTIFICATE-FILE>';
+var keyFile = '<PATH-TO-KEY-FILE>';
+var passphrase = '<KEY PASSPHRASE IF ANY>';
+
+// fromConnectionString must specify a transport constructor, coming from any transport package.
+var client = Client.fromConnectionString(connectionString, Protocol);
+
+var options = {
+   cert : fs.readFileSync(certFile, 'utf-8').toString(),
+   key : fs.readFileSync(keyFile, 'utf-8').toString(),
+   passphrase: passphrase
+ };
+
+// Calling setOptions with the x509 certificate and key (and optionally, passphrase) will configure the client transport to use x509 when connecting to IoT Hub
+client.setOptions(options);
+```
+
+#### Python
+
+For an example of a Python program authenticating to IoT Hub with X.509 certificates, see the Java IoT SDK's [iothub_client_sample_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) sample. Some of the key lines of that sample are included here to demonstrate the authentication process.
+
+When defining the connection string for your downstream device, use the IoT Edge gateway device's hostname for the **HostName** parameter. The hostname can be found in the gateway device's config.yaml file. 
+
+```python
+# String containing Hostname, Device Id in the format:
+# "HostName=<gateway device hostname>;DeviceId=<device_id>;x509=true"
+CONNECTION_STRING = "[Device Connection String]"
+
+X509_CERTIFICATE = (
+    "-----BEGIN CERTIFICATE-----""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
+    "...""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
+    "XXXXXXXXXXXX""\n"
+    "-----END CERTIFICATE-----"
+)
+
+X509_PRIVATEKEY = (
+    "-----BEGIN RSA PRIVATE KEY-----""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
+    "...""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""\n"
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    "-----END RSA PRIVATE KEY-----"
+)
+
+def iothub_client_init():
+    # prepare iothub client
+    client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
+
+    # this brings in x509 privateKey and certificate
+    client.set_option("x509certificate", X509_CERTIFICATE)
+    client.set_option("x509privatekey", X509_PRIVATEKEY)
+
+    return client
+```
+
+#### Java
+
+For an example of a Java program authenticating to IoT Hub with X.509 certificates, see the Java IoT SDK's [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) sample. Some of the key lines of that sample are included here to demonstrate the authentication process.
+
+When defining the connection string for your downstream device, use the IoT Edge gateway device's hostname for the **HostName** parameter. The hostname can be found in the gateway device's config.yaml file. 
+
+```java
+//PEM encoded representation of the public key certificate
+private static String publicKeyCertificateString =
+    "-----BEGIN CERTIFICATE-----\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "-----END CERTIFICATE-----\n";
+
+//PEM encoded representation of the private key
+private static String privateKeyString =
+    "-----BEGIN EC PRIVATE KEY-----\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+    "-----END EC PRIVATE KEY-----\n";
+
+DeviceClient client = new DeviceClient(connectionString, protocol, publicKeyCertificateString, false, privateKeyString, false);
+```
+
+## Next steps
+
+By completing this article, you should have an IoT Edge device working as a transparent gateway and a downstream device registered with an IoT hub. Next, you need to configure your downstream devices to trust the gateway device and send messages to it. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
