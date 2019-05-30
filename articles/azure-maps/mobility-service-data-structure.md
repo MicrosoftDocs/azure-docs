@@ -18,7 +18,7 @@ This article introduces you to some of the common fields returned via the [Azure
 
 Mobility Service data is split into supported metro areas. Metro areas do not follow city boundaries, a metro area can contain multiple cities (e.g a densely populated city and its surrounding cities) and a country/region can support multiple metro areas. Metro area IDs are also subject to change.
 
-The `metroID` is a metro area's ID that can can be used to call the [Get Metro Area Info](https://aka.ms/AzureMapsMobilityMetroAreaInfo) API to request supported transit types and additional details for the metro area such as transit agencies and active alerts. You can use the [Azure Maps Get Metro API](https://aka.ms/AzureMapsMobilityMetro) to request the supported metro areas and metroIDs.
+The `metroID` is a metro area's ID that can be used to call the [Get Metro Area Info](https://aka.ms/AzureMapsMobilityMetroAreaInfo) API to request supported transit types and additional details for the metro area such as transit agencies and active alerts. You can use the [Azure Maps Get Metro API](https://aka.ms/AzureMapsMobilityMetro) to request the supported metro areas and metroIDs.
 
 | metroID | Name |
 |:---------:|:------|
@@ -28,7 +28,7 @@ The `metroID` is a metro area's ID that can can be used to call the [Get Metro A
 
 ## Stop IDs
 
-Transit stops can be referred to two types of IDs: The [General Transit Feed Specification (GFTS)](https://gtfs.org/) ID (referred to as stopKey) and the Azure Maps stop ID (referred to as stopId). When referring to stops over time, it is suggested to use the Azure Maps stop ID, as this ID is more stable it will not likely change as long as the physical stop exists. The GTFS stop ID is updated more often, for example, in case the GTFS provider needs to change it or new GTFS version is released, although the physical the stop had no change.
+Transit stops can be referred to by two types of IDs, the [General Transit Feed Specification (GFTS)](https://gtfs.org/) ID (referred to as stopKey) and the Azure Maps stop ID (referred to as stopId). When referring to stops over time, it is suggested to use the Azure Maps stop ID, as this ID is more stable and will not likely change as long as the physical stop exists. The GTFS stop ID is updated more often, for example, in case the GTFS provider needs to change it or new GTFS version is released, although the physical stop had no change.
 
 To start, you can request nearby transit stops by using [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
@@ -39,11 +39,11 @@ Mobility Service uses a parallel data model for Lines and Line Groups to better
 
 ### Line Groups
 
-A Line Group is an entity, which groups together all lines that are logically part of the same group. Usually a line group will contain 2 lines, one going from A to B, and the other returning from B to A, both belonging to the same Public Transport agency and having the same line number. However, there may be cases in which a line group has more than 2 lines or only a single line within it.
+A Line Group is an entity, which groups together all lines that are logically part of the same group. Usually a line group will contain two lines, one going from point A to B, and the other returning from point B to A, both belonging to the same Public Transport agency and having the same line number. However, there may be cases in which a line group has more than two lines or only a single line within it.
 
 
 ### Lines
 
-As discussed above, each line group is comprised of a set of lines. Quite often each line describes a direction and each line group is comprised of two lines. However there are cases in which more lines comprise a line group, for example there is a line that sometimes detours through a certain neighborhood and sometimes does not, and is operated in both cases under the same line number, and there are other cases in which a line group is comprised of a single line, for example a circular line with a single direction.
+As discussed above, each line group is composed of a set of lines. Often each line describes a direction and each line group is composed of two lines. However there are cases in which more lines comprise a line group, for example there is a line that sometimes detours through a certain neighborhood and sometimes does not, and is operated in both cases under the same line number, and there are other cases in which a line group is composed of a single line, for example a circular line with a single direction.
 
-To begin, you can request line groups by using the [Get Transit Line API](https://aka.ms/AzureMapsMobilityTransitLine) and drill down to lines after that.
+To begin, you can request line groups by using the [Get Transit Line API](https://aka.ms/AzureMapsMobilityTransitLine) and later drill down to lines.
