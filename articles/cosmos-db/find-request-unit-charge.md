@@ -1,11 +1,11 @@
 ---
-title: Fixing request unit (RU) sample for cassandra
-description: Cassandra has a different endianness on the request unit byte buffer so you need to invert it before
-author: bitcloud
+title: Find the request unit (RU) charge in Azure Cosmos DB
+description: Learn how to find the request unit (RU) charge for any operation executed against an Azure Cosmos container.
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/30/2019
-ms.author: ThomasWeiss
+ms.date: 05/23/2019
+ms.author: thweiss
 ---
 # Find the request unit charge in Azure Cosmos DB
 
