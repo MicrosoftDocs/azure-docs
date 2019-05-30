@@ -8,20 +8,20 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: alkohli
-
 ---
+
 # StorSimple Virtual Array Update 1.2 release notes
 
 ## Overview
 
 The following release notes identify the critical open issues and the resolved issues for Microsoft Azure StorSimple Virtual Array updates.
 
-The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple Virtual Array, carefully review the information contained in the release notes.
+The release notes are continuously updated. As critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple Virtual Array, carefully review the information contained in the release notes.
 
 Update 1.2 corresponds to the software version **10.0.10311.0**.
 
 > [!IMPORTANT]
-> - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Updates](storsimple-virtual-array-install-update-11.md).
+> - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions which packages to download to apply the update, go to [Download Update 1.2](#download-update-12).
 >
 > - Update 1.2 is available to you via the Azure portal only if your device is running Update 1.0 or 1.1.
 
