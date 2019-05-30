@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Request real-time data using the Azure Maps Mobility Service
 
-This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService) to request real-time transit data.
+This article shows you how to use Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) to request real-time transit data.
 
 In this article you will learn, how to:
 
@@ -31,9 +31,9 @@ This article uses the [Postman app](https://www.getpostman.com/apps) to build RE
 
 ## Request real-time arrivals for a stop
 
-In order to request real-time arrivals data for a particular public transit stop, you will need to make a request to the [Real-time Arrivals API](https://docs.microsoft.com/en-us/rest/api/mobility/getrealtimearrivalspreview) of the Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService). You will need the **metroID** and **stopID** to complete the request. To learn more about how to request these parameters, see our How-to guide to [request public transit routes](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
+In order to request real-time arrivals data for a particular public transit stop, you will need to make a request to the [Real-time Arrivals API](https://docs.microsoft.com/en-us/rest/api/mobility/getrealtimearrivalspreview) of the Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService). You will need the **metroID** and **stopID** to complete the request. To learn more about how to request these parameters, see our How-to guide to [request public transit routes](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
 
-Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–Bellevue, WA" area, and use the stop ID "2060603", which is a bus stop at "Ne 24th St & 162nd Ave Ne" in Bellevue, WA. To request next five real-time arrivals data for all next live arrivals at this stop stop, complete the following steps:
+Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–Bellevue, WA" area, and use the stop ID "2060603", which is a bus stop at "Ne 24th St & 162nd Ave Ne, Bellevue WA". To request next five real-time arrivals data for all next live arrivals at this stop, complete the following steps:
 
 1. Create a collection in which to store the requests. In the Postman app, select **New**. In the **Create New** window, select **Collection**. Name the collection and select the **Create** button.
 
@@ -110,7 +110,7 @@ Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–B
     }
 
 
-## Real-time availability and vagancy information for bike docking station
+## Real-time availability and vacancy information for bike docking station
 
 The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes. 
 

@@ -3,7 +3,7 @@ title: How to request transit data in Azure Maps | Microsoft Docs
 description: Request public transit data using the Azure Maps Mobility service.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 05/22/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Request public transit data using the Azure Maps Mobility service 
+# Request public transit data using the Azure Maps Mobility Service 
 
 This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService) to request public transit data, including stops, route information, and travel time estimations.
 
@@ -118,7 +118,7 @@ Let's make a Get Metro Area request for Seattle-Tacoma metroa area ID. To reques
 
 ## Request nearby transit stops
 
-The Azure Maps [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) service allows you to search transit objects, for example, public transit stops ans shared bikes around a given location returning the transit object details. Next we will make a request to the service to search for nearby public transit stops within 300 meters radius around given location. In the request we need to include the `metroId` retrieved in earlier.
+The Azure Maps [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) service allows you to search transit objects, for example, public transit stops and shared bikes around a given location returning the transit object details. Next we will make a request to the service to search for nearby public transit stops within 300-meters radius around given location. In the request, we need to include the `metroId` retrieved in earlier.
 
 To make a request to the [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit), follow the steps below:
 
@@ -216,7 +216,7 @@ To make a request to the [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNe
 
 If you observe the response structure carefully, you can see that it contains parameters each transit object, such as `id`, `type`, `stopName`, `mainTransitType`, `mainAgencyName` and the position (coordinates) of the object.
 
-For the purpose of understanding we will use the `id` of one of the bus stops as origin for our route in the next section.  
+For the purpose of understanding, we will use the `id` of one of the bus stops as origin for our route in the next section.  
 
 
 ## Request a transit route
@@ -231,7 +231,7 @@ To make a request to the Fuzzy search service, follow the steps below:
 
 1. In Postman, click **New Request** | **GET request** and name it **Get location coordinates**.
 
-2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL and click **Send**.
+2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
  
     ```HTTP
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
@@ -516,7 +516,7 @@ The Azure Maps [Get Transit Itinerary](https://aka.ms/AzureMapsMobilityTransitIt
 
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
-    We will set the `DetailType` parameter to **geometry** so that the response contains stop information for public transit and turn-by-turn navigation for walk and bike legs of the route.
+    We will set the `detailType` parameter to **geometry** so that the response contains stop information for public transit and turn-by-turn navigation for walk and bike legs of the route.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry
