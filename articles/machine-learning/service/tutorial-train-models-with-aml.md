@@ -33,7 +33,7 @@ You learn how to select a model and deploy it in [part two of this tutorial](tut
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.8.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.39.
 
 ## Prerequisites
 
