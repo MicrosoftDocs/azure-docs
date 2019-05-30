@@ -27,7 +27,7 @@ You can monitor the security state of your resources on the **Security Center â€
 
 You can view a list of all issues by selecting **Recommendations**. For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-For a complete list of Compute and App services recommendations, see [Recommendations](security-center-virtual-machine-recommendations.md).
+For a complete list of Compute and App services recommendations, see [Recommendations](security-center-virtual-machine-protection.md#compute-and-app-recommendations).
 
 To continue, select **Compute & apps** under **Resources** or the Security Center main menu.
 ![Security Center dashboard](./media/security-center-virtual-machine-recommendations/overview.png)
