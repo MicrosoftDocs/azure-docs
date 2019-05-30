@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -146,13 +146,14 @@ Higher usage is caused by one, or both of:
 
 ## Understanding nodes sending data
 
-To understand the number of computers (nodes) reporting data each day in the last month, use
+To understand the number of computers reporting heartbeats each day in the last month, use
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-To get a list of computers sending **billed data types** (some data types are free), leverage the `_IsBillable` [property](log-standard-properties.md#_isbillable):
+To get a list of computers which will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes which are sending **billed data types** (some data types are free). 
+To do this, use the `_IsBillable` [property](log-standard-properties.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the list of computers with billed data:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -160,15 +161,25 @@ To get a list of computers sending **billed data types** (some data types are fr
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute. This query replaces the old way of querying per-computer information with the Usage data type.  
-
-This can be extended to return the count of computers per hour that are sending billed data types (which is how Log Analytics calculates billable nodes for the legacy Per Node pricing tier):
+The count of billable nodes seen can be estimated as: 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| billableNodes=dcount(computerName)`
+
+> [!NOTE]
+> Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute. This query replaces the old way of querying per-computer information with the Usage data type.  
+
+A more accurate calculation of what will actually be billed is to get the count of computers per hour that are sending billed data types. 
+(For workspaces in the legacy Per Node pricing tier, Log Analytics calculates the number of nodes which need to be billed on an hourly basis.) 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
 ## Understanding ingested data volume
 
@@ -192,24 +203,19 @@ To see the **size** of billable events ingested per computer, use the `_BilledSi
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies whether the ingested data will incur charges.
 
-To see the **count** of events ingested per computer, use
-
-```kusto
-union withsource = tt *
-| summarize count() by Computer | sort by count_ nulls last
-```
-
-To see the count of billable events ingested per computer, use 
+To see the count of **billable** events ingested per computer, use 
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize count() by Computer  | sort by count_ nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize eventCount=count() by computerName  | sort by count_ nulls last
 ```
 
 If you want to see counts for billable data types are sending data to a specific computer, use:
