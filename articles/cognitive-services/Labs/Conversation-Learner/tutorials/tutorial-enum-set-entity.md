@@ -18,20 +18,20 @@ This tutorial will explain when you should use ENUM (enumeration) entities and S
 
 ## Video
 
-[![Intro to Training Tutorial Preview](https://aka.ms/cl_Tutorial_v3_IntroTraining_Preview)](https://aka.ms/cl_Tutorial_v3_IntroTraining)
+[![Set Entity Tutorial Preview](https://aka.ms/cl_Tutorial_v3_SetEntity_Preview)](https://aka.ms/cl_Tutorial_v3_SetEntity)
 
 
 
 ## What is covered
 
-This tutorial will introduce two new features. A new type of entity called ENUM (short for enumeration) and a new type of action called SET_ENTITY which can refer to one of these enum values and as the name implies sets the entity to this value. As you will learn below these new features are usually used together and we will explain what they are and how to use them below. Before we get into the details it is important to understand what problem these features help solve.
+This tutorial will introduce two new features. A new type of entity called ENUM (short for enumeration) and a new type of action called SET_ENTITY which can refer to one of these enum values, and as the name implies, sets the entity to this value. As you will learn below, these new features are usually used together and we will explain what they are and how to use them below. Before we get into the details it is important to understand what problem these features help solve.
 
 ![enumEntityType.png](../media/tutorial-enum-set-entity/enumEntityType.png)
 ![actionSetEntityType.png](../media/tutorial-enum-set-entity/actionSetEntityType.png)
 
 ## Problem
 
-There are cases in conversations where the meaning of words depends on the context.  Normally the key words are learned and extracted using a language understanding service, but in these cases those systems may not be able to learn this
+There are cases in conversations where the meaning of words depends on the context.  Normally the labelled key words are learned and extracted using a language understanding service, but in these cases those systems may not be able to learn using labelled examples.
 
 Imagine you overhear part of a conversation between people nearby and you only hear the word "Yes." You would not know what the "Yes" is agreeing to or confirming since you didn't hear the question asked before it. The question asked before is the context which gives meaning to the answer. Similarly since "Yes" is such a common response to many different questions it cannot be learned by providing examples as you would do with [Custom Trained](04-introduction-to-entities.md) entities because then it would learn to label every "Yes" as that entity.
 
@@ -44,27 +44,27 @@ User: Yes
 Bot: Do you like ice cream?
 User: Yes
 
-In previous tutorials we looked at [Custom Trained](04-introduction-to-entities.md) entities and your initial thought might be to create an entity named "likesCogServices" and label the first "Yes" as this entity.  However, the system would also label the second "Yes". When we attempted to correct the label of the second "Yes" to "likesIceCream" we would then create a conflict of two same inputs "Yes" meaning different thens and would be stuck.
+In previous tutorials, we looked at [Custom Trained](04-introduction-to-entities.md) entities and your initial thought might be to create an entity named "likesCogServices" and label the first "Yes" as this entity.  However, the system would also label the second "Yes". When we attempted to correct the label of the second "Yes" to "likesIceCream" we would then create a conflict of two same inputs "Yes" meaning different things and would be stuck.
 
-It is in these cases where you would need to use ENUM entities and SET_ENTITY actions.
+It is in these cases that you need to use ENUM entities and SET_ENTITY actions.
 
 ## When to use ENUMs or SET_ENTITY actions
 
-Use these rules below to know when to use ENUM entities and SET_ENTITY actions.
+Use these rules below to know when to use ENUM entities and SET_ENTITY actions:
 
 - Detection or setting of entity is context dependent
 - Number of possible values is fixed (Yes and No would be two values)
 
-In other words use these for any close-ended prompts such as confirmation questions that always result in Yes or No.
+In other words, use these for any close-ended prompts such as confirmation questions that always result in Yes or No.
 
 > [!NOTE]
-> We currently have limitation of up to 5 values per enum entity. Each value uses one of slots in the current 64 limit. See [cl-values-and-boundaries](./cl-values-and-boundaries.md)
+> We currently have limitation of up to 5 values per enum entity. Each value uses one of the slots in the current 64 limit. See [cl-values-and-boundaries](../cl-values-and-boundaries.md)
 
 Example:
 Bot: Is your order correct?
 User: Yes
 
-When the possible values of the entity is open-ended and not fixed you would need to use an alternative feature such as [expected entity](09-expected-entity.md).
+When the possible values of the entity is open-ended and not fixed you would need to use an alternative feature such as [expected entity](05-expected-entity.md).
 
 Example:
 Bot: What is your name?
@@ -76,15 +76,15 @@ These prompts are considered open-ended because they could be answered with arbi
 
 ## What
 
-### EUM entities
+### ENUM entities
 
-ENUM entities are created just like the other entities. Similar to "programmatic" you cannot label words as these entities they must be set through code or SET_ENTITY actions
+ENUM entities are created just like the other entities. Similar to "programmatic" entities, you cannot label words as these entities. Instead, they must be set through code or SET_ENTITY actions.
 
 ![enumEntityCreation.png](../media/tutorial-enum-set-entity/enumEntityCreation.png)
 
 ### Set Entity Actions
 
-As mentioned above "Set Entity" actions simply set an entity to a known enum value. You could achieve the same results by creating an API callback action and using the memory manager to set the entity to a value. E.g. `memory.Set(entityName, entityValue)`. Having to write this code and create these actions would become tedious and hard to manage so Conversation Learner has special actions to facilitate this work and automatically generate these actions when they are used. Having these as independent actions preserves the ability to compose these without being coupled with other actions or code in your bot.
+As mentioned above, "Set Entity" actions simply set an entity to a known enum value. You could achieve the same results by creating an API callback action and using the memory manager to set the entity to a value. E.g. `memory.Set(entityName, entityValue)`. Having to write this code and create these actions would become tedious and hard to manage - so Conversation Learner has special actions to facilitate this work and automatically generate these actions when they are used. Having these as independent actions preserves the ability to compose these without being coupled with other actions or code in your bot.
 
 - Set entity actions can only be created when referring to a value of an enum entity so you must create an enum entity first.
 - Set entity actions are also "non-await" since they have no visible output and need to be followed up by a "wait" action the user can see.
@@ -94,9 +94,9 @@ As mentioned above "Set Entity" actions simply set an entity to a known enum val
 
 ### Automatic action generation
 
-If an enum entity exists in your model Conversation Learner will create placeholder actions for each of the possible values and make them available to select during training. Upon selection the action it would automatically be created and taken by your bot to be ranked in future similar situations of the conversation.
+If an enum entity exists in your model, Conversation Learner will create placeholder actions for each of the possible values and make them available to select during training. Upon selection, the action would automatically be created and taken by your bot to be ranked in future similar situations of the conversation.
 
-For example, if I create an enum entity with the values "Yes" and "No".
+For example, if I create an enum entity with the values "Yes" and "No":
 
 ![enumEntityOrderConfirmation.png](../media/tutorial-enum-set-entity/enumEntityOrderConfirmation.png)
 
@@ -105,7 +105,7 @@ Even without explicitly creating actions for this new enum you would see two new
 ![actionSetEntitySample.png](../media/tutorial-enum-set-entity/actionSetEntitySample.png)
 
 
-## Create a Bot using EUM entities and SET_ENTITY actions
+## Create a Bot using ENUM entities and SET_ENTITY actions
 
 ### Requirements
 
@@ -162,4 +162,4 @@ You have just created your first dialog using ENUM entities and SET_ENTITY actio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Introduction to entities](./04-introduction-to-entities.md)
+> [Alternative inputs](./10-alternative-inputs.md)

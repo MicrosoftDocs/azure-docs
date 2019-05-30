@@ -89,4 +89,4 @@ Start on the home page in the Web UI.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Alternative inputs](./10-alternative-inputs.md)
+> [Enum entities](./tutorial-enum-set-entity.md)
