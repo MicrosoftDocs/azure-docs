@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB and Azure Functions can be used together 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 05/28/2019
 ms.author: sngun
 ---
 
