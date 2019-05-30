@@ -101,7 +101,7 @@
     href: sql-database-get-started-sql-data-sync.md
   - name: Machine Learning Services
     items:
-    - name: Build and deploy a predictive model in R
+    - name: Build a predictive model in R
       items:
       - name: 1 - Prepare the data
         href: sql-database-tutorial-predictive-model-prepare-data.md
@@ -109,6 +109,14 @@
         href: sql-database-tutorial-predictive-model-build-compare.md
       - name: 3 - Deploy the model
         href: sql-database-tutorial-predictive-model-deploy.md
+    - name: Build a clustering model in R
+      items:
+      - name: 1 - Prepare the data
+        href: sql-database-tutorial-clustering-model-prepare-data.md
+      - name: 2 - Create the model
+        href: sql-database-tutorial-clustering-model-build.md
+      - name: 3 - Deploy the model
+        href: sql-database-tutorial-clustering-model-deploy.md
 - name: Samples
   items:
   - name: Code samples
