@@ -33,7 +33,7 @@ To deploy the template, select **Try it** to open the Azure Cloud shell, and the
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
-$adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password"
+$adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
 $resourceGroupName = "${projectName}rg"
 $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json"
@@ -42,11 +42,15 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
 ```
 
+Notice the resource group name is the project name with **rg** appended. You need the resource group name in the next section.  It takes a few minutes to create the resources.
+
 ## Test the Load Balancer
 
-1. Find the public IP address for the Load Balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP**.
-
-2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Resource groups** from the left pane.
+1. Select the resource group you created in the last section.  The default resource group name is the project name with **rg** appended.
+1. Select the load balancer.  There is only one load balancer. The default name is the project name with **-lb** apended.
+1. Copy the public IP address (only the IP address part), and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
    ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
@@ -54,7 +58,7 @@ To see the Load Balancer distribute traffic across all three VMs, you can custom
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, Load Balancer, and all related resources. To do so, select the resource group (*myResourceGroupSLB*) that contains the Load Balancer, and then select **Delete**.
+When no longer needed, delete the resource group, Load Balancer, and all related resources. To do so, select the resource group that contains the Load Balancer from the Azure portal, and then select **Delete resource group**.
 
 ## Next steps
 
