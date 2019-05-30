@@ -77,7 +77,7 @@ However, the public access to the primary blob service endpoint `https://contoso
 
 ## Content Delivery Network (CDN) and Secure Socket Layer (SSL) support
 
-To make your static website files available over your custom domain and HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to *point your CDN to the web endpoint* as opposed to the blob endpoint. You might need to wait a few minutes before your content is visible as the CDN configuration is not immediately executed.
+To make your static website files available over your custom domain and HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to point your CDN to the primary *static website* endpoint as opposed to the primary *blob service* endpoint. You might need to wait a few minutes before your content is visible as the CDN configuration is not immediately executed.
 
 When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
 
@@ -88,7 +88,9 @@ When you update your static website, be sure to clear cached content on the CDN 
 
 ## Custom domain names
 
-You can [configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md) to make your static website available via a custom domain. For an in-depth look at hosting your domain on [Azure, see Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+You can make your static website available via a custom domain. To learn more, see [configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md).
+
+For an in-depth look at hosting your domain on Azure, see [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## Pricing
 
