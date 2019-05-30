@@ -59,21 +59,21 @@ The following table lists the tasks that each of these roles can perform.
 | [Add a catalog owner or an access package manager](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
 | [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 
-## Roles to manage resources in a catalog
+## Required roles to add resources to a catalog
 
-To manage groups, applications, and SharePoint Online sites in a catalog you must have the required Azure AD directory role and entitlement management role. The following table lists these roles.
+To add groups (cloud-created security groups or cloud-created Office 365 groups), applications, or SharePoint Online sites to a catalog you must have the required Azure AD directory role and entitlement management role. The following table lists these roles. To remove resources from a catalog, you must have the same roles.
 
-| Directory role | Catalog owner | Cloud-created security group | Cloud-created Office 365 group | Application | SharePoint Online site |
+| Directory role | Entitlement management role | Can add security group | Can add Office 365 group | Can add application | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [User administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Intune service administrator](../users-groups-roles/directory-assign-admin-roles.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Exchange administrator](../users-groups-roles/directory-assign-admin-roles.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Teams administrator](../users-groups-roles/directory-assign-admin-roles.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [SharePoint administrator](../users-groups-roles/directory-assign-admin-roles.md) | :heavy_check_mark: |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Application administrator](../users-groups-roles/directory-assign-admin-roles.md) | :heavy_check_mark: |  |  | :heavy_check_mark: |  |
-| [Cloud application administrator](../users-groups-roles/directory-assign-admin-roles.md) | :heavy_check_mark: |  |  | :heavy_check_mark: |  |
-| User | :heavy_check_mark: | Only if group owner | Only if group owner | Only if app owner |  |
+| [Intune service administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Exchange administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  | :heavy_check_mark: |  |  |
+| [Teams administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  | :heavy_check_mark: |  |  |
+| [SharePoint administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Application administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  |  | :heavy_check_mark: |  |
+| [Cloud application administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  |  | :heavy_check_mark: |  |
+| User | Catalog owner | Only if group owner | Only if group owner | Only if app owner |  |
 
 ## Add a catalog creator
 
