@@ -159,7 +159,7 @@ run.wait_for_completion(show_output=True)
 
 As the Run is executed, it will go through the following stages:
 
-- **Preparing**: A docker image is created according to the TensorFlow estimator, and is uploaded to the workspace's container registry. The image will be cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
+- **Preparing**: A docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
 
 - **Scaling**: The cluster will attempt to scale up if the the Batch AI cluster requires more nodes to execute the run than are currently available.
 
