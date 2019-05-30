@@ -132,7 +132,7 @@ The text and graphical representation of your UI should now look like this:
         private static String channelSecret = "YourChannelSecret";
         // Replace below with your own speech subscription key
         private static String speechSubscriptionKey = "YourSpeechSubscriptionKey";
-        // Replace below with your own speech service region (e.g., "westus2").
+        // Replace below with your own speech service region (note: only 'westus2' is currently supported)
         private static String serviceRegion = "YourSpeechServiceRegion";
 
         private SpeechBotConnector botConnector;
@@ -258,7 +258,7 @@ The text and graphical representation of your UI should now look like this:
 
     * Replace `YourSpeechSubscriptionKey` with your subscription key.
 
-    * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+    * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription (Note: only 'westus2' is currently supported).
 
 ## Build and run the app
 
