@@ -90,7 +90,7 @@ Follow the instructions below using to create a support request via Azure's 'Usa
    
 6. In the **Quota details** panel, select Deployment model and select a location.
 
-![Quota Problem blade](./media/resource-manager-core-quotas-request/problem-step.png)
+![Quota Problem blade](./media/resource-manager-core-quotas-request/problemstep.png)
 
 7. Select the **SKU Families** that require an increase.
 
