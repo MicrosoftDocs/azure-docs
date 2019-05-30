@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/29/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ By default, Global administrators and User administrators can create and manage 
 
 ## Entitlement management roles
 
-Entitlement management has roles that are specific to entitlement management.
+Entitlement management has the following roles that are specific to entitlement management.
 
 | Role | Description |
 | --- | --- |
@@ -63,13 +63,13 @@ The following table lists the tasks that each of these roles can perform.
 
 To add groups (cloud-created security groups or cloud-created Office 365 groups), applications, or SharePoint Online sites to a catalog you must have the required Azure AD directory role and entitlement management role. The following table lists these roles. To remove resources from a catalog, you must have the same roles.
 
-| Directory role | Entitlement management role | Can add security group | Can add Office 365 group | Can add app | Can add SharePoint Online site |
+| Azure AD directory role | Entitlement management role | Can add security group | Can add Office 365 group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [User administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Intune service administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Intune administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Exchange administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  | :heavy_check_mark: |  |  |
-| [Teams administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  | :heavy_check_mark: |  |  |
+| [Teams service administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  | :heavy_check_mark: |  |  |
 | [SharePoint administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Application administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  |  | :heavy_check_mark: |  |
 | [Cloud application administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  |  | :heavy_check_mark: |  |
@@ -77,7 +77,7 @@ To add groups (cloud-created security groups or cloud-created Office 365 groups)
 
 ## Add a catalog creator
 
-If you want to delegate catalog creation, you assign users to the catalog creator role.
+If you want to delegate catalog creation, you add users to the catalog creator role. Follow these steps to assign a user to the catalog creator role.
 
 **Prerequisite role:** User administrator or Catalog creator
 
@@ -95,7 +95,7 @@ If you want to delegate catalog creation, you assign users to the catalog creato
 
 ## Add a catalog owner or an access package manager
 
-If you want to delegate management of a catalog or access packages in the catalog, you add users to the catalog owner or access package manager roles. Whoever creates a catalog becomes the first catalog owner.
+If you want to delegate management of a catalog or access packages in the catalog, you add users to the catalog owner or access package manager roles. Whoever creates a catalog becomes the first catalog owner. Follow these steps to assign a user to the catalog owner or access package manager role.
 
 **Prerequisite role:** User administrator or Catalog owner
 
