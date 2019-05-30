@@ -20,7 +20,7 @@ The Query Store feature in Azure Database for MySQL provides a way to track quer
 
 Query Store is an opt-in feature, so it isn't active by default on a server. The query store is enabled or disabled globally for all the databases on a given server and cannot be turned on or off per database.
 
-## Enable Query Store using the Azure portal
+### Enable Query Store using the Azure portal
 
 1. Sign in to the Azure portal and select your Azure Database for MySQL server.
 1. Select **Server Parameters** in the **Settings** section of the menu.
@@ -41,13 +41,6 @@ Query Store has two stores:
 - A runtime stats store for persisting the query execution statistics information.
 - A wait stats store for persisting wait statistics information.
 
-Common scenarios for using Query Store include:
-- Determining the number of times a query was executed in a given time window
-- Comparing the average execution time of a query across time windows to see large deltas
-- Identifying longest running queries in the past X hours
-- Identifying top N queries that are waiting on resources
-- Understanding wait nature for a query
-
 To minimize space usage, the runtime execution statistics in the runtime stats store are aggregated over a fixed, configurable time window. The information in these stores is visible by querying the query store views.
 
 The following query returns information about queries in Query Store:
@@ -61,6 +54,14 @@ Or this query for wait stats:
 ```sql
 SELECT * FROM mysql.query_store_wait_stats;
 ```
+
+## Common scenarios for using Query Store include:
+- Determining the number of times a query was executed in a given time window
+- Comparing the average execution time of a query across time windows to see large deltas
+- Identifying longest running queries in the past X hours
+- Identifying top N queries that are waiting on resources
+- Understanding wait nature for a query
+- Detecting regressed queries
 
 ## Finding wait queries
 
@@ -105,7 +106,7 @@ View and manage Query Store using the following views and functions. Anyone in t
 
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
 
-## MySQL Query Store Schema
+### mysql.query_store
 
 This view returns all the data in Query Store. There is one row for each distinct database ID, user ID, and query ID.
 
@@ -138,7 +139,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 | first_seen | timestamp| NO| The first occurrence (UTC) of the query during the aggregation window|
 | last_seen | timestamp| NO| The last occurrence (UTC) of the query during this aggregation window|
 
-## Query Store Wait Statistics Schema
+### mysql.query_store_wait_stats
 
 This view returns wait events data in Query Store. There is one row for each distinct database ID, user ID, query ID, and event.
 
@@ -154,7 +155,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 | count_star | bigint(20) | NO| Number of wait events sampled during the interval for the query |
 | sum_timer_wait_ms | double | NO| Total wait time (in milliseconds) of this query during the interval |
 
-## Functions
+### Functions
 
 `Query_store.qs_reset()` returns void
 
