@@ -19,7 +19,7 @@ ms.author: monhaber
 ---
 
 # Advanced data security for SQL servers on IaaS
-Advanced data security for SQL Servers on Azure Virtual Machines is a unified package for advanced SQL security capabilities. It currently includes functionality for surfacing and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate a threat to your database.
+Advanced data security for SQL Servers on Azure Virtual Machines is a unified package for advanced SQL security capabilities. It currently includes functionality for surfacing and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate a threat to your database. 
 
 This security offering for Azure VMs SQL servers is based on the same fundamental technology used in the [Azure SQL Database Advanced Data Security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
