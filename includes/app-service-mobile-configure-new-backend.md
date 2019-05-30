@@ -21,7 +21,7 @@ ms.custom: "include file"
     [Windows (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)  
 
     > [!NOTE]
-    > If you use the iOS project you need to download "azuresdk-iOS-*.zip" from [latest GitHub release](https://github.com/Azure/azure-mobile-apps-ios-client/releases/latest). Unzip and add the `MicrosoftAzureMobile.framework` file to the project's root.
+    > If you use the iOS project you need to download "azuresdk-iOS-\*.zip" from [latest GitHub release](https://github.com/Azure/azure-mobile-apps-ios-client/releases/latest). Unzip and add the `MicrosoftAzureMobile.framework` file to the project's root.
     >
 
 2. You will have to add a database connection or connect to an existing connection. First, determine whether you’ll create a data store or use an existing one.
@@ -92,10 +92,10 @@ ms.custom: "include file"
 
         3. In Visual Studio, open Solution Explorer, right-click on `ZUMOAPPNAMEService` project, click **Publish**, you will see a `Publish to App Service` window. If you are working on Mac, check out other ways to deploy the app [here](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git).
         
-        ![Visual studio publishing](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
+           ![Visual studio publishing](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 
         4. Select **App Service** as publish target, then click **Select Existing**, then click the **Publish** button at the bottom of the window.
 
         5. You will need to log into Visual Studio with your Azure subscription first. Select the `Subscription`, `Resource Group`, and then select the name of your app. When you are ready, click **OK**, this will deploy the .NET server project that you have locally into the App Service backend. When deployment finishes, you will be redirected to `http://{zumoappname}.azurewebsites.net/` in the browser.
         
-        ![Backend is up](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
+           ![Backend is up](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
