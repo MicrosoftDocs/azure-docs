@@ -27,7 +27,7 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 - [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
 
-## Registering services
+## Register services
 
 To register services, you can create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
 
@@ -52,7 +52,7 @@ namespace MyNamespace
 }
 ```
 
-## Using injected dependencies
+## Use injected dependencies
 
 ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
 
