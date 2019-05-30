@@ -21,7 +21,7 @@ The release notes are continuously updated. As critical issues requiring a worka
 Update 1.2 corresponds to the software version **10.0.10311.0**.
 
 > [!IMPORTANT]
-> - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions which packages to download to apply the update, go to [Download Update 1.2](#download-update-12).
+> - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on packages used to apply this update, go to [Download Update 1.2](#download-update-12).
 >
 > - Update 1.2 is available to you via the Azure portal only if your device is running Update 1.0 or 1.1.
 
@@ -29,12 +29,12 @@ Update 1.2 corresponds to the software version **10.0.10311.0**.
 
 This update contains the following bug fixes:
 
-- Improved resiliency when processing deleted files
+- Improved resiliency when processing deleted files.
 - Improved handling exceptions in the code startup path leading to reduced failures in backups, restore, cloud-reads, and automated space reclamation.
 
 ## Download Update 1.2
 
-To download this update, go to the [catalog server](https://www.catalog.update.microsoft.com/Home.aspx), and download the KB4502035 package. This package contains the following packages:
+To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4502035 package. This package contains the following packages:
 
  - **KB4493446** that contains cumulative Windows Updates for 2012 R2 up to April 2019. For more information on what is included in this rollup, go to [April monthly security rollup](https://support.microsoft.com/help/4493446/windows-8-1-update-kb4493446).
  - **KB3011067** which is a Microsoft Update Standalone Package file WindowsTH-KB3011067-x64. This file is used to update the device software.
