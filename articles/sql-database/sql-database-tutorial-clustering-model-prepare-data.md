@@ -69,10 +69,10 @@ The sample dataset used in this tutorial has been saved to a **.bacpac** databas
 Create a new RScript file in RStudio and run the following script.
 In the SQL query, you're separating customers along the following dimensions:
 
-* **frequency** = return frequency
 * **orderRatio** = return order ratio (total number of orders partially or fully returned versus the total number of orders)
 * **itemsRatio** = return item ratio (total number of items returned versus the number of items purchased)
 * **monetaryRatio** = return amount ratio (total monetary amount of items returned versus the amount purchased)
+* **frequency** = return frequency
 
 In the **paste** function, replace **Server**, **UID**, and **PWD** with your own connection information.
 
