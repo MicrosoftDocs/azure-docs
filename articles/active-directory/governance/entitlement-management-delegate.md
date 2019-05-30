@@ -22,7 +22,12 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Delegate tasks in Azure AD entitlement management
+# Delegate tasks in Azure AD entitlement management (Preview)
+
+> [!IMPORTANT]
+> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. Instead of granting unrestricted permissions, you should grant users the least permissions they need to perform their job. This article describes the roles that you can assign to delegate various tasks in entitlement management.
 
