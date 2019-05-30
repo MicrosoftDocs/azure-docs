@@ -1,5 +1,5 @@
 ---
-title: Account Migration from Cloud Partner Portal to Partner Center
+title: Account migration from Cloud Partner Portal to Partner Center
 description: How to migrate your account from CPP to Partner Center. 
 author: qianw211
 manager: evansma
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ---
 
-# Account Migration from Cloud Partner Portal to Partner Center
+# Account migration from Cloud Partner Portal to Partner Center
 
 When your offers are migrated over from the Cloud Partner Portal (CPP) to Partner Center (PC), they get locked for editing in CPP. At this point, your account settings need to be migrated over to Partner Center.  Both your account settings, as well as your offers, can be managed in Partner Center.
 
