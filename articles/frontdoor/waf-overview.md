@@ -98,6 +98,18 @@ Default Rule Set is enabled by default in Detection mode in your WAF policies. Y
 Default action is to BLOCK. In addition, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, corresponding rule action is applied, and the request is either blocked or passed through to back-end, without invocation of any further custom rules or the rules in the Default Rule Set. Furthermore, you have the option to remove Default Rule Set from your WAF policies.
 
+
+### Bot protection rule (preview)
+
+A managed Bot protection rule set can be enabled for your WAF to take custom actions on requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
+
+![Bot Protection Rule Set](./media/waf-front-door-bot-protection/BotProtect.png)
+
+> [!IMPORTANT]
+> Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+
+If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged at FrontdoorWebApplicationFirewallLog log. You may access WAF logs from storage account, event hub or log analytics. 
+
 ## Configuration
 
 Configuring and deploying all WAF rule types is fully supported using Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell.
