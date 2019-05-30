@@ -29,36 +29,39 @@ Before deploying SSPR, you may want to determine how many password reset related
 
 ## How SSPR works
 
-When a user attempts to reset a password, they first verify their previously registered authentication method or methods to prove their identity. Then they provide a new password. For cloud-only users, the new password is stored in Azure Active Directory. For more information see How SSPR works.
-For hybrid users, the password is written back to the on-premises Active Directory via the Azure AD Connect service. To understand this scenario in depth, review our documentation on how to configure password writeback.  
+1. When a user attempts to reset a password, they must verify their previously registered authentication method or methods to prove their identity.
+1. Then the user enters a new password.
+   1. For cloud-only users, the new password is stored in Azure Active Directory. For more information, see the article [How SSPR works](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
+   1. For hybrid users, the password is written back to the on-premises Active Directory via the Azure AD Connect service. For more information, see the article [What is password writeback](concept-sspr-writeback.md#how-password-writeback-works).
 
-## Environments with multiple identity management systems
+### Environments with multiple identity management systems
 
-If there are multiple identity management systems within an environment such as on-premise Identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to the master Active Directory may need to be synchronized to the other systems using a sync engine such as PCNS plug-in with MIM (Microsoft Identity Manager). To find information on this more complex scenario, see Deploy the MIM Password Change Notification Service on a domain controller.
+If there are multiple identity management systems within an environment such as on-premises identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to Active Directory may need to be synchronized to the other systems using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
-Before you get started, check out these videos to learn more about deployment and rollout:  
+## Licensing considerations
 
-## Deploying self-service password reset
+Azure Active Directory is license per-user meaning each user has to have an appropriate license for the features they utilize.
 
-### How to roll out self-service password reset
+* Self-service password reset for cloud-only users is available with Azure AD Basic or above.
+* Self-service password reset with on-premises writeback for hybrid environments requires Azure AD Premium P1 or above.
 
-#### Licensing Considerations
+More information about licensing can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/)
 
-While SSPR functionality comes with editions of Azure active Directory, it is often deployed in conjunction with features that are available only in specific editions. See the Azure Active Directory licensing information.
+## Enable combined registration for SSPR and MFA
 
-### Enable Combined SSPR and MFA Registration
+Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
 
-Microsoft recommends that you enable a combined registration for SSPR and multi-factor authentication. When you enable this combined registration, users need only select their registration information once to enable both features. Read more about Enabling combined security information registration.  You do not need to configure MFA when enabling combined registration; it improves the user experience when and if you later enable it.
+![Combined security information registraion](./media/howto-sspr-deployment-plan/combined-security-info.png)
 
-When enabling combined registration, select a group that includes users for which you want to run a pilot of the SSPR process. Users register for combined SSPR and MFA at https://myprofile.microsoft.com.
+The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication to use. The combined registration experience provides organizations a better user experience compared to the traditional individual components. More information about combined registration, and how to enable, can be found in the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md)
 
-### Plan configuration of the SSPR Service
+### Plan the configuration
 
-Administrators configure the Azure AD SSPR Service with several settings. Following are recommendations for the specific configurations an administrator can make as part of an SSPR deployment. Explanations for each follow
+The following settings are required to enable SSPR along with recommended values.
 
 | Area | Setting | Value |
 | --- | --- | --- |
-| SSPR Properties | Enforce SSPR | Group for pilot / All for production |
+| SSPR Properties | Self-service password reset enabled | **Selected** group for pilot / **All** for production |
 | Authentication methods | Authentication methods required to register | Minimum 3, always 1 more than required for reset |
 |   | Authentication methods required to reset | One or two |
 | Registration | Require users to register when signing in | Yes |
