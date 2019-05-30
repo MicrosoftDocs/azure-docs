@@ -371,7 +371,7 @@
             - name: Avoid page reloads
               href: msal-js-avoid-page-reloads.md
             - name: Pass custom state in authentication requests
-              href: msal-js-pass-custom-state-parameter-in-auth-request.md
+              href:  msal-js-pass-custom-state-authentication-request.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
