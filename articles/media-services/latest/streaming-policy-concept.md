@@ -39,7 +39,7 @@ Click the image to view it full size.
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-If encrypting your content with a DRM, you need to create a [Content Key Policy](content-key-policy-concept.md) and associate it with your Streaming Locator. The **Content Key Policy** is not needed for clear streaming or downloading. 
+If encrypting your content, you need to create a [Content Key Policy](content-key-policy-concept.md), the **Content Key Policy** is not needed for clear streaming or downloading. 
 
 If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can [create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) a custom Streaming Policy. 
 
