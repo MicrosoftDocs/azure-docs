@@ -50,6 +50,8 @@
     href: supported-browsers.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
+  - name: Mobility Service data structure
+    href: mobility-service-data-structure.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts

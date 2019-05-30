@@ -31,7 +31,7 @@ This article uses the [Postman app](https://www.getpostman.com/apps) to build RE
 
 ## Request real-time arrivals for a stop
 
-In order to request real-time arrivals data for a particular public transit stop, you will need to make a request to the [Real-time Arrivals API](https://docs.microsoft.com/en-us/rest/api/mobility/getrealtimearrivalspreview) of the Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService). You will need the **metroID** and **stopID** to complete the request. To learn more about how to request these parameters, see our How-to guide to [request public transit routes](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
+In order to request real-time arrivals data for a particular public transit stop, you will need to make a request to the [Real-time Arrivals API](https://aka.ms/AzureMapsMobilityRealTimeArrivals) of the Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService). You will need the **metroID** and **stopID** to complete the request. To learn more about how to request these parameters, see our How-to guide to [request public transit routes](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
 
 Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–Bellevue, WA" area, and use the stop ID "2060603", which is a bus stop at "Ne 24th St & 162nd Ave Ne, Bellevue WA". To request next five real-time arrivals data for all next live arrivals at this stop, complete the following steps:
 
