@@ -27,12 +27,19 @@ Update 1.2 corresponds to the software version **10.0.10311.0**.
 
 ## What's new in Update 1.2
 
-This update contains the following packages available on the catalog server:
+This update contains the following bug fixes:
+
+- Improved resiliency when processing deleted files
+- Improved handling exceptions in the code startup path leading to reduced failures in backups, restore, cloud-reads, and automated space reclamation.
+
+## Download Update 1.2
+
+To download this update, go to the [catalog server](https://www.catalog.update.microsoft.com/Home.aspx), and download the KB4502035 package. This package contains the following packages:
 
  - **KB4493446** that contains cumulative Windows Updates for 2012 R2 up to April 2019. For more information on what is included in this rollup, go to [April monthly security rollup](https://support.microsoft.com/help/4493446/windows-8-1-update-kb4493446).
  - **KB3011067** which is a Microsoft Update Standalone Package file WindowsTH-KB3011067-x64. This file is used to update the device software.
 
-Download these packages from the catalog server and follow these instructions to [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
+Download KB4502035 and follow these instructions to [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
 ## Issues fixed in Update 1.2
 
@@ -40,41 +47,21 @@ The following table provides a summary of issues fixed in this release.
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-| 1 |Backups| This release contains changes that have improved the backup failures by increasing resiliency to cloud failures and high CPU usage.|
-| 2 |Logging| This release contains changes to logging while the device is in Support session in verbose mode.|
-
+| 1 |Deletion| In the previous versions of the software, there was an issue when the usage of the device didn't change even when files were deleted. This issue is fixed in this version. Tiering code path was made more resilient when processing deleted files.|
+| 2 |Exception handling| In the previous versions of the software, there was an issue following the system reboot that could potentially lead to failures in backups, restore, reading from the cloud, and automated space reclamation. This release contains changes as to how the exceptions were handled in the startup path.|
 
 ## Known issues in Update 1.2
 
-The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases.
-
-| No. | Feature | Issue | Workaround/comments |
-| --- | --- | --- | --- |
-| **1.** |Updates |The virtual arrays created in the preview release cannot be updated to a supported General Availability version. |These virtual arrays must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
-| **2.** |Provisioned data disk |Once you have provisioned a data disk of a certain specified size and created the corresponding StorSimple Virtual Array, you must not expand or shrink the data disk. Attempting to do results in a loss of all the data in the local tiers of the device. | |
-| **3.** |Group policy |When a device is domain-joined, applying a group policy can adversely affect the device operation. |Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it. |
-| **4.** |Local web UI |If enhanced security features are enabled in Internet Explorer (IE ESC), some local web UI pages such as Troubleshooting or Maintenance may not work properly. Buttons on these pages may also not work. |Turn off enhanced security features in Internet Explorer. |
-| **5.** |Local web UI |In a Hyper-V virtual machine, the network interfaces in the web UI are displayed as 10 Gbps interfaces. |This behavior is a reflection of Hyper-V. Hyper-V always shows 10 Gbps for virtual network adapters. |
-| **6.** |Tiered volumes or shares |Byte range locking for applications that work with the StorSimple tiered volumes is not supported. If byte range locking is enabled, StorSimple tiering does not work. |Recommended measures include: <br></br>Turn off byte range locking in your application logic.<br></br>Choose to put data for this application in locally pinned volumes as opposed to tiered volumes.<br></br>*Caveat*: When using locally pinned volumes and byte range locking is enabled, the locally pinned volume can be online even before the restore is complete. In such instances, if a restore is in progress, then you must wait for the restore to complete. |
-| **7.** |Tiered shares |Working with large files could result in slow tier out. |When working with large files, we recommend that the largest file is smaller than 3% of the share size. |
-| **8.** |Used capacity for shares |You may see share consumption when there is no data on the share. This consumption is because the used capacity for shares includes metadata. | |
-| **9.** |Disaster recovery |You can only perform the disaster recovery of a file server to the same domain as that of the source device. Disaster recovery to a target device in another domain is not supported in this release. |This is implemented in a later release. For more information, go to [Failover and disaster recovery for your StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
-| **10.** |Azure PowerShell |The StorSimple Virtual Arrays cannot be managed through the Azure PowerShell in this release. |All the management of the virtual devices should be done through the Azure portal and the local web UI. |
-| **11.** |Password change |The virtual array device console only accepts input in en-us keyboard format. | |
-| **12.** |CHAP |CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you need to take the volumes offline and then bring them online for the change to take effect. |This issue is addressed in a later release. |
-| **13.** |iSCSI server |The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Device Manager service and the iSCSI host. |The iSCSI host has the filesystem view.<br></br>The device sees the blocks allocated when the volume was at the maximum size. |
-| **14.** |File server |If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery. | |
-| **15.** |File server |Symbolic links are not supported. | |
-| **16.** |File server |Files protected by Windows Encrypting File System (EFS) when copied over or stored on the StorSimple Virtual Array file server result in an unsupported configuration.  | |
-| **17.** |Updates |If you see Error code: 2359302 (hex 0x240006) when trying to install a hotfix through the local UI, then this implies that the hotfix is already installed on your device.   | |
-| **18.** |Updates |If you use the local web UI to install Update 1 on your virtual array, you must ensure that you are running Update 0.6. If you are running a version lower than Update 0.6, you must install Update 0.6 first and then apply Update 1. If you directly install Update 1.0 from a pre-Update 0.6 version, then you will miss some updates and the monitoring charts will not work.   | |
-
+No new issues were release noted in Update 1.2. All the release noted issues are carried over from previous release. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.1](storsimple-virtual-array-update-11-release-notes.md#known-issues-in-update-11).
 
 ## Next steps
-[Install Update 1.1](storsimple-virtual-array-install-update-11.md) on your StorSimple Virtual Array.
+
+[Install Update 1.2](storsimple-virtual-array-install-update-11.md) on your StorSimple Virtual Array.
 
 ## References
+
 Looking for an older release note? Go to:
+* [StorSimple Virtual Array Update 1.1 Release Notes](storsimple-virtual-array-update-11-release-notes.md)
 * [StorSimple Virtual Array Update 1.0 Release Notes](storsimple-virtual-array-update-1-release-notes.md)
 * [StorSimple Virtual Array Update 0.6 Release Notes](storsimple-virtual-array-update-06-release-notes.md)
 * [StorSimple Virtual Array Update 0.5 Release Notes](storsimple-virtual-array-update-05-release-notes.md)
