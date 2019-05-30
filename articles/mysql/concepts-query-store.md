@@ -16,6 +16,15 @@ ms.date: 05/23/2019
 
 The Query Store feature in Azure Database for MySQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in the **mysql** schema database in the Azure Database for MySQL instance.
 
+## Common scenarios for using Query Store include:
+
+- Determining the number of times a query was executed in a given time window
+- Comparing the average execution time of a query across time windows to see large deltas
+- Identifying longest running queries in the past X hours
+- Identifying top N queries that are waiting on resources
+- Understanding wait nature for a query
+- Detecting regressed queries
+
 ## Enabling Query Store
 
 Query Store is an opt-in feature, so it isn't active by default on a server. The query store is enabled or disabled globally for all the databases on a given server and cannot be turned on or off per database.
@@ -54,14 +63,6 @@ Or this query for wait stats:
 ```sql
 SELECT * FROM mysql.query_store_wait_stats;
 ```
-
-## Common scenarios for using Query Store include:
-- Determining the number of times a query was executed in a given time window
-- Comparing the average execution time of a query across time windows to see large deltas
-- Identifying longest running queries in the past X hours
-- Identifying top N queries that are waiting on resources
-- Understanding wait nature for a query
-- Detecting regressed queries
 
 ## Finding wait queries
 
