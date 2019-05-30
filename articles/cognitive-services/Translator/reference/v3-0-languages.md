@@ -3,14 +3,14 @@ title: Translator Text API Languages Method
 titlesuffix: Azure Cognitive Services
 description: Use the Translator Text API Languages method.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
+ms.author: v-pawal
 ---
 
 # Translator Text API 3.0: Languages
