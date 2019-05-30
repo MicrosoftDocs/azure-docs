@@ -35,7 +35,7 @@ This article shows you how to access the new Azure API Management developer port
 You can build your developer portal in two ways:
 
 - **Managed version** - by editing and customizing the portal built-into your API Management instance and accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`.
-- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. For details and instructions, refer to the //[GitHub repository with the source code of the portal][1].
+- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. For details and instructions, refer to the [GitHub repository with the source code of the portal][1].
 
 ## Access the managed version of the portal
 
