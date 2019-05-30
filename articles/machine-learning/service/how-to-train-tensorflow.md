@@ -22,7 +22,7 @@ With Azure Machine Learning service, you'll be able to rapidly scale out your op
 
 - Install the Azure Machine Learning SDK for Python
 - Optional: Create a workspace configuration file
-- Sample training script files `mnist-tf.py` and `utils.py`
+- Download the sample training [script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
 
 You can follow the [Python SDK setup guide](setup-create-workspace.md#sdk) for step-by-step instructions on setting up your environment. The sample training files can be found on our [GitHub samples page](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) along with the extended, Juypter Notebook version of this guide.
 
