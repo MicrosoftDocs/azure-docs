@@ -237,8 +237,6 @@
       href: search-filters-facets.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
-    - name: Filter and OrderBy expression syntax and examples
-      href: query-odata-filter-orderby-syntax.md
   - name: Handle results
     items:
     - name: Page-related features
@@ -279,6 +277,27 @@
     href: search-api-preview.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
+  - name: OData language reference
+    href: query-odata-filter-orderby-syntax.md
+    items:
+    - name: Collections - any, all
+      href: search-query-odata-collection-operators.md
+    - name: Comparisons - eq, ne, gt, lt, ge, le
+      href: search-query-odata-comparison-operators.md
+    - name: Full-text Search - search.ismatch[scoring]
+      href: search-query-odata-full-text-search-functions.md
+    - name: Geo-spatial - geo.distance, geo.intersects
+      href: search-query-odata-geo-spatial-functions.md
+    - name: Boolean Logic - and, or, not
+      href: search-query-odata-logical-operators.md
+    - name: Set Membership - search.in
+      href: search-query-odata-search-in-function.md
+    - name: Sort by Score - search.score
+      href: search-query-odata-search-score-function.md
+    - name: Understanding OData collection filters
+      href: search-query-odata-understanding-collections.md
+    - name: OData Language Grammar
+      href: search-query-odata-syntax-reference.md
   - name: Cognitive skills reference
     href: cognitive-search-predefined-skills.md
     items:

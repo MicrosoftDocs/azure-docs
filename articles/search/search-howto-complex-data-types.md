@@ -8,7 +8,7 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/30/2019
 ms.custom: seodec2018
 ---
 # How to model complex data types in Azure Search
@@ -69,7 +69,7 @@ Indexers are a different story. When defining an indexer, in particular one used
 {
   "name": "hotels",
   "fields": [
-    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true 	},
+    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true },
     { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
     { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
     { "name": "Address", "type": "Edm.ComplexType",
@@ -104,56 +104,58 @@ Notice that within a complex type, each sub-field has a type and may have attrib
 
 Updating existing documents in an index with the upload action works the same way for complex and simple fields -- all fields are replaced. However, merge (or mergeOrUpload when applied to an existing document) doesn't work the same across all fields. Specifically, merge does not have the ability to merge elements within a collection. This is true for collections of primitive types, as well as complex collections. To update a collection, you will need to retrieve the full collection value, make changes, and then include the new collection in the Index API request.
 
-
 ## Searching complex fields
 
-Free-form search expressions work as expected with complex types. If any searchable field or sub-field anywhere in a document matches, then the document itself is a match. 
+Free-form search expressions work as expected with complex types. If any searchable field or sub-field anywhere in a document matches, then the document itself is a match.
 
 Queries get more nuanced when you have multiple terms and operators, and some terms have field names specified, as is possible with the [Lucene syntax](query-lucene-syntax.md). For example, this query attempts to match two terms, "Portland" and "OR", against two sub-fields of the Address field:
 
-```json
-search=Address/City:Portland AND Address/State:OR
-```
+    search=Address/City:Portland AND Address/State:OR
 
-Queries like this are uncorrelated for full-text search (unlike filters, where queries over sub-fields of a complex collection can be correlated using any or all, like a correlated sub-query in SQL). This means that the Lucene query above would return documents containing "Portland, Maine" as well as "Portland, Oregon", and other cities in Oregon. This is because each clause is evaluated against all values of the specified field in the entire document, so there is no notion of a "current sub-document". 
-
- 
+Queries like this are uncorrelated for full-text search (unlike filters, where queries over sub-fields of a complex collection can be correlated using any or all, like a correlated sub-query in SQL). This means that the Lucene query above would return documents containing "Portland, Maine" as well as "Portland, Oregon", and other cities in Oregon. This is because each clause is evaluated against all values of the specified field in the entire document, so there is no notion of a "current sub-document".
 
 ## Selecting complex fields
 
 The `$select` parameter is used to choose which fields are returned in search results. To use this parameter to select specific sub-fields of a complex field, include the parent field and sub-field separated by a slash (`/`).
 
-```json
-$select=HotelName, Address/City, Rooms/BaseRate
-```
+    $select=HotelName, Address/City, Rooms/BaseRate
 
-Fields must be marked as Retrievable in the index if you want them in search results. Only fields marked as Retrievable can be used in a `$select` statement. 
-
+Fields must be marked as Retrievable in the index if you want them in search results. Only fields marked as Retrievable can be used in a `$select` statement.
 
 ## Filter, facet, and sort complex fields
 
-The same [OData path syntax](query-odata-filter-orderby-syntax.md) used for filtering and fielded searches can also be used for faceting, sorting, and selecting fields in a search request. For complex types, rules apply that govern which sub-fields can be marked as sortable or facetable. 
+The same [OData path syntax](query-odata-filter-orderby-syntax.md) used for filtering and fielded searches can also be used for faceting, sorting, and selecting fields in a search request. For complex types, rules apply that govern which sub-fields can be marked as sortable or facetable. See the [Create Index API reference](https://docs.microsoft.com/rest/api/searchservice/create-index#request) for details on these rules.
 
-### Faceting sub-fields 
+### Faceting sub-fields
 
-Any sub-field can be marked as facetable unless it is of type `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)`. 
+Any sub-field can be marked as facetable unless it is of type `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)`.
 
 When document counts are returned for the faceted navigation structure, the counts are relative to the parent document (a hotel), not to nested documents within a complex collection (rooms). For example, suppose a hotel has 20 rooms of type "suite". Given this facet parameter `facet=Rooms/Type`,
-the facet count will be one for the parent document (hotels) and not intermediate sub-documents (rooms). 
+the facet count will be one for the parent document (hotels) and not intermediate sub-documents (rooms).
 
 ### Sorting complex fields
 
-Sort operations apply to documents (Hotels) and not sub-documents (Rooms). When you have a complex type collection, such as Rooms, it's important to realize that you cannot sort on Rooms at all. In fact, you cannot sort on any collection. 
+Sort operations apply to documents (Hotels) and not sub-documents (Rooms). When you have a complex type collection, such as Rooms, it's important to realize that you cannot sort on Rooms at all. In fact, you cannot sort on any collection.
 
-Sort operations work when fields are single-valued, whether as a simple field, or as a sub-field in a complex type. For example, `$orderby=Address/ZipCode` complex type is sortable because there is only one zip code per hotel. 
+Sort operations work when fields have a single value per document, whether the field is a simple field, or a sub-field in a complex type. For example, `Address/City` is allowed to be sortable because there is only one address per hotel, and therefore `$orderby=Address/City` will sort hotels by city.
 
-Restating the rules around sorting, within an index field must be marked as Filterable and Sortable to be used in an `$orderby` statement. 
+### Filtering on complex fields
+
+Filter expressions can refer to sub-fields of a complex field using the same [OData path syntax](query-odata-filter-orderby-syntax.md) used for faceting, sorting, and selecting fields. For example, the following filter will return all hotels in Canada:
+
+    $filter=Address/Country eq 'Canada'
+
+To filter on a complex collection field, you can use a **lambda expression** with the [`any` and `all` operators](search-query-odata-collection-operators.md). In that case, the **range variable** of the lambda expression is an object, and you can refer to sub-fields of that object with the standard OData path syntax. For example, the following filter will return all hotels with at least one deluxe room and all non-smoking rooms:
+
+    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+
+As with top-level simple fields, simple sub-fields of complex fields can only be included in filters if they have the **filterable** attribute set to `true` in the index definition. See the [Create Index API reference](https://docs.microsoft.com/rest/api/searchservice/create-index#request) for more details.
 
 ## Next steps
 
- Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme to access the data. 
- 
- With that information in hand, your first step in the wizard is to create a new Azure Cosmos DB data source. Further on in the wizard, when you get to the target index page, you will see an index with complex types. Create and load this index, and then execute queries to understand the new structure.
+Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme to access the data.
+
+With that information in hand, your first step in the wizard is to create a new Azure Cosmos DB data source. Further on in the wizard, when you get to the target index page, you will see an index with complex types. Create and load this index, and then execute queries to understand the new structure.
 
 > [!div class="nextstepaction"]
 > [Quickstart: portal wizard for import, indexing, and queries](search-get-started-portal.md)
