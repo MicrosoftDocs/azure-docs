@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ---
 # Set up IP addressing to connect to a secondary on-premises site after failover
