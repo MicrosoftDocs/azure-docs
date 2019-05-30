@@ -31,4 +31,4 @@
     ![Select Project Settings](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. If you haven't downloaded the **google-services.json** file, you can do so on this page. 
 5. Switch to the **Cloud Messaging** tab at the top. 
-6. Copy and save the **Server key** for later use. You use this value to configure your notification hub.
+6. Copy and save the **Legacy Server key** for later use. You use this value to configure your notification hub.
