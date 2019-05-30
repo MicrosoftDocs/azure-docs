@@ -88,7 +88,7 @@ The following example shows how to check the thumbprint of a client certificate 
 
 ![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
-## Next step
+## Next steps
 
 -   [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 -   [How to upload certificates](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
