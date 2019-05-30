@@ -47,6 +47,10 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: High availability
+      items:
+        - name: Resiliency and disaster recovery
+          href: concept-disaster-recovery.md
 - name: How-to guides
   items:
     - name: Integrate with Azure Managed Service Identity
