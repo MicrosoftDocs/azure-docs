@@ -26,7 +26,7 @@ In this tutorial, you set up a .NET console application to read information from
 > [!div class="checklist"]
 > * Create a key vault
 > * Store a secret in Key Vault
-> * Create an Azure Linux Virtual Machine
+> * Create an Azure Linux virtual machine
 > * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine
 > * Grant the required permissions for the console application to read data from Key Vault
 > * Retrieve a secret from Key Vault
@@ -168,7 +168,7 @@ ssh azureuser@<PublicIpAddress>
 
 On your Linux VM:
 
-Register the Microsoft Product key as trusted by running the following commands:
+Register the Microsoft product key as trusted by running the following commands:
 
    ```console
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
