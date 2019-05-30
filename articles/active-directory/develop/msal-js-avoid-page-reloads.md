@@ -34,7 +34,7 @@ To avoid the entire app reloading again or other errors caused due to this, plea
 
 Set the `redirect_uri` property on config to a simple page, that does not require authentication. You have to make sure that it matches with the `redirect_uri` registered in Azure portal. This will not affect user's login experience as MSAL saves the start page when user begins the login process and redirects back to the exact location after login is completed.
 
-## Perform conditional initialization in your main app file
+## Initialization in your main app file
 
 If your app is structured such that there is one central Javascript file that defines the app's initialization, routing, and other stuff, you can conditionally load your app modules based on whether the app is loading in an `iframe` or not. For example:
 
@@ -145,3 +145,6 @@ export class MsalComponent {
   }
 }
 ```
+
+## Next steps
+Learn more about [building a single-page application (SPA)](scenario-spa-overview.md) using MSAL.js.

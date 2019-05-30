@@ -69,3 +69,6 @@ export type AuthResponse = {
     accountState: string;
 };
 ```
+
+## Next steps
+Learn more about [building a single-page application (SPA)](scenario-spa-overview.md) using MSAL.js.
