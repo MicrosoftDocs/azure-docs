@@ -15,9 +15,9 @@ First, [download and import the Windows Virtual Desktop PowerShell module](https
 
 ## Configure a RemoteApp
 
-The default FriendlyName for a RemoteApp is same as the Name. Configuring this change would allow Users to easily identify the Application among the multiple feed they might be assigned to.
+The default FriendlyName for a RemoteApp is same as the Name. Configuring this change would allow Users to easily identify a specific application.
 
-To retirieve the RemoteApp, run the following PowerShell cmdlet:
+To retrieve the RemoteApp, run the following PowerShell cmdlet:
 
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
@@ -33,7 +33,7 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 
 ## Configure a RemoteDesktop
 
-The default FriendlyName for a RemoteDesktop is same as the Name. Configuring this change would allow Users to easily identify the Desktop among the multiple feed they might be assigned to.
+The default FriendlyName for a RemoteDesktop is same as the Name. Configuring this change would allow Users to easily identify a specific desktop.
 
 To retrieve the RemoteDesktop, run the following PowerShell cmdlet:
 
