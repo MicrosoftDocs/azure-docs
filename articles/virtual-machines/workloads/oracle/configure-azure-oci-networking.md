@@ -23,13 +23,12 @@ This article describes how to configure the network interconnection between Orac
  
 Peering the Azure and OCI networks allows resources in the two virtual networks to communicate as if it they are in the same virtual network. This setup allows for secure, fast connectivity between the two clouds without the need for an intermediate service provider, which is generally needed for ExpressRoute and FastConnect circuits.
 
-The following image shows a high-level view of the cross-cloud network:
+The following image shows a high-level overiew of the cross-cloud network:
 
 ![](media/oracle-asm/azure-oci-connect.png)
 
 > [!NOTE]
-> * ExpressRoute typically charges for outbound data transfers. However, there are no egress charges across the clouds over the link between ExpressRoute and FastConnect.
-> * Depending on your application scenario, you might to provision a separate ExpressRoute or FastConnect circuit to connect your on-premises network to Azure or OCI via a private connection. 
+> Depending on your application scenario, you might to provision a separate ExpressRoute or FastConnect circuit to connect your on-premises network to Azure or OCI via a private connection. 
 
 ## Terminology
 
