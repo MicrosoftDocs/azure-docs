@@ -7,7 +7,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/24/2019
+ms.date: 05/30/2019
 ---
 # Configure outbound network traffic restriction for Azure HDInsight clusters (Preview)
 
@@ -56,7 +56,7 @@ On the **Add application rule collection** screen, complete the following steps:
         1. Enter `https:443` under **Protocol:Port** and `login.windows.net` under **Target FQDNS**.
     1. If your cluster is backed by WASB and you are not using the service endpoints above, then add a rule for WASB:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Enter `http` or `https` depending on if you are using wasb:// or wasbs:// under **Protocol:Port** and the storage account url under **Target FQDNS**.
+        1. Enter `http` or [https] depending on if you are using wasb:// or wasbs:// under **Protocol:Port** and the storage account url under **Target FQDNS**. The format will be similar to <storage_account_name.blob.core.windows.net>.
 1. Click **Add**.
 
 ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -69,29 +69,29 @@ Create the network rules to correctly configure your HDInsight cluster.
 1. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
 1. On the **Add network rule collection** screen, enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
 1. Create the following rules:
-    1. A network rule that allows the cluster to perform clock sync using NTP.
-        1. In the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+    1. A network rule in the IP Addresses section that allows the cluster to perform clock sync using NTP.
+        1. In the **Rules** section, provide a **Name** and select **UDP** from the **Protocol** dropdown.
         1. Set **Source Addresses** and **Destination addresses** to `*`.
         1. Set **Destination Ports** to 123.
-    1. If you are using Enterprise Security Package (ESP), then add a network rule that allows communication with AAD-DS for ESP clusters.
+    1. If you are using Enterprise Security Package (ESP), then add a network rule in the IP Addresses section that allows communication with AAD-DS for ESP clusters.
         1. Determine the two IP addresses for your domain controllers.
         1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Enter all of the IP addresses for your domain controllers in **Destination addresses** separated by commas.
         1. Set **Destination Ports** to `*`.
-    1. If you are using Azure Data Lake Storage, then you can add a network rule to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
+    1. If you are using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
         1. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.
-        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Enter the IP address for your storage account in **Destination addresses**.
         1. Set **Destination Ports** to `*`.
-    1. (Optional) If you are using Log Analytics, then create a network rule to enable communication with your Log Analytics workspace.
-        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+    1. (Optional) If you are using Log Analytics, then create a network rule in the IP Addresses section to enable communication with your Log Analytics workspace.
+        1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
         1. Set **Destination Ports** to `12000`.
-    1. Configure a service tag for SQL that will allow you to log and audit SQL traffic.
-        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+    1. Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet.
+        1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
         1. Select **Sql** from the **Service Tags** dropdown.
@@ -107,7 +107,7 @@ Create a route table with the following entries:
 1. Seven addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of **Internet**:
     1. Four IP addresses for all clusters in all regions
     1. Two IP addresses that are specific for the region where the cluster is created
-    1. One IP address for Azure's recursive resolver
+    1. One IP address for Azure's recursive resolver and load balancer health checking source IP address
 1. One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
 
 For example, to configure the route table for a cluster created in the US region of "Central US", use following steps:
@@ -129,15 +129,11 @@ For example, to configure the route table for a cluster created in the US region
 | 168.63.129.16 | 168.63.129.16/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | 10.1.1.4 |
 
-![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
-
 Complete the route table configuration:
 
 1. Assign the route table you created to your HDInsight subnet by clicking **Subnets** under **Settings** and then **Associate**.
-1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **AzureFirewallSubnet** that you created for use with your firewall.
+1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **HDInsight Subnet** you used for your HDInsight cluster.
 1. Click **OK**.
-
-![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
 
 ## Edge-node application traffic
 
