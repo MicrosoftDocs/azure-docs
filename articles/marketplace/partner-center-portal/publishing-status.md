@@ -13,6 +13,18 @@ ms.date: 05/30/2019
 
 You can view your current **Publishing status** on the **Offer overview** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
 
+One of the following status indicators should be displayed for each offer.
+
+| **Status**    | **Description**  |
+| :---------- | :-------------------|
+| **Draft** | Offer has been created but it isn’t being published. |
+| **Publish in progress** | Offer/Plan is working its way through the steps of the publishing process. |
+| **Attention needed** | A critical issue was discovered during certification by Microsoft or any of the publishing steps. |
+| **Preview** | Offer was certified by Microsoft, and now awaits a final verification by the publisher. Select go live to make the offer live. |
+| **Live** | Offer is live in the marketplace and can be seen and acquired by customers. |
+| **Pending stop sell** | Publisher selected "stop sell" on offer or plan, but the action has not yet been completed. |
+| **Not available in the marketplace** | A previously published offer/plan in the marketplace has been removed. |
+
 ## Automated validation
 
 The first step in the publishing process is a set of automated validations. Each validation step corresponds to a feature you chose to enable in the creation of your offer. If that feature was not enabled, the validation skips ahead to the next publishing step. Each validation check must be completed before the publishing status is approved.
