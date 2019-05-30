@@ -39,7 +39,7 @@ To successfully complete your "content protection" system/application design, yo
   
    The example shows how to:
 
-   1. Create and configure a [Content Key Policies](content-key-policy-concept.md). If encrypting your content with a DRM, you need to create the **Content Key Policy**. This policy is not needed for clear streaming or downloading. You create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients.    
+   1. Create and configure a [Content Key Policies](content-key-policy-concept.md). You create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients.    
 
       * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
       * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.

@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 04/23/2019
+ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -21,7 +21,7 @@ Use Visual Studio to develop C code and deploy it to a Windows device running Az
 You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
-> * Use Visual Studio to create an IoT Edge module that's based on the .NET Core 2.1 SDK.
+> * Use Visual Studio to create an IoT Edge module that's based on the C SDK.
 > * Use Visual Studio and Docker to create a Docker image and publish it to your registry.
 > * Deploy the module to your IoT Edge device.
 > * View generated data.
@@ -32,11 +32,11 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Solution scope
 
-This tutorial demonstrates how to develop a module in **C** using **Visual Studio 2017**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C IoT Edge module for Linux devices](tutorial-c-module.md) instead. 
+This tutorial demonstrates how to develop a module in **C** using **Visual Studio 2019**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C IoT Edge module for Linux devices](tutorial-c-module.md) instead. 
 
 Use the following table to understand your options for developing and deploying C modules to Windows devices: 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
+| C | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Develop C modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 
@@ -47,31 +47,35 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A [Windows device running Azure IoT Edge](quickstart.md).
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017), version 15.7 or higher, configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extension.
+* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
 * [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
 * The Azure IoT SDK for C. 
 
+> [!TIP]
+> If you are using Visual Studio 2017 (version 15.7 or higher), please download and install [Azure IoT Edge Tools (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
+
 ## Create a module project
 
-The following steps create an IoT Edge module project that's based on the .NET Core 2.0 SDK by using Visual Studio and the Azure IoT Edge Tools extension. Once you have a project template created, add new code so that the module filters out messages based on their reported properties. 
+The following steps create an IoT Edge module project that's based on the C SDK by using Visual Studio and the Azure IoT Edge Tools extension. Once you have a project template created, add new code so that the module filters out messages based on their reported properties. 
 
 ### Create a new project
 
 Create a C solution template that you can customize with your own code.
 
-1. Run Visual Studio as an administrator.
+1. Launch Visual Studio 2019 and select **Create New Project**.
 
-2. Select **File** > **New** > **Project**. 
-
-3. In the new project window, select the **Azure IoT** project type and choose the **Azure IoT Edge** project. Rename the project and solution to something descriptive like **CTutorialApp**. Select **OK** to create the project. 
+2. In the new project window, search **IoT Edge** project and choose the **Azure IoT Edge (Windows amd64)** project. Click **Next**. 
 
    ![Create a new Azure IoT Edge project](./media/tutorial-c-module-windows/new-project.png)
+
+3. In the configure your new project window, rename the project and solution to something descriptive like **CTutorialApp**. Click **Create** to create the project. 
+
+   ![Configure a new Azure IoT Edge project](./media/tutorial-c-module-windows/configure-project.png)
 
 4. In the IoT Edge application and module window, configure your project with the following values: 
 
    | Field | Value |
    | ----- | ----- |
-   | Application platform | Uncheck **Linux Amd64**, and check **WindowsAmd64**. |
    | Select a template | Select **C Module**. | 
    | Module project name | Name your module **CModule**. | 
    | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/cmodule. |
