@@ -28,7 +28,7 @@ By default, Global administrators and User administrators can create and manage 
 
 ## Entitlement management roles
 
-Entitlement management has several roles specific that are unique to entitlement management.
+Entitlement management has roles that are specific to entitlement management.
 
 | Role | Description |
 | --- | --- |
