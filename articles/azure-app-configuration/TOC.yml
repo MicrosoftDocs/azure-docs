@@ -70,7 +70,7 @@
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Java Spring provider
-          href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
+          href: https://go.microsoft.com/fwlink/?linkid=2074659
         - name: .NET Azure SDK
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: REST
@@ -78,8 +78,6 @@
     - name: Feature management
       items:
         - name: .NET Core library
-          href: https://go.microsoft.com/fwlink/?linkid=2091700
-        - name: ASP.NET Core library
           href: https://go.microsoft.com/fwlink/?linkid=2091700
         - name: .NET Core filter library
           href: https://go.microsoft.com/fwlink/?linkid=2091601
