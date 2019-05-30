@@ -70,5 +70,4 @@ export type AuthResponse = {
 };
 ```
 
-## Next steps
-Learn more about [building a single-page application (SPA)](scenario-spa-overview.md) using MSAL.js.
+To learn more, read about [building a single-page application (SPA)](scenario-spa-overview.md) using MSAL.js.
