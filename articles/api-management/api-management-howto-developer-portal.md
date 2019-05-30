@@ -22,13 +22,15 @@ This article shows you how to access the new Azure API Management developer port
 
 ![New API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
-> [!NOTE]
-> The new developer portal is currently in preview.
-
 ## Prerequisites
 
 - Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 - Import and publish an Azure API Management instance. For more information, see [Import and publish](import-and-publish.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> The new developer portal is currently in preview.
 
 ## Managed and self-hosted versions
 
