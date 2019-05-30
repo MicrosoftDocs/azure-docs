@@ -16,7 +16,7 @@ As an Azure service, Time Series Insights provides certain *high availability* f
 
 Additional high-availability features provided through Azure (and also available to any Time Series Insights instance) include:
 
-- **Failover**: Azure provides [geo-replication and loading balancing](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
+- **Failover**: Azure provides [geo-replication and load balancing](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Data restoration** and **storage recovery**: Azure provides [several options to preserve and recover data](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
 - **Site recovery**: Azure provides site recovery features through [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
 
@@ -39,7 +39,7 @@ Integrating Time Series Insights with the other services provides additional dis
 
 There are several ways to keep your Time Series Insights data, apps, and services running, even if they're disrupted. 
 
-However, you might determine that a complete, duplicate backup copy of your Azure Time Series environment also is required, for the following purposes:
+However, you might determine that a complete backup copy of your Azure Time Series environment also is required, for the following purposes:
 
 - As a *failover instance* specifically for Time Series Insights to redirect data and traffic to
 - To preserve data and auditing information
