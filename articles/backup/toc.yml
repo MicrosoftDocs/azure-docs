@@ -224,7 +224,7 @@
     - name: Overview of Recovery Services vaults
       href: backup-azure-recovery-services-vault-overview.md
     - name: Create Recovery Services vault
-      href: backup-create-rs-vault
+      href: backup-create-rs-vault.md
     - name: Delete a Recovery Services vault
       href: backup-azure-delete-vault.md
     - name: Move a Recovery Services vault

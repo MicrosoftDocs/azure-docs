@@ -27,7 +27,7 @@ To create a Recovery Services vault:
     ![Enter and choose Recovery Services vaults](./media/backup-create-rs-vault/all-services.png)
 
     The list of Recovery Services vaults in the subscription appears.
-    
+
 4. On the **Recovery Services vaults** dashboard, select **Add**.
 
     ![Add a Recovery Services vault](./media/backup-create-rs-vault/add-button-create-vault.png)
@@ -38,7 +38,7 @@ To create a Recovery Services vault:
 
    - **Name**: Enter a friendly name to identify the vault. The name must be unique to the Azure subscription. Specify a name that has at least two, but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens.
    - **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription.
-   - **Resource group**: Use an existing resource group or create a new one. To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md).
+   - **Resource group**: Use an existing resource group or create a new one. To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
    - **Location**: Select the geographic region for the vault. To create a vault to protect virtual machines, the vault **must** be in the same region as the virtual machines.
 
       > [!IMPORTANT]
