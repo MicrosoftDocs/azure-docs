@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
 ---
 
 # Add LUIS results to Application Insights and Azure functions
 This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
-The bot is built with the Bot Framework 3.x and the Azure Web app bot.
+The bot is built with the Bot Framework 3.x and the Azure Web app bot. A [Bot Framework 4.x with LUIS tutorial](luis-nodejs-tutorial-bf-v4.md) is also available.
 
 In this tutorial, you learn how to:
 

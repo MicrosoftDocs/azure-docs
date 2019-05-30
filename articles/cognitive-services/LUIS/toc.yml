@@ -83,7 +83,7 @@
       displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
-  - name: Use bot
+  - name: Use V4 bot framework
     items:
     - name: With C# 
       href: luis-csharp-tutorial-bf-v4.md
@@ -198,7 +198,7 @@
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: luis-tutorial-speech-to-intent.md
-    - name: With a bot
+    - name: Use V3 bot framework
       items:
         - name: Web app bot
           items:
