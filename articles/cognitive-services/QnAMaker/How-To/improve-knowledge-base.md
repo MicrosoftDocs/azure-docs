@@ -151,7 +151,7 @@ The client application displays all the questions with an option for the user to
 
 Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
 
-## Managing active learning with the bot framework
+## Bot framework sample code
 
 Your bot framework code needs to call the Train API, if the user's query should be used for active learning. There are two pieces of code to write:
 
