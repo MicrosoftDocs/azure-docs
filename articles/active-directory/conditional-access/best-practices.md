@@ -67,7 +67,7 @@ All policies are enforced in two phases:
 
     ![Order](./media/best-practices/06.png)
     
-    External MFA providers and Terms of Use come next.
+    External MFA providers and terms of use come next.
 
 
 

@@ -34,38 +34,6 @@ Key differences between persistent and ephemeral OS disks:
 | OS disk resize              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
 | Resizing to a new VM size   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
 
-## Register for the preview
-
-
-Self-register for the preview of Ephemeral OS Disks using the latest version of Azure CLI or Azure PowerShell.
-
-### PowerShell
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-To check if you are registered for the preview:
-
-```azurepowershell-interactive
-Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-### CLI
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
-```
-
-To check if you are registered for the preview:
- 
-```azurecli-interactive
-az provider show --namespace Microsoft.Compute
-```
-
-
 ## Scale set deployment  
 The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 

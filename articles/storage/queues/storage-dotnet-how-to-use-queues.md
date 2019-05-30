@@ -232,7 +232,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## Get the queue length
-You can get an estimate of the number of messages in a queue. The [FetchAttributes](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) method asks the Queue service to retrieve the queue attributes, including the message count. The [ApproximateMessageCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) property returns the last value retrieved by the **FetchAttributes** method, without calling the Queue service.
+You can get an estimate of the number of messages in a queue. The [FetchAttributes](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) method asks the Queue service to retrieve the queue attributes, including the message count. The [ApproximateMessageCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) property returns the last value retrieved by the **FetchAttributes** method, without calling the Queue service.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -256,7 +256,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## Delete a queue
-To delete a queue and all the messages contained in it, call the [Delete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) method on the queue object.
+To delete a queue and all the messages contained in it, call the [Delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) method on the queue object.
 
 ```csharp
 // Retrieve storage account from connection string.

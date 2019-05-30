@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. Legacy authentication is a term that refers to an authentication request made by:
 
 * Older Office clients that do not use modern authentication (for example, Office 2010 client)
-* Any client that uses legacy mail protocols such as IMAP/SMPT/POP3
+* Any client that uses legacy mail protocols such as IMAP/SMTP/POP3
 
 Today, majority of all compromising sign-in attempts come from legacy authentication. Legacy authentication does not support multi-factor authentication (MFA). Even if you have an MFA policy enabled on your directory, a bad actor can authenticate using a legacy protocol and bypass MFA.
 
@@ -71,13 +71,13 @@ If you are using MacOS, we recommend upgrading to Office for Mac 2016 or later. 
 
 For Windows-based Outlook clients to use modern authentication, Exchange Online must be modern authentication enabled as well. If modern authentication is disabled for Exchange Online, Windows-based Outlook clients that support modern authentication (Outlook 2013 or later) will use basic authentication to connect to Exchange Online mailboxes.
 
-SharePoint Online is enabled for modern authentication default. For directories created after August 1, 2017, modern authentication is enabled by default in Exchange Online. However, if you had previously disabled modern authentication or are you using a directory created prior to this date, follow the steps in the following article to [Enable modern authentication in Exchange Online](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online is enabled for modern authentication default. For directories created after August 1, 2017, modern authentication is enabled by default in Exchange Online. However, if you had previously disabled modern authentication or are you using a directory created prior to this date, follow the steps in the following article to [Enable modern authentication in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### Step 4: Skype for Business
 
 To prevent legacy authentication requests made by Skype for Business, it is necessary to enable modern authentication for Skype for Business Online. For directories created after August 1, 2017, modern authentication for Skype for Business is enabled by default.
 
-To enable modern authentication in Skype for Business, we suggest you transition to Microsoft Teams, which supports modern authentication by default. However, if you are unable to tr at this time, you will need to enable modern authentication for Skype for Business Online so that Skype for Business clients starts using modern authentication. Follow these steps in the article [Skype for Business topologies supported with Modern Authentication](https://docs.microsoft.com/en-us/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), for steps to enable Modern Authentication for Skype for Business.
+To enable modern authentication in Skype for Business, we suggest you transition to Microsoft Teams, which supports modern authentication by default. However, if you are unable to tr at this time, you will need to enable modern authentication for Skype for Business Online so that Skype for Business clients starts using modern authentication. Follow these steps in the article [Skype for Business topologies supported with Modern Authentication](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), for steps to enable Modern Authentication for Skype for Business.
 
 In addition to enabling modern authentication for Skype for Business Online, we recommend modern authentication be enabled for Exchange Online when enabling modern authentication for Skype for Business. This process will help synchronize the state of modern authentication in Exchange Online and Skype for Business online and will prevent multiple sign-in prompts for Skype for Business clients.
 
@@ -102,7 +102,7 @@ Steps for enabling modern authentication be found in the following articles:
 
 The policy **Baseline policy: Block legacy authentication (preview)** comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal.
 
-To enable this policy and protect your administrators:
+To enable this policy and protect your organization:
 
 1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.

@@ -30,7 +30,7 @@ In this guide, you will learn how to:
 
 ## Create an Azure Kubernetes Service cluster
 
-You must create an AKS cluster in a [supported region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). To create a cluster:
+You must create an AKS cluster in a [supported region][supported-regions]. To create a cluster:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Select *+ Create a resource > Kubernetes Service*. 
@@ -129,3 +129,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

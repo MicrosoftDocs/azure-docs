@@ -575,10 +575,18 @@
     items:
     - name: Ingest data
       items:
-        - name: Use Distcp
-          href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Use Azure Data Factory
-          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: AzCopy
+        items:
+        - name: Get started
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Use with Data Lake Storage Gen2
+          href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Configure, optimize, troubleshoot
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Distcp
+        href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Azure Data Factory
+        href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Secure data
       items:
         - name: Configure firewalls and virtual networks
