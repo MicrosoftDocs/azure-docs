@@ -48,14 +48,14 @@ Premium Storage caching: Not Supported
 
 <sup>5</sup> VMs with more than 64 vCPUs require one of these supported guest operating systems:
 - Windows Server 2016 or later
-- Ubuntu 16.04 LTS and later, with Azure tuned kernel (4.15 kernel and later)
-- SLES 12 SP2 and later
-- RHEL or CentOS version 6.7 thru 6.10, with Microsoft-provided LIS package 4.3.1 (and later) installed
-- RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (and later) installed
-- RHEL or CentOS version 7.4 and later
-- Oracle Linux with UEK4 and later
-- Debian 9 with the backports kernel, Debian 10 and later
-- CoreOS with a 4.14 kernel and later
+- Ubuntu 16.04 LTS or later, with Azure tuned kernel (4.15 kernel or later)
+- SLES 12 SP2 or later
+- RHEL or CentOS version 6.7 thru 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
+- RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
+- RHEL or CentOS version 7.4 or later
+- Oracle Linux with UEK4 or later
+- Debian 9 with the backports kernel, Debian 10 or later
+- CoreOS with a 4.14 kernel or later
 
 
 ## Size table definitions
