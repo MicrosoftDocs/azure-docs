@@ -183,7 +183,7 @@ Additionally, the user can access reports related to adoption & usage of Kaizala
   *	Force users to re-register against existing non-password credential (e.g. MFA, FIDO)
   *	Revoke ‘remember MFA on the device’, prompting for MFA on the next login
 
-* **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management.
+* **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
 
   <b>Important</b>: This role grants the ability to manage assignments for all Azure AD roles including the Global Administrator role. This role does not include any other privileged abilities in Azure AD like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
 
@@ -996,8 +996,12 @@ Can manage role assignments in Azure AD,  and all aspects of Privileged Identity
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/directoryRoles/update | Update directoryRoles in Azure Active Directory. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | Read and configure servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Read and configure servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
+| microsoft.aad.directory/roleAssignments/allProperties/allTasks | Create and manage role assignments. |
+| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Create and manage role definitions. |
 
 ### Reports Reader
 Can read sign-in and audit reports.
