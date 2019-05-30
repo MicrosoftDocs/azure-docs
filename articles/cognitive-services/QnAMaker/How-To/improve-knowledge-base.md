@@ -145,6 +145,78 @@ When the client application (such as a chat bot) receives the response, the top 
 }
 ```
 
+## Train API
+
+Active learning feedback is sent to QnA Maker with the Train API POST request. The API signature is:
+
+```http
+POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
+Authorization: EndpointKey <endpoint-key>
+Content-Type: application/json
+{"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
+```
+
+|HTTP request property|Name|Type|Purpose|
+|--|--|--|--|
+|URL route parameter|Knowledge base ID|string|The GUID for your knowledge base.|
+|Host subdomain|QnAMaker resource name|string|The hostname for your QnA Maker in your Azure subscription. This is available on the Settings page after you publish the knowledge base. |
+|Header|Content-Type|string|The media type of the body sent to the API. Default value is: `application/json`|
+|Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Post Body|JSON object|JSON|The training feedback|
+
+The JSON body has several settings:
+
+|JSON body property|Type|Purpose|
+|--|--|--|--|
+|`feedbackRecords`|array|List of feedback.|
+|`userId`|string|The user ID of the person accepting the suggested questions. The user ID format is up to you. For example, an email address can be a valid user ID in your architecture. Optional.|
+|`userQuestion`|string|Exact text of the question. Required.|
+|`qnaID`|number|ID of question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+
+An example JSON body looks like:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "<question-text>",
+            "qnaId": 1
+        }
+    ]
+}
+```
+
+A successful response returns a status of 204 and no JSON response body. 
+
+<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
+
+## Active learning is saved in the exported knowledge base
+
+When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
+
+The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base. 
+
+
 ## Client application follow-up when questions have similar scores
 
 The client application displays all the questions with an option for the user to select the question that most represents their intention. 
@@ -402,77 +474,6 @@ class ActiveLearningHelper{
 
 module.exports.ActiveLearningHelper = ActiveLearningHelper;
 ```
-
-## Train API
-
-Active learning feedback is sent to QnA Maker with the Train API POST request. The API signature is:
-
-```http
-POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
-Authorization: EndpointKey <endpoint-key>
-Content-Type: application/json
-{"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
-```
-
-|HTTP request property|Name|Type|Purpose|
-|--|--|--|--|
-|URL route parameter|Knowledge base ID|string|The GUID for your knowledge base.|
-|Host subdomain|QnAMaker resource name|string|The hostname for your QnA Maker in your Azure subscription. This is available on the Settings page after you publish the knowledge base. |
-|Header|Content-Type|string|The media type of the body sent to the API. Default value is: `application/json`|
-|Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Post Body|JSON object|JSON|The training feedback|
-
-The JSON body has several settings:
-
-|JSON body property|Type|Purpose|
-|--|--|--|--|
-|`feedbackRecords`|array|List of feedback.|
-|`userId`|string|The user ID of the person accepting the suggested questions. The user ID format is up to you. For example, an email address can be a valid user ID in your architecture. Optional.|
-|`userQuestion`|string|Exact text of the question. Required.|
-|`qnaID`|number|ID of question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
-
-An example JSON body looks like:
-
-```json
-{
-    "feedbackRecords": [
-        {
-            "userId": "1",
-            "userQuestion": "<question-text>",
-            "qnaId": 1
-        }
-    ]
-}
-```
-
-A successful response returns a status of 204 and no JSON response body. 
-
-<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
-
-## Active learning is saved in the exported knowledge base
-
-When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
-
-The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base. 
 
 ## Next steps
  
