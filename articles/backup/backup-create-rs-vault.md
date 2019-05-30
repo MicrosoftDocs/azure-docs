@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 10/18/2018
+ms.date: 5/30/2019
 ms.author: raynew
 ms.custom: include file
 ---
@@ -53,3 +53,21 @@ To create a Recovery Services vault:
     It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area at the upper-right corner of the portal. After your vault is created, it's visible in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
 
      ![Refresh the list of backup vaults](./media/backup-create-rs-vault/refresh-button.png)
+
+## Set storage redundancy
+
+Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
+
+1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
+2. In **Properties**, under **Backup Configuration**, click **Update**.
+
+3. Select the storage replication type, and click **Save**.
+
+     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+   - We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
+   - If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs.
+   - Learn more about [geo](../storage/common/storage-redundancy-grs.md) and [local](../storage/common/storage-redundancy-lrs.md) redundancy.
+
+> [!NOTE]
+> Once you choose the **Storage replication type** from **Geo-redundant** to **Locally-redundant**, you cannot revert back.
