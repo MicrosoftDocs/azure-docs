@@ -30,7 +30,7 @@ In this guide, you will learn how to:
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
 
-   Complete the following steps under each heading of the *Create Kubernetes cluster* form and verify your selected [region supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+   Complete the following steps under each heading of the *Create Kubernetes cluster* form and verify your selected [region supports Azure Dev Spaces][supported-regions].
 
    - **PROJECT DETAILS**: select an Azure subscription and a new or existing Azure resource group.
    - **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
@@ -144,3 +144,6 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 > [!div class="nextstepaction"]
 > [Learn about multi-service development](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

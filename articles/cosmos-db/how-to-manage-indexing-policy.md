@@ -162,7 +162,7 @@ Here are some examples of indexing policies shown in their JSON format, which is
 ### Opt-out policy to selectively exclude some property paths
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -196,7 +196,7 @@ Here are some examples of indexing policies shown in their JSON format, which is
 ### Opt-in policy to selectively include some property paths
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -230,7 +230,7 @@ Note: It is generally recommended to use an **opt-out** indexing policy to let A
 ### Using a spatial index on a specific property path only
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -275,7 +275,7 @@ This policy can be used in situations where the [Time-to-Live (TTL) feature](tim
 ### No indexing
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 
