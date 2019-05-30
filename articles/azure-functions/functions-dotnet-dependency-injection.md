@@ -17,11 +17,11 @@ ms.author: jehollan, glenga, cshoe
 
 Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
 
-Azure Functions builds on top of the ASP.NET Core Dependency Injection features. You should understand services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app.
+Azure Functions builds on top of the ASP.NET Core Dependency Injection features. Being aware of services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app is recommended.
 
 ## Prerequisites
 
-Before you can use dependency injection, you must install the following prerequisites:
+Before you can use dependency injection, you must install the following packages:
 
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) NuGet package. You can install this package by running the following command from the package console:
 
@@ -35,7 +35,7 @@ Before you can use dependency injection, you must install the following prerequi
 
 To register services, you can create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
 
-To register the method, add an assembly attribute that specifies the type for your configure method using the `FunctionsStartup` attribute.
+To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
@@ -58,7 +58,7 @@ namespace MyNamespace
 
 ## Using injected dependencies
 
-ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependency are injected into an HTTP-triggered function.
+ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
 
 ```csharp
 namespace MyNamespace
@@ -119,9 +119,9 @@ The function host registers many services. The following services are safe to ta
 
 If there are other services you want to take a dependency on, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
 
-### Overriding Host Services
+### Overriding host services
 
-Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and discussion on GitHub](https://github.com/azure/azure-functions-host).
+Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
 
 ## Next steps
 
