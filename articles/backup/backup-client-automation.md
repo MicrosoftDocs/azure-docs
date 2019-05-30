@@ -385,9 +385,9 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-## Back up Windows Server System State
+## Back up Windows Server System State in MABS agent
 
-This section covers the PowerShell command to use  
+This section covers the PowerShell command to set up System State in MABS agent
 
 ### Schedule
 ```powershell
@@ -405,7 +405,7 @@ $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -Retention
 ```powershell
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
  ```
- 
+
 ### Applying the policy
 
 Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation use the `-Confirm:$false` flag with the cmdlet.

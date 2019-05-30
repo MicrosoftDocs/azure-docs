@@ -1,17 +1,18 @@
 ---
-title: include file
-description: include file
+title: 'Azure Backup: Create Recovery Services vaults'
+description: creating Recovery Services vaults that stores the backups and recovery points
 services: backup
-author: rayne-wiselman
-manager: carmonm
+author: sogup
+manager: vijayts
+keywords: Recovery Services vault; Azure VM backup; Azure VM restore;
 ms.service: backup
-ms.topic: include
-ms.date: 5/30/2019
-ms.author: raynew
-ms.custom: include file
+ms.topic: conceptual
+ms.date: 05/30/2019
+ms.author: sogup
 ---
 
-## Create a Recovery Services vault
+# Create a Recovery Services vault
+
 A Recovery Services vault is an entity that stores the backups and recovery points created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
 
 To create a Recovery Services vault:
