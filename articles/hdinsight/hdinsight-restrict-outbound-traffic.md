@@ -90,7 +90,7 @@ Create the network rules to correctly configure your HDInsight cluster.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
         1. Set **Destination Ports** to `12000`.
-    1. Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HD Insight subnet.
+    1. Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet.
         1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
