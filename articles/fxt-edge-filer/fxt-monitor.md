@@ -14,7 +14,7 @@ The Azure FXT Edge Filer hybrid storage cache system has multiple status lights 
 
 ## System health status
 
-To monitor cache operations at a higher level, use the software Control Panel's **Dashboard** page, as described in the [Avere Control Panel Dashboard Guide](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html) <!-- xxx replace with ms docs link when available xxx -->
+To monitor cache operations at a higher level, use the software Control Panel's **Dashboard** page, as described in the [Control Panel Dashboard Guide](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html) <!-- xxx replace with ms docs link when available xxx -->
 
 ## Hardware status LEDs
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure FXT Edge Filer cluster creation 
-description: How to create a hybrid storage cache cluster with the Azure FXT Edge Filer 
+title: Microsoft Azure FXT Edge Filer cluster configuration - add nodes
+description: How to add nodes to the Azure FXT Edge Filer storage cache 
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Tutorial: Configure the cluster - Add cluster nodes 
 
-A new cluster is created with only one node. You should add at least two more nodes and enable high availability before doing other configuration.
+A new Azure FXT Edge Filer cluster is created with only one node. You should add at least two more nodes and enable high availability before doing other configuration.
 
 This tutorial explains how to add cluster nodes and enable the High Availability (HA) feature. 
 
@@ -20,7 +20,7 @@ In this tutorial, you will learn:
 > * How to add nodes to the FXT cluster
 > * How to enable HA
 
-The steps in this tutorial take approximately 45 minutes to complete. 
+The steps in this tutorial take approximately 45 minutes to complete.
 
 ## 1. Load the Cluster Nodes configuration page
 
@@ -45,8 +45,11 @@ The **FXT Nodes - Unjoined** list shows all unassigned FXT nodes (most data cent
 > 
 > * They are powered on.
 > * They have had their root passwords set (read [Set initial passwords](fxt-node-password.md) for details).
-> * They are connected to an accessible network. If VLANs are being used, they are on the same VLAN as the cluster.
-> * They can be detected with the Bonjour protocol. Some firewall settings block the TCP/UDP ports used by Bonjour, which prevents the FXT operating system from automatically detecting the nodes.
+> * They are connected to an accessible network. 
+>   If VLANs are being used, they are on the same VLAN as the cluster.
+> * They can be detected with the Bonjour protocol. 
+>
+>   Some firewall settings block the TCP/UDP ports used by Bonjour, which prevents the FXT operating system from automatically detecting the nodes.
 > 
 > If the node that you want to add isn’t on the list, click the **Manual Discover** button to find it by IP address.
 > 

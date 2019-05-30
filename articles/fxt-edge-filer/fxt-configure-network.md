@@ -30,7 +30,7 @@ The amount of time it takes to complete these steps depends on how many configur
 
 Several network-related tasks are part of setting up a new Azure FXT Edge Filer cluster. Check this list and decide which ones apply to your system.
 
-To learn more about network settings for the cluster, read [Configuring network services](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html) in the *Cluster Configuration Guide*.
+To learn more about network settings for the cluster, read [Configuring network services](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html) in the Cluster Configuration Guide.
 
 * Configure round-robin DNS for the client-facing network (optional)
 
@@ -40,13 +40,13 @@ To learn more about network settings for the cluster, read [Configuring network 
 
 * Configure Active Directory and username/group name downloads (if needed)
 
-  If your network hosts use Active Directory or another kind of external directory service, you must modify the cluster’s directory services configuration to set up how the cluster downloads username and group information. Read **Cluster** > **Directory Services**  in the *Cluster Configuration Guide* for details.
+  If your network hosts use Active Directory or another kind of external directory service, you must modify the cluster’s directory services configuration to set up how the cluster downloads username and group information. Read **Cluster** > **Directory Services**  in the Cluster Configuration Guide for details.
 
   An AD server is required if you want SMB support. Configure AD before starting to set up SMB.
 
 * Define VLANs (optional)
   
-  Configure any additional VLANs needed before defining your cluster’s vservers and global namespace. Read [Working with VLANs](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) in the *Cluster Configuration Guide* to learn more.
+  Configure any additional VLANs needed before defining your cluster’s vservers and global namespace. Read [Working with VLANs](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) in the Cluster Configuration Guide to learn more.
 
 * Configure proxy servers (if needed)
 
@@ -55,7 +55,7 @@ To learn more about network settings for the cluster, read [Configuring network 
   1. Define the proxy server in the **Proxy Configuration** settings page
   1. Apply the proxy server configuration with the **Cluster** > **General Setup** page or the **Core Filer Details** page.
   
-  For more information, read [Using web proxies](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) in the *Cluster Configuration Guide*.
+  For more information, read [Using web proxies](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) in the Cluster Configuration Guide.
 
 * Upload [encryption certificates](#encryption-certificates) for the cluster to use (optional)
 
@@ -69,12 +69,12 @@ The FXT Edge Filer cluster uses X.509 certificates for these functions:
 
 * For verifying cloud providers’ server certificates
 
-If you need to upload certificates to the cluster, use the **Cluster** > **Certificates** settings page. Details are in the [Cluster > Certificates](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) page of the *Cluster Configuration Guide*.
+If you need to upload certificates to the cluster, use the **Cluster** > **Certificates** settings page. Details are in the [Cluster > Certificates](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) page of the Cluster Configuration Guide.
 
 To encrypt cluster management communication, use the **Cluster** > **General Setup** settings page to select which certificate to use for administrative SSL.
 
 > [!Note] 
-> Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](fxt-add-storage.md#add-a-core-filer) section above shows an example; read the *Cluster Configuration Guide* [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details. 
+> Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](fxt-add-storage.md#add-a-core-filer) section above shows an example; read the Cluster Configuration Guide [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details. 
 
 ## Configure DNS for the FXT Edge Filer cluster
 
@@ -139,7 +139,7 @@ Specify the DNS server that the cluster uses in the **Cluster** > **Administrati
 * DNS domain name
 * DNS search domains
 
-For more details, read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) in the *Cluster Configuration Guide*.
+For more details, read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) in the Cluster Configuration Guide.
 
 ## Next steps
 

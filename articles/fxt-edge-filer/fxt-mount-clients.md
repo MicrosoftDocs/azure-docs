@@ -12,7 +12,7 @@ ms.author: v-erkell
 
 [ **XXX needs careful review - adapted from the vFXT doc set XXX** ]
 
-This tutorial teaches how to mount clients to the FXT Edge Filer cluster using the virtual namespace paths that you assigned when you added back-end storage. 
+This tutorial teaches how to mount clients to the Azure FXT Edge Filer cluster using the virtual namespace paths that you assigned when you added back-end storage. 
 
 This tutorial teaches: 
 
@@ -95,7 +95,7 @@ The IP address is one of the client-facing IP addresses defined for the vserver.
 
 * **VServers** table (Dashboard tab) - 
 
-  ![Dashboard tab of the Avere Control Panel with the VServer tab selected in the data table below the graph, and the IP address section circled](media/fxt-mount/fxt-ip-addresses-dashboard.png)
+  ![Dashboard tab of the Control Panel with the VServer tab selected in the data table below the graph, and the IP address section circled](media/fxt-mount/fxt-ip-addresses-dashboard.png)
 
 * **Client Facing Network** settings page - 
 

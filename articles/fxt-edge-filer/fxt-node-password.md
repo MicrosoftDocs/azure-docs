@@ -12,7 +12,9 @@ ms.author: v-erkell
 
 The first time you power up an Azure FXT Edge Filer node, you must set a root password. The hardware nodes are not shipped with a default password. 
 
-The network ports are disabled until the password is set and the root user logs in. Do this step after installing and cabling the node, but before attempting to create the cluster. 
+Network ports are disabled until after the password is set and the root user signs in.
+
+Do this step after installing and cabling the node, but before attempting to create the cluster. 
 
 This tutorial explains how to connect to the hardware node and set the password. 
 
@@ -32,7 +34,7 @@ This tutorial takes approximately 15 minutes to complete.
 Before starting this tutorial, complete these steps: 
 
 * [Install](fxt-install.md) each FXT Edge Filer node in an equipment rack, and attach [power cables](fxt-power.md) and [network](fxt-network.md) access as described in the earlier tutorials. 
-* Find a USB-connected keyboard and a VGA-connected monitor that you can attach to the hardware nodes. (The node's serial port is not active until after the password is set.)
+* Find a USB-connected keyboard and a VGA-connected monitor that you can attach to the hardware nodes. (The node's serial port is inactive before you set the password.)
 
 ## Connect a keyboard and monitor to the node
 
@@ -56,7 +58,7 @@ Power on the node by pressing the power button on the front.
 
 ## Set initial passwords 
 
-The FXT Edge Filer node will print various messages to the monitor while booting. When it finishes, it shows an initial setup screen like this: 
+The FXT Edge Filer node will print various messages to the monitor while booting. After a few moments, it shows an initial setup screen like this:
 
 ```
 ------------------------------------------------------
@@ -75,9 +77,9 @@ The password you enter is used for two things:
 
   This password will change when you create a cluster using this node, or when you add this node to the cluster. The cluster management password (associated with the user ``admin``) is also the root password for all nodes in a cluster.
 
-* It is the permanent password for the iDRAC/IPMI hardware management port. 
+* It is the permanent password for the iDRAC/IPMI hardware management port.
 
-  You must remember the password in case you need to sign in on the IPMI port to troubleshoot a hardware problem. 
+  Make sure you remember the password in case you need to sign in on the IPMI port later to troubleshoot a hardware problem.
 
 Enter and confirm the password: 
 
@@ -87,7 +89,7 @@ Re-enter password:**********
 Loading AvereOS......
 ```
 
-The system automatically reboots [ xxx is this a reboot or just a refresh of some sort? xxx ] and then gives a ``login:`` prompt. 
+After you enter the password, the system continues booting. When it finishes, it gives a ``login:`` prompt. 
 
 ## Sign in as root
 

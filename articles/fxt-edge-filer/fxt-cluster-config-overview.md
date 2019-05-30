@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Tutorial: Configure the new cluster (Overview)
 
-After following the steps in [Create the FXT Edge Filer cluster](fxt-cluster-create.md), your FXT Edge Filer cluster exists, but it has only one node, no client-facing IP addresses, and no back-end storage. 
+After following the steps in [Create the Azure FXT Edge Filer cluster](fxt-cluster-create.md), your FXT Edge Filer cluster exists, but it has only one node, no client-facing IP addresses, and no back-end storage. 
 
 This tutorial explains the configuration needed to go from a newly created cluster to a cache system that is ready to handle your workflow. 
 
@@ -22,7 +22,7 @@ In this tutorial, you will learn:
 > * How to sign in to the cluster Control Panel
 > * How to accept the cluster software terms of service
 
-The steps in this tutorial will take 30 to 45 minutes to complete. 
+The steps in this tutorial take 30 to 45 minutes to complete. 
 
 ## Understand setup tasks
 
@@ -47,7 +47,7 @@ You must take these steps to create a fully functional cluster.
 
 * Set up client access and the virtual namespace 
 
-  Create at least one virtual server (vserver) and assign it an IP address range for client machines to use. You also must configure the Global Namespace (GNS), a virtual filesystem feature that lets you map back-end storage exports to virtual paths. GNS gives clients a consistent and accessible filesystem structure even if you switch back-end storage media. With Azure Blob or other supported cloud object storage, GNS can provide a user-friendly virtual storage hierarchy.
+  Create at least one virtual server (vserver) and assign it an IP address range for client machines to use. You also must configure the cluster namespace (sometimes called the Global Namespace or GNS), a virtual filesystem feature that lets you map back-end storage exports to virtual paths. The cluster namespace gives clients a consistent and accessible filesystem structure even if you switch back-end storage media. The namespace also can provide a user-friendly virtual storage hierarchy for Azure Blob containers or other supported cloud object storage.
 
   Read [Configure the namespace](fxt-add-storage.md#configure-the-namespace) for details. This step includes:
   * Creating vservers
@@ -55,13 +55,14 @@ You must take these steps to create a fully functional cluster.
   * Defining which client IP addresses are served by each vserver
 
   > [!Note] 
-  > Significant planning is recommended before starting to set up the cluster’s GNS. Read the [Using a Global Namespace](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) and [Creating and Working with VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) sections in the *Cluster Configuration Guide* for help.
+  > Significant planning is recommended before starting to set up the cluster’s GNS. Read the [Using a Global Namespace](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) and [Creating and Working with VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) sections in the Cluster Configuration Guide for help.
 
 * [Adjust network settings](fxt-configure-network.md)
 
   There are several network-related settings that should be verified or customized for a new cluster. Read [Adjust network settings](fxt-configure-network.md) for details about these items:
 
-  * Verifying DNS and NTP configuration – Configuring directory services
+  * Verifying DNS and NTP configuration 
+  * Configuring directory services, if needed 
   * Setting up VLANs
   * Configuring proxy servers
   * Adding IP addresses to the cluster network
@@ -77,7 +78,7 @@ These steps are not required for all clusters. They are needed for some types of
 
 * Customize node settings
 
-  You can set node names and configure node IPMI ports on a cluster-wide level, or individually. If you configure this before adding nodes to the cluster, the new nodes can pick up the settings automatically when they join. The options are described in the legacy cluster creation document in [Customizing Node Settings](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
+  You can set node names and configure node IPMI ports on a cluster-wide level, or individually. If you configure this before adding nodes to the cluster, the new nodes can pick up the settings automatically when they join. The options are described in the legacy cluster creation document section [Customizing Node Settings](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
 
 * Configure SMB
 
@@ -85,7 +86,7 @@ These steps are not required for all clusters. They are needed for some types of
 
   Planning for and configuring SMB involves more than clicking a few buttons in the Control Panel. Depending on your system’s requirements, SMB can influence how you define core filers, how many vservers you create, how you configure your junctions and namespace, access permissions, and other settings.
 
-  For more information, read the *Cluster Configuration Guide* [Configuring SMB Access](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/smb_overview.html) section.
+  For more information, read the Cluster Configuration Guide [Configuring SMB Access](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/smb_overview.html) section.
 
 * Install additional licenses
 
@@ -123,7 +124,7 @@ Follow these steps to set up support uploads.
 1. Click the **Revalidate upload information** button.
 1. Set the cluster's support name in **Unique Cluster Name** - make sure it uniquely identifies your cluster to support staff.
 1. Check the boxes for **Statistics Monitoring**, **General Information Upload**, and **Crash Information Upload**.
-1. Click **Submit**.  [ xxx update screenshots xxx ]
+1. Click **Submit**.  [ xxx update screenshots? xxx ]
 
    ![Screenshot containing completed customer info section of support settings page](media/fxt-cluster-config/fxt-support-info.png)
 

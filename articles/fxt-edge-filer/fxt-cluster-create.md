@@ -8,16 +8,18 @@ ms.date: 05/20/2019
 ms.author: v-erkell 
 ---
 
-# Tutorial: Create the FXT Edge Filer cluster
+# Tutorial: Create the Azure FXT Edge Filer cluster
 
 After you install and initialize the FXT Edge Filer hardware nodes for your cache, use the FXT cluster software to create the cache cluster. 
 
-This tutorial walks you through the steps configure your Edge Filer nodes as a cluster. In this tutorial, you will learn: 
+This tutorial walks you through the steps configure your Edge Filer nodes as a cluster. 
+
+In this tutorial, you will learn: 
 
 > [!div class="checklist"]
 > * What information is needed before starting to create the cluster
 > * The difference between the cluster's management network, the cluster network, and the client-facing network
-> * How to connect to the OS software on a cluster node
+> * How to connect to a cluster node 
 > * How to create an initial cluster using one FXT Edge Filer node
 
 This procedure takes between 15 and 45 minutes, depending on how much research you need to do to identify IP addresses and network resources.
@@ -27,7 +29,7 @@ This procedure takes between 15 and 45 minutes, depending on how much research y
 Complete these prerequisites before starting this tutorial:
 
 * Install at least three FXT Edge Filer hardware systems in your data center 
-* Connect the Edge Filer node ports with appropriate network and power cables 
+* Connect appropriate power and network cables to the system  
 * Power on at least one FXT Edge Filer node and [set its root password](fxt-node-password.md)
 
 ## Gather information for the cluster 
@@ -68,17 +70,17 @@ The FXT Edge Filer hybrid storage cache cluster uses IP addresses in three categ
 
   The cluster network is used for communication among cluster nodes and to retrieve files from the backend storage (core filers).
 
-  Best practice: Allocate one IP address per physical port used for cluster communication on each FXT Edge Filer node. The cluster automatically assigns the addresses in the specified range to individual nodes.
+  **Best practice:** Allocate one IP address per physical port used for cluster communication on each FXT Edge Filer node. The cluster automatically assigns the addresses in the specified range to individual nodes.
 
 * Client-facing network: The range of IP addresses that clients use to request and write files
 
-  The client network addresses are used by clients to access the core filer data through the Avere cluster. For example, an NFS client might mount one of these addresses.
+  The client network addresses are used by clients to access the core filer data through the cluster. For example, an NFS client might mount one of these addresses.
 
-  Best practice: Allocate one IP address per physical port used for client communication on each FXT Series node.
+  **Best practice:** Allocate one IP address per physical port used for client communication on each FXT Series node.
 
   The cluster distributes client-facing IP addresses across its constituent nodes as evenly as possible.
 
-  For simplicity, many administrators configure a single DNS name with round-robin DNS (RRDNS) configuration to make it easier to distribute client requests across the address range. This setup also enables all clients to use the same mount command to access the Avere cluster. Read [Configure DNS](fxt-configure-network.md#configure-dns-for-the-fxt-edge-filer-cluster) for more information.
+  For simplicity, many administrators configure a single DNS name with round-robin DNS (RRDNS) configuration to make it easier to distribute client requests across the address range. This setup also enables all clients to use the same mount command to access the cluster. Read [Configure DNS](fxt-configure-network.md#configure-dns-for-the-fxt-edge-filer-cluster) for more information.
 
 The management IP address and a range of cluster network addresses must be specified to create a new cluster. Client-facing addresses are specified after cluster creation.
 
@@ -106,7 +108,7 @@ Use the command `ifconfig` to see the addresses assigned to this system.
 
 For example, the command `ifconfig | grep -B5 inet` searches for ports with internet addresses and gives five lines of context to show the port identifier.
 
-Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for IPMI ports, not regular network ports.  [ xxx update port numbers? xxx ]
+Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for IPMI ports, not regular network ports.  
 
 ## Load the cluster configuration wizard in a web browser
 
@@ -124,27 +126,17 @@ The cluster configuration tool guides you through a set of screens to create the
 
 ### Creation options
 
-The first screen gives three options. Most users can go directly to the “configure a new cluster manually” option.
+The first screen gives three options. Use the “configure a new cluster manually” option unless you have special instructions from support staff. 
 
 ![initial setup screen, showing options to update software, configure a new cluster manually, or configure a cluster from a setup file](media/fxt-cluster-create/setup-first-screen.png)
 
-The options are:
-
-* Update the system image
-
-  Choose this option if you need to install new OS software before creating the cluster. (The currently installed software version is listed at the top of the screen.)
-
-  If you click this link, the system prompts you to supply a package file. You can provide a URL and username/password, or upload a file from your computer.
-
-* Configure the cluster manually
-
-  Choose this option to create a new cluster.
-
-* Use a cluster setup file
-
-  Use this option only if directed to do so by Microsoft Customer Service and Support.
-
 Click **I will configure the cluster manually** to load the new cluster configuration options screen.
+
+The other options are rarely used:
+
+* Update the system image prompts you to install new OS software before creating the cluster. (The currently installed software version is listed at the top of the screen.) You must provide the software package file - either a URL and username/password, or by uploading a file from your computer. 
+
+* The cluster setup file option is sometimes used by Microsoft Customer Service and Support. 
 
 ## Cluster options
 
@@ -213,7 +205,7 @@ Settings in the **Management** section are for the network that provides adminis
 
 * **VLAN tag (optional)** - If your cluster uses VLAN tags, specify the tag for the management network.
 
-  Additional VLAN settings are configured in the **Cluster** > **VLAN** settings page. Read [Working with VLANs](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) and [Cluster > VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vlan.html) in the *Cluster Configuration Guide* to learn more.
+  Additional VLAN settings are configured in the **Cluster** > **VLAN** settings page. Read [Working with VLANs](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) and [Cluster > VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vlan.html) in the Cluster Configuration Guide to learn more.
 
 * **MTU** - If necessary, adjust the maximum transmission unit (MTU) for your cluster’s management network.
 
@@ -223,7 +215,7 @@ Settings in the **Management** section are for the network that provides adminis
 
 The cluster network settings apply to traffic among the cluster nodes, and between cluster nodes and core filers.
 
-![detail of "Cluster" section, with fields to enter six values](media/fxt-cluster-create/management-network-filled.png)
+![detail of "Cluster" section, with fields to enter six values](media/fxt-cluster-create/cluster-network-filled.png)
 
 * **First IP** and **Last IP** - Enter the IP addresses that define the range to use for internal cluster communication. The IP addresses used here must be contiguous and not assigned by DHCP.
 
@@ -261,7 +253,7 @@ Below the **Cluster** section there are fields for specifying DNS and NTP server
 
 * **NTP server(s)** - Specify either one or three network time protocol (NTP) servers in the fields provided. You can use hostnames or IP addresses.
 
-* **Link aggregation** - Link aggregation allows you to customize how the ethernet ports on the cluster FXT nodes handle various types of traffic. To learn more, read [Link Aggregation](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_general_setup.html#link-aggregation) in the *Cluster Configuration Guide*.
+* **Link aggregation** - Link aggregation allows you to customize how the ethernet ports on the cluster FXT nodes handle various types of traffic. To learn more, read [Link Aggregation](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_general_setup.html#link-aggregation) in the Cluster Configuration Guide.
 
 ## Create the cluster
 
