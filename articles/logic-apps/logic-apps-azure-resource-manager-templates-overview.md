@@ -149,13 +149,13 @@ Other template sections often reference template parameters so they can use the 
 
 * Your [template's resources section](#template-resources), described later in this topic, defines each resource in Azure that you want to create and deploy, such as your [logic app's resource definition](#logic-app-resource). These resources often use template parameter values, such as your logic app's name and location and connection information.
 
-* At a deeper level in your logic app's resource definition, your [workflow definition's parameters section](#workflow-definition-and-parameters) defines parameters for the values to use at your logic app's runtime. For example, you can define workflow definition parameters for the username and password that an HTTP trigger uses for authentication. To specify the values for workflow definition parameters, use the parameters section that's *outside* your workflow definition but still *inside* your logic app's resource definition. In this outer parameters section, you can reference previously defined template parameters, which can accept values at deployment from a parameter file.
+* At a deeper level in your logic app's resource definition, your [workflow definition's parameters section](#workflow-definition-parameters) defines parameters for the values to use at your logic app's runtime. For example, you can define workflow definition parameters for the username and password that an HTTP trigger uses for authentication. To specify the values for workflow definition parameters, use the parameters section that's *outside* your workflow definition but still *inside* your logic app's resource definition. In this outer parameters section, you can reference previously defined template parameters, which can accept values at deployment from a parameter file.
 
 When referencing parameters, template expressions and functions use different syntax and behave differently from workflow definition expressions and functions. For more information about these differences, see [References to parameters](#parameter-references) later in this topic.
 
-<a name="best-practices-parameters"></a>
+<a name="best-practices-template-parameters"></a>
 
-## Best practices for parameters
+## Best practices - template parameters
 
 Here are some best practices for defining parameters:
 
@@ -331,18 +331,18 @@ Here are the attributes that are specific to your logic app resource definition:
 |-----------|----------|------|-------------|
 | `state` | Yes | String | Your logic app's state at deployment where `Enabled` means your logic app is live and `Disabled` means that your logic app is inactive. For example, if you're not ready for your logic app to go live but want to deploy a draft version, you can use the `Disabled` option. |
 | `integrationAccount` | No | Object | If your logic app uses an integration account, which stores artifacts for business-to-business (B2B) scenarios, this attribute includes the `id` attribute, which specifies the ID for the integration account. |
-| `definition` | Yes | Object | Your logic app's underlying workflow definition, which specifies the Workflow Definition Language schema version to use and definitions for the trigger, actions, workflow definition parameters, outputs, and so on. For more information, see [Workflow definition and parameters](#workflow-definition-and-parameters). <p><p>To view the attributes in your logic app's workflow definition, switch from "design view" to "code view" in the Azure portal or Visual Studio, or by using a tool such as [Azure Resource Explorer](http://resources.azure.com). |
-| `parameters` | No | Object | The [workflow definition parameter values](#workflow-definition-parameter-values) to use at your logic app's runtime. The parameter definitions for these values appear inside your [workflow definition's parameters section](#workflow-definition-and-parameters). Also, if your logic app uses [managed connectors](../connectors/apis-list.md) for accessing other services and systems, this attribute includes a `$connections` attribute that specifies the connection values to use at runtime. |
+| `definition` | Yes | Object | Your logic app's underlying workflow definition, which is the same section that appears in code view and is fully described in the [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) topic. In this workflow definition, the `parameters` attribute defines parameters for the values to use at logic app runtime. For more information, see [Workflow definition and parameters](#workflow-definition-parameters). <p><p>To view the attributes in your logic app's workflow definition, switch from "design view" to "code view" in the Azure portal or Visual Studio, or by using a tool such as [Azure Resource Explorer](http://resources.azure.com). |
+| `parameters` | No | Object | The [workflow definition parameter values](#workflow-definition-parameters) to use at logic app runtime. The parameter definitions for these values appear inside your [workflow definition's parameters section](#workflow-definition-parameters). Also, if your logic app uses [managed connectors](../connectors/apis-list.md) for accessing other services and systems, this attribute includes a `$connections` attribute that specifies the connection values to use at runtime. |
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
 For information about general resource attributes, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources).
 
-<a name="workflow-definition-and-parameters"></a>
+<a name="workflow-definition-parameters"></a>
 
-### Workflow definition and parameters
+## Workflow definition and parameters
 
-Your logic app's workflow definition appears in the `definition` section, which is inside the properties section for your logic app resource definition. The `definition` section is the same section that's fully described in the [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) topic. Your workflow definition has a `parameters` section where you can define new or edit existing parameters for values that your workflow definition uses at runtime. You can then reference these parameters inside the trigger or actions in your workflow. By default, this `parameters` section is empty unless your logic app creates connections to other services and systems through [managed connectors](../connectors/apis-list.md).
+In the properties section for your logic app's resource definition, your logic app's workflow definition appears in the `definition` section. This `definition` section is the same section that appears in code view and is fully described in the [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) topic. Your workflow definition has a `parameters` section where you can define new or edit existing parameters for values that your workflow definition uses at runtime. You can then reference these parameters inside the trigger or actions in your workflow. By default, this `parameters` section is empty unless your logic app creates connections to other services and systems through [managed connectors](../connectors/apis-list.md).
 
 To specify the values for workflow definition parameters, use the next-level `parameters` section that's *outside* your workflow definition but still *inside* your logic app's resource definition. In this outer parameters section, you can reference previously defined parameters, which can accept values at deployment from a parameter file.
 
@@ -406,6 +406,7 @@ This syntax shows where you define the parameters at both template and workflow 
    "outputs": {}
 }
 ```
+
 
 ```json
   {
@@ -501,156 +502,21 @@ This syntax shows where you define the parameters at both template and workflow 
    }
    ```
 
-To make sure that the Logic App Designer can correctly show workflow definition parameters, note these practices:
+<a name="best-practices-workflow-definition-parameters"></a>
 
-* You can define parameters for these kinds of triggers and actions:
+## Best practices - workflow definition parameters
 
-  * Azure Functions app
+To make sure that the Logic App Designer can correctly show workflow definition parameters, follow these best practices:
 
-  * Nested or child logic app workflow
+* Include the `defaultValue` attribute, which can specify empty values, for all parameters except for values that are sensitive or must be secured.
 
-  * API Management call
-
-  * The runtime URL for an API connection
-
-  * The `path` attribute for an APIConnection trigger or action
-
-* Include the `defaultValue` attribute, which can specify empty values, for all parameters except for values that are sensitive or must be secured. Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
+* Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
 
   * [Security recommendations for action and input parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters-and-inputs)
 
   * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
 For more information about workflow definition parameters, see [Parameters - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
-
-This example shows just the template parameters for the values used to create and deploy these resources in Azure:
-
-* Name and location for your logic app
-
-* Values for connecting to an Office 365 Outlook account
-
-* Values for connecting to an Azure Blob storage account, including an access key
-
-* ID to use for an integration account that's linked to the logic app
-
-Except for the parameter that uses the `securestring` type because the value is an access key, all the other parameters include `defaultValue` attributes, although in some cases, the default values are empty values. For more information, see [Best practices for template parameters](../azure-resource-manager/template-best-practices.md#parameters). The values provided for these template parameters are in the sample [parameter file](#template-parameter-files) that's described later in this topic.
-
-```json
-{
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion": "1.0.0.0",
-   // Template parameters
-   "parameters": {
-      "LogicAppName": {
-         "type": "string",
-         "minLength": 1,
-         "maxLength": 80,
-         "defaultValue": "MyLogicApp",
-         "metadata": {
-            "description": "The resource name for the logic app"
-         }
-      },
-      "LogicAppLocation": {
-         "type": "string",
-         "min length": 1,
-         "defaultValue": "[resourceGroup().location]",
-         "metadata": {
-            "description": "The resource location for the logic app"
-         }
-      },
-      "office365_1_Connection_Name": {
-         "type": "string",
-         "defaultValue": "office365",
-         "metadata": {
-            "description": "The resource name for the Office 365 Outlook connection"
-         }
-      },
-      "office365_1_Connection_DisplayName": {
-         "type": "string",
-         "defaultValue": "",
-         "metadata": {
-            "description": "The display name for the Office 365 Outlook connection"
-         }
-      },
-      "azureblob_1_Connection_Name": {
-         "type": "string",
-         "defaultValue": "azureblob",
-         "metadata": {
-            "description": "The resource name for the Azure Blob storage account connection"
-         }
-      },
-      "azureblob_1_Connection_DisplayName": {
-         "type": "string",
-         "defaultValue": "",
-         "metadata": {
-            "description": "The display name for the Azure Blob storage account connection"
-         },
-
-      },
-      "azureblob_1_accountName": {
-         "type": "string",
-         "defaultValue": "",
-         "metadata": {
-            "description": "Name of the storage account the connector should use."
-         }
-      },
-      "azureblob_1_accessKey": {
-         "type": "securestring",
-         "metadata": {
-            "description": "Specify a valid primary/secondary storage account access key."
-         }
-      },
-      "LogicAppIntegrationAccount": {
-         "type":"string",
-         "minLength": 1,
-         "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/fabrikam-integration-account-rg/providers/Microsoft.Logic/integrationAccounts/fabrikam-integration-account",
-         "metadata": {
-            "description": "The ID to use for the integration account"
-         }
-      }
-   },
-   "variables": {},
-   "functions": [],
-   "resources": [],
-   "outputs": {}
-}
-```
-
-<a name="workflow-definition-parameter-values"></a>
-
-## Workflow definition parameter values
-
-
-  ```json
-  {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {<template-parameter-definitions>},
-      "variables": {},
-      "functions": [],
-      "resources": [
-         {
-            // Start logic app resource definition
-            "properties": {
-               <...>
-               // Start workflow definition
-               "definition": {
-                  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-                  "actions": {},
-                  "parameters": {<workflow-parameter-definitions>},
-                  "triggers": {},
-                  <...>
-               },
-               "parameters": {<workflow-parameter-values>},
-               "accessControl": {}
-            },
-            <more-logic-app-resource attributes>
-            // End logic app resource definition
-         },
-     ],
-     "outputs": {}
-   }
-   ```
 
 <a name="connection-resource-definitions"></a>
 
@@ -842,6 +708,99 @@ Here is an example that specifies the account name and access key for an Azure B
          "accessKey": "[parameters('azureblob_1_accessKey')]"
       }
    }
+}
+```
+
+This example shows just the template parameters for the values used to create and deploy these resources in Azure:
+
+* Name and location for your logic app
+
+* Values for connecting to an Office 365 Outlook account
+
+* Values for connecting to an Azure Blob storage account, including an access key
+
+* ID to use for an integration account that's linked to the logic app
+
+Except for the parameter that uses the `securestring` type because the value is an access key, all the other parameters include `defaultValue` attributes, although in some cases, the default values are empty values. For more information, see [Best practices for template parameters](../azure-resource-manager/template-best-practices.md#parameters). The values provided for these template parameters are in the sample [parameter file](#template-parameter-files) that's described later in this topic.
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   // Template parameters
+   "parameters": {
+      "LogicAppName": {
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 80,
+         "defaultValue": "MyLogicApp",
+         "metadata": {
+            "description": "The resource name for the logic app"
+         }
+      },
+      "LogicAppLocation": {
+         "type": "string",
+         "min length": 1,
+         "defaultValue": "[resourceGroup().location]",
+         "metadata": {
+            "description": "The resource location for the logic app"
+         }
+      },
+      "office365_1_Connection_Name": {
+         "type": "string",
+         "defaultValue": "office365",
+         "metadata": {
+            "description": "The resource name for the Office 365 Outlook connection"
+         }
+      },
+      "office365_1_Connection_DisplayName": {
+         "type": "string",
+         "defaultValue": "",
+         "metadata": {
+            "description": "The display name for the Office 365 Outlook connection"
+         }
+      },
+      "azureblob_1_Connection_Name": {
+         "type": "string",
+         "defaultValue": "azureblob",
+         "metadata": {
+            "description": "The resource name for the Azure Blob storage account connection"
+         }
+      },
+      "azureblob_1_Connection_DisplayName": {
+         "type": "string",
+         "defaultValue": "",
+         "metadata": {
+            "description": "The display name for the Azure Blob storage account connection"
+         },
+
+      },
+      "azureblob_1_accountName": {
+         "type": "string",
+         "defaultValue": "",
+         "metadata": {
+            "description": "Name of the storage account the connector should use."
+         }
+      },
+      "azureblob_1_accessKey": {
+         "type": "securestring",
+         "metadata": {
+            "description": "Specify a valid primary/secondary storage account access key."
+         }
+      },
+      "LogicAppIntegrationAccount": {
+         "type":"string",
+         "minLength": 1,
+         "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/fabrikam-integration-account-rg/providers/Microsoft.Logic/integrationAccounts/fabrikam-integration-account",
+         "metadata": {
+            "description": "The ID to use for the integration account"
+         }
+      }
+   },
+   "variables": {},
+   "functions": [],
+   "resources": [],
+   "outputs": {}
 }
 ```
 
