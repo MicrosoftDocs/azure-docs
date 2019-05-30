@@ -81,12 +81,12 @@ Create the network rules to correctly configure your HDInsight cluster.
         1. Set **Destination Ports** to `*`.
     1. If you are using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
         1. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.
-        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Enter the IP address for your storage account in **Destination addresses**.
         1. Set **Destination Ports** to `*`.
     1. (Optional) If you are using Log Analytics, then create a network rule in the IP Addresses section to enable communication with your Log Analytics workspace.
-        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
         1. Set **Destination Ports** to `12000`.
@@ -128,8 +128,6 @@ For example, to configure the route table for a cluster created in the US region
 | 40.86.83.253 | 40.86.83.253/32 | Internet | NA |
 | 168.63.129.16 | 168.63.129.16/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | 10.1.1.4 |
-
-![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
 
 Complete the route table configuration:
 
