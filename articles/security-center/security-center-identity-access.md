@@ -116,7 +116,7 @@ Use the table below as a reference to help you understand the available Identity
 |Subscription|5|There should be more than one owner assigned to your subscription|Designate more than one subscription owner in order to have administrator access redundancy.|
 |Subscription|5|A maximum of 3 owners should be designated for your subscription|Designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner.|
 |Key vault|5|Diagnostics logs in Key Vault should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Subscription|15|External accounts with read permissions should be removed  from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.|
+|Subscription|15|External accounts with read permissions should be removed  from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.| 
 
 > [!NOTE]
 > If you created a conditional access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
