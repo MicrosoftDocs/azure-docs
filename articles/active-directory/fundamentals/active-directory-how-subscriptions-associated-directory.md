@@ -73,7 +73,7 @@ After you associate a subscription to a different directory, there might be addi
 
 1. If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. If you were using system-assigned Managed Identities for resources, you must re-enable these. If you were using user-assigned Managed Identities, you must re-create these. After re-enabling or recreating the Managed Identities, you must re-establish the permissions assigned to those identities. For more information see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
+2. If you were using system-assigned Managed Identities for resources, you must re-enable these. If you were using user-assigned Managed Identities, you must re-create these. After re-enabling or recreating the Managed Identities, you must re-establish the permissions assigned to those identities. For more information see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
 3. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
 
