@@ -13,7 +13,7 @@ abstract:
   description: Start with our Azure Kinect DK.
 sections:
 - items:
-    html: <img>./media/index/device-image.jpg</img>
+    html: <img src="./media/index/device-image.jpg" style="max-width:100%" alt="Azure Kinect device">
 - items:
     - type: list
       style: cards
