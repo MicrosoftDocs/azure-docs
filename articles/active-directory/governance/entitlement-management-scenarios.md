@@ -122,4 +122,4 @@ There are several ways that you can configure entitlement management for your or
 ## Next steps
 
 - [Tutorial: Create your first access package](entitlement-management-access-package-first.md)
-- [Delegate tasks](entitlement-management-delegate-tasks.md)
+- [Delegate tasks](entitlement-management-delegate.md)
