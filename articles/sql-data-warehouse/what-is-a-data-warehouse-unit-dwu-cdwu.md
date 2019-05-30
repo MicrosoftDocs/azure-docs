@@ -2,13 +2,13 @@
 title: Data Warehouse Units (DWUs, cDWUs) in Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 05/28/2019
-ms.author: nicw
+ms.date: 05/30/2019
+ms.author: martinle
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19 
 ---
@@ -204,8 +204,8 @@ This DMV returns information about various management operations on your SQL Dat
 
 When you start a scale operation, the system first kills all open sessions, rolling back any open transactions to ensure a consistent state. For scale operations, scaling only occurs after this transactional rollback has completed.  
 
-- For a scale-up operation, the system provisions the additional compute and then reattaches to the storage layer.
-- For a scale-down operation, the unneeded nodes detach from the storage and reattach to the remaining nodes.
+- For a scale-up operation, the system detaches all compute nodes, provisions the additional compute nodes, and then reattaches to the storage layer.
+- For a scale-down operation, the system detaches all compute nodes and then reattaches only the needed nodes to the storage layer.
 
 ## Next steps
 
