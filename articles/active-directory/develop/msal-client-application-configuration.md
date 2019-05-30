@@ -53,12 +53,12 @@ Azure AD cloud authorities have two parts:
 - The identity provider *instance*
 - The sign-in *audience* for the app
 
-The instance and audience can be concatenated and provided as the authority URL. In versions of MSAL.NET prior to MSAL 3.*x*, you had to compose the authority yourself, based on the cloud you wanted to target and the sign-in audience.  This diagram shows how the authority URL is composed:
+The instance and audience can be concatenated and provided as the authority URL. In versions of MSAL.NET earlier than MSAL 3.*x*, you had to compose the authority yourself, based on the cloud you wanted to target and the sign-in audience.  This diagram shows how the authority URL is composed:
 
 ![How the authority URL is composed](media/msal-client-application-configuration/authority.png)
 
 ## Cloud instance
-The *instance* is used to specify if your app is signing users from the Azure public cloud or from national clouds. By using MSAL in your code, you can set the Azure cloud instance by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
+The *instance* is used to specify if your app is signing users from the Azure public cloud or from national clouds. Using MSAL in your code, you can set the Azure cloud instance by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
 
 MSAL.NET will throw an explicit exception if both `Instance` and `AzureCloudInstance` are specified.
 
@@ -71,7 +71,7 @@ The sign-in audience depends on the business needs for your app:
 - If you're an ISV, you might want to sign in users with their work and school accounts in any organization or in some organizations (multitenant app). But you might also want to have users sign in with their personal Microsoft accounts.
 
 ### How to specify the audience in your code/configuration
-By using MSAL in your code, you specify the audience by using one of the following:
+Using MSAL in your code, you specify the audience by using one of the following values:
 - The Azure AD authority audience enumeration
 - The tenant ID, which can be:
   - A GUID (the ID of your Azure AD instance), for single-tenant applications
@@ -81,12 +81,12 @@ By using MSAL in your code, you specify the audience by using one of the followi
     - `consumers` to sign in users only with their personal accounts
     - `common` to sign in users with their work and school accounts or their personal Microsoft accounts
 
-MSAL will throw a meaningful exception if you specify both Azure AD authority audience and the tenant ID.
+MSAL will throw a meaningful exception if you specify both the Azure AD authority audience and the tenant ID.
 
 If you don't specify an audience, your app will target Azure AD and personal Microsoft accounts as an audience. (That is, it will behave as though `common` were specified.)
 
 ### Effective audience
-The effective audience for your application will be the minimum (if there's an intersection) of the audience you set in your app and the audience specified in the app registration. In fact, the [App registrations](https://aka.ms/appregistrations) experience lets you specify the audience (the supported account types) for the app. For more information, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
+The effective audience for your application will be the minimum (if there's an intersection) of the audience you set in your app and the audience that's specified in the app registration. In fact, the [App registrations](https://aka.ms/appregistrations) experience lets you specify the audience (the supported account types) for the app. For more information, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
 
 Currently, the only way to get an app to sign in users with only personal Microsoft accounts is to configure both of these settings:
 - Set the app registration audience to `Work and school accounts and personal accounts`.
@@ -116,7 +116,7 @@ You can override the redirect URI by using the `RedirectUri` property (for examp
 For details, see the [documentation for Android and iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 
 ### Redirect URI for confidential client apps
-For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This can be the URL of the web app/Web API if the confidential app is one of these. This redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you have initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
+For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This can be the URL of the web app/Web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
 
 For daemon apps, you don't need to specify a redirect URI.
 
