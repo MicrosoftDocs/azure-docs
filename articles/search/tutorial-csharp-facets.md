@@ -11,12 +11,13 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Use facets to improve the efficiency of an Azure Search
 
-Learn how to implement an efficient search for facets, greatly reducing the number of calls to a server for type-ahead or other suggestions. Learn that a facet search is carried out just once when a user first runs the app and that the results stay active for the duration of their session. A facet can be considered to be an attribute of the data (such as a pool in our hotels data) and a facet search collects all these attributes up when the app is initiated and presents them to the user whenever their typing matches throughout their session with the app.
+Learn how to implement an efficient search for facets, greatly reducing the number of calls to a server for type-ahead or other suggestions. Learn that a facet search is carried out just once when a user first runs the app and that the results stay active for the duration of their session. A facet can be considered to be an attribute of the data (such as a pool or free parking in our hotels data) and a facet search collects all these attributes up when the app is initiated and presents them to the user whenever their typing matches throughout their session with the app.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Specify certain fields of a data set as **IsFacetable**
 > * Make the single call for an Azure Search of facets
+> * Display the results of a facet call in a drop-down list
 > * Determine the conditions when a facet search makes most sense
 
 ## Prerequisites
@@ -35,7 +36,7 @@ Image
 
 We will use the numbered paging app you might have completed in the second tutorial as a basis for this sample.
 
-To implement facets we do not need to change any of the models (data classes). We just need to add some script to the view and an action to the controller.
+To implement facets we do not need to change any of the models (the data classes). We just need to add some script to the view and an action to the controller.
 
 ### Start with the numbered paging Azure Search app
 
@@ -48,7 +49,7 @@ xxxx
 
 In order for a field to be located in a facet search it must be tagged with **IsFacetable**.
 
-1. Examine the **Hotel** class. Note that **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. A facet search will throw an error if a field is included in the search that is not tagged.
+1. Examine the **Hotel** class. Note that **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. A facet search will throw an error if a field is requested in the search that is not tagged appropriately.
 
 ```cs
 public partial class Hotel
@@ -100,7 +101,7 @@ public partial class Hotel
 
 In order to initiate a facet search we need to add some javascript to the index.cshtml file.
 
-1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and make sure it has a unique **id**, similar to the following.
+1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and add a unique **id**, similar to the following.
 
 ```cs
     <div class="searchBoxForm">
@@ -112,7 +113,7 @@ In order to initiate a facet search we need to add some javascript to the index.
 
 ```cs
     <script>
-        $.getJSON("/home/facets", function (data) {
+        $.getJSON("/Home/Facets", function (data) {
 
             $("#azuresearchfacets").autocomplete({
                 source: data,
@@ -126,7 +127,7 @@ In order to initiate a facet search we need to add some javascript to the index.
     </script>
 ```
 
-Notice that the script calls **Facets** action in the home controller when a minimum length of two typed characters is reached.
+Notice that the script calls the **Facets** action in the home controller, without any other parameters, when a minimum length of two typed characters is reached.
 
 ### Add references to jquery scripts to the view
 
@@ -144,11 +145,21 @@ The autocomplete function called in the script above is not something we have to
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 ```
 
-Now we can use the predefined jquery functions.
+2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. This avoids clashing references to jquery.
+
+```cs
+ <environment include="Development">
+        <!-- <script src="~/lib/jquery/dist/jquery.js"></script> -->
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+```
+
+Now we can use the predefined autocomplete jquery functions.
 
 ### Add a facet action to the controller
 
-1. The javascript in the view will trigger an action in the controller that in this case has no other parameters, so we code the action as follows.
+1. The javascript in the view triggers the **Facets** action in the controller, so let's add that action to the home controller (say, below the **Page** action).
 
 ```cs
         public async Task<ActionResult> Facets()
@@ -176,11 +187,26 @@ Now we can use the predefined jquery functions.
 
             // Combine and return the lists.
             facets.AddRange(categories);
-            return new JsonResult((object)facets);
+            return new JsonResult(facets);
         }
 ```
 
-Note how we need two lists because we asked for two fields to be searched (**Tags** and **Category**). If we had asked for three fields to be searched, we would have to combine three lists into one, and so on.
+Notice that we are requesting up to 100 facets from the **Tags** fields and up to 20 from the **Category** fields. The **count** entries are optional, if none is set the default is 10.
+
+2. If you get syntax errors with the **List<string>** declarations, make sure to add the appropriate **using** statement to the top of the file.
+
+```cs
+using System.Collections.Generic;
+```
+
+3. If you get syntax errors with the **Select** calls, to create lists of results, add this **using** statement.
+
+```cs
+using System.Linq;
+```
+
+
+Note how we need two lists, that are then combined into one, because we asked for two fields to be searched (**Tags** and **Category**). If we had asked for three fields to be searched, we would have to combine three lists into one, and so on.
 
 ### Compile and run your project
 
@@ -202,7 +228,7 @@ Facet searches are best used when:
 * The performance of other searches that call the server each time is an issue.
 * The facets returned provide the user with a list of options of reasonable length when they type in a few characters.
 * The facets returned provide a quick way to access most or ideally all of the data available.
-* The maximum counts allow most facets to be included. In our code we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. If no count is given the default maximum is 10. The maximums set must work well with the size of the data set. If too many potential facets are being cut then perhaps the search is not as helpful as it should be.
+* The maximum counts allow most facets to be included. In our code we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. The maximums set must work well with the size of the data set. If too many potential facets are being cut then perhaps the search is not as helpful as it should be.
 
 
 ## Takeaways
