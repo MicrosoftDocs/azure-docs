@@ -157,7 +157,7 @@ For an example of viewing runs that are produced by training a model, see [Quick
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
 > [!NOTE]
-> To prevent unnecessary files from being included in the snapshot, make an ignore file (.gitignore or .amlignore). Place this file in the Snapshot directory and add the files names to ignore in it. The .amlignore file uses the same [syntax and patterns as the .gitignore file](https://git-scm.com/docs/gitignore)git s. If both files exist, the .amlignore file takes precedence.
+> To prevent unnecessary files from being included in the snapshot, make an ignore file (.gitignore or .amlignore). Place this file in the Snapshot directory and add the filenames to ignore in it. The .amlignore file uses the same [syntax and patterns as the .gitignore file](https://git-scm.com/docs/gitignore)git s. If both files exist, the .amlignore file takes precedence.
 
 ## Activity
 
