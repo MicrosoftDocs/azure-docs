@@ -67,13 +67,13 @@ The Azure App Service scale units support many customers in each deployment. The
 
 App Service has a number of endpoints that are used to manage the service.  Those addresses are published in a separate document and are also in the AppServiceManagement IP service tag. The AppServiceManagement tag is only used with an App Service Environment (ASE) where you need to allow such traffic. The App Service inbound addresses are tracked in the AppService IP service tag. There is no IP service tag that contains the outbound addresses used by App Service. 
 
-![App Service inbound and outbound diagram](media/networking-features/)
+![App Service inbound and outbound diagram](media/networking-features/default-behavior.png)
 
 ### App assigned address 
 
 The app assigned address feature is an offshoot of the IP based SSL capability and is accessed by setting up SSL with your app. This feature can be used for IP based SSL calls but it can also be used to give your app an address that only it has. 
 
-![App assigned address diagram](media/networking-features/)
+![App assigned address diagram](media/networking-features/app-assigned-address.png)
 
 When you use an app assigned address, your traffic still goes through the same front-end roles that handle all of the incoming traffic into the App Service scale unit. The address that is assigned to your app however, is just used by your app. The use cases for this feature are to:
 
@@ -156,16 +156,6 @@ The gateway required VNet Integration feature is very useful but still does not 
 
 This feature is in preview and should not be used for production workloads. To learn more about this feature read the docs on [App Service VNet Integration (preview)][swiftvnetintegration].
 
-### Combining features 
-
-The features noted for the multi-tenant service can all be used together. There is a rather generic use case that is often desired which is to put your app in the VNet. This is usually meant to be where the inbound and outbound endpoints for an app are within a VNet. The ASE provides the best solution to solve this problem but, you can get most of what is needed with the new preview features. For example, you can host intranet only applications with private inbound and outbound addresses by:
-
-* creating an Application Gateway with private inbound and outbound address
-* securing inbound traffic to your app with service endpoints 
-* use the new VNet Integration so the backend of your app is in your VNet 
-
-This would not give you a dedicated address for outbound traffic to the internet but it would give you a lot of what you would only otherwise get with an ASE. 
-
 ## App Service Environment (ASE)
 
 An ASE is a single tenant deployment of the Azure App Service that runs in your VNet. The ASE enables use cases such as:
@@ -198,7 +188,26 @@ The ASE provide the best story around isolated and dedicated app hosting but doe
  * an ASE does have a higher up front cost associated with it. In order to get the most out of your ASE, you should plan on putting many workloads into one ASE rather than have it used for small efforts
  * the apps in an ASE cannot restrict access to some apps in an ASE and not others. 
  * The ASE is in a subnet and any networking rules apply to all the traffic to and from that ASE. The exception to this is the use of Access Restrictions on IP address blocks which can be configured on a per app basis. 
- 
+
+## Combining features 
+
+The features noted for the multi-tenant service can all be used together. 
+
+#### Inject app into a VNet
+
+A common request is on how to put your app in a VNet. Putting your app into a VNet means that the inbound and outbound endpoints for an app are within a VNet. The ASE provides the best solution to solve this problem but, you can get most of what is needed with in the multi-tenant service by combining features. For example, you can host intranet only applications with private inbound and outbound addresses by:
+
+* creating an Application Gateway with private inbound and outbound address
+* securing inbound traffic to your app with service endpoints 
+* use the new VNet Integration so the backend of your app is in your VNet 
+
+This deployment style would not give you a dedicated address for outbound traffic to the internet or give you the ability to lock down all outbound traffic from your app.  This deployment style would give you a lot of what you would only otherwise get with an ASE. 
+
+#### Create multi-tier applications
+
+A multi-tier application is an application where the API backend apps can only be accessed from the front end tier
+
+
  
 
 
