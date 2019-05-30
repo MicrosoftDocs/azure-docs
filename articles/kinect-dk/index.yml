@@ -10,10 +10,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/25/2019  
 abstract:
-  description: Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.
+description:
 sections:
 - items:
     html: <img src="./media/index/device-image.jpg" style="max-width:100%" alt="Azure Kinect device">
+- items:
+  - type: paragraph
+    text: Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.
 - items:
     - type: list
       style: cards
@@ -25,12 +28,12 @@ sections:
           image:
             src: https://docs.microsoft.com/media/common/i_overview.svg
           title: What is Azure Kinect DK?
-        - href: overview-sensor-sdk.md
+        - href: hardware-specification.md
           html: <p>Review Azure Kinect Hardware Specification.</p>
           image:
             src: https://docs.microsoft.com/media/common/i_get-started.svg
           title: Azure Kinect Hardware Specification
-        - href: hardware-specification.md
+        - href: sensor-sdk-download.md
           html: <p>Follow Instructions to download Azure Kinect Sensor SDK.</p>
           image:
             src: ./media/index/kinect-viewer.svg
@@ -57,14 +60,15 @@ sections:
 - title: Introduction
   items:
   - type: paragraph
-    text:
+    text: |
       Get familiar with Azure Kinect and its SDKs
       <div class="row"><div class="column"><ul>
       <li><b><a href="system-requirements.md">Sensor SDK system requirements</a></b></li>
-      <li><b><a href="azure-kinect-dk-depth-camera.md">learn about depth camera</a></b></li>
-      <li><b><a href="azure-kinect-dk-coordinate-systems.md">coordinate system</a></b></li></ul></div><div class="column"><ul>
-      <li><b><a href="azure-kinect-sensor-viewer.md">learn how to use viewer</a></b></li>
-      <li><b><a href="azure-kinect-dk-recorder.md">learn how to use recorder</a></b></li>
+      <li><b><a href="overview-sensor-sdk.md">Learn about Sensor SDK</a></b></li>
+      <li><b><a href="azure-kinect-dk-depth-camera.md">Learn about depth camera</a></b></li></ul></div><div class="column"><ul>
+      <li><b><a href="azure-kinect-dk-update-device-firmware.md">Update Azure Kinect firmware</a></b></li>
+      <li><b><a href="azure-kinect-sensor-viewer.md">Learn how to use viewer</a></b></li>
+      <li><b><a href="azure-kinect-dk-recorder.md">Learn how to use recorder</a></b></li></ul></div></div>
 - title: Reference
   items:
   - type: list
@@ -72,6 +76,11 @@ sections:
     className: cardsD
     items:
     - title: Services
-      html: <p><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/">Speech Services</a></p><p><a href="https://azure.microsoft.com/en-us/services/cognitive-services/directory/vision/">Vision Services</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api">.NET</a></p>
+      html: <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">
+                  Speech Services
+               </a>
+            </p>
+            <p><a href="https://azure.microsoft.com/services/cognitive-services/directory/vision/">
+                  Vision Services
+               </a>
+            </p>
