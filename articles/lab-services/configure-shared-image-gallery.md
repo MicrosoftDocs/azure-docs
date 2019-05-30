@@ -115,7 +115,7 @@ If you're using an Azure Resource Manager template to create a virtual machine u
 To learn more, see these Resource Manager template samples on our public GitHub.
 [Create a virtual machine using a shared image gallery image](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-sharedimage).
 
-## API to configure a shared image gallery for your lab
+## Use API
 
 - Use API version 2018-10-15-preview.
 - To attach your gallery, send the request as shown in the following snippet:
