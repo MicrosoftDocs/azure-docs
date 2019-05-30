@@ -215,9 +215,9 @@ Next, add code to access your storage account, replacing the placeholders with y
 const accountName = "<Add your storage account name>";
 const sasString = "<Add the SAS you generated earlier>";
 const containerName = "testcontainer";
-const serviceURL = azblob.ServiceURL(`https://${accountName}.blob.core.windows.net?${sasString}`,
-    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
-const containerURL = azblob.ContainerURL.fromServiceURL(serviceURL, containerName);
+const containerURL = new azblob.ContainerURL(
+    `https://${accountName}.blob.core.windows.net/${containerName}?${sasString}`,
+    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential)));
 ```
 
 This code uses your account info and SAS to create a [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) instance, which is useful for creating and manipulating a storage container.
