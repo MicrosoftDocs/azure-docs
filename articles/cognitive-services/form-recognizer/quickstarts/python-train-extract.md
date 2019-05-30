@@ -42,9 +42,12 @@ When you are granted access to use Form Recognizer, you'll receive a Welcome ema
 
 When your Form Recognizer resource finishes deploying, find and select it from the **All resources** list in the portal. Then select the **Keys** tab to view your subscription keys. Either key will give your app access to the resource. Copy the value of **KEY 1**. You will use it in the next section.
 
-## Create and run the sample
+## Train a Form Recognizer model
 
-To create and run the sample, make these changes to the code snippet that follows:
+First, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form. The form's file name needs to include the word "empty."
+
+To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the python code that follows. Before you run the code, make these changes:
+
 1. Replace `<Endpoint>` with the endpoint URL for the Form Recognizer resource in the Azure region where you obtained your subscription keys.
 1. Replace `<SAS URL>` with an Azure Blob storage container shared access signature (SAS) URL of the location of the training data.  
 1. Replace `<Subscription key>` with the subscription key you copied from the previous step.

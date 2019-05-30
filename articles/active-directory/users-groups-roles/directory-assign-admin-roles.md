@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -55,6 +55,8 @@ The following administrator roles are available:
   * Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
   * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+
+* **[Azure Information Protection Administrator](#azure-information-protection-administrator)**: Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
 
 * **[B2C User Flow Administrator](#b2c-user-flow-administrator)**: Users with this role can create and manage B2C User Flows (aka "built-in" policies) in Azure Portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (aka Custom) policies is also outside the scope of this role.
 
@@ -132,8 +134,6 @@ The following administrator roles are available:
 
 * **[Guest Inviter](#guest-inviter)**: Users in this role can manage Azure Active Directory B2B guest user invitations when the **Members can invite** user setting is set to No. More information about B2B collaboration at [About Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). It does not include any other permissions.
 
-* **[Information Protection Administrator](#information-protection-administrator)**: Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
-
 * **[Intune Administrator](#intune-service-administrator)**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
@@ -183,7 +183,7 @@ Additionally, the user can access reports related to adoption & usage of Kaizala
   *	Force users to re-register against existing non-password credential (e.g. MFA, FIDO)
   *	Revoke ‘remember MFA on the device’, prompting for MFA on the next login
 
-* **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management.
+* **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
 
   <b>Important</b>: This role grants the ability to manage assignments for all Azure AD roles including the Global Administrator role. This role does not include any other privileged abilities in Azure AD like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
 
@@ -339,6 +339,22 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Azure Information Protection Administrator
+Can manage all aspects of the Azure Information Protection service.
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
@@ -768,22 +784,6 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-### Information Protection Administrator
-Can manage all aspects of the Azure Information Protection product.
-
-  > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
 ### Intune Service Administrator
 Can manage all aspects of the Intune product.
 
@@ -996,8 +996,12 @@ Can manage role assignments in Azure AD,  and all aspects of Privileged Identity
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/directoryRoles/update | Update directoryRoles in Azure Active Directory. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | Read and configure servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Read and configure servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
+| microsoft.aad.directory/roleAssignments/allProperties/allTasks | Create and manage role assignments. |
+| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Create and manage role definitions. |
 
 ### Reports Reader
 Can read sign-in and audit reports.
@@ -1249,6 +1253,7 @@ Graph displayName | Azure portal display name | directoryRoleTemplateId
 Application Administrator | Application administrator | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Authentication Administrator | Authentication administrator | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Azure Information Protection Administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C User flow Administrator | B2C User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C User Flow Attribute Administrator | B2C User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 B2C IEF Keyset Administrator | B2C IEF Keyset Administrator | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1273,7 +1278,6 @@ Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade
 External Identity Provider Administrator | External Identity Provider Administrator | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdesk Administrator | Password administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
-Information Protection Administrator | Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala Administrator | Kaizala administrator | 74ef975b-6605-40af-a5d2-b9539d836353
 License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569773a

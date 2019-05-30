@@ -232,9 +232,6 @@ The following sections demonstrate how to create the deployment configuration, a
 
 To deploy locally, you need to have **Docker installed** on your local machine.
 
-The examples in this section use [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), which requires you to register the model and image before doing a deployment. For more information on other deployment methods, see [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) and [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
-
-
 + **Using the SDK**
 
   ```python

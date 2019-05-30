@@ -67,7 +67,7 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-Now that you have created a blockchain member, try one of the connect to transaction node quickstarts for [Geth](connect-geth.md), [MetaMask](connect-metamask.md), or [Truffle](connect-truffle.md).
+Now that you have created a blockchain member, try one of the connection quickstarts for [Geth](connect-geth.md), [MetaMask](connect-metamask.md), or [Truffle](connect-truffle.md).
 
 > [!div class="nextstepaction"]
 > [Use Truffle to connect to a an Azure Blockchain Service network](connect-truffle.md)
