@@ -1,6 +1,6 @@
 ---
 title: Azure App Configuration resiliency and disaster recovery | Microsoft Docs
-description: An overview of how implement resiliency and disaster recovery with Azure App Configuration
+description: An overview of how to implement resiliency and disaster recovery with Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -44,7 +44,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     }
 ```
 
-Note the `optional` parameter passed into the `AddAzureAppConfiguration` function. When set to `true`, this parameter will prevent the application from failing to continue if the function can't load configuration data.
+Notice the `optional` parameter passed into the `AddAzureAppConfiguration` function. When set to `true`, this parameter will prevent the application from failing to continue if the function can't load configuration data.
 
 ## Synchronization between configuration stores
 
@@ -66,5 +66,5 @@ You can automate this exporting process using the Azure CLI. The command below s
 
 ## Next steps
 
-In this article, you've learned how to augment your application to achieve geo-resiliency during runtime for App Configuration. Alternatively, you can embed configuration data from App Configuration at build or deployment time. For more information, see [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md).
+In this article, you learned how to augment your application to achieve geo-resiliency during runtime for App Configuration. Alternatively, you can embed configuration data from App Configuration at build or deployment time. For more information, see [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md).
 
