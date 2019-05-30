@@ -93,3 +93,12 @@ sections:
                   Contribute to the sensor SDK
                </a>
             </p>
+    - title: Support
+      html: <p><a href="troubleshooting.md">
+                  Troubleshooting
+               </a>
+            </p>
+            <p><a href="http://aka.ms/kinectsupport">
+                  Microsoft support
+               </a>
+            </p>
