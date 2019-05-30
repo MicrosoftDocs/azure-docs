@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 05/29/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -60,7 +60,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** See [Roles to manage resources in a catalog](entitlement-management-delegate.md#roles-to-manage-resources-in-a-catalog)
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -86,7 +86,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 You can remove resources from a catalog. A resource can only be removed from a catalog if it is not being used in any of the catalog's access packages.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** See [Roles to manage resources in a catalog](entitlement-management-delegate.md#roles-to-manage-resources-in-a-catalog)
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -97,22 +97,6 @@ You can remove resources from a catalog. A resource can only be removed from a c
 1. Select the resources you want to remove.
 
 1. Click **Remove** (or click the ellipsis (**...**) and then click **Remove resource**).
-
-## Add catalog owners or access package managers
-
-If you want to delegate management of the catalog or the access packages in the catalog, you add catalog owners or access package managers. Whoever creates a catalog becomes the first catalog owner.
-
-**Prerequisite role:** User administrator or Catalog owner
-
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
-
-1. In the left menu, click **Catalogs** and then open the catalog you want to add administrators to.
-
-1. In the left menu, click **Roles and administrators**.
-
-1. Click **Add owners** or **Add access package managers** to select the members for these roles.
-
-1. Click **Select** to add these members.
 
 ## Edit a catalog
 
