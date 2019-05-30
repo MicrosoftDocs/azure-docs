@@ -56,16 +56,6 @@ Create a .NET Core application named **blob-quickstart**.
 The expected output from the build should look something like this:
 
    ```output
-   C:\QuickStarts> dotnet new console -n blob-quickstart
-The template "Console Application" was created successfully.
-
-Processing post-creation actions...
-Running 'dotnet restore' on blob-quickstart\blob-quickstart.csproj...
-  Restore completed in 292.83 ms for C:\QuickStarts\blob-quickstart\blob-quickstart.csproj.
-
-Restore succeeded.
-
-C:\QuickStarts> cd blob-quickstart
 C:\QuickStarts\blob-quickstart> dotnet build
 Microsoft (R) Build Engine version 16.0.450+ga8dc7f1d34 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
@@ -78,7 +68,6 @@ Build succeeded.
     0 Error(s)
 
 Time Elapsed 00:00:03.08
-C:\QuickStarts\blob-quickstart> _
 ```
 
 ### Install the package
