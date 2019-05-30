@@ -15,7 +15,7 @@ sections:
 - items:
     image:
       alt: 
-      src: ./media/index/device-image.jpg
+      src: https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-ga-kinect/articles/kinect-dk/media/index/device-image.jpg
 - items:
     - type: list
       style: cards
@@ -37,11 +37,30 @@ sections:
           image:
             src: ./media/index/kinect-viewer.svg
           title: Download Sensor SDK
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to set up and start working with Azure Kinect DK'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_guidelines.svg
+      text: Set up Azure Kinect hardware
+      href: set-up-azure-kinect-dk.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_tools.svg
+      text: Record sensor streams to a file
+      href: record-sensor-streams-file.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_build.svg
+      text: Build your first application
+      href: setup.md
 - title: Introduction
   items:
   - type: paragraph
-    text: |
-      You can use the Speech SDK to add the following capabilities (and more) to your apps&colon; 
+    text:
+      Get familiar with Azure Kinect and its SDKs; 
       <div class="row"><div class="column"><ul>
       <li><b><a href="speech-to-text.md">speech-to-text</a></b> (speech-recognition/SR)</li>
       <li><b><a href="speech-devices-sdk-create-kws.md">custom wake-word</a></b> (keyword-spotter/KWS)</li>
