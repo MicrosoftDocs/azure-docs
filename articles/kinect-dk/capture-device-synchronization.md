@@ -2,7 +2,7 @@
 title: Capture Azure Kinect device synchronization 
 description: Device synchronization
 author: xthexder
-ms.author: xthexder
+ms.author: jawirth, joylital
 ms.prod: kinect-dk
 ms.date: 6/22/2019
 ms.topic: overview
@@ -26,18 +26,20 @@ See [setup external synchronization](https://aka.ms/AzureKinectAPIDocs/external-
 The software for each connected device must be configured to operate in a **master** or **subordinate** mode. This
 setting is configured on the [k4a_device_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html).
 
-### Master mode
-
-```C
-k4a_device_configuration_t deviceConfig;
-deviceConfig.wired_sync_mode = K4A_WIRED_SYNC_MODE_MASTER;
-```
+When using external synchronization, subordinate cameras should always be started before the master for the timestamps to align correctly.
 
 ### Subordinate mode
 
 ```C
 k4a_device_configuration_t deviceConfig;
 deviceConfig.wired_sync_mode = K4A_WIRED_SYNC_MODE_SUBORDINATE
+```
+
+### Master mode
+
+```C
+k4a_device_configuration_t deviceConfig;
+deviceConfig.wired_sync_mode = K4A_WIRED_SYNC_MODE_MASTER;
 ```
 
 ### Retrieving synchronization jack state
