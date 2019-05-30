@@ -48,9 +48,9 @@ If you are using the client library, you can assign the value for `detectionMode
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true, detectionModel: "detection_02");
+var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
 ```
-    
+
 ## Add face to Person with specified model
 
 The Face API can extract face data from an image and associate it with a **Person** object through the [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API. In this API call, you can specify the detection model in the same way as in [Face - Detect].
