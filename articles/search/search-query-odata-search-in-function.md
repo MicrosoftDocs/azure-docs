@@ -47,7 +47,7 @@ search_in_call ::=
     'search.in(' variable ',' string_literal(',' string_literal)? ')'
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#search_in_call)
@@ -78,13 +78,13 @@ If you use `search.in`, you can expect sub-second response time when the second 
 
 ## Examples
 
-Find all hotels with name equal to either 'Seaview motel' or 'Budget hotel'. Phrases contain spaces, which is a default delimiter. You can specify an alternative delimiter in single quotes as the third string parameter:  
+Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel'. Phrases contain spaces, which is a default delimiter. You can specify an alternative delimiter in single quotes as the third string parameter:  
 
-    search.in(HotelName, 'Seaview motel,Budget hotel', ',')
+    search.in(HotelName, 'Sea View motel,Budget hotel', ',')
 
-Find all hotels with name equal to either 'Seaview motel' or 'Budget hotel' separated by '|'):
+Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel' separated by '|'):
 
-    search.in(HotelName, 'Seaview motel|Budget hotel', '|')
+    search.in(HotelName, 'Sea View motel|Budget hotel', '|')
 
 Find all hotels with rooms that have the tag 'wifi' or 'tub':
 

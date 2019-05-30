@@ -52,7 +52,7 @@ geo_polygon ::=
 lon_lat_list ::= lon_lat(',' lon_lat)*
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
@@ -104,7 +104,7 @@ Find all hotels within a given viewport described as a polygon (where location i
 
 ### Order-by examples
 
-Sort hotels descending by `rating`, then ascending by distance from the given co-ordinates:
+Sort hotels descending by `rating`, then ascending by distance from the given coordinates:
 
     rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 

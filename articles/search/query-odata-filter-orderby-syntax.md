@@ -22,7 +22,7 @@ translation.priority.mt:
 ---
 # OData language overview for `$filter`, `$orderby`, and `$select` in Azure Search
 
-Azure Search supports a subset of the OData expression syntax for **$filter**, **$orderby**, and **$select** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set to sort the documents that are returned. Select expressions determine which document fields are included in the result set. Filter, order-by, and select expressions are included in a query request, adhering to an OData syntax that is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax used in the **search** parameter (although there is some overlap in how fields are referenced).
+Azure Search supports a subset of the OData expression syntax for **$filter**, **$orderby**, and **$select** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set to sort the documents that are returned. Select expressions determine which document fields are included in the result set. The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax that is used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
 
 This article provides an overview of the OData expression language used in filters, order-by, and select expressions. The language is presented "bottom-up", starting with the most basic elements and building on them. If you want to skip right to the reference for each parameter, see:
 
@@ -31,7 +31,7 @@ This article provides an overview of the OData expression language used in filte
 
 ## Syntax overview and common elements
 
-OData expressions range from very simple to highly complex, but they all share common elements. The most basic parts of an OData expression in Azure Search are:
+OData expressions range from simple to highly complex, but they all share common elements. The most basic parts of an OData expression in Azure Search are:
 
 - **Field paths**, which refer to specific fields of your index.
 - Constants, which are literal values of a certain data type.
@@ -51,7 +51,7 @@ field_path ::= identifier('/'identifier)*
 identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
@@ -59,7 +59,7 @@ Click here to view an interactive syntax diagram:
 > [!NOTE]
 > See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
-A field path is composed of one or more identifiers, each of which is a sequence of characters that must start with an ASCII letter or underscore, and contain only ASCII letters, digits, or underscores. The letters can be upper- or lower-case.
+A field path is composed of one or more **identifiers** separated by slashes. Each identifier is a sequence of characters that must start with an ASCII letter or underscore, and contain only ASCII letters, digits, or underscores. The letters can be upper- or lower-case.
 
 Examples of field paths are shown in the following table:
 
@@ -70,11 +70,11 @@ Examples of field paths are shown in the following table:
 | `Rooms/Type` | Refers to the `Type` sub-field of a complex collection field in the index; `Rooms` is of type `Collection(Edm.ComplexType)` in this example |
 | `Stores/Address/Country` | Refers to the `Country` sub-field of the `Address` sub-field of a complex collection field in the index; `Stores` is of type `Collection(Edm.ComplexType)` and `Address` is of type `Edm.ComplexType` in this example |
 
-Notice how in the case of sub-fields, there is no way to tell from the field path whether an ancestor field is a complex collection or just a single complex object. For example, `Address/City` and `Rooms/Type` have the same structure, despite the fact that `Rooms` refers to a collection but `Address` does not.
+Notice how for sub-fields, there's no way to tell from the field path whether an ancestor field is a complex collection or just a single complex object. For example, the paths `Address/City` and `Rooms/Type` have the same structure, even though `Rooms` refers to a collection but `Address` doesn't.
 
-In many contexts, this difference does not matter, but in filters, `Address/City` is allowed but `Rooms/Type` is not. This is because in filters, a field path refers to a value in the current document, but in other contexts such as **$orderby**, **$select**, or in [fielded search in a full Lucene query](query-lucene-syntax.md#bkmk_fields), it refers to the field itself. Since `Rooms` is a collection of objects, `Rooms/Type` can't refer to a single value because there is no indication what the "current" object of the collection is.
+In many contexts, this difference doesn't matter, but in filters it does. In filters, `Address/City` is allowed but `Rooms/Type` isn't because a field path in a filter refers to a value in the current document. A field path in other contexts, such as **$orderby**, **$select**, or in [fielded search in a full Lucene query](query-lucene-syntax.md#bkmk_fields), refers to the field itself. Since `Rooms` is a collection of objects, `Rooms/Type` can't refer to a single value because there's no indication what the "current" object of the collection is.
 
-We get around this in filters using [the collection expressions `any` and `all`](search-query-odata-collection-operators.md), which are like loops that iterate over the collection. Much like a **for** loop in a programming language, collection expressions have a loop variable called the **range variable** that takes the current element of the collection, plus a loop body called the **lambda expression** that refers to the range variable.
+We get around this in filters using [the collection expressions `any` and `all`](search-query-odata-collection-operators.md), which are like loops that iterate over the collection. Collection expressions have a loop variable called the **range variable** that takes the current element of the collection, plus a loop body called the **lambda expression** that refers to the range variable.
 
 The following table shows examples of field paths in a lambda expression of a filter:
 
@@ -87,7 +87,7 @@ For examples of full lambda expressions, see [OData collection operators in Azur
 
 ### Using field paths
 
-Field paths are used in many parameters of the [Azure Search API](https://docs.microsoft.com/rest/api/searchservice/). The following table lists all the places where they can be used, as well as any restrictions on their usage:
+Field paths are used in many parameters of the [Azure Search API](https://docs.microsoft.com/rest/api/searchservice/). The following table lists all the places where they can be used, plus any restrictions on their usage:
 
 | API | Parameter name | Restrictions |
 | --- | --- | --- |
@@ -105,7 +105,7 @@ Field paths are used in many parameters of the [Azure Search API](https://docs.m
 
 ### Constants
 
-Constants in OData are literal values of a given [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for a list of supported types in Azure Search. Constants of collection types are not supported.
+Constants in OData are literal values of a given [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for a list of supported types in Azure Search. Constants of collection types aren't supported.
 
 The following table shows examples of constants for each of the data types supported by Azure Search:
 
@@ -182,7 +182,7 @@ exponent ::= 'e' sign? integer_literal
 boolean_literal ::= 'true' | 'false'
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
@@ -192,11 +192,11 @@ Click here to view an interactive syntax diagram:
 
 ### Building expressions from field paths and constants
 
-Field paths and constants are the most basic part of an OData expression, but they are actually already full expressions themselves. In fact, the **$select** parameter in Azure Search is nothing but a comma-separated list of field paths, and **$orderby** is not much more complicated than that. If you happen to have a field of type `Edm.Boolean` in your index, you can even write a filter that is nothing but the path of that field. The constants `true` and `false` are likewise valid filters.
+Field paths and constants are the most basic part of an OData expression, but they're already full expressions themselves. In fact, the **$select** parameter in Azure Search is nothing but a comma-separated list of field paths, and **$orderby** isn't much more complicated than **$select**. If you happen to have a field of type `Edm.Boolean` in your index, you can even write a filter that is nothing but the path of that field. The constants `true` and `false` are likewise valid filters.
 
-That said, most of the time you'll want to build more complex expressions that refer to more than one field and/or constant.
+However, most of the time you'll need more complex expressions that refer to more than one field and constant.
 
-The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for the **$filter**, **$orderby**, and **$select** parameters, which are built up from simpler expressions involving field paths and constants:
+The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for the **$filter**, **$orderby**, and **$select** parameters. These are built up from simpler expressions that refer to field paths and constants:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -208,7 +208,7 @@ order_by_expression ::= order_by_clause(',' order_by_clause)*
 select_expression ::= '*' | field_path(',' field_path)*
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
@@ -216,7 +216,7 @@ Click here to view an interactive syntax diagram:
 > [!NOTE]
 > See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
-As you can see from the grammar above, the syntax of the **$select** parameter is very simple, but there is more going on with the **$filter** and **$orderby** parameters. The syntax for the latter two is explored in more detail in the rest of this article.
+As the grammar above shows, the syntax of the **$select** parameter is simple, but there's more going on with the **$filter** and **$orderby** parameters. The syntax for the latter two is explored in more detail in the rest of this article.
 
 ## Filter syntax
 
@@ -241,7 +241,7 @@ boolean_expression ::=
 variable ::= identifier | field_path
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
@@ -251,20 +251,20 @@ Click here to view an interactive syntax diagram:
 
 The types of Boolean expressions include:
 
-- Collection filter expressions using `any` or `all`. These apply filter criteria to collection fields. See [OData collection operators in Azure Search](search-query-odata-collection-operators.md) for more details.
-- Logical expressions that combine other Boolean expressions using the operators `and`, `or`, and `not`. See [OData logical operators in Azure Search](search-query-odata-logical-operators.md) for more details.
-- Comparison expressions, which compare fields (or range variables in the case of collections) to constant values using the operators `eq`, `ne`, `gt`, `lt`, `ge`, and `le`. See [OData comparison operators in Azure Search](search-query-odata-comparison-operators.md) for more details. Comparison expressions are also used to compare distances between geo-spatial co-ordinates using the `geo.distance` function. See [OData geo-spatial functions in Azure Search](search-query-odata-geo-spatial-functions.md) for more details.
-- The Boolean literals `true` and `false`. These can be useful sometimes when programmatically generating filters, but otherwise don't tend to be used in practice.
+- Collection filter expressions using `any` or `all`. These apply filter criteria to collection fields. For more information, see [OData collection operators in Azure Search](search-query-odata-collection-operators.md).
+- Logical expressions that combine other Boolean expressions using the operators `and`, `or`, and `not`. For more information, see [OData logical operators in Azure Search](search-query-odata-logical-operators.md).
+- Comparison expressions, which compare fields or range variables to constant values using the operators `eq`, `ne`, `gt`, `lt`, `ge`, and `le`. For more information, see [OData comparison operators in Azure Search](search-query-odata-comparison-operators.md). Comparison expressions are also used to compare distances between geo-spatial coordinates using the `geo.distance` function. For more information, see [OData geo-spatial functions in Azure Search](search-query-odata-geo-spatial-functions.md).
+- The Boolean literals `true` and `false`. These constants can be useful sometimes when programmatically generating filters, but otherwise don't tend to be used in practice.
 - Calls to Boolean functions, including:
-  - `geo.intersects`, which tests whether a given point is within a given polygon. See [OData geo-spatial functions in Azure Search](search-query-odata-geo-spatial-functions.md) for more details.
-  - `search.in`, which compares a field or range variable with each value in a list of values. See [OData `search.in` function in Azure Search](search-query-odata-search-in-function.md) for more details.
-  - `search.ismatch` and `search.ismatchscoring`, which perform full-text search operations in a filter context. See [OData full-text search functions in Azure Search](search-query-odata-full-text-search-functions.md) for more details.
-- Boolean expressions in parentheses. Using parentheses can help to explicitly determine the order of operations in a filter. See [Operator precedence in filters](#operator-precedence-in-filters) for more details on the default precedence of the OData operators.
-- Field paths or range variables of type `Edm.Boolean`. For example, if your index has a Boolean field called `IsEnabled` and you want to return all documents where this field is `true`, your filter expression can simply be the name `IsEnabled`.
+  - `geo.intersects`, which tests whether a given point is within a given polygon. For more information, see [OData geo-spatial functions in Azure Search](search-query-odata-geo-spatial-functions.md).
+  - `search.in`, which compares a field or range variable with each value in a list of values. For more information, see [OData `search.in` function in Azure Search](search-query-odata-search-in-function.md).
+  - `search.ismatch` and `search.ismatchscoring`, which execute full-text search operations in a filter context. For more information, see [OData full-text search functions in Azure Search](search-query-odata-full-text-search-functions.md).
+- Boolean expressions in parentheses. Using parentheses can help to explicitly determine the order of operations in a filter. For more information on the default precedence of the OData operators, see [Operator precedence in filters](#operator-precedence-in-filters).
+- Field paths or range variables of type `Edm.Boolean`. For example, if your index has a Boolean field called `IsEnabled` and you want to return all documents where this field is `true`, your filter expression can just be the name `IsEnabled`.
 
 ### Operator precedence in filters
 
-If you write a filter expression with no parentheses around its sub-expressions, it will be evaluated according to the default operator precedence rules of the OData language. The following table lists groups of operators in order from highest to lowest precedence:
+If you write a filter expression with no parentheses around its sub-expressions, Azure Search will evaluate it according to a set of operator precedence rules. These rules are based on which operators are used to combine sub-expressions. The following table lists groups of operators in order from highest to lowest precedence:
 
 | Group | Operator(s) |
 | --- | --- |
@@ -282,11 +282,11 @@ The `not` operator has the highest precedence of all -- even higher than the com
 
     not Rating gt 5
 
-You'll get an error similar to the following:
+You'll get this error message:
 
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
 
-This is because the operator is associated with just the `Rating` field, which is of type `Edm.Int32`, and not with the entire comparison expression. To fix this, put the operand of `not` in parentheses:
+This error happens because the operator is associated with just the `Rating` field, which is of type `Edm.Int32`, and not with the entire comparison expression. The fix is to put the operand of `not` in parentheses:
 
     not (Rating gt 5)
 
@@ -294,7 +294,10 @@ This is because the operator is associated with just the `Rating` field, which i
 
 ## Filter size limitations
 
-There are limits to the size and complexity of filter expressions that you can send to Azure Search. The limits are based roughly on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size. Using [the `search.in` function](search-query-odata-search-in-function.md) instead of long disjunctions of equality comparisons can help with this.
+There are limits to the size and complexity of filter expressions that you can send to Azure Search. The limits are based roughly on the number of clauses in your filter expression. A good guideline is that if you have hundreds of clauses, you are at risk of exceeding the limit. We recommend designing your application in such a way that it doesn't generate filters of unbounded size.
+
+> [!TIP]
+> Using [the `search.in` function](search-query-odata-search-in-function.md) instead of long disjunctions of equality comparisons can help avoid the filter clause limit, since a function call counts as a single clause.
 
 ## Filter examples  
 
@@ -302,15 +305,15 @@ Find all hotels with at least one room with a base rate less than $200 that are 
 
     Rooms/any(room: room/BaseRate lt 200.0) and Rating ge 4
 
-Find all hotels other than "Seaview Motel" that have been renovated since 2010:
+Find all hotels other than "Sea View Motel" that have been renovated since 2010:
 
-    HotelName ne 'Seaview Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
+    HotelName ne 'Sea View Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
 
-Find all hotels that have been renovated since 2010, with a datetime literal that includes time zone information for Pacific Standard Time:  
+Find all hotels that were renovated in 2010 or later. The datetime literal includes time zone information for Pacific Standard Time:  
 
     LastRenovationDate ge 2010-01-01T00:00:00-08:00
 
-Find all hotels that have parking included and do not allow smoking in any rooms:
+Find all hotels that have parking included and where all rooms are non-smoking:
 
     ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
 
@@ -338,21 +341,21 @@ Find all hotels within 10 kilometers of a given reference point (where `Location
 
     geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 
-Find all hotels within a given viewport described as a polygon (where `Location` is a field of type Edm.GeographyPoint). Note that the polygon is closed (the first and last point sets must be the same) and [the points must be listed in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Find all hotels within a given viewport described as a polygon (where `Location` is a field of type Edm.GeographyPoint). The polygon must be closed, meaning the first and last point sets must be the same. Also, [the points must be listed in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
     geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
 
-Find all hotels that either have no value in "Description" field, or that value is explicitly set to null:  
+Find all hotels where the "Description" field is null. The field will be null if it was never set, or if it was explicitly set to null:  
 
     Description eq null
 
-Find all hotels with name equal to either 'Seaview motel' or 'Budget hotel'). Phrases contain spaces, which is a default delimiter. You can specify an alternative delimiter in single quotes as the third string parameter:  
+Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel'). These phrases contain spaces, and space is a default delimiter. You can specify an alternative delimiter in single quotes as the third string parameter:  
 
-    search.in(HotelName, 'Seaview motel,Budget hotel', ',')
+    search.in(HotelName, 'Sea View motel,Budget hotel', ',')
 
-Find all hotels with name equal to either 'Seaview motel' or 'Budget hotel' separated by '|'):  
+Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel' separated by '|'):  
 
-    search.in(HotelName, 'Seaview motel|Budget hotel', '|')
+    search.in(HotelName, 'Sea View motel|Budget hotel', '|')
 
 Find all hotels where all rooms have the tag 'wifi' or 'tub':
 
@@ -366,7 +369,7 @@ Find documents with the word "waterfront". This filter query is identical to a [
 
     search.ismatchscoring('waterfront')
 
-Find documents with the word "hostel" and rating greater or equal to 4, or documents with the word "motel" and rating equal to 5. Note, this request could not be expressed without the `search.ismatchscoring` function.
+Find documents with the word "hostel" and rating greater or equal to 4, or documents with the word "motel" and rating equal to 5. This request couldn't be expressed without the `search.ismatchscoring` function since it combines full-text search with filter operations using `or`.
 
     search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
 
@@ -378,7 +381,7 @@ Find documents with the phrase "ocean view" or rating equal to 5. The `search.is
 
     search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
 
-Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed in any of the rooms. This query uses the [full Lucene query language](query-lucene-syntax.md).
+Find hotels where the terms "hotel" and "airport" are no more than five words apart in the description, and where all rooms are non-smoking. This query uses the [full Lucene query language](query-lucene-syntax.md).
 
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
 
@@ -394,7 +397,7 @@ order_by_clause ::= (field_path | sortable_function) ('asc' | 'desc')?
 sortable_function ::= geo_distance_call | 'search.score()'
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
@@ -404,13 +407,13 @@ Click here to view an interactive syntax diagram:
 
 Each clause has sort criteria, optionally followed by a sort direction (`asc` for ascending or `desc` for descending). If you don't specify a direction, the default is ascending. The sort criteria can either be the path of a `sortable` field or a call to either the [`geo.distance`](search-query-odata-geo-spatial-functions.md) or the [`search.score`](search-query-odata-search-score-function.md) functions.
 
-If multiple documents have the same sort criteria and the `search.score` function is not used (for example, if you sort by a numeric `Rating` field and three documents all have a rating of 4), ties will be broken by document score in descending order. When document scores are the same (for example, when there is no full-text search query specified in the request), then the relative ordering of the tied documents is indeterminate.
+If multiple documents have the same sort criteria and the `search.score` function isn't used (for example, if you sort by a numeric `Rating` field and three documents all have a rating of 4), ties will be broken by document score in descending order. When document scores are the same (for example, when there's no full-text search query specified in the request), then the relative ordering of the tied documents is indeterminate.
 
 You can specify multiple sort criteria. The order of expressions determines the final sort order. For example, to sort descending by score, followed by Rating, the syntax would be `$orderby=search.score() desc,Rating desc`.
 
 The syntax for `geo.distance` in **$orderby** is the same as it is in **$filter**. When using `geo.distance` in **$orderby**, the field to which it applies must be of type `Edm.GeographyPoint` and it must also be `sortable`.
 
-The syntax for `search.score` in **$orderby** is `search.score()`. The function `search.score` does not take any parameters.
+The syntax for `search.score` in **$orderby** is `search.score()`. The function `search.score` doesn't take any parameters.
 
 ## Order-by examples
 
@@ -422,12 +425,11 @@ Sort hotels descending by rating, then ascending by base rate (remember that asc
 
     Rating desc,BaseRate
 
-Sort hotels descending by rating, then ascending by distance from the given co-ordinates:
+Sort hotels descending by rating, then ascending by distance from the given coordinates:
 
     Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
 
-Sort hotels in descending order by search.score and rating, and then in ascending order by distance from the given coordinates so that
-between two hotels with identical ratings, the closest one is listed first:
+Sort hotels in descending order by search.score and rating, and then in ascending order by distance from the given coordinates. Between two hotels with identical relevance scores and ratings, the closest one is listed first:
 
     search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
 

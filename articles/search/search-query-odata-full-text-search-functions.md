@@ -42,7 +42,7 @@ query_type ::= "'full'" | "'simple'"
 search_mode ::= "'any'" | "'all'"
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)

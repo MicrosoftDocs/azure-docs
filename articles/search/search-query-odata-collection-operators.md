@@ -39,7 +39,7 @@ collection_filter_expression ::=
 lambda_expression ::= identifier ':' boolean_expression
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
@@ -66,7 +66,7 @@ Match documents where every element of the `ratings` field falls between 3 and 5
 
     ratings/all(r: r ge 3 and r le 5)
 
-Match documents where any of the geo co-ordinates in the `locations` field is within the given polygon:
+Match documents where any of the geo coordinates in the `locations` field is within the given polygon:
 
     locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
 

@@ -57,7 +57,7 @@ variable_or_function ::= variable | function_call
 comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
@@ -120,7 +120,7 @@ In summary, `NaN` is not equal to any value, including itself.
 
 ### Comparing geo-spatial data
 
-You can't directly compare a field of type `Edm.GeographyPoint` with a constant value, but you can use the `geo.distance` function. This function returns a value of type `Edm.Double`, so you can compare it with a numeric constant to filter based on the distance from constant geo-spatial co-ordinates. See the [examples](#examples) below.
+You can't directly compare a field of type `Edm.GeographyPoint` with a constant value, but you can use the `geo.distance` function. This function returns a value of type `Edm.Double`, so you can compare it with a numeric constant to filter based on the distance from constant geo-spatial coordinates. See the [examples](#examples) below.
 
 ### Comparing string data
 

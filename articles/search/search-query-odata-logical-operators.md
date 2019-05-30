@@ -42,7 +42,7 @@ logical_expression ::=
     | 'not' boolean_expression
 ```
 
-Click here to view an interactive syntax diagram:
+An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
 > [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
