@@ -28,21 +28,21 @@ Compute resources are attached to a workspace. Compute resources other than the 
 
 Train your models using these compute resources:
 
-| Compute resource | SDK  |  Visual interface  
-| ---- |:----:|:----:| 
-| Your local computer | ✓ | &nbsp; |  
-| Azure Machine Learning compute | ✓ | ✓ | 
-| A Linux VM in Azure</br>(such as the Data Science Virtual Machine) | ✓ | &nbsp; | 
-| Azure Databricks | ✓ | &nbsp; |  
-| Azure Data Lake Analytics | ✓ | &nbsp; |  
-| Apache Spark for HDInsight | ✓ | &nbsp; |  
-
+|Compute resource | GPU acceleration | Automated<br/> hyperparameter tuning | Automated<br/> machine learning | Azure Machine Learning Pipelines | Visual interface
+|----|:----:|:----:|:----:|:----:| :----:|
+|[Local computer](how-to-set-up-training-targets.md#local)| Maybe | &nbsp; | ✓ | &nbsp; |  &nbsp; |
+|[Azure Machine Learning compute](how-to-set-up-training-targets#amlcompute)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |  &nbsp; |
+|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |  &nbsp; |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
+|[Azure HDInsight](how-to-set-up-training-targets#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
+|[Azure Batch](how-to-set-up-training-targets#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
 
 ## Deployment targets
 
 The following compute resources can be used to host your web service deployment.
 
-| Compute target | Usage | Description |
+| Compute resource | Usage | Description |
 | ----- | ----- | ----- |
 | [Local web service](how-to-deploy-and-where.md#local) | Testing/debug | Good for limited testing and troubleshooting.
 | [Azure Kubernetes Service (AKS)](how-to-deploy-and-where.md#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. The is the only option available for the visual interface. |
@@ -50,7 +50,7 @@ The following compute resources can be used to host your web service deployment.
 | [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
 | [Azure IoT Edge](how-to-deploy-and-where.md#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
 
-## Managed compute
+## <a name="amlcompute"></a> Managed compute
 
 A managed compute resource is created and managed by Azure Machine Learning service. This compute is optimized for machine learning workloads. Azure Machine Learning compute is the only managed compute as of May 30, 2019. Additional managed compute resources may be added in the future.
 
