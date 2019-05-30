@@ -82,14 +82,14 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
 ### Configuring Location Map in your device sets dashboard
 
-You can add a location map to visualize location of your devices sets in a Map.
+You can add a map to visualize location of your devices sets in a Map.
 
-In order to add a location map to you device sets dashboard you must have configured location property in your Device template, see [Create a Location Property powered by Azure Maps](howto-set-up-template.md).
+To add a map to your device sets dashboard, you must have configured a location measurement or location property in your device template. See [Create a Location Measurement](howto-set-up-template.md) or [Create a Location Property](howto-set-up-template.md) to learn how to create a location measurement or property.
 
 1. On your Device Set Dashboard, select Map from the library.
-2. Give a title and choose the location property you have previously configured as part of your Device Property.
-3. Save and you will see the map tile displaying the location of your devices in the Device Set.
-4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location Map to visualize all the devices location at a glance!
+2. Give a title to the tile and choose the location measurement or property you have previously configured.
+3. Save and the map tile will display the last known location of your devices in the Device Set.
+4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location map to visualize all the devices location at a glance!
 
 > [!NOTE]
 > You can resize the map to your desired size. Selecting a pin in the map displays the device information, name and location. You can select the pop-up to go to the device property page.
