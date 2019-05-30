@@ -16,14 +16,14 @@ ms.author: banders
 ---
 # Cancel your subscription for Azure
 
-Only an Azure subscription [Account Administrator](billing-subscription-transfer.md#whoisaa) can cancel an Azure subscription. An Azure subscription can [assign a user as an administrator of a subscription](billing-add-change-azure-subscription-administrator.md#assign-a-user-as-an-administrator-of-a-subscription) so that they can cancel a subscription. After you cancel the subscription, your access to Azure services and resources ends.
+Only an Azure subscription [Account Administrator](billing-subscription-transfer.md#whoisaa) can cancel an Azure subscription. An Azure subscription administrator can also [assign another user as a subscription administrator](billing-add-change-azure-subscription-administrator.md#assign-a-user-as-an-administrator-of-a-subscription) so that they can cancel a subscription. After you cancel the subscription, your access to Azure services and resources ends.
 
 Before you cancel your subscription:
 
 * Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, save an image of it locally.
 * Shut down your services. Go to the [resources page in the management portal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), and **Stop** any running virtual machines, applications, or other services.
 * Consider migrating your data. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
-* You must delete all resources and all resource groups. Deleting them is required before you can cancel a subscription. Each resource group must be deleted individually. During resource group deletion, you must confirm deletion by typing the resource group name. 
+* You must delete all resources and all resource groups. Deleting them is required before you can cancel a subscription. Each resource group must be deleted individually. During resource group deletion, you must confirm deletion by typing the resource group name.
 
 If you cancel a paid Azure Support plan, you are still billed for the rest of the subscription term. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
 
