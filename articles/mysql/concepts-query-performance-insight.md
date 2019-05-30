@@ -7,7 +7,7 @@ ms.service: MySQL
 ms.topic: conceptual
 ms.date: 05/23/2019
 ---
-# Query Performance Insight
+# Query Performance Insight in Azure Database for MySQL
 
 **Applies to:** Azure Database for MySQL 5.7
 
