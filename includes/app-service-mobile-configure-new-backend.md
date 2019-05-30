@@ -62,7 +62,7 @@ ms.custom: "include file"
 
 3. Azure Mobile Apps has SDKs for .NET and Node.js backends.
 
-    1. #### Node.js backend
+    - #### Node.js backend
         If you’re going to use Node.js quickstart app, follow the instructions below.
 
         1. On Azure portal, go to **Easy Tables**, you will see this screen.
@@ -77,7 +77,7 @@ ms.custom: "include file"
         4. Create a `TodoItem` table with anonymous access.
         ![Node Easy Tables Add Table](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
 
-    2. #### .NET backend
+    - #### .NET backend
         If you’re going to use .NET quickstart app, follow the instructions below.
 
         1. Download the Azure Mobile Apps .NET server project from the [azure-mobile-apps-quickstarts repository](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet/Quickstart).
@@ -87,7 +87,7 @@ ms.custom: "include file"
         3. In Visual Studio, open Solution Explorer, right-click on `ZUMOAPPNAMEService` project, click **Publish**, you will see a `Publish to App Service` window. If you are working on Mac, check out other ways to deploy the app [here](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git).
         ![Visual studio publishing](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 
-       4. Select **App Service** as publish target, then click **Select Existing**, then click the **Publish** button at the bottom of the window.
+        4. Select **App Service** as publish target, then click **Select Existing**, then click the **Publish** button at the bottom of the window.
 
         5. You will need to log into Visual Studio with your Azure subscription first. Select the `Subscription`, `Resource Group`, and then select the name of your app. When you are ready, click **OK**, this will deploy the .NET server project that you have locally into the App Service backend. When deployment finishes, you will be redirected to `http://{zumoappname}.azurewebsites.net/` in the browser.
         ![Backend is up](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
