@@ -32,7 +32,7 @@ highlightedContent:
     - title: Azure AD deployment checklist 
       itemType: concept
       url: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
-    - title: Secure your Azure resources with conditional access
+    - title: Secure your Azure resources with Conditional Access
       itemType: learn 
       url: /learn/modules/secure-azure-resources-with-conditional-access/
 
@@ -98,11 +98,11 @@ conceptualContent:
         url: /azure/active-directory-b2c/index
         text: See more
 
-    - title: Conditional access 
+    - title: Conditional Access 
       links: 
         - url: /azure/active-directory/conditional-access/overview
           itemType: overview
-          text:  What is conditional access?
+          text:  What is Conditional Access?
         - url: /azure/active-directory/conditional-access/app-based-mfa
           itemType: quickstart
           text:  Require MFA for specific apps
