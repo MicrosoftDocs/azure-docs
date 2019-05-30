@@ -42,7 +42,7 @@ Here are some similarities and differences between public client and confidentia
 
 - Both kinds of app maintain a user token cache and can acquire a token silently (when the token is already in the token cache). Confidential client apps also have an app token cache for tokens that are for the app itself.
 - Both types of app manage user accounts and can get an account from the user token cache, get an account from its identifier, or remove an account.
-- Public client apps have four ways to acquire a token (four authentication flows). Confidential client apps have three ways to acquire a token (and one way to compute the URL of the identity provider authorize endpoint). For more information, see [Acquiring tokens](msal-acquire-cache-tokens.md/).
+- Public client apps have four ways to acquire a token (four authentication flows). Confidential client apps have three ways to acquire a token (and one way to compute the URL of the identity provider authorize endpoint). For more information, see [Acquiring tokens](msal-acquire-cache-tokens.md).
 
 If you've used ADAL, you might notice that, unlike ADAL's authentication context, in MSAL the client ID (also called the *application ID* or *app ID*) is passed once at the construction of the application. It doesn't need to be passed again when the app acquires a token. This is true for both for public and confidential client apps. Constructors of confidential client apps are also passed client credentials: the secret they share with the identity provider.
 
