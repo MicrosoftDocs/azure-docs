@@ -66,7 +66,7 @@ For syntax and more information about these sections, see
 
 ## Parameters
 
-In the `parameters` section, you can add or edit parameters for the values that your workflow definition uses for accepting inputs at runtime. Before you can reference those parameters in other workflow sections, you must first define those parameters in the `parameters` section.
+In the `parameters` section, you can define or edit parameters for the input values that your logic app accepts and uses at runtime. Before you can reference those parameters in other workflow sections, you must first define those parameters in the `parameters` section.
 
 Here is the general structure for a parameter definition:
 
@@ -77,9 +77,7 @@ Here is the general structure for a parameter definition:
       "defaultValue": <default-parameter-value>,
       "allowedValues": [ <array-with-permitted-parameter-values> ],
       "metadata": {
-         "key": {
-            "<key-name>": "<key-value>"
-         }
+         "description": "<parameter-description>"
       }
    }
 },
@@ -91,7 +89,7 @@ Here is the general structure for a parameter definition:
 | <*parameter-type*> | Yes | int, float, string, bool, array, object, securestring, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` or `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Security recommendations for action and input parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | The type for the parameter |
 | <*default-parameter-value*> | Yes | Same as `type` | The default parameter value to use if no value is specified when the workflow instantiates. The `defaultValue` attribute is required so that the Logic App Designer can correctly show the parameter, but you can specify an empty value. |
 | <*array-with-permitted-parameter-values*> | No | Array | An array with values that the parameter can accept |
-| `metadata` | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app or flow, or the design-time data used by Visual Studio or other tools |
+| <*parameter-description*> | No | JSON object | Any other parameter details, such as a description for the parameter |
 ||||
 
 By default, this `parameters` attribute is empty unless your logic app creates and uses connections to other services and systems through [managed connectors](../connectors/apis-list.md). When your logic app includes connections, the `parameters` attributes includes the `$connections` parameter, which has JSON `Object` type:
