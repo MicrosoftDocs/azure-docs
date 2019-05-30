@@ -10,6 +10,8 @@
   items:
   - name: Create an Oracle DB
     href: oracle-database-quick-create.md
+  - name: Interconnect Azure and OCI - Preview
+    href: configure-azure-oci-networking.md
 - name: Tutorials
   items:
   - name: Configure Oracle ASM
