@@ -22,7 +22,6 @@ Update 1.2 corresponds to the software version **10.0.10311.0**.
 
 > [!IMPORTANT]
 > - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on packages used to apply this update, go to [Download Update 1.2](#download-update-12).
->
 > - Update 1.2 is available to you via the Azure portal only if your device is running Update 1.0 or 1.1.
 
 ## What's new in Update 1.2
@@ -52,7 +51,7 @@ The following table provides a summary of issues fixed in this release.
 
 ## Known issues in Update 1.2
 
-No new issues were release noted in Update 1.2. All the release noted issues are carried over from previous release. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.1](storsimple-virtual-array-update-11-release-notes.md#known-issues-in-update-11).
+No new issues were release-noted in Update 1.2. All the release-noted issues are carried over from previous releases. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.1](storsimple-virtual-array-update-11-release-notes.md#known-issues-in-update-11).
 
 ## Next steps
 
