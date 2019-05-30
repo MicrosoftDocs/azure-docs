@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/25/2019  
 abstract:
-  description: Start with our Azure Kinect DK.
+  description: Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and SDKs.
 sections:
 - items:
     html: <img src="./media/index/device-image.jpg" style="max-width:100%" alt="Azure Kinect device">
@@ -60,13 +60,18 @@ sections:
     text:
       Get familiar with Azure Kinect and its SDKs; 
       <div class="row"><div class="column"><ul>
-      <li><b><a href="speech-to-text.md">speech-to-text</a></b> (speech-recognition/SR)</li>
-      <li><b><a href="speech-devices-sdk-create-kws.md">custom wake-word</a></b> (keyword-spotter/KWS)</li>
-      <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">intent</a></b></li>
-      <li><b><a href="speech-translation.md">translation</a></b></li>
-      <li><b><a href="speech-container-howto.md">on-premises container</a></b></li></ul></div><div class="column"><ul>
-      <li><b><a href="text-to-speech.md">text-to-speech</a></b> (TTS)</li>
-      <li><b><a href="conversation-transcription-service.md">conversation-transcription</a></b> (CTS)</li>
-      <li><b><a href="how-to-phrase-lists.md">phrase list personalization</a>/<a href="how-to-custom-speech.md">custom speech adaptation</a></b></li>
-      <li><b><a href="voice-first-virtual-assistants.md">voice-first virtual assistant</a></b></li>
-      <li><b><a href="call-center-transcription.md">call center transcription</a></b></li></ul></div></div>
+      <li><b><a href="system-requirements.md">Sensor SDK system requirements</a></b></li>
+      <li><b><a href="azure-kinect-dk-depth-camera.md">learn about depth camera</a></b></li>
+      <li><b><a href="azure-kinect-dk-coordinate-systems.md">coordinate system</a></b></li>
+      <li><b><a href="azure-kinect-sensor-viewer.md">learn how to use viewer</a></b></li>
+      <li><b><a href="azure-kinect-dk-recorder.md">learn how to use recorder</a></b></li></ul></div><div class="column"><ul>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Services
+      html: <p><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/">Speech Services</a></p><p><a href="https://azure.microsoft.com/en-us/services/cognitive-services/directory/vision/">Vision Services</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api">.NET</a></p>
