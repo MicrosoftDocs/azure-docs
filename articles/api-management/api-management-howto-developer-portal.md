@@ -37,10 +37,10 @@ You can build your developer portal in two ways:
 
 ## Access the managed version of the portal
 
-By performing the steps below you'll access the managed version of the portal.
+Follow the steps below to access the managed version of the portal.
 
 1. Go to your API Management service instance in the Azure portal.
-1. Click on the **New developer portal (preview)** button in the top navigation bar. A new browser tab with an administrative version of the portal will open. If you are accessing the portal for the first time, the default content will be automatically provisioned.
+1. Click on the **New developer portal (preview)** button in the top navigation bar. A new browser tab with an administrative version of the portal will open. If you're accessing the portal for the first time, the default content will be automatically provisioned.
 
 ## Edit and customize the managed version of the portal
 
