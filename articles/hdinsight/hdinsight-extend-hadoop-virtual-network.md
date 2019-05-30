@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/28/2019
 ---
 
 # Extend Azure HDInsight using an Azure Virtual Network
@@ -206,41 +206,39 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 ## <a id="networktraffic"></a> Controlling network traffic
 
+### Controlling inbound traffic to HDInsight clusters
+
 Network traffic in an Azure Virtual Networks can be controlled using the following methods:
 
 * **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
-    > [!WARNING]  
-    > HDInsight does not support restricting outbound traffic. All outbound traffic should be allowed.
-
-* **User-defined routes** (UDR) define how traffic flows between resources in the network. For more information, see the [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) document.
-
 * **Network virtual appliances** replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
 
-As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs and UDRs, you must ensure that these services can still communicate with HDInsight cluster.
+As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
 
-### <a id="hdinsight-ip"></a> HDInsight with network security groups and user-defined routes
+![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-If you plan on using **network security groups** or **user-defined routes** to control network traffic, perform the following actions before installing HDInsight:
+### <a id="hdinsight-ip"></a> HDInsight with network security groups
+
+If you plan on using **network security groups** to control network traffic, perform the following actions before installing HDInsight:
 
 1. Identify the Azure region that you plan to use for HDInsight.
 
 2. Identify the IP addresses required by HDInsight. For more information, see the [IP Addresses required by HDInsight](#hdinsight-ip) section.
 
-3. Create or modify the network security groups or user-defined routes for the subnet that you plan to install HDInsight into.
+3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
 
-    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDI management services can reach the cluster from outside VNET.
-    * __User-defined routes__: If you plan to use UDRs, create a route for each IP address and set the __Next hop type__ to __Internet__. You should also allow any other outbound traffic from the VNET with no restriction. For example, you can route all other traffic to your Azure firewall or network virtual appliance (hosted in Azure) for monitoring purposes but the outgoing traffic should not be blocked.
+    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network.
 
-For more information on network security groups or user-defined routes, see the following documentation:
+For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
 
-* [Network security group](../virtual-network/security-overview.md)
+### Controlling outbound traffic from HDInsight clusters
 
-* [User-defined routes](../virtual-network/virtual-networks-udr-overview.md)
+For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 
 #### Forced tunneling to on-premise
 
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling to the on-premises networks. If you are using Azure Firewall or a network virtual appliance hosted in Azure, you can use UDRs to route the traffic to it for monitoring purposes and allow all outgoing traffic.
+Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling of traffic to on-premises networks. 
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
