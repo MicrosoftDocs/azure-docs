@@ -16,7 +16,7 @@ You can use [Azure Cloud Shell](/azure/cloud-shell) to create a cluster for Azur
 
 ## Create the cluster
 
-First, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+First, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -33,3 +33,6 @@ It takes a few minutes to create the cluster.  When complete, the output is show
 ## Next steps
 
 See [Azure Dev Spaces](/azure/dev-spaces/) for links to full tutorials.
+
+
+[supported-regions]: ../about.md#supported-regions-and-configurations
