@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/29/2019
+ms.date: 05/30/2019
 ---
 
 # Model interpretability with Azure Machine Learning service
@@ -24,7 +24,9 @@ Using the classes and methods in the SDK, you can get:
 
 During the training phase of the development cycle, model designers and evaluators can use interpretability output of a model to verify hypotheses and build trust with stakeholders.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
 
-Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. During this phase, data scientists can explain the resulting predictions to the people who use the model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
+In machine learning, **features** are the data fields used to predict a target data point. For example,
+to predict credit risk, data fields for age, account size, and account age might be used. In this case,
+age, account size, and account age are **features**. Feature importance tells you how each data field affected the model's predictions. For example, age may be heavily used in the prediction while account size and age don't affect the prediction accuracy significantly. This process allows data scientists to explain resulting predictions, so that stakeholders have visibility into what data points are most important in the model.
 
 Using these tools, you can explain machine learning models **globally on all data**, or **locally on a specific data points** using the state-of-art technologies in an easy-to-use and scalable fashion.
 
@@ -458,7 +460,7 @@ The explainer can be deployed along with the original model and can be used at s
 
 Automated machine learning contains packages for interpreting feature importance in auto-trained models. Additionally, classification scenarios allow you to retrieve class-level feature importance. There are two methods to enable this behavior within automated machine learning:
 
-* To enable feature importance for a trained ensemble model, use the `explain_model()` function.
+* To enable feature importance for a trained ensemble model, use the [`explain_model()`](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) function.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -467,7 +469,7 @@ Automated machine learning contains packages for interpreting feature importance
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* To enable feature importance for each individual run prior to training, set the `model_explainability` parameter to `True` in the `AutoMLConfig` object, along with providing validation data. Then use the `retrieve_model_explanation()` function.
+* To enable feature importance for each individual run prior to training, set the `model_explainability` parameter to `True` in the `AutoMLConfig` object, along with providing validation data. Then use the [`retrieve_model_explanation()`](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) function.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
@@ -476,7 +478,7 @@ Automated machine learning contains packages for interpreting feature importance
         per_class_imp = retrieve_model_explanation(best_run)
     ```
 
-See the [how-to](how-to-configure-auto-train.md#explain-the-model-interpretability) on automated machine learning for more detail on enabling interpretability features.
+For more information, see the [how-to](how-to-configure-auto-train.md#explain-the-model-interpretability) on enabling interpretability features in automated machine learning.
 
 ## Next steps
 
