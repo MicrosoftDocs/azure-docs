@@ -39,7 +39,7 @@ In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn 
 ## Define the number of clusters
 
 To cluster your customer data, you'll use the **K-Means** clustering algorithm, one of the simplest and most well-known ways of grouping data.
-You can read more about K-Means in <a href="https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html" target=_blank>A complete guide to K-means clustering algorithm</a>.
+You can read more about K-Means in [A complete guide to K-means clustering algorithm](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
 
 The algorithm accepts two inputs: The data itself, and a predefined number "*k*" representing the number of clusters to generate.
 The output is *k* clusters with the input data partitioned among the clusters.

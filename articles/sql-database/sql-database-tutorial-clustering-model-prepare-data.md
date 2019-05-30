@@ -207,7 +207,5 @@ In part one of this tutorial series, you completed these steps:
 
 To create a machine learning model that uses this customer data, follow part two of this tutorial series:
 
-FIX
-
 > [!div class="nextstepaction"]
 > [Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-clustering-model-build.md)
