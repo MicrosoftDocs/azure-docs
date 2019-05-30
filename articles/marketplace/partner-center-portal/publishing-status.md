@@ -29,7 +29,7 @@ One of the following status indicators should be displayed for each offer.
 
 The first step in the publishing process is a set of automated validations. Each validation step corresponds to a feature you chose to enable in the creation of your offer. If that feature was not enabled, the validation skips ahead to the next publishing step. Each validation check must be completed before the publishing status is approved.
 
-- **Offer purchase flow setup (>10 min)**
+- **Offer purchase flow setup (<10 min)**
 
 In this step, we ensure that your offer can be fulfilled when purchased by customers through the Azure portal. This step is only applicable for offers being sold through Microsoft.
 
@@ -41,7 +41,7 @@ In this step, we validate the data you provided in the test drive Technical conf
 
 In this step, after validating the data and functionality of your test drive in the previous step, we deploy and replicate instances of your test drive so that they are ready for customer use.  This step is only applicable for offers with a test drive enabled.
 
-- **Lead management validation and registration  (>15 min)**
+- **Lead management validation and registration  (<15 min)**
 
 In this step, we confirm that your lead management system can receive customer leads based on the details provided in the Offer setup. This step is only applicable for offers with Lead management enabled.
 
