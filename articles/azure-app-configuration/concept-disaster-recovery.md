@@ -25,11 +25,11 @@ To realize cross-region redundancy, you need to create multiple app configuratio
 
 ![Geo-redundant stores](./media/geo-redundant-app-configuration-stores.png)
 
-Your application will load its configuration from both the primary and secondary stores in parallel. Doing this increases the chance of successfully getting the configuration data significantly. You are responsible for keeping the data in both stores in sync. The following sections explain how you can build geo-resiliency into your application.
+Your application will load its configuration from both the primary and secondary stores in parallel. Doing this increases the chance of successfully getting the configuration data significantly. You're responsible for keeping the data in both stores in sync. The following sections explain how you can build geo-resiliency into your application.
 
 ## Failover between configuration stores
 
-Technically your application isn't executing a failover. Instead, it's attempting to retrieve the same set of configuration data from two app configuration stores simultaneously. You should arrange your code such that it loads first from the secondary store first and then the primary store. In this way, the configuration data in the primary store will take precedence whenever they are available. The code snippet below shows how you can implement this in .NET Core.
+Technically your application isn't executing a failover. It's attempting to retrieve the same set of configuration data from two app configuration stores simultaneously. You should arrange your code such that it loads first from the secondary store first and then the primary store. This approach will ensure that the configuration data in the primary store take precedence whenever they are available. The code snippet below shows how you can implement this in .NET Core.
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -48,7 +48,7 @@ Note the `optional` parameter passed into the `AddAzureAppConfiguration` functio
 
 ## Synchronization between configuration stores
 
-To obtain high availability, it's important that your geo-redundant configuration stores all have the same set of data. You can use the **Export** function in App Configuration to copy data from the primary store to the secondary on-demand. This function is available through both the Azure portal and CLI.
+It's important that your geo-redundant configuration stores all have the same set of data. You can use the **Export** function in App Configuration to copy data from the primary store to the secondary on-demand. This function is available through both the Azure portal and CLI.
 
 From the Azure portal, you can push a change to another configuration store by following these steps:
 
