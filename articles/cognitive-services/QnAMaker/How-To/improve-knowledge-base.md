@@ -298,7 +298,7 @@ The [dialogHelper.js](https://github.com/microsoft/BotBuilder-Samples/blob/maste
 * Send back to the QnA Maker Train API.
 * Display the answer to the user.
 
-```node.js
+```javascript
 this.qnaMakerActiveLearningDialog
     .addStep(this.callGenerateAnswer.bind(this))
     .addStep(this.filterLowVariationScoreList.bind(this))
@@ -308,7 +308,7 @@ this.qnaMakerActiveLearningDialog
 
 The **callTrain** method above calls into the [activeLearningHelper.js](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/activeLearningHelper.js)  file which contains the **ActiveLearningHelper** class, which determines which queries to send back to the Train API then sends those queries:
 
-```node.js
+```javascript
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
