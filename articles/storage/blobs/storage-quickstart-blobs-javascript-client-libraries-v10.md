@@ -121,7 +121,7 @@ First, create a new folder named *azure-blobs-javascript* and open it in VS Code
 
 ### Configure the debugger
 
-To set up the debugger extension, select *Debug* > *Add Configuration...*, then select *Chrome* or *Edge*, depending on which extension you installed in the Prerequisites section earlier. This action creates a *launch.json* file and opens it in the editor.
+To set up the debugger extension in VS Code, select *Debug* > *Add Configuration...*, then select *Chrome* or *Edge*, depending on which extension you installed in the Prerequisites section earlier. This action creates a *launch.json* file and opens it in the editor.
 
 Next, modify the *launch.json* file so that the `url` value includes `/index.html` as shown:
 
