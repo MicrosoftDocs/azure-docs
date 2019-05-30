@@ -157,25 +157,25 @@ In this section, you provision a web app in App Service and deploy your code to 
    To create an App Service plan using the Windows free tier, run the following command. Use the same resource group your IoT hub is in.
 
    ```azurecli-interactive
-   az appservice plan create --name <app service plan name> --resource-group <your resource group> --sku FREE
+   az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
 2. Now provision a web app in your App Service plan. The `-l` parameter enables the web app code to be uploaded and deployed from a Git repository on your local machine.
 
    ```azurecli-interactive
-   az webapp create -g <your resource group> -n <your web app name> -p <your app service plan name>  -l
+   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name>  -l
    ```
 
 3. Now add Application Settings for the environment variables that specify the IoT hub connection string and the Event hub consumer group. Individual settings are space delimited in the `-settings` parameter. Use the service connection string for your IoT hub and the consumer group you created previously in this tutorial. Do not quote the values.
 
    ```azurecli-interactive
-   az webapp config appsettings set -g <your resource group> -n <your web app name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=<your IoT hub connection string>
+   az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=<your IoT hub connection string>
    ```
 
 4. Enable the Web Sockets protocol for the web app and set the web app to receive HTTPS requests only (HTTP requests are redirected to HTTPS).
 
    ```azurecli-interactive
-   az webapp config set -g <your resource group> -n <your web app name>  --web-sockets-enabled true
+   az webapp config set -n <your web app name> -g <your resource group name> --web-sockets-enabled true
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
@@ -219,30 +219,40 @@ In this section, you provision a web app in App Service and deploy your code to 
 10. Run the following command to query the state of your web app and make sure it is running:
 
     ```azurecli-interactive
-    az webapp show -g <your resource group> -n <your web app name> --query state
+    az webapp show -n <your web app name> -g <your resource group name> --query state
     ```
 
 11. Run the following command to open a browser to your web app. A web page similar to the one you saw when you ran the web app locally opens. Assuming that your device is running and sending data, you should see a running plot of the 50 most recent temperature and humidity readings sent by the device.
 
     ```azurecli-interactive
-    az webapp browse -g <your resource group> -n <your web app name>
+    az webapp browse -n <your web app name> -g <your resource group name>
     ```
 
 ## Troubleshooting
 
-If you encounter any issues with this sample, try the following steps. If you still have problems, send us Feedback at the bottom of this topic.
+If you encounter any issues with this sample, try the steps in the following sections. If you still have problems, send us feedback at the bottom of this topic.
 
-* Client issues:
-  * If a device does not appear in the list, or no graph is being drawn, make sure the device code is running on your device.
-  * In the browser, open the developer tools (in many browsers the F12 key will open it), and find the console. Look for any warnings or errors printed there.
-    * You can debug client-side script in /js/chat-device-data.js.
-* Local website issues:
-  * Watch the output in the window where you launched node for console output.
-  * Debug the server code, specifically server.js and /scripts/event-hub-reader.js.
-* Azure App Service issues:
-  * In Azure portal, go to your web app. Under **Monitoring** in the left pane, select **App Service logs**. Turn **Application Logging (File System)** to on, set **Level** to Error, and then select **Save**. Then open **Log stream** (under **Monitoring**).
-  * From your web app in Azure portal, under **Development Tools**  select  **Console** and validate node and npm versions with `node -v` and `npm -v`.
-  * If you see an error about not finding a package, you may have run the steps out of order. When the site is deployed (with `git push`) the app service runs `npm install`, which runs based on the current version of node it has configured. If that is changed in configuration later, you'll need to make a meaningless change to the code and push again.
+### Client issues
+
+* If a device does not appear in the list, or no graph is being drawn, make sure the device code is running on your device.
+
+* In the browser, open the developer tools (in many browsers the F12 key will open it), and find the console. Look for any warnings or errors printed there.
+
+* You can debug client-side script in /js/chat-device-data.js.
+
+### Local website issues
+
+* Watch the output in the window where you launched node for console output.
+
+* Debug the server code, specifically server.js and /scripts/event-hub-reader.js.
+
+### Azure App Service issues
+
+* In Azure portal, go to your web app. Under **Monitoring** in the left pane, select **App Service logs**. Turn **Application Logging (File System)** to on, set **Level** to Error, and then select **Save**. Then open **Log stream** (under **Monitoring**).
+
+* From your web app in Azure portal, under **Development Tools**  select  **Console** and validate node and npm versions with `node -v` and `npm -v`.
+
+* If you see an error about not finding a package, you may have run the steps out of order. When the site is deployed (with `git push`) the app service runs `npm install`, which runs based on the current version of node it has configured. If that is changed in configuration later, you'll need to make a meaningless change to the code and push again.
 
 ## Next steps
 
