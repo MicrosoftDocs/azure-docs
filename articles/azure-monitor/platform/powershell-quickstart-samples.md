@@ -49,7 +49,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## Retrieve Activity log for a subscription
-Use the [Get-AzLog](https://docs.microsoft.com/en-us/powershell/module/az.monitor/get-azlog) cmdlet.  The following are some common examples. The Activity Log holds the last 90 days of operations. Using dates before this time results in an error message.  
+Use the [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  The following are some common examples. The Activity Log holds the last 90 days of operations. Using dates before this time results in an error message.  
 
 See what the current date/time are to verify what times to use in the commands below:
 ```powershell
