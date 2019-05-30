@@ -9,7 +9,7 @@ ms.date: 05/28/2019
 ## Blog posts
 
 * [Running Cognitive Services Containers](https://azure.microsoft.com/blog/running-cognitive-service-containers/)
-* [Getting started with Cognitive Services Language Understanding container](https://azure.microsoft.com/en-us/blog/getting-started-with-cognitive-services-language-understanding-container/)
+* [Getting started with Cognitive Services Language Understanding container](https://azure.microsoft.com/blog/getting-started-with-cognitive-services-language-understanding-container/)
 
 ## Developer samples
 

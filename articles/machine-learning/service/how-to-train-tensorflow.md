@@ -16,13 +16,13 @@ ms.custom: seodec18
 
 This article shows you how to train and register a TensorFlow model using Azure Machine Learning service. We'll be using the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network built on TensorFlow.
 
-With Azure Machine Learning service, you'll be able to rapidly scale out your open-source training jobs using elastic cloud compute resources. You'll also be able track your training runs, version models, deploy models, and much more. Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service is here to support you.
+With Azure Machine Learning service, you'll be able to rapidly scale out your open-source training jobs using elastic cloud compute resources. You'll also be able track your training runs, version models, deploy models, and much more. Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service is here to help you build production-ready models.
 
 ## Prerequisites
 
 - Install the Azure Machine Learning SDK for Python
 - Optional: Create a workspace configuration file
-- Sample training script files `mnist-tf.py` and `utils.py`
+- Download the [sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
 
 You can follow the [Python SDK setup guide](setup-create-workspace.md#sdk) for step-by-step instructions on setting up your environment. The sample training files can be found on our [GitHub samples page](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) along with the extended, Juypter Notebook version of this guide.
 
@@ -55,7 +55,7 @@ If you completed the optional step in the [prerequisites section](#prerequisites
 ws = Workspace.from_config()
 ```
 
-If you didn't complete the optional step, you can create a workspace explicitly.
+You can also can create a workspace explicitly.
 
 ```Python
 ws = Workspace.create(name='<workspace-name>',
@@ -159,11 +159,11 @@ run.wait_for_completion(show_output=True)
 
 As the Run is executed, it will go through the following stages:
 
-- **Preparing**: A docker image is created and uploaded to the workspace's Azure Container registry according to the TensorFlow estimator's specifications. The image will be cached for later runs. Logs are also streamed to the run history and can be viewed to monitor the progress of the image creation.
+- **Preparing**: A docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
 
-- **Scaling**: If the compute needs to be scaled up (that is, the Batch AI cluster requires more nodes to execute the run than currently available), the cluster will attempt to scale up in order to make the required number of nodes available.
+- **Scaling**: The cluster will attempt to scale up if the the Batch AI cluster requires more nodes to execute the run than are currently available.
 
-- **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted or copied, and the entry_script is executed. Stdout and the ./logs folder are streamed to the run history and can be used to monitor the run.
+- **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted or copied, and the entry_script is executed. Output from stdout and the ./logs folder are streamed to the run history and can be used to monitor the run.
 
 - **Post-Processing**: The ./outputs folder of the run is copied over to the run history.
 
