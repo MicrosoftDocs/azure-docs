@@ -21,16 +21,20 @@ RDP and SSH are some of the fundamental means through which you can connect to y
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
+![architecture](./media/bastion-overview/architecture.png)
+
+This graphic shows the architecture of an Azure Bastion deployment. Azure Bastion is deployed in your virtual network and once deployed, it provides the secure RDP/SSH experience for all the virtual machines in your virtual network.
+
 ## How does it work?
 
-Once you provision an Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all your VMs in the same virtual network. The deployment is per virtual network, not per subscription/account or virtual machine.
+Once you provision an Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same virtual network. The deployment is per virtual network, not per subscription/account or virtual machine.
 
 ## Key features
 
 The following features are available to try during public preview:
 
 * RDP and SSH directly in Azure portal – With Azure Bastion, you can directly get to the RDP and SSH session directly in the Azure portal using a single click seamless experience.
-* Remote Session over SSL and firewall traversal for RDP/SSH – Azure Bastion uses an HTML5 based web client that is automatically streamed to your local device, so that you get your RDP/SSH session over SSL on port 443 enabling you to traverse corporate firewalls seamlessly and securely.
+* Remote Session over SSL and firewall traversal for RDP/SSH – Azure Bastion uses an HTML5 based web client that is automatically streamed to your local device, so that you get your RDP/SSH session over SSL on port 443 enabling you to traverse corporate firewalls securely.
 * No Public IP required on the Azure VM – Azure Bastion opens the RDP/SSH connection to your Azure virtual machine using private IP on your VM.  Thus, you do not need a public IP on your virtual machine.
 * No hassle of managing NSGs – Azure Bastion is a fully managed platform PaaS service from Azure and is hardened internally to provide you secure RDP/SSH connectivity.   You do not need to apply any NSGs on Azure Bastion subnet and since Azure Bastion connects to your virtual machines over private IP, you can one-time configure your NSGs to allow RDP/SSH from Azure Bastion only removing the hassle of managing NSGs every time you need to securely connect to your virtual machines.
 * Protection again port scanning – With Azure Bastion, since you do not need to expose your virtual machines to public internet, your virtual machines are protected against port scanning by rogue and malicious users outside your virtual network.
