@@ -25,12 +25,12 @@ sections:
         - href: what-is-azure-kinect-dk.md
           html: <p>Learn about the Azure Kinect DK.</p>
           image:
-            src: ../media/common/i_overview.svg
+            src: https://docs.microsoft.com/media/common/i_overview.svg
           title: What is Azure Kinect DK?
         - href: overview-sensor-sdk.md
           html: <p>Get started with Sensor SDK.</p>
           image:
-            src: ../media/common/i_get-started.svg
+            src: https://docs.microsoft.com/media/common/i_get-started.svg
           title: Azure Kinect hardware specification
         - href: hardware-specification.md
           html: <p>Review Azure Kinect hardware specification.</p>
