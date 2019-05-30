@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a Standard Load Balancer by using the Azure Resource Manager template.
 services: load-balancer
 documentationcenter: na
-author: KumudD 
+author: KumudD
 manager: twooley
 Customer intent: I want to create a Standard Load Balancer by using Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -21,32 +21,25 @@ ms.custom: mvc
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to create a load balancer to load balance virtual machines (VMs). This quickstart shows you how to load balance VMs using a Standard Load Balancer.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a standard load balancer
 
-In this section, you create a Standard Load Balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. There are many methods that can be used to create a standard load balancer. In this quickstart, you use a Resource Manager template. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+In this section, you create a Standard Load Balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. There are many methods that can be used to create a standard load balancer. In this quickstart, you use Azure PowerShell to deploy a [Resource Manager template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager documentation](/azure/azure-resource-manager/). To find more Azure Load Balancer related template, see [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
+To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json"><img src="./media/quickstart-load-balancer-standard-public-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
+$adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password"
 
-2. Select or enter the following values.  
+$resourceGroupName = "${projectName}rg"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json"
 
-    ![Resource Manager template Key Vault integration deploy portal](./media/quick-create-template/create-standard-load-balancer-using-template-portal.png)
-
-    Unless it is specified, use the default value to create the key vault and a secret.
-
-    * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**. 
-    * **Location**: select a location.  For example, **Central US**.
-    * **Key Vault Name**: enter a unique name for the key vault.  
-    * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value
-    * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
-    * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**
-    * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in Prerequisites.
-    * **I agree to the terms and conditions state above**: Select.
-3. Select **Purchase**.
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
 
 ## Test the Load Balancer
 
