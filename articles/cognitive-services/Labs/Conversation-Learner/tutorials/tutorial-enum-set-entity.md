@@ -1,5 +1,5 @@
 ---
-title: When to use ENUM entities and SET ENTITY actions with a Conversation Learner Model - Microsoft Cognitive Services | Microsoft Docs
+title: When to use ENUM entities and SET ENTITY actions with a Conversation Learner Model - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn when it is appropriate to use ENUM entities and SET ENTITY actions with a Conversation Learner Model.
 services: cognitive-services
@@ -24,27 +24,27 @@ This tutorial will explain when you should use ENUM (enumeration) entities and S
 
 ## What is covered
 
-This tutorial will introduce two new features. A new type of entity called ENUM (short for enumeration) and a new type of action called SET_ENTITY which can refer to one of these enum values, and as the name implies, sets the entity to this value. As you will learn below, these new features are usually used together and we will explain what they are and how to use them below. Before we get into the details it is important to understand what problem these features help solve.
+This tutorial will introduce two new features. A new type of entity called ENUM (short for enumeration) and a new type of action called SET_ENTITY, which can refer to one of these enum values, and as the name implies, sets the entity to this value. As you will learn below, these new features are used together and we will explain what they are and how to use them below. Before we get into the details, it is important to understand what problem these features help solve.
 
 ![enumEntityType.png](../media/tutorial-enum-set-entity/enumEntityType.png)
 ![actionSetEntityType.png](../media/tutorial-enum-set-entity/actionSetEntityType.png)
 
 ## Problem
 
-There are cases in conversations where the meaning of words depends on the context.  Normally the labelled key words are learned and extracted using a language understanding service, but in these cases those systems may not be able to learn using labelled examples.
+There are cases in conversations where the meaning of words depends on the context.  Normally the labeled key words are learned and extracted using a language understanding service, but in these cases those systems may not be able to learn using labeled examples.
 
-Imagine you overhear part of a conversation between people nearby and you only hear the word "Yes." You would not know what the "Yes" is agreeing to or confirming since you didn't hear the question asked before it. The question asked before is the context which gives meaning to the answer. Similarly since "Yes" is such a common response to many different questions it cannot be learned by providing examples as you would do with [Custom Trained](04-introduction-to-entities.md) entities because then it would learn to label every "Yes" as that entity.
+Imagine you overhear part of a conversation between people nearby and you only hear the word "Yes." You would not know what the "Yes" is agreeing to or confirming since you didn't hear the question asked before it. The question asked before is the context, which gives meaning to the answer. Similarly since "Yes" is such a common response to many different questions it cannot be learned by providing examples as you would do with [Custom Trained](04-introduction-to-entities.md) entities because then it would learn to label every "Yes" as that entity.
 
 ### Example
 
 Let's further clarify with the following example:
 
-Bot: Do you like Microsoft Cognitive Services?
+Bot: Do you like Azure Cognitive Services?
 User: Yes
 Bot: Do you like ice cream?
 User: Yes
 
-In previous tutorials, we looked at [Custom Trained](04-introduction-to-entities.md) entities and your initial thought might be to create an entity named "likesCogServices" and label the first "Yes" as this entity.  However, the system would also label the second "Yes". When we attempted to correct the label of the second "Yes" to "likesIceCream" we would then create a conflict of two same inputs "Yes" meaning different things and would be stuck.
+In previous tutorials, we looked at [Custom Trained](04-introduction-to-entities.md) entities and your initial thought might be to create an entity named "likesCogServices" and label the first "Yes" as this entity.  However, the system would also label the second "Yes". When we attempted to correct the label of the second "Yes" to "likesIceCream", we would then create a conflict of two same inputs "Yes" meaning different things and would be stuck.
 
 It is in these cases that you need to use ENUM entities and SET_ENTITY actions.
 
@@ -52,7 +52,7 @@ It is in these cases that you need to use ENUM entities and SET_ENTITY actions.
 
 Use these rules below to know when to use ENUM entities and SET_ENTITY actions:
 
-- Detection or setting of entity is context dependent
+- Detection or setting of entity is context-dependent
 - Number of possible values is fixed (Yes and No would be two values)
 
 In other words, use these for any close-ended prompts such as confirmation questions that always result in Yes or No.
@@ -64,7 +64,7 @@ Example:
 Bot: Is your order correct?
 User: Yes
 
-When the possible values of the entity is open-ended and not fixed you would need to use an alternative feature such as [expected entity](05-expected-entity.md).
+When the possible values of the entity are open-ended and not fixed, you would need to use an alternative feature such as [expected entity](05-expected-entity.md).
 
 Example:
 Bot: What is your name?
@@ -94,7 +94,7 @@ As mentioned above, "Set Entity" actions simply set an entity to a known enum va
 
 ### Automatic action generation
 
-If an enum entity exists in your model, Conversation Learner will create placeholder actions for each of the possible values and make them available to select during training. Upon selection, the action would automatically be created and taken by your bot to be ranked in future similar situations of the conversation.
+If an enum entity exists in your model, Conversation Learner will create placeholder actions for each of the possible values and make them available to select during training. Upon selection, the action would automatically be created for you.
 
 For example, if I create an enum entity with the values "Yes" and "No":
 
@@ -113,7 +113,7 @@ This tutorial requires that the general tutorial bot is running
 
     npm run tutorial-general
 
-We will create a bot to simulate fast food ordering. It will having discrete values for sizes of drinks and fries SMALL, MEDIUM, and LARGE as well as confirmation questions with YES / NO answers both of these satisfy the two rules above of being context dependent answers and fixed values.
+We will create a bot to simulate fast food ordering. It will have discrete values for sizes of drinks and fries (SMALL/MEDIUM/LARGE), and confirmation questions with YES / NO answers. Both of these entities satisfy the two rules above of being context-dependent answers and fixed values.
 
 ### Create the model
 
