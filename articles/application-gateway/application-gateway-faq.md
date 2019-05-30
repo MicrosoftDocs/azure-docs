@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
 ---
 
@@ -192,7 +192,7 @@ No.
 
 ### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
 
-Yes. For details see,  [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
 
 ## Configuration - SSL
@@ -312,6 +312,10 @@ For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/i
 ### Does WAF support DDoS protection?
 
 Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
 ## Diagnostics and logging
 

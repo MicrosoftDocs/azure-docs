@@ -1,6 +1,6 @@
 ---
-title: Migrate Azure Application Gateway from v1 to v2
-description: This article shows you how to migrate Azure Application Gateway from v1 to v2
+title: Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
+description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,9 +9,9 @@ ms.date: 5/31/2019
 ms.author: victorh
 ---
 
-# Migrate Azure Application Gateway from v1 to v2
+# Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 
-Azure Application Gateway v2 is now available, offering additional features such as autoscaling and availability-zone redundancy. However, existing v1 gateways aren't automatically upgraded to v2. If you want to migrate from v1 to v2, follow the steps in this article.
+[Azure Application Gateway and Web Application Firewall (WAF) v2](application-gateway-autoscaling-zone-redundant.md) is now available, offering additional features such as autoscaling and availability-zone redundancy. However, existing v1 gateways aren't automatically upgraded to v2. If you want to migrate from v1 to v2, follow the steps in this article.
 
 There are two stages in a migration:
 
@@ -33,7 +33,7 @@ An Azure PowerShell script is available that does the following:
 * You must provide an IP address space for another subnet within your virtual network where your v1 gateway is located. The script can't create the v2 gateway in any existing subnets that already have a v1 gateway. However, if the existing subnet already has a v2 gateway, that may still work provided there's enough IP address space.
 * To  migrate an SSL configuration, you must specify all the SSL certs used in your v1 gateway.
 * If you have FIPS mode enabled for your V1 gateway, it won’t be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
-* v2 doesn't support IPv6, so IPv6 enabled v1 gateways are not migrated.
+* v2 doesn't support IPv6, so IPv6 enabled v1 gateways are not migrated. If you run the script, it may not complete.
 * If the v1 gateway has only a private IP address, the script creates a public IP address and a private IP address for the new v2 gateway. v2 gateways currently don't support only private IP addresses.
 
 ## Download the script
@@ -81,7 +81,7 @@ To run the script:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]:  Required** - This is the IP address space that you allocate for a new subnet that contains your new v2 gateway. This must be specified in the CIDR notation. For example: 10.0.0.0/24.
+   * **subnetAddressRange: [String]:  Required** - This is the IP address space that you have allocated (or want to allocate) for a new subnet that contains your new v2 gateway. This must be specified in the CIDR notation. For example: 10.0.0.0/24. You do not need to create this subnet in advance. The script creates it for you if it doesn't exist.
    * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_v2 or WAF_v2 gateway. If this parameter isn't supplied, the name of your existing v1 gateway will be used with the suffix *_v2* appended.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the SSL certs from your v1 gateway must be uploaded to the new v2 gateway. For each of your SSL certs configured for your Standard v1 or WAF v1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your SSL Cert file and the password.
 
@@ -157,10 +157,6 @@ Yes.
 ### Does the Azure PowerShell script also switch over the traffic from my v1 gateway to the newly created v2 gateway?
 
 No. The Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and in your control.
-
-### I tried to run the script, but it keeps failing even after retrying multiple times after a minute. What can I do?
-
-Open a support case with Azure Support so they can investigate it.
 
 ### Is the new v2 gateway created by the Azure PowerShell script sized appropriately to handle all of the traffic that is currently served by my v1 gateway?
 
