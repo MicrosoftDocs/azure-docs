@@ -24,7 +24,7 @@ You may need to cancel an order for various reasons after you have placed the or
 
 Perform the following steps to cancel an order.
 
-1.	Go to **Overview > Cancel**. 
+1.	Go to **Overview > Cancel**.
 
     ![Cancel order 1](media/data-box-portal-admin/cancel-order1.png)
 
@@ -32,7 +32,7 @@ Perform the following steps to cancel an order.
 
     ![Cancel order 2](media/data-box-portal-admin/cancel-order2.png)
 
-3.	Once the order is canceled, the portal updates the status of the order and displays it as **Canceled**. 
+3.	Once the order is canceled, the portal updates the status of the order and displays it as **Canceled**.
 
 ## Clone an order
 
