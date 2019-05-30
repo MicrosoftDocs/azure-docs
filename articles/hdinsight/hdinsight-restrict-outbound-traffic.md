@@ -132,7 +132,7 @@ For example, to configure the route table for a cluster created in the US region
 Complete the route table configuration:
 
 1. Assign the route table you created to your HDInsight subnet by clicking **Subnets** under **Settings** and then **Associate**.
-1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **HDI Subnet** you used for your HDI cluster.
+1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **HDInsight Subnet** you used for your HDInsight cluster.
 1. Click **OK**.
 
 ## Edge-node application traffic
