@@ -22,9 +22,9 @@ ms.custom: include file
 
 > Prefer to download this sample's project instead? Do either of the following:
 > 
-> - To run with a local web server, such as Node.js, [download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
+> - To run the project with a local web server, such as Node.js, [download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
-> - (Optional) To run with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
+> - (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 >
 > And then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
 
