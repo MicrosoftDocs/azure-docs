@@ -229,7 +229,7 @@
       href: search-query-lucene-examples.md
     - name: moreLikeThis (preview)
       href: search-more-like-this.md
-  - name: Filter and sort data
+  - name: Using filters
     items:
     - name: Filter overview
       href: search-filters.md
@@ -284,7 +284,7 @@
       href: search-query-odata-collection-operators.md
     - name: Comparisons - eq, ne, gt, lt, ge, le
       href: search-query-odata-comparison-operators.md
-    - name: Full-text Search - search.ismatch[scoring]
+    - name: Full-text Search - search.ismatch, search.ismatchscoring
       href: search-query-odata-full-text-search-functions.md
     - name: Geo-spatial - geo.distance, geo.intersects
       href: search-query-odata-geo-spatial-functions.md
