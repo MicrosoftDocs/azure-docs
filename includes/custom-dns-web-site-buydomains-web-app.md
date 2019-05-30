@@ -1,3 +1,10 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+---
 If you want a domain, you can buy domains on [Azure Management Portal](https://portal.azure.com) directly. Use the following steps to buy domain names and assign to your web app.
 
 1. In your browser, open the [Azure Management Portal](https://portal.azure.com).

@@ -1,0 +1,74 @@
+- name: Overview
+  items:
+  - name: What are Power BI Workspace Collections?
+    href: what-are-power-bi-workspace-collections.md
+  - name: What's new in Power BI Workspace Collections
+    href: whats-new.md
+- name: Get started
+  items:
+  - name: Get started with Power BI Workspace Collections
+    href: get-started.md
+  - name: Get started with a sample
+    href: get-started-sample.md
+  - name: FAQ
+    href: faq.md
+- name: How to
+  items:
+  - name: Plan and design
+    items:
+    - name: Common scenarios
+      href: scenarios.md
+  - name: Manage
+    items:
+    - name: Connect to a data source
+      href: connect-datasource.md
+    - name: Embed a Power BI report
+      href: embed-report.md
+    - name: Interact with reports
+      href: interact-with-reports.md
+    - name: Create a new report from a dataset
+      href: create-report-from-dataset.md
+    - name: Save reports
+      href: save-reports.md
+    - name: Toggle between view and edit
+      href: toggle-mode.md
+  - name: Secure
+    items:
+    - name: Authenticating and authorizing
+      href: app-token-flow.md
+    - name: Row level security with Power BI Workspace Collections
+      href: row-level-security.md
+- name: Reference
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=power-bi-embedded
+  - name: PowerShell
+    href: /powershell/module/az.powerbiembedded
+  - name: .NET Azure Resource Manager
+    href: /dotnet/api/microsoft.azure.management.powerbiembedded
+  - name: .NET SDK download
+    href: https://www.nuget.org/profiles/powerbi
+  - name: JavaScript
+    href: https://github.com/Microsoft/PowerBI-JavaScript/wiki
+  - name: Management REST APIs
+    href: https://docs.microsoft.com/rest/api/power-bi-workspace-collections/
+  - name: REST APIs
+    href: https://msdn.microsoft.com/library/azure/mt711507.aspx
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+  - name: JavaScript embed sample
+    href: https://microsoft.github.io/PowerBI-JavaScript/demo/
+  - name: JavaScript Git repo
+    href: https://github.com/Microsoft/PowerBI-JavaScript
+  - name: Power BI C# Git repo
+    href: https://github.com/Microsoft/PowerBI-CSharp
+  - name: Power BI community
+    href: https://community.powerbi.com/t5/Developer/bd-p/Developer
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Sample application
+    href: https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/powerbi

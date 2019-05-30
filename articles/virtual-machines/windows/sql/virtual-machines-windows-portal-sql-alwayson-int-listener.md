@@ -4,7 +4,7 @@ description: Step-by-step instructions for creating a listener for an Always On 
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray 
 
 ---
@@ -22,13 +22,13 @@ This article explains how to create a load balancer for a SQL Server Always On a
 
 To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines that are running with Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the availability group in Resource Manager. This template automatically creates an internal load balancer for you. 
 
-If you prefer, you can [manually configure an availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+If you prefer, you can [manually configure an availability group](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 This article requires that your availability groups are already configured.  
 
 Related topics include:
 
-* [Configure Always On availability groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Configure Always On availability groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 By walking through this article, you create and configure a load balancer in the Azure portal. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.
@@ -63,7 +63,7 @@ First, create the load balancer.
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
-   | **Virtual network** |Select the virtual network that the SQL Server intances are in. |
+   | **Virtual network** |Select the virtual network that the SQL Server instances are in. |
    | **Subnet** |Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |
    | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
@@ -116,7 +116,7 @@ The probe defines how Azure verifies which of the SQL Server instances currently
 4.  Click **OK**. 
 
 > [!NOTE]
-> Make sure that the port you specify is open on the firewall of both SQL Server instances. Both instances require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx). 
+> Make sure that the port you specify is open on the firewall of both SQL Server instances. Both instances require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
@@ -231,18 +231,18 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 
 10. Configure the new load balancing rule by using the following settings:
 
-   |Setting |Value
-   |:-----|:----
-   |**Name** |A name to identify the load balancing rule. 
-   |**Frontend IP address** |Select the IP address you created. 
-   |**Protocol** |TCP
-   |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
-   |**Backend port** |Use the same value as **Port**.
-   |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
-   |**Health probe** |Choose the probe you created.
-   |**Session persistence** |None
-   |**Idle timeout (minutes)** |Default (4)
-   |**Floating IP (direct server return)** | Enabled
+    |Setting |Value
+    |:-----|:----
+    |**Name** |A name to identify the load balancing rule. 
+    |**Frontend IP address** |Select the IP address you created. 
+    |**Protocol** |TCP
+    |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
+    |**Backend port** |Use the same value as **Port**.
+    |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
+    |**Health probe** |Choose the probe you created.
+    |**Session persistence** |None
+    |**Idle timeout (minutes)** |Default (4)
+    |**Floating IP (direct server return)** | Enabled
 
 ### Configure the availability group to use the new IP address
 
@@ -266,6 +266,36 @@ After you have added an IP address for the listener, configure the additional av
 6. [Set the cluster parameters in PowerShell](#setparam).
 
 After you configure the availability group to use the new IP address, configure the connection to the listener. 
+
+## Add load balancing rule for distributed availability group
+
+If an availability group participates in a distributed availability group, the load balancer needs an additional rule. This rule stores the port used by the distributed availability group listener.
+
+>[!IMPORTANT]
+>This step only applies if the availability group participates in a [distributed availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. On each server that participates in the distributed availability group, create an inbound rule on the distributed availability group listener TCP port. In many examples, documentation uses 5022. 
+
+1. In the Azure portal, click on the load balancer and click **Load balancing rules**, and then click **+Add**. 
+
+1. Create the load balancing rule with the following settings:
+
+   |Setting |Value
+   |:-----|:----
+   |**Name** |A name to identify the load balancing rule for the distributed availability group. 
+   |**Frontend IP address** |Use the same frontend IP address as the availability group.
+   |**Protocol** |TCP
+   |**Port** |5022 - The port for the [distributed availability group endpoint listener](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Can be any available port.  
+   |**Backend port** | 5022 - Use the same value as **Port**.
+   |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
+   |**Health probe** |Choose the probe you created.
+   |**Session persistence** |None
+   |**Idle timeout (minutes)** |Default (4)
+   |**Floating IP (direct server return)** | Enabled
+
+Repeat these steps for the load balancer on the other availability groups that participate in the distributed availability groups.
+
+If you are restricting access with an Azure Network Security Group, ensure that the allow rules include the backend SQL Server VM IP addresses, and the load balancer floating IP addresses for the AG listener and the cluster core IP address, if applicable.
 
 ## Next steps
 

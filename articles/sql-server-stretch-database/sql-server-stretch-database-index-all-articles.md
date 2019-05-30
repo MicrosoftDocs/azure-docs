@@ -1,21 +1,18 @@
 ---
 title: All topics for SQL Server Stretch Database service | Microsoft Docs
-description: Table of all topics for the Azure service named SQL Server Stretch Database that exist on http://azure.microsoft.com/documentation/articles/, Title and description.
+description: Table of all topics for the Azure service named SQL Server Stretch Database that exist on https://azure.microsoft.com/documentation/articles/, Title and description.
 services: sql-server-stretch-database
 documentationcenter: ''
-author: DouglasL
-manager: jhubbard
-editor: MightyPen
-
 ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
 ms.service: sql-server-stretch-database
 ms.workload: sql-server-stretch-database
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
-ms.author: DouglasL
-
+author: blazem-msft
+ms.author: blazem
+ms.reviewer: jroth
+manager: jroth
 ---
 # All topics for Azure SQL Server Stretch Database service
 This topic lists every topic that applies directly to the **SQL Server Stretch Database** service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.

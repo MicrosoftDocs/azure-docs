@@ -1,35 +1,23 @@
 ---
 title: Azure Container Instances quotas and region availability
-description: The default quotas and region availability of the Azure Container Instances service.
+description: Quotas, limits, and region availability of the Azure Container Instances service.
 services: container-instances
-author: mmacy
-manager: timlt
+author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 01/11/2018
-ms.author: marsma
+ms.date: 03/01/2019
+ms.author: danlep
 ---
-# Quotas and region availability for Azure Container Instances
+# Quotas and limits for Azure Container Instances
 
-All Azure services include certain default limits and quotas for resources and features. The following sections detail the default resource limits for several Azure Container Instances (ACI) resources, as well as the availability of the ACI service in Azure regions.
+All Azure services include certain default limits and quotas for resources and features. This article details the default quotas and limits for Azure Container Instances.
+
+For the availability of Azure Container Instances features and resources in Azure regions, see [Resource availability for Azure Container Instances](container-instances-region-availability.md).
 
 ## Service quotas and limits
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-## Region availability
-
-Azure Container Instances is available in the following regions with the specified CPU and memory limits.
-
-| Location | OS | CPU | Memory (GB) |
-| -------- | -- | :---: | :-----------: |
-| West Europe, West US, East US, Southeast Asia | Linux | 4 | 14 |
-| West Europe, West US, East US, Southeast Asia  | Windows | 4 | 14 |
-
-Container instances created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower CPU and memory settings, or try your deployment at a later time.
-
-For more information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
 
 ## Next steps
 

@@ -1,13 +1,14 @@
 ---
-title: Query expression syntax in the Academic Knowledge API | Microsoft Docs
-description: Learn how to use query expression syntax in the Academic Knowledge API for Microsoft Cognitive Services.
+title: Query expression syntax - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Learn how to use query expression syntax in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: academic-knowledge
-ms.topic: article
+ms.subservice: academic-knowledge
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ---

@@ -1,439 +1,569 @@
 ---
-title: Use Terraform and create an Azure VM scale set using HCL.
-description: Use Terraform to configure and version an Azure virtual machine scale set complete with a virtual network and managed attached disks.
-keywords: terraform, devops, scale set, virtual machine, network, storage, modules
-ms.service: virtual-machines-linux
-author: dcaro
-ms.author: dcaro
-ms.date: 10/04/2017
-ms.topic: article
+title: Use Terraform to create an Azure virtual machine scale set
+description: Tutorial about using Terraform to configure and version an Azure virtual machine scale set complete with a virtual network and managed attached disks
+services: terraform
+ms.service: azure
+keywords: terraform, devops, virtual machine, Azure, scale set, network, storage, modules
+author: tomarchermsft
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 10/26/2018
 ---
 
-# Use Terraform to plan and create a networked Azure VM scale set with managed storage
+# Use Terraform to create an Azure virtual machine scale set
 
-In this article, you use [Terraform](https://www.terraform.io/) to create and deploy an [Azure virtual machine scaleset](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) with managed disks using the [Hashicorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
+[Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to create and manage a group of identical, load balanced virtual machines where the number of virtual machine instances can automatically increase, or decrease in response to demand or a defined schedule.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/overview) to perform the following tasks:
 
 > [!div class="checklist"]
-> * Set up your Terraform deployment
-> * Use variables and outputs for Terraform deployment 
+> * Set up a Terraform deployment
+> * Use variables and outputs for Terraform deployment
 > * Create and deploy network infrastructure
 > * Create and deploy a virtual machine scale set and attach it to the network
 > * Create and deploy a jumpbox to connect to the VMs via SSH
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> [!NOTE]
+> The most recent version of the Terraform configuration files used in this article are in the [Awesome Terraform repository on GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## Before you begin
+## Prerequisites
 
-- [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
-- [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## Create the file structure
+- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-Create three new files in an empty directory with the following names:
+- **Create an SSH key pair**: If you don't already have an SSH key pair, follow the instructions in the article, [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-- `variables.tf`
-  This file holds the values of the variables used in the template.
-- `output.tf`
-  This file describes the settings that will be displayed after deployment.
-- `vmss.tf`
-  This code for the virtual machine scale set infrastructure.
+## Create the directory structure
 
-## Create the variables and output definitions
+1. Browse to the [Azure portal](https://portal.azure.com).
 
-In this step, you define variables that customize the resources created by Terraform.
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-Edit the `variables.tf` file, copy the following code, then save the changes.
+    ![Cloud Shell prompt](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
-```tf 
-variable "location" {
-  description = "The location where resources will be created"
-  default     = "West US"
-}
+1. Change directories to the `clouddrive` directory.
 
-variable "resource_group_name" {
-  description = "The name of the resource group in which the resources will be created"
-  default     = "myResourceGroup"
-}
-```
+    ```bash
+    cd clouddrive
+    ```
 
-Edit the `output.tf` file and copy the following code to expose the fully qualified domain name for the virtual machines. 
+1. Create a directory named `vmss`.
 
-```hcl 
-output "vmss_public_ip" {
-    value = "${azurerm_public_ip.vmss.fqdn}"
-}
-```
+    ```bash
+    mkdir vmss
+    ```
+
+1. Change directories to the new directory:
+
+    ```bash
+    cd vmss
+    ```
+
+## Create the variables definitions file
+In this section, you define the variables that customize the resources created by Terraform.
+
+Within the Azure Cloud Shell, perform the following steps:
+
+1. Create a file named `variables.tf`.
+
+    ```bash
+    vi variables.tf
+    ```
+
+1. Enter insert mode by selecting the I key.
+
+1. Paste the following code into the editor:
+
+   ```JSON
+   variable "location" {
+    description = "The location where resources will be created"
+   }
+
+   variable "tags" {
+    description = "A map of the tags to use for the resources that are deployed"
+    type        = "map"
+
+    default = {
+      environment = "codelab"
+    }
+   }
+
+   variable "resource_group_name" {
+    description = "The name of the resource group in which the resources will be created"
+    default     = "myResourceGroup"
+   }
+   ```
+
+1. Exit insert mode by selecting the Esc key.
+
+1. Save the file and exit the vi editor by entering the following command:
+
+    ```bash
+    :wq
+    ```
+
+## Create the output definitions file
+In this section, you create the file that describes the output after deployment.
+
+Within the Azure Cloud Shell, perform the following steps:
+
+1. Create a file named `output.tf`.
+
+    ```bash
+    vi output.tf
+    ```
+
+1. Enter insert mode by selecting the I key.
+
+1. Paste the following code into the editor to expose the fully qualified domain name (FQDN) for the virtual machines.
+   :
+
+   ```JSON
+    output "vmss_public_ip" {
+        value = "${azurerm_public_ip.vmss.fqdn}"
+    }
+   ```
+
+1. Exit insert mode by selecting the Esc key.
+
+1. Save the file and exit the vi editor by entering the following command:
+
+    ```bash
+    :wq
+    ```
 
 ## Define the network infrastructure in a template
+In this section, you create the following network infrastructure in a new Azure resource group:
 
-In this step, you create the following network infrastructure in a new Azure resource group: 
-
-  - One VNET with the address space of 10.0.0.0/16 
+  - One virtual network (VNET) with the address space of 10.0.0.0/16
   - One subnet with the address space of 10.0.2.0/24
   - Two public IP addresses. One used by the virtual machine scale set load balancer, the other used to connect to the SSH jumpbox.
 
+Within the Azure Cloud Shell, perform the following steps:
 
-Edit and copy the following code in the `vmss.tf` file: 
+1. Create a file named `vmss.tf` to describe the virtual machine scale set infrastructure.
 
-```tf
-resource "azurerm_resource_group" "vmss" {
-  name     = "${var.resource_group_name}"
-  location = "${var.location}"
+    ```bash
+    vi vmss.tf
+    ```
 
-  tags {
-    environment = "codelab"
-  }
-}
+1. Enter insert mode by selecting the I key.
 
-resource "azurerm_virtual_network" "vmss" {
-  name                = "vmss-vnet"
-  address_space       = ["10.0.0.0/16"]
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
+1. Paste the following code to the end of the file to expose the fully qualified domain name (FQDN) for the virtual machines.
 
-  tags {
-    environment = "codelab"
-  }
-}
+   ```JSON
+   resource "azurerm_resource_group" "vmss" {
+    name     = "${var.resource_group_name}"
+    location = "${var.location}"
+    tags     = "${var.tags}"
+   }
 
-resource "azurerm_subnet" "vmss" {
-  name                 = "vmss-subnet"
-  resource_group_name  = "${azurerm_resource_group.vmss.name}"
-  virtual_network_name = "${azurerm_virtual_network.vmss.name}"
-  address_prefix       = "10.0.2.0/24"
-}
+   resource "random_string" "fqdn" {
+    length  = 6
+    special = false
+    upper   = false
+    number  = false
+   }
 
-resource "azurerm_public_ip" "vmss" {
-  name                         = "vmss-public-ip"
-  location                     = "${var.location}"
-  resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
-  domain_name_label            = "${azurerm_resource_group.vmss.name}"
+   resource "azurerm_virtual_network" "vmss" {
+    name                = "vmss-vnet"
+    address_space       = ["10.0.0.0/16"]
+    location            = "${var.location}"
+    resource_group_name = "${azurerm_resource_group.vmss.name}"
+    tags                = "${var.tags}"
+   }
 
-  tags {
-    environment = "codelab"
-  }
-}
+   resource "azurerm_subnet" "vmss" {
+    name                 = "vmss-subnet"
+    resource_group_name  = "${azurerm_resource_group.vmss.name}"
+    virtual_network_name = "${azurerm_virtual_network.vmss.name}"
+    address_prefix       = "10.0.2.0/24"
+   }
 
-``` 
+   resource "azurerm_public_ip" "vmss" {
+    name                         = "vmss-public-ip"
+    location                     = "${var.location}"
+    resource_group_name          = "${azurerm_resource_group.vmss.name}"
+    allocation_method = "Static"
+    domain_name_label            = "${random_string.fqdn.result}"
+    tags                         = "${var.tags}"
+   }
+   ```
 
-> [!NOTE]
-> It is a good idea to tag the resources being deployed in Azure to facilitate their identification in the future.
+1. Exit insert mode by selecting the Esc key.
 
-## Create the network infrastructure
+1. Save the file and exit the vi editor by entering the following command:
 
-Initialize the Terraform environment by running the following command in the directory where you created the `.tf` files:
+   ```bash
+   :wq
+   ```
 
-```bash
-terraform init 
-```
+## Provision the network infrastructure
+Using the Azure Cloud Shell from the directory where you created the configuration files (.tf) perform the following steps:
 
-Then run the following command to deploy the infrastructure in Azure.
+1. Initialize Terraform.
 
-```bash
-terraform apply
-```
+   ```bash
+   terraform init
+   ```
 
-Verify that the FQDN of the public IP address corresponds to your configuration:
-![VMSS terraform FQDN for Public IP address](./media/tf-create-vmss-step4-fqdn.png)
+1. Run the following command to deploy the defined infrastructure in Azure.
 
+   ```bash
+   terraform apply
+   ```
 
-The resource group should have the following resources: 
-![VMSS terraform network resources](./media/tf-create-vmss-step4-rg.png)
+   Terraform prompts you for a "location" value as the **location** variable is defined in `variables.tf`, but it's never set. You can enter any valid location - such as "West US" followed by selecting Enter. (Use parentheses around any value with spaces.)
 
+1. Terraform prints the output as defined in the `output.tf` file. As shown in the following screenshot, the FQDN takes the form &lt;id>.&lt;location>.cloudapp.azure.com. The id value is a computed value and location is the value you provide when running Terraform.
 
-## Edit the infrastructure to add the virtual machine scale set
+   ![Virtual machine scale set fully-qualified domain name for Public IP address](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
-In this step, you add the following resources to the template:
+1. In the Azure portal menu, select **Resource groups** from the main menu.
 
-- One Azure load balancer and rules to serve the application and attach it to the public IP address configured earlier.
-- Azure backend address pool and assign it to the loadbalancer 
-- A health probe port used by the application and configured on the loadbalancer 
-- A virtual machine scale set sitting behind the load balancer, running on the vnet deployed earlier
-- [Nginx](http://nginx.org/) on the nodes of the virtual machine scale using a custom script extension.
+1. On the **Resource groups** tab, select **myResourceGroup** to view the resources that were created by Terraform.
+   ![Virtual machine scale set network resources](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
-Add the following code to the end of the `vmss.tf` file.
+## Add a virtual machine scale set
 
-```tf
-resource "azurerm_lb" "vmss" {
-  name                = "vmss-lb"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
+In this section, you learn how to add the following resources to the template:
 
-  frontend_ip_configuration {
-    name                 = "PublicIPAddress"
-    public_ip_address_id = "${azurerm_public_ip.vmss.id}"
-  }
+- An Azure load balancer and rules to serve the application and attach it to the public IP address configured earlier in this article
+- An Azure backend address pool and assign it to the load balancer
+- A health probe port used by the application and configured on the load balancer
+- A virtual machine scale set sitting behind the load balancer that runs on the VNET deployed earlier in this article
+- [Nginx](https://nginx.org/) on the nodes of the virtual machine scale using [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
 
-  tags {
-    environment = "codelab"
-  }
-}
+In Cloud Shell, perform the following steps:
 
-resource "azurerm_lb_backend_address_pool" "bpepool" {
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
-  loadbalancer_id     = "${azurerm_lb.vmss.id}"
-  name                = "BackEndAddressPool"
-}
+1. Open the `vmss.tf` configuration file.
 
-resource "azurerm_lb_probe" "vmss" {
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
-  loadbalancer_id     = "${azurerm_lb.vmss.id}"
-  name                = "ssh-running-probe"
-  port                = "${var.application_port}"
-}
+   ```bash
+   vi vmss.tf
+   ```
 
-resource "azurerm_lb_rule" "lbnatrule" {
-    resource_group_name            = "${azurerm_resource_group.vmss.name}"
-    loadbalancer_id                = "${azurerm_lb.vmss.id}"
-    name                           = "http"
-    protocol                       = "Tcp"
-    frontend_port                  = "${var.application_port}"
-    backend_port                   = "${var.application_port}"
-    backend_address_pool_id        = "${azurerm_lb_backend_address_pool.bpepool.id}"
-    frontend_ip_configuration_name = "PublicIPAddress"
-    probe_id                       = "${azurerm_lb_probe.vmss.id}"
-}
+1. Go to the end of the file and enter append mode by selecting the A key.
 
-resource "azurerm_virtual_machine_scale_set" "vmss" {
-  name                = "vmscaleset"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
-  upgrade_policy_mode = "Manual"
+1. Paste the following code to the end of the file:
 
-  sku {
-    name     = "Standard_DS1_v2"
-    tier     = "Standard"
-    capacity = 2
-  }
+   ```JSON
+   resource "azurerm_lb" "vmss" {
+    name                = "vmss-lb"
+    location            = "${var.location}"
+    resource_group_name = "${azurerm_resource_group.vmss.name}"
 
-  storage_profile_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "16.04-LTS"
-    version   = "latest"
-  }
-
-  storage_profile_os_disk {
-    name              = ""
-    caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
-  }
-
-  storage_profile_data_disk {
-    lun          = 0
-    caching        = "ReadWrite"
-    create_option  = "Empty"
-    disk_size_gb   = 10
-  }
-
-  os_profile {
-    computer_name_prefix = "vmlab"
-    admin_username       = "azureuser"
-    admin_password       = "Passwword1234"
-  }
-
-  os_profile_linux_config {
-    disable_password_authentication = true
-
-    ssh_keys {
-      path     = "/home/azureuser/.ssh/authorized_keys"
-      key_data = "${file("~/.ssh/id_rsa.pub")}"
+    frontend_ip_configuration {
+      name                 = "PublicIPAddress"
+      public_ip_address_id = "${azurerm_public_ip.vmss.id}"
     }
-  }
 
-  network_profile {
-    name    = "terraformnetworkprofile"
-    primary = true
+    tags = "${var.tags}"
+   }
 
-    ip_configuration {
-      name                                   = "IPConfiguration"
-      subnet_id                              = "${azurerm_subnet.vmss.id}"
-      load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+   resource "azurerm_lb_backend_address_pool" "bpepool" {
+    resource_group_name = "${azurerm_resource_group.vmss.name}"
+    loadbalancer_id     = "${azurerm_lb.vmss.id}"
+    name                = "BackEndAddressPool"
+   }
+
+   resource "azurerm_lb_probe" "vmss" {
+    resource_group_name = "${azurerm_resource_group.vmss.name}"
+    loadbalancer_id     = "${azurerm_lb.vmss.id}"
+    name                = "ssh-running-probe"
+    port                = "${var.application_port}"
+   }
+
+   resource "azurerm_lb_rule" "lbnatrule" {
+      resource_group_name            = "${azurerm_resource_group.vmss.name}"
+      loadbalancer_id                = "${azurerm_lb.vmss.id}"
+      name                           = "http"
+      protocol                       = "Tcp"
+      frontend_port                  = "${var.application_port}"
+      backend_port                   = "${var.application_port}"
+      backend_address_pool_id        = "${azurerm_lb_backend_address_pool.bpepool.id}"
+      frontend_ip_configuration_name = "PublicIPAddress"
+      probe_id                       = "${azurerm_lb_probe.vmss.id}"
+   }
+
+   resource "azurerm_virtual_machine_scale_set" "vmss" {
+    name                = "vmscaleset"
+    location            = "${var.location}"
+    resource_group_name = "${azurerm_resource_group.vmss.name}"
+    upgrade_policy_mode = "Manual"
+
+    sku {
+      name     = "Standard_DS1_v2"
+      tier     = "Standard"
+      capacity = 2
     }
-  }
 
-  extension { 
-    name = "vmssextension"
-    publisher = "Microsoft.OSTCExtensions"
-    type = "CustomScriptForLinux"
-    type_handler_version = "1.2"
-    settings = <<SETTINGS
-    {
-        "commandToExecute": "sudo apt-get -y install nginx"
+    storage_profile_image_reference {
+      publisher = "Canonical"
+      offer     = "UbuntuServer"
+      sku       = "16.04-LTS"
+      version   = "latest"
     }
-    SETTINGS
-  }
 
-  tags {
-    environment = "codelab"
-  }
-}
-```
+    storage_profile_os_disk {
+      name              = ""
+      caching           = "ReadWrite"
+      create_option     = "FromImage"
+      managed_disk_type = "Standard_LRS"
+    }
 
-Customize the deployment by adding the following code to `variables.tf`:
+    storage_profile_data_disk {
+      lun          = 0
+      caching        = "ReadWrite"
+      create_option  = "Empty"
+      disk_size_gb   = 10
+    }
 
-```tf 
-variable "application_port" {
-    description = "The port that you want to expose to the external load balancer"
-    default     = 80
-}
+    os_profile {
+      computer_name_prefix = "vmlab"
+      admin_username       = "${var.admin_user}"
+      admin_password       = "${var.admin_password}"
+      custom_data          = "${file("web.conf")}"
+    }
 
-variable "admin_password" {
-    description = "Default password for admin"
-    default = "Passwwoord11223344"
-}
-``` 
+    os_profile_linux_config {
+      disable_password_authentication = false
+    }
 
+    network_profile {
+      name    = "terraformnetworkprofile"
+      primary = true
 
-## Deploy the virtual machine scale set in Azure
+      ip_configuration {
+        name                                   = "IPConfiguration"
+        subnet_id                              = "${azurerm_subnet.vmss.id}"
+        load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+        primary = true
+      }
+    }
 
-Run the following command to visualize the virtual machine scale set deployment:
+    tags = "${var.tags}"
+   }
+   ```
 
-```bash
-terraform plan
-```
+1. Exit insert mode by selecting the Esc key.
 
-The output of the command should look like the following.
-![Terraform add vmss plan](./media/tf-create-vmss-step6-plan884d3aefd9708a711bc09a66e85eb149c23a3ccff959655ec00418168b2bd481.png)
+1. Save the file and exit the vi editor by entering the following command:
 
-Then deploy the additional resources in Azure: 
+    ```bash
+    :wq
+    ```
 
-```bash
-terraform apply 
-```
+1. Create a file named `web.conf` to serve as the cloud-init configuration for the virtual machines that are part of the scale set.
 
-The content of the resource group should look like:
+    ```bash
+    vi web.conf
+    ```
 
-![Terraform vm scaleset resource group](./media/tf-create-vmss-step6-apply.png)
+1. Enter insert mode by selecting the I key.
 
-Open a browser and connect to the FQDN that was returned by the command. 
+1. Paste the following code into the editor:
 
-## Add an SSH jumpbox to the existing network 
+   ```JSON
+   #cloud-config
+   packages:
+    - nginx
+   ```
 
-In this step, you configure the following resources:
-- A network interface connected to the same subnet as the virtual machine scale set.
+1. Exit insert mode by selecting the Esc key.
+
+1. Save the file and exit the vi editor by entering the following command:
+
+     ```bash
+     :wq
+     ```
+
+1. Open the `variables.tf` configuration file.
+
+    ```bash
+    vi variables.tf
+    ```
+
+1. Go to the end of the file and enter append mode by selecting the A key.
+
+1. Customize the deployment by pasting the following code to the end of the file:
+
+    ```JSON
+    variable "application_port" {
+       description = "The port that you want to expose to the external load balancer"
+       default     = 80
+    }
+
+    variable "admin_user" {
+       description = "User name to use as the admin account on the VMs that will be part of the VM Scale Set"
+       default     = "azureuser"
+    }
+
+    variable "admin_password" {
+       description = "Default password for admin account"
+    }
+    ```
+
+1. Exit insert mode by selecting the Esc key.
+
+1. Save the file and exit the vi editor by entering the following command:
+
+     ```bash
+     :wq
+     ```
+
+1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password of your choosing, as well as the location for your resources.)
+
+    ```bash
+    terraform plan
+    ```
+
+    The output of the command should be similar to the following screenshot:
+
+    ![Output from creating the virtual machine scale set](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
+
+1. Deploy the new resources in Azure.
+
+    ```bash
+    terraform apply
+    ```
+
+    The output of the command should be similar to the following screenshot:
+
+    ![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
+
+1. Open a browser and connect to the FQDN that was returned by the command.
+
+    ![Results of browsing to FQDN](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
+
+## Add an SSH jumpbox
+An SSH *jumpbox* is a single server that you "jump" through in order to access other servers on the network. In this step, you configure the following resources:
+
+- A network interface (or jumpbox) connected to the same subnet as the virtual machine scale set.
+
 - A virtual machine connected with this network interface. This 'jumpbox' is remotely accessible. Once connected, you can SSH to any of the virtual machines in the scale set.
 
+1. Open the `vmss.tf` configuration file.
 
+   ```bash
+   vi vmss.tf
+   ```
 
-Add the following code to the end of the `vmss.tf` file:
+1. Go to the end of the file and enter append mode by selecting the A key.
 
-```hcl 
-resource "azurerm_public_ip" "jumpbox" {
-  name                         = "jumpbox-public-ip"
-  location                     = "${var.location}"
-  resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
-  domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
+1. Paste the following code to the end of the file:
 
-  tags {
-    environment = "codelab"
-  }
-}
+   ```JSON
+   resource "azurerm_public_ip" "jumpbox" {
+    name                         = "jumpbox-public-ip"
+    location                     = "${var.location}"
+    resource_group_name          = "${azurerm_resource_group.vmss.name}"
+    allocation_method = "Static"
+    domain_name_label            = "${random_string.fqdn.result}-ssh"
+    tags                         = "${var.tags}"
+   }
 
-resource "azurerm_network_interface" "jumpbox" {
-  name                = "jumpbox-nic"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
+   resource "azurerm_network_interface" "jumpbox" {
+    name                = "jumpbox-nic"
+    location            = "${var.location}"
+    resource_group_name = "${azurerm_resource_group.vmss.name}"
 
-  ip_configuration {
-    name                          = "IPConfiguration"
-    subnet_id                     = "${azurerm_subnet.vmss.id}"
-    private_ip_address_allocation = "dynamic"
-    public_ip_address_id          = "${azurerm_public_ip.jumpbox.id}"
-  }
-
-  tags {
-    environment = "codelab"
-  }
-}
-
-resource "azurerm_virtual_machine" "jumpbox" {
-  name                  = "jumpbox"
-  location              = "${var.location}"
-  resource_group_name   = "${azurerm_resource_group.vmss.name}"
-  network_interface_ids = ["${azurerm_network_interface.jumpbox.id}"]
-  vm_size               = "Standard_DS1_v2"
-
-  storage_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "16.04-LTS"
-    version   = "latest"
-  }
-
-  storage_os_disk {
-    name              = "jumpbox-osdisk"
-    caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
-  }
-
-  os_profile {
-    computer_name  = "jumpbox"
-    admin_username = "azureuser"
-    admin_password = "Password1234!"
-  }
-
-  os_profile_linux_config {
-    disable_password_authentication = true
-
-    ssh_keys {
-      path     = "/home/azureuser/.ssh/authorized_keys"
-      key_data = "${file("~/.ssh/id_rsa.pub")}"
+    ip_configuration {
+      name                          = "IPConfiguration"
+      subnet_id                     = "${azurerm_subnet.vmss.id}"
+      private_ip_address_allocation = "dynamic"
+      public_ip_address_id          = "${azurerm_public_ip.jumpbox.id}"
     }
-  }
 
-  tags {
-    environment = "codelab"
-  }
-}
-```
+    tags = "${var.tags}"
+   }
 
-Edit `outputs.tf`  and add the following code to display the hostname of the jumpbox when the deployment is complete:
+   resource "azurerm_virtual_machine" "jumpbox" {
+    name                  = "jumpbox"
+    location              = "${var.location}"
+    resource_group_name   = "${azurerm_resource_group.vmss.name}"
+    network_interface_ids = ["${azurerm_network_interface.jumpbox.id}"]
+    vm_size               = "Standard_DS1_v2"
 
-```
-output "jumpbox_public_ip" {
-    value = "${azurerm_public_ip.jumpbox.fqdn}"
-}
-```
+    storage_image_reference {
+      publisher = "Canonical"
+      offer     = "UbuntuServer"
+      sku       = "16.04-LTS"
+      version   = "latest"
+    }
 
-## Deploy the jumpbox
+    storage_os_disk {
+      name              = "jumpbox-osdisk"
+      caching           = "ReadWrite"
+      create_option     = "FromImage"
+      managed_disk_type = "Standard_LRS"
+    }
 
-Deploy the jumpbox.
+    os_profile {
+      computer_name  = "jumpbox"
+      admin_username = "${var.admin_user}"
+      admin_password = "${var.admin_password}"
+    }
 
-```bash
-terraform apply 
-```
+    os_profile_linux_config {
+      disable_password_authentication = false
+    }
 
-Once the deployment has completed, the content of the resource group looks like:
+    tags = "${var.tags}"
+   }
+   ```
 
-![Terraform vm scaleset resource group](./media/tf-create-create-vmss-step8.png)
+1. Open the `output.tf` configuration file.
+
+   ```bash
+   vi output.tf
+   ```
+
+1. Go to the end of the file and enter append mode by selecting the A key.
+
+1. Paste the following code to the end of the file to display the hostname of the jumpbox when the deployment is complete:
+
+   ```
+   output "jumpbox_public_ip" {
+      value = "${azurerm_public_ip.jumpbox.fqdn}"
+   }
+   ```
+
+1. Exit insert mode by selecting the Esc key.
+
+1. Save the file and exit the vi editor by entering the following command:
+
+    ```bash
+    :wq
+    ```
+
+1. Deploy the jumpbox.
+
+   ```bash
+   terraform apply
+   ```
+
+Once the deployment has completed, the content of the resource group resembles that shown in the following screenshot:
+
+![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents-final.png)
 
 > [!NOTE]
-> Login with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the VMs.
+> The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
 
-## Clean up the environment
+## Environment cleanup
 
-The following commands delete the resources created in this tutorial:
+To delete the Terraform resources that were created in this tutorial, enter the following command into Cloud Shell:
 
 ```bash
 terraform destroy
 ```
 
-Type `yes` when asked to confirm for the deletion of the resources. The destruction process takes few minutes to complete.
+The destruction process can take several minutes to complete.
 
-## Next Steps
+## Next steps
+In this article, you learned how to use Terraform to create an Azure virtual machine scale set. Here are some additional resources to help you learn more about Terraform on Azure:
 
-In this tutorial, you deployed a virtual machine scale set  on Azure using Terraform. You learned how to:
-
-> [!div class="checklist"]
-> * Initialize Terraform deployment
-> * Use variables and outputs for Terraform deployment 
-> * Create and deploy a network infrastructure
-> * Create and deploy a virtual machine scale set and attach it to an existing environment
-> * Create and deploy a jumpbox to connect to the VMs via SSH 
+[Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)
+[Terraform Azure provider documentation](https://aka.ms/terraform)
+[Terraform Azure provider source](https://aka.ms/tfgit)
+[Terraform Azure modules](https://aka.ms/tfmodules)

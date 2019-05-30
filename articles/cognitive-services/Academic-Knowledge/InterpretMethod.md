@@ -1,13 +1,14 @@
 ---
-title: Interpret method in the Academic Knowledge API | Microsoft Docs
+title: Interpret method - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
 description: Use the Interpret method to return formatted interpretations of user query strings based on Academic Graph data and the Academic Grammar in Microsoft Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: academic-knowledge
-ms.topic: article
+ms.subservice: academic-knowledge
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ---
@@ -32,9 +33,11 @@ Name     | Value | Required?  | Description
 **count**    | Number | No<br>default:10 | Maximum number of interpretations to return.         
 **offset**   | Number | No<br>default:0  | Index of the first interpretation to return. For example, *count=2&offset=0* returns interpretations 0 and 1. *count=2&offset=2* returns interpretations 2 and 3.       
 **timeout**  | Number | No<br>default:1000 | Timeout in milliseconds. Only interpretations found before the timeout has elapsed are returned.
+
 <br>
   
 ## Response (JSON)
+
 Name     | Description
 ---------|---------
 **query** |The *query* parameter from the request.
@@ -49,6 +52,7 @@ Name     | Description
 **aborted** | True if the request timed out.
 
 <br>
+
 #### Example:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

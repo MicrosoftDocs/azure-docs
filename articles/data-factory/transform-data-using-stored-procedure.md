@@ -3,32 +3,24 @@ title: Transform data by using the Stored Procedure activity in Azure Data Facto
 description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
-ms.author: shengc
-
+ms.topic: conceptual
+ms.date: 11/27/2018
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 ---
 
 
 # Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-stored-proc-activity.md)
-> * [Version 2 - Preview](transform-data-using-stored-procedure.md)
-
+> * [Version 1](v1/data-factory-stored-proc-activity.md)
+> * [Current version](transform-data-using-stored-procedure.md)
 
 You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Stored Procedure Activity in V1](v1/data-factory-stored-proc-activity.md).
-> 
 > If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 
 You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
@@ -57,7 +49,7 @@ Here is the JSON format for defining a Stored Procedure Activity:
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
-        "storedProcedureName": "sp_sample",
+        "storedProcedureName": "usp_sample",
         "storedProcedureParameters": {
             "identifier": { "value": "1", "type": "Int" },
             "stringData": { "value": "str1" }
@@ -77,6 +69,10 @@ The following table describes these JSON properties:
 | linkedServiceName         | Reference to the **Azure SQL Database** or **Azure SQL Data Warehouse** or **SQL Server** registered as a linked service in Data Factory. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | storedProcedureName       | Specify the name of the stored procedure to invoke. | Yes      |
 | storedProcedureParameters | Specify the values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` to pass parameter values and their type supported by the data source. If you need to pass null for a parameter, use `"param1": { "value": null }` (all lower case). | No       |
+
+## Error info
+
+When a stored procedure fails and returns error details, you can't capture the error info directly in the activity output. However, Data Factory pumps all of its activity run events to Azure Monitor. Among the events that Data Factory pumps to Azure Monitor, it pushes error details there. You can, for example, set up email alerts from those events. For more info, see [Alert and Monitor data factories using Azure Monitor](monitor-using-azure-monitor.md).
 
 ## Next steps
 See the following articles that explain how to transform data in other ways: 

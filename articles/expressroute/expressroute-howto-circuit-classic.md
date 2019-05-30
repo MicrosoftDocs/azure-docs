@@ -1,21 +1,14 @@
 ---
 title: 'Modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
 description: This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
 
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
+ms.custom: seodec18
 
 ---
 # Modify an ExpressRoute circuit using PowerShell (classic)
@@ -24,22 +17,55 @@ ms.author: ganesr;cherylmc
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-This article also shows you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
+This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit. This article applies to the classic deployment model.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **About Azure deployment models**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Before you begin
 
-Install the latest versions of the Azure Service Management (SM) PowerShell modules
-Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+Install the latest versions of the Azure Service Management (SM) PowerShell modules and the ExpressRoute module.  When using the following example, note that the version number (in this example, 5.1.1) will change as newer versions of the cmdlets are released.
+
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
+If you need more information about Azure PowerShell, see [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+
+To sign in to your Azure account, use the following example:
+
+1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
+
+   ```powershell
+   Connect-AzAccount
+   ```
+2. Check the subscriptions for the account.
+
+   ```powershell
+   Get-AzSubscription
+   ```
+3. If you have more than one subscription, select the subscription that you want to use.
+
+   ```powershell
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
+
+4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
+
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## Get the status of a circuit
 

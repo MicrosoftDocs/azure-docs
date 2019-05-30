@@ -3,7 +3,7 @@ title: Azure Cloud Shell pricing | Microsoft Docs
 description: Overview of pricing of Azure Cloud Shell
 services: 
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: juluk
+ms.author: damaerte
 ---
 
 # Pricing
-Bash in Cloud Shell and PowerShell in Cloud Shell (Preview) are subject to information below.
+Bash in Cloud Shell and PowerShell in Cloud Shell are subject to information below.
 
 ## Compute Cost
 Azure Cloud Shell runs on a machine provided for free by Azure, but requires an Azure file share to use. 

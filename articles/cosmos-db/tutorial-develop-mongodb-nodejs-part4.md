@@ -1,32 +1,27 @@
 ---
-title: "MongoDB, Angular, and Node tutorial for Azure - Part 4 | Microsoft Docs"
+title: Create an Angular app with Azure Cosmos DB's API for MongoDB - Create a Cosmos account
+titleSuffix: Azure Cosmos DB
 description: Part 4 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB 
-services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+author: johnpapa
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
-ms.author: mimig
-ms.custom: mvc
+ms.date: 12/06/2018
+ms.author: jopapa
+ms.custom: seodec18
+ms.reviewer: sngun
 
 ---
-# Create a MongoDB app with Angular and Azure Cosmos DB - Part 4: Create an Azure Cosmos DB account using the Azure CLI
+# Create an Angular app with Azure Cosmos DB's API for MongoDB - Create a Cosmos account
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
+This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
 Part 4 of the tutorial builds on [Part 3](tutorial-develop-mongodb-nodejs-part3.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure resource group using the Azure CLI
-> * Create an Azure Cosmos DB account using the Azure CLI
+> * Create a Cosmos account using the Azure CLI
 
 ## Video walkthrough
 
@@ -36,7 +31,7 @@ Part 4 of the tutorial builds on [Part 3](tutorial-develop-mongodb-nodejs-part3.
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 3](tutorial-develop-mongodb-nodejs-part3.md) of the tutorial. 
 
-In this tutorial section, you can either use the Azure Cloud Shell (in your internet browser) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) installed locally. If you use the Azure CLI locally, ensure you running Azure CLI version 2.0 or later. Run `az --version` at the command prompt to check your version. 
+In this tutorial section, you can either use the Azure Cloud Shell (in your internet browser) or [the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) installed locally.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -49,7 +44,7 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#create) command.
+Create an Azure Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) command.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

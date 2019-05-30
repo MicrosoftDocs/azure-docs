@@ -1,23 +1,17 @@
 ---
-title: Introduction to Azure Queue storage | Microsoft Docs
-description:  Introduction to Azure Queue storage 
+title: Introduction to Azure Queues - Azure Storage
+description: Introduction to Azure Queues
 services: storage
-documentationcenter: ''
-author: tamram
-manager: timlt
-editor: tysonn
+author: mhopkins-msft
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/07/2017
-ms.author: tamram
-
+ms.topic: overview
+ms.date: 02/06/2019
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.subservice: queues
 ---
-# Introduction to Queues
+# What are Azure Queues?
 
 Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 
@@ -35,11 +29,11 @@ The Queue service contains the following components:
 ![Queue Concepts](./media/storage-queues-introduction/queue1.png)
 
 * **URL format:** Queues are addressable using the following URL format:   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+    https://`<storage account>`.queue.core.windows.net/`<queue>` 
   
     The following URL addresses a queue in the diagram:  
   
-    `http://myaccount.queue.core.windows.net/images-to-download`
+    `https://myaccount.queue.core.windows.net/images-to-download`
 
 * **Storage account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) for details about storage account capacity.
 

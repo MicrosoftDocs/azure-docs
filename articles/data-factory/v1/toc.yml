@@ -1,5 +1,7 @@
 - name: Data Factory V1 Documentation
   href: 
+- name: Switch to current version documentation
+  href: ../introduction.md
 - name: Overview
   items:
   - name: Introduction to Azure Data Factory
@@ -74,7 +76,7 @@
         href: data-factory-azure-blob-connector.md
       - name: Azure Cosmos DB
         href: data-factory-azure-documentdb-connector.md
-      - name: Azure Data Lake Store
+      - name: Azure Data Lake Storage Gen1
         href: data-factory-azure-datalake-connector.md
       - name: Azure Search
         href: data-factory-azure-search-connector.md
@@ -184,9 +186,9 @@
 - name: Reference
   items: 
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
+    href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.datafactories
+    href: /powershell/module/az.datafactory
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactories.models
   - name: REST
@@ -214,7 +216,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-data-factory
+    href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=data-factory
   - name: Process large-scale datasets using Data Factory and Batch

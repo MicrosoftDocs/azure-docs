@@ -2,22 +2,16 @@
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
 description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
-documentationcenter: ''
-author: stevestein
-manager: jhubbard
-editor: monicar
-
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
-ms.custom: monitor & tune
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 07/05/2017
-ms.author: sstein
-
-
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: danimir
+ms.author: danil
+ms.reviewer: jrasnik, carlrab
+manager: craigg
+ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations
 
@@ -25,12 +19,12 @@ You can use the Azure portal to find performance recommendations that can optimi
 
 ## Viewing recommendations
 
-To view and apply performance recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-what-is.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
+To view and apply performance recommendations, you need the correct [role-based access control](../role-based-access-control/overview.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
 Use the following steps to find performance recommendations on Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Go to **More services** > **SQL databases**, and select your database.
+2. Go to **All services** > **SQL databases**, and select your database.
 3. Navigate to **Performance recommendation** to view available recommendations for the selected database.
 
 Performance recommendations are shown in the table similar to the one shown on the following figure:
@@ -50,7 +44,7 @@ Recommendations are sorted by their potential impact on performance into the fol
 > Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not currently available, the **Performance recommendation** page provides a message explaining why.
 > 
 
-You can also view the status of the historical operations. Select a recommendation or status to see  more details.
+You can also view the status of the historical operations. Select a recommendation or status to see  more information.
 
 Here is an example of "Create index" recommendation in the Azure portal.
 
@@ -78,6 +72,7 @@ You can review and accept recommendations one at a time.
 Selected recommendation are applied on the database.
 
 ### Removing recommendations from the list
+
 If your list of recommendations contains items that you want to remove from the list, you can discard the recommendation:
 
 1. Select a recommendation in the list of **Recommendations** to open the details.
@@ -102,33 +97,42 @@ You can set the Azure SQL Database to implement recommendations automatically. A
     ![Advisor settings](./media/sql-database-advisor-portal/settings.png)
 2. Select actions to automate:
    
-    ![Recommended Indexes](./media/sql-database-advisor-portal/automation.png)
+    ![Recommended Indexes](./media/sql-database-automatic-tuning-enable/server.png)
 
-### Manually run the recommended T-SQL script
+> [!NOTE]
+> Please note that **DROP_INDEX** option is currently not compatible with applications using partition switching and index hints. 
+>
+
+Once you have selected your desired configuration, click Apply.
+
+### Manually apply recommendations through T-SQL
+
 Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
 
-*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). In addition, manually applied recommendations will remain active and shown in the list of recommendations for 24-48 hrs. before the system automatically withdraws them. If you would like to remove a recommendation sooner, you can manually discard it.
 
 ### Canceling recommendations
-Recommendations that are in a **Pending**, **Verifying**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
+
+Recommendations that are in a **Pending**, **Validating**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
 
 1. Select a recommendation in the **Tuning History** area to open the **recommendations details** page.
 2. Click **Cancel** to abort the process of applying the recommendation.
 
 ## Monitoring operations
+
 Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation. The following are possible states that an index can be in:
 
 | Status | Description |
 |:--- |:--- |
 | Pending |Apply recommendation command has been received and is scheduled for execution. |
 | Executing |The recommendation is being applied. |
-| Verifying |Recommendation was successfully applied and the service is measuring the benefits. |
+| Validating |Recommendation was successfully applied and the service is measuring the benefits. |
 | Success |Recommendation was successfully applied and benefits have been measured. |
 | Error |An error occurred during the process of applying the recommendation. This can be a transient issue, or possibly a schema change to the table and the script is no longer valid. |
 | Reverting |The recommendation was applied, but has been deemed non-performant and is being automatically reverted. |
 | Reverted |The recommendation was reverted. |
 
-Click an in-process recommendation from the list to see more details:
+Click an in-process recommendation from the list to see more information:
 
 ![Recommended Indexes](./media/sql-database-advisor-portal/operations.png)
 
@@ -158,5 +162,5 @@ Monitor your recommendations and continue to apply them to refine performance. D
 ## Additional resources
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Role-based access control](../active-directory/role-based-access-control-what-is.md)
+* [Role-based access control](../role-based-access-control/overview.md)
 

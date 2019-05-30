@@ -1,23 +1,18 @@
 ---
-title: Enterprise Integration for B2B - Azure Logic Apps | Microsoft Docs
-description: Build B2B workflows and support enterprise integration scenarios for logic apps with the Enterprise Integration Pack
+title: B2B enterprise integration overview - Azure Logic Apps | Microsoft Docs
+description: Build automated B2B workflows for enterprise integration solutions with Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: anneta
-editor: cgronlun
-
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.author: LADocs; padmavc
-
 ---
-# Overview: B2B scenarios and communication with the Enterprise Integration Pack
+
+# Overview: B2B enterprise integration scenarios in Azure Logic Apps with Enterprise Integration Pack
 
 For business-to-business (B2B) workflows and seamless communication with Azure Logic Apps, you can enable enterprise integration scenarios with Microsoft's cloud-based solution, the Enterprise Integration Pack. Organizations can exchange messages electronically, even if they use different protocols and formats. The pack transforms different formats into a format that organizations' systems can interpret and process. 
 Organizations can exchange messages through industry-standard protocols, 
@@ -45,7 +40,7 @@ by using the Azure Logic Apps engine and all its connectors.
 You can build and manage B2B apps with the 
 Enterprise Integration Pack through the Logic App Designer 
 in the **Azure portal**. You can also manage your logic apps with 
-[PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell topics").
+[PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
 
 Here are the high-level steps you must take before you can create apps in the Azure portal:
 
@@ -82,5 +77,5 @@ Enterprise Integration supports these industry standards:
 * [Enterprise Integration Connectors](../connectors/apis-list.md "Learn about enterprise integration pack connectors")
 * [Integration Account Metadata](../logic-apps/logic-apps-enterprise-integration-metadata.md "Learn about integration account metadata")
 * [Monitor B2B messages](logic-apps-monitor-b2b-message.md "Learn more about monitoring B2B messages")
-* [Tracking B2B messages in OMS portal](logic-apps-track-b2b-messages-omsportal.md "Learn more about tracking B2B messages in OMS portal")
+* [Tracking B2B messages in Azure Monitor logs](logic-apps-track-b2b-messages-omsportal.md "Learn more about tracking B2B messages in Azure Monitor logs")
 

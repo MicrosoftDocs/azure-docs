@@ -1,18 +1,20 @@
 ---
-title: Structured query expressions in the Knowledge Exploration Service API | Microsoft Docs
-description: Learn how to use structured query expressions in the Knowledge Exploration Service (KES) API in Cognitive Services.
+title: Structured query expressions - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Learn how to use structured query expressions in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: kes
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ---
 
 # Structured Query Expression
+
 A structured query expression specifies a set of operations to evaluate against the data index.  It consists of attribute query expressions and higher-level functions.  Use the [*evaluate*](evaluateMethod.md) method to compute the objects matching the expression.  The following is an example from the academic publications domain that returns publications authored by Jaime Teevan since the year 2013.
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
@@ -20,6 +22,7 @@ A structured query expression specifies a set of operations to evaluate against 
 Structured query expressions may be obtained from [*interpret*](interpretMethod.md) requests, where the semantic output of each interpretation is a structured query expression that returns the index objects matching the input natural language query.  Alternatively, they may be manually authored using the syntax described in this section.
 
 ## Attribute Query Expression
+
 An attribute query expression identifies a set of objects based on matching against a specific attribute.  Different matching operations are supported depending on the attribute type and indexed operation specified in the [schema](SchemaFormat.md):
 
 | Type | Operation | Examples |
@@ -41,9 +44,11 @@ For attributes with associated synonyms, a query expression may specify objects 
 
 
 ## Functions
+
 There is a built-in set of functions allowing the construction of more sophisticated query expressions from basic attribute queries.
 
 ### And Function
+
 `And(expr1, expr2)`
 
 Returns the intersection of the two input query expressions.
@@ -53,6 +58,7 @@ The following example returns academic publications published in the year 2000 a
 `And(Year=2000, Keyword=='information retrieval')`
 
 ### Or Function
+
 `Or(expr1, expr2)`
 
 Returns the union of the two input query expressions.
@@ -62,6 +68,7 @@ The following example returns academic publications published in the year 2000 a
 `And(Year=2000, Or(Keyword='information retrieval', Keyword='user modeling'))`
 
 ### Composite Function
+
 `Composite(expr)`
 
 Returns an expression that encapsulates an inner expression composed of queries against sub-attributes of a common composite attribute.  The encapsulation requires the composite attribute of any matching data object to have at least one value that individually satisfies the inner expression.  Note that a query expression on sub-attributes of a composite attribute has to be encapsulated using the Composite() function before it can be combined with other query expressions.

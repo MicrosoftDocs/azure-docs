@@ -1,24 +1,20 @@
 ---
-title: Real-time Twitter sentiment analysis with Azure Stream Analytics | Microsoft Docs
-description: Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.
-keywords: real-time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example
+title: Real-time Twitter sentiment analysis with Azure Stream Analytics
+description: This article describes how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.
 services: stream-analytics
-documentationcenter: ''
-author: samacha
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 42068691-074b-4c3b-a527-acafa484fda2
+author: jseb225
+ms.author: jeanb
+ms.reviewer: jasonh
+manager: kfile
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/29/2017
-ms.author: samacha
 ---
 
 # Real-time Twitter sentiment analysis in Azure Stream Analytics
+
+> [!IMPORTANT] 
+> Twitter application creation is no longer available through [apps.twitter.com](https://apps.twitter.com/). This tutorial is in the process of being updated to include the new Twitter API.
 
 Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You can then write an Azure Stream Analytics query to analyze the data and either store the results for later use or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real time.
 
@@ -38,7 +34,7 @@ In this tutorial, you use a client application that connects to Twitter and look
 * An Azure subscription
 * A Twitter account 
 * A Twitter application, and the [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) for that application. We provide high-level instructions for how to create a Twitter application later.
-* The TwitterWPFClient application, which reads the Twitter feed. To get this application, download the [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub and then unzip the package into a folder on your computer. If you want to see the source code and run the application in a debugger, you can get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* The TwitterWPFClient application, which reads the Twitter feed. To get this application, download the [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub and then unzip the package into a folder on your computer. If you want to see the source code and run the application in a debugger, you can get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## Create an event hub for Streaming Analytics input
 
@@ -48,7 +44,7 @@ The sample application generates events and pushes them to an Azure event hub. A
 ### Create an event hub namespace and event hub
 In this procedure, you first create an event hub namespace, and then you add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances. 
 
-1. Log  in to the Azure portal and click **New** > **Internet of Things** > **Event Hub**. 
+1. Log  in to the Azure portal and click **Create a resource** > **Internet of Things** > **Event Hub**. 
 
 2. In the **Create namespace** blade, enter a namespace name such as `<yourname>-socialtwitter-eh-ns`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
     
@@ -60,7 +56,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 5. Click the new namespace, and in the namespace blade, click **+&nbsp;Event Hub**. 
 
-    ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![The Add Event Hub button for creating a new event hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Name the new event hub `socialtwitter-eh`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub.
 
@@ -121,10 +117,10 @@ If you do not already have a Twitter application that you can use for this tutor
 
 2. Create a new application. 
 
-    * For the website URL, specify a valid URL. It does not have to be a live site. (You can't specify just `localhost`.)
-    * Leave the callback field blank. The client application you use for this tutorial doesn't require callbacks.
+   * For the website URL, specify a valid URL. It does not have to be a live site. (You can't specify just `localhost`.)
+   * Leave the callback field blank. The client application you use for this tutorial doesn't require callbacks.
 
-    ![Creating an application in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Creating an application in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. Optionally, change the application's permissions to read-only.
 
@@ -169,19 +165,19 @@ The following procedure documents both approaches.
 
 3. To set the values persistently, use a text editor to open the TwitterWpfClient.exe.config file. Then in the `<appSettings>` element, do this:
 
-    * Set `oauth_consumer_key` to the Twitter Consumer Key (API Key). 
-    * Set `oauth_consumer_secret` to the Twitter Consumer Secret (API Secret).
-    * Set `oauth_token` to the Twitter Access Token.
-    * Set `oauth_token_secret` to the Twitter Access Token Secret.
+   * Set `oauth_consumer_key` to the Twitter Consumer Key (API Key). 
+   * Set `oauth_consumer_secret` to the Twitter Consumer Secret (API Secret).
+   * Set `oauth_token` to the Twitter Access Token.
+   * Set `oauth_token_secret` to the Twitter Access Token Secret.
 
-    Later in the `<appSettings>` element, make these changes:
+     Later in the `<appSettings>` element, make these changes:
 
-    * Set `EventHubName` to the event hub name (that is, to the value of the entity path).
-    * Set `EventHubNameConnectionString` to the connection string. Make sure that you use the connection string that you removed the `EntityPath` key-value pair from.
+   * Set `EventHubName` to the event hub name (that is, to the value of the entity path).
+   * Set `EventHubNameConnectionString` to the connection string. Make sure that you use the connection string that you removed the `EntityPath` key-value pair from.
 
-    The `<appSettings>` section looks like the following example. (For clarity and security, we wrapped some lines and removed some characters.)
+     The `<appSettings>` section looks like the following example. (For clarity and security, we wrapped some lines and removed some characters.)
 
-    ![TwitterWpfClient application configuration file in a text editor, showing the Twitter keys and secrets, and the event hub connection string information](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![TwitterWpfClient application configuration file in a text editor, showing the Twitter keys and secrets, and the event hub connection string information](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. If you didn't already start the application, run TwitterWpfClient.exe now. 
 
@@ -197,7 +193,7 @@ The following procedure documents both approaches.
 
 Now that tweet events are streaming in real time from Twitter, you can set up a Stream Analytics job to analyze these events in real time.
 
-1. In the Azure portal, click **New** > **Internet of Things** > **Stream Analytics job**.
+1. In the Azure portal, click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 
 2. Name the job `socialtwitter-sa-job` and specify a subscription, resource group, and location.
 
@@ -216,15 +212,15 @@ Now that tweet events are streaming in real time from Twitter, you can set up a 
 
 2. In the **Inputs** blade, click **+&nbsp;Add** and then fill out the blade with these values:
 
-    * **Input alias**: Use the name `TwitterStream`. If you use a different name, make a note of it because you need it later.
-    * **Source type**: Select **Data stream**.
-    * **Source**: Select **Event hub**.
-    * **Import option**: Select **Use event hub from current subscription**. 
-    * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-socialtwitter-eh-ns`).
-    * **Event hub**: Select the event hub that you created earlier (`socialtwitter-eh`).
-    * **Event hub policy name**: Select the access policy that you created earlier (`socialtwitter-access`).
+   * **Input alias**: Use the name `TwitterStream`. If you use a different name, make a note of it because you need it later.
+   * **Source type**: Select **Data stream**.
+   * **Source**: Select **Event hub**.
+   * **Import option**: Select **Use event hub from current subscription**. 
+   * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-socialtwitter-eh-ns`).
+   * **Event hub**: Select the event hub that you created earlier (`socialtwitter-eh`).
+   * **Event hub policy name**: Select the access policy that you created earlier (`socialtwitter-access`).
 
-    ![Create new input for Streaming Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Create new input for Streaming Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. Click **Create**.
 
@@ -237,7 +233,7 @@ To compare the number of mentions among topics, you can use a [Tumbling window](
 
 1. Close the **Inputs** blade if you haven't already.
 
-2. In the job blade, click the **Query** box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
+2. In the **Overview** blade, click **Edit Query** near the top right of the Query box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
 
 3. Make sure that the TwitterWpfClient application is running. 
 
@@ -299,17 +295,17 @@ In this tutorial, you write the aggregated tweet events from the job query to Az
 
 2. In the **Outputs** blade, click **+&nbsp;Add** and then fill out the blade with these values:
 
-    * **Output alias**: Use the name `TwitterStream-Output`. 
-    * **Sink**: Select **Blob storage**.
-    * **Import options**: Select **Use blob storage from current subscription**.
-    * **Storage account**. Select **Create a new storage account.**
-    * **Storage account** (second box). Enter `YOURNAMEsa`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
-    * **Container**. Enter `socialtwitter`.
-    The storage account name and container name are used together to provide a URI for the blob storage, like this: 
+   * **Output alias**: Use the name `TwitterStream-Output`. 
+   * **Sink**: Select **Blob storage**.
+   * **Import options**: Select **Use blob storage from current subscription**.
+   * **Storage account**. Select **Create a new storage account.**
+   * **Storage account** (second box). Enter `YOURNAMEsa`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
+   * **Container**. Enter `socialtwitter`.
+     The storage account name and container name are used together to provide a URI for the blob storage, like this: 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    !["New output" blade for Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     !["New output" blade for Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. Click **Create**. 
 
@@ -340,7 +336,7 @@ A job input, query, and output are specified. You are ready to start the Stream 
 
 After your job has started running and is processing the real-time Twitter stream, you can view the output for sentiment analysis.
 
-You can use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
+You can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) or [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
@@ -372,7 +368,7 @@ For the purposes of this tutorial, you check for topics that are mentioned more 
 
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

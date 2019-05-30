@@ -1,32 +1,44 @@
 ---
-title: Manage reference data in Azure Time Series Insights environment using C# | Microsoft Docs
+title: 'Manage reference data in Azure Time Series Insights environment using C# | Microsoft Docs'
 description: This article describes how to manage reference data for an Azure Time Series Insights environment by creating a custom application written in the C# (c-sharp) .NET language.
-services: time-series-insights
 ms.service: time-series-insights
-author: venkatgct
-ms.author: venkatja
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+services: time-series-insights
+author: ashannon7
+ms.author: dpalled
+manager: cshankar
+ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
-ms.date: 11/21/2017
+ms.topic: conceptual
+ms.date: 05/02/2019
+ms.custom: seodec18
 ---
-# Manage reference data for an Azure Time Series Insights environment by using C#
 
-This topic describes the C# sample code you can compile to manage reference data for an Azure Time Series Insights environment.
+# Manage GA reference data for an Azure Time Series Insights environment by using C#
+
+This article describes an example C# project you can compile to manage reference data for an Azure Time Series Insights environment.
+
+## Prerequisites
 
 Complete the following steps before you compile and run the sample code:
+
 1. [Create a reference data set](time-series-insights-add-reference-data-set.md).
 
-2. Configure the authorization access token for the application. Be sure the token is acquired through the Azure Active Directory API. You should pass this token in the `Authorization` header of every query API request. 
- 
+1. Configure the authorization access token for the application. Be sure the token is acquired through the Azure Active Directory API. You should pass this token in the `Authorization` header of every query API request.
+
    For information about how to set up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
 
-3. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code. 
+1. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code.
 
-## C# sample code 
+> [!NOTE]
+> View the GA sample code at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+
+## Project Dependencies
+
+Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newtonsoft.Json` for this example.
+
+## C# sample code
+
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -122,7 +134,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-		},
+    },
         ""properties"": [""BladeCount""]
     }]
 }";
@@ -138,7 +150,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 {
     ""delete"": [{
         ""DeviceId"": ""Fan1""
-	}]
+    }]
 }";
                 await SendRequestAsync(request, input);
                 string output = await GetResponseAsync(request);
@@ -229,4 +241,5 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## Next steps
-[Reference data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)
+
+- Read the [reference data API](/rest/api/time-series-insights/ga-reference-data-api).

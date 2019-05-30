@@ -3,18 +3,18 @@ title: Guidelines & Recommendations for Reliable Collections in  Azure Service F
 description: Guidelines and Recommendations for using Service Fabric Reliable Collections
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: masnider,rajak,zhol
 
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: mcoskun
+ms.author: aljo
 
 ---
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
@@ -23,11 +23,12 @@ This section provides guidelines for using Reliable State Manager and Reliable C
 The guidelines are organized as simple recommendations prefixed with the terms *Do*, *Consider*, *Avoid* and *Do not*.
 
 * Do not modify an object of custom type returned by read operations (for example, `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
-* Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
+* Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them unless they contain reference-typed fields or properties that you intend to modify.
 * Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
 * Do not use a transaction after it has been committed, aborted, or disposed.
 * Do not use an enumeration outside of the transaction scope it was created in.
 * Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
+* Do not create reliable state with `IReliableStateManager.GetOrAddAsync` and use the reliable state in the same transaction. This results in an InvalidOperationException.
 * Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on `IComparable<TKey>` for merging checkpoints and rows.
 * Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
 * Consider keeping number of Reliable Collections per partition to be less than 1000. Prefer Reliable Collections with more items over more Reliable Collections with fewer items.
@@ -45,11 +46,11 @@ Here are some things to keep in mind:
 * Read operations on the secondary may read versions that are not quorum committed.
   This means that a version of data that is read from a single secondary might be false progressed.
   Reads from Primary are always stable: can never be false progressed.
+* Security/Privacy of the data persisted by your application in a reliable collection is your decision and subject to the protections provided by your storage management; I.E. Operating System disk encryption could be used to protect your data at rest.  
 
 ### Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Reliable State Manager and Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Managing Data
   * [Backup and Restore](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)

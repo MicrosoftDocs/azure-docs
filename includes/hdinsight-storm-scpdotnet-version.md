@@ -1,5 +1,12 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+---
 > [!IMPORTANT]
-> The SCP.Net version used in your project must match the Storm version present on your HDInsight cluster. Use the following table to determine which version you should use:
+> The SCP.NET version used in your project must match the Storm version present on your HDInsight cluster. Use the following table to determine which version you should use:
 > 
 > | HDInsight version | Apache Storm version | SCP.NET version | Default Mono version |
 > |:---:|:---:|:---:|:---:|

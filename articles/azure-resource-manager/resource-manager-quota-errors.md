@@ -1,7 +1,7 @@
 ---
 title: Azure quota errors | Microsoft Docs
-description: Describes how to resolve resource qouta errors.
-services: azure-resource-manager,azure-portal
+description: Describes how to resolve resource quota errors.
+services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
 manager: timlt
@@ -11,14 +11,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
-ms.date: 11/27/2017
+ms.topic: troubleshooting
+ms.date: 03/09/2018
 ms.author: tomfitz
 
 ---
 # Resolve errors for resource quotas
 
 This article describes quota errors you may encounter when deploying resources.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Symptom
 
@@ -44,9 +46,9 @@ please delete some resources of this type before creating a new one.
 Quotas are applied per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
 For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-## Solution
+## Troubleshooting
 
-### Solution 1
+### Azure CLI
 
 For Azure CLI, use the `az vm list-usage` command to find virtual machine quotas.
 
@@ -70,12 +72,12 @@ Which returns:
 ]
 ```
 
-### Solution 2
+### PowerShell
 
-For PowerShell, use the **Get-AzureRmVMUsage** command to find virtual machine quotas.
+For PowerShell, use the **Get-AzVMUsage** command to find virtual machine quotas.
 
 ```powershell
-Get-AzureRmVMUsage -Location "South Central US"
+Get-AzVMUsage -Location "South Central US"
 ```
 
 Which returns:
@@ -88,7 +90,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### Solution 3
+## Solution
 
 To request a quota increase, go to the portal and file a support issue. In the support issue, request an increase in your quota for the region into which you want to deploy.
 

@@ -1,22 +1,13 @@
 ---
-title: How to annotate data sources | Microsoft Docs
+title: How to annotate data sources in Azure Data Catalog
 description: How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # How to annotate data sources
 ## Introduction
@@ -30,9 +21,9 @@ Data Catalog recognizes that different users have different perspectives on ente
 * The database administrator knows the backup schedule for each database, and the allowed ETL processing windows.
 * The system owner knows the process for users to request access to the data source.
 * The data steward knows how the assets and attributes in the data source map to the enterprise data model.
-* The analyst knows how the data is used in the context of the business processes he supports.
+* The analyst knows how the data is used in the context of the business processes they support.
 
-Each of these perspectives is valuable, and Data Catalog uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources. Using the Data Catalog portal, each user can add and edit his own annotations, while being able to view annotations provided by other users.
+Each of these perspectives is valuable, and Data Catalog uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources. Using the Data Catalog portal, each user can add and edit their own annotations, while being able to view annotations provided by other users.
 
 ## Different types of annotations
 Data Catalog supports the following types of annotations:

@@ -1,10 +1,10 @@
----
+﻿---
 title: Design and implement an Oracle database on Azure | Microsoft Docs
 description: Design and implement an Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
-manager: timlt
+author: romitgirdhar
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,10 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/22/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 ---
-
 
 # Design and implement an Oracle database in Azure
 
@@ -133,7 +132,7 @@ The total network throughput is estimated based on the following information:
 
 ![Screenshot of the SQL*Net throughput](./media/oracle-design/sqlnet_info.png)
 
-Based on your network bandwidth requirements, there are various gateway types for you to choose from. These include basic, VpnGw, and Azure ExpressRoute. For more information, see the [VPN gateway pricing page](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Based on your network bandwidth requirements, there are various gateway types for you to choose from. These include basic, VpnGw, and Azure ExpressRoute. For more information, see the [VPN gateway pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Recommendations**
 
@@ -154,8 +153,6 @@ When you create a new managed disk from the portal, you can choose the **Account
 Keep in mind that not all available disks are shown in the drop-down menu. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
 
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk01.png)
-
-For more information, see [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
 After you configure your storage on a VM, you might want to load test the disks before creating a database. Knowing the I/O rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets.
 
@@ -196,8 +193,6 @@ There are three options for host caching:
 **Recommendations**
 
 To maximize the throughput, we recommend that you  start with **None** for host caching. For Premium Storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** or **None** options. Update the /etc/fstab file with the UUID to the disks.
-
-For more information, see [Premium Storage for Linux VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk02.png)
 

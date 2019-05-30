@@ -1,32 +1,49 @@
 ---
-title: How humans improve automated content moderation for Content Moderator | Microsoft Docs
-description: Humans work with automated content moderation to add real-world context that machine learning can't provide.
+title: Learn Review tool concepts - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Learn about the Content Moderator Review tool, a website that coordinates a combined AI and human review moderation effort.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 
+ms.date: 03/15/2019
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
+ms.subservice: content-moderator
+ms.topic: conceptual
 ms.author: sajagtap
+#Conceptual on the Review tool. Includes settings and dashboard
 ---
 
-# Human-in-the-Loop #
+# Content Moderator Review tool
 
-Why do we need a human review tool with automated content moderation powered by machine learning and AI? 
+Azure Content Moderator provides services to combine machine learning content moderation with human reviews, and the [Review tool](https://contentmoderator.cognitive.microsoft.com) website is a user-friendly front end that gives detailed access to these services.
 
-We think you get the best results when humans and machines work together on harder cases. Humans can effectively augment machine learning models in situations where the prediction confidence has to be assisted or tempered within a real world context. 
+![The review tool dashboard in a browser](./images/0-dashboard.png)
 
-Humans can focus on the edge cases and help the models learn and get better over time. The result is a hybrid, automated content moderation process that performs better than if the humans or machines were working alone.
+## What it does
 
-## How the Review tool helps ##
+The [Review tool](https://contentmoderator.cognitive.microsoft.com), when used in conjunction with the machine-assisted moderation APIs, allows you to accomplish the following tasks in the content moderation process:
 
-The human review tool when used in conjunction with our automated moderation APIs allows you to accomplish these important tasks in relation to the content moderation life cycle.
+- Use one set of tools to moderate content in multiple formats (text, image, and video).
+- Automate the creation of human [reviews](../review-api.md#reviews) when moderation API results come in.
+- Assign or escalate content reviews to multiple review teams, organized by content category or experience level.
+- Use default or custom logic filters ([workflows](../review-api.md#workflows)) to sort and track content, without writing any code.
+- Use [connectors](./configure.md#connectors) to process content with Microsoft PhotoDNA, Text Analytics, and Face APIs in addition to the Content Moderator APIs.
+- Build your own connector to create workflows for any API or business process.
+- Get key performance metrics on your content moderation processes.
 
-1. Automate the creation of human reviews from the underlying moderation API results
-2. Use one tool (Review Tool and API) to moderate multiple formats (text, image, and video - coming soon)
-3. Assign or escalate content reviews to multiple review teams organized by content category or experience level.
-4. Use default workflows or define custom workflows with flexible rules, and without writing any code.
-5. Add human review to any API or business process by simply building a connector.
-6. Use the default connectors to review results from Microsoft PhotoDNA, Text Analytics, and Face APIs.
-7. Get key performance metrics on your content moderation processes.
+## Review tool dashboard
+
+On the **Dashboard** tab, you can see key metrics for content reviews done within the tool. See the number of total, complete, and pending reviews for image, text, and video content. You can also see the breakdown of users and teams that have completed reviews, as well as the moderation tags that have been applied.
+
+![View Dashboard](images/0-dashboard.png)
+
+## Review tool credentials
+
+When you sign up with the [Review tool](https://contentmoderator.cognitive.microsoft.com), you'll be prompted to select an Azure region for you account. This is because the [Review tool](https://contentmoderator.cognitive.microsoft.com) generates a free trial key for Azure Content Moderator services; you will need this key to access any of the services from a REST call or client SDK. You can view your key and API endpoint URL by selecting **Settings** > **Credentials**.
+
+![Content Moderator Credentials](images/settings-6-credentials.png)
+
+## Next steps
+
+See [Configure the Review tool](./configure.md) to learn how to access Review tool resources and change settings.

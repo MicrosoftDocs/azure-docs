@@ -1,0 +1,78 @@
+- name: Identity Protection Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure AD Identity Protection?
+    href: overview.md
+- name: 'Quickstarts'
+  items:
+  - name: Block access when a session risk is detected
+    href: quickstart-sign-in-risk-policy.md
+- name: 'Concepts'
+  expanded: false
+  items:
+  - name: What are vulnerabilities?
+    href: vulnerabilities.md
+  - name: What are notifications?
+    href: notifications.md
+  - name: What is your sign-in experience?
+    href: flows.md
+- name: 'How-to guides'
+  expanded: true
+  items:
+  - name: 'Identity Protection'
+    items:
+    - name: Enable Azure AD Identity Protection
+      href: enable.md
+    - name: Configure the MFA registration policy
+      href: howto-mfa-policy.md
+    - name: Configure the sign-in risk policy
+      href: howto-sign-in-risk-policy.md
+    - name: Configure the user risk policy
+      href: howto-user-risk-policy.md
+    - name: Close active risk events
+      href: howto-close-active-risk-events.md
+    - name: Unblock users
+      href: howto-unblock-user.md
+    - name: Simulate risk events
+      href: playbook.md
+    - name: FAQs
+      href: faqs.md
+  - name: 'Identity Protection (Refreshed)'
+    items:
+    - name: Overview
+      href: overview-v2.md
+    - name: Security overview
+      href: security-overview.md
+    - name: Investigate risky users and sign-ins
+      href: howto-investigate-risky-users-signins.md
+    - name: Provide feedback on risk events
+      href: howto-provide-risk-event-feedback.md
+    - name: Configure risk policies
+      href: howto-configure-risk-policies.md
+    - name: Improve detection accuracy
+      href: howto-improve-detection-accuracy.md
+    - name: FAQs and known issues 
+      href: known-issues.md
+- name: 'Reference'
+  items:
+  - name: Use the Microsoft Graph API
+    href: graph-get-started.md
+  - name: Risk events
+    href: risk-events-reference.md
+  - name: Glossary
+    href: glossary.md
+- name: 'Resources'
+  items:
+  - name: Azure feedback forum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Service updates
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

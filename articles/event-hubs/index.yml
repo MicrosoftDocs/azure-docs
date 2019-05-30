@@ -1,0 +1,169 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Event Hubs Documentation
+metadata:
+  document_id: ''
+  title: Azure Event Hubs Documentation - Tutorials, quickstarts, API Reference
+  meta.description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
+  services: event-hubs
+  author: spelluru
+  manager: timlt
+  ms.service: event-hubs
+  ms.topic: landing-page
+  ms.date: 10/15/2018
+  ms.author: spelluru
+abstract:
+  description: Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters. Event Hubs for Apache Kafka enables native Kafka clients, tools, and applications such as Mirror Maker, Apache Flink, and Akka Streams to work seamlessly with Event Hubs with only configuration changes.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: /azure/event-hubs/media/index/stream-big-data-kafka-event-hubs.png
+      width: 250  
+    title: Streaming Big Data in Azure with Kafka and Event Hubs (1:20:13)
+    href: https://azure.microsoft.com/resources/videos/streaming-big-data-in-azure-with-kafka-and-event-hubs/
+    width: 250
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to <b>create</b> an event hub:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/event-hubs/media/index/portal.svg
+      text: Azure portal
+      href: /azure/event-hubs/event-hubs-quickstart-portal
+    - image: 
+        src: /azure/event-hubs/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/event-hubs/event-hubs-quickstart-cli
+    - image: 
+        src: /azure/event-hubs/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-hubs/event-hubs-quickstart-powershell
+    - image:
+        src: /azure/event-hubs/media/index/logo_arm.svg
+      text: Azure Resource Manager template
+      href: /azure/event-hubs/event-hubs-resource-manager-namespace-event-hub
+  - type: paragraph
+    text: 'Learn how to <b>send events to</b> and <b>receive events from</b> an event hub:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/event-hubs/media/index/logo_net.svg
+      text: .NET Framework
+      href: /azure/event-hubs/event-hubs-dotnet-framework-getstarted-send
+    - image: 
+        src: /azure/event-hubs/media/index/logo_netcore.svg
+      text: .NET Standard
+      href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send      
+    - image: 
+        src: /azure/event-hubs/media/index/logo_java.svg
+      text: Java
+      href: /azure/event-hubs/event-hubs-java-get-started-send
+    - image: 
+        src: /azure/event-hubs/media/index/logo_python.svg
+      text: Python
+      href: /azure/event-hubs/event-hubs-python-get-started-send
+    - image: 
+        src: /azure/event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/event-hubs/event-hubs-node-get-started-send
+    - image: 
+        src: /azure/event-hubs/media/index/logo_go.svg
+      text: Go
+      href: /azure/event-hubs/event-hubs-go-get-started-send 
+    - image: 
+        src: /azure/event-hubs/media/index/logo_c.svg
+      text: C
+      href: /azure/event-hubs/event-hubs-c-getstarted-send
+    - image: 
+        src: /azure/event-hubs/media/index/storm_r.svg
+      text: Apache Storm
+      href: /azure/event-hubs/event-hubs-storm-getstarted-receive
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create, manage, and stream events, using Azure Event Hubs
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/store-captured-data-data-warehouse">Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions</a>    
+    - html: <a href="https://docs.microsoft.com/azure/azure-databricks/databricks-stream-from-eventhubs">Stream data into Azure Databricks using Event Hubs</a>        
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-mirror-maker-tutorial">Mirror a Kafka broker in a Kafka enabled event hub</a>            
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-flink-tutorial">Connect Apache Flink to Kafka-enabled event hubs </a>                
+    - html: <a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-akka-streams-tutorial">Connect Akka Streams to Kafka-enabled event hubs</a>                    
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Enable reliable messaging for Big Data Applications using Azure Event Hubs
+      href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+      image: 
+        src: https://docs.microsoft.com/learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
+        href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-event-hubs">More interactive learning...</a>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Event Hubs for .NET Developers - Fundamentals
+      href: https://www.pluralsight.com/courses/azure-event-hubs-dotnet-developers-fundamentals
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/azure-event-hubs-dotnet-developers-fundamentals
+- title: Samples
+  items:
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/event-hubs/media/index/logo_net.svg
+      text: .NET Framework
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet
+    - image: 
+        src: /azure/event-hubs/media/index/logo_java.svg
+      text: Java
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Java
+    - image: 
+        src: /azure/event-hubs/media/index/logo_python.svg
+      text: Python
+      href: https://github.com/Azure/azure-event-hubs-python/tree/master/examples
+    - image: 
+        src: /azure/event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://github.com/Azure/azure-event-hubs-node
+    - image: 
+        src: /azure/event-hubs/media/index/logo_go.svg
+      text: Go
+      href: https://github.com/Azure/azure-event-hubs-go/tree/master/_examples    
+    - image: 
+        src: /azure/event-hubs/media/index/cli.svg
+      text: Azure CLI
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI
+    - image: 
+        src: /azure/event-hubs/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell
+      
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/az.eventhub/">Azure PowerShell</a></p><p><a href="/cli/azure/eventhubs">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET Standard</a></p><p><a href="/java/api/overview/azure/eventhub">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/eventhub/">REST API Reference</a></p>

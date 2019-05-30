@@ -1,20 +1,13 @@
 ---
 title: Azure Analysis Services database backup and restore | Microsoft Docs
 description: Describes how to backup and restore an Azure Analysis Services database.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-
-ms.assetid: 
-ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 01/09/2019
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 
@@ -27,8 +20,7 @@ Backing up tabular model databases in Azure Analysis Services is much the same a
 > 
 > 
 
-Backups are saved with an abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose. 
-
+Backups are saved with an .abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose.
 
 
 ## Configure storage settings

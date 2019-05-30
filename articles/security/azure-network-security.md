@@ -1,11 +1,11 @@
-﻿---
+---
 
 title: Azure Network Security | Microsoft Docs
 description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -26,7 +26,7 @@ We know that security is job one in the cloud and how important it is that you f
 
 Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability. To help you better understand the collection of network security controls implemented within Microsoft Azure from the customer's perspective, this article, “Azure Network Security", is written to provide a comprehensive look at the network security controls available with Microsoft Azure.
 
-This paper is intended to inform you about the wide range of network controls that you can configure to enhance the security of the solutions you deploy in Azure. If you are interested in what Microsoft does to secure the network fabric of the Azure platform itself,  see the Azure security section in the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
+This paper is intended to inform you about the wide range of network controls that you can configure to enhance the security of the solutions you deploy in Azure. If you are interested in what Microsoft does to secure the network fabric of the Azure platform itself,  see the Azure security section in the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure).
 
 ## Azure platform
 
@@ -76,7 +76,7 @@ In this paper, will be cover the following Azure networking enterprise capabilit
 
 ### Basic network connectivity
 
-The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)  service enables you to securely connect Azure resources to each other with virtual networks (VNet). A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure network infrastructure dedicated to your subscription. You can also connect VNets to each other and to your on-premises networks using site-to-site VPNs￼ and dedicated [WAN links](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)  service enables you to securely connect Azure resources to each other with virtual networks (VNet). A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure network infrastructure dedicated to your subscription. You can also connect VNets to each other and to your on-premises networks using site-to-site VPNs and dedicated [WAN links](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Basic network connectivity](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -90,7 +90,7 @@ You can connect VNets to each other, enabling resources connected to either VNet
 
 - **Peering:** Enables resources connected to different Azure VNets within the same Azure location to communicate with each other. The bandwidth and latency across the VNet is the same as if the resources were connected to the same VNet. To learn more about peering, read [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway.
 
@@ -318,19 +318,19 @@ Forced tunneling in Azure is configured via virtual network user-defined routes 
 
 The following section lists the current limitation of the routing table and routes for an Azure Virtual Network:
 
--	Each virtual network subnet has a built-in, system routing table. The system routing table has the following three groups of routes:
+- Each virtual network subnet has a built-in, system routing table. The system routing table has the following three groups of routes:
 
- -	**Local VNet routes:** Directly to the destination VMs in the same virtual network
+  -  **Local VNet routes:** Directly to the destination VMs in the same virtual network
 
- - **On premises routes:** To the Azure VPN gateway
+  - **On premises routes:** To the Azure VPN gateway
 
- -	**Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes are dropped.
+  -  **Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes are dropped.
 
--	With the release of user-defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet to enable forced tunneling on those subnets.
+- With the release of user-defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet to enable forced tunneling on those subnets.
 
--	You need to set a "default site" among the cross-premises local sites connected to the virtual network.
+- You need to set a "default site" among the cross-premises local sites connected to the virtual network.
 
--	Forced tunneling must be associated with a VNet that has a dynamic routing VPN gateway (not a static gateway).
+- Forced tunneling must be associated with a VNet that has a dynamic routing VPN gateway (not a static gateway).
 
 - ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions.
 
@@ -393,7 +393,7 @@ In addition, Application Gateway WAF helps you monitor web applications against 
 
 The JSON formatted log goes directly to the customer’s storage account. You have full control over these logs and can apply your own retention policies.
 
-You can also ingest these logs into your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) so you can use OMS log analytics to execute sophisticated fine-grained queries.
+You can also ingest these logs into your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Azure Monitor logs](../log-analytics/log-analytics-overview.md) so you can use Azure Monitor logs to execute sophisticated fine-grained queries.
 
 #### Azure web application firewall (WAF)
 
@@ -460,8 +460,6 @@ Azure network validation is to ensure that the Azure network is operating as it 
 
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through a various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cyber security threat landscape.
 
--	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
-
 -	[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 -	[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
@@ -509,7 +507,7 @@ Azure offers many tools to monitor, prevent, detect, and respond to network secu
 
 -	Network Resource Level Monitoring
 
--	Log Analytics
+-	Azure Monitor logs
 
 ### Network watcher
 
@@ -599,17 +597,17 @@ Metrics are performance measurements and counters collected over a period. Metri
 
 #### Diagnostic logs
 
-Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub, or Log Analytics. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostic logs, visit [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub, or Azure Monitor logs. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Azure Monitor logs. To learn how to view diagnostic logs, visit [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Diagnostic logs are available for [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), Routes, and [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view, you can enable and disable networking resources conveniently and quickly.
 
-### Log analytics
+### Azure Monitor logs
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a service in [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources.
+[Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a service in Azure that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources.
 
-Log Analytics offers the following solutions for monitoring your networks:
+Azure Monitor logs offers the following solutions for monitoring your networks:
 
 -	Network Performance Monitor (NPM)
 
@@ -629,7 +627,7 @@ It is used to monitor connectivity between:
 -	subnets hosting various tiers of a multi-tiered application.
 
 
-#### Azure application gateway analytics in log analytics
+#### Azure application gateway analytics in Azure Monitor logs
 
 The following logs are supported for Application Gateways:
 
@@ -643,7 +641,7 @@ The following metrics are supported for Application Gateways:
 
 -	5-minute throughput
 
-#### Azure network security group analytics in log analytics
+#### Azure network security group analytics in Azure Monitor logs
 
 The following logs are supported for [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
@@ -654,7 +652,7 @@ The following logs are supported for [network security groups](https://docs.micr
 ## Next steps
 Find out more about security by reading some of our in-depth security topics:
 
--	[Log Analytics for Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-	[Azure Monitor logs for Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -	[Networking innovations that drive the cloud disruption](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

@@ -4,13 +4,13 @@ description: Overview of movement cost for Service Fabric services
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
@@ -75,6 +75,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 MoveCost has four levels: Zero, Low, Medium, and High. MoveCosts are relative to each other, except for Zero. Zero move cost means that movement is free and should not count against the score of the solution. Setting your move cost to High does *not* guarantee that the replica stays in one place.
 
 <center>
+
 ![Move cost as a factor in selecting replicas for movement][Image1]
 </center>
 

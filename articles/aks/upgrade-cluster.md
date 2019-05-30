@@ -1,122 +1,84 @@
 ---
-title: Upgrade an Azure Container Service (AKS) cluster
-description: Upgrade an Azure Container Service (AKS) cluster
+title: Upgrade an Azure Kubernetes Service (AKS) cluster
+description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: gabrtv
-manager: timlt
+author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2017
-ms.author: gamonroy
-ms.custom: mvc
+ms.date: 02/12/2019
+ms.author: iainfou
 ---
 
-# Upgrade an Azure Container Service (AKS) cluster
+# Upgrade an Azure Kubernetes Service (AKS) cluster
 
-Azure Container Service (AKS) makes it easy to perform common management tasks including upgrading Kubernetes clusters.
+As part of the lifecycle of an AKS cluster, you often need to upgrade to the latest Kubernetes version. It is important you apply the latest Kubernetes security releases, or upgrade to get the latest features. This article shows you how to upgrade the master components or a single, default node pool in an AKS cluster.
+
+For AKS clusters that use multiple node pools or Windows Server nodes (both currently in preview in AKS), see [Upgrade a node pool in AKS][nodepool-upgrade].
+
+## Before you begin
+
+This article requires that you are running the Azure CLI version 2.0.56 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+## Check for available AKS cluster upgrades
+
+To check which Kubernetes releases are available for your cluster, use the [az aks get-upgrades][az-aks-get-upgrades] command. The following example checks for available upgrades to the cluster named *myAKSCluster* in the resource group named *myResourceGroup*:
+
+```azurecli-interactive
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+```
+
+> [!NOTE]
+> When you upgrade an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between *1.10.x* -> *1.11.x* or *1.11.x* -> *1.12.x* are allowed, however *1.10.x* -> *1.12.x* is not.
+>
+> To upgrade, from *1.10.x* -> *1.12.x*, first upgrade from *1.10.x* -> *1.11.x*, then upgrade from *1.11.x* -> *1.12.x*.
+
+The following example output shows that the cluster can be upgraded to version *1.11.5* or *1.11.6*:
+
+```console
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  --------------
+default  myResourceGroup  1.10.12          1.10.12            1.11.5, 1.11.6
+```
 
 ## Upgrade an AKS cluster
 
-Before upgrading a cluster, use the `az aks get-versions` command to check which Kubernetes releases are available for upgrade.
+With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster, then carefully [cordon and drains][kubernetes-drain] one node at a time to minimize disruption to running applications. The following example upgrades a cluster to version *1.11.6*:
 
 ```azurecli-interactive
-az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.6
 ```
 
-Output:
+It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
 
-```console
-Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
--------  ---------------  ---------------  -------------------  ------------------  -------------------
-default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
-```
-
-We have three versions available for upgrade: 1.7.9, 1.8.1 and 1.8.2. We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.  Before initiating a cluster upgrade, ensure that you have enough additional compute capacity to handle your workload as cluster nodes are added and removed.
+To confirm that the upgrade was successful, use the [az aks show][az-aks-show] command:
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
+az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Output:
-
-```json
-{
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
-  "location": "eastus",
-  "name": "myK8sCluster",
-  "properties": {
-    "accessProfiles": {
-      "clusterAdmin": {
-        "kubeConfig": "..."
-      },
-      "clusterUser": {
-        "kubeConfig": "..."
-      }
-    },
-    "agentPoolProfiles": [
-      {
-        "count": 1,
-        "dnsPrefix": null,
-        "fqdn": null,
-        "name": "myK8sCluster",
-        "osDiskSizeGb": null,
-        "osType": "Linux",
-        "ports": null,
-        "storageProfile": "ManagedDisks",
-        "vmSize": "Standard_D2_v2",
-        "vnetSubnetId": null
-      }
-    ],
-    "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
-    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
-    "kubernetesVersion": "1.8.2",
-    "linuxProfile": {
-      "adminUsername": "azureuser",
-      "ssh": {
-        "publicKeys": [
-          {
-            "keyData": "..."
-          }
-        ]
-      }
-    },
-    "provisioningState": "Succeeded",
-    "servicePrincipalProfile": {
-      "clientId": "e70c1c1c-0ca4-4e0a-be5e-aea5225af017",
-      "keyVaultSecretRef": null,
-      "secret": null
-    }
-  },
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "type": "Microsoft.ContainerService/ManagedClusters"
-}
-```
-
-You can now confirm the upgrade was successful with the `az aks show` command.
-
-```azurecli-interactive
-az aks show --name myK8sCluster --resource-group myResourceGroup --output table
-```
-
-Output:
+The following example output shows that the cluster now runs *1.11.6*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
-------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
+------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
+myAKSCluster  eastus      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## Next steps
 
-Learn more about deploying and managing AKS with the AKS tutorials.
+This article showed you how to upgrade an existing AKS cluster. To learn more about deploying and managing AKS clusters, see the set of tutorials.
 
 > [!div class="nextstepaction"]
-> [AKS Tutorial][aks-tutorial-prepare-app]
+> [AKS tutorials][aks-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

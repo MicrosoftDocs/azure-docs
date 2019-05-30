@@ -2,24 +2,16 @@
 title: Retrieving state information for an Azure Import/Export job | Microsoft Docs
 description: Learn how to obtain state information for Microsoft Azure Import/Export service jobs.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-
+ms.subservice: common
 ---
 
 # Retrieving state information for an Import/Export job
-You can call the [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operation to retrieve information about both import and export jobs. The information returned includes:
+You can call the [Get Job](/rest/api/storageimportexport/jobs) operation to retrieve information about both import and export jobs. The information returned includes:
 
 -   The current status of the job.
 
@@ -48,7 +40,7 @@ The following table describes each state that a job may pass through.
 |`Completed`|After all drives have been shipped back to the customer, if the job has completed without errors, then the job will be set to the `Completed` state. The job will be automatically deleted after 90 days in the `Completed` state.|
 |`Closed`|After all drives have been shipped back to the customer, if there have been any errors during the processing of the job, then the job will be set to the `Closed` state. The job will be automatically deleted after 90 days in the `Closed` state.|
 
-You can cancel a job only at certain states. A cancelled job skips the data copy step, but otherwise it follows the same state transitions as a job that was not cancelled.
+You can cancel a job only at certain states. A canceled job skips the data copy step, but otherwise it follows the same state transitions as a job that was not canceled.
 
 The following table describes errors that can occur for each job state, as well as the effect on the job when an error occurs.
 

@@ -4,25 +4,21 @@ description: Learn how to copy data from Spark to supported sink data stores by 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/30/2017
+
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
 # Copy data from Spark using Azure Data Factory 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Spark. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
 
 ## Supported capabilities
 
@@ -32,7 +28,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Spark connector.
 
@@ -44,12 +40,12 @@ The following properties are supported for Spark linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Spark** | Yes |
 | host | IP address or host name of the Spark server  | Yes |
-| port | The TCP port that the Spark server uses to listen for client connections.  | Yes |
+| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsights, specify port as 443. | Yes |
 | serverType | The type of Spark server. <br/>Allowed values are: **SharkServer**, **SharkServer2**, **SparkThriftServer** | No |
-| thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed values are: **Binary**, **SASL**, **HTTP ** | No |
+| thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed values are: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | The authentication method used to access the Spark server. <br/>Allowed values are: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | username | The user name that you use to access Spark Server.  | No |
-| password | The password corresponding to the user name that you provided in the Username field You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | The partial URL corresponding to the Spark server.  | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
@@ -73,8 +69,7 @@ The following properties are supported for Spark linked service:
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }
@@ -84,7 +79,12 @@ The following properties are supported for Spark linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Spark dataset.
 
-To copy data from Spark, set the type property of the dataset to **SparkObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Spark, set the type property of the dataset to **SparkObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **SparkObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -96,7 +96,8 @@ To copy data from Spark, set the type property of the dataset to **SparkObject**
         "linkedServiceName": {
             "referenceName": "<Spark linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -105,14 +106,14 @@ To copy data from Spark, set the type property of the dataset to **SparkObject**
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Spark source.
 
-### SparkSource as source
+### Spark as source
 
 To copy data from Spark, set the source type in the copy activity to **SparkSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **SparkSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

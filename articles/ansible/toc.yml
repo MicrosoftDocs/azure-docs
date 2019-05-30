@@ -1,0 +1,110 @@
+- name: Ansible on Azure documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: About Ansible on Azure
+    href: ./ansible-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Deploy Ansible solution template to CentOS
+      href: ./ansible-deploy-solution-template.md
+    - name: Install Ansible on Linux virtual machines
+      href: /azure/virtual-machines/linux/ansible-install-configure
+      maintainContext: true
+    - name: Configure Linux virtual machines
+      href: /azure/virtual-machines/linux/ansible-create-vm
+      maintainContext: true
+    - name: Manage Linux virtual machines
+      href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+      maintainContext: true
+    - name: Run playbooks in Cloud Shell
+      href: ./ansible-run-playbook-in-cloudshell.md
+- name: Tutorials 
+  items:
+  - name: Azure Application Gateway
+    items:
+    - name: Manage web traffic
+      href: ./ansible-create-configure-application-gateway.md
+  - name: Azure App Service
+    items:
+    - name: Configure apps
+      href: ./ansible-create-configure-azure-web-apps.md
+    - name: Scale apps
+      href: ./ansible-scale-azure-web-apps.md
+  - name: Azure DevTest Labs
+    items:
+    - name: Configure labs
+      href: ./ansible-devtest-labs-configure.md
+  - name: Azure Kubernetes Service (AKS)
+    items:
+    - name: Configure AKS clusters
+      href: ./ansible-create-configure-aks.md
+    - name: Configure Azure CNI networking
+      href: ./ansible-aks-configure-cni-networking.md
+    - name: Configure kubenet networking
+      href: ./ansible-aks-configure-kubenet-networking.md
+    - name: Configure RBAC roles in AKS cluster
+      href: ./ansible-aks-configure-rbac.md
+  - name: Azure HDInsight
+    items:
+    - name: Configure clusters
+      href: ./ansible-azure-hdinsight-configure.md
+  - name: Azure Service Bus
+    items:
+    - name: Configure queues
+      href: ./ansible-service-bus-queue-configure.md
+    - name: Configure topics
+      href: ./ansible-service-bus-topic-configure.md
+  - name: Database
+    items:
+    - name: Configure Azure Database for MySQL
+      href: ./ansible-create-configure-mysql.md
+    - name: Configure Azure Cosmos DB accounts
+      href: ./ansible-data-cosmos-configure.md
+    - name: Configure Azure Cache for Redis
+      href: ./ansible-data-cache-for-redis-configure.md
+  - name: Dynamic inventory
+    items:
+    - name: Manage your Azure resources
+      href: ./ansible-manage-azure-dynamic-inventories.md
+  - name: Virtual machines scale sets
+    items:
+    - name: Configure 
+      href: ./ansible-create-configure-vmss.md
+    - name: Deploy 
+      href: ./ansible-deploy-app-vmss.md
+    - name: Autoscale
+      href: ./ansible-auto-scale-vmss.md
+    - name: Update custom image
+      href: ./ansible-vmss-update-image.md
+  - name: Virtual network
+    items:
+    - name: Configure peering
+      href: ./ansible-vnet-peering-configure.md
+    - name: Configure route tables
+      href: ./ansible-create-configure-route-table.md
+- name: Reference
+  items:
+  - name: Playbook roles
+    items:
+    - name: azure_module
+      href: https://galaxy.ansible.com/Azure/azure_modules/
+    - name: azure_preview_module
+      href: https://galaxy.ansible.com/Azure/azure_preview_modules
+  - name: Releases and features
+    href: ./ansible-matrix.md  
+  - name: Azure Container Instances
+    href: https://docs.ansible.com/ansible/latest/azure_rm_containerinstance_module.html
+  - name: Azure Functions
+    href: https://docs.ansible.com/ansible/latest/azure_rm_functionapp_module.html
+  - name: Load balancers
+    href: https://docs.ansible.com/ansible/latest/azure_rm_loadbalancer_module.html
+  - name: Virtual machines
+    href: https://docs.ansible.com/ansible/latest/azure_rm_virtualmachine_module.html
+  - name: All modules for Azure
+    href: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
+- name: Tools
+  items:
+  - name: Visual Studio Code extension for Ansible
+    href: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible

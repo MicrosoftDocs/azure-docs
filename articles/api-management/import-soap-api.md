@@ -3,7 +3,7 @@ title: Import SOAP API using the Azure portal | Microsoft Docs
 description: Learn how to import SOAP API with API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

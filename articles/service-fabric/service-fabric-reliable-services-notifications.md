@@ -4,13 +4,13 @@ description: Conceptual documentation for Service Fabric Reliable Services notif
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
@@ -101,7 +101,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
     {
-        this.ProcessStataManagerRebuildNotification(e);
+        this.ProcessStateManagerRebuildNotification(e);
 
         return;
     }
@@ -135,7 +135,6 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
             var dictionary = (IReliableDictionary<TKey, TValue>)operation.ReliableState;
             dictionary.RebuildNotificationAsyncCallback = this.OnDictionaryRebuildNotificationHandlerAsync;
             dictionary.DictionaryChanged += this.OnDictionaryChangedHandler;
-            }
         }
     }
 }

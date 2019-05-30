@@ -1,23 +1,22 @@
-﻿---
-title: 'Azure Active Directory B2C: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input'
+---
+title: Integrate REST API claim exchanges in your Azure Active Directory B2C user journey | Microsoft Docs
 description: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
-documentationcenter: ''
-author: yoelhor
-manager: mtillman
-editor: 
+author: davidmu1
+manager: celestedg
 
-ms.assetid: 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: yoelh
+ms.author: davidmu
+ms.subservice: B2C
 ---
 
 # Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 With the Identity Experience Framework, which underlies Azure Active Directory B2C (Azure AD B2C), you can integrate with a RESTful API in a user journey. In this walkthrough, you'll learn how Azure AD B2C interacts with .NET Framework RESTful services (web API).
 
 ## Introduction
@@ -47,7 +46,7 @@ Overview:
 * Use the RESTful service in the user journey.
 * Send input claims and read them in your code.
 * Validate the user's first name.
-* Send back a loyalty number. 
+* Send back a loyalty number.
 * Add the loyalty number to a JSON Web Token (JWT).
 
 ## Prerequisites
@@ -74,11 +73,11 @@ Complete the steps in the [Getting started with custom policies](active-director
 ## Step 2: Prepare the REST API endpoint
 
 ### Step 2.1: Add data models
-The models represent the input claims and output claims data in your RESTful service. Your code reads the input data by deserializing the input claims model from a JSON string to a C# object (your model). The ASP.NET web API automatically deserializes the output claims model back to JSON and then writes the serialized data to the body of the HTTP response message. 
+The models represent the input claims and output claims data in your RESTful service. Your code reads the input data by deserializing the input claims model from a JSON string to a C# object (your model). The ASP.NET web API automatically deserializes the output claims model back to JSON and then writes the serialized data to the body of the HTTP response message.
 
 Create a model that represents input claims by doing the following:
 
-1. If Solution Explorer is not already open, select **View** > **Solution Explorer**. 
+1. If Solution Explorer is not already open, select **View** > **Solution Explorer**.
 2. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**.
 
     ![Add model](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -125,7 +124,7 @@ Create a model that represents input claims by doing the following:
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -212,7 +211,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
     The **Create App Service** window opens. In it, you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
     > [!NOTE]
-    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. In the **Web App Name** box, type a unique app name (valid characters are a-z, 0-9, and hyphens (-). The URL of the web app is http://<app_name>.azurewebsites.NET, where *app_name* is the name of your web app. You can accept the automatically generated name, which is unique.
 
@@ -238,59 +237,59 @@ The `loyaltyNumber` claim is not yet defined in our schema. Add a definition wit
 </BuildingBlocks>
 ```
 
-## Step 5: Add a claims provider 
-Every claims provider must have one or more technical profiles, which determine the endpoints and protocols needed to communicate with the claims provider. 
+## Step 5: Add a claims provider
+Every claims provider must have one or more technical profiles, which determine the endpoints and protocols needed to communicate with the claims provider.
 
-A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles might be defined because the claims provider supports multiple protocols, endpoints can have varying capabilities, or releases can contain claims that have a variety of assurance levels. It might be acceptable to release sensitive claims in one user journey but not in another. 
+A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles might be defined because the claims provider supports multiple protocols, endpoints can have varying capabilities, or releases can contain claims that have a variety of assurance levels. It might be acceptable to release sensitive claims in one user journey but not in another.
 
 The following XML snippet contains a claims provider node with two technical profiles:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: Defines your RESTful service. 
-   * `Proprietary` is described as the protocol for a RESTful-based provider. 
-   * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service. 
+* **TechnicalProfile Id="REST-API-SignUp"**: Defines your RESTful service.
+  * `Proprietary` is described as the protocol for a RESTful-based provider.
+  * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service.
 
-   In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
+    In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user.
 
 Locate the `<ClaimsProviders>` node, and then add the following XML snippet under the `<ClaimsProviders>` node:
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
@@ -326,7 +325,7 @@ After you add the new claim, the relying party code looks like this:
 
 2. Select **Identity Experience Framework**.
 
-3. Open **All Policies**. 
+3. Open **All Policies**.
 
 4. Select **Upload Policy**.
 
@@ -351,7 +350,7 @@ After you add the new claim, the relying party code looks like this:
 
     ![Test your policy](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  In the **Given Name** box, type a name (other than "Test").  
+4. In the **Given Name** box, type a name (other than "Test").  
     Azure AD B2C signs up the user and then sends a loyaltyNumber to your application. Note the number in this JWT.
 
 ```
@@ -363,7 +362,7 @@ After you add the new claim, the relying party code looks like this:
   "exp": 1507125903,
   "nbf": 1507122303,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
@@ -378,7 +377,7 @@ After you add the new claim, the relying party code looks like this:
 ## (Optional) Download the complete policy files and code
 * After you complete the [Get started with custom policies](active-directory-b2c-get-started-custom.md) walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * You can download the complete code from [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
-	
+
 ## Next steps
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

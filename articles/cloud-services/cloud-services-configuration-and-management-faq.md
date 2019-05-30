@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 07/23/2018
 ms.author: genli
 
 ---
@@ -31,11 +31,13 @@ This article includes frequently asked questions about configuration and managem
 - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitoring and logging**
 
 - [What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [Why does IIS stop writing to the log directory?](#why-does-iis-stop-writing-to-the-log-directory)
+- [How do I enable WAD logging for Cloud Services?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **Network configuration**
 
@@ -101,6 +103,10 @@ The **Get-AzurePublishSettingsFile** will create a new management certificate in
 
 You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
 
+### What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?
+
+This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out [this advisory](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+
 For more information, see the following articles:
 - [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Common Cloud Service startup tasks](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
@@ -116,7 +122,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
 
 Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
 
@@ -129,6 +135,15 @@ You have exhausted the local storage quota for writing to the log directory.�
 For more information, see the following documents:
 * [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+
+### How do I enable WAD logging for Cloud Services?
+You can enable Windows Azure Diagnostics (WAD) logging through following options:
+1. [Enable from Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Enable through .NET code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [Enable through Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
+
 
 ## Network configuration
 
@@ -189,16 +204,16 @@ These steps could be automated via a startup task, so that whenever a new PaaS i
 Once this has been done, you can verify whether the HTTP/2 has been enabled or not by using one of the following methods:
 
 - Enable Protocol version in IIS logs and look into the IIS logs. It will show HTTP/2 in the logs. 
-- Enable F12 Developer Tool in Internet Explorer/Edge and switch to the Network tab to verify the protocol. 
+- Enable F12 Developer Tool in Internet Explorer/Microsoft Edge and switch to the Network tab to verify the protocol. 
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
 ## Permissions
 
-### How can I implement Role-Based Access for Cloud Services?
-Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an Azure Resource Manager based service.
+### How can I implement role-based access for Cloud Services?
+Cloud Services doesn't support the role-based access control (RBAC) model, as it's not an Azure Resource Manager based service.
 
-See [Azure RBAC vs. classic subscription administrators](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
+See [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## Remote desktop
 
@@ -223,13 +238,13 @@ Auto-scale based on Memory metrics for a Cloud Services is not currently support
 
 To work around this problem, you can use Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory".  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
 
-For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
-For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## Generic
 
@@ -276,7 +291,7 @@ The journal settings are non-configurable, so you can't turn it off.
 You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
  
 - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
 

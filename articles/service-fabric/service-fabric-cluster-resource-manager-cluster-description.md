@@ -1,16 +1,16 @@
----
+﻿---
 title: Cluster Resource Manager Cluster Description | Microsoft Docs
 description: Describing a Service Fabric cluster by specifying Fault Domains, Upgrade Domains, node properties, and node capacities for the Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
@@ -29,20 +29,21 @@ The Cluster Resource Manager supports several features that describe a cluster:
 * Node Capacities
 
 ## Fault domains
-A Fault Domain is any area of coordinated failure. A single machine is a Fault Domain (since it can fail on its own for various reasons, from power supply failures to drive failures to bad NIC firmware). Machines connected to the same Ethernet switch are in the same Fault Domain, as are machines sharing a single source of power or in a single location. Since it's natural for hardware faults to overlap, Fault Domains are inherently hierarchal and are represented as URIs in Service Fabric.
+A Fault Domain is any area of coordinated failure. A single machine is a Fault Domain (since it can fail on its own for various reasons, from power supply failures to drive failures to bad NIC firmware). Machines connected to the same Ethernet switch are in the same Fault Domain, as are machines sharing a single source of power or in a single location. Since it's natural for hardware faults to overlap, Fault Domains are inherently hierarchical and are represented as URIs in Service Fabric.
 
 It is important that Fault Domains are set up correctly since Service Fabric uses this information to safely place services. Service Fabric doesn't want to place services such that the loss of a Fault Domain (caused by the failure of some component) causes a service to go down. In the Azure environment Service Fabric uses the Fault Domain information provided by the environment to correctly configure the nodes in the cluster on your behalf. For Service Fabric Standalone, Fault Domains are defined at the time that the cluster is set up 
 
 > [!WARNING]
 > It is important that the Fault Domain information provided to Service Fabric is accurate. For example, let's say that your Service Fabric cluster's nodes are running inside 10 virtual machines, running on five physical hosts. In this case, even though there are 10 virtual machines, there are only 5 different (top level) fault domains. Sharing the same physical host causes VMs to share the same root fault domain, since the VMs experience coordinated failure if their physical host fails.  
 >
-> Service Fabric expects the Fault Domain of a node not to change. Other mechanisms of ensuring high availability of the VMs such as [HA-VMs](https://technet.microsoft.com/en-us/library/cc967323.aspx) may cause conflicts with Service Fabric, as they use transparent migration of VMs from one host to another. These mechanisms do not reconfigure or notify the running code inside the VM. As such, they are **not supported** as environments for running Service Fabric clusters. Service Fabric should be the only high-availability technology employed. Mechanisms like live VM migration, SANs, or others are not necessary. If used in conjunction with Service Fabric, these mechanisms _reduce_ application availability and reliability because they introduce additional complexity, add centralized sources of failure, and utilize reliability and availability strategies that conflict with those in Service Fabric. 
+> Service Fabric expects the Fault Domain of a node not to change. Other mechanisms of ensuring high availability of the VMs such as [HA-VMs](https://technet.microsoft.com/library/cc967323.aspx) may cause conflicts with Service Fabric, as they use transparent migration of VMs from one host to another. These mechanisms do not reconfigure or notify the running code inside the VM. As such, they are **not supported** as environments for running Service Fabric clusters. Service Fabric should be the only high-availability technology employed. Mechanisms like live VM migration, SANs, or others are not necessary. If used in conjunction with Service Fabric, these mechanisms _reduce_ application availability and reliability because they introduce additional complexity, add centralized sources of failure, and utilize reliability and availability strategies that conflict with those in Service Fabric. 
 >
 >
 
 In the graphic below we color all the entities that contribute to Fault Domains and list all the different Fault Domains that result. In this example, we have datacenters ("DC"), racks ("R"), and blades ("B"). Conceivably, if each blade holds more than one virtual machine, there could be another layer in the Fault Domain hierarchy.
 
 <center>
+
 ![Nodes organized via Fault Domains][Image1]
 </center>
 
@@ -55,6 +56,7 @@ It is best if there are the same number of nodes at each level of depth in the F
 What do imbalanced domains look like? In the diagram below, we show two different cluster layouts. In the first example, the nodes are distributed evenly across the Fault Domains. In the second example, one Fault Domain has many more nodes than the other Fault Domains. 
 
 <center>
+
 ![Two different cluster layouts][Image2]
 </center>
 
@@ -68,6 +70,7 @@ Upgrade Domains are a lot like Fault Domains, but with a couple key differences.
 The following diagram shows three Upgrade Domains are striped across three Fault Domains. It also shows one possible placement for three different replicas of a stateful service, where each ends up in different Fault and Upgrade Domains. This placement allows the loss of a Fault Domain while in the middle of a service upgrade and still have one copy of the code and data.  
 
 <center>
+
 ![Placement With Fault and Upgrade Domains][Image3]
 </center>
 
@@ -84,15 +87,21 @@ There’s no real limit to the total number of fault or Upgrade Domains in an en
 - A “striped” or “matrix” model where the Fault Domains and Upgrade Domains form a matrix with machines usually running down the diagonals
 
 <center>
+
 ![Fault and Upgrade Domain Layouts][Image4]
 </center>
 
-There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is simple to set up. The 1 Upgrade Domain per Node model is most like what people are used to. During upgrades each node is updated independently. This is similar to how small sets of machines were upgraded manually in the past. 
+There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is simple to set up. The 1 Upgrade Domain per Node model is most like what people are used to. During upgrades each node is updated independently. This is similar to how small sets of machines were upgraded manually in the past.
 
 The most common model is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. This is the model used by default in Service Fabric clusters in Azure. For clusters with many nodes everything ends up looking like the dense matrix pattern above.
 
+> [!NOTE]
+> Service Fabric clusters hosted in Azure do not support changing the default strategy. Only Standalone clusters offer that customization.
+>
+
 ## Fault and Upgrade Domain constraints and resulting behavior
-The Cluster Resource Manager treats the desire to keep a service balanced across fault and Upgrade Domains as a constraint. You can find out more about constraints in [this article](service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraints state: "For a given service partition there should never be a difference *greater than one* in the number of service objects (stateless service instances or stateful service replicas) between two domains." This prevents certain moves or arrangements that violate this constraint.
+### *Default approach*
+By default, the Cluster Resource Manager keeps services balanced across Fault and Upgrade Domains. This is modeled as a [constraint](service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraint states: “For a given service partition, there should never be a difference greater than one in the number of service objects (stateless service instances or stateful service replicas) between any two domains on the same level of hierarchy”. Let’s say this constraint provides a “maximum difference” guarantee. The Fault and Upgrade Domain constraint prevents certain moves or arrangements that violate the rule stated above.
 
 Let's look at one example. Let's say that we have a cluster with six nodes, configured with five Fault Domains and five Upgrade Domains.
 
@@ -103,6 +112,8 @@ Let's look at one example. Let's say that we have a cluster with six nodes, conf
 | **UD2** | | |N3 | | |
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
+
+*Configuration 1*
 
 Now let's say that we create a service with a TargetReplicaSetSize (or, for a stateless service an InstanceCount) of five. The replicas land on N1-N5. In fact, N6 is never used no matter how many services like this you create. But why? Let's look at the difference between the current layout and what would happen if N6 is chosen.
 
@@ -117,6 +128,9 @@ Here's the layout we got and the total number of replicas per Fault and Upgrade 
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
+*Layout 1*
+
+
 This layout is balanced in terms of nodes per Fault Domain and Upgrade Domain. It is also balanced in terms of the number of replicas per Fault and Upgrade Domain. Each domain has the same number of nodes and the same number of replicas.
 
 Now, let's look at what would happen if we'd used N6 instead of N2. How would the replicas be distributed then?
@@ -130,7 +144,11 @@ Now, let's look at what would happen if we'd used N6 instead of N2. How would th
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-This layout violates our definition for the Fault Domain constraint. FD0 has two replicas, while FD1 has zero, making the difference between FD0 and FD1 a total of two. The Cluster Resource Manager does not allow this arrangement. Similarly if we picked N2 and N6 (instead of N1 and N2) we'd get:
+*Layout 2*
+
+
+This layout violates our definition of the “maximum difference” guarantee for the Fault Domain constraint. FD0 has two replicas, while FD1 has zero, making the difference between FD0 and FD1 a total of two, which is greater than the maximum difference of one. Since the constraint is violated, the Cluster Resource Manager does not allow this arrangement. 
+Similarly if we picked N2 and N6 (instead of N1 and N2) we'd get:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -141,7 +159,87 @@ This layout violates our definition for the Fault Domain constraint. FD0 has two
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-This layout is balanced in terms of Fault Domains. However, now it's violating the Upgrade Domain constraint. This is because UD0 has zero replicas while UD1 has two. Therefore, this layout is also invalid and won't be picked by the Cluster Resource Manager. 
+*Layout 3*
+
+
+This layout is balanced in terms of Fault Domains. However, now it's violating the Upgrade Domain constraint because UD0 has zero replicas while UD1 has two. Therefore, this layout is also invalid and won't be picked by the Cluster Resource Manager.
+
+This approach to the distribution of stateful replicas or stateless instances provides the best possible fault tolerance. In a situation when one domain goes down, the minimal number of replicas/instances is lost. 
+
+On the other hand, this approach can be too strict and not allow the cluster to utilize all resources. For certain cluster configurations, certain nodes can't be used. This can lead to Service Fabric not placing your services, resulting in warning messages. In the previous example some of the cluster nodes can’t be used (N6 in the given example). Even if you would add nodes to that cluster (N7 – N10), replicas/instances would only be placed on N1 – N5 due to Fault and Upgrade Domain constraints. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | |N10 |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | |N9 |N5 |
+
+*Configuration 2*
+
+
+### *Alternative approach*
+
+The Cluster Resource Manager supports another version of the Fault and Upgrade Domain constraint which allows placement while still guaranteeing a minimum level of safety. The alternative Fault and Upgrade Domain constraint can be stated as follows: “For a given service partition, replica distribution across domains should ensure that the partition does not suffer a quorum loss”. Let’s say this constraint provides a “quorum safe” guarantee. 
+
+> [!NOTE]
+>For a stateful service, we define *quorum loss* in a situation when a majority of the partition replicas are down at the same time. For example, if TargetReplicaSetSize is five, a set of any three replicas represents quorum. Similarly, if TargetReplicaSetSize is 6, four replicas are necessary for quorum. In both cases no more than two replicas can be down at the same time if the partition wants to continue functioning normally. 
+For a stateless service, there is no such thing as *quorum loss* as stateless services continue to function normally even if a majority of instances go down at the same time. 
+Hence, we will focus on stateful services in the rest of the text.
+>
+
+Let’s go back to the previous example. With the “quorum safe” version of the constraint, all three given layouts would be valid. This is because even if there would be failure of FD0 in the second layout or UD1 in the third layout, the partition would still have quorum (a majority of its replicas would still be up). With this version of the constraint N6 could almost always be utilized.
+
+The “quorum safe” approach provides more flexibility than the “maximum difference” approach as it is easier to find replica distributions that are valid in almost any cluster topology. However, this approach can’t guarantee the best fault tolerance characteristics because some failures are worse than others. In the worst case scenario, a majority of the replicas could be lost with the failure of one domain and one additional replica. For example, instead of 3 failures being required to lose quorum with 5 replicas or instances, you could now lose a majority with just two failures. 
+
+### *Adaptive approach*
+Because both of the approaches have strengths and weaknesses, we've introduced an adaptive approach that combines these two strategies.
+
+> [!NOTE]
+> This will be the default behavior starting with Service Fabric Version 6.2. 
+> 
+> The adaptive approach uses the “maximum difference” logic by default and switches to the “quorum safe” logic only when necessary. The Cluster Resource Manager automatically figures out which strategy is necessary by looking at how the cluster and services are configured. For a given service: *If the TargetReplicaSetSize is evenly divisible by the number of Fault Domains and the number of Upgrade Domains **and** the number of nodes is less than or equal to the (number of Fault Domains) * (the number of Upgrade Domains), the Cluster Resource Manager should utilize the “quorum based” logic for that service.* Bear in mind that the Cluster Resource Manager will use this approach for both stateless and stateful services, despite quorum loss not being relevant for stateless services.
+
+Let’s go back to the previous example and assume that a cluster now has 8 nodes (the cluster is still configured with five Fault Domains and five Upgrade Domains and the TargetReplicaSetSize of a service hosted on that cluster remains five). 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | | |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | | |N5 |
+
+*Configuration 3*
+
+Because all necessary conditions are satisfied, Cluster Resource Manager will utilize the “quorum based” logic in distributing the service. This enables usage of N6 – N8. One possible service distribution in this case could look like:
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |R1 | | | | |1 |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | | | |0 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |2 |1 |1 |0 |1 |- |
+
+*Layout 4*
+
+If your service’s TargetReplicaSetSize is reduced to four (for example), Cluster Resource Manager will notice that change and resume using the “maximum difference” logic because TargetReplicaSetSize isn’t dividable by the number of FDs and UDs anymore. As a result, certain replica movements will occur in order to distribute remaining four replicas on nodes N1-N5 so that the “maximum difference” version of the Fault Domain and Upgrade domain logic is not violated. 
+
+Looking back to the fourth layout and the TargetReplicaSetSize of five. If N1 is removed from the cluster, the number of Upgrade Domains becomes equal to four. Again, the Cluster Resource Manager starts using “maximum difference” logic as the number of UDs doesn’t evenly divide the service’s TargetReplicaSetSize anymore. As a result, replica R1, when built again, has to land on N4 so that Fault and Upgrade Domain Constraint is not violated.
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N/A |N/A |N/A |N/A |N/A |N/A |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | |R1 | |1 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |1 |1 |1 |1 |1 |- |
+
+*Layout 5*
 
 ## Configuring fault and Upgrade Domains
 Defining Fault Domains and Upgrade Domains is done automatically in Azure hosted Service Fabric deployments. Service Fabric picks up and uses the environment information from Azure.
@@ -253,6 +351,7 @@ Sometimes (in fact, most of the time) you’re going to want to ensure that cert
 To support these sorts of configurations, Service Fabric has a first class notion of tags that can be applied to nodes. These tags are called **node properties**. **Placement constraints** are the statements attached to individual services that select for one or more node properties. Placement constraints define where services should run. The set of constraints is extensible - any key/value pair can work. 
 
 <center>
+
 ![Cluster Layout Different Workloads][Image5]
 </center>
 
@@ -260,6 +359,7 @@ To support these sorts of configurations, Service Fabric has a first class notio
 Service Fabric defines some default node properties that can be used automatically without the user having to define them. The default properties defined at each node are the **NodeType** and the **NodeName**. So for example you could write a placement constraint as `"(NodeType == NodeType03)"`. Generally we have found NodeType to be one of the most commonly used properties. It is useful since it corresponds 1:1 with a type of a machine. Each type of machine corresponds to a type of workload in a traditional n-tier application.
 
 <center>
+
 ![Placement Constraints and Node Properties][Image6]
 </center>
 
@@ -383,6 +483,7 @@ If you turned off all resource *balancing*, Service Fabric’s Cluster Resource 
 During runtime, the Cluster Resource Manager tracks remaining capacity in the cluster and on nodes. In order to track capacity the Cluster Resource Manager subtracts each service's usage from node's capacity where the service runs. With this information, the Service Fabric Cluster Resource Manager can figure out where to place or move replicas so that nodes don’t go over capacity.
 
 <center>
+
 ![Cluster nodes and capacity][Image7]
 </center>
 
@@ -512,7 +613,7 @@ LoadMetricInformation     :
 ```
 
 ## Next steps
-* For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+* For information on the architecture and information flow within the Cluster Resource Manager, check out [this article](service-fabric-cluster-resource-manager-architecture.md)
 * Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)

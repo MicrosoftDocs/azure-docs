@@ -3,18 +3,19 @@ title: 'Compare Azure AD Join and Azure Active Directory Domain Services | Micro
 description: Deciding between Azure AD Join and Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: MikeStephens-MS
+manager: daveba
 editor: curtand
 
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/26/2017
-ms.author: maheshu
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.author: mstephen
 ---
 
 # Choose between Azure Active Directory join and Azure Active Directory Domain Services
@@ -61,14 +62,14 @@ On a domain-joined machine, user authentication happens using NTLM or Kerberos a
 
 ## Next steps
 ### Learn more about Azure AD Domain Services
-* [Overview of Azure AD Domain Services](active-directory-ds-overview.md)
+* [Overview of Azure AD Domain Services](overview.md)
 * [Features](active-directory-ds-features.md)
-* [Deployment scenarios](active-directory-ds-scenarios.md)
-* [Find out if Azure AD Domain Services suits your use-cases](active-directory-ds-comparison.md)
-* [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](active-directory-ds-synchronization.md)
+* [Deployment scenarios](scenarios.md)
+* [Find out if Azure AD Domain Services suits your use-cases](comparison.md)
+* [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](synchronization.md)
 
 ### Learn more about Azure AD Join
 * [Introduction to device management in Azure Active Directory](../active-directory/device-management-introduction.md)
 
 ### Get started with Azure AD Domain Services
-* [Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started.md)
+* [Enable Azure AD Domain Services using the Azure portal](create-instance.md)

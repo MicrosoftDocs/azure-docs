@@ -4,17 +4,18 @@ description: Improve the reliability and performance of your services by develop
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 11/02/2017
-ms.author: vturecek;mikhegn
+ms.author: vturecek
 
 ---
 # Debug your Service Fabric application by using Visual Studio
@@ -25,7 +26,7 @@ ms.author: vturecek;mikhegn
 
 
 ## Debug a local Service Fabric application
-You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2017 or Visual Studio 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
+You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2017 or Visual Studio 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application; Visual Studio's must be run as Administrator to connect the debugger.
 
 1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started.md).
 2. Press **F5** or click **Debug** > **Start Debugging**.
@@ -63,7 +64,7 @@ You can save time and money by deploying and debugging your Azure Service Fabric
 If your Service Fabric applications are running on a Service Fabric cluster in Azure, you are able to remotely debug these, directly from Visual Studio.
 
 > [!NOTE]
-> The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).    
+> The feature requires [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).    
 > 
 > 
 
@@ -107,7 +108,7 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
 You are also able to stream traces directly from a remote cluster node to Visual Studio. This feature allows you to stream ETW trace events, produced on a Service Fabric cluster node.
 
 > [!NOTE]
-> This feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).
+> This feature requires [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).
 > This feature only supports clusters running in Azure.
 > 
 > 

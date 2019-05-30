@@ -1,27 +1,18 @@
 ---
-title: Using Apache Hive as an ETL Tool - Azure HDInsight | Microsoft Docs
+title: Using Apache Hive as an ETL Tool - Azure HDInsight 
 description: Use Apache Hive to extract, transform, and load (ETL) data in Azure HDInsight.
-services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid:
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/14/2017
+author: ashishthaps
 ms.author: ashishth
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 11/14/2017
 
 ---
 # Use Apache Hive as an Extract, Transform, and Load (ETL) tool
 
-You typically need to clean and transform incoming data before loading it into a destination suitable for analytics. Extract, Transform, and Load (ETL) operations are used to prepare data and load it into a data destination.  Hive on HDInsight can read in unstructured data, process the data as needed, and then load the data into a relational data warehouse for decision support systems. In this approach, data is extracted from the source and stored in scalable storage, such as Azure Storage blobs or Azure Data Lake Store. The data is then transformed using a sequence of Hive queries and is finally staged within Hive in preparation for bulk loading into the destination data store.
+You typically need to clean and transform incoming data before loading it into a destination suitable for analytics. Extract, Transform, and Load (ETL) operations are used to prepare data and load it into a data destination.  Apache Hive on HDInsight can read in unstructured data, process the data as needed, and then load the data into a relational data warehouse for decision support systems. In this approach, data is extracted from the source and stored in scalable storage, such as Azure Storage blobs or Azure Data Lake Storage. The data is then transformed using a sequence of Hive queries and is finally staged within Hive in preparation for bulk loading into the destination data store.
 
 ## Use case and model overview
 
@@ -33,7 +24,7 @@ Hadoop is typically used in ETL processes that import either a massive number of
 
 The typical steps to using Hive to perform ETL are as follows:
 
-1. Load data into Azure Data Lake Store or Azure Blob Storage.
+1. Load data into Azure Data Lake Storage or Azure Blob Storage.
 2. Create a Metadata Store database (using Azure SQL Database) for use by Hive in storing your schemas.
 3. Create an HDInsight cluster and connect the data store.
 4. Define the schema to apply at read-time over data in the data store:
@@ -54,7 +45,7 @@ The typical steps to using Hive to perform ETL are as follows:
 
 5. Transform the data and load it into the destination.  There are several ways to use Hive during the transformation and loading:
 
-    * Query and prepare data using Hive and save it as a CSV in Azure Data Lake Store or Azure blob storage.  Then use a tool like SQL Server Integration Services (SSIS) to acquire those CSVs and load the data into a destination relational database such as SQL Server.
+    * Query and prepare data using Hive and save it as a CSV in Azure Data Lake Storage or Azure blob storage.  Then use a tool like SQL Server Integration Services (SSIS) to acquire those CSVs and load the data into a destination relational database such as SQL Server.
     * Query the data directly from Excel or C# using the Hive ODBC driver.
     * Use [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) to read the prepared flat CSV files and load them into the destination relational database.
 
@@ -91,7 +82,9 @@ If the target for the data is not a database, you can generate a file in the app
 
 If you need to execute several operations on the data as part of the ETL process, consider how you manage them. If the operations are controlled by an external program, rather than as a workflow within the solution, you need to decide whether some operations can be executed in parallel, and to detect when each job  completes. Using a workflow mechanism such as Oozie within Hadoop may be easier than trying to orchestrate a sequence of operations using external scripts or custom programs. For more information about Oozie, see [Workflow and job orchestration](https://msdn.microsoft.com/library/dn749829.aspx).
 
-<!-- ## Next steps -->
-<!-- * [ETL at scale](../hdinsight-etl-at-scale.md): Learn more about performing ETL at scale. -->
-<!-- * [Operationalize Data Pipelines with Oozie](hdinsight-operationalize-data-pipeline.md): Learn how to build a data pipeline that uses Hive to summarize CSV flight delay data, stage the prepared data in Azure Storage blobs, and then use Sqoop to load the summarized data into Azure SQL Database. -->
-<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md): Walk through an end-to-end ETL pipeline.  -->
+## Next steps
+
+* [ETL at scale](apache-hadoop-etl-at-scale.md)
+* [Operationalize a data pipeline](../hdinsight-operationalize-data-pipeline.md)
+
+<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

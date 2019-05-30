@@ -1,24 +1,15 @@
 ---
-title: Troubleshoot HDFS by using Azure HDinsight| Microsoft Docs
+title: Troubleshoot HDFS in Azure HDinsight
 description: Get answers to common questions about working with HDFS and Azure HDInsight.
-keywords: Azure HDInsight, HDFS, FAQ, troubleshooting guide, common questions
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-
-ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/2/2017
-ms.author: arijitt
+author: hrasheed-msft
+ms.author: hrasheed
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
-# Troubleshoot HDFS by using Azure HDInsight
+# Troubleshoot Apache Hadoop HDFS by using Azure HDInsight
 
 Learn about the top issues and their resolutions when working with Hadoop Distributed File System (HDFS) payloads in Apache Ambari.
 
@@ -26,7 +17,7 @@ Learn about the top issues and their resolutions when working with Hadoop Distri
 
 ### Issue
 
-Access the local HDFS from the command line and application code instead of by using Azure Blob storage or Azure Data Lake Store from inside the HDInsight cluster.   
+Access the local HDFS from the command line and application code instead of by using Azure Blob storage or Azure Data Lake Storage from inside the HDInsight cluster.   
 
 ### Resolution steps
 
@@ -42,7 +33,7 @@ Access the local HDFS from the command line and application code instead of by u
 
 2. From source code, use the URI `hdfs://mycluster/` literally, as in the following sample application:
 
-    ```csharp
+    ```Java
     import java.io.IOException;
     import java.net.URI;
     import org.apache.commons.io.IOUtils;

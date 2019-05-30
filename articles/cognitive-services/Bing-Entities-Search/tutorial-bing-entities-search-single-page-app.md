@@ -1,15 +1,16 @@
 ---
-title: Bing Entity Search single-page web app | Microsoft Docs
+title: "Tutorial: Bing Entity Search single-page web app"
+titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing Entity Search API in a single-page Web application.
 services: cognitive-services
-author: jerrykindall
-manager: ehansen
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: bing-entity-search
-ms.topic: article
-ms.date: 12/08/2017
-ms.author: v-jerkin
+ms.subservice: bing-entity-search
+ms.topic: tutorial
+ms.date: 02/01/2019
+ms.author: aahi
 ---
 # Tutorial: Single-page web app
 
@@ -17,7 +18,7 @@ The Bing Entity Search API lets you search the Web for information about *entiti
 
 |||
 |-|-|
-|Entities|Well-known people, places, and things that you find by name (Jimi Hendrix, the Space Needle, Microsoft Surface)|
+|Entities|Well-known people, places, and things that you find by name|
 |Places|Restaurants, hotels, and other local businesses that you find by name *or* by type (Italian restaurants)|
 
 In this tutorial, we build a single-page Web application that uses the Bing Entity Search API to display search results right in the page. The application includes HTML, CSS, and JavaScript components.
@@ -26,7 +27,9 @@ The API lets you prioritize results by location. In a mobile app, you can ask th
 
 Our app therefore calls upon the Bing Maps service to obtain latitude and longitude from a user-entered location. The user can then enter the name of a landmark ("Space Needle") or a full or partial address ("New York City"), and the Bing Maps API provides the coordinates.
 
+<!-- Remove until we can replace with a sanitized version.
 ![[Single-page Bing Entity Search app]](media/entity-search-spa-demo.png)
+-->
 
 > [!NOTE]
 > The JSON and HTTP headings at the bottom of the page reveal the JSON response and HTTP request information when clicked. These details are useful when exploring the service.
@@ -88,7 +91,7 @@ CLIENT_ID_COOKIE      = "bing-search-client-id";
 
 // API endpoints
 SEARCH_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/entities";
-MAPS_ENDPOINT   = "http://dev.virtualearth.net/REST/v1/Locations";
+MAPS_ENDPOINT   = "https://dev.virtualearth.net/REST/v1/Locations";
 
 // ... omitted definitions of storeValue() and retrieveValue()
 
@@ -414,7 +417,7 @@ function renderSearchResults(results) {
     if (results.queryContext.alteredQuery) 
         document.forms.bing.query.value = results.queryContext.alteredQuery;
 
-    // for each possible section, render the resuts from that section
+    // for each possible section, render the results from that section
     for (section in {pole: 0, mainline: 0, sidebar: 0}) {
         if (results.rankingResponse[section])
             showDiv(section, renderResultsItems(section, results));

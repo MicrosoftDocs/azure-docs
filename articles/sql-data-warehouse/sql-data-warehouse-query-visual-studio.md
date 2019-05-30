@@ -2,22 +2,16 @@
 title: Connect to Azure SQL Data Warehouse - VSTS | Microsoft Docs
 description: Query SQL Data Warehouse with Visual Studio.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: ''
-
-ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
+author: XiaoyuL-Preview 
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-
+ms.topic: conceptual
+ms.subservice: development
+ms.date: 04/17/2018
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ---
+
 # Connect to SQL Data Warehouse with Visual Studio and SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)

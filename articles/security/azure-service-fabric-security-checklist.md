@@ -5,16 +5,16 @@ description: This article provides a set of checklist for Azure fabric security 
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: barbkess
 editor: tomsh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 01/16/2019
 ms.author: tomsh
 
 ---
@@ -40,11 +40,13 @@ Use the following checklist to help you make sure that you haven’t overlooked 
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>This certificate is presented to the client when it tries to connect to this cluster. You can use two different server certificates, a primary and a secondary for upgrade.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>This is a set of certificates that you want to install on the authenticated clients. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Set the common name of the first client certificate for the CertificateCommonName. The CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate. </li></ul>|
-|ReverseProxyCertificate| <ul><li>This is an optional certificate that can be specified if you want to secure your [Reverse Proxy](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
+|ReverseProxyCertificate| <ul><li>This is an optional certificate that can be specified if you want to secure your [Reverse Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
 |Key Vault| <ul><li>Used to manage certificates for Service Fabric clusters in Azure.  </li></ul>|
 
 
 ## Next steps
+
+- [Service Fabric security best practices](azure-service-fabric-security-best-practices.md)
 - [Service Fabric Cluster upgrade process and expectations from you](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Managing your Service Fabric applications in Visual Studio](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Service Fabric Health model introduction](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction).

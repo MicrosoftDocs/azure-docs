@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 #### To configure and register the cloud appliance
 
 1. Select and click the StorSimple Cloud Appliance you created in the **Devices** blade.

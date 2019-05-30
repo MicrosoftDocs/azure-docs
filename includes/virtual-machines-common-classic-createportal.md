@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 
 
 A *custom* virtual machine simply means a virtual machine that you create using a **Featured app** from the **Marketplace** because it does much of the work for you. Yet, you can still make configuration choices that include the following items:
@@ -17,11 +24,9 @@ A *custom* virtual machine simply means a virtual machine that you create using 
 
 > [!IMPORTANT]
 > If you want your virtual machine to use a virtual network, make sure that you specify the virtual network when you create the virtual machine.
-
+> 
 > * Two benefits of using a virtual network are connecting directly to the virtual machine and to set up cross-premises connections.
-
+> 
 > * A virtual machine can be configured to join a virtual network only when you create the virtual machine. For details on virtual networks, see [Azure Virtual Network overview](../articles/virtual-network/virtual-networks-overview.md).
->
->
 
 ## To create the virtual machine

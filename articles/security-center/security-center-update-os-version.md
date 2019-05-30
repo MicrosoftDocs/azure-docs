@@ -3,18 +3,18 @@ title: Update OS version in Azure Security Center | Microsoft Docs
 description: This article shows you how to implement the Azure Security Center recommendation **Update OS version**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 # Update OS version in Azure Security Center
@@ -39,13 +39,13 @@ This article showed you how to implement the Security Center recommendation "Upd
 
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png

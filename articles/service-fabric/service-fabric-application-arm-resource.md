@@ -4,13 +4,13 @@ description: Learn how to deploy applications and services to a Service Fabric c
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
@@ -65,9 +65,9 @@ The following snippet shows the different kinds of resources that can be managed
 3. Once you have figured out what applications you want to be deployed this way, the applications have to be packaged, zipped, and put on a file share. The share needs to be accessible through a REST endpoint for Azure Resource Manager to consume during deployment.
 4. In your Resource Manager template, below your cluster declaration, describe each application's properties. These properties include replica or instance count and any dependency chains between resources (other applications or services). For a list of comprehensive properties, see the [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec). Note that this does not replace the Application or Service manifests, but rather describes some of what is in them as part of the cluster's Resource Manager template. Here is a sample template that includes deploying a stateless service *Service1* and a stateful service *Service2* as part of *Application1*:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "clusterName": {
@@ -106,7 +106,7 @@ The following snippet shows the different kinds of resources that can be managed
       },
       "serviceName": {
         "type": "string",
-        "defaultValue": "Service1",
+        "defaultValue": "Application1~Service1",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
@@ -120,7 +120,7 @@ The following snippet shows the different kinds of resources that can be managed
       },
       "serviceName2": {
         "type": "string",
-        "defaultValue": "Service2",
+        "defaultValue": "Application1~Service2",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
@@ -247,18 +247,31 @@ The following snippet shows the different kinds of resources that can be managed
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > The *apiVersion* must be set to `"2017-07-01-preview"`. This template can also be deployed independently of the cluster, as long as the cluster has already been deployed.
+   > [!NOTE] 
+   > The *apiVersion* must be set to `"2017-07-01-preview"`. This template can also be deployed independently of the cluster, as long as the cluster has already been deployed.
 
 5. Deploy! 
+
+## Remove Service Fabric Resource Provider Application resource
+The following will trigger the app package to be un-provisioned from the cluster, and this will clean up the disk space used:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+Simply removing Microsoft.ServiceFabric/clusters/application from your ARM template will not unprovision the Application
+
+>[!NOTE]
+> Once the removal is complete you should not see the package version in SFX or ARM anymore. You cannot delete the application type version resource that the application is running with; ARM/SFRP will prevent this. If you try to unprovision the running package, SF runtime will prevent it.
+
 
 ## Manage an existing application via Resource Manager
 
 If your cluster is already up and some applications that you would like to manage as Resource Manager resources are already deployed on it, instead of removing the applications and redeploying them, you can use a PUT call using the same APIs to have the applications get acknowledged as Resource Manager resources. 
 
+> [!NOTE]
+> To allow a cluster upgrade to ignore unhealthy apps the customer can specify “maxPercentUnhealthyApplications: 100” in the “upgradeDescription/healthPolicy” section; detailed descriptions for all settings are in [Service Fabrics REST API Cluster Upgrade Policy documentation](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## Next steps
 

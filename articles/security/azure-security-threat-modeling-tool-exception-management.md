@@ -3,9 +3,9 @@ title: Exception Management - Microsoft Threat Modeling Tool - Azure | Microsoft
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -22,8 +22,8 @@ ms.author: rodsan
 | Product/Service | Article |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF- Do not include serviceDebug node in configuration file](#servicedebug)</li><li>[WCF- Do not include serviceMetadata node in configuration file](#servicemetadata)</li></ul> |
-| **Web API** | <ul><li>[Ensure that proper exception handling is done in ASP.NET Web API ](#exception)</li></ul> |
-| **Web Application** | <ul><li>[Do not expose security details in error messages ](#messages)</li><li>[Implement Default error handling page ](#default)</li><li>[Set Deployment Method to Retail in IIS](#deployment)</li><li>[Exceptions should fail safely](#fail)</li></ul> |
+| **Web API** | <ul><li>[Ensure that proper exception handling is done in ASP.NET Web API](#exception)</li></ul> |
+| **Web Application** | <ul><li>[Do not expose security details in error messages](#messages)</li><li>[Implement Default error handling page](#default)</li><li>[Set Deployment Method to Retail in IIS](#deployment)</li><li>[Exceptions should fail safely](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF- Do not include serviceDebug node in configuration file
 
@@ -33,7 +33,7 @@ ms.author: rodsan
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Steps** | Windows Communication Framework (WCF) services can be configured to expose debugging information. Debug information should not be used in production environments. The `<serviceDebug>` tag defines whether the debug information feature is enabled for a WCF service. If the attribute includeExceptionDetailInFaults is set to true, exception information from the application will be returned to clients. Attackers can leverage the additional information they gain from debugging output to mount attacks targeted on the framework, database, or other resources used by the application. |
 
 ### Example
@@ -57,7 +57,7 @@ Disable debugging information in the service. This can be accomplished by removi
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Generic, NET Framework 3 |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Steps** | Publicly exposing information about a service can provide attackers with valuable insight into how they might exploit the service. The `<serviceMetadata>` tag enables the metadata publishing feature. Service metadata could contain sensitive information that should not be publicly accessible. At a minimum, only allow trusted users to access the metadata and ensure that unnecessary information is not exposed. Better yet, entirely disable the ability to publish metadata. A safe WCF configuration will not contain the `<serviceMetadata>` tag. |
 
 ## <a id="exception"></a>Ensure that proper exception handling is done in ASP.NET Web API
@@ -68,7 +68,7 @@ Disable debugging information in the service. This can be accomplished by removi
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC 5, MVC 6 |
 | **Attributes**              | N/A  |
-| **References**              | [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model Validation in ASP.NET Web API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **References**              | [Exception Handling in ASP.NET Web API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [Model Validation in ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Steps** | By default, most uncaught exceptions in ASP.NET Web API are translated into an HTTP response with status code `500, Internal Server Error`|
 
 ### Example
@@ -176,7 +176,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Check the links in the references section for additional details about exceptional handling and model validation in ASP.Net Web API 
+Check the links in the references section for additional details about exceptional handling and model validation in ASP.NET Web API 
 
 ## <a id="messages"></a>Do not expose security details in error messages
 
@@ -198,7 +198,7 @@ Check the links in the references section for additional details about exception
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Edit ASP.NET Error Pages Settings Dialog Box](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Steps** | <p>When an ASP.NET application fails and causes an HTTP/1.x 500 Internal Server Error, or a feature configuration (such as Request Filtering) prevents a page from being displayed, an error message will be generated. Administrators can choose whether or not the application should display a friendly message to the client, detailed error message to the client, or detailed error message to localhost only. The <customErrors> tag in the web.config has three modes:</p><ul><li>**On:** Specifies that custom errors are enabled. If no defaultRedirect attribute is specified, users see a generic error. The custom errors are shown to the remote clients and to the local host</li><li>**Off:** Specifies that custom errors are disabled. The detailed ASP.NET errors are shown to the remote clients and to the local host</li><li>**RemoteOnly:** Specifies that custom errors are shown only to the remote clients, and that ASP.NET errors are shown to the local host. This is the default value</li></ul><p>Open the `web.config` file for the application/site and ensure that the tag has either `<customErrors mode="RemoteOnly" />` or `<customErrors mode="On" />` defined.</p>|
+| **Steps** | <p>When an ASP.NET application fails and causes an HTTP/1.x 500 Internal Server Error, or a feature configuration (such as Request Filtering) prevents a page from being displayed, an error message will be generated. Administrators can choose whether or not the application should display a friendly message to the client, detailed error message to the client, or detailed error message to localhost only. The `<customErrors>` tag in the web.config has three modes:</p><ul><li>**On:** Specifies that custom errors are enabled. If no defaultRedirect attribute is specified, users see a generic error. The custom errors are shown to the remote clients and to the local host</li><li>**Off:** Specifies that custom errors are disabled. The detailed ASP.NET errors are shown to the remote clients and to the local host</li><li>**RemoteOnly:** Specifies that custom errors are shown only to the remote clients, and that ASP.NET errors are shown to the local host. This is the default value</li></ul><p>Open the `web.config` file for the application/site and ensure that the tag has either `<customErrors mode="RemoteOnly" />` or `<customErrors mode="On" />` defined.</p>|
 
 ## <a id="deployment"></a>Set Deployment Method to Retail in IIS
 

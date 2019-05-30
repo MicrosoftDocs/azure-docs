@@ -1,0 +1,56 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: ExpressRoute Documentation
+metadata:
+  document_id: 
+  title: ExpressRoute
+  meta.description: Learn how to use ExpressRoute. Tutorials, REST APIs and other documentation show you how to configure and manage an ExpressRoute circuit.
+  author: cherylmc
+  manager: jeconnoc
+  ms.service: ExpressRoute
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/18/2018
+  ms.author: cherylmc
+abstract:
+  description:  Learn how to use ExpressRoute to set up a fast, private connection to Microsoft cloud services from your on-premises infrastructure or colocation facility. Tutorials, REST APIs, and other documentation help you configure and manage an ExpressRoute circuit.
+sections:
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to configure and manage an ExpressRoute circuit.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">Create and modify an ExpressRoute circuit</a>
+    - html: <a href="/azure/expressroute/expressroute-howto-routing-portal-resource-manager">Create and modify peering configuration</a>
+    - html: <a href="/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager">Link a virtual network to an ExpressRoute circuit</a>
+    - html: <a href="/azure/expressroute/how-to-routefilter-portal">Configure route filters for Microsoft peering</a>
+  
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Administrator
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+    - title: Azure Solution Architect
+      href: https://go.microsoft.com/fwlink/?linkid=2012824
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://go.microsoft.com/fwlink/?linkid=2012824
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Classic REST API Reference</a></p>

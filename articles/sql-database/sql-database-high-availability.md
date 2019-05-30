@@ -1,82 +1,78 @@
 ---
 title: High availability - Azure SQL Database service | Microsoft Docs
 description: Learn about the Azure SQL Database service high availability capabilities and features
-keywords: 
 services: sql-database
-documentationcenter: ''
-author: anosov1960
-manager: jhubbard
-ms.assetid: 
 ms.service: sql-database
+ms.subservice: high-availability
 ms.custom: 
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Inactive"
-ms.date: 12/13/2017
+ms.devlang: 
+ms.topic: conceptual
+author: jovanpop-msft
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: carlrab, sashan
+manager: craigg
+ms.date: 04/17/2019
 ---
 # High-availability and Azure SQL Database
-Since the inception of the Azure SQL Database PaaS offering, Microsoft has made the promise to our customers that High Availability (HA) is built in to the service and the customers are not be required to operate, add special logic to, or make decisions around HA. Microsoft offers customers an SLA and maintain full control over the HA system configuration and operation. The HA SLA applies to a SQL database in a region and does not provide protection in cases of a total region failure that are due to factors outside our reasonable control (for example, natural disaster, war, acts of terrorism, riots, government action, or a network or device failure external to our data centers, including at customer site or between customer site and our data center).
 
-To simplify the problem space of HA, Microsoft uses the following assumptions:
-1.	Hardware and software failures are inevitable
-2.	Operational staff make mistakes that lead to failures
-3.	Planned servicing operations cause outages 
+The goal of the High Availability architecture in Azure SQL Database is to guarantee that your database is up and running 99.99% of time, without worrying about the impact of maintenance operations and outages. Azure automatically handles critical servicing tasks, such as patching, backups,  Windows and SQL upgrades, as well as unplanned events such as underlying hardware, software or network failures.  When the underlying SQL instance is patched or fails over, the downtime is not noticeable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app. Azure SQL Database can quickly recover even in the most critical circumstances ensuring that your data is always available.
 
-While such individual events are infrequent, at cloud scale, they every week if not every day. 
+The high availability solution is designed to ensure that committed data is never lost due to failures, that maintenance operations do not affect your workload, and that the database will not be a single point of failure in your software architecture. There are no maintenance windows or downtimes that should require you to stop the workload while the database is upgraded or maintained. 
 
-## Fault-tolerant SQL databases
-Customers are most interested in the resiliency of their own databases and are less interested in the resiliency of the SQL Database service as a whole. 99.99% uptime for a service is meaningless if “my database” is part of the 0.01% of databases that are down. Each and every database needs to be fault-tolerant and fault mitigation should never result in the loss of a committed transaction. 
+There are two high-availability architectural models that are used in Azure SQL Database:
 
-For data, SQL Database uses both local storage (LS) based on direct attached disks/VHDs and remote storage (RS) based on Azure Premium Storage page blobs. 
-- Local storage is used in the Premium databases and pools, which are designed for OLTP applications with high IOPS requirements. 
-- Remote storage is used for Basic and Standard service tiers, designed for small, cold, or large databases that require storage and compute power to scale independently. They use a single page blob for database and log files, and built-in storage replication and failover mechanisms.
+- Standard availability model that is based on a separation of compute and storage.  It relies on high availability and reliability of the remote storage tier. This architecture targets budget-oriented business applications that can tolerate some performance degradation during maintenance activities.
+- Premium availability model that is based on a cluster of database engine processes. It relies on the fact that there is always a quorum of available database engine nodes. This architecture targets mission critical applications with high IO performance, high transaction rate and guarantees minimal performance impact to your workload during maintenance activities.
 
-In both cases, the replication, failure detection, and failover mechanisms of SQL Database are fully automated and operate without human intervention. This architecture is designed to ensure that committed data is never lost and that data durability takes precedence over all else.
+Azure SQL Database runs on the latest stable version of SQL Server Database Engine and Windows OS, and most users would not notice that upgrades are performed continuously.
 
-Key benefits:
-- Customers get the full benefit of replicated databases without having to configure or maintain complicated hardware, software, operating system, or virtualization environments.
-- Full ACID properties of relational databases are maintained by the system.
-- Failovers are fully automated without loss of any committed data.
-- Routing of connections to the primary replica is dynamically managed by the service with no application logic required.
-- The high level of automated redundancy is provided at no extra charge.
+## Basic, Standard, and General Purpose service tier availability
 
-> [!NOTE]
-> The described high availability architecture is subject to change without notice. 
+These service tiers leverage the standard availability architecture. The following figure shows four different nodes with the separated compute and storage layers.
 
-## Data redundancy
+![Separation of compute and storage](media/sql-database-high-availability/general-purpose-service-tier.png)
 
-The high availability solution in SQL Database is based on [AlwaysON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, AlwaysON is used for persistence while in RS is it used for availability (low RTO). 
+The standard availability model includes two layers:
 
-## Local storage
+- A stateless compute layer that runs the `sqlserver.exe` process and contains only transient and cached data on the attached SSD, such as TempDB, model database, plan cache, buffer pool and column store pool. This stateless node is operated by Azure Service Fabric that initializes `sqlserver.exe`, controls health of the node, and performs failover to another node if necessary.
+- A stateful data layer with the database files (.mdf/.ldf) that are stored in Azure Blob storage. Azure blob storage has built-in data availability and redundancy feature. It guarantees that every record in the log file or page in the data file will be preserved even if SQL Server process crashes.
 
-In the LS case, each database is brought online by the management service (MS) within the control ring. One primary replica and at least two secondary replicas (quorum-set) are located within a tenant ring that spans three independent physical subsystems within the same datacenter. All reads and writes are sent by the gateway (GW) to the primary replica and the writes are asynchronously replicated to the secondary replicas. SQL Database uses a quorum-based commit scheme where data is written to the primary and at least one secondary replica before the transaction commits.
+Whenever the database engine or the operating system is upgraded, or a failure is detected, Azure Service Fabric will move the stateless SQL Server process to another stateless compute node with sufficient free capacity. Data in Azure Blob storage is not affected by the move, and the data/log files are attached to the newly initialized SQL Server process. This process guarantees 99.99% availability, but a heavy workload may experience some performance degradation during the transition since the new SQL Server instance starts with cold cache.
 
-The [Service Fabric](/azure/service-fabric/service-fabric-overview.md) failover system automatically rebuilds replicas as nodes fail and maintains quorum-set membership as nodes depart and join the system. Planned maintenance is carefully coordinated to prevent the quorum-set going down below a minimum replica count (generally 2). This model works well for Premium databases, but it requires redundancy of both compute and storage components, and results in a higher cost.
+## Premium and Business Critical service tier availability
 
-## Remote storage
+Premium and Business Critical service tiers leverage the Premium availability model, which integrates compute resources (SQL Server Database Engine process) and storage (locally attached SSD) on a single node. High availability is achieved by replicating both compute and storage to additional nodes creating a three to four-node cluster. 
 
-For remote storage configurations (Basic and Standard tiers), exactly one copy of the database is maintained in remote blob storage, leveraging the storage systems capabilities for durability, redundancy, and bit-rot detection. 
+![Cluster of database engine nodes](media/sql-database-high-availability/business-critical-service-tier.png)
 
-The high availability architecture is illustrated by following diagram:
- 
-![high availability architecture](./media/sql-database-high-availability/high-availability-architecture.png)
+The underlying database files (.mdf/.ldf) are placed on the attached SSD storage to provide very low latency IO to your workload. High availability is implemented using a technology similar to SQL Server [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). The cluster includes a single primary replica (SQL Server process) that is accessible for read-write customer workloads, and up to three secondary replicas (compute and storage) containing copies of data. The primary node constantly pushes changes to the secondary nodes in order and ensures that the data is synchronized to at least one secondary replica before committing each transaction. This process guarantees that if the primary node crashes for any reason, there is always a fully synchronized node to fail over to. The failover is initiated by the Azure Service Fabric. Once the secondary replica becomes the new primary node, another secondary replica is created to ensure the cluster has enough nodes (quorum set). Once failover is complete, SQL connections are automatically redirected to the new primary node.
 
-## Failure Detection & Recovery 
-A large-scale distributed system needs a highly reliable failure detection system that can detect failures reliably, quickly, and as close as possible to the customer. For SQL Database, this system is based on Azure Service Fabric. 
+As an extra benefit, the premium availability model includes the ability to redirect read-only SQL connections to one of the secondary replicas. This feature is called [Read Scale-Out](sql-database-read-scale-out.md). It provides 100% additional compute capacity at no extra charge to off-load read-only operations, such as analytical workloads, from the primary replica.
 
-With the primary replica, it is immediately evident if and when the primary replica has failed and work cannot continue because all reads and writes take place on the primary replica first. This process of promoting a secondary replica to the status of primary has recovery time objective (RTO)=30 sec and recovery point objective (RPO)=0. To mitigate the impact of the 30 sec RTO, the best practice is to try to reconnect several times with a smaller wait time for connection failure attempts.
+## Zone redundant configuration
 
-When a secondary replica fails, the database is down to a minimal quorum-set, with no spares. Service fabric initiates the reconfiguration process similar to the process that follows failure of the primary replica, so after a short wait to determine whether the failure is permanent, another secondary replica is created. In cases of temporary out-of-service state, such as an operating system failure or an upgrade, a new replica is not built immediately to allow the failed node to restart instead. 
+By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of [Azure Availability Zones](../availability-zones/az-overview.md), SQL Database can place different replicas in the cluster to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. By selecting a zone redundant configuration, you can make your Premium or Business Critical databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes to the application logic. You can also convert any existing Premium or Business Critical databases or pools to the zone redundant configuration.
 
-For the remote storage configurations, SQL Database uses AlwaysON functionality to failover databases during the upgrades. To do that, a new SQL instance is spun off in advance as part of the planned upgrade event, and it attaches and recovers the database file from remote storage. In case of process crashes or other unplanned events, Windows Fabric manages the instance availability and, as a last step of recovery, attaches the remote database file.
+Because the zone redundant databases have replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is an online operation similar to the regular service tier upgrade. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
+
+> [!IMPORTANT]
+> Zone redundant databases and elastic pools are currently only supported in the Premium and Business Critical service tiers. By default, backups and audit records are stored in RA-GRS storage and therefore may not be automatically available in case of a zone-wide outage. 
+
+The zone redundant version of the high availability architecture is illustrated by the following diagram:
+
+![high availability architecture zone redundant](./media/sql-database-high-availability/zone-redundant-business-critical-service-tier.png)
+
+## Accelerated Database Recovery (ADR)
+
+[Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions. ADR is currently available for single databases, elastic pools, and Azure SQL Data Warehouse.
 
 ## Conclusion
-Azure SQL DB is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery and on Azure Storage Blobs for data protection. At the same time, Azure SQL database uses the AlwaysOn technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 
+
+Azure SQL Database features a built-in high availability solution, that is deeply integrated with the Azure platform. It is dependent on Service Fabric for failure detection and recovery, on Azure Blob storage for data protection, and on Availability Zones for higher fault tolerance. In addition, Azure SQL database leverages the Always On Availability Group technology from SQL Server for replication and failover. The combination of these technologies enables applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs.
 
 ## Next steps
 
-- Learn about [Service Fabric](/azure/service-fabric/service-fabric-overview.md)
-- Learn about [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) 
+- Learn about [Azure Availability Zones](../availability-zones/az-overview.md)
+- Learn about [Service Fabric](../service-fabric/service-fabric-overview.md)
+- Learn about [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
+- For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md)

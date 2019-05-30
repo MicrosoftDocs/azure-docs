@@ -1,19 +1,23 @@
 ---
-title: FAQs for the Computer Vision API | Microsoft Docs
-description: Get answers to frequently asked questions about the Computer Vision API in Microsoft Cognitive Services.
+title: Frequently asked questions - Computer Vision
+titlesuffix: Azure Cognitive Services
+description: Get answers to frequently asked questions about the Computer Vision API in Azure Cognitive Services.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: KellyDF
+manager: nitinme
 
-ms.service: cognitive-services 
-ms.technology: computer-vision
-ms.topic: article
-ms.date: 01/26/2017
-ms.author: juliakuz
+ms.service: cognitive-services
+ms.subservice: computer-vision
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: kefre
+ms.custom: seodec18
 ---
 
 # Computer Vision API Frequently Asked Questions
-### If you can't find answers to your questions in this FAQ, try asking the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact [Help and Support on UserVoice](https://cognitive.uservoice.com/)
+
+> [!TIP]
+> If you can't find answers to your questions in this FAQ, try asking the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact [Help and Support on UserVoice](https://cognitive.uservoice.com/)
 
 -----
 
@@ -29,29 +33,9 @@ ms.author: juliakuz
 
 -----
 
-**Question**: *Which languages are supported with Computer Vision?*
-
-**Answer**:
-Supported languages include:
-
-| | | Supported Languages | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Danish (da-DK)  | Dutch (nl-NL)     | English           | Finnish (fi-FI)            |French (fr-FR)
-| German (de-DE)  | Greek (el-GR)     | Hungarian (hu-HU) | Italian (it-IT)            | Japanese (ja-JP)
-| Korean (ko-KR)  | Norwegian (nb-NO) | Polish (pl-PL)    | Portuguese (pt-BR) (pt-PT) | Russian (ru-RU)
-| Spanish (es-ES)	| Swedish (sv-SV)	  | Turkish (tr-TU)   |                            |
-
------
-
 **Question**: *Can Computer Vision be used to read license plates?*
 
 **Answer**: The Vision API offers good text-detection with OCR, but it is not currently optimized for license plates. We are constantly trying to improve our services and have added OCR for auto license plate recognition to our list of feature requests.
-
------
-
-**Question:** *Which languages are supported for handwriting recognition?*
-
-**Answer**: Currently, only English is supported.
 
 -----
 

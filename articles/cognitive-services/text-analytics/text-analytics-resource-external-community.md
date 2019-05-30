@@ -1,26 +1,26 @@
 ---
-title: External & community content for Text Analytics API (Microsoft Cognitive Services on Azure) | Microsoft Docs
+title: External & community content for Text Analytics API
+titleSuffix: Azure Cognitive Services
 description: Partner blogs, youtube videos, training for Microsoft Cognitive Services Text Analytics API on Azure.
 services: cognitive-services
-author: HeidiSteen
-manager: jhubbard
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 09/27/2017
-ms.author: heidist
+ms.subservice: text-analytics
+ms.topic: conceptual
+ms.date: 02/13/2019
+ms.author: aahi
 ---
+# External & community content for the Text Analytics Cognitive Service
 
-# External & community content for Text Analytics API (Microsoft Cognitive Services on Azure) 
- 
  Links in this article lead you to helpful web content developed and produced by partners and professionals with experience in using the Text Analytics API.
 
- ## Blogs
+## Blogs
 
 + [Text Analytics API original announcement (Azure blog)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
 
-+ [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (MSDN blog)](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/)
++ [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (AutomationNext blog)](https://automationnext.wordpress.com/tag/text-analytics/)
 
 + [R Quick tip: Microsoft Cognitive Services’ Text Analytics API (R Bloggers)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
@@ -38,12 +38,11 @@ ms.author: heidist
 
 + [Text analytics extract key phrases using Power BI and Microsoft Cognitive Services](https://www.youtube.com/watch?v=R_-1TB2BF14)
 
-
 ## Next steps
 
-Are you looking for information about a feature or use-case that we don't cover? Consider requesting or voting for it on [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+Are you looking for information about a feature or use-case that we don't cover? Consider requesting or voting for it on [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
 ## See also
 
  [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Azure Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

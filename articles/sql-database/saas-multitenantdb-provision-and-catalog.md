@@ -1,23 +1,17 @@
 ---
 title: Provision in SaaS multi-tenant Azure | Microsoft Docs
 description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
-keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
-author: MightyPen
-manager: craigg
-editor: MightyPen
-
-ms.reviewer: billgib;andrela;genemi
-ms.assetid:
 ms.service: sql-database
-ms.custom: saas apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/19/2017
-ms.author: billgib
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib,andrela,stein
+manager: craigg
+ms.date: 09/24/2018
 ---
 # Provision and catalog new tenants in a SaaS application using a sharded multi-tenant Azure SQL database
 
@@ -28,7 +22,7 @@ This article has two major parts:
 - [Conceptual discussion](#goto_2_conceptual) of the provisioning and cataloging of new tenants.
 
 - [Tutorial](#goto_1_tutorial) that highlights the PowerShell script code that accomplishes the provisioning and cataloging.
-    - The tutorial uses the Wingtip Tickets SaaS application, adapted to the multi-tenant sharded database pattern.
+  - The tutorial uses the Wingtip Tickets SaaS application, adapted to the multi-tenant sharded database pattern.
 
 <a name="goto_2_conceptual"/>
 
@@ -237,7 +231,7 @@ The full list of tenants and the corresponding database for each is available in
 - The tenant name is stored in the Tenants table.
 - The database name is stored in the Shard Management tables.
 
-1. In SQL Server Management Studio (SSMS), connect to the tenants server at **catalog-mt.\<USER\>.database.windows.net**, with Login = **developer**, and Password = **P@ssword1**
+1. In SQL Server Management Studio (SSMS), connect to the tenants server at **catalog-mt.\<USER\>.database.windows.net**, with Login = **developer**, and Password = **P\@ssword1**
 
     ![SSMS connection dialog](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

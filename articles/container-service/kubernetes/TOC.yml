@@ -23,7 +23,7 @@
     href: container-service-tutorial-kubernetes-scale.md
   - name: 6 - Update application
     href: container-service-tutorial-kubernetes-app-update.md
-  - name: 7 - Monitor with OMS
+  - name: 7 - Monitor with Log Analytics
     href: container-service-tutorial-kubernetes-monitor.md
 - name: Concepts
   items:
@@ -37,8 +37,6 @@
     href: container-service-kubernetes-ui.md
   - name: Use Helm charts
     href: container-service-kubernetes-helm.md
-  - name: Use Jenkins with ACS
-    href: container-service-kubernetes-jenkins.md
   - name: Persist data with Azure Files
     href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
   - name: Use Draft with ACS
@@ -47,7 +45,7 @@
     href: container-service-scale.md
   - name: Monitor
     items:
-    - name: Monitor with OMS
+    - name: Monitor with Log Analytics
       href: container-service-kubernetes-oms.md
     - name: Monitor with Datadog
       href: container-service-kubernetes-datadog.md
@@ -55,20 +53,20 @@
       href: container-service-kubernetes-sysdig.md
     - name: Monitor with CoScale
       href: container-service-kubernetes-coscale.md
-  - name: Deploy Spring Boot apps		
-    items:		
-    - name: Deploy a Spring Boot Application on Linux in the Azure Container Service		
-      href: container-service-deploy-spring-boot-app-on-linux.md		
-    - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service		
-      href: container-service-deploy-spring-boot-app-on-kubernetes.md		
-    - name: Deploy a Spring Boot app using the fabric8 Maven plugin		
+  - name: Deploy Spring Boot apps
+    items:
+    - name: Deploy a Spring Boot Application on Linux in the Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-linux.md
+    - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-kubernetes.md
+    - name: Deploy a Spring Boot app using the fabric8 Maven plugin
       href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/acs
   - name: PowerShell
-    href: /powershell/module/azurerm.compute
+    href: /powershell/module/az.compute
   - name: REST
     href: /rest/api/container-service
 - name: Resources
@@ -84,6 +82,6 @@
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest

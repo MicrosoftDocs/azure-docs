@@ -1,143 +1,109 @@
 ---
-title: C# Quickstart for Azure Cognitive Services, Bing Entity Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Send a search request to the Bing Entity Search REST API using C#"
+titlesuffix: Azure Cognitive Services
+description: Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: entity-search
-ms.topic: article
-ms.date: 11/28/2017
-ms.author: v-jaswel
-
+ms.subservice: bing-entity-search
+ms.topic: quickstart
+ms.date: 03/12/2019
+ms.author: aahi
 ---
-# Quickstart for Microsoft Bing Entity Search API with C# 
-<a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with C#.
+# Quickstart: Send a search request to the Bing Entity Search REST API using C#
+
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple C# application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
+
+While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+
 
 ## Prerequisites
 
-You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
+- Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Entity Search API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+- The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. To install the NuGet package in Visual Studio:
 
-## Search entities
+   1. Right click your project in **Solution Explorer**.
+   2. Select **Manage NuGet Packages**.
+   3. Search for *Newtonsoft.Json* and install the package.
 
-To run this application, follow these steps.
+- If you're using Linux/MacOS, this application can be run by  using [Mono](https://www.mono-project.com/).
 
-1. Create a new C# project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
 
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-namespace EntitySearchSample
-{
-    class Program
+## Create and initialize a project
+
+1. create a new C# console solution in Visual Studio. Then add the following namespaces into the main code file.
+    
+    ```csharp
+    using Newtonsoft.Json;
+    using System;
+    using System.Net.Http;
+    using System.Text;
+    ```
+
+2. Create a new class, and add variables for the API endpoint, your subscription key, and query you want to search.
+
+    ```csharp
+    namespace EntitySearchSample
     {
-        static string host = "https://api.cognitive.microsoft.com";
-        static string path = "/bing/v7.0/entities";
-
-        static string market = "en-US";
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string query = "italian restaurant near me";
-
-        async static void Search()
+        class Program
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-            string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
-
-            HttpResponseMessage response = await client.GetAsync(uri);
-
-            string contentString = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(JsonPrettyPrint(contentString));
+            static string host = "https://api.cognitive.microsoft.com";
+            static string path = "/bing/v7.0/entities";
+    
+            static string market = "en-US";
+    
+            // NOTE: Replace this example key with a valid subscription key.
+            static string key = "ENTER YOUR KEY HERE";
+    
+            static string query = "italian restaurant near me";
+        //...
         }
-
-        static void Main(string[] args)
-        {
-            Search();
-            Console.ReadLine();
-        }
-
-
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\'':
-                        if (quote) ignore = !ignore;
-                        break;
-                }
-
-                if (quote)
-                    sb.Append(ch);
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-            }
-
-            return sb.ToString().Trim();
-        }
-
     }
-}
-```
+    ```
 
-**Response**
+## Send a request and get the API response
+
+1. Within the class, create a function called `Search()`. Create a new `HttpClient` object, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+
+   1. Construct the URI for your request by combining the host and path. Then add your market, and URL-encode your query.
+   2. Await `client.GetAsync()` to get a HTTP response, and then store the json response by awaiting `ReadAsStringAsync()`.
+   3. Format the JSON string with `JsonConvert.DeserializeObject()` and print it to the console.
+
+      ```csharp
+      async static void Search()
+      {
+       //...
+       HttpClient client = new HttpClient();
+       client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+
+       string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
+
+       HttpResponseMessage response = await client.GetAsync(uri);
+
+       string contentString = await response.Content.ReadAsStringAsync();
+       dynamic parsedJson = JsonConvert.DeserializeObject(contentString);
+       Console.WriteLine(parsedJson);
+      }
+      ```
+
+2. In the main method of your application, call the `Search()` function.
+    
+    ```csharp
+    static void Main(string[] args)
+    {
+        Search();
+        Console.ReadLine();
+    }
+    ```
+
+
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -152,9 +118,9 @@ A successful response is returned in JSON, as shown in the following example:
     "value": [
       {
         "_type": "LocalBusiness",
-        "webSearchUrl": "https://www.bing.com/search?q=Park+Place&filters=local_ypid:%22YN873x5786319842120194005%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Park Place",
-        "url": "https://www.restaurantparkplace.com/",
+        "webSearchUrl": "https://www.bing.com/search?q=sinful+bakery&filters=local...",
+        "name": "Liberty's Delightful Sinful Bakery & Cafe",
+        "url": "https://www.contoso.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -169,54 +135,15 @@ A successful response is returned in JSON, as shown in the following example:
           "addressCountry": "US",
           "neighborhood": "Madison Park"
         },
-        "telephone": "(206) 453-5867"
+        "telephone": "(800) 555-1212"
       },
-      {
-        "_type": "LocalBusiness",
-        "webSearchUrl": "https://www.bing.com/search?q=Pasta+and+Company&filters=local_ypid:%22YN873x2257558900374394159%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Pasta and Company",
-        "url": "http://www.pastaco.com/",
-        "entityPresentationInfo": {
-          "entityScenario": "ListItem",
-          "entityTypeHints": [
-            "Place",
-            "LocalBusiness"
-          ]
-        },
-        "address": {
-          "addressLocality": "Seattle",
-          "addressRegion": "WA",
-          "postalCode": "98121",
-          "addressCountry": "US",
-          "neighborhood": ""
-        },
-        "telephone": "(206) 322-1644"
-      },
-      {
-        "_type": "LocalBusiness",
-        "webSearchUrl": "https://www.bing.com/search?q=Calozzi%27s+Cheesesteaks-Italian&filters=local_ypid:%22YN925x222744375%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Calozzi's Cheesesteaks-Italian",
-        "entityPresentationInfo": {
-          "entityScenario": "ListItem",
-          "entityTypeHints": [
-            "Place",
-            "LocalBusiness"
-          ]
-        },
-        "address": {
-          "addressLocality": "Bellevue",
-          "addressRegion": "WA",
-          "postalCode": "98008",
-          "addressCountry": "US",
-          "neighborhood": "Crossroads"
-        },
-        "telephone": "(425) 221-5116"
-      },
+
+      . . .
       {
         "_type": "Restaurant",
-        "webSearchUrl": "https://www.bing.com/search?q=Princi&filters=local_ypid:%22YN873x3764731790710239496%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Princi",
-        "url": "http://www.princi.com/",
+        "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
+        "name": "Munson's Pickles and Preserves Farm",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -232,42 +159,19 @@ A successful response is returned in JSON, as shown in the following example:
           "addressCountry": "US",
           "neighborhood": "Capitol Hill"
         },
-        "telephone": "(206) 624-0173"
+        "telephone": "(800) 555-1212"
       },
-      {
-        "_type": "Restaurant",
-        "webSearchUrl": "https://www.bing.com/search?q=Swedish+Ballard+Cafeteria&filters=local_ypid:%22YN873x9787543113095303180%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
-        "name": "Swedish Ballard Cafeteria",
-        "url": "http://www.swedish.com/",
-        "entityPresentationInfo": {
-          "entityScenario": "ListItem",
-          "entityTypeHints": [
-            "Place",
-            "LocalBusiness",
-            "Restaurant"
-          ]
-        },
-        "address": {
-          "addressLocality": "Seattle",
-          "addressRegion": "WA",
-          "postalCode": "98107",
-          "addressCountry": "US",
-          "neighborhood": "Ballard"
-        }
-      }
+      
+      . . .
     ]
   }
 }
 ```
 
-[Back to top](#HOLTop)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-## See also 
-
-[Bing Entity Search overview](../search-the-web.md )
-[API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [What is the Bing Entity Search API?](../overview.md )
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

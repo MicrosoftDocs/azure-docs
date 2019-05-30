@@ -1,22 +1,37 @@
-The steps to unregister a process server differs depending on its connection status with the Configuration Server.
+---
+author: Rajeswari-Mamilla
+ms.service: site-recovery
+ms.topic: include
+ms.date: 04/28/2019
+ms.author: ramamill
+---
 
-### Unregister a process server that is in a connected state
+Follow the steps for your specific circumstances.
 
-1. Remote into the process server as an Administrator.
-2. Launch the **Control Panel** and open **Programs > Uninstall a program**
-3. Uninstall a program by the name **Microsoft Azure Site Recovery Configuration/Process Server**
-4. Once step 3 is completed, you can uninstall **Microsoft Azure Site Recovery Configuration/Process Server Dependencies**
+### Unregister a connected process server
 
-### Unregister a process server that is in a disconnected state
+1. Establish a remote connection to the process server as an Administrator.
+2. In the **Control Panel**, open **Programs > Uninstall a program**.
+3. Uninstall the program **Microsoft Azure Site Recovery Mobility Service/Master Target Server**.
+4. Uninstall the program **Microsoft Azure Site Recovery Configuration/Process Server**.
+5. After the programs in steps 3 and 4 are uninstalled, uninstall **Microsoft Azure Site Recovery Configuration/Process Server Dependencies**.
 
-> [!WARNING]
-> Use the below steps should be used if there is no way to revive the virtual machine on which the Process Server was installed.
+### Unregister a disconnected process server
 
-1. Log on to your configuration server as an Administrator.
-2. Open an Administrative command prompt and browse to the directory `%ProgramData%\ASR\home\svsystems\bin`.
-3. Now run the command.
+Only use these steps if there's no way to revive the machine on which the process server is installed.
+
+1. Sign in the configuration server as an Administrator.
+2. Open an Administrative command prompt, and browse to `%ProgramData%\ASR\home\svsystems\bin`.
+3. Run this command to get a list of one or more process servers.
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. This will purge the details of the process server from the system.
+    - S. No: the process server serial number.
+    - IP/Name: The IP address and name of the machine running the process server.
+    - Heartbeat: Last heartbeat from the process server machine.
+    ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
+
+4. Specify the serial number of the process server you want to unregister.
+5. Unregistering a process server remove all of its details from the system, and displays the message: **Successfully unregistered server-name> (server-IP-address)**
+

@@ -1,20 +1,12 @@
 ---
 title: Azure Resource Health FAQ | Microsoft Docs
 description: Overview of Azure Resource Health
-services: Resource health
-documentationcenter: dev-center-name
-author: BernardoAMunoz
-manager: ''
-editor: ''
-
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.date: 01/29/2019
 ms.workload: Supportability
-ms.date: 07/05/2017
-ms.author: BernardoAMunoz
 
 ---
 
@@ -54,12 +46,12 @@ Yes, when a resource is unavailable, Resource Health identifies the root cause w
 In the portal, user initiated actions are shown using a blue notification icon, while planned and unplanned events are shown using a red warning icon. More details are provided in the [Resource Health overview](Resource-health-overview.md).  
 
 ## Can I integrate Resource Health with my monitoring tools?
-Resource health is a service designed to help you diagnose and mitigate Azure service issues that impact your resources. While you can use the Resource Health API to programmatically obtain the health status, we recommend you use metrics to monitor your resources. Once an issue is detected, Resource Health helps you determine the root cause and guides you through actions to address them. Visit [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) to learn more about how you can use metrics to check your resources.
+Resource health has [preview support](resource-health-alert-arm-template-guide.md) for Activity Log based alerts. Activity Log alerts use [action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) to notify users that an alert has been triggered. Action groups support a variety of notification channels such as email, SMS, webhook, and ITSM actions.
 
 ## Where do I find Resource Health?
 After you log in to the Azure portal, there are multiple ways you can access Resource Health:
 - Navigate to your resource. In the left-hand navigation, select **Resource health**
-- Go to the Azure Monitor blade.  In the left-hand navigation, select **Resource health**.
+- Go to the Azure Service Health blade.  In the left-hand navigation, select **Resource health**.
 - Open the **Help + Support** blade by selecting the question mark in the upper right corner of the portal and then selecting **Help + Support**. Once the blade opens, select **Resource health**
 
 You can also use the Resource Health API to obtain information about the health of your resources.
@@ -71,20 +63,14 @@ The list of health checks and resource types supported through Resource Health c
 When checking the health of a resource, right under the health status you can click **Report incorrect health status**. Before submitting the report, you have the option of providing additional details on why you believe the current health status is incorrect.
 
 ## Is Resource Health available for all Azure regions? 
-Resource health is available in across all Azure geos except the following regions:
-- US Gov Virginia
-- US Gov Iowa
-- US DoD East
-- US DoD Central
-- Germany Central
-- Germany Northeast
+Resource health is available in all Azure geos.
 
-## How is Resource Health different from the Service Health Dashboard or the Azure portal service notifications?
-The information provided by Resource Health is more specific than what is provided by the Azure Service Health Dashboard.
+## How is Resource Health different from Azure status or the Service Health dashboard?
+The information provided by Resource Health is more specific than what is provided by Azure status or the Service Health dashboard.
 
-Whereas [Azure Status](https://status.azure.com) and the portal service notifications inform you about service issues that affect a broad set of customers (for example an Azure region), Resource Health exposes more granular events that are relevant only to the specific resource. For example, if a host unexpectedly reboots, Resource Health alerts only those customers whose virtual machines were running on that host.
+Whereas [Azure status](https://status.azure.com) and the Service Health dashboard inform you about service issues that affect a broad set of customers (for example an Azure region), Resource Health exposes more granular events that are relevant only to the specific resource. For example, if a host unexpectedly reboots, Resource Health alerts only those customers whose virtual machines were running on that host.
 
-It is important to notice that to provide you complete visibility of events impacting your resources, Resource Health also surfaces events published in Service notifications and the Service Health Dashboard.
+It is important to notice that to provide you complete visibility of events impacting your resources, Resource Health also surfaces events published in the Service Health dashboard.
 
 ## Do I need to activate Resource Health for each resource?
 No, health information is available for all resource types available through Resource Health. 

@@ -1,5 +1,5 @@
 ---
-title: Build a .NET Core and SQL Database web app in Azure App Service | Microsoft Docs 
+title: ASP.NET Core with SQL Database - Azure App Service | Microsoft Docs 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -12,13 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: mvc
----
-# Build a .NET Core and SQL Database web app in Azure App Service
+ms.custom: seodec18
 
-[App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service.
+---
+# Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
+
+> [!NOTE]
+> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a .NET Core and SQL Database app in Azure App Service on Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
+>
+
+[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service.
 
 ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -32,14 +38,14 @@ What you learn how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
 
-1. [Install Git](https://git-scm.com/)
-1. [Install .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [Install Git](https://git-scm.com/)
+* [Install .NET Core](https://www.microsoft.com/net/core/)
 
 ## Create local .NET Core app
 
@@ -88,7 +94,7 @@ For SQL Database, this tutorial uses [Azure SQL Database](/azure/sql-database/).
 
 ### Create a SQL Database logical server
 
-In the Cloud Shell, create a SQL Database logical server with the [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) command.
+In the Cloud Shell, create a SQL Database logical server with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command.
 
 Replace the *\<server_name>* placeholder with a unique SQL Database name. This name is used as the part of the SQL Database endpoint, `<server_name>.database.windows.net`, so the name needs to be unique across all logical servers in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long. Also, replace *\<db_username>* and *\<db_password>* with a username and password of your choice. 
 
@@ -119,15 +125,19 @@ When the SQL Database logical server is created, the Azure CLI shows information
 
 ### Configure a server firewall rule
 
-Create an [Azure SQL Database server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
+Create an [Azure SQL Database server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md#find-outbound-ips).
+>
+
 ### Create a database
 
-Create a database with an [S0 performance level](../sql-database/sql-database-service-tiers.md) in the server using the [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
+Create a database with an [S0 performance level](../sql-database/sql-database-service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -138,7 +148,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 Replace the following string with the *\<server_name>*, *\<db_username>*, and *\<db_password>* you used earlier.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 This is the connection string for your .NET Core app. Copy it for use later.
@@ -161,7 +171,7 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 ### Configure an environment variable
 
-To set connection strings for your Azure app, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the Cloud Shell. In the following command, replace *\<app name>*, as well as the *\<connection_string>* parameter with the connection string you created earlier.
+To set connection strings for your Azure app, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. In the following command, replace *\<app name>*, as well as the *\<connection_string>* parameter with the connection string you created earlier.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -169,7 +179,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Next, set `ASPNETCORE_ENVIRONMENT` app setting to _Production_. This setting lets you know whether you are running in Azure, because you use SQLite for your local development environment and SQL Database for your Azure environment.
 
-The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your Azure web app. Replace the *\<app_name>* placeholder.
+The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your Azure app. Replace the *\<app_name>* placeholder.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -193,7 +203,7 @@ if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
     services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=MvcMovie.db"));
+            options.UseSqlite("Data Source=localdatabase.db"));
 
 // Automatically perform database migration
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
@@ -203,10 +213,15 @@ If this code detects that it is running in production (which indicates the Azure
 
 The `Database.Migrate()` call helps you when it is run in Azure, because it automatically creates the databases that your .NET Core app needs, based on its migration configuration. 
 
+> [!IMPORTANT]
+> For production apps that need to scale out, follow the best practices in [Applying migrations in production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
+
 Save your changes, then commit it into your Git repository. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### Push to Azure from Git
@@ -239,9 +254,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
-Browse to the deployed web app using your web browser.
+Browse to the deployed app using your web browser.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -285,7 +300,7 @@ Make some changes in your code to use the `Done` property. For simplicity in thi
 
 Open _Controllers\TodosController.cs_.
 
-Find the `Create()` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
+Find the `Create([Bind("ID,Description,CreatedDate")] Todo todo)` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
@@ -319,7 +334,7 @@ Find the `<td>` element that contains the `asp-action` tag helpers. Just above t
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 
@@ -338,25 +353,57 @@ In your browser, navigate to `http://localhost:5000/`. You can now add a to-do i
 ### Publish changes to Azure
 
 ```bash
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 
-Once the `git push` is complete, navigate to your Azure web app and try out the new functionality.
+Once the `git push` is complete, navigate to your App Service app and try out the new functionality.
 
-![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
+![Azure app after Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 All your existing to-do items are still displayed. When you republish your .NET Core app, existing data in your SQL Database is not lost. Also, Entity Framework Core Migrations only changes the data schema and leaves your existing data intact.
 
-## Manage your Azure web app
+## Stream diagnostic logs
 
-Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
+While the ASP.NET Core app runs in Azure App Service, you can get the console logs piped to the Cloud Shell. That way, you can get the same diagnostic messages to help you debug application errors.
 
-From the left menu, click **App Services**, then click the name of your Azure web app.
+The sample project already follows the guidance at [ASP.NET Core Logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) with two configuration changes:
 
-![Portal navigation to Azure web app](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
+- Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Startup.cs*.
 
-By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+To set the ASP.NET Core [log level](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Warning`, use the [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) command in the Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> The project's log level is already set to `Information` in *appsettings.json*.
+> 
+
+To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
+
+To stop log streaming at anytime, type `Ctrl`+`C`.
+
+For more information on customizing the ASP.NET Core logs, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+
+## Manage your Azure app
+
+Go to the [Azure portal](https://portal.azure.com) to see the app you created.
+
+From the left menu, click **App Services**, then click the name of your Azure app.
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
+
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
@@ -375,7 +422,7 @@ What you learned:
 > * Stream logs from Azure to your terminal
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)

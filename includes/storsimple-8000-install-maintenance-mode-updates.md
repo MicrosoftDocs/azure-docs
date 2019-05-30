@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 ### Install maintenance mode updates via Windows PowerShell for StorSimple
 
 When you apply maintenance mode updates to StorSimple device, all I/O requests are paused. Services such as non-volatile random access memory (NVRAM) or the clustering service are stopped. Both controllers reboot when you enter or exit this mode. When you exit this mode, all the services resume and are healthy. (This may take a few minutes.)
@@ -6,7 +13,7 @@ When you apply maintenance mode updates to StorSimple device, all I/O requests a
 > * Before entering maintenance mode, verify that both device controllers are healthy in the Azure portal. If the controller is not healthy, [Contact Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) for the next steps.
 > * When you are in maintenance mode, you need to first update one controller and then the other controller.
 
-1. Use PuTTY to connect to the serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**. Select Option 1 to log on to the device with full access.
+1. Use PuTTY to connect to the serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**. Select Option 1, **Log in with full access**.
 
 2. To place the controller in maintenance mode, type:
     
@@ -20,7 +27,7 @@ When you apply maintenance mode updates to StorSimple device, all I/O requests a
 
     You are prompted for confirmation. After you confirm the updates, they are installed on the controller that you are currently accessing. After the updates are installed, the controller restarts.
 
-4. Monitor the status of updates. Log in to the peer controller as the current controller is updating and is not able to process any other commands. Type:
+4. Monitor the status of updates. Sign in to the peer controller as the current controller is updating and is not able to process any other commands. Type:
 
     `Get-HcsUpdateStatus`
 

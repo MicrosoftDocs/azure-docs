@@ -1,9 +1,9 @@
 ---
-title: Run tasks under user accounts in Azure Batch | Microsoft Docs
+title: Run tasks under user accounts - Azure Batch | Microsoft Docs
 description: Configure user accounts for running tasks in Azure Batch
 services: batch
-author: tamram
-manager: timlt
+author: laurenhughes
+manager: jeconnoc
 editor: ''
 tags: 
 
@@ -11,11 +11,22 @@ ms.assetid:
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm:
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: lahugh
+ms.custom: seodec18
+
 ---
+
+> [!NOTE] 
+> The user accounts discussed in this article are different from users accounts used for Remote Desktop Protocol (RDP) or Secure Shell (SSH), for security reasons. 
+>
+> To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
+> To connect to a node running the cloud service configuration via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+>
+>
+
 
 # Run tasks under user accounts in Batch
 
@@ -31,14 +42,6 @@ Azure Batch provides two types of user accounts for running tasks:
 
 > [!IMPORTANT] 
 > The Batch service version 2017-01-01.4.0 introduces a breaking change that requires that you update your code to call that version. If you are migrating code from an older version of Batch, note that the **runElevated** property is no longer supported in the REST API or Batch client libraries. Use the new **userIdentity** property of a task to specify elevation level. See the section titled [Update your code to the latest Batch client library](#update-your-code-to-the-latest-batch-client-library) for quick guidelines for updating your Batch code if you are using one of the client libraries.
->
->
-
-> [!NOTE] 
-> The user accounts discussed in this article do not support Remote Desktop Protocol (RDP) or Secure Shell (SSH), for security reasons. 
->
-> To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
-> To connect to a node running the cloud service configuration via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 
@@ -61,7 +64,7 @@ The user account's elevation level indicates whether a task runs with elevated a
 
 By default, tasks run in Batch under an auto-user account, as a standard user without elevated access, and with task scope. When the auto-user specification is configured for task scope, the Batch service creates an auto-user account for that task only.
 
-The alternative to task scope is pool scope. When the auto-user specification for a task is configured for pool scope, the task runs under an auto-user account that is available to any task in the pool. For more information about pool scope, see the section titled [Run a task as the auto-user with pool scope](#run-a-task-as-the-autouser-with-pool-scope).   
+The alternative to task scope is pool scope. When the auto-user specification for a task is configured for pool scope, the task runs under an auto-user account that is available to any task in the pool. For more information about pool scope, see the section titled Run a task as the auto-user with pool scope.   
 
 The default scope is different on Windows and Linux nodes:
 
@@ -169,8 +172,8 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                                         
-    virtualMachineSize: "small",                                                
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "standard_d1_v2",
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
 // Add named user accounts.
@@ -323,13 +326,11 @@ The Batch service version 2017-01-01.4.0 introduces a breaking change, replacing
 
 | If your code uses...                      | Update it to....                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `run_elevated=True`                       | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
-| `run_elevated=False`                      | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
+| `run_elevated=True`                       | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
+| `run_elevated=False`                      | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
 | `run_elevated` not specified | No update required                                                                                                                                  |
 
 
 ## Next steps
 
-### Batch Forum
-
-The [Azure Batch Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful pinned posts, and post your questions as they arise while you build your Batch solutions.
+* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).

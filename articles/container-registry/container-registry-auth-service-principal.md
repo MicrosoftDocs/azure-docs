@@ -1,14 +1,13 @@
 ---
-title: Azure Container Registry authentication with service principals
-description: Learn how to provide access to images in your private container registry by using an Azure Active Directory service principal.
+title: Azure Container Registry authentication with a service principal
+description: Provide access to images in your private container registry by using an Azure Active Directory service principal.
 services: container-registry
-author: mmacy
-manager: timlt
+author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
-ms.author: marsma
+ms.date: 12/13/2018
+ms.author: danlep
 ---
 
 # Azure Container Registry authentication with service principals
@@ -17,9 +16,9 @@ You can use an Azure Active Directory (Azure AD) service principal to provide co
 
 ## What is a service principal?
 
-Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs access to the resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, you can configure your application or service to use the service principal's credentials to access those resources.
+Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs access to the resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
 
-In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or owner permissions to your private Docker registry in Azure.
+In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or other permissions to your private registry in Azure. For a complete list, see [Azure Container Registry roles and permissions](container-registry-roles.md).
 
 ## Why use a service principal?
 
@@ -35,16 +34,23 @@ For individual access to a registry, such as when you manually pull a container 
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
+## Sample scripts
+
+You can find the preceding sample scripts for Azure CLI on GitHub, as well versions for Azure PowerShell:
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## Next steps
 
-Once you have a service principal that you've granted access to your container registry, you can use its credentials in your applications and services for registry interaction.
+Once you have a service principal that you've granted access to your container registry, you can use its credentials in your applications and services for headless registry interaction. You can use service principal credentials from any Azure service that can authenticate with an Azure container registry. Examples include:
 
-While configuring individual applications to use service principal credentials is outside the scope of this article, you can find instructions for some specific services and platforms here:
-
-* [Authenticate with Azure Container Registry from Azure Container Service (AKS)](container-registry-auth-aks.md)
+* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
 * [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-login]: /cli/azure/acr#az-acr-login

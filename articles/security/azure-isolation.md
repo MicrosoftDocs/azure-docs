@@ -1,11 +1,11 @@
-﻿---
+---
 
 title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -51,7 +51,7 @@ In the cloud-enabled workplace, a tenant can be defined as a client or organizat
 Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information from co-mingling. This means that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
 
 ### Azure Tenancy
-Azure tenancy (Azure Subscription) refers to a “customer/billing” relationship and a unique [tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Tenant level isolation in Microsoft Azure is achieved using Azure Active Directory and [role-based controls](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) offered by it. Each Azure subscription is associated with one Azure Active Directory (AD) directory.
+Azure tenancy (Azure Subscription) refers to a “customer/billing” relationship and a unique [tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Tenant level isolation in Microsoft Azure is achieved using Azure Active Directory and [role-based controls](https://docs.microsoft.com/azure/role-based-access-control/overview) offered by it. Each Azure subscription is associated with one Azure Active Directory (AD) directory.
 
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. An Azure AD tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Azure AD runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
@@ -79,7 +79,7 @@ The concept of tenant containers is deeply ingrained in the directory service at
 Even when metadata from multiple Azure Active Directory tenants is stored on the same physical disk, there is no relationship between the containers other than what is defined by the directory service, which in turn is dictated by the tenant administrator.
 
 ### Azure Role-Based Access Control (RBAC)
-[Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) helps you to share various components available within an Azure subscription by providing fine-grained access management for Azure. Azure RBAC enables you to segregate duties within your organization and grant access based on what users need to perform their jobs. Instead of giving everybody unrestricted permissions in Azure subscription or resources, you can allow only certain actions.
+[Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) helps you to share various components available within an Azure subscription by providing fine-grained access management for Azure. Azure RBAC enables you to segregate duties within your organization and grant access based on what users need to perform their jobs. Instead of giving everybody unrestricted permissions in Azure subscription or resources, you can allow only certain actions.
 
 Azure RBAC has three basic roles that apply to all resource types:
 
@@ -93,7 +93,7 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
 
-[RBAC built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) list the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+[RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) list the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Some other capabilities for Azure Active Directory include:
 - Azure AD enables SSO to SaaS applications, regardless of where they are hosted. Some applications are federated with Azure AD, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](https://www.techopedia.com/definition/31415/password-vault).
@@ -109,7 +109,7 @@ Some other capabilities for Azure Active Directory include:
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) provides a highly available global-identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can sign in to all your applications through customizable experiences by using their existing social accounts or by creating credentials.
 
 ### Isolation from Microsoft Administrators & Data Deletion
-Microsoft takes strong measures to protect your data from inappropriate access or use by unauthorized persons. These operational processes and controls are backed by the [Online Services Terms](http://aka.ms/Online-Services-Terms), which offer contractual commitments that govern access to your data.
+Microsoft takes strong measures to protect your data from inappropriate access or use by unauthorized persons. These operational processes and controls are backed by the [Online Services Terms](https://aka.ms/Online-Services-Terms), which offer contractual commitments that govern access to your data.
 
 -	Microsoft engineers do not have default access to your data in the cloud. Instead, they are granted access, under management oversight, only when necessary. That access is carefully controlled and logged, and revoked when it is no longer needed.
 
@@ -117,12 +117,27 @@ Microsoft takes strong measures to protect your data from inappropriate access o
 
 Business services with audited certifications such as ISO/IEC 27001 are regularly verified by Microsoft and accredited audit firms, which perform sample audits to attest that access, only for legitimate business purposes. You can always access your own customer data at any time and for any reason.
 
-If you delete any data, Microsoft Azure deletes the data, including any cached or backup copies. For in-scope services, that deletion will occur within 90 days after the end of the retention period. (In-scope services are defined in the Data Processing Terms section of our [Online Services Terms](http://aka.ms/Online-Services-Terms).)
+If you delete any data, Microsoft Azure deletes the data, including any cached or backup copies. For in-scope services, that deletion will occur within 90 days after the end of the retention period. (In-scope services are defined in the Data Processing Terms section of our [Online Services Terms](https://aka.ms/Online-Services-Terms).)
 
-If a disk drive used for storage suffers a hardware failure, it is securely [erased or destroyed](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is overwritten to ensure that the data cannot be recovered by any means.
+If a disk drive used for storage suffers a hardware failure, it is securely [erased or destroyed](https://microsoft.com/trustcenter/privacy/you-own-your-data) before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is overwritten to ensure that the data cannot be recovered by any means.
 
 ## Compute Isolation
 Microsoft Azure provides various cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise. These compute instance and service offer isolation at multiple levels to secure data without sacrificing the flexibility in configuration that customers demand.
+
+### Isolated Virtual Machine Sizes
+Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer.  These virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers for workloads involving elements like compliance and regulatory requirements.  Customers can also choose to further subdivide the resources of these Isolated virtual machines by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
+
+Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance.  The current Isolated virtual machine offerings include:
+* Standard_E64is_v3
+* Standard_E64i_v3
+* Standard_M128ms
+* Standard_GS5
+* Standard_G5
+* Standard_DS15_v2
+* Standard_D15_v2
+* Standard_F72s_v2
+
+You can learn more about each Isolated size available [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ### Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
@@ -133,9 +148,7 @@ Azure’s compute platform is based on machine virtualization—meaning that all
 
 Each node also has one special Root VM, which runs the Host OS. A critical boundary is the isolation of the root VM from the guest VMs and the guest VMs from one another, managed by the hypervisor and the root OS. The hypervisor/root OS pairing leverages Microsoft's decades of operating system security experience, and more recent learning from Microsoft's Hyper-V, to provide strong isolation of guest VMs.
 
-The Azure platform uses a virtualized environment. User instances operate as standalone virtual machines that do not have access to a physical host server, and this isolation is enforced by using physical processor (ring-0/ring-3) privilege levels.
-
-Ring 0 is the most privileged and 3 is the least. The guest OS runs in a lesser-privileged Ring 1, and applications run in the least privileged Ring 3. This virtualization of physical resources leads to a clear separation between guest OS and hypervisor, resulting in additional security separation between the two.
+The Azure platform uses a virtualized environment. User instances operate as standalone virtual machines that do not have access to a physical host server.
 
 The Azure hypervisor acts like a micro-kernel and passes all hardware access requests from guest virtual machines to the host for processing by using a shared-memory interface called VMBus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
 
@@ -209,7 +222,7 @@ You can establish firewalls and define an IP address range for your trusted clie
 IP storage data can be protected from unauthorized users via a networking mechanism that is used to allocate a dedicated or dedicated tunnel of traffic to IP storage.
 
 ### Encryption
-Azure offers following types of Encryption to protect data:
+Azure offers the following types of Encryption to protect data:
 -	Encryption in transit
 
 -	Encryption at rest
@@ -224,7 +237,7 @@ Encryption in transit is a mechanism of protecting data when it is transmitted a
 -	[Client-side encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
 #### Encryption at Rest
-For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
+For many organizations, [data encryption at rest](https://docs.microsoft.com/azure/security/azure-isolation) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
 
 -	[Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 
@@ -331,7 +344,7 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 **Traffic isolation:** A [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
 
-[Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security group (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) to allow or deny network traffic to a VM instance based on rules configured in access control list (ACL) of NSG. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
+[Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security group (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) to allow or deny network traffic to a VM instance based on rules configured in access control list (ACL) of NSG. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
 
 ## Next Steps
 

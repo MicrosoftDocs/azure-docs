@@ -1,24 +1,22 @@
 ---
-title: User-defined schemas in SQL Data Warehouse | Microsoft Docs
-description: Tips for using Transact-SQL schemas in Azure SQL Data Warehouse for developing solutions.
+title: Using user-defined schemas in SQL Data Warehouse | Microsoft Docs
+description: Tips for using T-SQL user-defined schemas in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-
-ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
+author: XiaoyuL-Preview 
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.subservice: development
+ms.date: 04/17/2018
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ---
-# User-defined schemas in SQL Data Warehouse
+
+# Using user-defined schemas in SQL Data Warehouse
+Tips for using T-SQL user-defined schemas in Azure SQL Data Warehouse for developing solutions.
+
+## Schemas for application boundaries
+
 Traditional data warehouses often use separate databases to create application boundaries based on either workload, domain or security. For example, a traditional SQL Server data warehouse might include a staging database, a data warehouse database, and some data mart databases. In this topology each database operates as a workload and security boundary in the architecture.
 
 By contrast, SQL Data Warehouse runs the entire data warehouse workload within one database. Cross database joins are not permitted. Therefore SQL Data Warehouse expects all tables used by the warehouse to be stored within the one database.
@@ -118,13 +116,5 @@ FROM    [edw].customer
 > 
 
 ## Next steps
-For more development tips, see [development overview][development overview].
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

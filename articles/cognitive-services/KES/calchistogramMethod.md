@@ -1,13 +1,14 @@
 ---
-title: CalcHistogram method in the Knowledge Exploration Service API | Microsoft Docs
-description: Learn how to use the CalcHistogram method in the Knowledge Exploration Service (KES) API in Cognitive Services.
+title: CalcHistogram method - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Learn how to use the CalcHistogram method in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: kes
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ---

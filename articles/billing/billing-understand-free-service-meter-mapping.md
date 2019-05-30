@@ -1,5 +1,5 @@
 ---
-title: Service to Meter mapping for Free account - Azure | Microsoft Docs
+title: Service to Meter mapping for Azure Free account | Microsoft Docs
 description: Understand service to meter mapping for services included with free account.
 services: ''
 documentationcenter: ''
@@ -10,11 +10,11 @@ tags: billing
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
+ms.author: banders
 
 ---
 # Understand free service to meter mapping
@@ -49,10 +49,6 @@ Every Azure service emits usage against meters, which the Azure billing system u
 
 \** Shared meters can be consumed through multiple services. For instance, both Virtual machines and Storage emit usage against Data Transfer Out(GB) meter.
 
+## Need help? Contact us.
 
-
-
-
-## Need help? Contact support
-
-If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

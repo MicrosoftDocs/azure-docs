@@ -1,26 +1,33 @@
 ---
-title: Azure Managed Application SizeSelector UI element | Microsoft Docs
-description: Describes the Microsoft.Compute.SizeSelector UI element for Azure Managed Applications
-services: azure-resource-manager
+title: Azure SizeSelector UI element | Microsoft Docs
+description: Describes the Microsoft.Compute.SizeSelector UI element for Azure portal.
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/27/2018
 ms.author: tomfitz
 
 ---
 # Microsoft.Compute.SizeSelector UI element
-A control for selecting a size for one or more virtual machine instances. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
+A control for selecting a size for one or more virtual machine instances.
 
 ## UI sample
+
+The user sees a selector with default values from the element definition.
+
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+
+After selecting the control, the user sees an expanded view of the available sizes.
+
+![Microsoft.Compute.SizeSelector expanded](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
 
 ## Schema
 ```json
@@ -36,7 +43,12 @@ A control for selecting a size for one or more virtual machine instances. You us
   ],
   "constraints": {
     "allowedSizes": [],
-    "excludedSizes": []
+    "excludedSizes": [],
+    "numAvailabilityZonesRequired": 3,
+    "zone": "3"
+  },
+  "options": {
+    "hideDiskTypeFilter": false
   },
   "osPlatform": "Windows",
   "imageReference": {
@@ -50,18 +62,14 @@ A control for selecting a size for one or more virtual machine instances. You us
 ```
 
 ## Remarks
-- `recommendedSizes` should contain at least one size. The first recommended size is used as the default.
-- If a recommended size is not available in the selected location, the size is automatically skipped. Instead, the next recommended size is used.
-- Any size not specified in the `constraints.allowedSizes` is hidden, and any size not specified in `constraints.excludedSizes` is shown.
-`constraints.allowedSizes` and `constraints.excludedSizes` are both optional,
-but cannot be used simultaneously. The list of available sizes can be determined
-by calling [List available virtual machine sizes for a subscription](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region).
-- `osPlatform` must be specified, and can be either **Windows** or **Linux**. It's
-used to determine the hardware costs of the virtual machines.
+- `recommendedSizes` should have at least one size. The first recommended size is used as the default. The list of available sizes isn't sorted by the recommended state. The user can select that column to sort by recommended state.
+- If a recommended size isn't available in the selected location, the size is automatically skipped. Instead, the next recommended size is used.
+- `constraints.allowedSizes` and `constraints.excludedSizes` are both optional, but can't be used simultaneously. The list of available sizes can be determined by calling [List available virtual machine sizes for a subscription](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Any size not specified in the `constraints.allowedSizes` is hidden, and any size not specified in `constraints.excludedSizes` is shown.
+- `osPlatform` must be specified, and can be either **Windows** or **Linux**. It's used to determine the hardware costs of the virtual machines.
 - `imageReference` is omitted for first-party images, but provided for third-party images. It's used to determine the software costs of the virtual machines.
-- `count` is used to set the appropriate multiplier for the element. It supports
-a static value, like **2**, or a dynamic value from another element, like
-`[steps('step1').vmCount]`. The default value is **1**.
+- `count` is used to set the appropriate multiplier for the element. It supports a static value, like **2**, or a dynamic value from another element, like `[steps('step1').vmCount]`. The default value is **1**.
+- The `numAvailabilityZonesRequired` can be 1, 2, or 3.
+- By default, `hideDiskTypeFilter` is **false**. The disk type filter enables the user to see all disk types or only SSD.
 
 ## Sample output
 ```json
@@ -69,6 +77,5 @@ a static value, like **2**, or a dynamic value from another element, like
 ```
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

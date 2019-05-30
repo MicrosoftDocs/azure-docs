@@ -4,25 +4,18 @@ description: Set up your web pages to send Real User Measurements to Traffic Man
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: jeconnoc
-editor: 
-tags: 
-
-ms.assetid: 
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: 
 ---
 
 # How to send Real User Measurements to Azure Traffic Manager using web pages
-
->[!NOTE]
->The Real User Measurements feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
 
 You can configure your web pages to send Real User Measurements to Traffic Manager by obtaining a Real User Measurements (RUM) key and embedding the generated code to web page.
 
@@ -36,7 +29,7 @@ To obtain the RUM Key using Azure portal:
 3. In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
 4. Click **Generate Key** to create a new RUM Key.
  
-  ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Figure 1: Real User Measurements Key Generation**
 
@@ -46,7 +39,7 @@ To obtain the RUM Key using Azure portal:
 
     **Figure 2: Real User Measurements Key and Measurement JavaScript**
  
-6.	Click the **Copy** button to copy the JavaScript code. 
+6. Click the **Copy** button to copy the JavaScript code. 
 
 >[!IMPORTANT]
 > Use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.
@@ -62,7 +55,7 @@ After you have obtained the RUM key, the next step is to embed this copied JavaS
 
     **Figure 3: Simple HTML with embedded Real User Measurements JavaScript**
 
-3.	Save the HTML file
+3.	Save the HTML file and host it on a webserver connected to the internet. 
 4. Next time this page is rendered on a web browser, the JavaScript referenced is downloaded and the script will execute the measurement and reporting operations.
 
 

@@ -1,25 +1,19 @@
 ---
-title: Configure private IP addresses for VMs (Classic) - Azure CLI 1.0| Microsoft Docs
-description: Learn how to configure private IP addresses for virtual machines (Classic) using the Azure command-line interface (CLI) 1.0.
+title: Configure private IP addresses for VMs (Classic) - Azure classic CLI
+titlesuffix: Azure Virtual Network
+description: Learn how to configure private IP addresses for virtual machines (Classic) using the Azure classic command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: tysonn
-tags: azure-service-management
-
-ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
+author: genlin
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.custom: H1Hack27Feb2017
-
+ms.author: genli
 ---
-# Configure private IP addresses for a virtual machine (Classic) using the Azure CLI 1.0
+# Configure private IP addresses for a virtual machine (Classic) using the Azure classic CLI
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -29,12 +23,12 @@ ms.custom: H1Hack27Feb2017
 
 This article covers the classic deployment model. You can also [manage a static private IP address in the Resource Manager deployment model](virtual-networks-static-private-ip-arm-cli.md).
 
-The sample Azure CLI commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-cli.md).
+The sample Azure classic CLI commands that follow expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-cli.md).
 
 ## How to specify a static private IP address when creating a VM
 To create a new VM named *DNS01* in a new cloud service named *TestService* based on the scenario above, follow these steps:
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/cli/azure/install-cli-version-1.0) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure service create** command to create the cloud service.
    
         azure service create TestService --location uscentral
@@ -71,7 +65,7 @@ To create a new VM named *DNS01* in a new cloud service named *TestService* base
    * **TestService**. Name of the cloud service where the VM will be created.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Image used to create the VM.
    * **adminuser**. Local administrator for the Windows VM.
-   * **AdminP@ssw0rd**. Local administrator password for the Windows VM.
+   * <strong>AdminP@ssw0rd</strong>. Local administrator password for the Windows VM.
 
 ## How to retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the script above, run the following Azure CLI command and observe the value for *Network StaticIP*:
@@ -99,7 +93,7 @@ Expected output:
     info:    vm static-ip remove command OK
 
 ## How to add a static private IP to an existing VM
-To add a static private IP address to the VM created using the script above, runt he following command:
+To add a static private IP address to the VM created using the script above, run the following command:
 
     azure vm static-ip set DNS01 192.168.1.101
 
@@ -112,8 +106,11 @@ Expected output:
     info:    Updating network configuration
     info:    vm static-ip set command OK
 
+## Set IP addresses within the operating system
+
+It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary. If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure VM, or you can lose connectivity to the virtual machine. Do not manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
+
 ## Next steps
 * Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
 * Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 * Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-

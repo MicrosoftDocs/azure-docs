@@ -1,22 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Troubleshoot custom policies | Microsoft Docs'
-description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory.
+title: Troubleshoot custom policies in Azure Active Directory B2C | Microsoft Docs
+description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: rojasja
-manager: mtillman
-editor: rojasja
+author: davidmu1
+manager: celestedg
 
-ms.assetid: 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: joroja
-
+ms.author: davidmu
+ms.subservice: B2C
 ---
+
 # Troubleshoot Azure AD B2C custom policies and Identity Experience Framework
 
 If you use Azure Active Directory B2C (Azure AD B2C) custom policies, you might experience challenges setting up the Identity Experience Framework in its policy language XML format.  Learning to write custom policies can be like learning a new language. In this article, we describe tools and tips that can help you quickly discover and resolve issues. 
@@ -44,7 +40,7 @@ You might find a review of XML rules helpful. Azure AD B2C rejects any XML forma
 Error snippet: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * The ClaimType value might be misspelled, or does not exist in the schema.
 * ClaimType values must be defined in at least one of the files in the policy. 
-    For example: ` <ClaimType Id="socialIdpUserId">`
+    For example: `<ClaimType Id="socialIdpUserId">`
 * If ClaimType is defined in the extensions file, but it's also used in a TechnicalProfile value in the base file, uploading the base file results in an error.
 
 Error snippet: `...makes a reference to a ClaimsTransformation with id...`
@@ -60,7 +56,7 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
     * Web App/Web API: No
     * Native client: No
 
-* To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](http://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
+* To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](https://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
 
 * In **Development mode**, use **Application Insights** to trace the activity of your Identity Experience Framework user journey. In **Development mode**, you can observe the exchange of claims between the Identity Experience Framework and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services, like Azure Multi-Factor-Authentication.  
 
@@ -74,4 +70,4 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
 
 ## Next steps
 
-* In GitHub, download the [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip file.
+* In GitHub, download the [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip file.

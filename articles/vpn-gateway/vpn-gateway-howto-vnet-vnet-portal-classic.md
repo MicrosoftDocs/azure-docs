@@ -1,10 +1,10 @@
----
+﻿---
 title: 'Create a connection between VNets: classic: Azure portal | Microsoft Docs'
-description: How to connect Azure virtual networks together using PowerShell and the Azure portal.
+description: Connect Azure virtual networks together using PowerShell and the Azure portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na 
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
 
 ---
@@ -22,7 +22,7 @@ ms.author: cherylmc
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the classic deployment model and the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article helps you create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the classic deployment model and the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -35,6 +35,8 @@ This article shows you how to create a VPN gateway connection between virtual ne
 >
 
 ![VNet to VNet Connectivity Diagram](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## About VNet-to-VNet connections
 
@@ -182,7 +184,7 @@ After your virtual network gateways have been created for both VNets, you must a
 1. Locate your virtual network in the Azure portal.
 2. Click to open the VNet **Overview** page. On the page, in **VPN connections**, you can view the IP address for your virtual network gateway.
 
-  ![Public IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
+   ![Public IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
 3. Copy the IP address. You will use it in the next section.
 4. Repeat these steps for TestVNet4
 
@@ -191,16 +193,16 @@ After your virtual network gateways have been created for both VNets, you must a
 1. Locate your virtual network in the Azure portal.
 2. On the VNet **Overview** page, click the local site.
 
-  ![Local site created](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
+   ![Local site created](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
 3. On the **Site-to-Site VPN Connections** page, click the name of the local site that you want to modify.
 
-  ![Open local site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
+   ![Open local site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
 4. Click the **Local site** that you want to modify.
 
-  ![modify site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/connections.png)
+   ![modify site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/connections.png)
 5. Update the **VPN gateway IP address** and click **OK** to save the settings.
 
-  ![gateway IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
+   ![gateway IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
 6. Close the other pages.
 7. Repeat these steps for TestVNet4.
 
@@ -214,32 +216,32 @@ In the following steps, you will connect to your Azure account and download and 
 
 2. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-  ```powershell
-  Login-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 
-  Check the subscriptions for the account.
+   Check the subscriptions for the account.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 
-  If you have more than one subscription, select the subscription that you want to use.
+   If you have more than one subscription, select the subscription that you want to use.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
-  Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
+   Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 3. Export and view the network configuration file. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to **C:\AzureNet**.
 
-  ```powershell
-  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-  ```
+   ```powershell
+   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+   ```
 4. Open the file with a text editor and view the names for your VNets and sites. These will be the name you use when you create your connections.<br>VNet names are listed as **VirtualNetworkSite name =**<br>Site names are listed as **LocalNetworkSiteRef name =**
 
 ## <a name="createconnections"></a>Step 8 - Create the VPN gateway connections
@@ -250,26 +252,26 @@ In the examples, notice that the shared key is exactly the same. The shared key 
 
 1. Create the TestVNet1 to TestVNet4 connection.
 
-  ```powershell
-  Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
-  -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
-  ```
+   ```powershell
+   Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
+   -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
+   ```
 2. Create the TestVNet4 to TestVNet1 connection.
 
-  ```powershell
-  Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
-  -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
-  ```
+   ```powershell
+   Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
+   -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
+   ```
 3. Wait for the connections to initialize. Once the gateway has initialized, the Status is 'Successful'.
 
-  ```
-  Error          :
-  HttpStatusCode : OK
-  Id             :
-  Status         : Successful
-  RequestId      :
-  StatusCode     : OK
-  ```
+   ```
+   Error          :
+   HttpStatusCode : OK
+   Id             :
+   Status         : Successful
+   RequestId      :
+   StatusCode     : OK
+   ```
 
 ## <a name="faq"></a>VNet-to-VNet considerations for classic VNets
 * The virtual networks can be in the same or different subscriptions.

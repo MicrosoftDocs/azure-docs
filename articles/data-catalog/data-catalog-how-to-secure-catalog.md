@@ -1,21 +1,12 @@
 ---
-title: How to secure access to Azure Data Catalog | Microsoft Docs
+title: How to secure access to Azure Data Catalog
 description: This article explain how to secure data catalog and its data assets.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # How to secure access to data catalog and data assets
 > [!IMPORTANT]
@@ -26,7 +17,7 @@ Azure Data Catalog allows you to specify who can access the data catalog and wha
 ## Catalog users and permissions
 To give a user or a group the access to a data catalog and set permissions:
 
-1. On the [home page of your data catalog](http://www.azuredatacatalog.com),  click **Settings** on the toolbar.
+1. On the [home page of your data catalog](https://www.azuredatacatalog.com),  click **Settings** on the toolbar.
 
 	![data catalog - settings](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. In the settings page, expand the **Catalog Users** section.

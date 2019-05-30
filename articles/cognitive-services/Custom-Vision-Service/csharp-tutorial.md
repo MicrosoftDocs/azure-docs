@@ -1,186 +1,138 @@
 ---
-title: Custom Vision API C# tutorial | Microsoft Docs
-description: Explore a basic Windows app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
+title: "Quickstart: Create an image classification project with the Custom Vision SDK for C#"
+titlesuffix: Azure Cognitive Services
+description: Create a project, add tags, upload images, train your project, and make a prediction using the .NET SDK with C#.
 services: cognitive-services
-author: gitbeams
-manager: juliakuz
+author: anrothMSFT
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: custom vision service
-ms.topic: article
-ms.date: 05/06/2017
-ms.author: gitbeams
+ms.subservice: custom-vision
+ms.topic: quickstart
+ms.date: 03/21/2019
+ms.author: anroth
 ---
+# Quickstart: Create an image classification project with the Custom Vision .NET SDK
 
-# Custom Vision API C&#35; Tutorial
-Explore a basic Windows application that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open source example as a template for building your own app for Windows using the Custom Vision API.
+This article provides information and sample code to help you get started using the Custom Vision SDK with C# to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own .NET application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
 
 ## Prerequisites
 
-### Platform requirements
-This example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
+- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
-### Get the Custom Vision SDK
-To build this example, you need the Custom Vision API, which you can find at [SDK](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). 
+## Get the Custom Vision SDK and sample code
 
-## Step 1: Create a console application and prepare the training key and the images needed for the example
+To write a .NET app that uses Custom Vision, you'll need the Custom Vision NuGet packages. These are included in the sample project you will download, but you can access them individually here.
 
-Start Visual Studio 2015, Community Edition, create a new Console Application, and replace the contents of Program.cs with the following code. This code defines and calls two helper methods. The method called **GetTrainingKey** prepares the training key. The one called **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint.
+- [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+- [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-```
-using Microsoft.Cognitive.CustomVision.Prediction;
-using Microsoft.Cognitive.CustomVision.Training;
-using Microsoft.Cognitive.CustomVision.Training.Models;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
+Clone or download the [Cognitive Services .NET Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) project. Navigate to the **CustomVision/ImageClassification** folder and open _ImageClassification.csproj_ in Visual Studio.
 
-namespace SmokeTester
+This Visual Studio project creates a new Custom Vision project named __My New Project__, which can be accessed through the [Custom Vision website](https://customvision.ai/). It then uploads images to train and test a classifier. In this project, the classifier is intended to determine whether a tree is a __Hemlock__ or a __Japanese Cherry__.
+
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+## Understand the code
+
+Open the _Program.cs_ file and inspect the code. Insert your subscription keys in the appropriate definitions in the **Main** method.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
+
+The Endpoint parameter should point to the region where the Azure resource group containing the Custom Vision resources was created in. For this example we assume the South Central US region and use:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
+
+The following lines of code execute the primary functionality of the project.
+
+### Create a new Custom Vision service project
+
+The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
+
+### Create tags in the project
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=36-38)]
+
+### Upload and tag images
+
+The images for this project are included. They are referenced in the **LoadImagesFromDisk** method in _Program.cs_.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
+
+### Train the classifier and publish
+
+This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+
+```csharp
+// The returned iteration will be in progress, and can be queried periodically to see when it has completed
+while (iteration.Status == "Training")
 {
-    class Program
-    {
-        private static List<string> hemlockImages;
+        Thread.Sleep(1000);
 
-        private static List<string> japaneseCherryImages;
+        // Re-query the iteration to get it's updated status
+        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
+}
 
-        private static MemoryStream testImage;
+// The iteration is now trained. Publish it to the prediction end point.
+var publishedModelName = "treeClassModel";
+var predictionResourceId = "<target prediction resource ID>";
+trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
+Console.WriteLine("Done!\n");
+```
 
-        static void Main(string[] args)
-        {
-            // You can either add your training key here, pass it on the command line, or type it in when the program runs
-            string trainingKey = GetTrainingKey("<your key here>", args);
+### Set the prediction endpoint
 
-            // Create the Api, passing in the training key
-            TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
+The prediction endpoint is the reference that you can use to submit an image to the current model and get a classification prediction.
 
-            // Upload the images we need for training and the test image
-            Console.WriteLine("\tUploading images");
-            LoadImagesFromDisk();
-        }
+```csharp
+// Create a prediction endpoint, passing in obtained prediction key
+CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
+{
+        ApiKey = predictionKey,
+        Endpoint = SouthCentralUsEndpoint
+};
+```
 
-        private static string GetTrainingKey(string trainingKey, string[] args)
-        {
-            if (string.IsNullOrWhiteSpace(trainingKey) || trainingKey.Equals("<your key here>"))
-            {
-                if (args.Length >= 1)
-                {
-                    trainingKey = args[0];
-                }
+### Submit an image to the default prediction endpoint
 
-                while (string.IsNullOrWhiteSpace(trainingKey) || trainingKey.Length != 32)
-                {
-                    Console.Write("Enter your training key: ");
-                    trainingKey = Console.ReadLine();
-                }
-                Console.WriteLine();
-            }
+In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console.
 
-            return trainingKey;
-        }
+```csharp
+// Make a prediction against the new project
+Console.WriteLine("Making a prediction:");
+var result = endpoint.ClassifyImage(project.Id, publishedModelName, testImage);
 
-        private static void LoadImagesFromDisk()
-        {
-            // this loads the images to be uploaded from disk into memory
-            hemlockImages = Directory.GetFiles(@"..\..\..\Images\Hemlock").ToList();
-            japaneseCherryImages = Directory.GetFiles(@"..\..\..\Images\Japanese Cherry").ToList();
-            testImage = new MemoryStream(File.ReadAllBytes(@"..\..\..\Images\SampleData\Test\test_image.jpg"));
-        }
-    }
+// Loop over each prediction and write out the results
+foreach (var c in result.Predictions)
+{
+        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
 }
 ```
 
-## Step 2: Create a Custom Vision Service project
+## Run the application
 
-* To create a new Custom Vision Service project, add the following code in your **Main()** method after the call to **LoadImagesFromDisk()**.
-
-```
-            // Create a new project
-            Console.WriteLine("Creating new project:");
-            var project = trainingApi.CreateProject("My New Project");
-```
-
-## Step 3: Add tags to your project
-
-* To add tags to your project, insert the following code after the call to **CreateProject()**
+As the application runs, it should open a console window and write the following output:
 
 ```
-            // Make two tags in the new project
-            var hemlockTag = trainingApi.CreateTag(project.Id, "Hemlock");
-            var japaneseCherryTag = trainingApi.CreateTag(project.Id, "Japanese Cherry");
+Creating new project:
+        Uploading images
+        Training
+Done!
+
+Making a prediction:
+        Hemlock: 95.0%
+        Japanese Cherry: 0.0%
 ```
 
-## Step 4: Upload images to the project
+You can then verify that the test image (found in **Images/Test/**) is tagged appropriately. Press any key to exit the application. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
-* To add the images we have in memory to the project, insert the following code at the end of the **Main()** method.
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 
-```
-            // Images can be uploaded one at a time
-            foreach (var image in hemlockImages)
-            {
-                using (var stream = new MemoryStream(File.ReadAllBytes(image)))
-                {
-                    trainingApi.CreateImagesFromData(project.Id, stream, new List<string>() { hemlockTag.Id.ToString() });
-                }
-            }
+## Next steps
 
-            // Or uploaded in a single batch 
-            var imageFiles = japaneseCherryImages.Select(img => new ImageFileCreateEntry(Path.GetFileName(img), File.ReadAllBytes(img))).ToList();
-            trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFiles, new List<Guid>() { japaneseCherryTag.Id }));
-```
+Now you have seen how every step of the image classification process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate.
 
-## Step 5: Train the project
-
-* Now that we've added tags and images to the project, we can train it. Insert the following code at the end of **Main()**. This creates the first iteration in the project. We can then mark this iteration as the default iteration.
-
-```
-            // Now there are images with tags start training the project
-            Console.WriteLine("\tTraining");
-            var iteration = trainingApi.TrainProject(project.Id);
-
-            // The returned iteration will be in progress, and can be queried periodically to see when it has completed
-            while (iteration.Status == "Training")
-            {
-                Thread.Sleep(1000);
-
-                // Re-query the iteration to get it's updated status
-                iteration = trainingApi.GetIteration(project.Id, iteration.Id);
-            }
-
-            // The iteration is now trained. Make it the default project endpoint
-            iteration.IsDefault = true;
-            trainingApi.UpdateIteration(project.Id, iteration.Id, iteration);
-            Console.WriteLine("Done!\n");
-```
-
-## Step 6: Get and use the default prediction endpoint
-
-* We are now ready to use the model for prediction. First we obtain the endpoint associated with the default iteration. Then we send a test image to the project using that endpoint. Insert the code below at the end of **Main()**.
-
-```
-            // Now there is a trained endpoint, it can be used to make a prediction
-
-            // Get the prediction key, which is used in place of the training key when making predictions
-            var account = trainingApi.GetAccountInfo();
-            var predictionKey = account.Keys.PredictionKeys.PrimaryKey;
-
-            // Create a prediction endpoint, passing in the obtained prediction key
-            PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
-
-            // Make a prediction against the new project
-            Console.WriteLine("Making a prediction:");
-            var result = endpoint.PredictImage(project.Id, testImage);
-
-            // Loop over each prediction and write out the results
-            foreach (var c in result.Predictions)
-            {
-                Console.WriteLine($"\t{c.Tag}: {c.Probability:P1}");
-            }
-
-            Console.ReadKey();
-```
-
-## Step 7: Run the example
-
-* Build and run the solution. The prediction results appear on the console.
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)

@@ -1,13 +1,14 @@
 ---
-title: Evaluate method in the Academic Knowledge API | Microsoft Docs
-description: Use the Evaluate method to return a set of academic entities based on a query expression in Microsoft Cognitive Services.
+title: Evaluate method - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Use the Evaluate method to return a set of academic entities based on a query expression.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: academic-knowledge
-ms.topic: article
+ms.subservice: academic-knowledge
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ---
@@ -22,7 +23,9 @@ The **evaluate** REST API is used to return a set of academic entities based on 
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate? 
 ```   
 <br>
+
 ## Request Parameters  
+
 Name     | Value | Required?  | Description
 -----------|-----------|---------|--------
 **expr**       | Text string | Yes | A query expression that specifies which entities should be returned.
@@ -33,7 +36,9 @@ Name     | Value | Required?  | Description
 **orderby** |	Text string | No<br>Default: by decreasing prob	| Name of an attribute that is used for sorting the entities. Optionally, ascending/descending can be specified. The format is: *name:asc* or *name:desc*.
   
  <br>
+
 ## Response (JSON)
+
 Name | Description
 -------|-----   
 **expr** |	The *expr* parameter from the request.
@@ -41,6 +46,7 @@ Name | Description
 **aborted** | True if the request timed out.
 
 <br>
+
 #### Example:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=

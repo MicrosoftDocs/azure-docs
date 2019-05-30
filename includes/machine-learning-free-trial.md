@@ -1,8 +1,9 @@
-> [!NOTE]
-> 
-> **Try Azure Machine Learning for free**
->
-> No credit card or Azure subscription required. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Get started now**.</a>
-> 
-> 
+---
+author: cjgronlund
+ms.service: machine-learning
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: cgronlun
+---
 
+Try [Azure Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2&target=_blank), available in paid or free options. 

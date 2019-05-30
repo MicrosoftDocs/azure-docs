@@ -2,19 +2,11 @@
 title: 'About Azure Point-to-Site VPN connections | Microsoft Docs'
 description: This article helps you understand Point-to-Site connections and helps you decide which P2S VPN gateway authentication type to use.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.topic: conceptual
+ms.date: 01/18/2019
 ms.author: cherylmc
 
 ---
@@ -26,14 +18,15 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
+* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux and Mac devices (OSX versions 10.13 and above).
+
 * Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
-If you have a mixed client environment consisting of Windows and Mac devices, configure both SSTP and IKEv2.
 
 >[!NOTE]
->IKEv2 for P2S is available for the Resource Manager deployment model only. It is not available for the classic deployment model.
+>IKEv2 and OpenVPN for P2S are available for the Resource Manager deployment model only. They are not available for the classic deployment model.
 >
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
@@ -44,7 +37,7 @@ Before Azure accepts a P2S VPN connection, the user has to be authenticated firs
 
 When using the native Azure certificate authentication, a client certificate that is present on the device is used to authenticate the connecting user. Client certificates are generated from a trusted root certificate and then installed on each client computer. You can use a root certificate that was generated using an Enterprise solution, or you can generate a self-signed certificate.
 
-The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure. 
+The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure.
 
 ### Authenticate using Active Directory (AD) Domain Server
 
@@ -56,9 +49,17 @@ The RADIUS server can also integrate with AD certificate services. This lets you
 
 A RADIUS server can also integrate with other external identity systems. This opens up plenty of authentication options for P2S VPN, including multi-factor options.
 
-![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
+>[!NOTE]
+>**OpenVPN® Protocol** is not supported with RADIUS authentication.
+>
 
-### Configuration requirements for client devices
+![point-to-site](./media/point-to-site-about/p2s.png "Point-to-Site")
+
+## What are the client configuration requirements?
+
+>[!NOTE]
+>For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
+>
 
 Users use the native VPN clients on Windows and Mac devices for P2S. Azure provides a VPN client configuration zip file that contains settings required by these native clients to connect to Azure.
 
@@ -68,16 +69,14 @@ Users use the native VPN clients on Windows and Mac devices for P2S. Azure provi
 The zip file also provides the values of some of the important settings on the Azure side that you can use to create your own profile for these devices. Some of the values include the VPN gateway address, configured tunnel types, routes, and the root certificate for gateway validation.
 
 >[!NOTE]
->For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
+## <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* Aggregate Throughput Benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to internet traffic conditions and your application behaviors.
-* Pricing information can be found on the Pricing page 
-* SLA (Service Level Agreement) information can be found on the SLA page.
+* For Gateway SKU recommendations, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 >[!NOTE]
 >The Basic SKU does not support IKEv2 or RADIUS authentication.
@@ -90,6 +89,8 @@ A P2S configuration requires quite a few specific steps. The following articles 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
 * [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+* [Configure OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 
@@ -104,3 +105,5 @@ A P2S configuration requires quite a few specific steps. The following articles 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
 * [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+**"OpenVPN" is a trademark of OpenVPN Inc.**

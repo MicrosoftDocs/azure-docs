@@ -19,17 +19,19 @@ ms.author: alkohli
 ---
 # Role-based Access Control for StorSimple
 
-This article provides a brief description of how Azure Role-Based Access Control (RBAC) can be used for your StorSimple device. RBAC offers fine-grained access management for Azure. Use RBAC to grant just the right amount of access to the StorSimple users to do their jobs instead of giving everyone unrestricted access. For more information on the basics of access management in Azure, see [Get started with Role-based Access Control in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+This article provides a brief description of how Azure Role-Based Access Control (RBAC) can be used for your StorSimple device. RBAC offers fine-grained access management for Azure. Use RBAC to grant just the right amount of access to the StorSimple users to do their jobs instead of giving everyone unrestricted access. For more information on the basics of access management in Azure, see [Get started with Role-based Access Control in the Azure portal](../role-based-access-control/overview.md).
 
 This article applies to StorSimple 8000 series devices running Update 3.0 or later in the Azure portal.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## RBAC roles for StorSimple
 
 RBAC can be assigned based on the roles. The roles ensure certain permission levels based on the available resources in the environment. There are two types of roles that StorSimple users can choose from: built-in or custom.
 
-* **Built-in roles** - The built-in roles can be owner, contributor, reader, or user access administrator. For more information, see [Built-in roles for Azure Role-based Access Control](../active-directory/role-based-access-control-what-is.md#built-in-roles).
+* **Built-in roles** - The built-in roles can be owner, contributor, reader, or user access administrator. For more information, see [Built-in roles for Azure Role-based Access Control](../role-based-access-control/built-in-roles.md).
 
-* **Custom roles** - If the built-in roles do not suit your needs, you can create custom RBAC roles for StorSimple. To create a custom RBAC role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI. For more information, see [Create custom roles for Role-based Access Control](../active-directory/role-based-access-control-custom-roles.md).
+* **Custom roles** - If the built-in roles do not suit your needs, you can create custom RBAC roles for StorSimple. To create a custom RBAC role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI. For more information, see [Create custom roles for Role-based Access Control](../role-based-access-control/custom-roles.md).
 
 To view the different roles available for a StorSimple device user in the Azure portal, go to your StorSimple Device Manager service and then go to **Access control (IAM) > Roles**.
 
@@ -42,14 +44,14 @@ In the following example, we start with the built-in role **Reader** that allows
 
 2. Log in to Azure.
 
-    `Login-AzureRMAccount`
+    `Connect-AzAccount`
 
 3. Export the Reader role as a JSON template on your computer.
 
-    ```
-    Get-AzureRMRoleDefinition -Name "Reader"
+    ```powershell
+    Get-AzRoleDefinition -Name "Reader"
 
-    Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
 4. Open the JSON file in Visual Studio. You see that a typical RBAC role consists of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
@@ -58,7 +60,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
     Use PowerShell to see all the resource providers available and registered in your subscription.
 
-    `Get-AzureRMResourceProvider`
+    `Get-AzResourceProvider`
 
     You can also check for all the available PowerShell cmdlets to manage the resource providers.
 
@@ -68,7 +70,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
     Edit the file keeping in mind the preceding considerations.
 
-    ```
+    ```json
     {
         "Name":  "StorSimple Infrastructure Admin",
         "Id":  "<guid>",
@@ -98,29 +100,35 @@ In the following example, we start with the built-in role **Reader** that allows
 
 6. Import the custom RBAC role back into the environment.
 
-    `New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"`
+    `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 This role should now appear in the list of roles in the **Access control** blade.
 
 ![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-For more information, go to [Create a custom RBAC role using PowerShell](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+For more information, go to [Custom roles](../role-based-access-control/custom-roles.md).
 
 ### Sample output for custom role creation via the PowerShell
 
+```powershell
+Connect-AzAccount
 ```
-PS C:\WINDOWS\system32> Login-AzureRMAccount
 
+```Output
 Environment           : AzureCloud
 Account               : john.doe@contoso.com
 TenantId              : <tenant_ID>
 SubscriptionId        : <subscription_ID>
 SubscriptionName      : Internal Consumption
 CurrentStorageAccount :
+```
 
-PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader"
+```powershell
+Get-AzRoleDefinition -Name "Reader"
+```
 
+```Output
 Name             : Reader
 Id               : <guid>
 IsCustom         : False
@@ -128,11 +136,14 @@ Description      : Lets you view everything, but not make any changes.
 Actions          : {*/read}
 NotActions       : {}
 AssignableScopes : {/}
+```
 
-PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+```powershell
+Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"
+```
 
-PS C:\WINDOWS\system32> New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
-
+```Output
 Name             : StorSimple Infrastructure Admin
 Id               : <tenant_ID>
 IsCustom         : True
@@ -144,13 +155,11 @@ Actions          : {Microsoft.StorSimple/managers/alerts/read,
                    Microsoft.StorSimple/managers/devices/alertSettings/read...}
 NotActions       : {}
 AssignableScopes : {/subscriptions/<subscription_ID>/}
-
-PS C:\WINDOWS\system32>
 ```
 
 ## Add users to the custom role
 
-You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Resource heirarchy and access inheritance](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
+You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [role-based access control](../role-based-access-control/overview.md).
 
 1. Go to **Access control (IAM)**. Click **+ Add** on the Access control blade.
 
@@ -183,5 +192,4 @@ Once this role is created, you can view the permissions associated with this rol
 
 ## Next steps
 
-Learn how to [Assign custom roles for internal and external users](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md).
-
+Learn how to [Assign custom roles for internal and external users](../role-based-access-control/role-assignments-external-users.md).

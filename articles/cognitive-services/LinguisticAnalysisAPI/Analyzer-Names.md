@@ -1,18 +1,22 @@
 ---
-title: Analyzer naming structure in the Linguistic Analysis API | Microsoft Docs
-description: Learn how the Linguistic Analysis API uses its naming structure for analyzers to allow both flexibility and precision.
+title: Analyzer naming structure - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
+description: Learn how the Linguistic Analysis API Analyzer naming structure allows for both flexibility and precision.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
-
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
-ms.topic: article
+ms.subservice: linguistic-analysis
+ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # Analyzer Names
+
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 We use a somewhat complicated naming structure for analyzers to allow both flexibility on analyzers and precision in understanding what a name means.
 Analyzer names consist of four parts: an ID, a Kind, a Specification, and an Implementation.
@@ -34,10 +38,10 @@ Currently, there are three distinct kinds:
 Within a given kind, however, different experts might disagree on how a particular phenomenon should be analyzed.
 Unlike programming languages, there's no clear and exact definition of how this should be done.
 
-For instance, imagine we were trying to find the tokens in the English sentence "He didn't go."
+For instance, imagine we were trying to find the tokens in the English sentence "They didn't go."
 In particular, consider the string "didn't".
 One possible interpretation is that this should be split into two tokens: "did" and "not".
-Then the alternative sentence "He did not go" would have the same set of tokens.
+Then the alternative sentence "They did not go" would have the same set of tokens.
 Another possibility is to say that it should be split into the tokens "did" and "n't".
 The latter token would not normally be considered a word, but this approach retains more information about the surface string, which can sometimes be useful.
 Or perhaps that contraction should be considered a single word.

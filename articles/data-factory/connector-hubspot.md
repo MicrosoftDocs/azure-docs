@@ -1,30 +1,27 @@
 ---
-title: Copy data from HubSpot using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from HubSpot using Azure Data Factory (Preview) | Microsoft Docs
 description: Learn how to copy data from HubSpot to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/30/2017
+
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from HubSpot using Azure Data Factory (Beta)
+# Copy data from HubSpot using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from HubSpot. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and give us feedback. Do not use it in production environments.
+> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
@@ -34,7 +31,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to HubSpot connector.
 
@@ -46,9 +43,9 @@ The following properties are supported for HubSpot linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Hubspot** | Yes |
 | clientId | The client ID associated with your Hubspot application.  | Yes |
-| clientSecret | The client secret associated with your Hubspot application. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| accessToken | The access token obtained when initially authenticating your OAuth integration. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| refreshToken | The refresh token obtained when initially authenticating your OAuth integration. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| clientSecret | The client secret associated with your Hubspot application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| accessToken | The access token obtained when initially authenticating your OAuth integration. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | The refresh token obtained when initially authenticating your OAuth integration. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
@@ -63,16 +60,16 @@ The following properties are supported for HubSpot linked service:
         "typeProperties": {
             "clientId" : "<clientId>",
             "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
+                "type": "SecureString",
+                "value": "<clientSecret>"
             },
             "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
+                "type": "SecureString",
+                "value": "<accessToken>"
             },
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refreshToken>"
+                "type": "SecureString",
+                "value": "<refreshToken>"
             }
         }
     }
@@ -83,7 +80,12 @@ The following properties are supported for HubSpot linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by HubSpot dataset.
 
-To copy data from HubSpot, set the type property of the dataset to **HubspotObject**. There is no additional type-specific property in this type of dataset.
+To copy data from HubSpot, set the type property of the dataset to **HubspotObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **HubspotObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -95,7 +97,8 @@ To copy data from HubSpot, set the type property of the dataset to **HubspotObje
         "linkedServiceName": {
             "referenceName": "<Hubspot linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -111,7 +114,7 @@ To copy data from HubSpot, set the source type in the copy activity to **Hubspot
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **HubspotSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Companies where Company_Id = xxx"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Companies where Company_Id = xxx"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

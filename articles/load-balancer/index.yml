@@ -1,0 +1,107 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Load Balancer
+metadata:
+  document_id: 
+  title: Load Balancer
+  meta.description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+  services: load-balancer
+  author: KumudD
+  manager: twooley
+  ms.service: load-balancer
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/14/2018
+  ms.author: kumud
+abstract:
+  description:  Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create a load balancer, create virtual machines to act as backend servers, install a custom web app on the virtual machine, and then load balance the web app between the virtual machines.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure portal
+      href: /azure/load-balancer/quickstart-create-basic-load-balancer-portal
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/load-balancer/quickstart-create-basic-load-balancer-powershell
+    - image: 
+        src: https://docs.microsoft.com/media/common/cli.svg
+      text: Azure CLI
+      href: /azure/load-balancer/quickstart-create-basic-load-balancer-cli
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create a load balancer and load balance services across VMs.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-manage-portal">Load balance internet traffic to VMs</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">Load balance internal traffic to VMs</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Load balance VMs across availability zones</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Load balance VMs within a specific availability zone</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">Configure port forwarding in Load Balancer</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Make your virtual machines highly available
+      href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
+      image: 
+        src: /learn/achievements/make-your-virtual-machines-highly-available.svg
+        href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">More interactive learning...</a>
+  
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Administrator
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+    - title: Azure Solution Architect
+      href: https://go.microsoft.com/fwlink/?linkid=2012824
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://go.microsoft.com/fwlink/?linkid=2012824
+    - title: Azure Administration for AWS Administrators
+      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
+- title: Samples
+  items:
+  - type: paragraph
+    text: Script samples for common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/load-balancer/cli-samples">Azure CLI</a>
+    - html: <a href="/azure/load-balancer/powershell-samples">PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/az.network#load_balancer">PowerShell</a></p><p><a href="/cli/azure/network/lb">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2017_10_01.models.LoadBalancer">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2015_06_15.operations.loadbalancersoperations">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/load-balancer/">REST API Reference</a></p>

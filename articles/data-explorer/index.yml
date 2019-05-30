@@ -1,0 +1,78 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Explorer Documentation
+metadata:
+  title: Azure Data Explorer Documentation - Quickstarts, tutorials, and language and API references
+  description: Azure Data Explorer is a log analytics cloud platform optimized for ad-hoc big data queries.
+  author: orspod
+  ms.author: orspodek
+  ms.service: data-explorer
+  ms.topic: landing-page
+  ms.date: 03/24/2019
+abstract:
+  description: <p>Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. You can use Azure Data Explorer to collect, store, and analyze diverse data to improve products, enhance customer experiences, monitor devices, and boost operations.</p><p>Learn how to use Azure Data Explorer with our quickstarts, tutorials, and reference content.</p>
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250  
+    title: What is Azure Data Explorer? (19:47)
+    href: https://youtu.be/D_AJk2lAepw
+    width: 250
+
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to provision and use Azure Data Explorer:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Create a cluster and database
+      href: /azure/data-explorer/create-cluster-database-portal
+    - image: 
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Ingest streaming data from Event Hubs
+      href: /azure/data-explorer/ingest-data-event-hub
+    - image: 
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Query data with the web UI
+      href: /azure/data-explorer/web-query-data
+    - image: 
+        src: /azure/data-explorer/media/index/logo-python.svg
+      text: Ingest queued data with Python
+      href: /azure/data-explorer/python-ingest-data
+    - image: 
+        src: /azure/data-explorer/media/index/logo-python.svg
+      text: Query data with Python
+      href: /azure/data-explorer/python-query-data
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to build end-to-end solutions:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/data-explorer/visualize-power-bi">Visualize data from Azure Data Explorer in Power BI</a>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Query language for Azure Data Explorer
+      href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+      image: 
+        src: /azure/data-explorer/media/index/logo-pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Languages and API
+      html: <p><a href="https://aka.ms/kustolangref">Query language, management commands, and APIs</a>

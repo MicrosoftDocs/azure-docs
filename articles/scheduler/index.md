@@ -84,7 +84,7 @@ Learn how to use Scheduler to schedule and automatically invoke recurring jobs i
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.scheduler">PowerShell</a></p>
                     </div>
                 </div>
             </div>

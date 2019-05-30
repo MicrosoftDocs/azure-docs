@@ -4,13 +4,13 @@ description: Overview of the Application Group functionality in the Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
@@ -32,6 +32,7 @@ The simplest use case for Application capacity is when an application instance n
 The following image shows an application instance with and without a maximum number of nodes defined:
 
 <center>
+
 ![Application Instance Defining Maximum Number of Nodes][Image1]
 </center>
 
@@ -43,7 +44,7 @@ Powershell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
-Update-ServiceFabricApplication –Name fabric:/AppName –MaximumNodes 5
+Update-ServiceFabricApplication –ApplicationName fabric:/AppName –MaximumNodes 5
 ```
 
 C#
@@ -113,6 +114,7 @@ Combining **MinimumNodes** and **NodeReservationCapacity** guarantees a minimum 
 Let's look at an example of capacity reservation:
 
 <center>
+
 ![Application Instances Defining Reserved Capacity][Image2]
 </center>
 
@@ -156,7 +158,7 @@ For each application that has an Application Capacity defined for one or more me
 Powershell:
 
 ``` posh
-Get-ServiceFabricApplicationLoad –ApplicationName fabric:/MyApplication1
+Get-ServiceFabricApplicationLoadInformation –ApplicationName fabric:/MyApplication1
 ```
 
 C#

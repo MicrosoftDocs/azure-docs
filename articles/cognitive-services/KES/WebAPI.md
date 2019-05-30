@@ -1,19 +1,22 @@
 ---
-title: Web API interface in the Knowledge Exploration Service API | Microsoft Docs
-description: Use the web API interface to create a rich, semantic search experience in the Knowledge Exploration Service (KES) API in Cognitive Services.
+title: Web API interface - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Use the web API interface to create a rich, semantic search experience in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: kes
-ms.topic: article
+ms.subservice: knowledge-exploration
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ---
 
 # Web API Interface
+
 The model files built by the Knowledge Exploration Service can be hosted and accessed via a set of web APIs.  The APIs may be hosted on the local machine using the [`host_service`](CommandLine.md#host_service-command) command, or may be deployed to an Azure cloud service using the [`deploy_service`](CommandLine.md#deploy_service-command) command.  Both techniques expose the following API endpoints:
+
 * [*interpret*](interpretMethod.md) – Interprets a natural language query string. Returns annotated interpretations to enable rich search-box auto-completion experiences that anticipate what the user is typing.
 * [*evaluate*](evaluateMethod.md) – Evaluates and returns the output of a structured query expression.
 * [*calchistogram*](calchistogramMethod.md) – Calculates a histogram of attribute values for objects returned by a structured query expression.

@@ -1,6 +1,18 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: cynthn
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: cynthn
+ ms.custom: include file
+---
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Starting in the upper left, click **New > Compute > Windows Server 2016 Datacenter**.
+2. Starting in the upper left, click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
 
     ![Navigate to the Azure VM images in the portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
@@ -16,7 +28,7 @@ The Basics blade requests administrative information for the virtual machine.
 
 2. Enter a **User name** and a strong **Password** that are used to create a local account on the VM. The local account is used to sign in to and manage the VM. In the example, _azureuser_ is the user name.
 
- The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../articles/virtual-machines/windows/faq.md).
+   The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../articles/virtual-machines/windows/faq.md).
 
 3. The **Subscription** is optional. One common setting is "Pay-As-You-Go".
 

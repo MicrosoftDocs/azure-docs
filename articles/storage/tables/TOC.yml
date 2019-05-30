@@ -1,0 +1,91 @@
+- name: Azure Storage Documentation
+  href: /azure/storage/
+- name: Overview
+  expanded: true
+  items: 
+  - name: Azure Table storage overview
+    href: table-storage-overview.md
+  - name: Choose Table storage or Table API
+    href: /azure/cosmos-db/table-support
+    maintainContext: true   
+- name: Quickstarts
+  items:
+  - name: Create a table in the Azure portal
+    href: table-storage-quickstart-portal.md
+- name: Samples
+  items:
+  - name: .NET
+    href: /azure/cosmos-db/table-storage-how-to-use-dotnet
+    maintainContext: true  
+  - name: F#
+    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    maintainContext: true
+  - name: Java
+    href: /azure/cosmos-db/table-storage-how-to-use-java
+    maintainContext: true  
+  - name: Node.js
+    href: /azure/cosmos-db/table-storage-how-to-use-nodejs   
+    maintainContext: true
+  - name: C++ 
+    href: /azure/cosmos-db/table-storage-how-to-use-c-plus 
+    maintainContext: true
+  - name: PHP
+    href: /azure/cosmos-db/table-storage-how-to-use-php 
+    maintainContext: true 
+  - name: Python
+    href: /azure/cosmos-db/table-storage-how-to-use-python  
+    maintainContext: true 
+  - name: Ruby
+    href: /azure/cosmos-db/table-storage-how-to-use-ruby  
+    maintainContext: true
+  - name: PowerShell
+    href: /azure/storage/tables/table-storage-how-to-use-powershell       
+    maintainContext: true
+- name: Concepts
+  items:
+  - name: Storage accounts
+    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    items:
+    - name: Manage a storage account
+      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Upgrade a storage account
+      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+  - name: Design scalable and performant tables 
+    href: table-storage-design.md
+  - name: Guidelines for table design
+    href: table-storage-design-guidelines.md
+  - name: Design for querying
+    href: table-storage-design-for-query.md
+  - name: Design for data modification
+    href: table-storage-design-for-modification.md
+  - name: Encrypting table data
+    href: table-storage-design-encrypt-data.md
+  - name: Modeling relationships
+    href: table-storage-design-modeling.md
+  - name: Table design patterns
+    href: table-storage-design-patterns.md
+- name: How-to guides
+  items:
+  - name: Create a storage account
+    displayName: resource manager, resource manager template, template, ARM
+    href: /azure/storage/common/storage-quickstart-create-account  
+    maintainContext: true 
+  - name: How to use the storage emulator
+    href: /azure/storage/common/storage-use-emulator
+    maintainContext: true
+  - name: Transfer data
+    items:  
+    - name: AzCopy (v10)
+      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: AzCopy on Windows (v8)
+      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
+    - name: AzCopy on Linux (v8)
+      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
+  - name: Initiate an account failover
+    href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+- name: Resources
+  items:
+  - name: Table storage REST APIs
+    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
+    maintainContext: true 
+

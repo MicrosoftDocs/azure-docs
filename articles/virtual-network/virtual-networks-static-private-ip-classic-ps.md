@@ -3,8 +3,8 @@ title: Configure private IP addresses for VMs (Classic) - Azure PowerShell | Mic
 description: Learn how to configure private IP addresses for virtual machines (Classic) using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -113,7 +113,7 @@ Expected output:
     Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
 ## How to add a static private IP address to an existing VM
-To add a static private IP address to the VM created using the script above, runt he following command:
+To add a static private IP address to the VM created using the script above, run the following command:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
       Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
@@ -124,6 +124,10 @@ Expected output:
     OperationDescription OperationId                          OperationStatus
     -------------------- -----------                          ---------------
     Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded 
+
+## Set IP addresses within the operating system
+
+It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary. If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure VM, or you can lose connectivity to the virtual machine. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
 
 ## Next steps
 * Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.

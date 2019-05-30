@@ -1,24 +1,20 @@
 ---
-title: SQL Data Warehouse Transact-SQL reference | Microsoft Docs
-description: Links to reference content for the Transact-SQL topics used by SQL Data Warehouse.
+title: T-SQL statements - Azure SQL Data Warehouse | Microsoft Docs
+description: Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-
-ms.assetid: 0abc5934-1e67-491a-b7d7-8b520d1ae98e
+author: XiaoyuL-Preview
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-
+ms.topic: conceptual
+ms.subservice: query
+ms.date: 05/01/2019
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ---
-# Transact-SQL topics
+
+# T-SQL statements supported in Azure SQL Data Warehouse
+Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
+
 ## Data Definition Language (DDL) statements
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
@@ -39,6 +35,7 @@ ms.author: kevin;barbkess
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [CREATE VIEW](https://msdn.microsoft.com/library/ms187956.aspx)
+* [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql)
 * [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
 * [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/mt146379.aspx)
 * [DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/mt130698.aspx)
@@ -48,7 +45,9 @@ ms.author: kevin;barbkess
 * [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
+* [DROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
+* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) (Preview)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -110,14 +109,4 @@ ms.author: kevin;barbkess
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## Next steps
-For more TSQL examples, see [SQL Data Warehouse reference overview][SQL Data Warehouse reference overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
+For more reference information, see [T-SQL language elements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).

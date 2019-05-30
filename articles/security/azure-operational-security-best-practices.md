@@ -1,11 +1,11 @@
-﻿---
+---
 
-title: Azure Operational Security best practices| Microsoft Docs
-description: This article provides a set of best practices for Azure Operational Security.
+title: Security best practices for protecting your assets - Microsoft Azure
+description: This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 services: security
 documentationcenter: na
-author: unifycloud
-manager: swadhwa
+author: TerryLanfear
+manager: barbkess
 editor: tomsh
 
 ms.assetid:
@@ -14,164 +14,212 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: tomsh
+ms.date: 05/06/2019
+ms.author: terrylan
 
 ---
 
 # Azure Operational Security best practices
-Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
+This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 
-In this article, we discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Opinions and technologies change over time and this article is updated on a regular basis to reflect those changes.
 
-For each best practice, we explain:
--	What the best practice is
--	Why you want to enable that best practice
--	What might be the result if you fail to enable the best practice
-- How you can learn to enable the best practice
+## Define and deploy strong operational security practices
+Azure operational security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Azure. Azure operational security is built on a framework that incorporates the knowledge gained through capabilities that are unique to Microsoft, including the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), the [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) program, and deep awareness of the cybersecurity threat landscape.
 
-This Azure Operational Security Best Practices article is based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
+## Manage and monitor user passwords
+The following table lists some best practices related to managing user passwords:
 
-Azure Operational Security best practices discussed in this article include:
+**Best practice**: Ensure you have the proper level of password protection in the cloud.   
+**Detail**: Follow the guidance in [Microsoft Password Guidance](https://www.microsoft.com/research/publication/password-guidance/), which is scoped to users of the Microsoft identity platforms (Azure Active Directory, Active Directory, and Microsoft account).
 
--	Monitor, manage, and protect cloud infrastructure
--	Manage identity and implement single sign-on (SSO)
--	Trace requests, analyze usage trends, and diagnose issues
--	Monitoring services with a centralized monitoring solution
--	Prevent, detect, and respond to threats
--	End-to-end scenario-based network monitoring
--	Secure deployment using proven DevOps tools
+**Best practice**: Monitor for suspicious actions related to your user accounts.   
+**Detail**: Monitor for [users at risk](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk) and [risky sign-ins](../active-directory/reports-monitoring/concept-risk-events.md) by using Azure AD security reports.
 
-## Monitor, manage, and protect cloud infrastructure
-IT Operations is responsible for managing datacenter infrastructure, applications, and data, including the stability and security of these systems. However, gaining security insights across increasing complex IT environments often requires organizations to cobble together data from multiple security and management systems.
+**Best practice**: Automatically detect and remediate high-risk passwords.   
+**Detail**: [Azure AD Identity Protection](../active-directory/identity-protection/overview.md) is a feature of the Azure AD Premium P2 edition that enables you to:
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
+- Detect potential vulnerabilities that affect your organization’s identities
+- Configure automated responses to detected suspicious actions that are related to your organization’s identities
+- Investigate suspicious incidents and take appropriate actions to resolve them
 
-[OMS Security and Audit solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit have security domains that can be used for monitoring resources.
+## Receive incident notifications from Microsoft
+Be sure your security operations team receives Azure incident notifications from Microsoft. An incident notification lets your security team know you have compromised Azure resources so they can quickly respond to and remediate potential security risks.
 
-For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+In the Azure enrollment portal, you can ensure admin contact information includes details that notify security operations. Contact information is an email address and phone number.
 
-To help you prevent, detect, and respond to threats, [Operations Management Suite (OMS) Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) collects and processes data about your resources, which includes:
+## Organize Azure subscriptions into management groups
+If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](../governance/management-groups/create.md) provide a level of scope that’s above subscriptions. You organize subscriptions into containers called management groups and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group.
 
--	Security event log
--	Event Tracing for Windows (ETW) events
--	AppLocker auditing events
--	Windows Firewall log
--	Advanced Threat Analytics events
--	Results of baseline assessment
--	Results of antimalware assessment
--	Results of update/patch assessment
--	Syslog streams that are explicitly enabled on the agent
+You can build a flexible structure of management groups and subscriptions into a directory. Each directory is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. The root management group allows global policies and RBAC assignments to be applied at the directory level.
 
+Here are some best practices for using management groups:
 
-## Manage identity and implement single sign-on
-[Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is Microsoft’s multi-tenant cloud based directory and identity management service.
+**Best practice**: Ensure that new subscriptions apply governance elements like policies and permissions as they are added.   
+**Detail**: Use the root management group to assign enterprise-wide security elements that apply to all Azure assets. Policies and permissions are examples of elements.
 
-[Azure AD](https://azure.microsoft.com/services/active-directory/) also includes a full suite of [identity management](https://docs.microsoft.com/azure/security/security-identity-management-overview) capabilities including [multi-factor authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing and, security monitoring and alerting.
+**Best practice**: Align the top levels of management groups with segmentation strategy to provide a point for control and policy consistency within each segment.   
+**Detail**: Create a single management group for each segment under the root management group. Don’t create any other management groups under the root.
 
-The following capabilities can help secure cloud-based applications, streamline IT processes, cut costs and help ensure that corporate compliance goals are met:
+**Best practice**: Limit management group depth to avoid confusion that hampers both operations and security.   
+**Detail**: Limit your hierarchy to three levels, including the root.
 
--	Identity and access management for the cloud
--	Simplify user access to any cloud app
--	Protect sensitive data and applications
--	Enable self-service for your employees
--	Integrate with Azure Active Directory
+**Best practice**: Carefully select which items to apply to the entire enterprise with the root management group.   
+**Detail**: Ensure root management group elements have a clear need to be applied across every resource and that they’re low impact.
 
-### Identity and access management for the cloud
-Azure Active Directory (Azure AD) is a comprehensive [identity and access management cloud solution](https://www.microsoft.com/cloud-platform/identity-management), which gives you a robust set of capabilities to manage users and groups. It helps secure access to on-premises and cloud applications, including Microsoft web services like Office 365 and much non-Microsoft software as a service (SaaS) applications.
-To learn more how to enable identity protection in Azure AD, see [Enabling Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable).
+Good candidates include:
 
-### Simplify user access to any cloud app
-[Enable single sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) to simplify user access to thousands of cloud applications from Windows, Mac, Android, and iOS devices. Users can launch applications from a personalized web-based access panel or mobile app using their company credentials. Use the Azure AD Application Proxy module to go beyond SaaS applications and publish on-premises web applications to provide highly secure remote access and single sign-on.
+- Regulatory requirements that have a clear business impact (for example, restrictions related to data sovereignty)
+- Requirements with near-zero potential negative affect on operations, like policy with audit effect or RBAC permission assignments that have been carefully reviewed
 
-### Protect sensitive data and applications
-Enable [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) to prevent unauthorized access to on-premises and cloud applications by providing an additional level of authentication. Protect your business and mitigate potential threats with security monitoring, alerts, and machine learning-based reports that identify inconsistent access patterns.
+**Best practice**: Carefully plan and test all enterprise-wide changes on the root management group before applying them (policy, RBAC model, and so on).   
+**Detail**: Changes in the root management group can affect every resource on Azure. While they provide a powerful way to ensure consistency across the enterprise, errors or incorrect usage can negatively affect production operations. Test all changes to the root management group in a test lab or production pilot.
 
-### Enable self-service for your employees
-Delegate important tasks to your employees, such as resetting passwords and creating and managing groups. [Enable self-service password change](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), reset, and self-service group management with Azure AD.
+## Streamline environment creation with blueprints
+[The Azure Blueprints](../governance/blueprints/overview.md) service enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly build and stand up new environments with a set of built-in components and the confidence that they're creating those environments within organizational compliance.
 
-### Integrate with Azure Active Directory
-Extend [Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate) and any other on-premises directories to Azure AD to enable single sign-on for all cloud-based applications. User attributes can be automatically synchronized to your cloud directory from all kinds of on-premises directories.
+## Monitor storage services for unexpected changes in behavior
+Diagnosing and troubleshooting issues in a distributed application hosted in a cloud environment can be more complex than it is in traditional environments. Applications can be deployed in a PaaS or IaaS infrastructure, on-premises, on a mobile device, or in some combination of these environments. Your application's network traffic might traverse public and private networks, and your application might use multiple storage technologies.
 
-To learn more about integration of Azure Active Directory and how to enable it, please read the article [integrate your on-premises directories with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+You should continuously monitor the storage services that your application uses for any unexpected changes in behavior (such as slower response times). Use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information that you obtain from both monitoring and logging helps you to determine the root cause of the issue that your application encountered. Then you can troubleshoot the issue and determine the appropriate steps to remediate it.
 
-## Trace requests, analyze usage trends, and diagnose issues
-[Azure Storage Analytics](https://docs.microsoft.com/azure/storage/storage-analytics) performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
-
-Storage Analytics metrics are enabled by default for new storage accounts. You can enable logging and configure both metrics and logging in the Azure portal; for details, see [Monitor a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operation to enable Storage Analytics individually for each service.
-
-For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
-
-To learn more about integration of Azure Active Directory and how to enable it, read the article [Enabling and Configuring Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics?redirectedfrom=MSDN).
-
-## Monitoring services
-Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
-
-### Monitor Azure resources
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) is the platform service that provides a single source for monitoring Azure resources. With Azure Monitor, you can visualize, query, route, archive, and take action on the metrics and logs coming from resources in Azure. You can work with this data using the Monitor portal blade, [Monitor PowerShell Cmdlets](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples), [Cross-Platform CLI](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/dn931943.aspx).
-
-### Enable Autoscale with Azure monitor
-Enable [Azure Monitor Autoscale](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started) applies only to virtual machine scale sets (VMSS), cloud services, app service plans, and app service environments.
-
-### Manage Roles Permissions and Security
-Many teams need to strictly [regulate access to monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) data and settings. For example, if you have team members who work exclusively on monitoring (support engineers, devops engineers) or if you use a managed service provider, you may want to grant them access to only monitoring data while restricting their ability to create, modify, or delete resources.
-
-This shows how to quickly apply a built-in monitoring RBAC role to a user in Azure or build your own custom role for a user who needs limited monitoring permissions. It then discusses security considerations for your Azure Monitor-related resources and how you can limit access to the data they contain.
+[Azure Storage Analytics](../storage/storage-analytics.md) performs logging and provides metrics data for an Azure storage account. We recommend that you use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
 
 ## Prevent, detect, and respond to threats
-Security Center threat detection works by automatically collecting security information from Azure resources, the network, and connected partner solutions. It analyses this information, often correlating information from multiple sources, to identify threats. Security alerts are prioritized in Security Center along with recommendations on how to remediate the threat.
+[Azure Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats by providing increased visibility into (and control over) the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with various security solutions.
 
--	[Configure a security policy](https://docs.microsoft.com/azure/security-center/security-center-policies) for your Azure subscription.
--	Use the [recommendations in Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) to help you protect your Azure resources.
--	Review and manage your current [security alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
+The Free tier of Security Center offers limited security for only your Azure resources. The Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats by using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost for the first 60 days. We recommend that you [upgrade your Azure subscription to Security Center Standard](../security-center/security-center-get-started.md).
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Use Security Center to get a central view of the security state of all your Azure resources. At a glance, verify that the appropriate security controls are in place and configured correctly, and quickly identify any resources that need attention.
 
-Security Center delivers easy-to-use and effective threat prevention, detection, and response capabilities that are built in to Azure. Key capabilities are:
+Security Center also integrates with [Windows Defender Advanced Threat Protection (ATP)](../security-center/security-center-wdatp.md), which provides comprehensive Endpoint Detection and Response (EDR) capabilities. With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Security Center.
 
--	Understand cloud security state
--	Take control of cloud security
--	Easily deploy integrated cloud security solutions
--	Detect threats and respond fast
+Almost all enterprise organizations have a security information and event management (SIEM) system to help identify emerging threats by consolidating log information from diverse signal gathering devices. The logs are then analyzed by a data analytics system to help identify what’s “interesting” from the noise that is inevitable in all log gathering and analytics solutions.
 
-### Understand cloud security state
-Use Azure Security Center to get a central view of the security state of all of your Azure resources. At a glance, verify that the appropriate security controls are in place and configured correctly and quickly identify any resources, which require attention.
+[Azure Sentinel](../sentinel/overview.md) is a scalable, cloud-native, security information and event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel provides intelligent security analytics and threat intelligence via alert detection, threat visibility, proactive hunting, and automated threat response.
 
-### Take control of cloud security
-Define [security policies](https://docs.microsoft.com/azure/security-center/security-center-policies) for your Azure subscriptions according to your company’s cloud security needs, tailored to the type of applications or sensitivity of the data in each subscription. Use policy-driven recommendations to guide resource owners through the process of implementing required controls—take the guesswork out of cloud security.
+Here are some best practices for preventing, detecting, and responding to threats:
 
-### Easily deploy integrated cloud security solutions
-[Enable security solutions](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) from Microsoft and its partners, including industry-leading firewalls and antimalware. Use streamlined provisioning to deploy security solutions—even networking changes are configured for you. Your security events from partner solutions are automatically collected for analysis and alerting.
+**Best practice**: Increase the speed and scalability of your SIEM solution by using a cloud-based SIEM.   
+**Detail**: Investigate the features and capabilities of [Azure Sentinel](../sentinel/overview.md) and compare them with the capabilities of what you’re currently using on-premises. Consider adopting Azure Sentinel if it meets your organization’s SIEM requirements.
 
-### Detect threats and respond fast
-Stay ahead of current and emerging cloud threats with an integrated, analytics-driven approach. By combining Microsoft global [threat intelligence](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities) and expertise, with insights into cloud security-related events across your Azure deployments, Security Center helps you detect actual threats early and reduce false positives. Cloud security alerts give you insights into the attack campaign, including related events and impacted resources and suggest ways to remediate issues and recover quickly.
+**Best practice**: Find the most serious security vulnerabilities so you can prioritize investigation.   
+**Detail**: Review your [Azure secure score](../security-center/security-center-secure-score.md) to see the recommendations resulting from the Azure policies and initiatives built into Azure Security Center. These recommendations help address top risks like security updates, endpoint protection, encryption, security configurations, missing WAF, internet-connected VMs, and many more.
 
-## End-to-end scenario-based network monitoring
-Customers build an end-to-end network in Azure by orchestrating and composing various individual network resources such as VNet, ExpressRoute, Application Gateway, Load balancers, and more. Monitoring is available on each of the network resources.
+The secure score, which is based on Center for Internet Security (CIS) controls, lets you benchmark your organization’s Azure security against external sources. External validation helps validate and enrich your team’s security strategy.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure.
+**Best practice**: Monitor the security posture of machines, networks, storage and data services, and applications to discover and prioritize potential security issues.  
+**Detail**: Follow the [security recommendations](../security-center/security-center-recommendations.md) in Security Center starting, with the highest priority items.
 
-### Automate remote network monitoring with packet capture
-Monitor and diagnose networking issues without logging in to your virtual machines (VMs) using Network Watcher. Trigger [packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) by setting alerts and gain access to real-time performance information at the packet level. When you see an issue, you can investigate in detail for better diagnoses.
+**Best practice**: Integrate Security Center alerts into your security information and event management (SIEM) solution.   
+**Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Integrate security solutions in Security Center](../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) for instructions. If you’re using Azure Sentinel, see [Connect Azure Security Center](../sentinel/connect-azure-security-center.md).
 
-### Gain insight into your network traffic using flow logs
-Build a deeper understanding of your network traffic pattern using [Network Security Group flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Information provided by flow logs helps you gather data for compliance, auditing and monitoring your network security profile.
+**Best practice**: Integrate Azure logs with your SIEM.   
+**Detail**: Use [Azure Monitor to gather and export data](../azure-monitor/overview.md#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../sentinel/connect-data-sources.md).
 
-### Diagnose VPN connectivity issues
-Network Watcher provides you the ability to [diagnose your most common VPN Gateway and Connections issues](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Allowing you not only to identify the issue but also to use the detailed logs created to help further investigate.
+**Best practice**: Speed up your investigation and hunting processes and reduce false positives by integrating Endpoint Detection and Response (EDR) capabilities into your attack investigation.   
+**Detail**: [Enable Windows Defender ATP integration](../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
 
-To learn more about how to configure Network watcher and how to enable it, please read the article [configure Network watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+## Monitor end-to-end scenario-based network monitoring
+Customers build an end-to-end network in Azure by combining network resources like a virtual network, ExpressRoute, Application Gateway, and load balancers. Monitoring is available on each of the network resources.
 
-## Secure deployment using proven DevOps tools
-These are some of the List of Azure DevOps Practices in this Microsoft Cloud space, which makes enterprises and teams productive and efficient.
+[Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) is a regional service. Use its diagnostic and visualization tools to monitor and diagnose conditions at a network scenario level in, to, and from Azure.
 
--	**Infrastructure as Code (IaC):** Infrastructure as Code is a set of techniques and practices, which help IT Pros remove the burden associated with the day to day build and management of modular infrastructure. It allows IT Pros to build and maintain their modern server environment in a way that is like how software developers build and maintain application code. For Azure, we have [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
--	**Continuous Integration and Deployment:** You can configure your Visual Studio Online team projects to [automatically build and deploy](https://www.visualstudio.com/docs/build/overview) to Azure web apps or cloud services. VSO automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process described here is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
--	**Release Management:** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) is a great solution for automating multi-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Release Management, we can much automate our release process, and we can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
--	**App Performance Monitoring:** Detect issues, solve problems, and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it. Configuration is easy matter of adding JS code and a webconfig entry, and you see results within minutes in the portal with all the details.[App insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) helps enterprises for faster detection of issues & remediation.
--	**Load Testing & Autoscale:** We can find performance problems in our app to improve deployment quality and to make sure our app is always up or available to cater to the business needs. Make sure your app can handle traffic for your next launch or marketing campaign. Start running cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) in almost no time with Visual Studio Online.
+The following are best practices for network monitoring and available tools.
+
+**Best practice**: Automate remote network monitoring with packet capture.  
+**Detail**: Monitor and diagnose networking issues without logging in to your VMs by using Network Watcher. Trigger [packet capture](../network-watcher/network-watcher-alert-triggered-packet-capture.md) by setting alerts and gain access to real-time performance information at the packet level. When you see an issue, you can investigate in detail for better diagnoses.
+
+**Best practice**: Gain insight into your network traffic by using flow logs.  
+**Detail**: Build a deeper understanding of your network traffic patterns by using [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Information in flow logs helps you gather data for compliance, auditing, and monitoring your network security profile.
+
+**Best practice**: Diagnose VPN connectivity issues.  
+**Detail**: Use Network Watcher to [diagnose your most common VPN Gateway and connection issues](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). You can not only identify the issue but also use detailed logs to further investigate.
+
+## Secure deployment by using proven DevOps tools
+Use the following DevOps best practices to ensure that your enterprise and teams are productive and efficient.
+
+**Best practice**: Automate the build and deployment of services.  
+**Detail**: [Infrastructure as code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
+
+You can use [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) to provision your applications by using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application in every stage of the application lifecycle.
+
+**Best practice**: Automatically build and deploy to Azure web apps or cloud services.  
+**Detail**: You can configure your Azure DevOps Projects to  [automatically build and deploy](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) to Azure web apps or cloud services. Azure DevOps automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
+
+**Best practice**: Automate release management.  
+**Detail**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Azure Pipelines, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
+
+**Best practice**: Check your app's performance before you launch it or deploy updates to production.  
+**Detail**: Run cloud-based [load tests](/azure/devops/test/load-test/overview#alternatives) to:
+
+- Find performance problems in your app.
+- Improve deployment quality.
+- Make sure that your app is always available.
+- Make sure that your app can handle traffic for your next launch or marketing campaign.
+
+[Apache JMeter](https://jmeter.apache.org/) is a free, popular open source tool with a strong community backing.
+
+**Best practice**: Monitor application performance.  
+**Detail**: [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
+
+## Mitigate and protect against DDoS
+Distributed denial of service (DDoS) is a type of attack that tries to exhaust application resources. The goal is to affect the application’s availability and its ability to handle legitimate requests. These attacks are becoming more sophisticated and larger in size and impact. They can be targeted at any endpoint that is publicly reachable through the internet.
+
+Designing and building for DDoS resiliency requires planning and designing for a variety of failure modes. Following are best practices for building DDoS-resilient services on Azure.
+
+**Best practice**: Ensure that security is a priority throughout the entire lifecycle of an application, from design and implementation to deployment and operations. Applications can have bugs that allow a relatively low volume of requests to use a lot of resources, resulting in a service outage.  
+**Detail**: To help protect a service running on Microsoft Azure, you should have a good understanding of your application architecture and focus on the [five pillars of software quality](https://docs.microsoft.com/azure/architecture/guide/pillars). You should know typical traffic volumes, the connectivity model between the application and other applications, and the service endpoints that are exposed to the public internet.
+
+Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure.
+
+**Best practice**: Design your applications to [scale horizontally](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.  
+**Detail**: For [Azure App Service](../app-service/app-service-value-prop-what-is.md), select an [App Service plan](../app-service/overview-hosting-plans.md) that offers multiple instances.
+
+For Azure Cloud Services, configure each of your roles to use [multiple instances](../cloud-services/cloud-services-choose-me.md).
+
+For [Azure Virtual Machines](../virtual-machines/windows/overview.md), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](../virtual-machines/virtual-machines-windows-manage-availability.md). We recommend using virtual machine scale sets for autoscaling capabilities.
+
+**Best practice**: Layering security defenses in an application reduces the chance of a successful attack. Implement secure designs for your applications by using the built-in capabilities of the Azure platform.  
+**Detail**: The risk of attack increases with the size (surface area) of the application. You can reduce the surface area by using whitelisting to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) and [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
+
+[Network security groups](../virtual-network/security-overview.md) are another way to reduce the attack surface. You can use [service tags](../virtual-network/security-overview.md#service-tags) and [application security groups](../virtual-network/security-overview.md#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.
+
+You should deploy Azure services in a [virtual network](../virtual-network/virtual-networks-overview.md) whenever possible. This practice allows service resources to communicate through private IP addresses. Azure service traffic from a virtual network uses public IP addresses as source IP addresses by default.
+
+Using [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) switches service traffic to use virtual network private addresses as the source IP addresses when they're accessing the Azure service from a virtual network.
+
+We often see customers' on-premises resources getting attacked along with their resources in Azure. If you're connecting an on-premises environment to Azure, minimize exposure of on-premises resources to the public internet.
+
+Azure has two DDoS [service offerings](../virtual-network/ddos-protection-overview.md) that provide protection from network attacks:
+
+- Basic protection is integrated into Azure by default at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. Basic requires no user configuration or application changes and helps protect all Azure services, including PaaS services like Azure DNS.
+- Standard protection provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of virtual networks. It can also be done after creation and requires no application or resource changes.
+
+## Enable Azure Policy
+[Azure Policy](../governance/policy/overview.md) is a service in Azure that you use to create, assign, and manage policies. These policies enforce rules and effects over your resources, so those resources stay compliant with your corporate standards and service-level agreements. Azure Policy meets this need by evaluating your resources for non-compliance with assigned policies.
+
+Enable Azure Policy to monitor and enforce your organization’s written policy. This will ensure compliance with your company or regulatory security requirements by centrally managing security policies across your hybrid cloud workloads. Learn how to [create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md). See [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md) for an overview of the elements of a policy.
+
+Here are some security best practices to follow after you adopt Azure Policy:
+
+**Best practice**: Policy supports several types of effects. You can read about them in [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md#policy-rule). Business operations can be negatively affected by the **deny** effect and the **remediate** effect, so start with the **audit** effect to limit the risk of negative impact from policy.   
+**Detail**: [Start policy deployments in audit mode](../governance/policy/concepts/definition-structure.md#policy-rule) and then later progress to **deny** or **remediate**. Test and review the results of the audit effect before you move to **deny** or **remediate**.
+
+For more information, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
+
+**Best practice**: Identify the roles responsible for monitoring for policy violations and ensuring the right remediation action is taken quickly.   
+**Detail**: Have the assigned role monitor compliance through the [Azure portal](../governance/policy/how-to/get-compliance-data.md#portal) or via the [command line](../governance/policy/how-to/get-compliance-data.md#command-line).
+
+**Best practice**: Azure Policy is a technical representation of an organization’s written policies. Map all Azure policies to organizational policies to reduce confusion and increase consistency.   
+**Detail**: Document mapping in your organization’s documentation or in the Azure policy itself by adding a reference to the organizational policy in the Azure [policy description](../governance/policy/concepts/definition-structure.md#display-name-and-description) or the Azure policy [initiative](../governance/policy/concepts/definition-structure.md#initiatives) description.
+
+## Monitor Azure AD risk reports
+The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Discovering compromised identities is no easy task. Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a [risk event](../active-directory/reports-monitoring/concept-risk-events.md). Risk events are recorded in Azure AD security reports. For more information, read about the [users at risk security report](../active-directory/reports-monitoring/concept-user-at-risk.md) and the [risky sign-ins security report](../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
 ## Next steps
-- Learn more about [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security).
-- To Learn more  [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Getting started with Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started).
+See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
+
+The following resources are available to provide more general information about Azure security and related Microsoft services:
+* [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - for up to date information on the latest in Azure Security
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to secure@microsoft.com

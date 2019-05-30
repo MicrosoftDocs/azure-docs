@@ -19,7 +19,7 @@ ms.author: mazha
 ---
 # Core Reports from Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 By using Verizon Core Reports via the Manage portal for Verizon profiles, you can view usage patterns for your CDN with the following reports:
 
@@ -115,7 +115,7 @@ The report provides the following details:
 
 The report doesn't include:
 
-* Requests that are denied due to country filtering options.
+* Requests that are denied due to country/region filtering options.
 * Requests for assets whose headers indicate that they should not be cached. For example, `Cache-Control: private`, `Cache-Control: no-cache`, or `Pragma: no-cache` headers prevent an asset from being cached.
 * Byte range requests for partially cached content.
 

@@ -1,0 +1,58 @@
+- name: Virtual WAN Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Virtual WAN
+    href: virtual-wan-about.md
+- name: Tutorials
+  items:
+  - name: Create a site-to-site connection
+    href: virtual-wan-site-to-site-portal.md
+  - name: Create an ExpressRoute connection
+    href: virtual-wan-expressroute-portal.md
+  - name: Create a point-to-site connection
+    href: virtual-wan-point-to-site-portal.md
+- name: Concepts
+  items:
+  - name: About locations and partners
+    href: virtual-wan-locations-partners.md
+  - name: About global transit network architecture
+    href: virtual-wan-global-transit-network-architecture.md
+  - name: About Office 365 control plane in Virtual WAN
+    href: virtual-wan-office365-overview.md
+  - name: About IPsec policies
+    href: virtual-wan-ipsec.md
+- name: How-to guides
+  items:
+  - name: Route traffic from a virtual hub to an NVA
+    items:
+      - name: Azure portal
+        href: virtual-wan-route-table-portal.md
+      - name: Azure PowerShell
+        href: virtual-wan-route-table.md
+  - name: Virtual WAN partners - automation
+    href: virtual-wan-configure-automation-providers.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.network#networking
+  - name: REST
+    href: /rest/api/azure
+  - name: Azure CLI
+    href: /cli/azure/ext/virtual-wan
+- name: Resources
+  items:
+  - name: FAQ
+    href: virtual-wan-faq.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Subscription and service limits
+    href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/virtual-wan
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla

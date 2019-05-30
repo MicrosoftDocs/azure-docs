@@ -2,22 +2,16 @@
 title: Connect to Azure SQL Data Warehouse - SSMS | Microsoft Docs
 description: Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: ''
-author: antvgski
-manager: jhubbard
-editor: ''
-
-ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
+author: XiaoyuL-Preview 
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-
+ms.topic: conceptual
+ms.subservice: development
+ms.date: 04/17/2018
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ---
+
 # Connect to SQL Data Warehouse with SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
@@ -86,7 +80,7 @@ To configure your environment for Azure Active Directory authentication, see [Au
 
 <!--Other-->
 [Azure portal]: https://portal.azure.com
-[Install SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
+[Install SSMS]: https://msdn.microsoft.com/library/hh213248.aspx
 
 
 <!--Image references-->

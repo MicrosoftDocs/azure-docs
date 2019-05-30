@@ -1,19 +1,17 @@
 ---
 title: "Guidance for SQL Database multi-tenant app example - Wingtip SaaS | Microsoft Docs"
 description: "Provides steps and guidance for installing and running the sample multi-tenant application that uses Azure SQL Database, the Wingtip Tickets SaaS example."
-keywords: "sql database tutorial"
-services: "sql-database"
-author: "MightyPen"
-manager: "craigg"
-
-ms.service: "sql-database"
-ms.custom: "scale out apps"
-ms.workload: "On Demand"
-ms.tgt_pltfrm: "na"
-ms.devlang: "na"
-ms.topic: "article"
-ms.date: "11/20/2017"
-ms.author: "genemi"
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: sstein
+manager: craigg
+ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps
 
@@ -82,7 +80,7 @@ The deployment initially has tenants and catalog SQL Database servers to connect
 To ensure a successful demo connection, all servers have a [firewall rule](sql-database-firewall-configure.md) allowing all IPs through.
 
 
-1. Open *SSMS* and connect to the the tenants. The server name depends on the database tenancy pattern you've selected (see below for specifics):
+1. Open *SSMS* and connect to the tenants. The server name depends on the database tenancy pattern you've selected (see below for specifics):
     - **Standalone application:** servers of individual tenants (ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Database per tenant:** *tenants1-dpt-&lt;User&gt;.database.windows.net*
     - **Multi-tenant database:** *tenants1-mt-&lt;User&gt;.database.windows.net* 
@@ -90,7 +88,7 @@ To ensure a successful demo connection, all servers have a [firewall rule](sql-d
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Demo credentials are: Login = *developer*, Password = *P@ssword1*
+3. Demo credentials are: Login = *developer*, Password = *P\@ssword1*
 
     The image below demonstrates the login for the *Database per tenant* pattern. 
     ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

@@ -1,0 +1,117 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Computer Vision API Documentation 
+metadata:
+  title: API Documentation - Computer Vision - Azure Cognitive Services  | Microsoft Docs
+  description: Learn how to use Computer Vision to process images and return information. Tutorials show you how to build apps that use the API.
+  services: cognitive-services
+  author: nitinme
+  manager: cgronlun
+
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/26/2019
+  ms.author: nitinme
+ms.custom: seodec18
+abstract:
+  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/computer-vision-landing-page-video.png
+      width: 250  
+    title: Infuse intelligence in your apps with Vision APIs (05:41)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
+    width: 250
+sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/computer-vision/home
+          html: <p>Learn about the Computer Vision API.</p>
+          image:
+            src: ../media/index/i_overview.svg
+            alt: overview icon
+          title: What is Computer Vision?
+        - href: /azure/cognitive-services/computer-vision/concept-recognizing-text
+          html: <p>Learn about the concepts of text recognition.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+            alt: task list icon
+          title: Recognize printed and handwritten text
+        - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
+          html: <p>Learn the basics of calling a Computer Vision API.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+            alt: task list icon
+          title: Call the Computer Vision API
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Analyze images, generate thumbnails, and extract text from an image using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/logo_Csharp.svg
+      text: C&#35;
+      alt: C sharp logo
+      href: quickstarts-sdk/csharp-analyze-sdk
+    - image: 
+        src: media/index/logo_java.svg
+      text: Java
+      alt: Java logo
+      href: QuickStarts/java-analyze
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      alt: Node.js logo
+      href: QuickStarts/node-analyze
+    - image: 
+        src: media/index/logo_python.svg
+      text: Python
+      alt: C Python logo
+      href: quickstarts-sdk/python-sdk
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      alt: Go logo
+      href: QuickStarts/go-analyze
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using Computer Vision:'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="Tutorials/CSharpTutorial.md">Create a Computer Vision app using C#</a>
+#    - html: <a href="Tutorials/java-tutorial.md">Java Tutorial</a>
+#    - html: <a href="Tutorials/javascript-tutorial.md">JavaScript Tutorial</a>
+#    - html: <a href="Tutorials/PythonTutorial-source.md">Python Tutorial</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: APIs
+      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Computer Vision API v2.0</a></p>
+            <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Computer Vision API v1.0</a></p>
+    - title: SDKs
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet">.NET</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest">Node.js</a></p>
+            <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python">Python</a></p>
+            <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision">Go</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable">Android (Java)</a></p>
+            <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>

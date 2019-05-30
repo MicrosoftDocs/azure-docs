@@ -2,21 +2,15 @@
 title: Azure PowerShell samples for Azure Blob storage | Microsoft Docs
 description: Azure PowerShell samples for working with Azure Blob storage
 services: storage
-documentationcenter: na
-author: tamram
-manager: timlt
-editor: tysonn
+author: mhopkins-msft
 
-ms.assetid:
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/07/2017
-ms.author: tamram
+ms.author: mhopkins
+ms.subservice: blobs
 ---
+
 # Azure PowerShell samples for Azure Blob storage
 
 The following table includes links to PowerShell script samples that create and manage Azure Storage.

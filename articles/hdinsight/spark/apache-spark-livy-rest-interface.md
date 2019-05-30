@@ -1,28 +1,17 @@
 ---
-title: Use Livy Spark to submit jobs to Spark cluster on Azure HDInsight | Microsoft Docs
+title: Use Livy Spark to submit jobs to Spark cluster on Azure HDInsight
 description: Learn how to use Apache Spark REST API to submit Spark jobs remotely to an Azure HDInsight cluster.
-keywords: apache spark rest api,livy spark
-services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 2817b779-1594-486b-8759-489379ca907d
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/11/2017
-ms.author: nitinme
-
+ms.topic: conceptual
+ms.date: 11/06/2018
 ---
 # Use Apache Spark REST API to submit remote jobs to an HDInsight Spark cluster
 
-Learn how to use Livy, the Apache Spark REST API, which is used to submit remote jobs to an Azure HDInsight Spark cluster. For detailed documentation, see [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Learn how to use [Apache Livy](https://livy.incubator.apache.org/), the [Apache Spark](https://spark.apache.org/) REST API, which is used to submit remote jobs to an Azure HDInsight Spark cluster. For detailed documentation, see [https://livy.incubator.apache.org/](https://livy.incubator.apache.org/).
 
 You can use Livy to run interactive Spark shells or submit batch jobs to be run on Spark. This article talks about using Livy to submit batch jobs. The snippets in this article use cURL to make REST API calls to the Livy Spark endpoint.
 
@@ -30,21 +19,21 @@ You can use Livy to run interactive Spark shells or submit batch jobs to be run 
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against an HDInsight Spark cluster.
+* [cURL](https://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against an HDInsight Spark cluster.
 
-## Submit a Livy Spark batch job
-Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [**AzCopy**](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
+## Submit an Apache Livy Spark batch job
+Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [**AzCopy**](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
 
-    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
+    curl -k --user "<hdinsight user>:<user password>" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
 **Examples**:
 
 * If the jar file is on the cluster storage (WASB)
   
-        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 * If you want to pass the jar filename and the classname as part of an input file (in this example, input.txt)
   
-        curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 
 ## Get information on Livy Spark batches running on the cluster
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
@@ -53,7 +42,7 @@ Before you submit a batch job, you must upload the application jar on the cluste
 
 * If you want to retrieve all the Livy Spark batches running on the cluster:
   
-        curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches" 
 * If you want to retrieve a specific batch with a given batchId
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
@@ -99,7 +88,7 @@ Perform the following steps:
 
 2. Let us now submit a batch job. The following snippet uses an input file (input.txt) to pass the jar name and the class name as parameters. If you are running these steps from a Windows computer, using an input file is the recommended approach.
    
-        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
    
     The parameters in the file **input.txt** are defined as follows:
    
@@ -156,29 +145,13 @@ Perform the following steps:
    
     The last line of the output shows that the batch was successfully deleted. Deleting a job, while it is running, also kills the job. If you delete a job that has completed, successfully or otherwise, it deletes the job information completely.
 
-## Using Livy Spark on HDInsight 3.5 clusters
+## Updates to Livy configuration starting with HDInsight 3.5 version
 
-HDInsight 3.5 cluster, by default, disables use of local file paths to access sample data files or jars. We encourage you to use the `wasb://` path instead to access jars or sample data files from the cluster. If you do want to use local path, you must update the Ambari configuration accordingly. To do so:
-
-1. Go to the Ambari portal for the cluster. The Ambari Web UI is available on your HDInsight cluster at https://**CLUSTERNAME**.azurehdidnsight.net, where CLUSTERNAME is the name of your cluster.
-
-2. From the left navigation, click **Livy**, and then click **Configs**.
-
-3. Under **livy-default** add the property name `livy.file.local-dir-whitelist` and set it's value to **"/"** if you want to allow full access to file system. If you want to allow access only to a specific directory, provide the path to that directory as the value.
+HDInsight 3.5 clusters and above, by default, disable use of local file paths to access sample data files or jars. We encourage you to use the `wasb://` path instead to access jars or sample data files from the cluster. 
 
 ## Submitting Livy jobs for a cluster within an Azure virtual network
 
-If you connect to an HDInsight Spark cluster from within an Azure Virtual Network, you can directly connect to Livy on the cluster. In such a case, the URL for Livy endpoint is `http://<IP address of the headnode>:8998/batches`. Here, **8998** is the port on which Livy runs on the cluster headnode. For more information on accessing services on non-public ports, see [Ports used by Hadoop services on HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
-
-## Troubleshooting
-
-Here are some issues that you might run into while using Livy for remote job submission to Spark clusters.
-
-### Using an external jar from the additional storage is not supported
-
-**Problem:** If your Livy Spark job references an external jar from the additional storage account associated with the cluster, the job fails.
-
-**Resolution:** Make sure that the jar you want to use is available in the default storage associated with the HDInsight cluster.
+If you connect to an HDInsight Spark cluster from within an Azure Virtual Network, you can directly connect to Livy on the cluster. In such a case, the URL for Livy endpoint is `http://<IP address of the headnode>:8998/batches`. Here, **8998** is the port on which Livy runs on the cluster headnode. For more information on accessing services on non-public ports, see [Ports used by Apache Hadoop services on HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
 
 
@@ -186,7 +159,7 @@ Here are some issues that you might run into while using Livy for remote job sub
 
 ## Next step
 
-* [Livy REST API documentation](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API documentation](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
 
