@@ -18,7 +18,7 @@ In this article, we'll describe FSLogix profile containers used with Azure Files
 
 ## User profiles
 
-A user profile contains data elements about an individual, including configuration information such as desktop settings, persistent network connections, and application settings. By default, Windows creates a local user profile that is tightly integrated with the operating system.
+A user profile contains data elements about an individual, including configuration information like desktop settings, persistent network connections, and application settings. By default, Windows creates a local user profile that is tightly integrated with the operating system.
 
 A remote user profile provides a partition between user data and the operating system. It allows the operating system to be replaced or changed without affecting the user data. In Remote Desktop Session Host (RDSH) and Virtual Desktop Infrastructures (VDI), the operating system may be replaced for the following reasons:
 
@@ -63,7 +63,7 @@ S2D clusters require an operating system that is patched, updated, and maintaine
 
 ## FSLogix profile containers
 
-On November 19, 2018 [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix addresses many profile container challenges. Key among them are:
+On November 19, 2018, [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix addresses many profile container challenges. Key among them are:
 
 - **Performance:** The [FSLogix profile containers](https://fslogix.com/products/profile-containers) are high performance and resolve performance issues that have historically blocked cached exchange mode.
 - **OneDrive:** Without FSLogix profile containers, OneDrive for Business is not supported in non-persistent RDSH or VDI environments. [OneDrive for Business and FSLogix best practices](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) describes how they interact. For more information, see [Use the sync client on virtual desktops](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).

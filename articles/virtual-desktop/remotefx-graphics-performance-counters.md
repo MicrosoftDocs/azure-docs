@@ -10,7 +10,7 @@ ms.date: 05/23/2019
 ms.author: v-chjenk
 ---
 
-# Diagnose graphics performance issues in remote desktop
+# Diagnose graphics performance issues in Remote Desktop
 
 When the system doesn't perform as expected, it's important to identify the source of the problem. This article helps you identify and fix graphics-related performance bottlenecks during Remote Desktop Protocol (RDP) sessions.
 
@@ -32,14 +32,14 @@ Performance counters in RemoteFX Graphics help you detect bottlenecks by helping
 
 After you've determined your remote session name, follow these instructions to collect the RemoteFX Graphics performance counters for your remote session.
 
-1. Click **Start**, select **Administrative Tools**, and then select **Performance Monitor**.
+1. Select **Start** > **Administrative Tools** > **Performance Monitor**.
 2. In the **Performance Monitor** dialog box, expand **Monitoring Tools**, select **Performance Monitor**, and then select **Add**.
 3. In the **Add Counters** dialog box, from the **Available Counters** list, expand performance counter object for RemoteFX Graphics.
 4. Select the counters to be monitored.
 5. In the **Instances of Selected object** list, select the specific instances to be monitored for the selected counters and then select **Add**. To select all available counter instances, select **All instances**.
-6. After adding the counters, click **OK**.
+6. After adding the counters, select **OK**.
 
-The selected performance counters appear on the Performance Monitor screen.
+The selected performance counters will appear on the Performance Monitor screen.
 
 >[!NOTE]
 >Each active session on a host has its own instance of each performance counter.
