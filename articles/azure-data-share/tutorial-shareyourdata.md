@@ -21,18 +21,18 @@ In this tutorial, you'll learn how to:
 > * Enable a synchronization schedule for your Data Share. 
 > * Add recipients to your Data Share. 
 
-# Prerquisites
+## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * Azure Storage account and/or Azure Data Lake account
 
-# Create an Azure Data Share resource
+## Create an Azure Data Share resource
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-# Create a Data Share Account
+## Create a Data Share Account
 
 Create an Azure Data Share resource in an Azure resource group.
 
@@ -56,7 +56,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. When the deployment is complete, select **Go to resource**.
 
-# Create a Data Share
+## Create a Data Share
 
 1. In your Data Share Account, select 'Start sharing your data'. 
     ![StartSharing](./media/1startsharing.png "Start sharing your data")
@@ -89,8 +89,6 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. In the Review + Create tab, review your Package Contents, Settings, Recipients and Synchronization Settings. Once you have verified these settings are correct, click **Create**
 
-Your Azure Data Share has now been created. 
-
-For instructions on how to check whether your Data Consumer has accepted your invitation, click here. 
+Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation. For instructions on how to check whether your Data Consumer has accepted your invitation, click here. 
 
 For instructions on how to check whether your Data Consumer has created a Share Subscription, click here. 
