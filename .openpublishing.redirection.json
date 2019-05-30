@@ -3431,6 +3431,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/develop/msal-testing.md",
+      "redirect_url": "/azure/active-directory/develop/msal-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-group-authenticate-service-principal.md",
       "redirect_url": "/azure/active-directory/develop/howto-authenticate-service-principal-powershell",
       "redirect_document_id": true
@@ -13758,6 +13763,21 @@
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-migrate.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-develop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-portal.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-powershell.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
     },
     {
@@ -26418,6 +26438,21 @@
       "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
       "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/become-publisher.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/guidelines.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/register-dev-center.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/gtm-benefits.md",
@@ -39427,6 +39462,106 @@
       "source_path": "articles/sql-database/sql-database-elastic-jobs-uninstall.md",
       "redirect_url": "/azure/sql-database/elastic-jobs-overview",
       "redirect_document_id": false
-    }
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/analytics-troubleshooting.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/detect-triage-diagnose.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/scom.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/windows-services.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/release-notes-vsix.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/app-insights-dashboards.md",
+      "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md",
+      "redirect_url" : "/azure/active-directory-domain-services/manage-domain",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md",
+      "redirect_url": "/azure/active-directory-domain-services/configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md",
+      "redirect_url": "/azure/active-directory-domain-services/create-ou",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-comparison.md",
+      "redirect_url": "/azure/active-directory-domain-services/comparison",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-contact-us.md",
+      "redirect_url": "/azure/active-directory-domain-services/contact-us",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-faqs.md",
+      "redirect_url": "/azure/active-directory-domain-services/faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started.md",
+      "redirect_url": "/azure/active-directory-domain-services/create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-networking.md",
+      "redirect_url": "/azure/active-directory-domain-services/network-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-overview.md",
+      "redirect_url": "/azure/active-directory-domain-services/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-synchronization.md",
+      "redirect_url": "/azure/active-directory-domain-services/synchronization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-scenarios.md",
+      "redirect_url": "/azure/active-directory-domain-services/scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md",
+      "redirect_url": "/azure/active-directory-domain-services/join-windows-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshooting.md",
+      "redirect_url": "/azure/active-directory-domain-services/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-azure-upgrade-backup-to-recovery-services.md",
+      "redirect_url": "/azure/backup/backup-create-rs-vault",
+      "redirect_document_id": true
+    }   
   ]
 }

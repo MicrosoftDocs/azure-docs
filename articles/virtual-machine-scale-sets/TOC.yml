@@ -130,7 +130,7 @@
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true
     - name: Ephemeral OS disks
-      href: ephemeral-os-disks.md      
+      href: ephemeral-os-disks.md
     - name: Scalability targets for disks
       href: ../virtual-machines/windows/disk-scalability-targets.md
       maintainContext: true
@@ -223,7 +223,15 @@
         href: virtual-machine-scale-sets-manage-cli.md
       - name: Use Azure PowerShell
         href: virtual-machine-scale-sets-manage-powershell.md
-    - name: Shared image galleries 
+    - name: Modify a scale set
+      href: virtual-machine-scale-sets-upgrade-scale-set.md
+    - name: Networking for scale sets
+      href: virtual-machine-scale-sets-networking.md
+    - name: Automatic OS upgrades
+      href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: Instance protection (Preview)
+      href: virtual-machine-scale-sets-instance-protection.md
+    - name: Shared image galleries
       items:
       - name: Overview
         href: shared-image-galleries.md
@@ -237,14 +245,8 @@
         href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-    - name: Automatic OS upgrades
-      href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Modify a scale set
-      href: virtual-machine-scale-sets-upgrade-scale-set.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
-    - name: Networking for scale sets
-      href: virtual-machine-scale-sets-networking.md
     - name: Convert a template to managed disks
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Planned maintenance

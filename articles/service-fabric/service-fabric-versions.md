@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/24/2018
+ms.date: 05/24/2019
 ms.author: aljo
 
 ---
@@ -98,3 +98,4 @@ The following table lists the version names of Service Fabric and their correspo
 | 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 | 6.4.658.9590 | NA |
+| 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |

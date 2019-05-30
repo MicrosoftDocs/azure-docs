@@ -62,13 +62,13 @@
 - name: Reference
   items:
     - name: Bing Custom Autosuggest API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference
     - name: Bing Custom Image Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
     - name: Bing Custom Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
     - name: Bing Custom Video Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
     - name: Bing Search API use and display requirements
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
