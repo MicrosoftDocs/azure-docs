@@ -39,6 +39,8 @@
       href: create-uidefinition-overview.md
     - name: Test portal interface
       href: test-createuidefinition.md
+    - name: Request just-in-time access
+      href: request-just-in-time-access.md
     - name: Update managed resources
       href: update-managed-resources.md
     - name: Use portal to publish application definition
@@ -51,6 +53,8 @@
     items:
     - name: Monitor managed application
       href: monitor-managed-application-portal.md
+    - name: Approve just-in-time access
+      href: approve-just-in-time-access.md
 - name: Reference
   items:
   - name: Azure CLI
