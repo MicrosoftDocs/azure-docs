@@ -30,7 +30,7 @@ The `metroID` is a metro area's ID that can can be used to call the [Get Metro A
 
 Transit stops can be referred to two types of IDs: The [General Transit Feed Specification (GFTS)](https://gtfs.org/) ID (referred to as stopKey) and the Azure Maps stop ID (referred to as stopId). When referring to stops over time, it is suggested to use the Azure Maps stop ID, as this ID is more stable it will not likely change as long as the physical stop exists. The GTFS stop ID is updated more often, for example, in case the GTFS provider needs to change it or new GTFS version is released, although the physical the stop had no change.
 
-To start, you can request nearby transit stops by using Get Nearby Transit API ( https://aka.ms/AzureMapsMobilityNearbyTransit).
+To start, you can request nearby transit stops by using [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
 ## Line Groups and Lines
 
