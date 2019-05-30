@@ -54,7 +54,7 @@ Notice the resource group name is the project name with **rg** appended. You nee
 
    ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-To see the Load Balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
+To see the Load Balancer distribute traffic across all three VMs, you can force-refresh your web browser from the client machine.
 
 ## Clean up resources
 
