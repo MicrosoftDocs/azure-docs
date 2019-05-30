@@ -39552,6 +39552,11 @@
       "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshooting.md",
       "redirect_url": "/azure/active-directory-domain-services/troubleshoot",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path": "articles/backup/backup-azure-upgrade-backup-to-recovery-services.md",
+      "redirect_url": "/azure/backup/backup-create-rs-vault",
+      "redirect_document_id": true
+    }   
   ]
 }
