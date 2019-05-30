@@ -1,5 +1,5 @@
 ---
-title: Problems signing in to an Azure AD gallery application configured for password single sign-on | Microsoft Docs
+title: Problem signing in to an Azure AD gallery app configured for password SSO | Microsoft Docs
 description: How to troubleshoot issues with an Azure AD Gallery application that's configured for password single sign-on.
 documentationcenter: ''
 author: msmimart
@@ -19,9 +19,9 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ---
 
-# Sign in problems with an Azure AD Gallery app configured for single sign-on
+# Sign in problems with an Azure AD gallery app configured for single sign-on
 
-Access Panel is a web-based portal. It lets users who have Azure Active Directory (Azure AD) work or school accounts access cloud-based apps that they have permissions for. Users who have Azure AD editions can also use self-service group and app management capabilities through Access Panel. Access Panel is separate from the Azure portal. Users don't need an Azure subscription to use Access Panel.
+Access Panel is a web-based portal. It lets users who have Azure Active Directory (Azure AD) work or school accounts access cloud-based apps that they have permissions for. Users who have Azure AD editions can also use self-service group and app-management capabilities through Access Panel. Access Panel is separate from the Azure portal. Users don't need an Azure subscription to use Access Panel.
 
 To use password-based single sign-on (SSO) in Access Panel, the Access Panel extension must be installed in the user’s browser. This extension is downloaded automatically when the user selects an app that's configured for password-based SSO.
 
@@ -29,9 +29,9 @@ To use password-based single sign-on (SSO) in Access Panel, the Access Panel ext
 
 Access Panel requires a browser that supports JavaScript and has CSS enabled.
 
-For password-based SSO, the end user’s browser can be:
+For password-based SSO, the user can use any of these browsers:
 
-- Internet Explorer 8, 9, 10, 11 on Windows 7 or later
+- Internet Explorer 8, 9, 10, or 11 on Windows 7 or later
 
 - Chrome on Windows 7 or later or on MacOS X or later
 
@@ -46,7 +46,7 @@ Follow these steps:
 
 1. Open [Access Panel](https://myapps.microsoft.com) in a supported browser, and sign in as a *user* in Azure AD.
 
-2. Select a *password-SSO application* in Access Panel.
+2. Select a password-SSO app in Access Panel.
 
 3. When you're prompted, select **Install Now**.
 
@@ -58,23 +58,23 @@ Follow these steps:
 
 7.  Sign to  Access Panel and see if you can start your password-SSO apps.
 
-You can also directly download the extension for Chrome and Firefox directly through these links:
+You can also directly download the extensions for Chrome and Firefox directly through these links:
 
 -   [Chrome Access Panel extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Firefox Access Panel extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## Set up a Group Policy for Internet Explorer
+## Set up a group policy for Internet Explorer
 
 You can set up a group policy that allows you to remotely install the Access Panel extension for Internet Explorer on your users' machines.
 
-The prerequisites include:
+These are the prerequisites:
 
 -   [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) is set up, and your users' machines are joined to your domain.
 
--   You must have the "Edit settings" permission to edit the Group Policy Object (GPO). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   You have "Edit settings" permission to edit the Group Policy Object (GPO). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-To configure the group policy and deploy it to users, see [How to Deploy the Access Panel extension for Internet Explorer using Group Policy](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
+To configure the group policy and deploy it to users, see [How to Deploy the Access Panel extension for Internet Explorer using group policy](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
 
 ## Troubleshoot Access Panel in Internet Explorer
 
@@ -110,7 +110,7 @@ Follow these steps:
 
 9. Click **Add** to add the app.
 
-After a brief delay, you'll be able to see the app’s configuration pane.
+   After a brief delay, you'll be able to see the app’s configuration pane.
 
 ### Configure the app for password SSO
 
@@ -127,7 +127,7 @@ To configure single sign-on for an app, follow these steps:
 5. Select **All Applications** to view a list of your apps.
 
    > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to **All Applications**.
+   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
 
 6. Select the app you want to configure for single sign-on.
 
@@ -137,8 +137,8 @@ To configure single sign-on for an app, follow these steps:
 
 9. Assign users to the app.
 
-10. You can also provide credentials on behalf of user. To do this, follow these steps:
-    1. Select the rows of those users.
+10. You can also provide credentials on behalf of users. To do this, follow these steps:
+    1. Select the rows of the users.
     2. Select **Update Credentials**.
     3. Enter the user names and passwords for the users. (Otherwise, the users will be prompted to enter credentials at startup).
 
@@ -146,7 +146,7 @@ To configure single sign-on for an app, follow these steps:
 
 To assign one or more users to an app directly, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global administrator.
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global admin.
 
 2. Select **All services** in the navigation pain on the left side to open the Azure AD extension.
 
@@ -157,7 +157,7 @@ To assign one or more users to an app directly, follow these steps:
 5. Select **All Applications** to view a list of your applications.
 
    > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to **All Applications**.
+   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
 
 6. From the list, select the app that you want to assign a user to.
 
@@ -165,21 +165,21 @@ To assign one or more users to an app directly, follow these steps:
 
 8. Select **Add** at the top of the **Users and Groups** list to open the **Add Assignment** pane.
 
-9. Select **Users and groups** selector from the **Add Assignment** pane.
+9. Select **Users and groups** in the **Add Assignment** pane.
 
 10. In the **Search by name or email address** box, type the full name or email address of the user that you want to assign.
 
 11. Hover over the user in the list. Select the check box next to the user’s profile photo or logo to add that user to the **Selected** list.
 
-12. *Optional:* If you want to add more than one user, type another full name or email address in the **Search by name or email address** box, and then select the check box to add that user to the **Selected** list.
+12. *Optional:* To add another user, type another name or email address in the **Search by name or email address** box, and then select the check box to add that user to the **Selected** list.
 
-13. When you're finished selecting users, click  **Select** to add them to the list of users and groups who are assigned to the application.
+13. When you're finished selecting users, click  **Select** to add them to the list of users and groups who are assigned to the app.
 
 14. *Optional:* Click **Select Role** in the **Add Assignment** pane to select a role to assign to the users that you selected.
 
 15. Select **Assign** to assign the app to the selected users.
 
-After a brief delay, the users will be able to access those apps from Access Panel.
+    After a brief delay, the users will be able to access those apps from Access Panel.
 
 ## If these troubleshoot steps don't resolve the issue 
 Open a support ticket. Include as much of the following information as possible:
