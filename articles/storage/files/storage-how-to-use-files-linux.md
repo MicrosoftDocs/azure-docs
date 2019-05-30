@@ -78,10 +78,10 @@ ms.subservice: files
 
 1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
 
-1. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under the `/mnt` folder. For example:
+1. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under a new folder which is defined by your storage account name and file share name. For example:
 
     ```bash
-    mkdir /mnt/MyAzureFileShare
+    mkdir /<storageaccount>/<fileshare>
     ```
 
 1. **Use the mount command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>`, and `<mount-point>` with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), use `3.0` for `<smb-version>`. For Linux distributions that do not support SMB 3.0 with encryption, use `2.1` for `<smb-version>`. An Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
@@ -97,22 +97,21 @@ ms.subservice: files
 
 1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
 
-1. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under the `/mnt` folder. Wherever you create this, note the absolute path of the folder. For example, the following command creates a new folder under `/mnt` (the path is an absolute path).
+1. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under the `/mnt` folder. Wherever you create this, note the absolute path of the folder. For example, the following command creates a new folder .
 
     ```bash
-    sudo mkdir /mnt/MyAzureFileShare
+    sudo mkdir /<storageaccount>/<fileshare>
     ```
 
 1. **Create a credential file to store the username (the storage account name) and password (the storage account key) for the file share.** Remember to replace `<storage-account-name>` and `<storage-account-key>` with the appropriate information for your environment. 
 
     ```bash
     if [ ! -d "/etc/smbcredentials" ]; then
-        sudo mkdir /etc/smbcredentials
+    sudo mkdir /etc/smbcredentials
     fi
-
-    if [ ! -f "/etc/smbcredentials/<storage-account-name>.cred" ]; then
-        sudo bash -c 'echo "username=<storage-account-name>" >> /etc/smbcredentials/<storage-account-name>.cred'
-        sudo bash -c 'echo "password=<storage-account-key>" >> /etc/smbcredentials/<storage-account-name>.cred'
+    if [ ! -f "/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred" ]; then
+    sudo bash -c 'echo "username=<STORAGE ACCOUNT NAME>" >> /etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred'
+    sudo bash -c 'echo "password=7wRbLU5ea4mgc<DRIVE LETTER>PIpUCNcuG9gk2W4S2tv7p0cTm62wXTK<DRIVE LETTER>CgJlBJPKYc4VMnwhyQd<DRIVE LETTER>UT<DRIVE LETTER>yR5/RtEHyT/EHtg2Q==" >> /etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred'
     fi
     ```
 
