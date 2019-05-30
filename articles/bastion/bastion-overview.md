@@ -11,7 +11,7 @@ ms.date: 05/29/2019
 ms.author: cherylmc
 
 ---
-# What is Azure Bastion? (preview)<br>NOT READY FOR REVIEW YET!
+# What is Azure Bastion? (preview)
 
 The Azure Bastion service is a new fully platform-managed PaaS service. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. The virtual machines do not need a public IP address. Azure Bastion is provisioned in your Azure Virtual Network. It provides secure RDP and SSH connectivity to all VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to outside world while still providing secure access using RDP/SSH.  With Azure Bastion, you connect to the virtual machine directly from the Azure portal. You don't need an additional client, agent, or piece of software.
 
@@ -40,6 +40,7 @@ The following features are available to try during public preview:
 * **Protection again port scanning:** With Azure Bastion, since you do not need to expose your virtual machines to public internet, your virtual machines are protected against port scanning by rogue and malicious users outside your virtual network.
 * **Protect Zero-day exploits and hardening one place only:** Azure Bastion is a fully platform-managed PaaS service. Since it sits at the perimeter of your virtual network, you do not need to worry about hardening each of your virtual machines in your virtual network. Azure platform will keep the Azure Bastion hardened by protecting zero-day exploits by keeping Azure Bastion always up-to-date for you.
 
+## FAQ
 
 [!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]
 
