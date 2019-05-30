@@ -20,7 +20,7 @@ ms.date: 05/17/2019
 In part one of this three-part tutorial series, you'll prepare the data from an Azure SQL database to perform clustering in R with Azure SQL Database Machine Learning Services (preview).
 
 *Clustering* can be explained as organizing data into groups where members of a group are similar in some way.
-You'll use the **K-Means** algorithm to perform the clustering of customers in a dataset of product purchases and returns. By clustering customers, you can focus your marketing efforts more effectively by targeting specific groups of customers.
+You'll use the **K-Means** algorithm to perform the clustering of customers in a dataset of product purchases and returns. By clustering customers, you can focus your marketing efforts more effectively by targeting specific groups.
 K-Means clustering is an *unsupervised learning* algorithm that looks for patterns in data based on similarities.
 
 In this article, you'll learn how to:
@@ -64,7 +64,7 @@ The sample dataset used in this tutorial has been saved to a **.bacpac** databas
    * During the public preview, choose the **Gen5/vCore** configuration for the new database
    * Name the new database "tpcxbb_1gb"
 
-## Load the data
+## Separate customers
 
 Create a new RScript file in RStudio and run the following script.
 In the SQL query, you're separating customers along the following dimensions:
@@ -149,15 +149,17 @@ LEFT OUTER JOIN (
 "
 ```
 
-Now return the results from the query to R using the **rxSqlServerData** function.
-In the process, you define the type for the selected columns (using colClasses) to make sure that the types are correctly transferred to R.
+## Load the data into a data frame
+
+Now use the following script to return the results from the query to an R data frame using the **rxSqlServerData** function.
+As part of the process, you'll define the type for the selected columns (using colClasses) to make sure that the types are correctly transferred to R.
 
 ```r
 # Query SQL Server using input_query and get the results back
 # to data frame customer_returns
 # Define the types for selected columns (using colClasses),
 # to make sure that the types are correctly transferred to R
-customer_returns <- RxSqlServerData(
+customer_returns <- rxSqlServerData(
                      sqlQuery=input_query,
                      colClasses=c(customer ="numeric",
                                   orderRatio="numeric",

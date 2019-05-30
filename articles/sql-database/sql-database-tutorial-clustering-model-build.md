@@ -39,7 +39,7 @@ In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn 
 ## Define the number of clusters
 
 To cluster your customer data, you'll use the **K-Means** clustering algorithm, one of the simplest and most well-known ways of grouping data.
-You can read more about K-Means in [A complete guide to K-means clustering algorithm](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
+You can read more about K-Means in <a href="https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html" target=_blank>A complete guide to K-means clustering algorithm</a>.
 
 The algorithm accepts two inputs: The data itself, and a predefined number "*k*" representing the number of clusters to generate.
 The output is *k* clusters with the input data partitioned among the clusters.
@@ -117,12 +117,12 @@ Within cluster sum of squares by cluster:
     0.0000  1329.0160 18561.3157   363.2188
 ```
 
-The variables shown were defined in part one:
+The four cluster means are given using the variables defined in [part one](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
 
-* *frequency* = return frequency
 * *orderRatio* = return order ratio (total number of orders partially or fully returned versus the total number of orders)
 * *itemsRatio* = return item ratio (total number of items returned versus the number of items purchased)
 * *monetaryRatio* = return amount ratio (total monetary amount of items returned versus the amount purchased)
+* *frequency* = return frequency
 
 Data mining using K-Means often requires further analysis of the results, and further steps to better understand each cluster, but it can provide some good leads.
 Here are a couple ways you could interpret these results:
