@@ -13,9 +13,7 @@ abstract:
   description: Start with our Azure Kinect DK.
 sections:
 - items:
-    image:
-      alt: 
-      src: https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-ga-kinect/articles/kinect-dk/media/index/device-image.jpg
+    html: <img>./media/index/device-image.jpg</img>
 - items:
     - type: list
       style: cards
