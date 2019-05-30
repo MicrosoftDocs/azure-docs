@@ -69,9 +69,11 @@ The following screenshot shows the public access level setting in the Azure Port
 
 ![Screenshot showing how to set public access level in the portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-While the primary static website endpoint is not affected, a change to the public access level does impact the primary blob service endpoint. 
+While the primary static website endpoint is not affected, a change to the public access level does impact the primary blob service endpoint.
 
-For example, if you change the public access level of the **$web** container from `Private (no anonymous access)` to `Blob (anonymous read access for blobs only)`, then the level of public access to the primary static website endpoint `https://contosoblobaccount.z22.web.core.windows.net/index.html` doesn't change. However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
+For example, if you change the public access level of the **$web** container from **Private (no anonymous access)** to **Blob (anonymous read access for blobs only)**, then the level of public access to the primary static website endpoint `https://contosoblobaccount.z22.web.core.windows.net/index.html` doesn't change.
+
+However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
 
 ## Content Delivery Network (CDN) and Secure Socket Layer (SSL) support
 
@@ -100,6 +102,7 @@ To enable metrics on your static website pages, see [Enable metrics on static we
 
 ## Next steps
 
+* [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
 * [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
