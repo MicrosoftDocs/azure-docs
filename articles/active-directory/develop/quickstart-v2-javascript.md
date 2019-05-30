@@ -95,7 +95,7 @@ Select the option that's suitable to your development environment:
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -107,11 +107,11 @@ var msalConfig = {
 > [!div renderon="docs"]
 >
 > Where:
-> - `Enter_the_Application_Id_here` is the **Application (client) ID** for the application you registered.
-> - `Enter_the_Tenant_Info_Here` is set to one of the following options:
->   - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com).
->   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
->   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`. To restrict support to *Personal Microsoft accounts only*, replace this value with `consumers`.
+> - *\<Enter_the_Application_Id_here>* is the **Application (client) ID** for the application you registered.
+> - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
+>    - If your application supports *Accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
+>    - If your application supports *Accounts in any organizational directory*, replace this value with **organizations**.
+>    - If your application supports *Accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *Personal Microsoft accounts only*, replace this value with **consumers**.
 >
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
