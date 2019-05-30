@@ -30,7 +30,7 @@ Figure 1 – Azure regional pairs
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | China |China North 2 |China East 2|
-| Europe |North Europe |West Europe |
+| Europe |North Europe (Ireland) |West Europe (Netherlands) |
 | France |France Central|France South|
 | Germany |Germany Central |Germany Northeast |
 | India |Central India |South India |
