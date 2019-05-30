@@ -232,31 +232,31 @@ Document ID: 2
 
 Create a list of objects, containing your documents. The payload to the API consists of a list of `documents`, which contain an `id`, `language`, and `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value.
 
-    ```javascript
-     let inputLanguage = {
-        documents: [
-          {language:"ja", id:"1", text:"猫は幸せ"},
-          {language:"de", id:"2", text:"Fahrt nach Stuttgart und dann zum Hotel zu Fu."},
-          {language:"en", id:"3", text:"My cat might need to see a veterinarian."},
-          {language:"es", id:"4", text:"A mi me encanta el fútbol!"}
-        ]
-      };
-    ```
+```javascript
+    let inputLanguage = {
+    documents: [
+        {language:"ja", id:"1", text:"猫は幸せ"},
+        {language:"de", id:"2", text:"Fahrt nach Stuttgart und dann zum Hotel zu Fu."},
+        {language:"en", id:"3", text:"My cat might need to see a veterinarian."},
+        {language:"es", id:"4", text:"A mi me encanta el fútbol!"}
+    ]
+    };
+```
 
 Call `client.keyPhrases()` and get the result. Then iterate through the results and print each document's ID, and any detected key phrases.
 
-    ```javascript
-       let operation = client.keyPhrases({
-        multiLanguageBatchInput: inputLanguage
-      });
-      operation
-        .then(result => {
-          console.log(result.documents);
-        })
-        .catch(err => {
-          throw err;
-        });
-    ```
+```javascript
+    let operation = client.keyPhrases({
+    multiLanguageBatchInput: inputLanguage
+    });
+    operation
+    .then(result => {
+        console.log(result.documents);
+    })
+    .catch(err => {
+        throw err;
+    });
+```
 
 Run your code with `node index.js` in your console window.
 
