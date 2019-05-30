@@ -488,6 +488,7 @@ The results returned are similar to the following JSON document:
 ## Consume the service from Power BI
 
 Power BI supports consumption of Azure Machine Learning web services to enrich the data in Power BI with predictions. 
+
 To generate a web service that's supported for consumption in Power BI, the schema must support the format that's required by Power BI.  [Learn how to create a Power BI-supported schema](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI).
 
-Once the wb service is deployed, it is consumable from Power BI dataflows. [Learn how to consume an Azure machine learning web service from Power BI](https://docs.microsoft.com/en-us/power-bi/service-machine-learning-integration).
+Once the wb service is deployed, it's consumable from Power BI dataflows. [Learn how to consume an Azure Machine Learning web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
