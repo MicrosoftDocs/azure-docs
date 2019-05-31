@@ -84,14 +84,14 @@ ms.subservice: files
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Use the mount command to mount the Azure file share**: Remember to replace **<storage_account_name>**, **<share-name>**, **<smb-version>**, **<storage-account-key>**, and **<mount-point>** with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), use **3.0** for **<smb-version>**. For Linux distributions that do not support SMB 3.0 with encryption, use **2.1** for **<smb-version>**. An Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
+1. **Use the mount command to mount the Azure file share**: Remember to replace **<storage_account_name>**, **<share_name>**, **<smb_version>**, **<storage_account_key>**, and **<mount_point>** with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), use **3.0** for **<smb_version>**. For Linux distributions that do not support SMB 3.0 with encryption, use **2.1** for **<smb_version>**. An Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
 
     ```bash
-    sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage_account_name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
-> When you are done using the Azure file share, you may use `sudo umount <mount-point>` to unmount the share.
+> When you are done using the Azure file share, you may use `sudo umount <mount_point>` to unmount the share.
 
 ## Create a persistent mount point for the Azure file share with `/etc/fstab`
 
@@ -103,7 +103,7 @@ ms.subservice: files
     sudo mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Create a credential file to store the username (the storage account name) and password (the storage account key) for the file share.** Replace **<storage_account_name>** and **<storage-account-key>** with the appropriate information for your environment.
+1. **Create a credential file to store the username (the storage account name) and password (the storage account key) for the file share.** Replace **<storage_account_name>** and **<storage_account_key>** with the appropriate information for your environment.
 
     ```bash
     if [ ! -d "/etc/smbcredentials" ]; then
@@ -121,7 +121,7 @@ ms.subservice: files
     sudo chmod 600 /etc/smbcredentials/<storage_account_name>.cred
     ```
 
-1. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace **<storage_account_name>**, **<share-name>**, **<smb-version>**, and **<mount-point>** with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), use **3.0** for **<smb-version>**. For Linux distributions that do not support SMB 3.0 with encryption, use **2.1** for **<smb-version>**. An Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0.
+1. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace **<storage_account_name>**, **<share_name>**, **<smb_version>**, and **<mount_point>** with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), use **3.0** for **<smb_version>**. For Linux distributions that do not support SMB 3.0 with encryption, use **2.1** for **<smb_version>**. An Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0.
 
     ```bash
     sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
