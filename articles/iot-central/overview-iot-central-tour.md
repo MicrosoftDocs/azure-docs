@@ -101,7 +101,7 @@ The device templates page is where a builder creates and manages the device temp
 
 To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
 
-## Continuous data export
+## Continuous Data export
 
 ![Continuous Data Export page](media/overview-iot-central-tour/export.png)
 
@@ -111,7 +111,7 @@ The continuous data export page is where an administrator defines how to export 
 
 ![Administration page](media/overview-iot-central-tour/administration.png)
 
-* The administration page contains links to the tools an administrator uses such as defining users and roles in the application and customizing the UI. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
+The administration page contains links to the tools an administrator uses such as defining users and roles in the application and customizing the UI. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
 
 ## Next steps
 
