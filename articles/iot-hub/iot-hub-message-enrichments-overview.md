@@ -44,6 +44,8 @@ The messages can come from any data source supported by [IoT Hub message routing
 
 You can add enrichments to messages that are going to the built-in endpoint of an IoT Hub, or messages that are being routed to custom endpoints such as Azure Blob storage, a Service Bus queue, or a Service Bus topic.
 
+You can also add enrichments to messages that are being published to Event Grid by selecting the endpoint as Event Grid. For more information, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
+
 Enrichments are applied per endpoint. If you specify five enrichments to be stamped for a specific endpoint, all messages going to that endpoint are stamped with the same five enrichments.
 
 To see how to try out message enrichments, see the [message enrichments tutorial](tutorial-message-enrichments.md)
