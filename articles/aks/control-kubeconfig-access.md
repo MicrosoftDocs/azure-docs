@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/31/2019
 ms.author: iainfou
 ---
 
@@ -20,7 +20,7 @@ This article shows you how to assign RBAC roles that limit who can get the confi
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-This article also requires that you are running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This article also requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Available cluster roles permissions
 
@@ -41,9 +41,9 @@ These RBAC roles can be applied to an Azure Active Directory (AD) user or group.
 
 ## Assign role permissions to a user or group
 
-To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group. The following example commands do the following steps:
+To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group. The following example commands:
 
-* Gets the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
+* Get the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
 * Uses the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
 * Finally, assigns a role using the [az role assignment create][az-role-assignment-create] command.
 
@@ -65,7 +65,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> If you want to assign permissions to an Azure AD group, update the `--assignee` parameter with the object ID for the group rather than a user as shown in the previous example. To obtain the object ID for a group, use the [az ad group show][az-ad-group-show] command. The following example gets the object ID for the Azure AD group named *appdev*: `az ad group show --group appdev --query objectId -o tsv`
+> If you want to assign permissions to an Azure AD group, update the `--assignee` parameter shown in the previous example with the object ID for the *group* rather than a *user*. To obtain the object ID for a group, use the [az ad group show][az-ad-group-show] command. The following example gets the object ID for the Azure AD group named *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 You can change the previous assignment to the *Cluster User Role* as needed.
 
