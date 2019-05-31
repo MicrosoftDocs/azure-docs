@@ -1,6 +1,6 @@
 ---
 title: Tutorial on using facets to improve the efficiency of an Azure Search
-description: This tutorial builds on the paging Azure Search tutorial, to add a search of the facets of a given database. Searching on facets is done just once when the app is initiated, so can improve the efficiency of a search app by avoided repeated search calls.
+description: This tutorial builds on the paging Azure Search tutorial, to add a search of the facets of a given database. Searching on facets is designed to be done once when a page is loaded, rather than on each key event, so can improve the efficiency of a search app by avoiding repeated search calls.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Use facets to improve the efficiency of an Azure Search
 
-Learn how to implement an efficient search for facets, greatly reducing the number of calls to a server for type-ahead or other suggestions. Learn that a facet search is designed to be carried out just once for each page load and that the results stay active for the duration of the page. A facet can be considered to be an attribute of the data (such as a pool or free parking in our hotels data) and a facet search collects all these attributes up when the page is loaded and presents them to the user whenever their typing matches.
+Learn how to implement an efficient search for facets, greatly reducing the number of calls to a server for type-ahead or other suggestions. A facet search is designed to be carried out just once for each page load and that the results stay active for the duration of the page. A facet can be considered to be an attribute of the data (such as a pool or free parking in our hotels data) and a facet search collects all these attributes up when the page is loaded and presents them to the user whenever their typing matches.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Image
 
 We will use the numbered paging app you might have completed in the second tutorial as a basis for this sample.
 
-To implement facets we do not need to change any of the models (the data classes). We just need to add some script to the view and an action to the controller.
+To implement facets, we do not need to change any of the models (the data classes). We just need to add some script to the view and an action to the controller.
 
 ### Start with the numbered paging Azure Search app
 
@@ -47,9 +47,9 @@ xxxx
 
 ### Examine the model fields marked as IsFacetable
 
-In order for a field to be located in a facet search it must be tagged with **IsFacetable**.
+In order for a field to be located in a facet search, it must be tagged with **IsFacetable**.
 
-1. Examine the **Hotel** class. Note that **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. A facet search will throw an error if a field requested in the search is not tagged appropriately.
+1. Examine the **Hotel** class. **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. A facet search will throw an error if a field requested in the search is not tagged appropriately.
 
 ```cs
 public partial class Hotel
@@ -99,7 +99,7 @@ public partial class Hotel
 
 ### Add an autocomplete script to the view
 
-In order to initiate a facet search we need to add some JavaScript to the index.cshtml file.
+In order to initiate a facet search, we need to add some JavaScript to the index.cshtml file.
 
 1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and add a unique **id**, similar to the following.
 
@@ -135,7 +135,7 @@ Notice that the script calls the **Facets** action in the home controller, witho
 
 The autocomplete function called in the script above is not something we have to write ourselves as it is available in the jquery library. 
 
-1. To access the jquery library add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks similar to this.
+1. To access the jquery library, add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks similar to this code.
 
 ```cs
 <head>
@@ -217,23 +217,23 @@ Note how we need two lists, that are then combined into one, because we asked fo
 
 Now test the program.
 
-1. Try typing "fr" into the search box. This should show several results.
+1. Try typing "fr" into the search box, which should show several results.
 
 Image
 
 2. Now add an "o" to make "fro" and notice the range of options is reduced to one.
 
-3. Type other combinations of two letters and see what appears. Notice though each time you do this the server is *not* being called. The facets are cached locally when the app was started and now a call is only made to the server when the user requests a search.
+3. Type other combinations of two letters and see what appears. Notice that when you type the server is *not* being called. The facets are cached locally when the app was started and now a call is only made to the server when the user requests a search.
 
 ## When to use a facet search
 
-The clear difference between facet searches and other searches such as suggestions and autocompletion, is that the facet search is _designed_ to be only carried out once when a page is loaded, and the other searches are _designed_ to be called as characters are typed. This potentially saves a lot of calls to the server. However, when should this search be used?
+The clear difference between facet searches and other searches such as suggestions and autocompletion, is that the facet search is _designed_ to be only carried out once when a page is loaded, and the other searches are _designed_ to be called as characters are typed, which potentially saves many calls to the server. However, when should this search be used?
 
 Facet searches are best used when:
 * The performance of other searches that call the server each keystroke is an issue.
 * The facets returned provide the user with a list of options of reasonable length when they type in a few characters.
 * The facets returned provide a quick way to access most or ideally all of the data available.
-* The maximum counts allow most facets to be included. In our code we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. The maximums set must work well with the size of the data set. If too many potential facets are being cut then perhaps the search is not as helpful as it should be.
+* The maximum counts allow most facets to be included. In our code, we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. The maximums set must work well with the size of the data set. If too many potential facets are being cut, then perhaps the search is not as helpful as it should be.
 
 > [!NOTE]
 > Although facet searches are designed to be called once per page load, they can of course be called much more often, it just depends on your JavaScript. Equally true is that autocompletion/suggestion searches can be carried out less often than once per keystroke. Again this is determined by your JavaScript, not Azure Search. However, facet search is designed to be called only once per page as facets are constructed by Azure Search from the searched documents with this in mind. It is good practice to consider facet searches as a slightly less flexible but more network-efficient form of user-assistance.
@@ -253,7 +253,7 @@ You should consider the following takeaways from this project:
 
 ## Next steps
 
-So far we have limited ourselves to text based searches. In the next tutorial we look at providing additional numerical data in the form of latitude, longitude and radius. And we look at ordering results (up to this point, results are ordered simply in the order that they are located in the database).
+So far we have limited ourselves to text-based searches. In the next tutorial we look at providing additional numerical data in the form of latitude, longitude, and radius. And we look at ordering results (up to this point, results are ordered simply in the order that they are located in the database).
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Add geospatial filters to an Azure Search](tutorial-csharp-geospatial-searches.md)

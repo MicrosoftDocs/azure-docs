@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Add geospatial filters to an Azure Search
 
-Learn how to implement a geospatial filter, searching both on text and on a geographical area defined by a latitude, longitude and a radius from that point. If a geographical location of every piece of data (hotels, in our example) is known, then very valuable searches for your users can be carried out trying to locate suitable results.
+Learn how to implement a geospatial filter, searching both on text and on a geographical area defined by a latitude, longitude, and a radius from that point. If a geographical location of every piece of data (hotels, in our example) is known, then valuable searches for your users can be carried out trying to locate suitable results.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -32,7 +32,7 @@ Image
 
 ## Build a geospatial filter into an Azure Search
 
-A geospatial search removes all data items that are outside of a specified radius of a certain point. In order to implement this we need to accept three new inputs: latitude, longitude, and radius. Also, providing the distance back to the user with the results would seem to be an obvious requirement of our view of the results. Because of the strict ordering based on distance, using an infinite scrolling system seems to make sense for this scenario.
+A geospatial search removes all data items that are outside of a specified radius of a certain point. In order to implement this, we need to accept three new inputs: latitude, longitude, and radius. Also, providing the distance back to the user with the results would seem to be an obvious requirement of our view of the results. Because of the strict ordering based on distance, using an infinite scrolling system seems to make sense for this scenario.
 
 ### Add code to calculate distances
 
@@ -96,7 +96,7 @@ We'll need to add more code to the controller, but let's update the models and v
         }
 ```
 
-4. In the **GetFullHotelDescription** method change the setting of **fullDescription** so that the distance will be displayed to the user.
+4. In the **GetFullHotelDescription** method, change the setting of **fullDescription** so that the distance will be displayed to the user.
 
 ```cs
             var fullDescription = "Distance: " + h.DistanceInKilometers.ToString("0.#") + " Km.";
@@ -107,7 +107,7 @@ We'll need to add more code to the controller, but let's update the models and v
             return fullDescription;
 ```
 
-5. Finally, add some public properties for the latitude, longitude and radius values to the **SearchData** class, perhaps after the **paging** field. These will be used to communicate the user's input from the view to the controller.
+5. Finally, add some public properties for the latitude, longitude, and radius values to the **SearchData** class, perhaps after the **paging** field. These will be used to communicate the user's input from the view to the controller.
 
 ```cs
         public string lat { get; set; }
@@ -115,9 +115,9 @@ We'll need to add more code to the controller, but let's update the models and v
         public string radius { get; set; }
 ```
 
-### Add HTML to handle the input of lat-lon co-ordinates
+### Add HTML to handle the input of lat-lon coordinates
 
-For this sample we need three numbers in addition to the search text. This means defining a few new styles to accommodate the numbers.
+For this sample, we need three numbers in addition to the search text. This means defining a few new styles to accommodate the numbers.
 
 1. Add the following styles to the **&lt;style&gt;** section of the index.cshtml file.
 
@@ -245,7 +245,7 @@ The next task is to implement these two actions.
 
 1. First, delete the unused methods **Index(searchData model)** and **Next(searchData model)** (but not **Index()**).
 
-2. The first call to the controller that contains text, latitude, longitude and a radius is a call to the **Geo** action. This is a substantial method that must set a number of temporary variables and set defaults for the four inputs if none are provided. In the home controller add this action.
+2. The first call to the controller that contains text, latitude, longitude, and a radius is a call to the **Geo** action. This is a substantial method that must set a number of temporary variables and set defaults for the four inputs if none are provided. In the home controller, add this action.
 
 ```cs
        public async Task<ActionResult> Geo(SearchData model)
@@ -388,7 +388,7 @@ The next task is to implement these two actions.
 
 ### Test the code so far
 
-1. If you compile and run the project, enter some text such as "bar" and coordinates such as "47" for latitude "-122" for longitude and an excessive "2000" for the radius (just so we get plenty of results).
+1. If you compile and run the project, enter some text such as "bar" and coordinates such as "47" for latitude "-122" for longitude and an excessive "2000" for the radius (so we get plenty of results).
 
 Image
 
@@ -396,11 +396,11 @@ You should get some results, and check they are all within the 2000 Km radius, b
 
 2. Try some other text and coordinates and verify that the results are not in the order you would expect.
 
-The current order of results we have does not make a lot of sense.
+The current order of results we have does not make much sense.
 
 ## Add code to order Azure Search results
 
-1. We need to make an addition to our Azure Search parameters to specify that the results should be ordered on the distance they are from the point the user has specified. We do this by setting the **OrderBy** parameter. Change the **SearchParameters** initialization (in the **Geo** action of the home controller) to the following.
+1. We need to make an addition to our Azure Search parameters to specify that the results should be ordered on the distance they are from the point the user has specified, so set the **OrderBy** parameter. Change the **SearchParameters** initialization (in the **Geo** action of the home controller) to the following.
 
 ```cs
                 SearchParameters sp = new SearchParameters()
@@ -426,7 +426,7 @@ The **geo.distance** function embedded in the **OrderBy** string takes two param
 
 In order to calculate the distance again in the client, we have to return **Location** as one of our **Select** parameters.
 
-2. Now run the app and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance. Use the infinite scroll to check this for all results.
+2. Now run the app and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance. Use the infinite scroll to check all results.
 
 Image
 
@@ -453,10 +453,10 @@ Great job finishing the fifth and final tutorial in this series.
 
 You should consider the following takeaways from this project:
 
-* Geospatial filters provide a lot of valuable context to many user searches. Location is important to most users.
+* Geospatial filters provide valuable context to many user searches. Location is important to most users.
 * Ordering should rarely, if ever, be left to the order of the data. Entering one or more **OrderBy** criteria is good practice.
 
-Of course, entering latitude and longitude is not the preferred user experience for most people. To take this example further consider either entering a city name with a radius, or perhaps even locating a point on a map and selecting a radius. These options are not built into Azure Search, so to investigate them try the following resources:
+Entering latitude and longitude is not the preferred user experience for most people. To take this example further, consider either entering a city name with a radius, or even locating a point on a map and selecting a radius. These options are not built into Azure Search, so to investigate them try the following resources:
 
 * [Azure Maps Documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
 * [Find an address using the Azure Maps search service](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-search-for-address)
@@ -464,6 +464,6 @@ Of course, entering latitude and longitude is not the preferred user experience 
 
 ## Next steps
 
-You have completed this series of C# tutorials - you should have gained a lot of knowledge of the Azure Search APIs.
+You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Search APIs.
 
 For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/?products=azure) or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/en-us/azure/search/).
