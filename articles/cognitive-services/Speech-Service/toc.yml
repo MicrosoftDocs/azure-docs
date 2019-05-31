@@ -198,11 +198,11 @@
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises 
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
       href: speech-container-howto.md
     - name: Configure containers
       href: speech-container-configuration.md
-      displayName: docker, container, billing, apikey, pull, logging, on-premises 
+      displayName: docker, container, billing, apikey, pull, logging, on-premises
 - name: Samples
   items:
   - name: Speech SDK
@@ -222,6 +222,8 @@
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: Scenario availability
       href: scenario-availability.md
+    - name: Ship an application
+      href: ship-application.md
     - name: Release notes
       href: releasenotes.md
     - name: C++
@@ -315,7 +317,7 @@
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy & cookies

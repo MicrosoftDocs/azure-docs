@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
