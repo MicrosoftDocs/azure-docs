@@ -50,6 +50,8 @@ Compute unit guidance:
 > Each instance can currently support approximately 10 capacity units.
 > The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF incoming request size. We recommend you perform application tests to determine request rate per compute unit. Both capacity unit and compute unit will be made available as a metric before billing starts.
 
+The following table shows example prices and are for illustration purposes only.
+
 **Pricing in US East**:
 
 |              SKU Name                             | Fixed price ($/hr)  | Capacity Unit price ($/CU-hr)   |

@@ -14,6 +14,8 @@ ms.author: victorh
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+The following are common questions asked about Azure Application Gateway.
+
 ## General
 
 ### What is Application Gateway?
@@ -182,9 +184,9 @@ See [Order of processing rules](https://docs.microsoft.com/azure/application-gat
 
 The Host field specifies the name to send the probe to when you've configured multisite on Application Gateway. Otherwise use '127.0.0.1'. This value is different from the virtual machine host name. Its format is \<protocol\>://\<host\>:\<port\>\<path\>.
 
-### Can I whitelist Application Gateway access to only a few source IPs?
+### Can I allow Application Gateway access to only a few source IP addresses?
 
-Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### Can I use the same port for both public-facing and private-facing listeners?
 

@@ -49,7 +49,7 @@ There are two options for you depending on your local PowerShell environment set
 
 To determine if you have the Azure Az modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az modules, then you can use the `Install-Script` method.
 
-### Install using the `Install-Script` method
+### Install using the Install-Script method
 
 To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
   
@@ -61,7 +61,7 @@ This command also installs the required Az modules.
 
 ### Install using the script directly
 
-If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](https://docs.microsoft.com/en-us/powershell/gallery/how-to/working-with-packages/manual-download).
+If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 
@@ -71,7 +71,9 @@ To run the script:
 
 1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
-   `AzureAppGwMigration.ps1 -resourceId <v1 application gateway Resource ID> -subnetAddressRange <subnet space you want to use> -appgwName <string to use to append> -sslCertificates <comma-separated SSLCert objects as above> -trustedRootCertificates <comma-separated Trusted Root Cert objects as above> -privateIpAddress <private IP string> -publicIpResourceName <public IP name string> -validateMigration -enableAutoScale`
+   ```azurepowershell
+   AzureAppGwMigration.ps1 -resourceId <v1 application gateway Resource ID> -subnetAddressRange <subnet space you want to use> -appgwName <string to use to append> -sslCertificates <comma-separated SSLCert objects as above> -trustedRootCertificates <comma-separated Trusted Root Cert objects as above> -privateIpAddress <private IP string> -publicIpResourceName <public IP name string> -validateMigration -enableAutoScale
+   ```
 
    Parameters for the script:
    * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
