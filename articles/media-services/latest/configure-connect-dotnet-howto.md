@@ -23,7 +23,7 @@ This article shows you how to connect to the Azure Media Services v3 .NET SDK us
 ## Prerequisites
 
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name
-- Install a tool that you would like to use for .NET development. The steps in this article show how to use [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). You can use Visual Studio Code, see [Working with C#](https://code.visualstudio.com/docs/languages/csharp). Or, you can use a different code editor.
+- Install a tool that you would like to use for .NET development. The steps in this article show how to use [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). You can use Visual Studio Code, see [Working with C#](https://code.visualstudio.com/docs/languages/csharp). Or, you can use a different code editor.
 
 ## Create a console application
 
