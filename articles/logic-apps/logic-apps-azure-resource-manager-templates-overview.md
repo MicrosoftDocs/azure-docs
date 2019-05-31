@@ -391,7 +391,19 @@ This syntax shows where you define parameters at both the template and workflow 
 }
 ```
 
-This example template shows how you can define these parameters for authentication, use their values at both the template and workflow definition levels, and provide those values through a parameter file. Where necessary, the template defines secured parameters so that you can store their values in Azure Key Vault.
+<a name="secure-workflow-definition-parmameters"></a>
+
+### Secure workflow definition parameters
+
+For a workflow definition parameter that handles sensitive information, passwords, access keys, or secrets at runtime, define or edit the parameter to use the `securestring` or `secureobject` parameter type. You can reference this parameter throughout and within your workflow definition. At the template's top-level, define a parameter that has the same type to handle this information at deployment.
+
+To specify the value for the workflow definition parameter, reference the template parameter in the parameters section that's *inside* your logic app resource definition but still *outside* your workflow definition. Finally, to pass the value to your template parameter at deployment, store that value in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) and reference that key vault in the [parameter file](#template-parameter-files) that's used by your template at deployment.
+
+This example template shows how you can complete these tasks by defining secured parameters when necessary so that you can store their values in Azure Key Vault:
+
+* Define and secure parameters for the values used to authenticate access.
+* Use these values at both the template and workflow definition levels.
+* Provide these values by using a parameter file.
 
 **Template**
 
@@ -715,7 +727,7 @@ This example shows the interactions between your logic app's resource definition
 
 <a name="secure-connection-parmameters"></a>
 
-## Secure connection parameters
+### Secure connection parameters
 
 For a connection parameter that handles sensitive information, passwords, access keys, or secrets, the connection's resource definition includes a `parameterValues` section that specifies these values in name-value pair format. To hide this information, you can define or edit the template parameters for these values by using the `securestring` or `secureobject` parameter types. You can then store that information in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). To pass those values to your template parameters, you reference that key vault in the [parameter file](#template-parameter-files) that's used by your template at deployment.
 
