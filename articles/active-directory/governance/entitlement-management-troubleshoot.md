@@ -37,9 +37,9 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ## Checklist for adding a resource
 
-* For an application to be a resource in an access package, it must have at least one resource role that can be assigned. The roles are defined by the application itself and are managed in Azure AD. Note that the Azure portal may also show service principals for services that cannot be selected as applications.  In particular, "Exchange Online" or "SharePoint Online" are services, not applications that have resource roles in the directory, so cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
+* For an application to be a resource in an access package, it must have at least one resource role that can be assigned. The roles are defined by the application itself and are managed in Azure AD. Note that the Azure portal may also show service principals for services that cannot be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
 
-* For a group to be a resource in an access package, it must be able to be modifiable in Azure AD.  Groups that originate in an on-premises Active Directory cannot be assigned as resources, since their owner or member attributes cannot be changed in Azure AD.  
+* For a group to be a resource in an access package, it must be able to be modifiable in Azure AD.  Groups that originate in an on-premises Active Directory cannot be assigned as resources because their owner or member attributes cannot be changed in Azure AD.  
 
 * SharePoint Online document libraries and individual documents cannot be added as resources.  Instead, create an Azure AD security group, include that group and a site role in the access package, and in SharePoint Online use that group to control access to the document library or document.
 
@@ -49,7 +49,7 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * If there is a B2B [allow list](../b2b/allow-deny-list.md), then users whose directories are not allowed will not be able to request access.
 
-* Ensure that there are no [Conditional Access policies](../conditional-access/require-managed-devices.md) which would prevent external users from requesting access or being able to use the applications in the access packages.
+* Ensure that there are no [Conditional Access policies](../conditional-access/require-managed-devices.md) that would prevent external users from requesting access or being able to use the applications in the access packages.
 
 ## Checklist for request issues
 
@@ -57,7 +57,7 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * When a user signs in to the My Access portal to request an access package, be sure they authenticate using their organizational account. The organizational account can be either an account in the resource directory, or in a directory that is included in one of the policies of the access package. If the user's account is not an organizational account, or the directory is not included in the policy, then the user will not see the access package. For more information, see [Request access to an access package](entitlement-management-request-access.md).
 
-* If a user is blocked from signing in to the resource directory, they will not be able to request access in the My Access portal. Before the user can request access, you must remove the sign-in block from the user's profile. To remove the sign-in block, in the Azure portal, click **Azure Active Directory**, click **Users**, click the user, and then click **Profile**. Edit the **Settings** section and change **Block sign in** to **No**. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  You may also wish to check if the user was blocked due to an [Identity Protection policy](../identity-protection/howto-unblock-user.md).
+* If a user is blocked from signing in to the resource directory, they will not be able to request access in the My Access portal. Before the user can request access, you must remove the sign-in block from the user's profile. To remove the sign-in block, in the Azure portal, click **Azure Active Directory**, click **Users**, click the user, and then click **Profile**. Edit the **Settings** section and change **Block sign in** to **No**. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  You can also check if the user was blocked due to an [Identity Protection policy](../identity-protection/howto-unblock-user.md).
 
 * In the My Access portal, if a user is both a requestor and an approver, they will not see their request for an access package on the **Approvals** page. This behavior is intentional - a user cannot approve their own request. Ensure that the access package they are requesting has additional approvers configured on the policy. For more information, see [Edit an existing policy](entitlement-management-access-package-edit.md#edit-an-existing-policy).
 
