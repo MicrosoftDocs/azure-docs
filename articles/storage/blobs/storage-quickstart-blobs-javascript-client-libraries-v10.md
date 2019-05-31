@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create a blob in object storage using JavaScript and HTML in the browser
+title: Quickstart - Create a blob in Azure Storage by using JavaScript and HTML in the browser
 description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript in an HTML page.
 services: storage
 keywords: storage, javascript, html
@@ -8,7 +8,7 @@ ms.custom: mvc
 ms.service: storage
 ms.author: karler
 ms.reviewer: seguler
-ms.date: 05/20/2018
+ms.date: 05/20/2019
 ms.topic: quickstart
 ms.subservice: blobs
 ---
@@ -25,7 +25,7 @@ In this quickstart, you'll learn to use the [Azure Storage SDK V10 for JavaScrip
 
 The Azure Storage JavaScript client libraries won't work directly from the file system and must be served from a web server. This topic uses [Node.js](https://nodejs.org) to launch a basic server. If you prefer not to install Node, you can use any other means of running a local web server.
 
-To follow the steps on debugging, you'll need [Visual Studio Code](https://code.visualstudio.com) and either the [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Edge](vscode:extension/msjsdiag.debugger-for-edge) extension.
+To follow the steps on debugging, you'll need [Visual Studio Code](https://code.visualstudio.com) and either the [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge) extension.
 
 ## Setting up storage account CORS rules
 
