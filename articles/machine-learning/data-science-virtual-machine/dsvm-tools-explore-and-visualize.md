@@ -54,7 +54,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | Links to Samples      | [Rattle](https://togaware.com/onepager/) |
 | Related Tools on the DSVM      |LightGBM, Weka, Xgboost   |
 
-## PowerBI Desktop 
+## Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Interactive Data Visualization and BI Tool    |

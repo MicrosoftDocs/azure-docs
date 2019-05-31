@@ -83,7 +83,7 @@ Start Visual Studio as Administrator and create an ASP.NET Core service:
     </Resources>
     ```
 
-    Removing the port allows Service Fabric to specify a port dynamically from the application port range, opened through the Network Security Group in the cluster Resource Manager template, allowing traffic to flow to it from API Management.
+    Removing the port allows Service Fabric to specify a port dynamically from the application port range, opened through the Network Security Group in the Cluster Resource Manager template, allowing traffic to flow to it from API Management.
 
  6. Press F5 in Visual Studio to verify the web API is available locally.
 

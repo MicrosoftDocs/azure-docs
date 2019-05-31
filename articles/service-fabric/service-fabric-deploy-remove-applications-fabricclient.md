@@ -35,7 +35,7 @@ Once an [application type has been packaged][10], it's ready for deployment into
 3. Remove the application package from the image store
 4. Create the application instance
 
-After you deploy an application and run an instance in the cluster, you can delete the application instance and its application type. Completely remove an application from the cluster by following thes steps:
+After you deploy an application and run an instance in the cluster, you can delete the application instance and its application type. Completely remove an application from the cluster by following these steps:
 
 1. Remove (or delete) the running application instance
 2. Unregister the application type if you no longer need it
@@ -79,7 +79,7 @@ Multiple application instances can be created for any given version of a registe
 To see which named applications and services are running in the cluster, run the [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) and [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) APIs.
 
 ## Create a service instance
-You can instantiate a service from a service type using the [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  If the service is declared as a default service in the application manifest, the service is instantiated when the application is instantiated.  Calling the [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API for a service that is already instantiated will return an exception of type FabricException. The exeption will contain an error code with a value of FabricErrorCode.ServiceAlreadyExists.
+You can instantiate a service from a service type using the [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  If the service is declared as a default service in the application manifest, the service is instantiated when the application is instantiated.  Calling the [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API for a service that is already instantiated will return an exception of type FabricException. The exception will contain an error code with a value of FabricErrorCode.ServiceAlreadyExists.
 
 ## Remove a service instance
 When a service instance is no longer needed, you can remove it from the running application instance by calling the [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API.  
