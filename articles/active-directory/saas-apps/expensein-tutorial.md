@@ -59,10 +59,10 @@ Configure and test Azure AD SSO with ExpenseIn using a test user called **B. Sim
 To configure and test Azure AD SSO with ExpenseIn, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure ExpenseIn](#configure-expenseIn)** to configure the SSO settings on application side.
+2. **[Configure ExpenseIn](#configure-expensein)** to configure the SSO settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
-5. **[Create ExpenseIn test user](#create-expenseIn-test-user)** to have a counterpart of B. Simon in ExpenseIn that is linked to the Azure AD representation of user.
+5. **[Create ExpenseIn test user](#create-expensein-test-user)** to have a counterpart of B. Simon in ExpenseIn that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
