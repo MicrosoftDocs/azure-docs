@@ -36,7 +36,7 @@ Premium Storage caching: Not Supported
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
 | Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.5M / 8000    | 32000/640 | 32 | 8 / 12800 |
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
+| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB   | 3.8M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 
 <sup>1</sup> Lsv2-series VMs have a standard SCSI based temp resource disk for OS paging/swap file use (D: on Windows, /dev/sdb on Linux). This disk provides 80 GiB of storage, 4,000 IOPS, and 80 MBps transfer rate for every 8 vCPUs (e.g. Standard_L80s_v2 provides 800 GiB at 40,000 IOPS and 800 MBPS). This ensures the NVMe drives can be fully dedicated to application use. This disk is Ephemeral, and all data will be lost on stop/deallocate.
 
@@ -45,6 +45,18 @@ Premium Storage caching: Not Supported
 <sup>3</sup> Hyper-V NVMe Direct technology provides unthrottled access to local NVMe drives mapped securely into the guest VM space.  Achieving maximum performance requires using either the latest WS2019 build or Ubuntu 18.04 or 16.04 from the Azure Marketplace.  Write performance varies based on IO size, drive load, and capacity utilization.
 
 <sup>4</sup> Lsv2-series VMs do not provide host cache for data disk as it does not benefit the Lsv2 workloads.  However, Lsv2 VMs can accommodate Azure’s Ephemeral VM OS disk option (up to 30 GiB).
+
+<sup>5</sup> VMs with more than 64 vCPUs require one of these supported guest operating systems:
+- Windows Server 2016 or later
+- Ubuntu 16.04 LTS or later, with Azure tuned kernel (4.15 kernel or later)
+- SLES 12 SP2 or later
+- RHEL or CentOS version 6.7 thru 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
+- RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
+- RHEL or CentOS version 7.4 or later
+- Oracle Linux with UEK4 or later
+- Debian 9 with the backports kernel, Debian 10 or later
+- CoreOS with a 4.14 kernel or later
+
 
 ## Size table definitions
 

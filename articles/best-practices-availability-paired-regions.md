@@ -30,7 +30,7 @@ Figure 1 – Azure regional pairs
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | China |China North 2 |China East 2|
-| Europe |North Europe |West Europe |
+| Europe |North Europe (Ireland) |West Europe (Netherlands) |
 | France |France Central|France South|
 | Germany |Germany Central |Germany Northeast |
 | India |Central India |South India |
@@ -43,7 +43,7 @@ Figure 1 – Azure regional pairs
 | North America |West US 2 |West Central US 
 | South Africa | South Africa North | South Africa West
 | UK |UK West |UK South |
-| United Arab Emirates | UAE North | UAE Center
+| United Arab Emirates | UAE North | UAE Central
 | US Department of Defense |US DoD East |US DoD Central |
 | US Government |US Gov Arizona |US Gov Texas |
 | US Government |US Gov Iowa |US Gov Virginia |
