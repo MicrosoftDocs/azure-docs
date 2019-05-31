@@ -48,21 +48,21 @@ azurite
 
 ## Running Azurite
 
-In order to run Azurite v3 you need Node.js >= 8.0 installed on your system. Azurite works cross-platform on Windows, Linux, and OS X.
+In order to run Azurite v3 you need Node.js >= 8.0 installed on your system. Azurite works cross-platform on Windows, Linux, and MacOS.
 
-After installation you can install Azurite simply with npm which is the Node.js package management tool included with every Node.js installation.
+After installation you can install Azurite simply with **npm** which is the Node.js package management tool included with every Node.js installation.
 
 ```console
 npm install -g azurite
 ```
 
-Simply start it with the following command:
+Start Azurite with the following command:
 
 ```console
 azurite -s -l c:\azurite -d c:\azurite\debug.log
 ```
 
-or,
+or
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
@@ -70,7 +70,7 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 
 This tells Azurite to store all data in a particular directory **c:\azurite**. If the **-l** option is omitted it will use the current working directory. You can also selectively start different storage services.
 
-For example, to start blob service only:
+For example, to start the blob service only:
 
 ```console
 azurite-blob -l path/to/azurite/workspace
@@ -89,13 +89,13 @@ azurite [--blobHost <IP address>] [--blobPort <port address>] [-l | --location <
 **Optional** By default, Azurite v3 will listen to 127.0.0.1 as a local server.
 You can customize the listening address per your requirements.
 
-#### Only accept requests in the local machine
+Accept requests on the local machine only:
 
 ```console
 --blobHost 127.0.0.1
 ```
 
-#### Allow accepting requests from remote (potentially unsafe)
+Allow remote requests (potentially unsafe):
 
 ```console
 --blobHost 0.0.0.0
@@ -103,31 +103,29 @@ You can customize the listening address per your requirements.
 
 ### Listening port configuration
 
-**Optional** By default, Azurite v3 will listen to 10000 as blob service port.
-You can customize the listening port per your requirements.
+**Optional** By default, Azurite v3 will listen for the blob service on port 10000. You can customize the listening port for your own requirements.
 
-> [!WARNING] 
-> After using a customized port, you need to update connection string or configurations correspondingly in your Storage Tools or SDKs.
+> [!WARNING]
+> After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
 
-#### Customize Blob Service listening port
+Customize the Blob Service listening port:
 
 ```console
 --blobPort 8888
 ```
 
-#### Let system auto select an available port
+Let system auto select an available port:
 
 ```console
 --blobPort 0
 ```
 
-Note: The port in use is displayed on Azurite startup.
+> [!NOTE]
+> The port in use is displayed on Azurite startup.
 
 ### Workspace path configuration
 
-**Optional** Azurite v3 needs to persist metadata and binary data to local disk during execution.
-
-You can provide a customized path as the workspace location, or by default, Current process working directory will be used.
+**Optional** Azurite v3 needs to persist metadata and binary data to the local disk during execution. You can provide a customized path as the workspace location, or by default, the current process working directory will be used.
 
 ```console
 -l c:\azurite
@@ -136,7 +134,7 @@ You can provide a customized path as the workspace location, or by default, Curr
 
 ### Access log configuration
 
-**Optional** By default Azurite will display access log in console. **Disable** it by:
+**Optional** By default Azurite will display the access log in the console window. Disable it by using the **--silent** switch:
 
 ```console
 -s
@@ -145,8 +143,7 @@ You can provide a customized path as the workspace location, or by default, Curr
 
 ### Debug log configuration
 
-**Optional** Debug log includes detailed information on every request and exception stack traces.  
-Enable it by providing a valid local file path for the debug log destination.
+**Optional** Debug log includes detailed information on every request and exception stack traces. Enable it by providing a valid local file path for the debug log destination.
 
 ```console
 -d path/debug.log
@@ -155,41 +152,33 @@ Enable it by providing a valid local file path for the debug log destination.
 
 ### Command line options differences between Azurite v2
 
-Azurite v3 supports SharedKey, Account Shared Access Signature (SAS), Service SAS and Public Container Access authentications, you can use any Azure Storage SDKs or tools like Storage Explorer to connect Azurite v3 with any authentication strategy.
-
-An option to bypass authentication is **NOT** provided in Azurite v3.
+Azurite v3 supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications. You may use any Azure Storage SDKs or tools like Storage Explorer to connect Azurite v3 with any authentication strategy. Authentication cannot be bypassed in Azurite v3.
 
 ## Usage with Azure Storage SDKs and tools
 
 ### Default Storage Account
 
-Azurite v3 provides support for a default storage account as General Storage Account v2 and associated features.
+Azurite v3 provides support for a General Storage Account v2 and associated features by default.
 
 * Account name: `devstoreaccount1`
 * Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 > [!NOTE]
->  Besides SharedKey authentication, Azurite v3 supports account and service SAS authentication. Anonymous access is also available when container is set to allow public access.
+> In addition to SharedKey authentication, Azurite v3 supports account and service SAS authentication. Anonymous access is also available when a container is set to allow public access.
 
 ### Connection string
 
-Typically you can pass following connection strings to SDKs or tools (like Azure CLI2.0 or Storage Explorer)
+Typically, you can pass following connection strings to SDKs or tools (like Azure CLI2.0 or Storage Explorer). Using the blob service as an example, the full connection string is:
 
-Take blob service as example, full connection string is:
-
-```
-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
-```
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;`
 
 Or if the SDK or tools support following short connection string:
 
-```
-UseDevelopmentStorage=true;
-```
+`UseDevelopmentStorage=true;`
 
 ### Storage Explorer
 
-Connect to Azurite by click "Add Account" icon, then select "Attach to a local emulator" and click "Connect".
+Connect to Azurite by clicking the **Add Account** icon, then select **Attach to a local emulator** and click **Connect**.
 
 ## Differences between Azurite and Azure Storage
 
@@ -208,33 +197,23 @@ The service endpoints for Azurite are different from those of an Azure storage a
 
 When you address a resource in an Azure storage account, use the following scheme. The account name is part of the URI host name, and the resource being addressed is part of the URI path:
 
-```http
-<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>
-```
+`<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>`
 
 For example, the following URI is a valid address for a blob in an Azure storage account:
 
-```http
-https://myaccount.blob.core.windows.net/mycontainer/myblob.txt
-```
+`https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
 However, because the local computer does not perform domain name resolution, the account name is part of the URI path instead of the host name. Use the following URI format for a resource in Azurite:
 
-```http
-http://<local-machine-address>:<port>/<account-name>/<resource-path>
-```
+`http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
 For example, the following address might be used for accessing a blob in Azurite:
 
-```http
-http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt
-```
+`http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
 
 The service endpoints for Azurite blob service:
 
-```http
-http://127.0.0.1:10000/<account-name>/<resource-path>
-```
+`http://127.0.0.1:10000/<account-name>/<resource-path>`
 
 ### Scalability and performance
 
@@ -261,9 +240,7 @@ Azurite v3 follows a **Try best to serve** compatible strategy with Azure Storag
 
 Azurite supports read-access geo-redundant replication (RA-GRS). For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in Azurite:
 
-```
-http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt
-```
+`http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
 ## Differences between Azurite v3 and Azurite v2
 
