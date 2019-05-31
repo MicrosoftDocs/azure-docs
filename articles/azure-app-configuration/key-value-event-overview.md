@@ -24,7 +24,7 @@ Take a look at [Route Azure App Configuration events to a custom web endpoint - 
 ![Event Grid Model](./media/event-grid-functional-model.png)
 
 ## Available App Configuration Events
-Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Azure App Configuration event subscriptions can include two types of events:  
+Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Azure App Configuration event subscriptions can include two types of events:  
 
 > |Event Name|Description|
 > |----------|-----------|
@@ -32,7 +32,7 @@ Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Fired when a key-value is deleted|
 
 ## Event Schema
-Azure App Configuration events contain all the information you need to respond to changes in your data. You can identify an app configuration event because the eventType property starts with "Microsoft.AppConfiguration". Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../../event-grid/event-schema.md).  
+Azure App Configuration events contain all the information you need to respond to changes in your data. You can identify an app configuration event because the eventType property starts with "Microsoft.AppConfiguration". Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../event-grid/event-schema.md).  
 
 > |Property|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
@@ -67,7 +67,7 @@ Here is an example of a KeyValueModified event:
 
 ```
 
-For more information, see [Azure App Configuration events schema](../../event-grid/event-schema-app-configuration.md).
+For more information, see [Azure App Configuration events schema](../event-grid/event-schema-app-configuration.md).
 
 ## Practices for consuming events
 Applications that handle app configuration events should follow a few recommended practices:
