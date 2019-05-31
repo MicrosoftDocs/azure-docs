@@ -267,7 +267,8 @@ If you use network security groups, you must allow traffic from the Azure health
     | ---- | ---- | ---- | ---- | ----- |
     | Asia | East Asia | 23.102.235.122</br>52.175.38.134 | \*:443 | Inbound |
     | &nbsp; | Southeast Asia | 13.76.245.160</br>13.76.136.249 | \*:443 | Inbound |
-    | Australia | Australia East | 104.210.84.115</br>13.75.152.195 | \*:443 | Inbound |
+    | Australia | Australia Central | 20.36.36.33</br>20.36.36.196 | \*:443 | Inbound |
+    | &nbsp; | Australia East | 104.210.84.115</br>13.75.152.195 | \*:443 | Inbound |
     | &nbsp; | Australia Southeast | 13.77.2.56</br>13.77.2.94 | \*:443 | Inbound |
     | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | \*:443 | Inbound |
     | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | \*:443 | Inbound |

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 05/31/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -100,7 +100,7 @@ The following steps describe how to configure how long log data is kept by in yo
 
 ## Legacy pricing tiers
 
-Customers with an Enterprise Agreement signed prior to July 1, 2018 or who already created a Log Analytics workspace in a subscription, you still have access to the *Free* plan. If your subscription is not tied to an existing EA enrollment, the *Free* tier is not available when you create a workspace in a new subscription after April 2, 2018.  Data is limited to seven days retention for the *Free* tier.  For the legacy *Standalone* or *Per Node* tiers, as well as the current 2018 single pricing tier, data collected is available for the last 31 days. The *Free* tier has 500 MB daily ingestion limit, and if you find that you consistently exceed the amounts allowed volume, you can change your workspace to another plan to collect data beyond this limit. 
+Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to the legacy pricing tiers: Free, Standalone (Per GB) and Per Node (OMS).  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have access to data retention up to 2 years. 
 
 > [!NOTE]
 > To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
