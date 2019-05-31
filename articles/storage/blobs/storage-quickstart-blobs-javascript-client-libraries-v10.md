@@ -52,7 +52,7 @@ Next, you use the Azure cloud shell to create a security token.
 
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
-## Create a Shared Access Signature
+## Create a shared access signature
 
 The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -121,7 +121,7 @@ First, create a new folder named *azure-blobs-javascript* and open it in VS Code
 
 ### Configure the debugger
 
-To set up the debugger extension in VS Code, select *Debug* > *Add Configuration...*, then select *Chrome* or *Edge*, depending on which extension you installed in the Prerequisites section earlier. This action creates a *launch.json* file and opens it in the editor.
+To set up the debugger extension in VS Code, select **Debug > Add Configuration...**, then select **Chrome** or **Edge**, depending on which extension you installed in the Prerequisites section earlier. This action creates a *launch.json* file and opens it in the editor.
 
 Next, modify the *launch.json* file so that the `url` value includes `/index.html` as shown:
 
@@ -147,7 +147,7 @@ This configuration tells VS Code which browser to launch and which URL to load.
 
 ### Launch the web server
 
-To launch the local Node.js web server, select *View* > *Terminal* to open a console window inside VS Code, then enter the following command.
+To launch the local Node.js web server, select **View > Terminal** to open a console window inside VS Code, then enter the following command.
 
 ```console
 npx http-server
@@ -157,11 +157,11 @@ This command will install the *http-server* package and launch the server, makin
 
 ### Start debugging
 
-To launch *index.html* in the browser with the VS Code debugger attached, select *Debug* > *Start Debugging* or press F5 in VS Code.
+To launch *index.html* in the browser with the VS Code debugger attached, select **Debug > Start Debugging** or press F5 in VS Code.
 
 The UI displayed doesn't do anything yet, but you'll add JavaScript code in the following section to implement each function shown. You can then set breakpoints and interact with the debugger when it's paused on your code.
 
-When you make changes to *index.html*, be sure to reload the page to see the changes in the browser. In VS Code, you can also select *Debug* > *Restart Debugging* or press CTRL + SHIFT + F5.
+When you make changes to *index.html*, be sure to reload the page to see the changes in the browser. In VS Code, you can also select **Debug > Restart Debugging** or press CTRL + SHIFT + F5.
 
 ### Add the blob storage client library
 
@@ -255,7 +255,7 @@ This code calls the ContainerURL [create](https://docs.microsoft.com/javascript/
 
 ### List blobs
 
-Next, add code to list the contents of the storage container when you press the *List files* button.
+Next, add code to list the contents of the storage container when you press the **List files** button.
 
 ```javascript
 const listFiles = async () => {
@@ -287,11 +287,11 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the *Files* list.
+This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
 
 ### Upload blobs
 
-Next, add code to upload files to the storage container when you press the *Select and upload files* button.
+Next, add code to upload files to the storage container when you press the **Select and upload files** button.
 
 ```javascript
 const uploadFiles = async () => {
@@ -315,11 +315,11 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("input", uploadFiles);
 ```
 
-This code connects the *Select and upload files* button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
+This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
 
 ### Delete blobs
 
-Next, add code to delete files from the storage container when you press the *Delete selected files* button.
+Next, add code to delete files from the storage container when you press the **Delete selected files** button.
 
 ```javascript
 const deleteFiles = async () => {
@@ -343,11 +343,11 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-This code calls the [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) function to remove  each file selected in the list. It then calls the `listFiles` function shown earlier to refresh the contents of the *Files* list.
+This code calls the [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) function to remove  each file selected in the list. It then calls the `listFiles` function shown earlier to refresh the contents of the **Files** list.
 
 ### Run and test the web application
 
-At this point, you can launch the page and experiment to get a feel for how blob storage works. If any errors occur (for example, when you try to list files before you've created the container), the *Status* pane will display the error message received. You can also set breakpoints in the JavaScript code to examine the values returned by the storage APIs.
+At this point, you can launch the page and experiment to get a feel for how blob storage works. If any errors occur (for example, when you try to list files before you've created the container), the **Status** pane will display the error message received. You can also set breakpoints in the JavaScript code to examine the values returned by the storage APIs.
 
 ## Clean up resources
 
