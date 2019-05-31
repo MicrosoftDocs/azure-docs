@@ -798,21 +798,21 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 ```
 
 Where action can be one of these: 
-- `Subscribe`  (When the resource has been activated)
-- `Unsubscribe` (When the resource has been deleted)
-- `ChangePlan` (When the change plan operation has completed)
-- `ChangeQuantity` (When the change quantity operation has completed)
-- `Suspend` (When the resource has been suspended)
-    - `Reinstate` (When resource has been reinstated after suspension)
-    - `Renew` (When a resource subscription is renewed)
+- `Subscribe`, (When the resource has been activated)
+- `Unsubscribe`, (When the resource has been deleted)
+- `ChangePlan`, (When the change plan operation has completed)
+- `ChangeQuantity`, (When the change quantity operation has completed),
+- `Suspend`, (When resource has been suspended)
+- `Reinstate`, (When resource has been reinstated after suspension)
 
 Where status can be one of these: <br>
-        NotStarted, <br>
-        InProgress, <br>
-        Succeeded, <br>
-        Failed, <br>
-        Conflict <br>
+        - NotStarted, <br>
+        - InProgress, <br>
+        - Succeeded, <br>
+        - Failed, <br>
+        - Conflict <br>
 
+Actionable statuses are Succeeded and Failed in a webhook notification. An operation's lifecycle is from NotStarted to a terminal state like Succeeded/Failed/Conflict. If you receive Not started or in progress, please continue to request the status via GET operation API until the operation reaches a terminal state before taking any action. 
 
 ## Mock API
 
