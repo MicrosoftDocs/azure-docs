@@ -45,3 +45,21 @@ A Line Group is an entity, which groups together all lines that are logically pa
 As discussed above, each line group is composed of a set of lines. Often each line describes a direction and each line group is composed of two lines. However there are cases in which more lines comprise a line group, for example there is a line that sometimes detours through a certain neighborhood and sometimes does not, and is operated in both cases under the same line number, and there are other cases in which a line group is composed of a single line, for example a circular line with a single direction.
 
 To begin, you can request line groups by using the [Get Transit Line API](https://aka.ms/AzureMapsMobilityTransitLine) and later drill down to lines.
+
+
+## Next steps
+
+Learn how to request transit data using Mobility Service:
+
+> [!div class="nextstepaction"]
+> [How to request transit data](how-to-request-transit-data.md)
+
+Learn how to request real-time data using Mobility Service:
+
+> [!div class="nextstepaction"]
+> [How to request real-time data](how-to-request-real-time-data.md)
+
+Explore the Azure Maps Mobility Service API documentation
+
+> [!div class="nextstepaction"]
+> [Mobility Service API documentation](https://aka.ms/AzureMapsMobilityService)
