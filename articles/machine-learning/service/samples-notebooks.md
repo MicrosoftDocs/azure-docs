@@ -1,7 +1,7 @@
 ---
 title: Example Jupyter notebooks
 titleSuffix: Azure Machine Learning service
-description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service in Python. 
+description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service Python SDK. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,54 +10,53 @@ ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 05/29/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
 # Use Jupyter notebooks to explore Azure Machine Learning service
 
-For your convenience, we have developed a series of Jupyter Python notebooks you can use to explore the Azure Machine Learning service. 
+The [Azure Machine Learning Notebooks repository](https://github.com/azure/machinelearningnotebooks) includes the latest Azure Machine Learning Python SDK samples. These Juypter notebooks are designed to help you explore the SDK and serve as models for your own machine learning projects.
 
-Learn how to use the service with the documentation on this site and use these notebooks to customize them to your situation. 
+This article shows you how to access the repository from the following environments:
 
-Use one of the paths below to run a notebook server with these sample notebooks.  Once the server is running, find tutorial notebooks in **tutorials** folder, or explore different features in **how-to-use-azureml** folder.
+- [Azure Machine Learning Notebook VM](#azure-machine-learning-notebook-vm)
+- [Bring your own notebook server](#bring-your-own-jupyter-notebook-server)
+- [Data Science Virtual Machine](#data-science-virtual-machine)
+- [Azure Notebooks](#azure-notebooks)
 
-## A managed cloud notebook server
+> [!NOTE]
+> Once you've cloned the repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
 
-It's easy to get started with your own cloud-based notebook server. The sample notebook and the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) are already installed and configured for you once you create this cloud resource.  
+## Azure Machine Learning Notebook VM
 
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+The easiest way to get started with the samples is to complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the sample repository. No downloads or installation necessary.
 
-* The samples are available on the notebook webpage.
+## Bring your own Jupyter Notebook server
 
-## A Data Science Virtual Machine (DSVM)
-
-The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) and notebook server are already installed and configured for you on a DSVM. 
-
-After you [create a DSVM](how-to-configure-environment.md#dsvm), use these steps on the DSVM to run the notebooks.
-
-[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
-
-## Your own Jupyter Notebook server
-
-Use these steps to create a local Jupyter Notebook server on your computer.
+If you'd like to bring your own notebook server for local development, follow these steps:
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-The setup instructions will install the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+
+## Data Science Virtual Machine
+
+The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#dsvm), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
+
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
 ## Azure Notebooks
 
-The sample notebooks and the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) are already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
+On [Azure Notebooks](https://notebooks.azure.com/), the SDK and notebook server are installed and configured for you. Azure Notebooks provides a fully-managed, lightweight notebook environment for you to explore.
 
-Use the [Azure portal](https://portal.azure.com) to get started with Azure Notebooks.  Open your workspace and from the  **Overview** section, select **Get Started in Azure Notebooks**.
+To access the sample repository on Azure Notebooks, navigate to your Azure Machine Learning workspace through the [Azure portal](https://portal.azure.com). From the  **Overview** section, select **Get Started in Azure Notebooks**.
 
 ## Next steps
 
-+ Explore the sample notebooks for Azure Machine Learning service in this GitHub repository: https://aka.ms/aml-notebooks
+Explore the [sample notebooks](https://aka.ms/aml-notebooks) to discover what Azure Machine Learning service can do, or try these tutorials:
 
-Try these tutorials:
-+ [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
+- [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
 
-+ [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-data-prep.md)
+- [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-data-prep.md)
