@@ -37,7 +37,7 @@
     href: azureadjoin-plan.md
   - name: Plan your hybrid Azure AD join implementation
     href: hybrid-azuread-join-plan.md
-  - name: Control the hybrid Azure AD join of your devices
+  - name: Controlled validation of hybrid Azure AD join
     href: hybrid-azuread-join-control.md
   - name: Assign local admins to Azure AD joined devices
     href: assign-local-admin.md
