@@ -62,13 +62,13 @@ To see WAF in action, you can change the mode settings from **Detection** to **P
 
 You can create a custom rule by selecting **Add custom rule** under the **Custom rules** section. This launches the custom rule configuration page. Below is an example of configuring a custom rule to block a request if the query string contains **blockme**.
 
-![Change WAF policy mode](./media/waf-front-door-create-portal/customquerystring.png)
+![Change WAF policy mode](./media/waf-front-door-create-portal/customquerystring2.png)
 
 ### Default Rule Set (DRS)
 
 Azure-managed Default Rule Set is enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group,  select the **check box** in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
 
- ![Change WAF Rule Set](./media/waf-front-door-create-portal/managed.png)
+ ![Change WAF Rule Set](./media/waf-front-door-create-portal/managed2.png)
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao 
 ---
 
@@ -24,7 +24,7 @@ Preventing such attacks in application code can be challenging and may require r
 
 WAF for Front Door is a global and centralized solution. It is deployed on Azure network edge locations around the globe and every incoming request for a WAF enabled web application delivered by Front Door is inspected at the network edge. This allows WAF to prevent malicious attacks close to the attack sources, before they enter your virtual network and offers global protection at scale without sacrificing performance. A WAF policy can be easily linked to any Front Door profile in your subscription and new rules can be deployed within minutes, allowing you to respond quickly to changing threat patterns.
 
-![Azure web application firewall](./media/waf-overview/web-application-firewall-overview.png)
+![Azure web application firewall](./media/waf-overview/web-application-firewall-overview2.png)
 
 Azure WAF can also be enabled with Application Gateway. For more information, see [Web application firewall](../application-gateway/waf-overview.md).
 
@@ -87,7 +87,7 @@ Azure-managed rule sets provide an easy way to deploy protection against a commo
 - Java attacks
 - Local file inclusion
 - PHP injection attacks
-- Remote command processing
+- Remote command executing
 - Remote file inclusion
 - Session fixation
 - SQL injection protection
@@ -103,7 +103,7 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 A managed Bot protection rule set can be enabled for your WAF to take custom actions on requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
 
-![Bot Protection Rule Set](./media/waf-front-door-configure-bot-protection/BotProtect.png)
+![Bot Protection Rule Set](./media/waf-front-door-configure-bot-protection/BotProtect2.png)
 
 > [!IMPORTANT]
 > Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
