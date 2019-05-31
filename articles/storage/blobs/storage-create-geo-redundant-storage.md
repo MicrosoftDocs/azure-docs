@@ -37,7 +37,7 @@ To complete this tutorial:
 
 # [.NET](#tab/dotnet)
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
   - **Azure development**
 
   ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -79,6 +79,8 @@ Follow these steps to create a read-access geo-redundant storage account:
    | **Deployment model** | Resource Manager  | Resource Manager contains the latest features.|
    | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performance** | Standard | Standard is sufficient for the example scenario. |
+   | **Replication**| Read-access geo-redundant storage (RA-GRS) | This setting is necessary for the sample to work. |
+   |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
    |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
@@ -164,7 +166,7 @@ setx accountkey "<youraccountkey>"
 
 # [Java V10 SDK](#tab/java-v10)
 
-This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that will run the sample. Use either the Linux or the Windows example, depending on your operating system, to create the environment variables. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
+This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that will run the sample. Use either the Linux or the Windows example, depending on your operating system, to create the environment variables. In Windows, the environment variable isn't available until you reload the **Command Prompt** or shell you're using.
 
 ### Linux example
 
@@ -191,7 +193,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 You can find this information in the Azure portal by navigating to your storage account and selecting **Access keys** in the **Settings** section.
 
-You must also install the required dependencies. To do this, open a command prompt, navigate to the sample folder, then enter `npm install`.
+Install the required dependencies. To do this, open a command prompt, navigate to the sample folder, then enter `npm install`.
 
 ---
 
@@ -217,7 +219,7 @@ In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` 
 
 The Storage object retry function is set to a linear retry policy. The retry function determines whether to retry a request, and specifies the number of seconds to wait before retrying the request. Set the **retry\_to\_secondary** value to true, if request should be retried to secondary in case the initial request to primary fails. In the sample application, a custom retry policy is defined in the `retry_callback` function of the storage object.
 
-Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.
+Before the download, the Service object [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.
 
 # [Java V10 SDK](#tab/java-v10)
 
@@ -228,11 +230,11 @@ To run the sample, use Maven at the command line.
 
 This sample creates a test file in your default directory. For Windows users, this directory is **AppData\Local\Temp**. The sample then presents you with the following options of commands which you can enter:
 
-- Enter **P** to execute a put blob operation, this uploads a temp file to your storage account.
-- Enter **L** to perform a list blob operation, this list the blobs currently in your container.
-- Enter **G** to perform a get blob operation, this downloads a file from your storage account to your local machine.
-- Enter **D** to execute a delete blob operation, this deletes the blob from your storage account.
-- Enter **E** to close the sample, this also deletes all resources the sample created.
+- Enter **P** to execute a put blob operation, this command uploads a temp file to your storage account.
+- Enter **L** to perform a list blob operation, this command list the blobs currently in your container.
+- Enter **G** to perform a get blob operation, this command downloads a file from your storage account to your local machine.
+- Enter **D** to execute a delete blob operation, this command deletes the blob from your storage account.
+- Enter **E** to close the sample, this command also deletes all resources the sample created.
 
 This example shows your output if you run the application on Windows.
 

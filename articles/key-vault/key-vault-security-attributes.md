@@ -11,9 +11,9 @@ ms.date: 04/16/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure Key Vault
+# Security attributes for Azure Key Vault
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Key Vault. 
+This article documents the security attributes built into Azure Key Vault. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,7 +27,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Using HTTPS. |
 
-## Network Segmentation
+## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -50,7 +50,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Authorization| Yes | Using Key Vault Access Policy. |
 
 
-## Audit Trail
+## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|

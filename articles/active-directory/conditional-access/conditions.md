@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 
@@ -23,10 +23,9 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
+# What are conditions in Azure Active Directory conditional access?
 
-# What are conditions in Azure Active Directory conditional access? 
-
-You can control how users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response ("Then do this") to the reason for triggering your policy ("When this happens"). 
+You can control how users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response ("Then do this") to the reason for triggering your policy ("When this happens").
 
 ![Reason and response](./media/conditions/10.png)
 
@@ -36,7 +35,7 @@ In the context of conditional access, **When this happens** is called a **condit
 ![Conditional access policy](./media/conditions/61.png)
 
 
-Conditions you haven't configured in a conditional access policy aren't applied. Some conditions are [mandatory](best-practices.md) to apply a conditional access policy to an environment. 
+Conditions you haven't configured in a conditional access policy aren't applied. Some conditions are [mandatory](best-practices.md) to apply a conditional access policy to an environment.
 
 This article is an overview of the conditions and how they're used in a conditional access policy. 
 
@@ -72,7 +71,7 @@ Organizations can choose from the following:
 > [!NOTE]
 > You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access.
 
-**User actions** are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows conditional access policy to enforce when a user registers their security information.
+**User actions** are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows conditional access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Enable combined security information registration (preview)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## Sign-in risk
 

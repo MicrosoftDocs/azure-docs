@@ -11,7 +11,13 @@ ms.author: pabutler
 
 # SaaS Fulfillment APIs Version 2 
 
-This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for listing SaaS offers on the AppSource and Azure Marketplace.
+This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
+
+> [!IMPORTANT] 
+> SaaS offer functionality has been migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
+> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
+> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
+> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
 
 ## Managing the SaaS subscription lifecycle
 
@@ -113,11 +119,11 @@ Resolves the opaque token to a SaaS subscription.<br>
 ```json
 Response body:
 {
-    "subscriptionId": "<guid>",  
+    "id": "<guid>",  
     "subscriptionName": "Contoso Cloud Solution",
     "offerId": "offer1",
     "planId": "silver",
-    "quantity": "20" 
+    "quantity": "20" // This will not be returned if the "quantity" = 1
 }
 ```
 
