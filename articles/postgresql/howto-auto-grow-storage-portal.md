@@ -10,7 +10,7 @@ ms.date: 5/29/2019
 # Auto-grow Azure Database for PostgreSQL storage - Single Server using the Azure portal
 This article describes how you can configure an Azure Database for PostgreSQL server storage to grow without impacting the workload.
 
-The server [reaching the storage limit](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#reaching-the-storage-limit), is set to read-only. If storage auto grow is enabled then for servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified [here](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage) apply.
+The server [reaching the storage limit](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#reaching-the-storage-limit), is set to read-only. If storage auto grow is enabled, then for servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified [here](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage) apply.
 
 ## Prerequisites
 To complete this how-to guide, you need:
