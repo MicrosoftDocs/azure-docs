@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -68,11 +68,14 @@ Here are the types of resources you can manage access to with entitlement manage
 
 - Azure AD security groups
 - Office 365 groups
-- Azure AD enterprise applications
-- SaaS applications
-- Custom-integrated applications
-- SharePoint Online site collections
-- SharePoint Online sites
+- Azure AD enterprise applications, including SaaS application and custom-integrated applications which support federation or provisioning
+- SharePoint Online site collections and sites
+
+You can also control access to other resources which rely upon Azure AD security groups or Office 365 groups.  For example:
+
+- You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
+- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
+
 
 ## Prerequisites
 
