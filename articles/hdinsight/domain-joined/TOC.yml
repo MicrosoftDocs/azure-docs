@@ -20,6 +20,8 @@
     href: apache-domain-joined-run-hbase.md
   - name: Apache Kafka RBAC with Apache Ranger
     href: apache-domain-joined-run-kafka.md
+  - name: HDInsight ID Broker (HIB)
+    href: apache-domain-joined-id-broker.md
   - name: Use VSCode to link to ESP cluster
     href: ../hdinsight-for-vscode.md
   - name: Use IntelliJ to link to ESP cluster
