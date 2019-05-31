@@ -25,7 +25,7 @@ This article describes solutions for issues that you might encounter while using
     PS C:\> Get-WindowsFeature Windows-Server-Backup
 
    ```
-    If the output displays the **Install State** as **available** then it means Windows Server backup feature is available for the installation but not installed on the server. However if Windows Server Backup is not installed then use one of the below methods to install it.
+    If the output displays the **Install State** as **available**, then it means Windows Server backup feature is available for the installation but not installed on the server. However if Windows Server Backup is not installed, then use one of the below methods to install it.
 
     **Method 1: Install Windows Server Backup using PowerShell**
 
@@ -49,13 +49,13 @@ This article describes solutions for issues that you might encounter while using
 
           ![Installation Type](./media/backup-azure-system-state-troubleshoot/Installation_type.jpg)
 
-      3. Select a server from the server pool and click **Next**. In the Server Role leave the default selection and click **Next**.
+      3. Select a server from the server pool and click **Next**. In the Server Role, leave the default selection and click **Next**.
       4. Select **Windows Server Backup** in **Features** tab and click **Next**.
 
           ![features](./media/backup-azure-system-state-troubleshoot/features.png)
 
       5. In the **Confirmation** tab, click **Install** to start the installation process.
-      6. In the **Results** tab it will display the Windows Server Backup feature is successfully installed on your Windows Server.
+      6. In the **Results** tab, it will display the Windows Server Backup feature is successfully installed on your Windows Server.
 
           ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
@@ -88,7 +88,7 @@ Microsoft Software Shadow Copy Provider(SWPRV) | Manual
       ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
 
       > [!NOTE]
-      >Replace X with the drive letter of the volume where you want to store the system state backup image.
+      >Replace X with the drive letter of the volume where you want to store the system state back up image.
 
       - Periodically check the status of the job by running the below command from elevated PowerShell:
 
@@ -125,18 +125,18 @@ Microsoft Software Shadow Copy Provider(SWPRV) | Manual
   **Resolution**:
 
   - Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress
- -  While configuring shadow copy space we can restrict the amount of space used for shadowcopy, for more information see this [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11))
+ -  While configuring shadow copy space we can restrict the amount of space used for shadow copy, for more information see this [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11))
 
 
 ### EFI partition locked
 
 **Symptom**:
 
-  -	MARS agent fails with error message: “System state backup failed as the EFI system partition is locked. This can be due to system partition access by a third party security or backup software.”
+  -	MARS agent fails with error message: “System state back up failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or backup software.”
 
   **Resolution**:
-  -	If the issue is due to a third party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent.
-  -	If a third party backup software is running, then wait for it to finish and then try backup again.
+  -	If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent.
+  -	If a third-party backup software is running, then wait for it to finish and then try backup again.
 
 
 ## Next steps
