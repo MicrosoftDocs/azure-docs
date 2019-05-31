@@ -3,7 +3,7 @@ title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -60,7 +60,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 * The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial.
 
-* As a builder, you can create personalized application dashboards and replace the default dashboard with your own. To learn more, see the  [create their own personal dashboards](howto-personalize-dashboard.md).
+* As a operator, you can create personalized dashboards and switch between them and the default dashboard. To learn more, see the [Create and manage personal dashboards](howto-personalize-dashboard.md) how-to article.
 
 ## Device explorer
 
@@ -91,11 +91,15 @@ The jobs page allows you to perform bulk device management operations onto your 
 
 ## Device templates
 
-![Device Templates page](media/overview-iot-central-tour/rules_landing_page1.png)
+![Device Templates page](media/overview-iot-central-tour/templates.png)
 
-* The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
+The device templates page is where a builder creates and manages the device templates in the application. A device template specifies device characteristics such as:
+- Telemetry, state and event measurements.
+- Settings and properties.
+- Commands.
+- Rules based on events or telemetry values.
 
-* It contains link to the rules where operators, builders, and administrators creates and manages the event rules. To learn more, see the [Create an event rule](howto-create-event-rules.md) article.
+To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
 
 ## Continuous data export
 
@@ -107,9 +111,7 @@ The continuous data export page is where an administrator defines how to export 
 
 ![Administration page](media/overview-iot-central-tour/administration.png)
 
-* The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
-
-* It contains link to Customize our application where administrators customizes the UI of the application by applying custom themes and modifying the help links to point to your own custom help resources. To learn more, see the  [Customize the Azure IoT Central UI](howto-customize-ui.md) article.
+* The administration page contains links to the tools an administrator uses such as defining users and roles in the application and customizing the UI. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
 
 ## Next steps
 
