@@ -190,8 +190,8 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 
 	1. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user ID. If the user ID is not matched, then system will not allow users to sign in. 
 
-	> [!Note]
-	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
+	   > [!Note]
+	   > Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
 	
 	1. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User ID is expected. 
 
@@ -203,14 +203,14 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 
 	1. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
 	
-	> [!Note]
-	> To enable the default login form for admin login on the login page when the force azure login is enabled, add the query parameter in the browser URL.
-	> `https://<domain:port>/login.action?force_azure_login=false`
+	   > [!Note]
+	   > To enable the default login form for admin login on the login page when the force azure login is enabled, add the query parameter in the browser URL.
+	   > `https://<domain:port>/login.action?force_azure_login=false`
 	
 	1. Click **Save** button to save the settings.
 
-	> [!NOTE]
-	> For more information about installation and troubleshooting, visit [MS Confluence SSO Connector Admin Guide](../ms-confluence-jira-plugin-adminguide.md). There is also an [FAQ](../ms-confluence-jira-plugin-faq.md) for your assistance.
+	   > [!NOTE]
+	   > For more information about installation and troubleshooting, visit [MS Confluence SSO Connector Admin Guide](../ms-confluence-jira-plugin-adminguide.md). There is also an [FAQ](../ms-confluence-jira-plugin-faq.md) for your assistance.
 
 ### Create an Azure AD test user 
 
