@@ -134,7 +134,7 @@
       href: cdn-troubleshoot-allowed-ca.md      
 - name: Reference
   items:
-  - name: Verizon Premium Rules engine reference
+  - name: Verizon Premium rules engine reference
     href: cdn-verizon-premium-rules-engine-reference.md
     items:
     - name: Rules engine conditional expressions
@@ -181,5 +181,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-    
+    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn   
