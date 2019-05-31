@@ -58,6 +58,5 @@ An unmanaged compute resource is *not* managed by Azure Machine Learning service
 
 ## Next steps
 
-* For information about selecting a compute target for training, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
-
-* For information about selecting a compute target for deployment, see the [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
+* [Set up compute targets for model training](how-to-set-up-training-targets.md)
+* [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md)
