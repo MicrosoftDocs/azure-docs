@@ -39559,62 +39559,62 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-ruby-detect.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-detect.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-ruby-dictionary.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-dictionary.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-ruby-languages.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-languages.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-ruby-sentences.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-sentences.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-ruby-translate.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-translate.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-ruby-transliterate.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-transliterate.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-php-detect.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-php-detect.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-php-dictionary.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-php-dictionary.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-php-languages.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-php-languages.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-php-sentences.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-php-sentences.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-php-translate.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-php-translate.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/quickstart-php-transliterate.md",
+      "source_path": "articles/cognitive-services/translator/quickstart-php-transliterate.md",
       "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
       "redirect_document_id": false
     },
