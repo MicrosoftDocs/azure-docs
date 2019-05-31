@@ -98,11 +98,13 @@ Application Insights is one of the many services hosted within Microsoft Azure, 
 
 There are several ways to get started. Begin with whichever works best for you. You can add the others later.
 
-* **At run time: instrument your web app on the server.** Avoids any update to the code. You need admin access to your server.
-  * [**IIS on-premises or on a VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Azure web app or VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 update 2 or later.
+* **At run time: instrument your web app on the server.** Ideal for applications already deployed. Avoids any update to the code.
+  * [**ASP.NET applications hosted in IIS either on-premises or in a VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**ASP.NET or ASP.NET Core applications hosted on Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
+* **At development time: add Application Insights to your code.** Allows you to customize telemetry collection and send additional telemetry.
+  * [ASP.NET Applications](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core Applications](../../azure-monitor/app/asp-net-core.md)
+  * [.NET Console Applications](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Other platforms](../../azure-monitor/app/platforms.md)
@@ -114,10 +116,12 @@ There are several ways to get started. Begin with whichever works best for you. 
 Get started at runtime with:
 
 * [IIS server](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 Get started at development time with:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
