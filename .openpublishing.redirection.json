@@ -11046,11 +11046,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md",
-      "redirect_url": "/azure/event-hubs/event-hubs-dedicated-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
