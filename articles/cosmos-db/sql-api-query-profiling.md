@@ -226,6 +226,8 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 
 This query is now able to be served from the index.
 
+To learn more about tuning query performance, see the [Tune Query Performance](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics) article.
+
 ## <a id="References"></a>References
 
 - [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
