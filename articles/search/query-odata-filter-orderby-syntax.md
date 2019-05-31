@@ -32,7 +32,7 @@ A **$filter** expression can execute standalone as a fully expressed query, or r
 ```POST
 POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
-      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
+      "$filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
     }
 ```
 
@@ -43,7 +43,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "search": "test",
       "facets": [ "tags", "baseRate,values:80|150|220" ],
-      "filter": "rating eq 3 and category eq 'Motel'"
+      "$filter": "rating eq 3 and category eq 'Motel'"
     }
 ```
 
