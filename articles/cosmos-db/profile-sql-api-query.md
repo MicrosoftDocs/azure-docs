@@ -11,16 +11,16 @@ ms.author: girobins
 ---
 # Get SQL query execution metrics and analyze query performance using .NET SDK
 
-This article presents how to profile SQL query performance on Azure Cosmos DB. This profiling can be done using `QueryMetrics` retrieved from the .NET SDK and is detailed here. [QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in the [Tune Query Performance](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics) article.
+This article presents how to profile SQL query performance on Azure Cosmos DB. This profiling can be done using `QueryMetrics` retrieved from the .NET SDK and is detailed here. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in the [Tune Query Performance](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) article.
 
 ## Set the FeedOptions parameter
 
-All the overloads for [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) take in an optional [FeedOptions](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.aspx) parameter. This option is what allows query execution to be tuned and parameterized. 
+All the overloads for [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) take in an optional [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) parameter. This option is what allows query execution to be tuned and parameterized. 
 
-To collect the Sql query execution metrics, you must set the parameter [PopulateQueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the [FeedOptions](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.aspx) to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`. 
+To collect the Sql query execution metrics, you must set the parameter [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`. 
 
 ## Get query metrics with AsDocumentQuery()
-The following code sample shows how to do retrieve metrics when using [AsDocumentQuery()](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) method:
+The following code sample shows how to do retrieve metrics when using [AsDocumentQuery()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) method:
 
 ```csharp
 // Initialize this DocumentClient and Collection
@@ -57,7 +57,7 @@ while (documentQuery.HasMoreResults)
 ```
 ## Aggregating QueryMetrics
 
-In the previous section, notice that there were multiple calls to [ExecuteNextAsync](https://msdn.microsoft.com/en-us/library/azure/dn850294.aspx) method. Each call returned a `FeedResponse` object that has a dictionary of `QueryMetrics`; one for every continuation of the query. The following example shows how to aggregate these `QueryMetrics` using LINQ:
+In the previous section, notice that there were multiple calls to [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) method. Each call returned a `FeedResponse` object that has a dictionary of `QueryMetrics`; one for every continuation of the query. The following example shows how to aggregate these `QueryMetrics` using LINQ:
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -79,7 +79,7 @@ Console.WriteLine(aggregatedQueryMetrics);
 
 ## Grouping query metrics by Partition ID
 
-You can group the `QueryMetrics` by the parition ID. Grouping by Partition ID allows you to see if a specific Partition is causing performance issues when compared to others. The following example shows how to group `QueryMetrics` with LINQ:
+You can group the `QueryMetrics` by the Partition ID. Grouping by Partition ID allows you to see if a specific Partition is causing performance issues when compared to others. The following example shows how to group `QueryMetrics` with LINQ:
 
 ```csharp
 List<KeyValuePair<string, QueryMetrics>> partitionedQueryMetrics = new List<KeyValuePair<string, QueryMetrics>>();
@@ -124,7 +124,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## Expensive Queries
 
-You can capture the request units consumed by each query to investigate expensive queries or queries that consume high throughput. You can get the request charge by using the [RequestCharge](https://msdn.microsoft.com/en-us/library/azure/dn948712.aspx) property in `FeedResponse`. To learn more about how to get the request charge using the Azure portal and different SDKs, see [find the request unit charge](find-request-unit-charge.md) article.
+You can capture the request units consumed by each query to investigate expensive queries or queries that consume high throughput. You can get the request charge by using the [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) property in `FeedResponse`. To learn more about how to get the request charge using the Azure portal and different SDKs, see [find the request unit charge](find-request-unit-charge.md) article.
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -165,7 +165,7 @@ DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 
 A scan query refers to a query that wasn't served by the index, due to which, many documents are loaded before returning the result set.
 
-The following is an example of a scan query:
+Below is an example of a scan query:
 
 ```sql
 SELECT VALUE c.description 
@@ -173,7 +173,7 @@ FROM   c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-The above query results in a scan because the condition with the system function UPPER is not served from the index. Executing this query against a large collection produced the following query metrics for the first continuation:
+This query's filter uses the system function UPPER, which isn't served from the index. Executing this query against a large collection produced the following query metrics for the first continuation:
 
 ```
 QueryMetrics
@@ -208,7 +208,7 @@ Retrieved Document Count                 :          60,951
 Retrieved Document Size                  :     399,998,938 bytes
 ```
 
-This query loaded 60,951 documents, which totaled 399,998,938 bytes. Loading this many bytes results in high cost or request unit charge. In addition, it takes a long time to execute the query, which is clear with the total time spent property:
+This query loaded 60,951 documents, which totaled 399,998,938 bytes. Loading this many bytes results in high cost or request unit charge. It also takes a long time to execute the query, which is clear with the total time spent property:
 
 ```
 Total Query Execution Time               :        4,500.34 milliseconds
@@ -216,7 +216,7 @@ Total Query Execution Time               :        4,500.34 milliseconds
 
 Meaning that the query took 4.5 seconds to execute (and this was only one continuation).
 
-In order to optimize this example query, avoid the use of UPPER in the filter. Instead, when documents are created or updated, the `c.description` values must be inserted in all uppercase characters. The query then becomes: 
+To optimize this example query, avoid the use of UPPER in the filter. Instead, when documents are created or updated, the `c.description` values must be inserted in all uppercase characters. The query then becomes: 
 
 ```sql
 SELECT VALUE c.description 
@@ -226,7 +226,7 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 
 This query is now able to be served from the index.
 
-To learn more about tuning query performance, see the [Tune Query Performance](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics) article.
+To learn more about tuning query performance, see the [Tune Query Performance](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) article.
 
 ## <a id="References"></a>References
 
