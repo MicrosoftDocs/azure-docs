@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Back up a VM with Resource Manager template
-description: Learn how to back up your virtual machines with Azure Resource Manager template 
+description: Learn how to back up your virtual machines with Azure Resource Manager template
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -16,13 +16,13 @@ ms.custom: mvc
 
 [Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with Resource Manager template and Azure PowerShell. This quickstart focuses on the process of deploying a Resource Manager template to create a Recover Services vault. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
 
-Alternatively, you can back up a VM using [Azure PowerShell(./quick-backup-vm-powershell.md), the [Azure CLI](quick-backup-vm-cli.md), or in the [Azure portal](quick-backup-vm-portal.md).
+Alternatively, you can back up a VM using [Azure PowerShell](./quick-backup-vm-powershell.md), the [Azure CLI](quick-backup-vm-cli.md), or in the [Azure portal](quick-backup-vm-portal.md).
 
 ## Create a VM and Recovery Services vault
 
 A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a logical container that stores backup data for protected resources, such as Azure VMs. When a backup job runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-The template used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services Vault configured with the DefaultPolicy for Protection. 
+The template used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services Vault configured with the DefaultPolicy for Protection.
 
 To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
@@ -68,7 +68,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## Next steps
 
-In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. 
+In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point.
 
 - [Learn how](tutorial-backup-vm-at-scale.md) to back up VMs in the Azure portal.
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
