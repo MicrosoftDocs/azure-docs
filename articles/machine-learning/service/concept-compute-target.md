@@ -1,7 +1,7 @@
 ---
 title: Compute targets
 titleSuffix: Azure Machine Learning service
-description: Learn about the compute resources used to train and deploy machine learning models for Azure Machine Learning service.
+description: A compute target is where you run your training script or to host your service deployment. This location may be your local machine or a cloud-based compute resource.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,47 +12,37 @@ ms.date: 05/30/2019
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
-#  What is an Azure Machine Learning compute target?
+#  What is a compute target in Azure Machine Learning service?
 
-A compute target is the compute resource that you use to run your training script or to host your service deployment.  
+A compute target lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource.
 
-Compute targets let you quickly change your compute environment without changing your code.  
+Compute targets make it easy to change your compute environment without changing your code.  A typical model development lifecycle:
 
-* Start experimenting locally 
-* Move to a distributed environment to train in parallel
-* Deploy to several web hosting environments, or to IoT devices
+* Start with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM.
+* Scale up your training on larger data sets, or do distributed training using one of the [training targets](#train).  
+* Deploy to several web hosting environments, or to IoT devices using one of the [deployment targets](#deploy).
 
-Compute resources are attached to a workspace. Compute resources other than the local machine are shared by users of the workspace.
+The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
-## Training targets
+## <a name="train"></a> Training targets
 
-Train your models using these compute resources:
+Azure Machine Learning service has varying support across different compute resources.  You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
-|Compute resource | GPU acceleration | Automated<br/> hyperparameter tuning | Automated<br/> machine learning | Azure Machine Learning Pipelines | Visual interface
-|----|:----:|:----:|:----:|:----:| :----:|
-|[Local computer](how-to-set-up-training-targets.md#local)| Maybe | &nbsp; | ✓ | &nbsp; |  &nbsp; |
-|[Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute)| ✓ | ✓ | ✓ | ✓ | ✓ |
-|[Remote VM](how-to-set-up-training-targets.md#vm) | ✓ | ✓ | ✓ | ✓ |  &nbsp; |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |  &nbsp; |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
-|[Azure HDInsight](how-to-set-up-training-targets.md#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
-|[Azure Batch](how-to-set-up-training-targets.md#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |  &nbsp; |
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-## Deployment targets
 
-The following compute resources can be used to host your web service deployment.
+## <a name="deploy"></a>Deployment targets
 
-| Compute resource | Usage | Description |
-| ----- | ----- | ----- |
-| [Local web service](how-to-deploy-and-where.md#local) | Testing/debug | Good for limited testing and troubleshooting.
-| [Azure Kubernetes Service (AKS)](how-to-deploy-and-where.md#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. The is the only option available for the visual interface. |
-| [Azure Container Instances (ACI)](how-to-deploy-and-where.md#aci) | Testing | Good for low scale, CPU-based workloads. |
-| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
-| [Azure IoT Edge](how-to-deploy-and-where.md#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
+The following compute resource can be used to host your model deployment.
+
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
+
 
 ## <a name="amlcompute"></a> Managed compute
 
-A managed compute resource is created and managed by Azure Machine Learning service. This compute is optimized for machine learning workloads. Azure Machine Learning compute is the only managed compute as of May 30, 2019. Additional managed compute resources may be added in the future.
+A managed compute resource is created and managed by Azure Machine Learning service. This compute is optimized for machine learning workloads. Azure Machine Learning Compute is the only managed compute as of May 30, 2019. Additional managed compute resources may be added in the future.
+
+We recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run.
 
 You can create machine learning compute instances with any of the following:
 
