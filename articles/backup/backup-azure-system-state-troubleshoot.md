@@ -36,13 +36,11 @@ To install Windows Server Backup using PowerShell, run the below command:
   PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
-This will install Windows Server Backup feature on your Windows Server.
-
 **Method 2: Install Windows Server Backup using Server Manager**
 
 To install Windows Server Backup using Server Manager, perform the below:
 
-1. Go to **Sever Manger** and click **Add roles and features**. The Add roles and features wizard appears.
+1. In the **Sever Manger** and click **Add roles and features**. The **Add roles and features wizard** appears.
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
@@ -88,7 +86,7 @@ To validate Windows Server Backup status, perform the below:
     > [!WARNING]
     > Get-WBJob: The term 'Get-WBJob' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 
-      -	If it fails with this error then re-install the Windows Server Backup feature on the server machine as mentioned in the step 1 prerequisites.
+    -	If it fails with this error then re-install the Windows Server Backup feature on the server machine as mentioned in the step 1 prerequisites.
 
   * Ensure WSB backup is working properly, by running the below command from elevated command prompt:
 
@@ -97,15 +95,10 @@ To validate Windows Server Backup status, perform the below:
       > [!NOTE]
       >Replace X with the drive letter of the volume where you want to store the system state back up image.
 
-      - Periodically check the status of the job by running the below command from elevated PowerShell:
+    - Periodically check the status of the job by running `Get-WBJob` command from elevated PowerShell        
+    - After backup job completes check the final status of the job by running `Get-WBJob -Previous 1` command
 
-          `Get-WBJob`
-
-        -  Once backup job is completed check the final status of the job by running the below command
-
-          `Get-WBJob -Previous 1`
-
-If the job fails it indicates a WSB issue which would result in MARS agent System State Backups failure.
+If the job fails, it indicates a WSB issue which would result in MARS agent System State Backups failure.
 
 ## Common Errors
 
@@ -120,17 +113,16 @@ If the job fails it indicates a WSB issue which would result in MARS agent Syste
 
 | Symptom | Resolution
 | -- | --
-| -	MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> -	Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C:.  As a result of this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy, for more information see this [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| -	MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> -	Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy, for more information see this [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
 
 
 ### EFI partition locked
 
 | Symptom | Resolution
 | -- | --
-| MARS agent fails with error message: “System state back up failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or backup software” | -	If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent <br/><br/> -	If a third-party backup software is running, then wait for it to finish and then retry backup
+| MARS agent fails with error message: “System state back up failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or back up software” | -	If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent <br/><br/> -	If a third-party backup software is running, then wait for it to finish and then retry back up
 
 
 ## Next steps
 
 - For more information about Windows system state in Resource Manager deployment, see [Back up Windows Server System State](backup-azure-system-state.md)
--
