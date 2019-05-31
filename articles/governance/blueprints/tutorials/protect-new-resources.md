@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Protect new resources with blueprint resource locks
-description: In this tutorial, you'll learn to use the Azure Blueprints resource locks Read Only and Do Not Delete options to protect newly deployed resources.
+description: In this tutorial, you'll learn to use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/28/2019
@@ -193,7 +193,7 @@ to make each deployment of the blueprint definition unique.
 
 1. After you've entered all parameters, select **Assign** at the bottom of the page.
 
-This step deploys the defined resources and configures the selected **Lock Assignment**. It can take up to 30 minutes to apply Blueprint
+This step deploys the defined resources and configures the selected **Lock Assignment**. It can take up to 30 minutes to apply blueprint
 locks.
 
 After the **Assigning blueprint definition succeeded** portal notification appears, go to the next
@@ -227,7 +227,7 @@ on the assignment details page.
    The blueprint assignment created a [deny assignment](../../../role-based-access-control/deny-assignments.md)
    on the deployed resource group to enforce the **Read Only** blueprint lock mode. The deny
    assignment prevents someone with appropriate rights on the **Role assignments** tab from taking
-   specific actions. The deny assignment affects _all principals_.
+   specific actions. The deny assignment affects _All principals_.
 
    For information about excluding a principal from a deny assignment, see [blueprints resource locking](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
 
@@ -285,8 +285,8 @@ When you're finished with this tutorial, delete these resources:
 ## Next steps
 
 - Learn about the [blueprint lifecycle](../concepts/lifecycle.md).
-- Learn how to use [static and dynamic parameters](../concepts/parameters.md).
-- Learn how to use [blueprint resource locking](../concepts/resource-locking.md).
-- Learn how to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
+- Understand how to use [static and dynamic parameters](../concepts/parameters.md).
+- Find out how to use [blueprint resource locking](../concepts/resource-locking.md).
+- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
 - [Troubleshoot issues](../troubleshoot/general.md) during the assignment of a blueprint.
