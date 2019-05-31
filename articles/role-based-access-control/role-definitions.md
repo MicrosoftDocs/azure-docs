@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -164,7 +164,7 @@ To view and work with data operations, you must have the correct versions of the
 
 To view and use the data operations in the REST API, you must set the **api-version** parameter to the following version or later:
 
-- 2018-01-01-preview
+- 2018-07-01
 
 ## Actions
 
