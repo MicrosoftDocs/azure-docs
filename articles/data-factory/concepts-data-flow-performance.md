@@ -24,6 +24,16 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 
 ![Debug Button](media/data-flow/debugb1.png "Debug")
 
+## Monitor data flow performance
+
+While designing your mapping data flows in the browser, you can unit test each individual transformation by clicking on the data preview tab in the bottom settings pane for each transformation. The next step you should take is to test your data flow end-to-end in the pipeline designer. Add an Execute Data Flow activity and use the Debug button to test the performance of your data flow. In the bottom pane of the pipeline window, you will see an eyeglass icon under "actions":
+
+![Data Flow Monitor](media/data-flow/mon002.png "Data Flow Monitor 2")
+
+Clicking that icon will display the execution plan and subsequent performance profile of your data flow. You can use this information to estimate the performance of your data flow against different sized data sources. Note that you can assume 1 minute of cluster job execution set-up time in your overall performance calculations and if you are using the default Azure Integration Runtime, you may need to add 5 minutes of cluster spin-up time as well.
+
+![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitor 3")
+
 ## Optimizing for Azure SQL Database and Azure SQL Data Warehouse
 
 ![Source Part](media/data-flow/sourcepart2.png "Source Part")
@@ -108,4 +118,4 @@ See the other Data Flow articles:
 
 - [Data Flow overview](concepts-data-flow-overview.md)
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
-
+- [Monitor Data Flow performance](concepts-data-flow-monitoring.md)

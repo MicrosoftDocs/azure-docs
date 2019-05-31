@@ -33,7 +33,9 @@
         href: storage-quickstart-blobs-nodejs-v10.md
       - name: Python
         href: storage-quickstart-blobs-python.md
-      - name: JS/HTML
+      - name: JS/HTML using v10 SDK
+        href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+      - name: JS/HTML using v2 SDK
         href: storage-quickstart-blobs-javascript-client-libraries.md
       - name: Go
         href: storage-quickstart-blobs-go.md
