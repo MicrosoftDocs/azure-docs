@@ -73,8 +73,6 @@ The Kubernetes API server is how the underlying Kubernetes APIs are exposed. Thi
 
 To secure access to the otherwise publicly accessible AKS control plane / API server, you can enable and use authorized IP ranges. These authorized IP ranges only allow defined IP address ranges to communicate with the API server. A request made to the API server from an IP address that is not part of these authorized IP ranges is blocked. You should continue to use RBAC to then authorize users and the actions they request.
 
-To use the authorized IP range functionality, a public IP address is exposed on the node pool by deploying a basic NGINX service. The API server communicates with the node pool through this authorized public IP address. You then define additional IP address ranges that can access the API server.
-
 For more information about the API server and other cluster components, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
 ## Create an AKS cluster
