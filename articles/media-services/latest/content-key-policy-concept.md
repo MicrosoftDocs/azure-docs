@@ -21,11 +21,9 @@ ms.custom: seodec18
 
 With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
-To specify encryption options on your stream, you need to create a [Streaming Policy](streaming-policy-concept.md) and associate it with your [Streaming Locator](streaming-locators-concept.md).
+To specify encryption options on your stream, you need to create a [Streaming Policy](streaming-policy-concept.md) and associate it with your [Streaming Locator](streaming-locators-concept.md). You create the [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) to configure how the content key (that provides secure access to your [Assets](assets-concept.md)) is delivered to end clients. You need to set the requirements (restrictions) on the Content Key Policy that must be met in order for keys with the specified configuration to be delivered to clients. This Content Key Policy is not needed for clear streaming or downloading. 
 
-If encrypting your content with a DRM, you need to create a [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) (described in this article). This policy is not needed for clear streaming or downloading. 
-
-You create the **Content Key Policy** to configure how the content key (that provides secure access to your [Assets](assets-concept.md)) is delivered to end clients. The **Content Key Policy** is also associated with your **Streaming Locator**. You need to set the requirements (restrictions) on the Content Key Policy that must be met in order for keys with the specified configuration to be delivered to clients. 
+Usually, you associate your **Content Key Policy** with your [Streaming Locator](streaming-locators-concept.md). Alternatively, you can specify the Content Key Policy inside a [Streaming Policy](streaming-policy-concept.md) (when creating a custom Streaming Policy for advanced scenarios). 
 
 It is recommended to let Media Services to autogenerate content keys. Typically, you would use a long lived key and check for the policies existence with **Get**. To get the key, you need to call a separate action method to get secrets or credentials, see the example that follows.
 
@@ -35,7 +33,7 @@ It is recommended to let Media Services to autogenerate content keys. Typically,
 > * Properties of **Content Key Policies** that are of the Datetime type are always in UTC format.
 > * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
 
-## Example
+### Example
 
 To get to the key, use **GetPolicyPropertiesWithSecretsAsync**, as shown in the [Get a signing key from the existing policy](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) example.
 

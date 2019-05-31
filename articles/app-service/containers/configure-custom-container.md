@@ -1,5 +1,5 @@
 ---
-title: Configure customer containers - Azure App Service | Microsoft Docs 
+title: Configure custom container - Azure App Service | Microsoft Docs 
 description: Learn how to configure Node.js apps to work in Azure App Service
 services: app-service
 documentationcenter: ''

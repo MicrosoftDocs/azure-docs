@@ -20,7 +20,7 @@ This quickstart describes how to send and receive messages with Service Bus by u
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Prerequisites
-If you don't have an Azure subscription, you can create a [free account][] before you begin.
+If you don't have an Azure subscription, you can create a [free account][free account] before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
