@@ -24,7 +24,7 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
 ## Introductory video
 
-The following video is a brief demonstration of Windows Virtual Desktop's capabilities by Scott Manchester:
+In the following video, Scott Manchester demonstrates some of Windows Virtual Desktop's capabilities:
 
 <br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
