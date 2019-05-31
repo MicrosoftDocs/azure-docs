@@ -65,7 +65,7 @@ This device is shipped in a single box. Complete the following steps to unpack y
 1. Place the box on a flat, level surface.
 2. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, don't open it. Contact Microsoft Support to help you assess whether the device is in good working order.
 3. Unpack the box. After unpacking the box, make sure that you have:
-    - One single enclosure Edge device
+    - One single enclosure Data Box Edge device
     - Two power cords
     - One rail kit assembly
     - A Safety, Environmental, and Regulatory Information booklet
@@ -95,7 +95,7 @@ Locate the components for installing the rail kit assembly:
 1. Two A7 Dell ReadyRails II sliding rail assemblies
 2. Two hook and loop straps
 
-![Identify rail kit contents](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Identify rail kit contents](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
 ### Install and remove tool-less rails (Square hole or round hole racks)
 
@@ -107,7 +107,7 @@ Locate the components for installing the rail kit assembly:
 3. Engage the back end of the rail until it fully seats on the vertical rack flange and the latch clicks into place. Repeat these steps to position and seat the front end piece on the vertical rack flange.
 4. To remove the rails, pull the latch release button on the end piece midpoint and unseat each rail.
 
-![Install and remove tool-less rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
+    ![Install and remove tool-less rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### Install and remove tooled rails (Threaded hole racks)
 
@@ -119,7 +119,7 @@ Locate the components for installing the rail kit assembly:
 3. Attach the left and right mounting rails to the front vertical rack flanges using two pairs of screws.
 4. Slide the left and right back brackets forward against the rear vertical rack flanges and attach them using two pairs of screws.
 
-![Install and remove tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Install and remove tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### Install the system in a rack
 
@@ -128,7 +128,7 @@ Locate the components for installing the rail kit assembly:
 3. Push the system inward until the lock levers click into place.
 4. Press the slide-release lock buttons on both rails and slide the system into the rack.
 
-![Install system in a rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+    ![Install system in a rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
 
 ### Remove the system from the rack
 
@@ -136,7 +136,7 @@ Locate the components for installing the rail kit assembly:
 2. Unlock each lever by rotating it up to its release position.
 3. Grasp the sides of the system firmly and pull it forward until the rail standoffs are at the front of the J-slots. Lift the system up and away from the rack and place it on a level surface.
 
-![Remove system from the rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+    ![Remove system from the rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
 
 ### Engage and release the slam latch
 
@@ -147,7 +147,7 @@ Locate the components for installing the rail kit assembly:
 2. The latches engage automatically as the system is pushed into the rack and are released by pulling up on the latches.
 3. To secure the system for shipment in the rack or for other unstable environments, locate the hard-mount screw under each latch and tighten each screw with a #2 Phillips screwdriver.
 
-![Engage and release slam latch](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Engage and release slam latch](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 ### Route the cables
 
@@ -159,15 +159,15 @@ Locate the components for installing the rail kit assembly:
 3. Thread the hook and loop straps through the slots on the outer CMA brackets on each side of the system to secure the cable bundles.
 
 
-![Route the cables](./media/data-box-edge-deploy-install/routing-cables.png)
+    ![Route the cables](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## Cable the device
 
-The following procedures explain how to cable your Edge device for power and network.
+The following procedures explain how to cable your Data Box Edge device for power and network.
 
 Before you start cabling your device, you need the following:
 
-- Your Edge physical device, unpacked, and rack mounted.
+- Your Data Box Edge physical device, unpacked, and rack mounted.
 - Two power cables.
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (with connectivity to Azure).  
@@ -176,7 +176,7 @@ Before you start cabling your device, you need the following:
 > [!NOTE]
 > - If you are connecting only one data network interface, we recommend that you use a 25/10-GbE network interface such as PORT 3, PORT 4, PORT 5, or PORT 6 to send data to Azure. 
 > - For best performance and to handle large volumes of data, consider connecting all the data ports.
-> - The Edge device should be connected to the datacenter network so that it can ingest data from data source servers.
+> - The Data Box Edge device should be connected to the datacenter network so that it can ingest data from data source servers.
 
 On your Data Box Edge device:
 
@@ -230,5 +230,3 @@ Advance to the next tutorial to learn how to connect, set up, and activate your 
 
 > [!div class="nextstepaction"]
 > [Connect and set up Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
-
-
