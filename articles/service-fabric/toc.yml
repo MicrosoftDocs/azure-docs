@@ -643,8 +643,6 @@
           href: service-fabric-cluster-config-upgrade-azure.md
         - name: Patch cluster nodes (Windows)
           href: service-fabric-patch-orchestration-application.md
-        - name: Patch cluster nodes (Linux)
-          href: service-fabric-patch-orchestration-application-linux.md  
         - name: Enable disk encryption (Windows)
           href: service-fabric-enable-azure-disk-encryption-windows.md
         - name: Enable disk encryption (Linux)

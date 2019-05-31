@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 After you've registered your web API, you can configure the code for the application.
 
-The code to configure your web API so that it calls downstream web APIs builds on top of the code used to project a web API. For more info, see [Protected web API - app configuration](scenario-protected-web-api-app-configuration.md).
+The code to configure your web API so that it calls downstream web APIs builds on top of the code used to protect a web API. For more info, see [Protected web API - app configuration](scenario-protected-web-api-app-configuration.md).
 
 ## Code subscribed to OnTokenValidated
 
@@ -71,7 +71,7 @@ The AddAccountToCacheFromJwt() method needs to:
 
 ### Instantiate a confidential client application
 
-This flow is only available in the confidential client flow so the protected web API provides client credentials (client secret or certificate) to the [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) via the `WithClientSecret` or `WithCertificate` methods, respectively.
+This flow is only available in the confidential client flow so the protected web API provides client credentials (client secret or certificate) to the [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via the `WithClientSecret` or `WithCertificate` methods, respectively.
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -93,7 +93,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ### How to call on-behalf-of
 
-The on-behalf-of (OBO) call is done by calling the [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) method on the `IConfidentialClientApplication` interface.
+The on-behalf-of (OBO) call is done by calling the [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) method on the `IConfidentialClientApplication` interface.
 
 The `ClientAssertion` is built from the bearer token received by the web API from its own clients. There are [two constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), one that takes a JWT bearer token, and one that takes any kind of user assertion (another kind of security token, which type is then specified in an additional parameter named `assertionType`).
 
@@ -137,7 +137,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 
 ## Protocol
 
-For more information about the on-behalf-of protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
+For more information about the on-behalf-of protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
 
 ## Next steps
 

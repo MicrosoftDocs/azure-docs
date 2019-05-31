@@ -135,7 +135,6 @@ The following commands place the IisInstall.ps1 script on the specified VM. The 
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
-$location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage

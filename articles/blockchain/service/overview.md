@@ -73,7 +73,7 @@ Need help or have feedback?
 ## Next steps
 
 To get started, try a quickstart or find out more details from these resources.
-* [Create a blockchain member using the Azure portal](create-member.md) or [create a blockchain member using Azure CLI]()
+* [Create a blockchain member using the Azure portal](create-member.md) or [create a blockchain member using Azure CLI](create-member-cli.md)
 * For cost comparisons and calculators, see the [pricing page](https://azure.microsoft.com/pricing/details/blockchain-service).
 * Build your first app using the [Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
 * Azure Blockchain VSCode Extension [user guide](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

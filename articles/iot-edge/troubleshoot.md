@@ -378,7 +378,7 @@ Place `daemon.json` in the right location for your platform:
 | Platform | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Windows host with Windows containers | `C:\ProgramData\iotedge-moby-data\config` |
+| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
 
 If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
 

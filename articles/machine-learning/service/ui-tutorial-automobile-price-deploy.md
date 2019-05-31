@@ -103,7 +103,7 @@ You can test a web service in the web service tab in the visual interface.
 
     ![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Input testing data or use the autofilled sample data and select **Test** at the bottom. The test request is submitted to the web service and the results are shown on page.
+1. Input testing data or use the autofilled sample data and select **Test** at the bottom. The test request is submitted to the web service and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
 
 ## Manage the web service
 
@@ -154,4 +154,4 @@ The models and web service deployments you create in the visual interface can be
 In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, check out the sample experiments.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](ui-sample-classification-predict-credit-risk-basic.md)
+> [Credit risk classification sample](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

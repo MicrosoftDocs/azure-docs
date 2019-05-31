@@ -1,12 +1,12 @@
 ---
 title: Create an Azure AD tenant for Azure Red Hat OpenShift | Microsoft Docs
 description: Here's how to create an Azure Active Directory (Azure AD) tenant to host your Microsoft Azure Red Hat OpenShift cluster.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/13/2019
 ---
 
 # Create an Azure AD tenant for Azure Red Hat OpenShift
@@ -29,7 +29,7 @@ To create a tenant:
 
     ![Screenshot of the portal showing the tenant name in the upper-right][tenantcallout]  
 
-8. Make note of the *tenant ID* so you can later specify where to create your Azure Red Hat OpenShift cluster. In the portal, you should now see the Azure Active Directory overview blade for your new tenant. Select **Properties** and copy the value for your **Directory ID**. We will refer to this value as the `tenant id` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+8. Make note of the *tenant ID* so you can later specify where to create your Azure Red Hat OpenShift cluster. In the portal, you should now see the Azure Active Directory overview blade for your new tenant. Select **Properties** and copy the value for your **Directory ID**. We will refer to this value as `TENANT` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

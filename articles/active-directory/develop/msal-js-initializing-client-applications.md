@@ -4,7 +4,7 @@ description: Learn about initializing client applications using the Microsoft Au
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

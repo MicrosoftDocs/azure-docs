@@ -22,7 +22,6 @@ ms.collection: M365-identity-device-management
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
 
 > [!div renderon="docs"]
-> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 This guide explains how a native Universal Windows Platform (UWP) application can request an access token and then call Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Microsoft identity platform endpoint.
 

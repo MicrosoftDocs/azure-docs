@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -66,8 +66,7 @@ Add alternate questions to an existing QnA pair to improve the likelihood of a m
 
 ## Add metadata
 
-
-Add metadata pairs by selecting the metadata icon. A metadata pair consists of one key and one value.
+Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
 
 ![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

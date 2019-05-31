@@ -7,7 +7,7 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 05/09/2019
 ms.author: mhopkins
 ms.reviewer: seguler
 ---
@@ -20,7 +20,7 @@ In this quickstart, you learn how to use the Azure Storage client library for .N
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Next, download and install .NET Core 2.0 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
+Next, download and install .NET Core 2.1 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
 
 # [Windows](#tab/windows)
 
@@ -284,8 +284,8 @@ See these additional resources for .NET development with Blob storage:
 
 ### Binaries and source code
 
-- Download the NuGet package for the latest version of the [.NET client library](https://www.nuget.org/packages/WindowsAzure.Storage/) for Azure Storage.
-- View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
+- Download the NuGet package for the latest version of the [.NET client library](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) for Azure Blob Storage.
+- View the [Microsoft Azure Storage Blob SDK for .NET source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) on GitHub.
 
 ### Client library reference and samples
 
@@ -296,10 +296,10 @@ See these additional resources for .NET development with Blob storage:
 
 In this quickstart, you learned how to upload, download, and list blobs using .NET.
 
-To learn how to create a web app that uploads an image to Blob storage, continue to [Upload image data in the cloud with Azure Storage](storage-upload-process-images.md).
+To learn how to create a web app that uploads an image to Blob storage, continue to:
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](storage-dotnet-how-to-use-blobs.md)
+> [Upload and process an image](storage-upload-process-images.md)
 
 - To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
 - To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).

@@ -4,7 +4,7 @@ description: Learn how to acquire an access token silently (from the token cache
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

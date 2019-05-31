@@ -1,6 +1,6 @@
 ---
-title: How to onboard Azure Monitor for containers | Microsoft Docs
-description: This article describes how you onboard and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified.
+title: How to enable Azure Monitor for containers | Microsoft Docs
+description: This article describes how you enable and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -15,7 +15,7 @@ ms.date: 04/25/2019
 ms.author: magoedte
 ---
 
-# How to onboard Azure Monitor for containers  
+# How to enable Azure Monitor for containers  
 
 This article provides an overview of the options available to setup Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
