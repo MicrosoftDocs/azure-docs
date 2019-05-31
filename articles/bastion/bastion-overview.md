@@ -21,7 +21,7 @@ The Azure Bastion service is a new fully platform-managed PaaS service that you 
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
-![architecture](./media/bastion-overview/architecture.png)
+![architecture](./media/bastion-overview/architecture2.png)
 
 **Figure 1 - architecture**
 
