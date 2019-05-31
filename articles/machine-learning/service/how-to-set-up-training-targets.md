@@ -25,7 +25,7 @@ In this article, you learn how to use various compute targets for model training
 
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.6.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.39.
 
 ## Compute targets for training
 
