@@ -40,4 +40,4 @@ The following features were released at the Build 2019 Conference:
 
 ## Service updates
 
-[Azure update announcements for Cognitive Services](https://azure.microsoft.com/en-us/updates/?product=cognitive-services)
+[Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
