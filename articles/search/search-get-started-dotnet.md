@@ -16,7 +16,7 @@ ms.date: 05/31/2019
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-index-rest-api.md)
+> * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-fiddler.md)
 >*
@@ -71,7 +71,7 @@ For this project, you will need to install version 9 of the `Microsoft.Azure.Sea
 
 1. Once you've found it, select the package, select your project, confirm the version is the latest stable version, then select **Install**.
 
-## Add Azure Search service information
+### Add Azure Search service information
 
 1. In Solution Explorer, right click on the project and select **Add** > **New Item...** . Name the file `appsettings.json` and select **Add**. 
 
@@ -87,9 +87,7 @@ For this project, you will need to install version 9 of the `Microsoft.Azure.Sea
 }
 ```
 
-<a name="CreateSearchServiceClient"></a>
-
-## Create a client
+## 1 - Create an index
 
 To start using the Azure Search .NET SDK, create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
@@ -112,11 +110,6 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
 > 
 > 
-
-
-<a name="DefineIndex"></a>
-
-## 1 - Create an index
 
 The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the examples above you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
 
@@ -357,15 +350,15 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 
 `SearchIndexClient` has a [`Documents`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient.documents?view=azure-dotnet) property. This property provides all the methods you need to query Azure Search indexes.
 
-## Construct SearchParameters
+### Construct SearchParameters
 Searching with the .NET SDK is as simple as calling the `Documents.Search` method on your `SearchIndexClient`. This method takes a few parameters, including the search text, along with a `SearchParameters` object that can be used to further refine the query.
 
-### Types of Queries
+#### Types of Queries
 The two main [query types](search-query-overview.md#types-of-queries) you will use are `search` and `filter`. A `search` query searches for one or more terms in all *searchable* fields in your index. A `filter` query evaluates a boolean expression over all *filterable* fields in an index. You can use searches and filters together or separately.
 
 Both searches and filters are performed using the `Documents.Search` method. A search query can be passed in the `searchText` parameter, while a filter expression can be passed in the `Filter` property of the `SearchParameters` class. To filter without searching, just pass `"*"` for the `searchText` parameter. To search without filtering, just leave the `Filter` property unset, or do not pass in a `SearchParameters` instance at all.
 
-### Example Queries
+#### Example Queries
 The following sample code shows a few different ways to query the "hotels" index defined in [Create an Azure Search index in C#](search-create-index-dotnet.md#DefineIndex). The documents returned with the search results are instances of the `Hotel` class, which was defined in [Import data to an Azure Search index in C#](search-import-data-dotnet.md#construct-indexbatch). The sample code makes use of a `WriteDocuments` method to output the search results to the console. This method is described in the next section.
 
 ```csharp
@@ -422,7 +415,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## Handle search results
+### Handle search results
 The `Documents.Search` method returns a `DocumentSearchResult` object that contains the results of the query. The example in the previous section used a method called `WriteDocuments` to output the search results to the console:
 
 ```csharp
@@ -464,7 +457,7 @@ The sample code above uses the console to output search results. You will likewi
 
 ## Build the app
 
-1. Press F5 to build the solution and run the console app. The remaining steps in this exercise and those steps that follow are an exploration of how this code works. 
+Press F5 to build the solution and run the console app. 
 
 Alternatively, you can refer to [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) for more detailed coverage of the SDK behaviors. 
 
