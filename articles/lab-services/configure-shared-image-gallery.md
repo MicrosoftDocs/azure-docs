@@ -42,10 +42,17 @@ If you have a large number of managed images that you need to maintain and would
 1. From the list of labs, select your **lab**.
 1. Select **Configuration and policies** in the **Settings** section on the left menu.
 1. Select **Shared Image Galleries** under **Virtual machine bases** on the left menu.
+
+    ![Shared Image Galleries menu](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
 1. Attach an existing shared image gallery to your lab by clicking on the **Attach** button and selecting your gallery in the dropdown.
+
+    ![Attach](./media/configure-shared-image-gallery/attach-options.png)
 1. Go to the attached gallery and configure your gallery to **enable or disable** shared images for VM creation.
+
+    ![Enable or disable](./media/configure-shared-image-gallery/enable-disable.png)
 1. Lab users can then create a virtual machine using the enabled images by clicking on **+Add** and finding the image in the **choose your base** page.
 
+    ![Lab users](./media/configure-shared-image-gallery/lab-users.png)
 ## Use Azure Resource Manager template
 
 ### Attach a shared image gallery to your lab
