@@ -1,6 +1,6 @@
 ---
 title: Auto-grow Azure Database for PostgreSQL storage - Single Server using Azure portal
-description: This article describes how you can enable auto-grow storage for Azure Database for PostgreSQL - Single Server using the Azure portal.
+description: This article describes how to auto-grow storage for Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
