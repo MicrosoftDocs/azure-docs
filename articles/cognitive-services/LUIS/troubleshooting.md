@@ -16,6 +16,10 @@ ms.author: diberry
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
+## What's new
+
+[Learn more](whats-new.md) about what's new in Language Understanding.
+
 <a name="luis-authoring"></a>
 
 ## Authoring

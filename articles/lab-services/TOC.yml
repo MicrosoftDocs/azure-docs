@@ -205,6 +205,8 @@
         href: devtest-lab-announcements.md
       - name: Add support info to a lab
         href: devtest-lab-internal-support-message.md
+      - name: Configure a shared image gallery in Azure DevTest Labs
+        href: configure-shared-image-gallery.md
     - name: Select custom image or formula
       href: devtest-lab-comparing-vm-base-image-types.md
     - name: Manage custom images

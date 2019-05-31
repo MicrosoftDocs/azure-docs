@@ -7,7 +7,6 @@ ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
 ---
-
 # Find the request unit charge in Azure Cosmos DB
 
 This article presents the different ways you can find the [request unit](request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB. Currently, you can measure this consumption only by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDKs.
@@ -226,7 +225,7 @@ When you use the [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver
 
 ```csharp
 RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
-double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"], 0);
+double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
 For more information, see [Quickstart: Build a Cassandra app by using the .NET SDK and Azure Cosmos DB](create-cassandra-dotnet.md).
