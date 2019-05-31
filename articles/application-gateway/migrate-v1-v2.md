@@ -71,17 +71,15 @@ To run the script:
 
 1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
-   ```azurepowershell
-   AzureAppGwMigration.ps1 `
-    -resourceId <v1 application gateway Resource ID> `
-    -subnetAddressRange <subnet space you want to use> `
-    -appgwName <string to use to append> `
-    -sslCertificates <comma-separated SSLCert objects as above> `
-    -trustedRootCertificates <comma-separated Trusted Root Cert objects as above> `
-    -privateIpAddress <private IP string> `
-    -publicIpResourceName <public IP name string> `
-    -validateMigration -enableAutoScale
-   ```
+   `AzureAppGwMigration.ps1
+    -resourceId <v1 application gateway Resource ID>
+    -subnetAddressRange <subnet space you want to use>
+    -appgwName <string to use to append>
+    -sslCertificates <comma-separated SSLCert objects as above>
+    -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
+    -privateIpAddress <private IP string>
+    -publicIpResourceName <public IP name string>
+    -validateMigration -enableAutoScale`
 
    Parameters for the script:
    * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
