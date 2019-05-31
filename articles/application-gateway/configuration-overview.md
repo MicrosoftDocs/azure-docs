@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
 
 ---
@@ -53,7 +53,7 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
 
 - Traffic from the **AzureLoadBalancer** tag must be allowed.
 
-##### Whitelist Application Gateway access to a few source IPs
+##### Allow Application Gateway access to a few source IPs
 
 For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
 
