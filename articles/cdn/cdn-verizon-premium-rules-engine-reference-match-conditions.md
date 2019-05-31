@@ -13,7 +13,7 @@ ms.author: magattus
 
 # Azure CDN from Verizon Premium rules engine match conditions
 
-This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Verizon Premium[rules engine](cdn-verizon-premium-rules-engine.md).
+This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Verizon Premium [rules engine](cdn-verizon-premium-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
 
