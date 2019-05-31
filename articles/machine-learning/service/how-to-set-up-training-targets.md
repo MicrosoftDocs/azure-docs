@@ -32,10 +32,10 @@ In this article, you learn how to use various compute targets for model training
 Azure Machine Learning service has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 
-|Compute&nbsp;target for training| GPU support |Automated ML | ML pipelines | Visual interface
+|Training &nbsp;targets| GPU support |Automated ML | ML pipelines | Visual interface
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| maybe | yes | &nbsp; | &nbsp; |
-|[Azure Machine Learning Compute](#amlcompute)| yes | yes & <br/>hyperparameter tuning | yes | yes |
+|[Azure Machine Learning Compute](#amlcompute)| yes | yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
 |[Remote VM](#vm) |yes | yes & <br/>hyperparameter tuning | yes | &nbsp; |
 |[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | yes | yes | &nbsp; |
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | yes | &nbsp; |
