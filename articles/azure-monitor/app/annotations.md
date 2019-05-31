@@ -22,7 +22,7 @@ Annotations on [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) c
 > [!NOTE]
 > This article reflects the deprecated **classic metrics experience**. Annotations are only currently available in the classic experience and in **[workbooks](../../azure-monitor/app/usage-workbooks.md)**. To learn more about the current metrics experience, you can consult [this article](../../azure-monitor/platform/metrics-charts.md).
 
-![Example of annotations with visible correlation with server response time](./media/annotations/00.png)
+![Example of annotations](./media/annotations/0azurereleasefirst.png)
 
 ## Release annotations with Azure DevOps Services build
 
@@ -53,7 +53,7 @@ You need to get a separate API key for each Azure DevOps Services release templa
 
    ![Click the plus sign to Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/annotations/3addtaskannotation.png)
 
-    Paste the **Application Id** that you copied from the API Access blade.
+    Paste the **Application Id** that you copied from the API Access tab.
    
     ![Paste the Application Insights Id](./media/annotations/4azuredevopsappid.png)
 
@@ -69,16 +69,16 @@ You need to get a separate API key for each Azure DevOps Services release templa
    
     Paste your API key to the ApiKey variable definition.
    
-    ![In the Azure DevOps Services window, select the Variable tab and click add. Set the name to ApiKey and into the Value, paste the key you just generated, and click the lock icon.](./media/annotations/7azuredevopsapikey.png)
+    ![In the Azure DevOps Services window, select the Variable tab and click add. Set the name to ApiKey and into the Value, paste the key you generated, and click the lock icon.](./media/annotations/7azuredevopsapikey.png)
 1. Finally, **Save** the release pipeline.
 
 
 ## View annotations
 Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.
 
-Click on any annotation marker to open details about the release, including requestor, source control branch, release pipeline, environment, and more.
+Click on any annotation marker (light grey double arrows) to open details about the release, including requestor, source control branch, release pipeline, environment, and more.
 
-![Click any release annotation marker.](./media/annotations/60.png)
+![Click any release annotation marker.](./media/annotations/8azurerelease.png)
 
 ## Create custom annotations from PowerShell
 You can also create annotations from any process you like (without using Azure DevOps Services). 
@@ -86,7 +86,7 @@ You can also create annotations from any process you like (without using Azure D
 
 1. Make a local copy of the [Powershell script from GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
 
-2. Get the Application ID and create an API key from the API Access blade.
+2. Get the Application ID and create an API key from the API Access tab.
 
 3. Call the script like this:
 
