@@ -154,7 +154,7 @@ The gateway required VNet Integration feature is very useful but still does not 
 
 ![VNet Integration](media/networking-features/vnet-integration.png)
 
-This feature is in preview and should not be used for production workloads. To learn more about this feature read the docs on [App Service VNet Integration (preview)][swiftvnetintegration].
+This feature is in preview and should not be used for production workloads. To learn more about this feature read the docs on [App Service VNet Integration][vnetintegration].
 
 ## App Service Environment (ASE)
 
@@ -205,9 +205,20 @@ This deployment style would not give you a dedicated address for outbound traffi
 
 #### Create multi-tier applications
 
-A multi-tier application is an application where the API backend apps can only be accessed from the front end tier
+A multi-tier application is an application where the API backend apps can only be accessed from the front end tier. To create a multi-tier application you can:
+
+* use VNet Integration to connect the backend of your front end web app with a subnet in a VNet
+* use service endpoints to secure inbound traffic to your API app to only coming from the subnet used by your front end web app
+
+![multi-tier app](/media/networking-features/multi-tier-app.png)
 
 
- 
-
+<!--Links-->
+[appassignedaddress]: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl#bind-your-ssl-certificate
+[iprestrictions]: https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions
+[serviceendpoints]: https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions
+[hybridconn]: https://docs.microsoft.com/en-us/azure/app-service/app-service-hybrid-connections
+[vnetintegrationp2s]: https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet
+[vnetintegration]: https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet
+[networkinfo]: https://docs.microsoft.com/en-us/azure/app-service/environment/network-info
 
