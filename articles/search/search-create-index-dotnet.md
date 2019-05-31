@@ -56,7 +56,6 @@ All requests require an api-key on every request sent to your service. Having a 
 
 1. In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. 
 
-
    ```json
    {
        "SearchServiceName": "Put your search service name here (not the full URL)",
@@ -64,7 +63,7 @@ All requests require an api-key on every request sent to your service. Having a 
     }
    ```
 
-  For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
+For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
 
 1. Press F5 to build the solution and run the console app. The remaining steps in this exercise and those steps that follow are an exploration of how this code works. 
 
