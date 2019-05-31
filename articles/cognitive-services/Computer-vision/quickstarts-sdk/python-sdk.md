@@ -215,18 +215,16 @@ You can get any handwritten or printed text from an image. This requires two cal
 
 ```Python
 # import models
-from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
 import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
-mode = TextRecognitionMode.handwritten
 raw = True
 custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]

@@ -3,19 +3,16 @@ title: Troubleshoot Azure Data Factory issues
 description: Learn how to troubleshoot issues with using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
-
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
-
+author: gauravmalhot
+ms.author: gamal
+ms.reviewer: maghan
+manager: craigg
 robots: noindex
 ---
 # Troubleshoot Data Factory issues

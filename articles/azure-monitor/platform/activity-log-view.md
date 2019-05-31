@@ -1,6 +1,6 @@
 ---
-title: View Azure Activity log events
-description: View the Azure Activity Log in the Azure portal and retrieve with PowerShell, CLI, and REST API.
+title: View Azure Activity log events in Azure Monitor
+description: View the Azure Activity log in Azure Monitor and retrieve with PowerShell, CLI, and REST API.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor

@@ -3,7 +3,7 @@ title: Architectural concepts in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/26/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -74,6 +74,14 @@ In a device template:
 
 An application can have one or more simulated and real devices based on each device template.
 
+## Data export
+
+In an Azure IoT Central application, you can [continuously export your data](howto-export-data-event-hubs-service-bus.md) to your own Azure Event Hubs, and Azure Service Bus instances. You can also periodically export your data to your Azure Blob storage account. You can export measurements, devices, and device templates
+
+## Batch device updates
+
+In an Azure IoT Central application, you can [create and run jobs](howto-run-a-job.md) to manage connected devices. These jobs let you to do bulk updates to device properties or settings, or run commands. For example, you can create a job to increase the fan speed for multiple refrigerated vending machines.
+
 ## Role-based access control (RBAC)
 
 An [administrator can define access rules](howto-administer.md) for an Azure IoT Central application using the predefined roles. An administrator can assign users to roles that determine what areas of the application the user has access to.
@@ -90,6 +98,9 @@ Security features within Azure IoT Central include:
 ## UI shell
 
 The UI shell is a modern, responsive, HTML5 browser-based application.
+An administrator can customize the UI of the application by applying custom themes and modifying the help links to point to your own custom help resources. To learn more about UI customization, see [Customize the Azure IoT Central UI](howto-customize-ui.md) article.
+
+A operator can create personalized application dashboards. You can have several dashboards that display different data and switch between them.
 
 ## Next steps
 

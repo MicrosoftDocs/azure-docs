@@ -148,6 +148,8 @@ The following IP address ranges are also defined as part of the cluster create p
     * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed if you need more addresses for additional nodes.
     * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *192.168.0.0/16* assigns the first node *192.168.0.0/24*, the second node *192.168.1.0/24*, and the third node *192.168.2.0/24*.
     * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
+    
+* The *--docker-bridge-address* lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
 
 ```azurecli-interactive
 az aks create \

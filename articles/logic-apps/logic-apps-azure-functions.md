@@ -74,6 +74,9 @@ as the first step in your logic app
   [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
   and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+> [!NOTE]
+> Logic apps integration with Functions does not work when slots (preview) are enabled.
+
 <a name="create-function-external"></a>
 
 ## Create functions outside logic apps

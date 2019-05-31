@@ -1,16 +1,11 @@
 ---
 title: Azure Resource Manager template structure and syntax | Microsoft Docs
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/18/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ---
 
@@ -67,7 +62,21 @@ Within the expression, the syntax `resourceGroup()` calls one of the functions t
 
 Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
 
-To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
+To have a literal string start with a left bracket `[` and end with a right bracket `]`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`. For example, the variable:
+
+```json
+"demoVar1": "[[test value]"
+```
+
+Resolves to `[test value]`.
+
+However, if the literal string doesn't end with a bracket, don't escape the first bracket. For example, the variable:
+
+```json
+"demoVar2": "[test] value"
+```
+
+Resolves to `[test] value`.
 
 To pass a string value as a parameter to a function, use single quotes.
 

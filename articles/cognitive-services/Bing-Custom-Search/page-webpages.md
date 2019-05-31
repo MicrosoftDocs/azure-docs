@@ -15,7 +15,7 @@ ms.author: maheshb
 
 # Paging webpages 
 
-When you call the Custom Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#totalestimatedmatches) field.  
+When you call the Custom Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#totalestimatedmatches) field.  
   
 The following example shows the `totalEstimatedMatches` field that a Web answer includes.  
   
@@ -30,7 +30,7 @@ The following example shows the `totalEstimatedMatches` field that a Web answer 
 }  
 ```  
   
-To page through the available webpages, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#offset) query parameters.  
+To page through the available webpages, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#offset) query parameters.  
   
 The `count` parameter specifies the number of results to return in the response. The maximum number of results that you may request in the response is 50. The default is 10. The actual number delivered may be less than requested.
 

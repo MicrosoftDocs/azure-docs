@@ -4,7 +4,7 @@ description: Learn how to use the Azure Cosmos DB ODBC driver to create tables a
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 05/28/2019
 ms.author: sngun
 
 ---

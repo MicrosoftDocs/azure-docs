@@ -54,7 +54,7 @@
 - name: Concepts
   items:
   - name: Template file structure
-    displayName: parameters,variables,resources,outputs
+    displayName: parameters,variables,resources,outputs,condition
     href: resource-group-authoring-templates.md
   - name: Template best practices
     href: template-best-practices.md

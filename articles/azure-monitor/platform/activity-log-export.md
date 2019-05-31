@@ -1,6 +1,6 @@
 ---
 title: Export the Azure Activity Log
-description: Export the Azure Activity Log to an Azure Storage Account for archiving or stream to an Event Hub for exporting outside of Azure.
+description: Export Azure Activity log to storage for archiving or Azure Event Hubs for exporting outside of Azure.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,7 +10,7 @@ ms.author: bwren
 ms.subservice: logs
 ---
 
-# Export Azure Activity Log to storage or Event Hub
+# Export Azure Activity log to storage or Azure Event Hubs
 The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
 
 ## Archive Activity Log
@@ -240,7 +240,7 @@ The elements in this JSON are described in the following table.
 
 
 
-## Next Steps
+## Next steps
 
 * [Learn more about the Activity Log](../../azure-resource-manager/resource-group-audit.md)
 * [Collect Activity Log into Azure Monitor Logs](activity-log-collect.md)

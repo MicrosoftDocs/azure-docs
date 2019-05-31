@@ -13,7 +13,10 @@ ms.subservice: alerts
 
 Azure Monitor has now become a unified full stack monitoring service, which now supports ‘One Metric’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
 
-With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, **will be deprecated by June 2019 in Azure public clouds**. [Azure Government cloud](../../azure-government/documentation-government-welcome.md) will not be affected.
+With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, **will be deprecated by August 2019 in Azure public clouds**. [Azure Government cloud](../../azure-government/documentation-government-welcome.md) will not be affected.
+
+> [!NOTE]
+> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
 
  ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
@@ -44,7 +47,7 @@ Newer metrics for Azure resources are available as:
 ## Retirement of Classic monitoring and alerting platform
 
 As stated earlier, the classic monitoring and alerting platform currently usable from the [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal will be retired in coming months given they have been replaced by the newer system.
-Older classic monitoring and alerting will be retired on 30 June 2019; including the closure of related APIs, Azure portal interface, and Services in it. Specifically, these features will be deprecated:
+Older classic monitoring and alerting will be retired on 31st August 2019; including the closure of related APIs, Azure portal interface, and Services in it. Specifically, these features will be deprecated:
 
 - Older (classic) metrics and alerts for Azure resources as currently available via [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal; accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal and accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
@@ -52,18 +55,18 @@ Older classic monitoring and alerting will be retired on 30 June 2019; including
 
 All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure portal page](../../azure-monitor/platform/alerts-classic-portal.md), and [Resource Template](../../azure-monitor/platform/alerts-enable-template.md) will remain usable until end of June 2019. 
 
-At the end of June 2019, in Azure Monitor:
+At the end of August 2019, in Azure Monitor:
 
 - Classic monitoring and alerts service will be retired and no longer available for creation of new alert rules.
 - Any alert rules that continue to exist in Alerts (classic) beyond June 2019 will continue to execute and fire notifications, but not be available for modification.
-- Starting July 2019, alert rules in classic monitoring & alerting which can be migrated, will be automatically moved by Microsoft to their equivalent in the new Azure monitor platform. The process will be seamless without any downtime and customers will have no loss in monitoring coverage.
+- Starting September 2019, alert rules in classic monitoring & alerting which can be migrated, will be automatically moved by Microsoft to their equivalent in the new Azure monitor platform. The process will be seamless without any downtime and customers will have no loss in monitoring coverage.
 - Alert rules migrated to the new alerts platform will provide monitoring coverage as before but will fire notification with new payloads. Any email address, webhook endpoint, or logic app link associated with classic alert rule will be carried forward when migrated, but may not behave correctly as alert payload will be different in the new platform.
 - Some [classic alert rules which cannot be automatically migrated](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) and require manual action from users will continue to run till June 2020.
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor has rolled out in phases [tool to voluntarily migrate](alerts-using-migration-tool.md) their classic alert rules on to the new platform soon. And run it by force for all classic alert rules that still exist and can be migrated, starting July 2019. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from [Unified Metrics and Alerts in Application Insights](#unified-metrics-and-alerts-in-application-insights) or [Unified Metrics and Alerts for other Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), post-migration of the classic alert rules. For more details, see [prepare for classic alert rule migration](alerts-prepare-migration.md)
+> Microsoft Azure Monitor has rolled out in phases [tool to voluntarily migrate](alerts-using-migration-tool.md) their classic alert rules on to the new platform soon. And run it by force for all classic alert rules that still exist and can be migrated, starting September 2019. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from [Unified Metrics and Alerts in Application Insights](#unified-metrics-and-alerts-in-application-insights) or [Unified Metrics and Alerts for other Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), post-migration of the classic alert rules. For more details, see [prepare for classic alert rule migration](alerts-prepare-migration.md)
 
-We will soon provide tools to allow you to voluntarily migrate your alerts from [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal to the new Azure alerts. All rules configured in Alerts (classic) that are migrated to new Azure Monitor will remain free and not be charged. Migrated classic alert rules will also not bear any charge for pushing notifications via email, webhook, or LogicApp. However, use of the newer notification or action types (such as SMS, Voice Call, ITSM integration, etc.) will be chargeable whether added to a migrated or new alert. For more information, see [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
+We are rolling out a migration tool to allow you to voluntarily migrate your alerts from [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal to the new Azure alerts. All rules configured in Alerts (classic) that are migrated to new Azure Monitor will remain free and not be charged. Migrated classic alert rules will also not bear any charge for pushing notifications via email, webhook, or LogicApp. However, use of the newer notification or action types (such as SMS, Voice Call, ITSM integration, etc.) will be chargeable whether added to a migrated or new alert. For more information, see [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 Additionally, the following will be chargeable under the ambit of [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/):
 

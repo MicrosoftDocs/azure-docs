@@ -20,10 +20,10 @@ abstract:
     image:
       alt: 
       height: 110
-      src: ./media/index/video-featured.png
+      src: ./media/index/identity-platform-thumbnail.png
       width: 250  
-    title: Building web app solutions with authentication (9:31)
-    href: https://www.youtube.com/watch?v=QWh5HZK9vRA
+    title: Microsoft identity platform overview (2:20)
+    href: https://youtu.be/y_fgJAatVhk
     width: 250
 sections:
 
