@@ -27,16 +27,14 @@ RDP and SSH are some of the fundamental means through which you can connect to y
 
 ![architecture](./media/bastion-overview/architecture.png)
 
-**Figure 1**
-
-Figure 1 shows the architecture of an Azure Bastion deployment. Azure Bastion is deployed in your virtual network and, once deployed, it provides the secure RDP/SSH experience for all the virtual machines in your virtual network. In Figure 1:
+This figure shows the architecture of an Azure Bastion deployment.
 
 * The user connects to the Azure portal using any HTML5 browser.
 * The user selects the workload to RDP/SSH to.
 * With a single-click, the RDP/SSH session opens in the browser.
 * No public IP address is required on the VM.
 
-Once you provision an Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same virtual network. The deployment is per virtual network, not per subscription/account or virtual machine.
+Azure Bastion is deployed in your virtual network and, once deployed, it provides the secure RDP/SSH experience for all the virtual machines in your virtual network. Once you provision an Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your VMs in the same virtual network. The deployment is per virtual network, not per subscription/account or virtual machine.
 
 ## Key features
 
