@@ -1,5 +1,5 @@
 ---
-title: Entity Resolvers in a Conversation Learner Model - Microsoft Cognitive Services| Microsoft Docs
+title: Entity Resolvers in a Conversation Learner Model - Azure Cognitive Services| Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use Entity Resolvers in Conversation Learner.
 services: cognitive-services
@@ -89,4 +89,4 @@ Start on the home page in the Web UI.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Alternative inputs](./10-alternative-inputs.md)
+> [Enum entities](./tutorial-enum-set-entity.md)
