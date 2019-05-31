@@ -94,7 +94,7 @@ Azure VPN Gateways support a range of cryptographic algorithms from the IPsec an
 |
 <sup>[1]- Use of Elliptic Curve encryption algorithms are preferred</sup>
 
-### Related Services
+### Related services
 
 When designing and configuring an Azure VPN Gateway there are a number of related services that must also exist and be configured:
 
