@@ -119,10 +119,13 @@ Microsoft Software Shadow Copy Provider(SWPRV) | Manual
 
 **Symptom**:
 
-  -	MARS agent fails with error message: “Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files”
-  -	Following error/warning log is present in volsnap System event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C:.  As a result of this failure all shadow copies of volume C: are at risk of being deleted.”
+  -	MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files
+  -	Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C:.  As a result of this failure all shadow copies of volume C: are at risk of being deleted”
 
-  **Resolution**: Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress
+  **Resolution**:
+
+  - Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress
+ -  While configuring shadow copy space we can restrict the amount of space used for shadowcopy, for more information see this [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11))
 
 
 ### EFI partition locked
@@ -132,7 +135,7 @@ Microsoft Software Shadow Copy Provider(SWPRV) | Manual
   -	MARS agent fails with error message: “System state backup failed as the EFI system partition is locked. This can be due to system partition access by a third party security or backup software.”
 
   **Resolution**:
-  -	If a third party security software like Kaspersky, AVASTA so on is running, please disable it and try backup again.
+  -	If the issue is due to a third party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent.
   -	If a third party backup software is running, then wait for it to finish and then try backup again.
 
 
