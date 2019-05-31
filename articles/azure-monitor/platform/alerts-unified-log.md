@@ -57,7 +57,7 @@ To alert on a single event, set the number of results to greater than 0 and chec
 
 In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time period, then an alert should be created.  In this case, you would set the threshold to **less than 1**.
 
-#### Example of Number of Records type log alerts
+#### Example of Number of Records type log alert
 
 Consider a scenario where you want to know when your web-based App gives a response to users with code 500 (that is) Internal Server Error. You would create an alert rule with the following details:  
 
