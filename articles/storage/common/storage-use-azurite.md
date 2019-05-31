@@ -106,7 +106,8 @@ You can customize the listening address per your requirements.
 **Optional** By default, Azurite v3 will listen to 10000 as blob service port.
 You can customize the listening port per your requirements.
 
->[!WARNING] After using a customized port, you need to update connection string or configurations correspondingly in your Storage Tools or SDKs.
+> [!WARNING] 
+> After using a customized port, you need to update connection string or configurations correspondingly in your Storage Tools or SDKs.
 
 #### Customize Blob Service listening port
 
@@ -167,7 +168,8 @@ Azurite v3 provides support for a default storage account as General Storage Acc
 * Account name: `devstoreaccount1`
 * Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
-> [!NOTE] Besides SharedKey authentication, Azurite v3 supports account and service SAS authentication. Anonymous access is also available when container is set to allow public access.
+> [!NOTE]
+>  Besides SharedKey authentication, Azurite v3 supports account and service SAS authentication. Anonymous access is also available when container is set to allow public access.
 
 ### Connection string
 
