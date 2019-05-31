@@ -33,7 +33,7 @@ Some Azure IoT services also include built-in business disaster recovery feature
 - [Event Hubs policies](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
 - [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
-Integrating Time Series Insights with the other services provides additional disaster recovery opportunities. For example, telemetry sent to your Event hub might be persisted to a backup Azure Blob storage database.
+Integrating Time Series Insights with the other services provides additional disaster recovery opportunities. For example, telemetry sent to your event hub might be persisted to a backup Azure Blob storage database.
 
 ### Time Series Insights
 
