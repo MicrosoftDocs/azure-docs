@@ -22,13 +22,13 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 ## What you do
 
-* Add a consumer group to your IoT hub that the web application will use to read sensor data.
-* Download the web app code from GitHub.
-* Examine the web app code.
-* Configure environment variables to hold the IoT Hub artifacts needed by your web app.
-* Run the web app on your development machine.
-* Open a web page to see real-time temperature and humidity data from your IoT hub.
-* (Optional) Use Azure CLI to host your web app in Azure App Service.
+* Add a consumer group to your IoT hub that the web application will use to read sensor data
+* Download the web app code from GitHub
+* Examine the web app code
+* Configure environment variables to hold the IoT Hub artifacts needed by your web app
+* Run the web app on your development machine
+* Open a web page to see real-time temperature and humidity data from your IoT hub
+* (Optional) Use Azure CLI to host your web app in Azure App Service
 
 ## What you need
 
@@ -148,9 +148,9 @@ You should also see output in the console that shows the messages that your web 
 
 ## Host the web app in App Service
 
-The [Web Apps feature of Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview) provides a platform as a service (PAAS) for hosting web applications. Web applications hosted in Azure App Service can benefit from powerful Azure features like additional security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. Azure App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
+The [Web Apps feature of Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a platform as a service (PAAS) for hosting web applications. Web applications hosted in Azure App Service can benefit from powerful Azure features like additional security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. Azure App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
 
-In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest) documentation. Before starting, make sure you've completed the steps to [add a resource group to your IoT hub](#add-a-consumer-group-to-your-iot-hub), [get a service connection string for your IoT hub](#get-a-service-connection-string-for-your-iot-hub), and [download the web app from GitHub](#download-the-web-app-from-github).
+In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest) documentation. Before starting, make sure you've completed the steps to [add a resource group to your IoT hub](#add-a-consumer-group-to-your-iot-hub), [get a service connection string for your IoT hub](#get-a-service-connection-string-for-your-iot-hub), and [download the web app from GitHub](#download-the-web-app-from-github).
 
 1. An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) defines a set of compute resources for an app hosted in App Service to run. In this tutorial, we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
 
