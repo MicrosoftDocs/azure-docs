@@ -3,14 +3,14 @@ title: "Quickstart: Search for entities with the Bing Entity Search SDK for Java
 titlesuffix: Azure Cognitive Services
 description: Use this quickstart to search for entities with the Bing Entity Search SDK for Java
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
+ms.author: aahi
 ---
 # Quickstart: Send a search request with the Bing Entity Search SDK for Java
 

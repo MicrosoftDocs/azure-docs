@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure Data Explorer using Azure Data Factory | Microsoft Docs
+title: Copy data to or from Azure Data Explorer using Azure Data Factory 
 description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: orspod
+ms.author: orspodek
 ---
 
 # Copy data to or from Azure Data Explorer using Azure Data Factory
@@ -214,4 +214,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Learn more about [Copy data from Azure Data Factory to Azure Data Explorer](/azure/data-explorer/data-factory-load-data).

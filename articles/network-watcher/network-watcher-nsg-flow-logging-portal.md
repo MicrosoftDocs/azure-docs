@@ -3,8 +3,8 @@ title: Log network traffic flow to and from a VM - tutorial - Azure portal | Mic
 description: Learn how to log network traffic flow to and from a VM using Network Watcher's NSG flow logs capability.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 04/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 
 ---
@@ -90,6 +90,9 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
     | Resource group | Select **Use existing**, and then select **myResourceGroup** |
 
     The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created. If you use an existing storage account instead of creating one, ensure you select a storage account that has **All networks** (default) selected for **Firewalls and virtual networks**, under the **SETTINGS** for the storage account.
+    
+    > [!NOTE]
+    > While Microsoft.Insight and Microsoft.Network providers are currently supported as trusted Microsoft Services for Azure Storage, NSG Flow logs is still not fully onboarded. To enable NSG Flow logging, **All Networks** must still be selected until this feature is fully onboarded. 
 4. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 5. Under **LOGS**, select **NSG flow logs**, as shown in the following picture:
 

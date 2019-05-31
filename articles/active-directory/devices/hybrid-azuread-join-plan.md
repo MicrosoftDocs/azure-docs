@@ -37,7 +37,7 @@ If you have an on-premises Active Directory environment and you want to join you
 This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> The minimum required domain functional and forest functional levels for Windows 10 hybrid Azure AD join is Windows Server 2008 R2. On lower versions, the user may not get a Primary Refresh Token during Windows logon due to LSA issues.
+> The minimum required domain functional and forest functional levels for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
 
 ## Plan your implementation
 
@@ -95,8 +95,8 @@ Hybrid Azure AD join is a process to automatically register your on-premises dom
 If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined.
-- You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001 .
-- This change is now available for Windows 10 1803 release with KB4489894.
+- You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
+- This change is now available for Windows 10 1803 release with KB4489894 applied. However, if you have Windows Hello for Business configured, the user is required to re-setup Windows Hello for Business after the dual state clean up.
 
 FIPS-compliant TPMs aren't supported for Hybrid Azure AD join. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
@@ -117,6 +117,9 @@ If your environment has managed domains, hybrid Azure AD join supports:
 
 - Pass Through Authentication (PTA)
 - Password Hash Sync (PHS)
+
+> [!NOTE]
+> Azure AD does not support smartcards or certificates in managed domains.
 
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. For more information, see:
 

@@ -1,22 +1,13 @@
 ---
-title: Create an Azure Containers offer | Microsoft Docs
+title: Create an Azure Containers offer | Azure Marketplace
 description: How to publish a new container offer for the Marketplace..
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 # Create a new container offer with the Cloud Partner Portal
 
