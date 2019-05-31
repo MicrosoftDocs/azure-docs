@@ -26,8 +26,8 @@ This tutorial will explain when you should use ENUM (enumeration) entities and S
 
 This tutorial will introduce two new features. A new type of entity called ENUM (short for enumeration) and a new type of action called SET_ENTITY, which can refer to one of these enum values, and as the name implies, sets the entity to this value. As you will learn below, these new features are used together and we will explain what they are and how to use them below. Before we get into the details, it is important to understand what problem these features help solve.
 
-![enumEntityType.png](../media/tutorial-enum-set-entity/enumEntityType.png)
-![actionSetEntityType.png](../media/tutorial-enum-set-entity/actionSetEntityType.png)
+![enum_entity_type.png](../media/tutorial-enum-set-entity/enum_entity_type.png)
+![action_set_entity_type.png](../media/tutorial-enum-set-entity/action_set_entity_type.png)
 
 ## Problem
 
@@ -80,7 +80,7 @@ These prompts are considered open-ended because they could be answered with arbi
 
 ENUM entities are created just like the other entities. Similar to "programmatic" entities, you cannot label words as these entities. Instead, they must be set through code or SET_ENTITY actions.
 
-![enumEntityCreation.png](../media/tutorial-enum-set-entity/enumEntityCreation.png)
+![enum_entity_creation.png](../media/tutorial-enum-set-entity/enum_entity_creation.png)
 
 ### Set Entity actions
 
@@ -88,9 +88,9 @@ As mentioned above, "Set Entity" actions simply set an entity to a known enum va
 
 - Set entity actions can only be created when referring to a value of an enum entity so you must create an enum entity first.
 - Set entity actions are also "non-await" since they have no visible output and need to be followed up by a "wait" action the user can see.
-- Set entity actions are immutable meaning you cannot edit them after creation. We plan to remove this restriction in the future.
+- Set entity actions are immutable meaning you cannot edit them after creation.
 
-![actionSetEntityCreation.png](../media/tutorial-enum-set-entity/actionSetEntityCreation.png)
+![action_set_entity_creation.png](../media/tutorial-enum-set-entity/action_set_entity_creation.png)
 
 ### Automatic action generation
 
@@ -98,14 +98,14 @@ If an enum entity exists in your model, Conversation Learner will create placeho
 
 For example, if I create an enum entity with the values "Yes" and "No":
 
-![enumEntityOrderConfirmation.png](../media/tutorial-enum-set-entity/enumEntityOrderConfirmation.png)
+![enum_entity_order_confirmation.png](../media/tutorial-enum-set-entity/enum_entity_order_confirmation.png)
 
 Even without explicitly creating actions for this new enum you would see two new actions available during training:
 
-![actionSetEntitySample.png](../media/tutorial-enum-set-entity/actionSetEntitySample.png)
+![action_set_entity_sample.png](../media/tutorial-enum-set-entity/action_set_entity_sample.png)
 
 
-## Create a Bot using ENUM entities and SET_ENTITY actions
+## Create a Bot using these new features
 
 ### Requirements
 
@@ -152,12 +152,12 @@ Notice the model already contains a few enum entities and set entity actions.
 
 You have just created your first dialog using ENUM entities and SET_ENTITY actions. You can make many more combinations of the user specifying partial information or experimenting with other types of close-ended questions.
 
-> [NOTE]
+> [!NOTE]
 > During training you will see placeholders for the SET_ENTITY actions such as
 >
-> ![actionSetEntityTraining.png](../media/tutorial-enum-set-entity/actionSetEntityTraining.png)
+> ![action_set_entity_training.png](../media/tutorial-enum-set-entity/action_set_entity_training.png)
 >
-> but when creating log dialogs use deployed bots users will not see these.
+> but when creating log dialogs or using deployed bots users will not see these.
 
 ## Next steps
 
