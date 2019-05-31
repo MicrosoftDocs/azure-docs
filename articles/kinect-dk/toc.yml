@@ -1,8 +1,11 @@
-- name: Overview 
+- name: Azure Kinect DK documentation 
+  href: index.yml
+- name: Overview
   items: 
   - name: About Azure Kinect DK
     href: what-is-azure-kinect-dk.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Set up Azure Kinect DK
     href: set-up-azure-kinect-dk.md
