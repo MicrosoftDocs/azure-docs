@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/31/2019
+ms.date: 6/1/2019
 ms.author: victorh
 ---
 
