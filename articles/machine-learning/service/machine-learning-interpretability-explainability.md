@@ -460,7 +460,7 @@ The explainer can be deployed along with the original model and can be used at s
 
 Automated machine learning contains packages for interpreting feature importance in auto-trained models. Additionally, classification scenarios allow you to retrieve class-level feature importance. There are two methods to enable this behavior within automated machine learning:
 
-* To enable feature importance for a trained ensemble model, use the [`explain_model()`](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) function.
+* To enable feature importance for a trained ensemble model, use the [`explain_model()`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) function.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -469,7 +469,7 @@ Automated machine learning contains packages for interpreting feature importance
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* To enable feature importance for each individual run prior to training, set the `model_explainability` parameter to `True` in the `AutoMLConfig` object, along with providing validation data. Then use the [`retrieve_model_explanation()`](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) function.
+* To enable feature importance for each individual run prior to training, set the `model_explainability` parameter to `True` in the `AutoMLConfig` object, along with providing validation data. Then use the [`retrieve_model_explanation()`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) function.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
