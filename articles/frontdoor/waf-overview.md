@@ -120,4 +120,4 @@ Monitoring for WAF at Front Door is integrated with Azure Monitor to track alert
 
 ## Next steps
 
-- Learn how to [create a WAF for Front Door ](waf-front-door-create-portal.md).
+- Learn how to [configure a WAF policy for Front Door using the Azure portal](waf-front-door-create-portal.md)
