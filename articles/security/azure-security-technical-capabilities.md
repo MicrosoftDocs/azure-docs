@@ -1,26 +1,25 @@
 ---
 
-title: Azure security technical capabilities | Microsoft Docs
-description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
+title: Security technical capabilities in Azure - Microsoft Azure
+description: Introduction to security services in Azure that help you protect you data, resources, and applications in the cloud.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: barbkess
 editor: TomSh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 05/31/2019
 ms.author: TomSh
 
 ---
 # Azure security technical capabilities
-
-To assist current and prospective Azure customers understand and utilize the various security-related capabilities available in and surrounding the Azure Platform, Microsoft has developed a series of White Papers, Security Overviews, Best Practices, and Checklists. The topics range in terms of breadth and depth and are updated periodically. This document is part of that series as summarized in the Abstract section below. Further information on this Azure Security series can be found at (URL).
+This article provides an introduction to security services in Azure that help you protect you data, resources, and applications in the cloud and meet the security needs of your business.
 
 ## Azure platform
 
@@ -38,29 +37,19 @@ With Microsoft Azure, you can:
 
 - Protect their business.
 
-## Scope
+## Security technical capabilities to fulfil your responsibility
 
-The focal point of this whitepaper concerns security features and functionality supporting Microsoft Azure’s core components, namely [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Microsoft Azure’s virtual machine model](https://docs.microsoft.com/azure/virtual-machines/), and the tools and infrastructure that manage it all. This white paper focus on Microsoft Azure technical capabilities available to you as customers to fulfil their role in protecting the security and privacy of their data.
-
-The importance of understanding this shared responsibility model is essential for customers who are moving to the cloud. Cloud providers offer considerable advantages for security and compliance efforts, but these advantages do not absolve the customer from protecting their users, applications, and service offerings.
-
-For IaaS solutions, the customer is responsible or has a shared responsibility for securing and managing the operating system, network configuration, applications, identity, clients, and data.  PaaS solutions build on IaaS deployments, the customer is still responsible or has a shared responsibility for securing and managing applications, identity, clients, and data. For SaaS solutions, Nonetheless, the customer continues to be accountable. They must ensure that data is classified correctly, and they share a responsibility to manage their users and end-point devices.
-
-This document does not provide detailed coverage of any of the related Microsoft Azure platform components such as Azure Web Sites, Azure Active Directory, HDInsight, Media Services, and other services that are layered atop the core components. Although a minimum level of general information is provided, readers are assumed familiar with Azure basic concepts as described in other references provided by Microsoft and included in links provided in this white paper.
-
-## Available security technical capabilities to fulfil user (Customer) responsibility - Big picture
-
-Microsoft Azure provides services that can help customers meet the security, privacy, and compliance needs. The Following picture helps explain various Azure services available for users to build a secure and compliant application infrastructure based on industry standards.
+Microsoft Azure provides services that help you meet your security, privacy, and compliance needs. The following picture helps explain various Azure services available for you to build a secure and compliant application infrastructure based on industry standards.
 
 ![Available security technical capabilities- Big picture](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
-## Manage and control identity and user access (Protect)
+## Manage and control identity and user access
 
 Azure helps you protect business and personal information by enabling you to manage user identities and credentials and control access.
 
 ### Azure Active Directory
 
-Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multi-factor authentication and conditional access policies. Monitoring suspicious activity through advanced security reporting, auditing and alerting helps mitigate potential security issues. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) provides single sign-on to thousands of cloud (SaaS) apps and access to web apps you run on-premises.
+Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multi-factor authentication and conditional access policies. Monitoring suspicious activity through advanced security reporting, auditing and alerting helps mitigate potential security issues. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) provides single sign-on to thousands of cloud apps and access to web apps you run on-premises.
 
 Security benefits of Azure Active Directory (Azure AD) include the ability to:
 
@@ -72,11 +61,11 @@ Security benefits of Azure Active Directory (Azure AD) include the ability to:
 
 - Provision secure remote access to on-premises web applications through Azure AD Application Proxy.
 
-The [Azure Active Directory portal](https://aad.portal.azure.com/) is available a part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily dive into managing the directory, users, or application access.
+The [Azure Active Directory portal](https://aad.portal.azure.com/) is available as part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily manage the directory, users, or application access.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-The following are core Azure Identity management capabilities:
+The following are core Azure identity management capabilities:
 
 - Single sign-on
 
@@ -96,7 +85,7 @@ The following are core Azure Identity management capabilities:
 
 [Single sign-on (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all the applications you need without being required to authenticate (for example, type a password) a second time.
 
-Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end-user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
+Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box, and Salesforce for end-user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
 [Azure AD extends on-premises Active Directory into the cloud](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all the web and SaaS applications needed for their job.
 
@@ -104,7 +93,7 @@ Not only do users not have to manage multiple sets of usernames and passwords, a
 
 #### Multi-factor authentication
 
-[Azure Multi-factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. [MFA helps safeguard](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third-party OAuth tokens.
+[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. [MFA helps safeguard](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third-party OAuth tokens.
 
 #### Security monitoring, alerts, and machine learning-based reports
 
@@ -114,11 +103,11 @@ In the Azure portal or through the [Azure Active Directory portal](https://aad.p
 
 - Anomaly reports – contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to decide about whether an event is suspicious.
 
-- Integrated Application reports – provide insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications.
+- Integrated application reports – provide insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications.
 
 - Error reports – indicate errors that may occur when provisioning accounts to external applications.
 
-- User-specific reports – display device/sign in activity data for a specific user.
+- User-specific reports – display device and sign in activity data for a specific user.
 
 - Activity logs – contain a record of all audited events within the last 24 hours, last 7 days, or last 30 days, and group activity changes, and password reset and registration activity.
 
@@ -172,13 +161,13 @@ Using RBAC, you can segregate duties within your team and grant only the amount 
 
 ![Secured resource access in Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
-## Azure data security and encryption (protect)
+## Azure data security and encryption
 
 One of the keys to data protection in the cloud is accounting for the possible states in which your data may occur, and what controls are available for that state. For Azure data security and encryption best practices the recommendations be around the following data’s states.
 
 - At-rest: This includes all information storage objects, containers, and types that exist statically on physical media, be it magnetic or optical disk.
 
-- In-Transit: When data is being transferred between components, locations or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process, it is thought of as being in-motion.
+- In-transit: When data is being transferred between components, locations or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process, it is thought of as being in-motion.
 
 ### Encryption at rest
 
@@ -196,9 +185,9 @@ Support at least one of the recommended encryption models detailed in the follow
 
 **Identify All Locations Your Stores Data**
 
-The goal of Encryption at Rest is to encrypt all data. Doing so eliminates the possibility of missing important data or all persisted locations. Enumerate all data stored by your application. 
+The goal of encryption at rest is to encrypt all data. Doing so eliminates the possibility of missing important data or all persisted locations. Enumerate all data stored by your application.
 
-> [!Note] 
+> [!Note]
 > Not just "application data" or "PII' but any data relating to application including account metadata (subscription mappings, contract info, PII).
 
 Consider what stores you are using to store data. For example:
@@ -211,7 +200,7 @@ Consider what stores you are using to store data. For example:
 
 ### Leverage the existing encryption at rest support in Azure
 
-For each store you use, leverage the existing Encryption at Rest support.
+For each store you use, leverage the existing encryption at rest support.
 
 - Azure Storage: See [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
