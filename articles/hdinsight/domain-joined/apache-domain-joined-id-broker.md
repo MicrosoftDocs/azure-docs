@@ -11,13 +11,13 @@ ms.date: 05/31/2019
 
 # HDInsight ID Broker (HIB)
 
-HDInsight ID Broker (HIB) lets federated users log in to Hadoop components and get required Kerberos tickets without using their on-premises Active Directory or needing password hashes in Azure Active Directory. This article describes HIB, and explains how to enable and test HIB with a private preview build. 
+HDInsight ID Broker (HIB) lets federated users sign in to Hadoop components and get required Kerberos tickets without using their on-premises Active Directory or needing password hashes in Azure Active Directory. This article describes HIB, and explains how to enable and test HIB with a private build. 
 
 ## Overview
 
 Different enterprise organizations use different Azure Active Directory (Azure AD) setups. Some organizations use Azure AD only with cloud-only accounts to access cloud assets. They have the easiest path to configure Hadoop enterprise security with HDInsight.
 
-Other organizations rely on federation to provide authentication to their end users. Organizations that use Active Directory Federation Services (AD FS) federation with Azure AD should enable NTLM password hash sync from their on-premises environment to Azure AD. Password hash sync helps with disaster recovery if the AD FS infrastructure fails, and helps protect against leaked credentials. For more information about password hash sync, see [this video](https://youtu.be/qQruArbu2Ew). Nevertheless, enterprises don't always synchronize their on-premises password hashes to Azure AD.
+Other organizations rely on federation to provide authentication to their end users. Organizations that use Active Directory Federation Services (AD FS) federation with Azure AD should enable NTLM password hash sync from their on-premises environment to Azure AD. Password hash sync helps with disaster recovery if the AD FS infrastructure fails, and helps protect against leaked credentials. For more information about password hash sync, see [this video](https://youtu.be/qQruArbu2Ew). Nevertheless, enterprises don't always enable on-premises password hash synchronization to Azure AD.
 
 Apache Hadoop relies on Kerberos for authentication, and components like Apache Ranger use Kerberos tickets to validate user identity. However, cloud technologies like Azure Data Lake Storage use modern authentication protocols like OAuth. The challenge is to provide a unified authentication model that works end-to-end across these different Azure AD setups.
 
@@ -29,9 +29,9 @@ HIB consists of components running on a Windows Server VM, and cluster gateway n
 
 ## Enable HDInsight ID Broker 
 
-To whitelist the HIB feature, email your subscription ID and Azure region to [omidm@microsoft.com](mailto:omidm@microsoft.com). This subscription will get a private preview build that won't be kept up-to-date for other HDInsight cases. Don't run any production HDInsight cluster or workloads in this subscription. Use the private build only for HIB testing.
+To allow list the HIB feature, email your subscription ID and Azure region to [omidm@microsoft.com](mailto:omidm@microsoft.com). This subscription will get a private build that won't be kept up-to-date for other HDInsight cases. Don't run any production HDInsight cluster or workloads in this subscription. Use the private build only for HIB testing.
 
-### Prerequisites 
+### Prerequisites 
 
 - A cloud-only (non-federated) user account available in Azure AD and synchronized to Azure AD Domain Services (Azure AD DS)
   
@@ -39,13 +39,13 @@ To whitelist the HIB feature, email your subscription ID and Azure region to [om
   
 - Multi-factor authentication (MFA) disabled for federated users who access the cluster
   
-  You can use [trusted IPs](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) or [conditional access](../../active-directory/conditional-access/overview.md) to disable MFA for specific users when they are accessing the HDInsight cluster virtual network (VNET) IP range only. If you're using conditional access, make sure the Active Directory service endpoint is enabled on the HDInsight VNET.
+  You can use [trusted IPs](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) or [conditional access](../../active-directory/conditional-access/overview.md) to disable MFA for specific users when they are accessing the HDInsight cluster virtual network (VNET) IP range only. If you're using conditional access, make sure the Active Directory service endpoint is enabled on the HDInsight VNET.
   
 - Connectivity from the HDInsight VNET to the AD FS server endpoint
   
   To check connectivity, go to the unauthenticated endpoint *https:\//login.microsoftonline.com/common/userrealm/\<contoso.com>?api-version=1.0*, replacing \<contoso.com> with your federated domain name. The response should look similar to the following snippet. Pay particular attention to the **federation_protocol** and the **federation_metadata_url**. Make sure virtual machines (VMs) inside the HDInsight VNET or subnet have network access to the **federation_metadata_url**.
   
-  { "ver":"1.0", "account_type":"Federated", "domain_name":"contoso.com", **"federation_protocol":"WSTrust", "federation_metadata_url":"https:\//fam.contoso.com/pf/sts_mex.ping?PartnerSpId=urn:federation:MicrosoftOnline",** "federation_active_auth_url":"https:\//fam.contoso.com/idp/sts.wst", "cloud_instance_name":"microsoftonline.com", "cloud_audience_urn":"urn:federation:MicrosoftOnline" } 
+  { "ver":"1.0", "account_type":"Federated", "domain_name":"contoso.com", **"federation_protocol":"WSTrust", "federation_metadata_url":"https:\//fam.contoso.com/pf/sts_mex.ping?PartnerSpId=urn:federation:MicrosoftOnline",** "federation_active_auth_url":"https:\//fam.contoso.com/idp/sts.wst", "cloud_instance_name":"microsoftonline.com", "cloud_audience_urn":"urn:federation:MicrosoftOnline" } 
 
 ### Deploy a VM and install the HIB service
 
@@ -53,13 +53,13 @@ To whitelist the HIB feature, email your subscription ID and Azure region to [om
    
 1. Domain join the Windows VM to the Azure AD DS domain with your cloud-only user credentials.
    
-1. Sign in with the cloud-only user account and download the contents of the folder at [https://hibinstaller.blob.core.windows.net/download/HIBInstaller.zip](https://hibinstaller.blob.core.windows.net/download/HIBInstaller.zip).
+1. Sign in with the cloud-only user account and download the contents of the folder at [https://hibinstaller.blob.core.windows.net/download/HIBInstaller.zip](https://hibinstaller.blob.core.windows.net/download/HIBInstaller.zip).
 
-1.  Run *InstallKCDService.ps1* in an administrator PowerShell prompt. Pass the [Azure AD tenant id](https://stackoverflow.com/questions/26384034/how-to-get-the-azure-account-tenant-id) as the input parameter to the script.
+1.  Run *InstallKCDService.ps1* in an administrator PowerShell prompt. Pass the [Azure AD tenant ID](https://stackoverflow.com/questions/26384034/how-to-get-the-azure-account-tenant-id) as the input parameter to the script.
 
 ### Deploy an ESP cluster
 
-You can now deploy an ESP cluster with the private build. In the ESP settings, choose the domain admin account (either federated or the cloud-only user), and an access group consisting of federated users.
+You can now deploy an ESP cluster with the private build. In the ESP settings, choose the domain admin account (either the cloud-only user or a federated user), and an access group consisting of federated users.
 
 - If you choose the cloud-only user as the domain admin, this user can secure shell (SSH) connect to the cluster after creation.
   
@@ -67,25 +67,25 @@ You can now deploy an ESP cluster with the private build. In the ESP settings, c
 
 ### Enable or disable HIB
 
-After successfully deploying the ESP cluster, to enable HIB: 
+After successfully deploying the ESP cluster, to enable HIB: 
 
 1. Go to *https:\//\<clusterdnsname>.azurehdinsight.net/resourcekcd/enable*.
    
 1. When prompted for credentials, use the cluster domain administrator. The gateway will attempt to get an OAuth token for this user through direct auth or federation.
    
-1. If the enable was successful, wait for five minutes. 
+1. If the enable was successful, wait for five minutes. 
 
-To disable HIB, go to *https:\//\<clusterdnsname>.azurehdinsight.net/resourcekcd/disable*. 
+To disable HIB, go to *https:\//\<clusterdnsname>.azurehdinsight.net/resourcekcd/disable*. 
 
-## Known limitations during private preview
+## Known limitations of the private build
 
-- SSH access for domain users and Kinit will only work for cloud-only accounts that have password hashes available in Azure AD DS. You can create a cluster with the cloud-only user as the admin to get SSH access.
+- SSH access for domain users and kinit will only work for cloud-only accounts that have password hashes available in Azure AD DS. You can create a cluster with the cloud-only user as the admin to get SSH access.
   
-- Any custom apps that use SPNEGO (without Keytabs) will not work.
+- Any custom apps that use SPNEGO (without Keytabs) won't work.
   
-- Zeppelin SSO will not work, because it needs to use SPNEGO instead of basic auth.
+- Zeppelin SSO won't work, because it needs to use SPNEGO instead of basic auth.
   
-- ESP clusters with WASB are not tested yet.
+- ESP clusters with WASB aren't tested yet.
   
-- There is no monitoring on the Windows VMs in the Azure AD DS VNET. You should manage availability, and since this machine is highly privileged, use strict authentication policies.
+- There's no monitoring on the Windows VMs in the Azure AD DS VNET. You should manage availability, and since this machine is highly privileged, use strict authentication policies.
 
