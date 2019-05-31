@@ -87,7 +87,7 @@ await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: 
 This code creates a **FaceList** called `My face collection` and adds a Face to it with the `detection_02` model. If you don't specify the *detectionModel* parameter, the API will use the default model, `detection_01`.
 
 > [!NOTE]
-> As with the [PersonGroup Person - Add Face] API, you don't need to use the same detection model for all faces in a **FaceList** object, and you don't need to use the same detection model when detecting new faces to compare with a **FaceList** object.
+> You don't need to use the same detection model for all faces in a **FaceList** object, and you don't need to use the same detection model when detecting new faces to compare with a **FaceList** object.
 
 ## Evaluate different models
 
