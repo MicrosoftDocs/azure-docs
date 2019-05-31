@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the articles [Introduction to device management in Azure Active Directory](overview.md) and [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 
-Organizations may want to do a controlled validation of hybrid Azure AD join before enabling it across their entire organization all at once. This article will explain how to accomplish a controlled validation of hybrid Azure AD join. 
+Organizations may want to do a controlled validation of hybrid Azure AD join before enabling it across their entire organization all at once. This article will explain how to accomplish a controlled validation of hybrid Azure AD join.
 
 ## Controlled validation of hybrid Azure AD join on Windows current devices
 
@@ -83,9 +83,9 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
 
 ### Configure AD FS settings
 
-If you are using AD FS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your AD FS servers. This configuration is needed for AD FS to establish the source for device identities as Azure AD. 
+If you are using AD FS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your AD FS servers. This configuration is needed for AD FS to establish the source for device identities as Azure AD.
 
-## Controlled validation of hybrid Azure AD join on Windows downl-level devices
+## Controlled validation of hybrid Azure AD join on Windows down-level devices
 
 To register Windows down-level devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) available on the Microsoft Download Center.
 
