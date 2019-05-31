@@ -276,8 +276,6 @@ Connect a logic app with Azure Service Bus and Azure Event Grid by following the
     3. For **Resource Name**, select your Service Bus namespace. 
     4. Select **Add new parameter**, and select **Suffix Filter**. 
     5. For **Suffix Filter**, enter the name of your second Service Bus topic subscription. 
->>>>>>> ab2b1b663456b6fc0f1b92ce39a5d66ee317ff01
-
         ![Logic Apps Designer - configure event](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Select **+ New Step** in the designer, and do the following steps:
     1. Search for **Service Bus**.
