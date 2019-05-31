@@ -585,7 +585,7 @@
       - name: Performance tips
         items:
         - name: Get query execution metrics
-          href: sql-api-query-profiling.md  
+          href: profile-sql-api-query.md 
         - name: Tune query performance
           href: sql-api-query-metrics.md    
         - name: Performance tips for .NET SDK
