@@ -1,6 +1,6 @@
 ---
 title: Auto-grow Azure Database for PostgreSQL storage - Single Server using Azure portal
-description: This article describes how to enable auto-grow storage for Azure Database for PostgreSQL - Single Server using the Azure portal.
+description: This article describes how to set up auto-grow storage for Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
@@ -24,7 +24,7 @@ Follow these steps to set PostgreSQL server storage auto-grow:
 
 2. On the PostgreSQL server page, under Settings heading, click **Pricing tier** to open the Pricing tier page for the Azure Database for PostgreSQL.
 
-3. In the configure window of the server's **Pricing tier** page, go to **Auto-growth** and Click **Yes** to confirm server storage auto-growth.
+3. In the configure window of the server's **Pricing tier** page, go to **Auto-growth**, and Click **Yes** to confirm server storage auto-growth.
 
     ![Azure Database for PostgreSQL - Settings_Pricing_tier - Auto-growth](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
 
