@@ -223,8 +223,6 @@ In this section, you'll learn how to receive and process messages after you rece
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
-<<<<<<< HEAD
-=======
 3. Download the **publish profile** for the function:
     1. Select your function app. 
     2. Select the **Overview** tab if it isn't already selected. 
