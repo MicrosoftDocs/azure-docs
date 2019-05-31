@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect Add NuGet package to VS project
 description: Azure Kinect Add NuGet package to VS project
-author: wesbarc
-ms.author: wesbarc
+author: wes-b
+ms.author: wes-b
 ms.prod: kinect-dk
 ms.date: 29/05/2019
 ms.topic: conceptual
