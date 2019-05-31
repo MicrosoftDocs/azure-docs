@@ -24,6 +24,16 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 
 ![Debug Button](media/data-flow/debugb1.png "Debug")
 
+## Monitor data flow performance
+
+While designing your mapping data flows in the browser, you can unit test each individual transformation by clicking on the data preview tab in the bottom settings pane for each transformation. The next step you should take is to test your data flow end-to-end in the pipeline designer. Add an Execute Data Flow activity and use the Debug button to test the performance of your data flow. In the bottom pane of the pipeline window, you will see an eyeglass icon under "actions":
+
+![Data Flow Monitor](media/data-flow/mon002.png "Data Flow Monitor 2")
+
+Clicking that icon will display the execution plan and subsequent performance profile of your data flow. You can use this information to estimate the performance of your data flow against different sized data sources. Note that you can assume 1 minute of cluster job execution set-up time in your overall performance calculations and if you are using the default Azure Integration Runtime, you may need to add 5 minutes of cluster spin-up time as well.
+
+![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitor 3")
+
 ## Optimizing for Azure SQL Database and Azure SQL Data Warehouse
 
 ![Source Part](media/data-flow/sourcepart2.png "Source Part")
@@ -59,6 +69,13 @@ Azure Data Factory Mapping Data Flows provide a code-free browser interface to d
 
 * Increase the number of cores, which will increase the number of nodes, and provide you with more processing power to query and write to your Azure SQL DB.
 * Try "Compute Optimized" and "Memory Optimized" options to apply more resources to your compute nodes.
+
+### Unit test and performance test with debug
+
+* When unit testing data flows, set the "Data Flow Debug" button to ON.
+* Inside of the Data Flow designer, use the Data Preview tab on transformations to view the results of your transformation logic.
+* Unit test your data flows from the pipeline designer by placing a Data Flow activity on the pipeline design canvas and use the "Debug" button to test.
+* Testing in debug mode will work against a live warmed cluster environment without the need to wait for a just-in-time cluster spin-up.
 
 ### Disable indexes on write
 * Use an ADF pipeline stored procedure activity prior to your Data Flow activity that disables indexes on your target tables that are being written to from your Sink.
@@ -101,4 +118,4 @@ See the other Data Flow articles:
 
 - [Data Flow overview](concepts-data-flow-overview.md)
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
-
+- [Monitor Data Flow performance](concepts-data-flow-monitoring.md)

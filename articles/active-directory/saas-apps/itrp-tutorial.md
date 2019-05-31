@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with ITRP | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and ITRP.
+description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and ITRP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -20,232 +20,233 @@ ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with ITRP
 
-In this tutorial, you learn how to integrate ITRP with Azure Active Directory (Azure AD).
-Integrating ITRP with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate ITRP with Azure Active Directory (Azure AD).
+This integration provides these benefits:
 
-* You can control in Azure AD who has access to ITRP.
-* You can enable your users to be automatically signed-in to ITRP (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can use Azure AD to control who has access to ITRP.
+* You can enable your users to be automatically signed in to ITRP (single sign-on) with their Azure AD accounts.
+* You can manage your accounts in one central location: the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To configure Azure AD integration with ITRP, you need the following items:
+To configure Azure AD integration with ITRP, you need to have:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* ITRP single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* An ITRP subscription that has single sign-on enabled.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you'll configure and test Azure AD single sign-on in a test environment.
 
-* ITRP supports **SP** initiated SSO
+* ITRP supports SP-initiated SSO.
 
-## Adding ITRP from the gallery
+## Add ITRP from the gallery
 
-To configure the integration of ITRP into Azure AD, you need to add ITRP from the gallery to your list of managed SaaS apps.
+To set up the integration of ITRP into Azure AD, you need to add ITRP from the gallery to your list of managed SaaS apps.
 
-**To add ITRP from the gallery, perform the following steps:**
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+	![Select Azure Active Directory](common/select-azuread.png)
 
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add new application, click **New application** button on the top of dialog.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, type **ITRP**, select **ITRP** from result panel then click **Add** button to add the application.
-
-	 ![ITRP in the results list](common/search-new-app.png)
-
-## Configure and test Azure AD single sign-on
-
-In this section, you configure and test Azure AD single sign-on with ITRP based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in ITRP needs to be established.
-
-To configure and test Azure AD single sign-on with ITRP, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure ITRP Single Sign-On](#configure-itrp-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create ITRP test user](#create-itrp-test-user)** - to have a counterpart of Britta Simon in ITRP that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with ITRP, perform the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **ITRP** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    ![ITRP Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<tenant-name>.itrp.com`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<tenant-name>.itrp.com`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [ITRP Client support team](https://www.itrp.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
-
-	![Edit SAML Signing Certificate](common/edit-certificate.png)
-
-6. In the **SAML Signing Certificate** section, copy the **Thumbprint** and save it on your computer.
-
-    ![Copy Thumbprint value](common/copy-thumbprint.png)
-
-7. On the **Set up ITRP** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-	a. Login URL
-
-	b. Azure AD Identifier
-
-	c. Logout URL
-
-### Configure ITRP Single Sign-On
-
-1. In a different web browser window, sign in to your ITRP company site as an administrator.
-
-1. In the toolbar on the top, click **Settings**.
-
-    ![ITRP](./media/itrp-tutorial/ic775570.png "ITRP")
-
-1. In the left navigation pane, select **Single Sign-On**.
-
-    ![Single Sign-On](./media/itrp-tutorial/ic775571.png "Single Sign-On")
-
-1. In the Single Sign-On configuration section, perform the following steps:
-
-    ![Single Sign-On](./media/itrp-tutorial/ic775572.png "Single Sign-On")
-
-    ![Single Sign-On](./media/itrp-tutorial/ic775573.png "Single Sign-On")
-
-	a. Click **Enabled**.
-
-	b. In **Remote Log Out URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
-
-	c. In **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
-
-	d.In **Certificate Fingerprint** textbox, paste the **Thumbprint** value of certificate, which you have copied from Azure portal.
-
-    e. Click **Save**.
-
-### Create an Azure AD test user
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to ITRP.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **ITRP**.
+2. Go to **Enterprise applications** > **All applications**:
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **ITRP**.
+3. To add an application, select **New application** at the top of the window:
 
-	![The ITRP link in the Applications list](common/all-applications.png)
+	![Select New application](common/add-new-app.png)
 
-3. In the menu on the left, select **Users and groups**.
+4. In the search box, enter **ITRP**. Select **ITRP** in the search results and then select **Add**.
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+	 ![Search results](common/search-new-app.png)
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+## Configure and test Azure AD single sign-on
 
-    ![The Add Assignment pane](common/add-assign-user.png)
+In this section, you'll configure and test Azure AD single sign-on with ITRP by using a test user named Britta Simon.
+To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in ITRP.
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+To configure and test Azure AD single sign-on with ITRP, you need to complete these steps:
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
+2. **[Configure ITRP single sign-on](#configure-itrp-single-sign-on)** on the application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
+5. **[Create an ITRP test user](#create-an-itrp-test-user)** that's linked to the Azure AD representation of the user.
+6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+### Configure Azure AD single sign-on
 
-### Create ITRP test user
+In this section, you'll enable Azure AD single sign-on in the Azure portal.
 
-To enable Azure AD users to sign in to ITRP, they must be provisioned in to ITRP. In the case of ITRP, provisioning is a manual task.
+To configure Azure AD single sign-on with ITRP, take these steps:
 
-**To provision a user account, perform the following steps:**
+1. In the [Azure portal](https://portal.azure.com/), on the ITRP application integration page, select **Single sign-on**:
 
-1. Sign in to your **ITRP** tenant.
+    ![Select single sign-on](common/select-sso.png)
 
-1. In the toolbar on the top, click **Records**.
+2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on:
 
-    ![Admin](./media/itrp-tutorial/ic775575.png "Admin")
+    ![Select a single sign-on method](common/select-saml-option.png)
 
-1. From the popup menu, select **People**.
+3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-    ![People](./media/itrp-tutorial/ic775587.png "People")
+	![Edit icon](common/edit-urls.png)
 
-1. Click **Add New Person** (“+”).
+4. In the **Basic SAML Configuration** dialog box, take the following steps.
 
-    ![Admin](./media/itrp-tutorial/ic775576.png "Admin")
+    ![Basic SAML Configuration dialog box](common/sp-identifier.png)
 
-1. On the Add New Person dialog, perform the following steps:
+	1. In the **Sign on URL** box, enter a URL in this pattern:
+    
+       `https://<tenant-name>.itrp.com`
 
-    ![User](./media/itrp-tutorial/ic775577.png "User")
+    1. In the **Identifier (Entity ID)** box, enter a URL in this pattern:
 
-    a. Type the **Name**, **Email** of a valid AAD account you want to provision.
+       `https://<tenant-name>.itrp.com`
 
-    b. Click **Save**.
+	> [!NOTE]
+	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [ITRP support team](https://www.itrp.com/support) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+
+5. In the **SAML Signing Certificate** section, select the **Edit** icon to open the **SAML Signing Certificate** dialog box:
+
+	![Edit icon](common/edit-certificate.png)
+
+6. In the **SAML Signing Certificate** dialog box, copy the **Thumbprint** value and save it:
+
+    ![Copy the Thumbprint value](common/copy-thumbprint.png)
+
+7. In the **Set up ITRP** section, copy the appropriate URLs, based on your requirements:
+
+	![Copy the configuration URLs](common/copy-configuration-urls.png)
+
+	1. **Login URL**.
+
+	1. **Azure AD Identifier**.
+
+	1. **Logout URL**.
+
+### Configure ITRP single sign-on
+
+1. In a new web browser window, sign in to your ITRP company site as an admin.
+
+1. At the top of the window, select the **Settings** icon:
+
+    ![Settings icon](./media/itrp-tutorial/ic775570.png "Settings icon")
+
+1. In the left pane, select **Single Sign-On**:
+
+    ![Select Single Sign-On](./media/itrp-tutorial/ic775571.png "Select Single Sign-On")
+
+1. In the **Single Sign-On** configuration section, take the following steps.
+
+    ![Single Sign-On section](./media/itrp-tutorial/ic775572.png "Single Sign-On section")
+
+    ![Single Sign-On section](./media/itrp-tutorial/ic775573.png "Single Sign-On section")
+
+	1. Select **Enabled**.
+
+	1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied from the Azure portal.
+
+	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
+
+	1. In the **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied from the Azure portal.
+
+    1. Select **Save**.
+
+### Create an Azure AD test user
+
+In this section, you'll create a test user named Britta Simon in the Azure portal.
+
+1. In the Azure portal, select **Azure Active Directory** in the left pane, select **Users**, and then select **All users**:
+
+    ![Select All users](common/users.png)
+
+2. Select **New user** at the top of the screen:
+
+    ![Select New user](common/new-user.png)
+
+3. In the **User** dialog box, take the following steps.
+
+    ![User dialog box](common/user-properties.png)
+
+    1. In the **Name** box, enter **BrittaSimon**.
+  
+    1. In the **User name** box, enter **BrittaSimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
+
+    1. Select **Show Password**, and then write down the value that's in the **Password** box.
+
+    1. Select **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable Britta Simon to use Azure single sign-on by granting her access to ITRP.
+
+1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **ITRP**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the list of applications, select **ITRP**.
+
+	![List of applications](common/all-applications.png)
+
+3. In the left pane, select **Users and groups**:
+
+    ![Select Users and groups](common/users-groups-blade.png)
+
+4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
+
+    ![Select Add user](common/add-assign-user.png)
+
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the window.
+
+6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the window.
+
+7. In the **Add Assignment** dialog box, select **Assign**.
+
+### Create an ITRP test user
+
+To enable Azure AD users to sign in to ITRP, you need to add them to ITRP. You need to add them manually.
+
+To create a user account, take these steps:
+
+1. Sign in to your ITRP tenant.
+
+1. At the top of the window, select the **Records** icon:
+
+    ![Records icon](./media/itrp-tutorial/ic775575.png "Records icon")
+
+1. In the menu, select **People**:
+
+    ![Select People](./media/itrp-tutorial/ic775587.png "Select People")
+
+1. Select the plus sign (**+**) to add a new person:
+
+    ![Select the plus sign](./media/itrp-tutorial/ic775576.png "Select the plus sign")
+
+1. In the **Add New Person** dialog box, take the following steps.
+
+    ![Add New Person dialog box](./media/itrp-tutorial/ic775577.png "Add New Person dialog box")
+
+    1. Enter the name and email address of a valid Azure AD account that you want to add.
+
+    1. Select **Save**.
 
 > [!NOTE]
-> You can use any other ITRP user account creation tools or APIs provided by ITRP to provision AAD user accounts.
+> You can use any user account creation tool or API provided by ITRP to provision Azure AD user accounts.
 
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you click the ITRP tile in the Access Panel, you should be automatically signed in to the ITRP for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the ITRP tile in the Access Panel, you should be automatically signed in to the ITRP instance for which you set up SSO. For more information about the Access Panel, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

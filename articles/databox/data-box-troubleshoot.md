@@ -1,19 +1,19 @@
 ---
-title: Troubleshoot issues on your Azure Data Box| Microsoft Docs 
-description: Describes how to troubleshoot issues seen in Azure Data Box when uploading data to Azure.
+title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy| Microsoft Docs 
+description: Describes how to troubleshoot issues seen in Azure Data Box and Azure Data Box Heavy when copying data to these devices.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/28/2019
 ms.author: alkohli
 ---
 
-# Troubleshoot issues related to Azure Data Box
+# Troubleshoot issues related to Azure Data Box and Azure Data Box Heavy
 
-This article details information on how to troubleshoot issues you may see when using the Azure Data Box.
+This article details information on how to troubleshoot issues you may see when using the Azure Data Boxn or Azure Data Box Heavy.
 
 ## Errors during data copy
 
@@ -23,10 +23,10 @@ All the errors that are seen during data copy are summarized in the following se
 
 **Error description:** The container or share name must be between 3 and 63 characters. 
 
-**Suggested resolution:** The folder under the Data Box (SMB/NFS) share to which you have copied data becomes an Azure container in your storage account. 
+**Suggested resolution:** The folder under the Data Box or Data Box Heavy share(SMB/NFS) to which you have copied data becomes an Azure container in your storage account. 
 
-- On the **Connect and copy** page of the Data Box local web UI, download, and review the error files to identify the folder names with issues.
-- Change the folder name under the Data Box share to make sure that:
+- On the **Connect and copy** page of the device local web UI, download, and review the error files to identify the folder names with issues.
+- Change the folder name under the Data Box or Data Box Heavy share to make sure that:
 
     - The name has between 3 and 63 characters.
     - The names can only have letters, numbers, and hyphens.
@@ -42,10 +42,10 @@ All the errors that are seen during data copy are summarized in the following se
 
 **Error description:** The container or share name must consist of only letters, numbers, or hyphens.
 
-**Suggested resolution:** The folder under the Data Box (SMB/NFS) share to which you have copied data becomes an Azure container in your storage account. 
+**Suggested resolution:** The folder under the Data Box or Data Box Heavy share(SMB/NFS) to which you have copied data becomes an Azure container in your storage account. 
 
-- On the **Connect and copy** page of the Data Box local web UI, download, and review the error files to identify the folder names with issues.
-- Change the folder name under the Data Box share to make sure that:
+- On the **Connect and copy** page of the device local web UI, download, and review the error files to identify the folder names with issues.
+- Change the folder name under the Data Box or Data Box Heavy share to make sure that:
 
     - The name has between 3 and 63 characters.
     - The names can only have letters, numbers, and hyphens.
@@ -60,10 +60,10 @@ All the errors that are seen during data copy are summarized in the following se
 
 **Error description:** The container names and share names can’t start or end with hyphens and can’t have consecutive hyphens.
 
-**Suggested resolution:** The folder under the Data Box (SMB/NFS) share to which you have copied data becomes an Azure container in your storage account. 
+**Suggested resolution:** The folder under the Data Box or Data Box Heavy share(SMB/NFS) to which you have copied data becomes an Azure container in your storage account. 
 
-- On the **Connect and copy** page of the Data Box local web UI, download, and review the error files to identify the folder names with issues.
-- Change the folder name under the Data Box share to make sure that:
+- On the **Connect and copy** page of the device local web UI, download, and review the error files to identify the folder names with issues.
+- Change the folder name under the Data Box or Data Box Heavy share to make sure that:
 
     - The name has between 3 and 63 characters.
     - The names can only have letters, numbers, and hyphens.
@@ -90,7 +90,7 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 
 **Error description:** Azure file share limits a share to 5 TB of data. This limit has exceeded for some shares.
 
-**Suggested resolution:** On the **Connect and copy** page of the Data Box local web UI, download, and review the error files.
+**Suggested resolution:** On the **Connect and copy** page of the local web UI, download, and review the error files.
 
 Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TB.
 
@@ -172,7 +172,7 @@ For more information, see the Azure naming conventions for blob names and file n
 
 **Error description:** The blob or file is incorrectly aligned.
 
-**Suggested resolution:** The page blob share on Data Box only supports files that are 512 bytes aligned (for example, VHD/VHDX). Any data copied to the page blob share is uploaded to Azure as page blobs.
+**Suggested resolution:** The page blob share on Data Box or Data Box Heavy only supports files that are 512 bytes aligned (for example, VHD/VHDX). Any data copied to the page blob share is uploaded to Azure as page blobs.
 
 Remove any non-VHD/VHDX data from the page blob share. You can use shares for block blob or Azure files for generic data.
 

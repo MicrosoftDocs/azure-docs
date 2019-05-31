@@ -162,7 +162,7 @@ In this step, you create a template file that deploys the resources and a parame
 
 ### Create the parameters file
 
-To specify values for the resource parameters that are defined in the template, you create a parameters file that contains the values.
+To specify values for the resource parameters in the template, you create a parameters file that contains the values.
 
 1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *Parameters.json*, and then click **Add**.
 2. Add this JSON code to the file that you created:
@@ -201,17 +201,17 @@ Before you can deploy a template, make sure that you have access to an [Active D
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
 
 3. Save the azureauth.properties file.
-4. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created, for example the following PowerShell command can be used:
+4. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created, for example you can use the following PowerShell command:
 
     ```powershell
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
     
 
 ## Create the management client
 
-1. Open the Program.cs file for the project that you created, and then add these using statements to the existing statements at top of the file:
+1. Open the Program.cs file for the project that you created. Then, add these using statements to the existing statements at top of the file:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;

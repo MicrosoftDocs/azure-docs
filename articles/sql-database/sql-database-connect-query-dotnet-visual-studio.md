@@ -37,7 +37,7 @@ To complete this quickstart, you need:
   > [!IMPORTANT]
   > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
 
 ## Get SQL server connection information
 
@@ -67,7 +67,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
    
 1. When the install completes, you can close **NuGet Package Manager**. 
    
-1. In the code editor, replace the **Program.cs** contents with the following code. Substitute your values for `<server>`, `<username>`, `<password>`, and `<database>`.
+1. In the code editor, replace the **Program.cs** contents with the following code. Replace your values for `<server>`, `<username>`, `<password>`, and `<database>`.
    
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
