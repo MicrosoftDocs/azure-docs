@@ -462,7 +462,7 @@ A third tutorial completed, great work!
 You should consider the following takeaways from this project:
 
 * Autocompletion (also known as "type-ahead") and suggestions enable the user to just type a few keys to locate exactly what they want.
-* Working with the UI can test your limits and patience with javascript/HTML/JQuery and other UI technologies.
+* Working with the UI can test your limits and patience with JavaScript/HTML/JQuery and other UI technologies.
 * Autocompletion and suggestions working together can provide a rich user experience.
 * Test autocompletion functions with both keyboard and mouse options and using the **setInterval** function can be very useful in verifying and correcting UI elements.
 

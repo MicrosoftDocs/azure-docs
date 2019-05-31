@@ -99,7 +99,7 @@ public partial class Hotel
 
 ### Add an autocomplete script to the view
 
-In order to initiate a facet search we need to add some javascript to the index.cshtml file.
+In order to initiate a facet search we need to add some JavaScript to the index.cshtml file.
 
 1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and add a unique **id**, similar to the following.
 
@@ -109,7 +109,7 @@ In order to initiate a facet search we need to add some javascript to the index.
     </div>
 ```
 
-2. Now add the following javascript (after the closing **&lt;/div&gt;** shown above works fine).
+2. Now add the following JavaScript (after the closing **&lt;/div&gt;** shown above works fine).
 
 ```cs
      <script>
@@ -161,7 +161,7 @@ Now we can use the predefined autocomplete jquery functions.
 
 ### Add a facet action to the controller
 
-1. The javascript in the view triggers the **Facets** action in the controller, so let's add that action to the home controller (say, below the **Page** action).
+1. The JavaScript in the view triggers the **Facets** action in the controller, so let's add that action to the home controller (say, below the **Page** action).
 
 ```cs
         public async Task<ActionResult> Facets()
@@ -225,7 +225,7 @@ Image
 
 3. Type other combinations of two letters and see what appears. Notice though each time you do this the server is *not* being called. The facets are cached locally when the app was started and now a call is only made to the server when the user requests a search.
 
-### When to use a facet search
+## When to use a facet search
 
 The clear difference between facet searches and other searches such as suggestions and autocompletion, is that the facet search is _designed_ to be only carried out once when a page is loaded, and the other searches are _designed_ to be called as characters are typed. This potentially saves a lot of calls to the server. However, when should this search be used?
 
@@ -236,7 +236,7 @@ Facet searches are best used when:
 * The maximum counts allow most facets to be included. In our code we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. The maximums set must work well with the size of the data set. If too many potential facets are being cut then perhaps the search is not as helpful as it should be.
 
 > [!NOTE]
-> Although facet searches are designed to be called once per page load, they can of course be called much more often, it just depends on your javascript. Equally true is that autocompletion/suggestion searches can be carried out less often than once per keystroke. Again this is determined by your javascript, not Azure Search. However, facet search is designed to be called only once per page as facets are constructed by Azure Search from the searched documents with this in mind. It is good practice to consider facet searches as a slightly less flexible but more network-efficient form of user-assistance.
+> Although facet searches are designed to be called once per page load, they can of course be called much more often, it just depends on your JavaScript. Equally true is that autocompletion/suggestion searches can be carried out less often than once per keystroke. Again this is determined by your JavaScript, not Azure Search. However, facet search is designed to be called only once per page as facets are constructed by Azure Search from the searched documents with this in mind. It is good practice to consider facet searches as a slightly less flexible but more network-efficient form of user-assistance.
 
 
 ## Takeaways

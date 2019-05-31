@@ -784,7 +784,7 @@ Now, will all this good effort be worthwhile and your app runs!
 
 6. Try other words: "pool", "sunshine", "view" and whatever. You will see Azure Search working at its simplest but still convincing level.
 
-## Edge conditions and errors
+## Test edge conditions and errors
 
 It is important to verify that our error handling features work as they should, even when things are working perfectly. 
 
