@@ -3,8 +3,8 @@ title: Tutorial cleanup Service Fabric standalone cluster - Azure Service Fabric
 description: In this tutorial you learn how to cleanup your standalone cluster
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
-manager: timlt
+author: dkkapur
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
 ---
 # Tutorial: Clean up your standalone cluster
@@ -55,7 +55,7 @@ The cluster is successfully removed.
 
 ## Clean up AWS resources
 
-* Log in to your AWS Account
+* Sign in to your AWS Account
 * Go to the EC2 Console.
 * Select the three nodes that you created in part one of the tutorial.
 * Click on **Actions** > **Instance State** > **Terminate**

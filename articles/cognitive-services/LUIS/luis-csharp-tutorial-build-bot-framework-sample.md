@@ -9,13 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/30/2019
 ms.author: diberry
 ---
 
 # LUIS bot in C# with the Bot Framework 3.x and the Azure Web app bot
 
 Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. The bot is built with the Bot Framework 3.x and the Azure Web app bot.
+
+A [Bot Framework 4.x with LUIS tutorial](luis-csharp-tutorial-bf-v4.md) is also available.
 
 ## Prerequisite
 
@@ -106,19 +108,19 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 
    [!code-csharp[Dependencies](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=4-5&dedent=8 "dependencies")]
 
-3. Add constants to manage strings at the top of the `BasicLuisDialog ` class:
+3. Add constants to manage strings at the top of the `BasicLuisDialog` class:
 
    [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-4. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` inside the `BasicLuisDialog ` class:
+4. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` inside the `BasicLuisDialog` class:
 
    [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=61-71&dedent=8 "Add Intents")]
 
-5. Add the code to get any entities found by LUIS inside the `BasicLuisDialog ` class:
+5. Add the code to get any entities found by LUIS inside the `BasicLuisDialog` class:
 
    [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-53&dedent=8 "Collect entities")]
 
-6. Change **ShowLuisResult** method in the `BasicLuisDialog ` class to round the score, collect the entities, and display the response message in the chatbot:
+6. Change **ShowLuisResult** method in the `BasicLuisDialog` class to round the score, collect the entities, and display the response message in the chatbot:
 
    [!code-csharp[Display message in chatbot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chatbot")]
 

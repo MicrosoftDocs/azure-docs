@@ -3,8 +3,8 @@ title: Tutorial - Deploy from GitHub to Azure Kubernetes Service (AKS) with Jenk
 description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
 services: container-service
 ms.service: container-service
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
 ---
@@ -58,6 +58,9 @@ and [kubectl][kubectl-install].
 ## Prepare your app
 
 In this article, you use a sample Azure vote application that contains a web interface hosted in one or more pods, and a second pod hosting Redis for temporary data storage. Before you integrate Jenkins and AKS for automated deployments, first manually prepare and deploy the Azure vote application to your AKS cluster. This manual deployment is version one of the application, and lets you see the application in action.
+
+> [!NOTE]
+> The sample Azure vote application uses a Linux pod that is scheduled to run on a Linux node. The flow outlined in this article also works for a Windows Server pod scheduled on a Windows Server node.
 
 Fork the following GitHub repository for the sample application - [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). To fork the repo to your own GitHub account, select the **Fork** button in the top right-hand corner.
 

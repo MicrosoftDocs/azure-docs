@@ -10,10 +10,10 @@ ms.date: 07/02/2018
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 #Customer intent: As a tenant admin, I want to walk through the B2B  invitation workflow so that I can understand how to add a guest user in the portal, and understand the end user experience.
-
+ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -38,15 +38,15 @@ To complete the scenario in this tutorial, you need:
 2. In the left pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Users**.
 
-    ![Select Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Screenshot showing where to select the Users option](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.	Select **New guest user**.
 
-    ![Select Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Screenshot showing where to select the New guest user option](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.	Under **User name**, enter the email address of the external user. Under **Include a personal message with the invitation**, type a welcome message. 
 
-    ![Select Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![Screenshot showing where to enter the guest user invitation message](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. Select **Invite** to automatically send the invitation to the guest user. A notification appears in the upper right with the message **Successfully invited user**. 
 7.	After you send the invitation, the user account is automatically added to the directory as a guest.
@@ -58,7 +58,7 @@ Add the Salesforce app to your test tenant and assign the test guest user to the
 3.	Select **New application**.
 4. Under **Add from the gallery**, search for **Salesforce**, and then select it.
 
-    ![Select Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Screenshot showing the Add from the gallery search box](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Select **Add**.
 6. Under **Manage**, select **Single sign-on**, and under **Single Sign-on Mode**, select **Password-based Sign-on**, and click **Save**.
 7. Under **Manage**, select **Users and groups** > **Add user** > **Users and groups**.
@@ -70,11 +70,11 @@ Now sign in as the guest user to see the invitation.
 1.	Sign in to your test guest user's email account.
 2.	In your inbox, find the "You're invited" email.
 
-    ![B2B invitation email](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Screenshot showing the B2B invitation email](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.	In the email body, select **Get Started**. A **Review permissions** page opens in the browser. 
 
-    ![B2B accept invitation page](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Screenshot showing the Review permissions page](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Select **Accept**. The Access Panel opens, which lists the applications the guest user can access.
 

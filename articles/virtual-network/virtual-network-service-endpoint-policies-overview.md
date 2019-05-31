@@ -19,7 +19,7 @@ Virtual Network (VNet) service endpoint policies allow you to filter virtual net
 
 This feature is available in __preview__ for following Azure services and regions:
 
-__Azure Storage__: WestCentralUS, WestUS2.
+__Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
 
 For most up-to-date notifications for preview, refer to [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -142,7 +142,7 @@ Virtual network service endpoint policies provide following benefits:
 - **Peered, connected or multiple virtual networks**: To filter traffic in peered virtual networks, endpoint policies should be applied individually to these virtual networks.
 - **Filtering Internet traffic with Network Appliances or Azure Firewall**: Filter Azure service traffic with policies, over endpoints, and filter rest of the Internet or Azure traffic via appliances or Azure Firewall. 
 - **Filtering traffic on Azure services deployed into Virtual Networks**: During preview, service endpoint policies are not supported for any managed Azure services that are deployed into your virtual network. 
- For specific services, see [limitations.](#Limitations)
+ For specific services, see [limitations.](#limitations)
 - **Filtering traffic to Azure services from on-premises**:
 Service endpoint policies only apply to the traffic from subnets associated to the policies. To allow access to specific Azure service resources from on-premises, traffic should be filtered using network virtual appliances or firewalls.
 

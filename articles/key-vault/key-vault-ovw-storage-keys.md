@@ -1,11 +1,11 @@
-﻿---
+---
 title: Manage storage account keys with Azure Key Vault and the Azure CLI
-description: Storage account keys provide integration between Azure Key Vault and key-based access to an Azure storage account.
+description: Storage account keys provide seamless integration between Azure Key Vault and key-based access to an Azure storage account.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: prashanthyv
-ms.author: pryerram
+author: msmbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
 # Customer intent: As a developer, I want to use Azure Key Vault for secure management of my storage credentials and shared access signature tokens.
@@ -26,7 +26,8 @@ When you use the managed storage account key feature, consider the following poi
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys. 
 
 > [!NOTE]
-> [Azure Storage integration with Azure Active Directory (Azure AD) is in preview](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+> [Azure Storage integration with Azure Active Directory (Azure AD)] is Microsoft's cloud-based identity and access management service.
+> Azure AD integration is available for [Azure Blob and Queue storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
 > Use Azure AD for authentication and authorization.
 > Azure AD provides OAuth2 token-based access to Azure Storage just like Azure Key Vault.
 >

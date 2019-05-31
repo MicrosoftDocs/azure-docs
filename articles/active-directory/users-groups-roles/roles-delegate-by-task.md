@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -233,13 +233,13 @@ Read all configuration | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Configure authentication methods | Global Administrator | 
-Configure customization | Global Administrator | 
-Configure notification | Global Administrator | 
-Configure on-premises integration | Global Administrator | 
-Configure password reset properties | Global Administrator | 
-Configure registration | Global Administrator | 
-Read all configuration | Security Administrator	User Administrator | 
+Configure authentication methods | Global Administrator |
+Configure customization | Global Administrator |
+Configure notification | Global Administrator |
+Configure on-premises integration | Global Administrator |
+Configure password reset properties | User Administrator | Global Administrator
+Configure registration | Global Administrator |
+Read all configuration | Security Administrator | User Administrator |
 
 ## Privileged identity management
 
@@ -336,7 +336,7 @@ Update user settings | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Submit support ticket | Service Administrator | Application Administrator, Billing Administrator, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Information Protection Administrator, Intune Administrator, Skype for Business Administrator, Power BI Administrator, Privileged Authentication Administrator, SharePoint Administrator, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator
+Submit support ticket | Service Administrator | Application Administrator, Azure Information Protection Administrator, Billing Administrator, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Intune Administrator, Skype for Business Administrator, Power BI Administrator, Privileged Authentication Administrator, SharePoint Administrator, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator
 
 ## Next steps
 

@@ -22,7 +22,7 @@ ms.custom: seodec18
 This tutorial shows you how to secure your [App Service app](https://docs.microsoft.com/azure/app-service/) or [function app](https://docs.microsoft.com/azure/azure-functions/) by creating (purchasing) an App Service certificate in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) and then bind it to an App Service app.
 
 > [!TIP]
-> App Service Certificates can be used for any Azure or non-Azure Services and is not limited to App Services. To do so, you need to create a local PFX copy of an App Service certificate that you can use it anywhere you want. For more information, see [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+> App Service Certificates can be used for any Azure or non-Azure Services and is not limited to App Services. To do so, you need to create a local PFX copy of an App Service certificate that you can use it anywhere you want. For more information, see [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/).
 >
 
 ## Prerequisites
@@ -161,4 +161,4 @@ Once the renew operation is complete, click **Sync**. The sync operation automat
 * [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
-* [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

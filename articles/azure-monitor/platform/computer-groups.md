@@ -122,15 +122,15 @@ A record is created in the Log Analytics workspace for each computer group membe
 
 | Property | Description |
 |:--- |:--- |
-| Type |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Computer |Name of the member computer. |
-| Group |Name of the group. |
-| GroupFullName |Full path to the group including the source and source name. |
-| GroupSource |Source that group was collected from. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Name of the source that the group was collected from.  For Active Directory, this is the domain name. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
-| TimeGenerated |Date and time the computer group was created or updated. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |Name of the member computer. |
+| `Group` |Name of the group. |
+| `GroupFullName` |Full path to the group including the source and source name. |
+| `GroupSource` |Source that group was collected from. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Name of the source that the group was collected from.  For Active Directory, this is the domain name. |
+| `ManagementGroupName` |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
+| `TimeGenerated` |Date and time the computer group was created or updated. |
 
 ## Next steps
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  

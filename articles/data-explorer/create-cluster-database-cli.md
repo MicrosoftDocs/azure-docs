@@ -1,18 +1,25 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database by using the CLI'
+title: 'Quickstart: Create an Azure Data Explorer cluster and database by using Azure CLI'
 description: Learn how to create an Azure Data Explorer cluster and database by using the Azure CLI
-services: data-explorer
 author: radennis
 ms.author: radennis
-ms.reviewer: orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 2/4/2019
+ms.date: 04/10/2019
 ---
 
-# Create an Azure Data Explorer cluster and database by using the CLI
+# Create an Azure Data Explorer cluster and database by using Azure CLI
 
-This quickstart describes how to create an Azure Data Explorer cluster and database by using the Azure CLI.
+> [!div class="op_single_selector"]
+> * [Portal](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
+> * [PowerShell](create-cluster-database-powershell.md)
+> * [C#](create-cluster-database-csharp.md)
+> * [Python](create-cluster-database-python.md)
+>
+
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Azure CLI.
 
 ## Prerequisites
 
@@ -20,7 +27,7 @@ To complete this quickstart, you need an Azure subscription. If you don't have o
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the Azure CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to check your version. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the Azure CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to check your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Configure the CLI parameters
 
@@ -32,7 +39,7 @@ The following steps are not required if you're running commands in Azure Cloud S
     az login
     ```
 
-2. Set the subscription where you want your cluster to be created. Replace `MyAzureSub` with the name of the Azure subscription that you want to use:
+1. Set the subscription where you want your cluster to be created. Replace `MyAzureSub` with the name of the Azure subscription that you want to use:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -54,7 +61,7 @@ The following steps are not required if you're running commands in Azure Cloud S
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 
-2. Run the following command to check whether your cluster was successfully created:
+1. Run the following command to check whether your cluster was successfully created:
 
     ```azurecli-interactive
     az kusto cluster show --name azureclitest --resource-group testrg
@@ -67,7 +74,7 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 1. Create your database by using the following command:
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
@@ -75,10 +82,10 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
    | cluster-name | *azureclitest* | The name of your cluster where the database will be created.|
    | name | *clidatabase* | The name of your database.|
    | resource-group | *testrg* | The resource group name where the cluster will be created. |
-   | soft-delete-period | *3650:00:00:00* | The amount of time that data will be kept available to query. |
-   | hot-cache-period | *3650:00:00:00* | The amount of time that data will be kept in cache. |
+   | soft-delete-period | *P365D* | Signifies the amount of time that data will be kept available to query. See [retention policy](/azure/kusto/concepts/retentionpolicy) for more information. |
+   | hot-cache-period | *P31D* | Signifies the amount of time that data will be kept in cache. See [cache policy](/azure/kusto/concepts/cachepolicy) for more information. |
 
-2. Run the following command to see the database that you created:
+1. Run the following command to see the database that you created:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

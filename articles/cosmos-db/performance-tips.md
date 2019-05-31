@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos DB datab
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
 
 ---
@@ -53,7 +53,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = new "your authKey from the Azure portal";
+     var authKey = "your authKey from the Azure portal";
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
@@ -81,6 +81,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
 4. **Increase number of threads/tasks**
 
     Since calls to Azure Cosmos DB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create in the order of 100s of Tasks reading or writing to Azure Cosmos DB.
+
+5. **Enable accelerated networking**
+
+   In order to reduce latency and CPU jitter, we recommend that the client virtual machines are accelerated networking enabled. See the [Create a Windows virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) articles to enable accelerated networking.
+
 
 ## SDK Usage
 1. **Install the most recent SDK**
@@ -157,7 +162,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
  
 1. **Exclude unused paths from indexing for faster writes**
 
-    Cosmos DB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
+    Cosmos DB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a subtree) from indexing using the "*" wildcard.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

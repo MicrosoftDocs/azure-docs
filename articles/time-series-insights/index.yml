@@ -11,10 +11,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/07/2018
+  ms.date: 04/23/2019
   ms.author: anshan
 abstract:
-  description: Welcome to Azure Time Series Insights. Azure Time Series Insights provides powerful data exploration and telemetry tools to help you refine operational analysis. The documentation describes the many features of the service, how to get started, and the powerful Time Series Insights APIs. Information is presented for two versions, one that is generally available (Time Series Insights GA) and one that is in preview (Time Series Insights Preview).
+  description: Welcome to Azure Time Series Insights. Azure Time Series Insights provides powerful data exploration and telemetry tools to help you improve operational analysis. This documentation describes the service, how to start working with its many features, the client SDK, and the powerful Time Series Insights APIs. Information is presented for two versions, one that is already generally available (Time Series Insights GA) and a major service update that is in preview (Time Series Insights Preview).
   aside:
     image:
       alt: A video introduction to Azure IoT Time Series Insights features.

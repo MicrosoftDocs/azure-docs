@@ -35,7 +35,7 @@ No. A Recovery Services vault can only change storage options before any backups
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information see, [article](backup-azure-restore-files-from-vm.md)
-- ILR is not supported for online recovery points of on-premise VMs backed up by Azure backup Server or System Center DPM.
+- ILR is not supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
 
 
 ## Azure Backup agent
@@ -169,8 +169,8 @@ No. The time to recover the oldest or the newest point is the same. Each recover
 ### If each recovery point is like a full point, does it impact the total billable backup storage?
 Typical long-term retention point products store backup data as full points.
 
-    - The full points are storage *inefficient* but are easier and faster to restore.
-    - Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time
+- The full points are storage *inefficient* but are easier and faster to restore.
+- Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time
 
 Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 

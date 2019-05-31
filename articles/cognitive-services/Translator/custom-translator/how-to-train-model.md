@@ -7,7 +7,7 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
@@ -48,6 +48,9 @@ To train a model:
     training in the models tab.
 
     ![Train model page](media/how-to/how-to-train-model-3.png)
+
+>[!Note]
+>Custom Translator supports 10 concurrent trainings within a workspace at any point in time.
 
 
 ## Edit a model

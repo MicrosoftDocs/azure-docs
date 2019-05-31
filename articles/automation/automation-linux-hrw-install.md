@@ -79,6 +79,10 @@ Before you proceed, note the Log Analytics workspace that your Automation accoun
 
 1. After the command is completed, the **Hybrid Worker Groups** page in the Azure portal shows the new group and the number of members. If this is an existing group, the number of members is incremented. You can select the group from the list on the **Hybrid Worker Groups** page and select the **Hybrid Workers** tile. On the **Hybrid Workers** page, you see each member of the group listed.
 
+> [!NOTE]
+> If you are using the Azure Monitor virtual machine extension for Linux for an Azure VM we recommend setting `autoUpgradeMinorVersion` to false as auto upgrading versions can cause issues the Hybrid Runbook Worker. To learn how to upgrade the extension manually, see [Azure CLI deployment
+](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+
 ## Turning off signature validation
 
 By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see an error that says "Signature validation failed." To turn off signature validation, run the following command. Replace the second parameter with your log analytics workspace ID.

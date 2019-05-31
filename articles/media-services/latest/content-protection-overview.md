@@ -1,6 +1,6 @@
 ---
-title: Protect your content with Media Services - Azure | Microsoft Docs
-description: This article gives an overview of content protection with Media Services.
+title: Protect your content using Media Services dynamic encryption - Azure | Microsoft Docs
+description: This article gives an overview of content protection with dynamic encryption. It also talks about streaming protocols and encryption types.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
 
 ---
-# Content protection overview
+# Content protection with dynamic encryption
 
 You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
@@ -35,14 +35,13 @@ To successfully complete your "content protection" system/application design, yo
 
 1. Azure Media Services code
   
-   The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 and also use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
+   The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 using .NET. It also shows how to use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
   
    The example shows how to:
 
-   1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Create and configure a [Content Key Policies](content-key-policy-concept.md). You create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients.    
 
       * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
-      * Configure DRM encryption by specifying the content key.
       * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
 
         ```
@@ -50,15 +49,14 @@ To successfully complete your "content protection" system/application design, yo
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) that is configured to stream the encrypted asset. 
+   2. Create a [Streaming Locator](streaming-locators-concept.md) that is configured to stream the encrypted asset. 
   
-      The **Streaming Locator** has to be associated with a [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies). In the example, we set 
-      StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that we want 
-      for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and 
-      Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If 
+      The **Streaming Locator** has to be associated with a [Streaming Policy](streaming-policy-concept.md). In the example, we set 
+      StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and 
+      Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If 
       you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
-    
-      Since we want to encrypt the video, the **Content Key Policy** that we configured earlier also has to be associated with the **Streaming Locator**. 
+      
+      The Streaming Locator is also associated with the **Content Key Policy** that was defined.
     
    3. Create a test token.
 
@@ -96,17 +94,54 @@ To successfully complete your "content protection" system/application design, yo
 
 You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods:
 
+### HLS
+
+The HLS protocol supports the following container formats and encryption schemes.
+
+|Container format|Encryption scheme|URL example|
+|---|---|---|
+|All|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
+|CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
+
+HLS/CMAF + FairPlay (including HEVC / H.265) is supported on the following devices:
+
+* iOS v11 or higher 
+* iPhone 8 or above
+* MacOS high Sierra with Intel 7th Gen CPU
+
+### MPEG-DASH
+
+The MPEG-DASH protocol supports the following container formats and encryption schemes.
+
+|Container format|Encryption scheme|URL Examples
+|---|---|---|
+|All|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
+
+### Smooth Streaming
+
+The Smooth Streaming protocol supports the following container formats and encryption schemes.
+
 |Protocol|Container format|Encryption scheme|
 |---|---|---|
-|MPEG-DASH|All|AES|
-||CSF(fmp4) |CENC (Widevine + PlayReady) |
-||CMAF(fmp4)|CENC (Widevine + PlayReady)|
-|HLS|All|AES|
-||MPG2-TS |CBCS (Fairplay) |
-||MPG2-TS |CENC (PlayReady) |
-||CMAF(fmp4) |CENC (PlayReady) |
-|Smooth Streaming|fMP4|AES|
-||fMP4 | CENC (PlayReady) |
+|fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
+
+### Browsers
+
+Common browsers support the following DRM clients:
+
+|Browser|Encryption|
+|---|---|
+|Chrome|Widevine|
+|Edge, IE 11|PlayReady|
+|Firefox|Widevine|
+|Opera|Widevine|
+|Safari|FairPlay|
 
 ## AES-128 clear key vs. DRM
 
@@ -163,10 +198,20 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 <sup>1</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
 
+## Troubleshoot
+
+If you get the `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` error, make sure you specify the appropriate Streaming Policy.
+
+If you get errors that end with `_NOT_SPECIFIED_IN_URL`, make sure that you specify the encryption format in the URL. For example, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types).
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
 * [Protect with AES encryption](protect-with-aes128.md)
 * [Protect with DRM](protect-with-drm.md)
-* [Design multi-drm content protection system with access control](design-multi-drm-system-with-access-control.md)
+* [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 * [Frequently asked questions](frequently-asked-questions.md)
 
