@@ -30,7 +30,7 @@ In this section, you create a Standard Load Balancer that helps load balance vir
 To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
 $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
