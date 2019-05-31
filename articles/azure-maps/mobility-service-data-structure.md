@@ -14,7 +14,7 @@ manager: philmea
 
 This article introduces the concept of Metro Area in [Azure Maps Mobility Service](https://aka.ms/AzureMapsMobilityService) and some of the common fields returned via the services, when it is queried for public transit stops and lines. We recommend going through this article before starting out with the Mobility Service APIs. We discuss these common fields below.
 
-## Metro Area
+## Metro area
 
 Mobility Service data is split into supported metro areas. Metro areas do not follow city boundaries, a metro area can contain multiple cities, for example, densely populated city and its surrounding cities; and a country/region can be one metro area. 
 

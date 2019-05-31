@@ -17,10 +17,10 @@ This article shows you how to use Azure Maps [Mobility Service](https://aka.ms/A
 
 In this article you will learn, how to:
 
-* Get metro area ID using the [Get Metro Area API](https://aka.ms/AzureMapsMobilityMetro)
+* Get a metro area ID using the [Get Metro Area API](https://aka.ms/AzureMapsMobilityMetro)
 * Request nearby transit stops using [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) service.
 * Query [Get Transit Routes API](https://aka.ms/AzureMapsMobilityTransitRoute) to plan a route by using public transit.
-* Request transit route geometry and detailed schedule for the route using the [Get Transit Itinerary API](https://aka.ms/https://azure.microsoft.com/en-us/services/azure-maps/).
+* Request transit route geometry and detailed schedule for the route using the [Get Transit Itinerary API](https://aka.ms/https://azure.microsoft.com/services/azure-maps/).
 
 
 ## Prerequisites
@@ -30,11 +30,11 @@ To make any calls to the Azure Maps public transit APIs, you need a Maps account
 This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
 
 
-## Get Metro area ID
+## Get a metro area ID
 
 In order to request transit information for a particular metropolitan area you will need the `metroId` for the area you want to request the transit data for. [Get Metro Area API](https://aka.ms/AzureMapsMobilityMetro) allows you to request metro areas in which the Azure Maps Mobility Service is available. Response include details such as `metroId`, `metroName` and a representation of the metro area geometry in GeoJSON format.
 
-Let's make a Get Metro Area request for Seattle-Tacoma metroa area ID. To request ID for a metro area, complete the following steps:
+Let's make a request to get the Metro Area for Seattle-Tacoma metro area ID. To request ID for a metro area, complete the following steps:
 
 1. Create a collection in which to store the requests. In the Postman app, select **New**. In the **Create New** window, select **Collection**. Name the collection and select the **Create** button.
 
@@ -225,7 +225,7 @@ The Azure Maps [Get Transit Routes API](https://aka.ms/AzureMapsMobilityTransitR
 
 ### Get location coordinates for destination
 
-For the purpose of getting location coordinates for Space Needle, lets use the Azure Maps [Fuzzy Search Service](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchfuzzy).
+For the purpose of getting location coordinates for Space Needle, lets use the Azure Maps [Fuzzy Search Service](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
 To make a request to the Fuzzy search service, follow the steps below:
 

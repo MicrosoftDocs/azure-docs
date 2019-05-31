@@ -125,3 +125,21 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Morocco | Casablanca, Khouribga, Tétouan|
 | Tunisia | Kairouan |
 | United Arab Emirates  | Abu Dhabi, Dubai |
+
+
+## Next steps
+
+Learn how to request transit data using Mobility Service:
+
+> [!div class="nextstepaction"]
+> [How to request transit data](how-to-request-transit-data.md)
+
+Learn how to request real-time data using Mobility Service:
+
+> [!div class="nextstepaction"]
+> [How to request real-time data](how-to-request-real-time-data.md)
+
+Explore the Azure Maps Mobility Service API documentation
+
+> [!div class="nextstepaction"]
+> [Mobility Service API documentation](https://aka.ms/AzureMapsMobilityService)
