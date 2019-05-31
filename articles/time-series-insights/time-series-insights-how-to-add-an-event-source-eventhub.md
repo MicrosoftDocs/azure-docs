@@ -67,32 +67,32 @@ To add a new consumer group in your event hub:
 
      The following table describes the required properties for the **Use Event Hub from available subscriptions** option:
 
-   | Property | Description |
-   | --- | --- |
-   | Subscription ID | Select the subscription in which this event hub was created.
-   | Service bus namespace | Select the Azure Service Bus namespace that contains the event hub.
-   | Event hub name | Select the name of the event hub.
-   | Event hub policy name | Select the shared access policy. You can create the shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
-   | Event hub policy key | The key value might be prepopulated.
-   | Event hub consumer group | The consumer group that reads events from the event hub. We highly recommend that you use a dedicated consumer group for your event source. |
-   | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
-   | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
+     | Property | Description |
+     | --- | --- |
+     | Subscription ID | Select the subscription in which this event hub was created.
+     | Service bus namespace | Select the Azure Service Bus namespace that contains the event hub.
+     | Event hub name | Select the name of the event hub.
+     | Event hub policy name | Select the shared access policy. You can create the shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
+     | Event hub policy key | The key value might be prepopulated.
+     | Event hub consumer group | The consumer group that reads events from the event hub. We highly recommend that you use a dedicated consumer group for your event source. |
+     | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
+     | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
 
     - If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
 
-        The following table describes the required properties for the **Provide Event Hub settings manually** option:
-
-   | Property | Description |
-   | --- | --- |
-   | Subscription ID | The subscription in which this event hub was created.
-   | Resource group | The resource group in which this event hub was created.
-   | Service bus namespace | A Service bus namespace is a container for a set of messaging entities. When you created a new event hub, you also created a Service Bus namespace.
-   | Event hub name | The name of your event hub. When you created your event hub, you also gave it a specific name.
-   | Event hub policy name | The shared access policy. You can create a shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
-   | Event hub policy key | The shared access key that's used to authenticate access to the Service Bus namespace. Enter the primary or secondary key here.
-   | Event hub consumer group | The consumer group that reads events from the event hub. We highly recommend that you use a dedicated consumer group for your event source.
-   | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
-   | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
+      The following table describes the required properties for the **Provide Event Hub settings manually** option:
+ 
+      | Property | Description |
+      | --- | --- |
+      | Subscription ID | The subscription in which this event hub was created.
+      | Resource group | The resource group in which this event hub was created.
+      | Service bus namespace | A Service bus namespace is a container for a set of messaging entities. When you created a new event hub, you also created a Service Bus namespace.
+      | Event hub name | The name of your event hub. When you created your event hub, you also gave it a specific name.
+      | Event hub policy name | The shared access policy. You can create a shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
+      | Event hub policy key | The shared access key that's used to authenticate access to the Service Bus namespace. Enter the primary or secondary key here.
+      | Event hub consumer group | The consumer group that reads events from the event hub. We highly recommend that you use a dedicated consumer group for your event source.
+      | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
+      | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
 
 1. Add the dedicated Time Series Insights consumer group name that you added to your event hub.
 
