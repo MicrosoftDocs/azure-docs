@@ -163,7 +163,7 @@ As the Run is executed, it will go through the following stages:
 
 - **Preparing**: A docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
 
-- **Scaling**: The cluster will attempt to scale up if the the Batch AI cluster requires more nodes to execute the run than are currently available.
+- **Scaling**: The cluster will attempt to scale up if the Batch AI cluster requires more nodes to execute the run than are currently available.
 
 - **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted or copied, and the entry_script is executed. Output from stdout and the ./logs folder are streamed to the run history and can be used to monitor the run.
 
