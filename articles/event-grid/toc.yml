@@ -101,6 +101,8 @@
     href: event-sources.md
   - name: Event handlers
     href: event-handlers.md
+  - name: Geo disaster recovery
+    href: geo-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Post to custom topic
