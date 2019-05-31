@@ -806,12 +806,12 @@ Where action can be one of these:
     - `Reinstate` (When resource has been reinstated after suspension)
     - `Renew` (When a resource subscription is renewed)
 
-Where status can be one of these:
-        NotStarted,
-        InProgress,
-        Succeeded,
-        Failed,
-        Conflict
+Where status can be one of these: <br>
+        NotStarted, <br>
+        InProgress, <br>
+        Succeeded, <br>
+        Failed, <br>
+        Conflict <br>
 
 
 ## Mock API
