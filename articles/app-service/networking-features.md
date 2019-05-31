@@ -193,7 +193,7 @@ The ASE provide the best story around isolated and dedicated app hosting but doe
 
 The features noted for the multi-tenant service can all be used together. 
 
-#### Inject app into a VNet
+### Inject app into a VNet
 
 A common request is on how to put your app in a VNet. Putting your app into a VNet means that the inbound and outbound endpoints for an app are within a VNet. The ASE provides the best solution to solve this problem but, you can get most of what is needed with in the multi-tenant service by combining features. For example, you can host intranet only applications with private inbound and outbound addresses by:
 
@@ -203,22 +203,23 @@ A common request is on how to put your app in a VNet. Putting your app into a VN
 
 This deployment style would not give you a dedicated address for outbound traffic to the internet or give you the ability to lock down all outbound traffic from your app.  This deployment style would give you a lot of what you would only otherwise get with an ASE. 
 
-#### Create multi-tier applications
+### Create multi-tier applications
 
 A multi-tier application is an application where the API backend apps can only be accessed from the front end tier. To create a multi-tier application you can:
 
 * use VNet Integration to connect the backend of your front end web app with a subnet in a VNet
 * use service endpoints to secure inbound traffic to your API app to only coming from the subnet used by your front end web app
 
-![multi-tier app](/media/networking-features/multi-tier-app.png)
+![multi-tier app](media/networking-features/multi-tier-app.png)
 
+You can have multiple front end apps use the same API app by using VNet Integration from the other front end apps and service endpoints from the API app with their subnets.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl#bind-your-ssl-certificate
-[iprestrictions]: https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions
-[serviceendpoints]: https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions
-[hybridconn]: https://docs.microsoft.com/en-us/azure/app-service/app-service-hybrid-connections
-[vnetintegrationp2s]: https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet
-[vnetintegration]: https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet
-[networkinfo]: https://docs.microsoft.com/en-us/azure/app-service/environment/network-info
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#bind-your-ssl-certificate
+[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
+[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
 
