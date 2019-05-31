@@ -290,7 +290,9 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
 
   ```python
   aks_target = AksCompute(ws,"myaks")
-  # If deploying to a cluster configured for dev/test, we recommend setting cpu_cores = 2.
+  # If deploying to a cluster configured for dev/test, ensure that it was created with enough
+  # cores and memory to handle this deployment configuration. Note that memory is also used by
+  # things such as dependencies and AML components.
   deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
   service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
   service.wait_for_deployment(show_output = True)
@@ -318,7 +320,9 @@ Creating or attaching an AKS cluster is a one time process for your workspace. Y
 If you want to create an AKS cluster for development, validation, and testing, you set `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` when using [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py). A cluster created with this setting will only have one node.
 
 > [!IMPORTANT]
-> Setting `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` creates an AKS cluster that is not suitable for handling production traffic, and may increase inference times for the deployed model. When deploying a model to a devtest cluster, Microsoft recommends configuring 2 cores.
+> Setting `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` creates an AKS cluster that is not suitable for handling production traffic. Inference times may be longer than on a cluster created for production. Fault tolerance is also not guaranteed for dev/test clusters.
+>
+> We recommend that clusters created for dev/test use at least two virtual CPUs.
 
 The following example demonstrates how to create a new Azure Kubernetes Service cluster:
 
