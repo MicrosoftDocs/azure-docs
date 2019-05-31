@@ -14,6 +14,7 @@ The following table lists the limits that apply to Azure IoT Hub Device Provisio
 | Maximum number of registrations | 1,000,000 |
 | Maximum number of enrollment groups | 100 |
 | Maximum number of CAs | 25 |
+| Maximum size of message | 96 KB|
 
 > [!NOTE]
 > To increase the number of instances in your subscription, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
