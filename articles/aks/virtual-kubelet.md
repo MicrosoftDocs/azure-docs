@@ -262,6 +262,8 @@ Read more about Virtual Kubelet at the [Virtual Kubelet GitHub project][vk-githu
 [virtual-nodes-cli]: virtual-nodes-cli.md
 [virtual-nodes-portal]: virtual-nodes-portal.md
 [aks-helm]: kubernetes-helm.md
+[az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
