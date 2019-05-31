@@ -30,7 +30,18 @@ This article provides details about how to use the Azure Functions extension to 
 
 Before you install and run the [Azure Functions extension][Azure Functions extension for Visual Studio Code], you must do the following:
 
-[!INCLUDE [Functions extension prerequisites](../../includes/functions-vs-code-prerequisites.md)]
+* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+
+* Install version 2.x of the [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2).
+
+* Install the specific requirements for your chosen language:
+
+    | Language | Requirement |
+    | -------- | --------- |
+    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **Java** | [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
+    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
+    | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6+](https://www.python.org/downloads/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,9 +49,29 @@ Other resources that you need, such as an Azure Storage account, are created in 
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
-[!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
+## Create an Azure Functions project
 
-The project template creates a project in your chosen language, installs required dependencies. The new project has the following files:
+The Functions extension lets you create a function app project, along with your first function. The following steps show how to create an HTTP triggered function in a new Functions project. [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
+
+1. From **Azure: Functions**, choose the Create Function icon.
+
+    ![Create a function](./media/functions-develop-vs-code/create-function.png)
+
+1. Select the folder with your function app project and select the **HTTP trigger** function template.
+
+    ![Choose the HTTP trigger template](./media/functions-develop-vs-code/create-function-choose-template.png)
+
+1. Type `HTTPTrigger` for the function name and press Enter, then select **Anonymous** authentication.
+
+    ![Choose anonymous authentication](./media/functions-develop-vs-code/create-function-anonymous-auth.png)
+
+    A function is created in your chosen language using the template for an HTTP-triggered function.
+
+    ![HTTP triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
+
+You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+
+The project template creates a project in your chosen language, installs required dependencies. Regardless of language, the new project has the following files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
@@ -51,22 +82,24 @@ The project template creates a project in your chosen language, installs require
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Note that values in **ConnectionStrings** are never published.
+By default, these settings are not migrated automatically when the project is published to Azure. After publishing completes, you are given the option of publishing settings from local.settings.json to your function app in Azure.
+
+Values in **ConnectionStrings** are never published.
 
 The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
 
-
 * [C# precompiled](functions-dotnet-class-library.md#environment-variables)
 * [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
 ## Configure the project for local development
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the **AzureWebJobsStorage** connection setting that is required by the project. To use the emulator, set the value of **AzureWebJobsStorage** to `UseDevelopmentStorage=true`. You must change this setting to an actual storage connection before deployment.
+The Functions runtime uses an Azure Storage account internally for all trigger types other than HTTP and webhooks. This means that you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
 
-This section uses the [Azure Storage extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) with [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to connect to and retrieve the storage connection string.  You can instead 
+This section uses the [Azure Storage extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) with [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to connect to and retrieve the storage connection string.   
 
 To set the storage account connection string:
 
@@ -78,6 +111,29 @@ To set the storage account connection string:
 
 ## Add a function to your project
 
+## Create an HTTP triggered function
+
+1. From **Azure: Functions**, choose the Create Function icon.
+
+    ![Create a function](./media/functions-create-first-function-vs-code/create-function.png)
+
+1. Select the folder with your function app project and select the **HTTP trigger** function template.
+
+    ![Choose the HTTP trigger template](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
+
+1. Type `HTTPTrigger` for the function name and press Enter, then select **Anonymous** authentication.
+
+    ![Choose anonymous authentication](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
+
+    A function is created in your chosen language using the template for an HTTP-triggered function.
+
+    ![HTTP triggered function template in Visual Studio Code](./media/functions-create-first-function-vs-code/new-function-full.png)
+
+You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+
+Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
+
+<!-- old VS content 
 In pre-compiled functions, the bindings used by the function are defined by applying attributes in the code. When you use the Azure Functions Tools to create your functions from the provided templates, these attributes are applied for you. 
 
 1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function**, type a **Name** for the class, and click **Add**.
@@ -113,6 +169,8 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
     
 You can use the above procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+
+-->
 
 ## Add bindings
 
@@ -158,11 +216,60 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 To learn more about using the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 
-## Publish to Azure
+## Publish with advanced options
 
-[!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-## Function app settings
+By default, Visual Studio generates default values for the Azure resources needed by your function app. These values are based on the function app name you choose. If you want to instead have prescribe all names for the created resources, you can instead publish using advanced options.
+
+This section assumes that you are creating a new function app in Azure. 
+
+> [!IMPORTANT]
+> Publishing to an existing function app overwrites the content of that app in Azure.
+
+### Enabled publishing with advanced create options
+
+To give you control over the settings associated with creating Azure Functions apps, update the Azure Functions extension to enable advanced settings.
+
+1. Click **File > Preferences > Settings**
+
+1. Navigate through **User Settings > Extensions > Azure Functions**
+
+1. Check the checkbox for **Azure Function: Advanced Creation**
+
+### Publish to a new function app in Azure
+
+1. In the **Azure: Functions** area, select the Deploy to Function App icon.
+
+    ![Function app settings](./media/functions-develop-vs-code/function-app-publish-project.png)
+
+1. If not signed-in, you are prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After successful sign in from the browser, go back to Visual Studio Code. 
+
+1. If you have multiple subscriptions, **Select a subscription** for the function app, then choose **+ Create New Function App in Azure**.
+
+1. Following the prompts, provide the following information:
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select function app in Azure | + Create New Function App in Azure | In the next prompt, type a globally unique name that identifies your new function app and press Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
+    | Select an OS | Windows | Function app runs on Windows |
+    | Select a hosting plan | Consumption plan | Serverless [Consumption plan hosting](functions-scale.md#consumption-plan) is used. |
+    | Select a runtime for your new app | Your project language | The runtime must match the project that you are publishing. |
+    | Select a resource group for new resources | Create New Resource Group | In the next prompt, type a resource group name, like `myResourceGroup`, and press enter. You can also choose an existing resource group. |
+    | Select a storage account | Create new storage account | In the next prompt, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also choose an existing account. |
+    | Select a location for new resources | region | Choose a location in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
+
+    A notification is displayed after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
+
+### Get function URLs
+
+<!--<<more here>>-->
+
+1. Back in the **Azure: Functions** area, expand the new function app under your subscription. Expand **Functions**, right-click **HttpTrigger**, and then choose **Copy function URL**.
+
+    ![Copy the function URL for the new HTTP trigger](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)
+
+## Publish function app settings
 
 Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project.
 

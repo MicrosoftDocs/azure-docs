@@ -83,6 +83,12 @@ For more information, see [Functions class library project](functions-dotnet-cla
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
+Settings in local.settings.json are not uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, you must upload them after you publish your project. To learn more, see [Function app settings](#function-app-settings).
+
+Values in **ConnectionStrings** are never published.
+
+The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
+
 ## Configure the project for local development
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the **AzureWebJobsStorage** connection setting that is required by the project. To use the emulator, set the value of **AzureWebJobsStorage** to `UseDevelopmentStorage=true`. You must change this setting to an actual storage connection before deployment.

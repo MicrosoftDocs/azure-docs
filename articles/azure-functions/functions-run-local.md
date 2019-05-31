@@ -64,6 +64,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
     ```bash
     npm install -g azure-functions-core-tools
     ```
+
 1. If you do not plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS with Homebrew
@@ -78,6 +79,7 @@ The following steps use Homebrew to install the Core Tools on macOS.
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+
 1. If you do not plan to use [extension bundles], install [.NET Core 2.x SDK for macOS](https://www.microsoft.com/net/download/macos).
 
 
@@ -111,6 +113,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+
 1. If you do not plan to use [extension bundles], install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
 
 ## Create a local Functions project
@@ -159,13 +162,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
 
-## Register extensions
-
-In version 2.x of the Azure Functions runtime, you have to explicitly register the binding extensions (binding types) that you use in your function app.
-
-[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
-
-For more information, see [Azure Functions triggers and bindings concepts](./functions-bindings-expressions-patterns.md).
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -175,7 +172,6 @@ The function app settings values can also be read in your code as environment va
 
 * [C# precompiled](functions-dotnet-class-library.md#environment-variables)
 * [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -469,4 +465,4 @@ To file a bug or feature request, [open a GitHub issue](https://github.com/azure
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[extension bundles]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles
+[extension bundles]: functions-bindings-register.md#extension-bundles
