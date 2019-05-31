@@ -15,7 +15,7 @@ To deploy your service across many regions and make sure it's running as expecte
 
 Deployment Manager is a feature of Resource Manager. It expands your capabilities during deployment. Use Deployment Manager when you have a complex service that needs to be deployed to several regions. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need the extra precautions of a staged rollout, use the standard [deployment options](resource-group-template-deploy-portal.md) for Resource Manager. Deployment Manager seamlessly integrates with all existing third-party tools that support Resource Manager deployments, such as continuous integration and continuous delivery (CI/CD) offerings. 
 
-Azure Deployment Manager is in preview. Help up improve the feature by providing [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager is in preview. Help us improve the feature by providing [feedback](https://aka.ms/admfeedback).
 
 To use Deployment Manager, you need to create four files:
 
