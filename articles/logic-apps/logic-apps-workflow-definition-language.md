@@ -66,7 +66,7 @@ For syntax and more information about these sections, see
 
 ## Parameters
 
-In the `parameters` section, you can define or edit parameters for the input values that your logic app accepts and uses at runtime. Before you can reference those parameters in other workflow sections, you must first define those parameters in the `parameters` section.
+The deployment lifecycle usually has different environments for development, test, staging, and production. When deploying logic apps to various environments, you likely want to use different values, such as connection strings, based on your deployment needs. Or, you might have values that you want to reuse throughout your logic app without hardcoding or that change often. In your workflow definition's `parameters` section, you can define or edit parameters for the values that your logic app uses at runtime. You must define these parameters first before you can reference these parameters elsewhere in your workflow definition.
 
 Here is the general structure for a parameter definition:
 
@@ -92,133 +92,7 @@ Here is the general structure for a parameter definition:
 | <*parameter-description*> | No | JSON object | Any other parameter details, such as a description for the parameter |
 ||||
 
-By default, this `parameters` attribute is empty unless your logic app creates and uses connections to other services and systems through [managed connectors](../connectors/apis-list.md). When your logic app includes connections, the `parameters` attributes includes the `$connections` parameter, which has JSON `Object` type:
-
-```json
-"parameters": {
-   "$connections": {
-      "type": "Object",
-      "defaultValue": {}
-   }
-},
-```
-
-Outside the `definition` section for your workflow definition but at the same level, the `$connections` object specifies the connection values used by your logic app at runtime. For example, this `$connections` object specifies the values for an Office 365 Outlook connection:
-
-```json
-}
-   "$connections": {
-      "value": {
-         "office365": {
-            // Connection ID
-            "connectionId": "/subscriptions/<Azure-subscription-ID>/resourceGroups/MyLogicApp-RG/providers/Microsoft.Web/connections/office365",
-            // Connection name, which appears as an API connection in the Azure portal
-            "connectionName": "office365",
-            // Connector ID, must use same location as logic app
-            "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<connector-location>/managedApis/office365"
-         }
-      }
-   },
-   "definition": {<workflow-definition}
-}
-```
-
-Here is an example action definition that uses this connection at runtime by referencing the `$connections` object:
-
-```json
-"definition": {
-   "schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-   "actions": {
-      "Send_an_email": {
-         "inputs": {
-            "body": {
-               "Body": "<email-body>",
-               "Subject": "<email-subject>",
-               "To": "<recipient@domain>"
-            },
-            "host": {
-               "connection": {
-                  "name": "@parameters('$connections')['office365']['connectionId']"
-               }
-            },
-            "method": "post",
-            "path": "/Mail"
-         },
-         "runAfter": {},
-         "type": "ApiConnection"
-      }
-   },
-},
-```
-
-When deploying logic apps to various environments, you likely want to use different values, such as connection strings, based on those environments. If you [create Azure Resource Manager templates to automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md), you can define template parameters for accepting the values that vary at deployment and parameterize those values by referencing the template parameters instead. That way, you can store the values separately in a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files), which you deploy with your template. That way, you can change the values that you use for deployment without having to update your template.
-
-For information that is sensitive or must be secured, such as passwords and secrets, you can store those values in Azure Key Vault and have your parameter file retrieve those values from your key vault. For the easiest way to create a valid parameterized template, you can use Visual Studio after you've installed the Azure Logic App Tools for Visual Studio, or use the PowerShell module for creating logic app templates. For more information, see [Create Azure Resource Manager templates for logic apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md).
-
-Here is a partial example template that shows the template parameters and the corresponding parameterized values, which reference those template parameters:
-
-```json
-{
-   <other-template-attributes>,
-   // Template parameters
-   "parameters": {
-      "LogicAppName": {
-         "type": "string",
-         "minLength": 1,
-         "maxLength": 80,
-         "defaultValue": "MyLogicApp",
-         "metadata": {
-            "description": "The resource name to use for the logic app"
-         }
-      },
-      "LogicAppLocation": {
-         "type": "string",
-         "min length": 1,
-         "defaultValue": "[resourceGroup().location]",
-         "metadata": {
-            "description": "The resource location to use for the logic app"
-         }
-      },
-      "office365_1_Connection_Name": {
-         "type": "string",
-         "defaultValue": "office365",
-         "metadata": {
-            "description": "The resource name to use for the Office 365 Outlook connection"
-         }
-      },
-      "office365_1_Connection_DisplayName": {
-         "type": "string",
-         "defaultValue": "",
-         "metadata": {
-            "description": "The display name to use for the Office 365 Outlook connection"
-         }
-      }
-   },
-   <other-template-attributes>,
-   "resources:": {
-      "properties": {
-         // Other logic app resource attributes
-         "definition": {<workflow-definition},
-         // Parameter values at logic app runtime
-         "parameters": {
-            "$connections": {
-               "value": {
-                  "office365": {
-                     // Reference the template parameter for the connection ID
-                     "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
-                     // Reference the template parameter for the connection name
-                     "connectionName": "[parameters('office365_1_Connection_Name')]",
-                     // Connector ID, must use same location as logic app
-                     "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'parameters('LogicAppLocation'), '/managedApis/', 'office365')]"
-                  }
-               }
-            }
-         },
-         "accessControl": {}
-      }
-   }
-}
-```
+Next, create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition, define template parameters that accept the values you want at deployment, replace hardcoded values with references to template or workflow definition parameters as appropriate, and store the values to use at deployment in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app. For information that is sensitive or must be secured, such as usernames, passwords, and secrets, you can store those values in Azure Key Vault and have your parameter file retrieve those values from your key vault. For more information and examples about defining parameters at the template and workflow definition levels, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
 <a name="static-results"></a>
 
