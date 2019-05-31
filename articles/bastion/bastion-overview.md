@@ -21,11 +21,13 @@ The Azure Bastion service is a new fully platform-managed PaaS service that you 
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
-![architecture](./media/bastion-overview/architecture.png)
-
-**Figure 1 - Architecture**
+## Architecture
 
 RDP and SSH are some of the fundamental means through which you can connect to your workloads running in Azure. Exposing RDP/SSH ports over the Internet isn't desired and is seen as a significant threat surface. This is often due to protocol vulnerabilities. To contain this threat surface, you can deploy bastion hosts (also known as jump-servers) at the public side of your perimeter network. Bastion host servers are designed and configured to withstand attacks. Bastion servers also provide RDP and SSH connectivity to the workloads sitting behind the bastion, as well as further inside the network.
+
+![architecture](./media/bastion-overview/architecture.png)
+
+**Figure 1**
 
 Figure 1 shows the architecture of an Azure Bastion deployment. Azure Bastion is deployed in your virtual network and, once deployed, it provides the secure RDP/SSH experience for all the virtual machines in your virtual network. In Figure 1:
 
