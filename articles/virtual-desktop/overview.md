@@ -24,7 +24,7 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
 The following video is a brief overview of what else Windows Virtual Desktop can do for you:
 
-> [!VIDEO <https://www.youtube.com/watch?v=30dOLcZ4_9U>]
+> [!VIDEO https://www.youtube.com/watch?v=30dOLcZ4_9U]
 
 ## Key capabilities
 
