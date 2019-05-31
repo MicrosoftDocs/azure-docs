@@ -33,7 +33,7 @@ An Azure PowerShell script is available that does the following:
 * You must provide an IP address space for another subnet within your virtual network where your v1 gateway is located. The script can't create the v2 gateway in any existing subnets that already have a v1 gateway. However, if the existing subnet already has a v2 gateway, that may still work provided there's enough IP address space.
 * To  migrate an SSL configuration, you must specify all the SSL certs used in your v1 gateway.
 * If you have FIPS mode enabled for your V1 gateway, it won’t be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
-* v2 doesn't support IPv6, so IPv6 enabled v1 gateways are not migrated. If you run the script, it may not complete.
+* v2 doesn't support IPv6, so IPv6 enabled v1 gateways aren't migrated. If you run the script, it may not complete.
 * If the v1 gateway has only a private IP address, the script creates a public IP address and a private IP address for the new v2 gateway. v2 gateways currently don't support only private IP addresses.
 
 ## Download the script
@@ -66,6 +66,8 @@ If you do have some Azure Az modules installed and can't uninstall them (or don'
 To run the script:
 
 1. Use `Connect-AzAccount` to connect to Azure.
+
+1. Use `Import-Module Az` to import the Az modules.
 
 1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
@@ -105,6 +107,7 @@ To run the script:
     * **publicIpResourceId: [String]: Optional**. The resourceId of a public IP address resource in your subscription that you want to allocate to the new v2 gateway. If this is not specified, the script allocates a new public IP in the same resource group. The name is the v2 gateway’s name with *-IP* appended.
    * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the v2 gateway creation and the configuration copy. By default, no validation is done.
    * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new v2 gateway after it is created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created v2 gateway.
+
 1. Run the script using the appropriate parameters.
 
     **Example**
