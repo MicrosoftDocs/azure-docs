@@ -100,12 +100,19 @@ choose **Design**.
 
 ## Parameters
 
-The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition, define the parameters for accepting the values you want, replace hardcoded values with parameter references, and store the values in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app.
+The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition so that you can also automate logic app deployment. Follow these general steps to *parameterize*, or define and use parameters for, those values instead. You can then provide the values in a separate parameter file that passes those values to your template. That way, you can change those values more easily without having to update and redeploy your logic app. For full details, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
-> [!NOTE]
-> You can add and edit parameters only when working with your logic app's underlying workflow definition in code view or in the template.
+1. In your template, define template parameters and workflow definition parameters for accepting the values to use at deployment and runtime, respectively.
 
-For more information, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
+   Template parameters are defined in a parameters section that's outside your workflow definition, while workflow definition parameters are defined in a parameters section that's inside your workflow definition.
+
+1. Replace the hardcoded values with expressions that reference these parameters. Template expressions use syntax that differs from workflow definition expressions.
+
+   Avoid complicating your code by not using template expressions, which are evaluated at deployment, inside workflow definition expressions, which are evaluated at runtime. Use only template expressions outside your workflow definition. Use only workflow definition expressions inside your workflow definition.
+
+   When you specify the values for your workflow definition parameters, you can reference template parameters by using the parameters section that's outside your workflow definition but still inside the resource definition for your logic app. That way, you can pass template parameter values into your workflow definition parameters.
+
+1. Store the values for your parameters in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) and include that file with your deployment.
 
 ## Process strings with functions
 
