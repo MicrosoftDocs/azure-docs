@@ -25,7 +25,7 @@ A managed Bot protection rule set can be enabled for your WAF to take custom act
 
 Create a basic WAF policy for Front Door by following the instructions described in [Create a WAF policy for Azure Front Door by using the Azure portal](waf-front-door-create-portal.md).
 
-## Configure a WAF rule for bot protection
+## Enable bot protection rule set
 
 1. In the basic policy page that you created in the preceding section, under **Settings**, click **Rules**.
 2. In the details page, under the **Manage rules** section, from the drop-down menu, select the check box in front of the rule **BotProtection-preview-0.1**, and then select **Save** above.

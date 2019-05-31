@@ -87,7 +87,7 @@ Azure-managed rule sets provide an easy way to deploy protection against a commo
 - Java attacks
 - Local file inclusion
 - PHP injection attacks
-- Remote command executing
+- Remote command execution
 - Remote file inclusion
 - Session fixation
 - SQL injection protection
