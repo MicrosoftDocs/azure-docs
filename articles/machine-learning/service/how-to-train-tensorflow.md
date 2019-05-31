@@ -12,11 +12,13 @@ ms.date: 05/28/2019
 ms.custom: seodec18
 ---
 
-# Use Azure Machine Learning service to train and register TensorFlow models
+# Train and register TensorFlow models at scale with Azure Machine Learning service
 
 This article shows you how to train and register a TensorFlow model using Azure Machine Learning service. We'll be using the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network built on TensorFlow.
 
-With Azure Machine Learning service, you'll be able to rapidly scale out your open-source training jobs using elastic cloud compute resources. You'll also be able track your training runs, version models, deploy models, and much more. Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service is here to help you build production-ready models.
+With Azure Machine Learning service, you'll be able to rapidly scale out your open-source training jobs using elastic cloud compute resources. You'll also be able track your training runs, version models, deploy models, and much more. 
+
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, you can build production-ready models with Azure Machine Learning service.
 
 ## Prerequisites
 
@@ -161,7 +163,7 @@ As the Run is executed, it will go through the following stages:
 
 - **Preparing**: A docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
 
-- **Scaling**: The cluster will attempt to scale up if the the Batch AI cluster requires more nodes to execute the run than are currently available.
+- **Scaling**: The cluster will attempt to scale up if the Batch AI cluster requires more nodes to execute the run than are currently available.
 
 - **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted or copied, and the entry_script is executed. Output from stdout and the ./logs folder are streamed to the run history and can be used to monitor the run.
 

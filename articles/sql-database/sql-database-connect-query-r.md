@@ -79,6 +79,9 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 1. Pass the complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
    The script is passed through the `@script` argument. Everything inside the `@script` argument must be valid R code.
+   
+   >[!IMPORTANT]
+   >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
 
     ```sql
     EXECUTE sp_execute_external_script

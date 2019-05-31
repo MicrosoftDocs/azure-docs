@@ -228,9 +228,7 @@
           - name: Initialize applications (JS)
             href: msal-js-initializing-client-applications.md
         - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md
-        - name: Test MSAL applications
-          href: msal-testing.md
+          href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
         - name: Single sign-on (JS)
