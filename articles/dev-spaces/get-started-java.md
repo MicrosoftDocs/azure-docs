@@ -5,10 +5,11 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
-ms.date: 05/08/2019
+ms.date: 09/26/2018
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
+manager: jeconnoc
 ---
 # Get started on Azure Dev Spaces with Java
 
@@ -133,7 +134,7 @@ Scan the console output for information about the public URL that was created by
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identify the public URL for the service. It ends in `.azds.io`.
+Identify the public URL for the service in the output from the `up` command. It ends in `.azds.io`.
 
 Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the *azds trace* terminal window. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
@@ -144,7 +145,12 @@ Open this URL in a browser window, and you should see the web app load. As the c
 > Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
 1. In the terminal window, press `Ctrl+C` (to stop `azds up`).
-1. Open the code file named `src/main/java/com/ms/sample/webfrontend/Application.java`, and edit the greeting message on [line 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19): `return "Hello from webfrontend in Azure!";`
+1. Open the code file named `src/main/java/com/ms/sample/webfrontend/Application.java`, and edit the greeting message on [line 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19): 
+
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
 1. Save the file.
 1. Run  `azds up` in the terminal window.
 
