@@ -33,6 +33,7 @@ Create a basic WAF policy for Front Door by following the instructions described
 ![Bot protection rule](./media/waf-front-door-configure-bot-protection/botprotect.png)
 
 
+
 ## Next steps
 
 - Learn how to [monitor](waf-front-door-monitor.md) WAF.
