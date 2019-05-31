@@ -13,7 +13,7 @@ ms.author: tyao;kumud
 
 ---
 
-# Configure bot protection for web application firewall (preview)
+# Configure bot protection for web application firewall (Preview)
 This article shows you how to configure bot protection rule in Azure web application firewall (WAF) for Front Door by using Azure CLI, Azure PowerShell, or Azure Resource Manager template.
 
 A managed Bot protection rule set can be enabled for your WAF to take custom actions on requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
@@ -28,12 +28,10 @@ Create a basic WAF policy for Front Door by following the instructions described
 ## Configure a WAF rule for bot protection
 
 1. In the basic policy page that you created in the preceding section, under **Settings**, click **Rules**.
-2. In the details page, under the **Manage rules** section, from the drop-down menu, select the check box in front of the rule **BotProtection-preview-0.1**, and then select **Enable** tab above.
+2. In the details page, under the **Manage rules** section, from the drop-down menu, select the check box in front of the rule **BotProtection-preview-0.1**, and then select **Save** above.
     
 ![Bot protection rule](./media/waf-front-door-configure-bot-protection/botprotect.png)
 
-
-
 ## Next steps
 
-- Learn how to [monitor](waf-front-door-monitor.md) WAF.
+- Learn how to [monitor WAF](waf-front-door-monitor.md).
