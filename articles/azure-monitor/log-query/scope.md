@@ -67,9 +67,9 @@ Select the time range from the time picker at the top of the Log Analytics windo
 
 ![Time picker](media/get-started-portal/time-picker.png)
 
-If you set a filter in the query that uses the standard time property, the time picker changes to **Set in query**, and the time picker is disabled.
+If you set a filter in the query that uses the standard time property as shown in the table above, the time picker changes to **Set in query**, and the time picker is disabled.
 
-If you use the workspace or app command to retrieve data from another workspace or application, the time picker may behave differently.
+If you use the [workspace](workspace-expression.md) or [app](app-expression.md) command to retrieve data from another workspace or application, the time picker may behave differently.
 
 If the [scope](#scope) of your query is a Log Analytics workspace then the 
 
