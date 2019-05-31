@@ -28,7 +28,7 @@ In this step, you will register a sample web application in your Azure Active Di
 
 1. Open the Azure **Active Directory** pane, go to App registrations pane, and select **New registration**. 
 
-   ![New application registration in Active Directory](./media/active-directory-authentication/new-app-registration.png)
+   ![New application registration in Active Directory](./media/certificate-based-authentication/new-app-registration.png)
 
 1. Fill the **Register an application** form with the following details:  
 
@@ -36,13 +36,13 @@ In this step, you will register a sample web application in your Azure Active Di
    * **Supported account types** – Choose **Accounts in this organizational directory only (Default Directory)** to allow resources in your current directory to access this application. 
    * **Redirect URL** – Choose application of type **Web** and provide a URL where your application is hosted, it can be any URL. For this example, you can provide a test URL such as `https://sampleApp.com` it’s okay even if the app doesn’t exist.
 
-   ![Registering a sample web application](./media/active-directory-authentication/register-sample-web-app.png)
+   ![Registering a sample web application](./media/certificate-based-authentication/register-sample-web-app.png)
 
 1. Select **Register** after you fill the form.
 
 1. After the app is registered, make a note of the **Application(client) ID** and **Object ID**, you will use these details in the next steps. 
 
-   ![Get the application and object IDs](./media/active-directory-authentication/get-app-object-ids.png)
+   ![Get the application and object IDs](./media/certificate-based-authentication/get-app-object-ids.png)
 
 ## Install the AzureAD module
 
@@ -96,7 +96,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 The above command results in the output similar to the screenshot below:
 
-![Certificate-based credential creation output](./media/active-directory-authentication/certificate-based-credential-output.png)
+![Certificate-based credential creation output](./media/certificate-based-authentication/certificate-based-credential-output.png)
 
 ## Configure your Azure Cosmos account to use the new identity
 
@@ -106,7 +106,7 @@ The above command results in the output similar to the screenshot below:
 
 1. Select **Add** and **Add role assignment**. Add the sampleApp you created in the previous step with **Contributor** role as shown in the following screenshot:
 
-   ![Configure Azure Cosmos account to use the new identity](./media/active-directory-authentication/configure-cosmos-account-with-identify.png)
+   ![Configure Azure Cosmos account to use the new identity](./media/certificate-based-authentication/configure-cosmos-account-with-identify.png)
 
 1. Select **Save** after you fill out the form
 
@@ -123,7 +123,7 @@ Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDB/dat
 
 The previous command will display the primary and secondary master keys of your Azure Cosmos account. You can view the Activity log of your Azure Cosmos account to validate that the get keys request succeeded and the event is initiated by the application. 
  
-![Validate the get keys call in the Azure Active Directory](./media/active-directory-authentication/activity-log-validate-results.png)
+![Validate the get keys call in the Azure Active Directory](./media/certificate-based-authentication/activity-log-validate-results.png)
 
 
 ## Access the keys from a C# application 

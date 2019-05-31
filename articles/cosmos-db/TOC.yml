@@ -556,7 +556,7 @@
       - name: Secure Azure Cosmos keys using Key Vault
         href: access-secrets-from-keyvault.md
       - name: Certificate-based authentication with AAD
-        href: active-directory-authentication.md
+        href: certificate-based-authentication.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
