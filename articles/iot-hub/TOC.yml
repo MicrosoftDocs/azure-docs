@@ -413,9 +413,9 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
