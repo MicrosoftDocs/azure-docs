@@ -83,7 +83,7 @@ Perform the following steps to install the Scala plugin:
 
 9. Add your application source code by doing the following:
 
-    a. From Project, navigate to **myApp** > **src** > **main** > **scala**.  
+    a. From **Project**, navigate to **myApp** > **src** > **main** > **scala**.  
 
     b. Right-click **scala**, and then navigate to **New** > **Scala Class**.
 
@@ -149,7 +149,7 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
 
 1. From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
 
-2. From Azure Explorer, right-click the **HDInsight** node, and then select **Link A Cluster**.
+2. From **Azure Explorer**, right-click the **HDInsight** node, and then select **Link A Cluster**.
 
    ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
@@ -351,7 +351,7 @@ You can convert the existing Spark Scala applications that you created in Intell
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-1. Save the changes. Your application should now be compatible with Azure Toolkit for IntelliJ. You can test it by right-clicking the project name in Project. The pop-up menu now has the option **Submit Spark Application to HDInsight**.
+1. Save the changes. Your application should now be compatible with Azure Toolkit for IntelliJ. You can test it by right-clicking the project name in **Project**. The pop-up menu now has the option **Submit Spark Application to HDInsight**.
 
 ## Troubleshooting
 
