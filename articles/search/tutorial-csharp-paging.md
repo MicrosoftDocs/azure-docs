@@ -26,7 +26,7 @@ Have the [C# Tutorial: Create your first app in Azure Search](tutorial-csharp-cr
 
 ## Extend your app with numbered paging
 
-Numbered paging is the paging system of choice of the main internet search engines and most other search websites. Numbered paging typically includes a "next" and "previous" option in addition to a range of actual page numbers. Also a "first page" and "last page" option might also be available. This certainly gives a user a lot of control over navigating through page based results.
+Numbered paging is the paging system of choice of the main internet search engines and most other search websites. Numbered paging typically includes a "next" and "previous" option in addition to a range of actual page numbers. Also a "first page" and "last page" option might also be available. These options certainly give a user control over navigating through page based results.
 
 We will add a system that includes first, previous, next, and last options, along with page numbers that do not start from 1, but instead surround the current page the user is on (so, for example, if the user is looking at page 10, perhaps page numbers 8, 9, 10, 11, and 12 are displayed).
 
@@ -166,7 +166,7 @@ Note the use of an HTML table to align things neatly. However all the action com
 
 The first and last page options do not send strings such as "first" and "last", but instead send the correct page numbers.
 
-2. Add the **pageSelected** class to the list of HTML styles (perhaps after **.pageButton**). This class is there simply to identify the page the user is on (by turning the number bold) in the list of page numbers.
+2. Add the **pageSelected** class to the list of HTML styles (perhaps after **.pageButton**). This class is there to identify the page the user is currently viewing (by turning the number bold) in the list of page numbers.
 
 ```cs
     .pageSelected {
@@ -227,9 +227,9 @@ The first and last page options do not send strings such as "first" and "last", 
         }
 ```
 
-Note that the **RunQueryAsync** method shows a syntax error, this is because of the third parameter which we will come to in a bit.
+Note that the **RunQueryAsync** method shows a syntax error, because of the third parameter, which we will come to in a bit.
 
-3. The **Index(model)** action needs to be updated to store the **leftMostPage** temporary variable and add the left-most page parameter to the **RunQueryAsync** call.
+3. The **Index(model)** action needs updated to store the **leftMostPage** temporary variable and add the left-most page parameter to the **RunQueryAsync** call.
 
 ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -259,7 +259,7 @@ Note that the **RunQueryAsync** method shows a syntax error, this is because of 
         }
 ```
 
-4. The **RunQueryAsync** method needs to be updated to calculate the page variables. To make things easy, replace the entire method with the following code.
+4. The **RunQueryAsync** method needs updated to calculate the page variables. To make things easy, replace the entire method with the following code.
 
 ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
@@ -367,9 +367,9 @@ Now save off this project and let's try an alternative to this form of paging.
 
 ## Extend your app with infinite scrolling
 
-Infinite scrolling is triggered when a user scrolls to the end of the results being displayed. In this event a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, these are appended to the current page and the scroll bar changes to show that more results are available.
+Infinite scrolling is triggered when a user scrolls to the end of the results being displayed. In this event, a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, these are appended to the current page and the scroll bar changes to show that more results are available.
 
-The important point here is that the page being displayed is not replaced, but appended to with the new results. A user can always scroll back up to the very first results of the search.
+The important point here is that the page being displayed is not replaced, but appended to with the new results. A user can always scroll back up to the first results of the search.
 
 To implement infinite scrolling, let's start with the project before adding any of the page number scrolling elements.
 
@@ -383,13 +383,13 @@ TBD
 
 ### Add a paging field to the model
 
-1. Add a **paging** field to the **SearchData** class (in the SearchData.cs) model file, perhaps just after the **pageCount** field.
+1. Add a **paging** field to the **SearchData** class (in the SearchData.cs) model file, perhaps after the **pageCount** field.
 
 ```cs 
  public string paging { get; set; }
 ```
 
-This variable is a string which will simply hold "next" if the next page of results should be sent, or be null for the first page of a search.
+This variable is a string, which holds "next" if the next page of results should be sent, or be null for the first page of a search.
 
 ### Add a vertical scroll bar to the view
 
@@ -430,13 +430,13 @@ This variable is a string which will simply hold "next" if the next page of resu
         </script>
 ```
 
-Note the call in the script above that tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will simply return the next page of data. This data is then formatted using identical styles as the original page. If no results are returned, nothing is appended and things stay as they are.
+Note the call in the script above that tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will return the next page of data. This data is then formatted using identical styles as the original page. If no results are returned, nothing is appended and things stay as they are.
 
-4. Delete the old page handling section that begins with **@if (Model != null && Model.pageCount &gt; 1)** and ends just before the end &lt;/body&gt; tag. No need for this with our infinite page system!
+4. Delete the old page handling section that begins with **@if (Model != null && Model.pageCount &gt; 1)** and ends just before the end &lt;/body&gt; tag. No need for paging buttons with our infinite page system!
 
 ### Handle the Next action
 
-There are only three actions that need to be sent to the controller: the first running of the app which calls **Index()**, the first search by the user which calls **Index(model)** and the calls for more results via **Next(model)**.
+There are only three actions that need to be sent to the controller: the first running of the app, which calls **Index()**, the first search by the user, which calls **Index(model)**, and then the calls for more results via **Next(model)**.
 
 1. Open the home controller file and delete the old actions **Next** and **Prev** and the **RunQueryAsync** method from the original tutorial.
 
@@ -558,7 +558,7 @@ using System.Collections.Generic;
 
 Now select **Start Without Debugging** (or press the F5 key).
 
-1. Enter a term that will give plenty of results (such as "wifi") and then test the vertical scroll bar. Does it trigger a new page of results? If the scroll bar is not scroll-able and there are more than one page worth of results, then it might just be that the scroll-able height is a bit too large for one page of entries. You want it slightly too small so that a scroll bar is available on the first page. In this case, consider reducing the height of the scroll-able area by a few pixels in the statement **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;** in the view file.
+1. Enter a term that will give plenty of results (such as "wifi") and then test the vertical scroll bar. Does it trigger a new page of results? If the scroll bar is not scroll-able and there are more than one page worth of results, then it might be that the scroll-able height is a bit too large for one page of entries. You want the display area to be slightly too small so that a scroll bar is available on the first page. In this case, consider reducing the height of the scroll-able area by a few pixels in the statement **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;** in the view file.
 
 > [!Tip]
 > To ensure that a scroll bar appears on the first page, the first page of results must slightly exceed the height of the area they are being displayed in. To calculate the size three results (our setting of results per page), multiply the size of each result by three. In our example **.box1** has a height of 30 pixels, **.box2** has a height of 100 pixels and a bottom margin of 24 pixels. So each entry uses 154 pixels. Three entries will take up 3 x 154 = 462 pixels. To ensure that a vertical scroll bar appears a height to the display area must be set that is smaller than 462 pixels, even 461 works. This issue only occurs on the first page, after that a scroll bar is sure to appear.
@@ -573,10 +573,10 @@ Good job on finishing this tutorial.
 
 You should consider the following takeaways from this project:
 
-* Numbered paging is perhaps the most robust for searches where the order of the results is somewhat arbitrary, meaning there may well be something of interest to your users on the later pages.
-* Infinite scrolling is perhaps most robust when the order of results is particularly important. For example, if the results are ordered on the distance from the center of a destination city.
+* Numbered paging is good for searches where the order of the results is somewhat arbitrary, meaning there may well be something of interest to your users on the later pages.
+* Infinite scrolling is good when the order of results is particularly important. For example, if the results are ordered on the distance from the center of a destination city.
 * Numbered paging allows for some better navigation, for example, a user can remember that an interesting result was on page 6, whereas no such easy navigation exists in infinite scrolling.
-* Infinite scrolling has an easy appeal, just scrolling up and down with no fussy page numbers to click on.
+* Infinite scrolling has an easy appeal, scrolling up and down with no fussy page numbers to click on.
 * A key feature of infinite scrolling is that you are appending to an existing page, not replacing that page. This keeps it efficient.
 
 

@@ -240,7 +240,7 @@ namespace FirstAzureSearch.Models
 }
 ```
 
-5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as "complex types", a new and important feature of Azure Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data systems to be searched than using "simple types" (a class containing only primitive members). We do need one more model, go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
+5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as _complex types_, a new and important feature of Azure Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data systems to be searched than using _simple types_ (a class containing only primitive members). We do need one more model, so go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
 
 ```cs
 using System.Collections;
