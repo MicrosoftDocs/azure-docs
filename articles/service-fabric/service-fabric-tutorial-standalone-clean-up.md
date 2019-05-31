@@ -19,19 +19,19 @@ ms.custom: mvc
 ---
 # Tutorial: Clean up your standalone cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and install an application into it.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS or Azure and install an application into it.
 
-This tutorial is part four of a series. This part of the tutorial shows you how to clean up the AWS resources that you created to host your Service Fabric cluster.
+This tutorial is part four of a series. This part of the tutorial shows you how to clean up the AWS or Azure resources that you created to host your Service Fabric cluster.
 
 In part four of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Clean up Service Fabric cluster
-> * Clean up your AWS resources
+> * Clean up your AWS or Azure resources
 
 ## Clean up Service Fabric cluster
 
-* RDP into the EC2 instance that you used to installed Service Fabric
+* RDP into the VM that you used to installed Service Fabric
 * Open PowerShell
 * Change the directory to the extracted folder from the second tutorial.
 * Run the following command to remove the Service Fabric cluster:
@@ -59,6 +59,13 @@ The cluster is successfully removed.
 * Go to the EC2 Console.
 * Select the three nodes that you created in part one of the tutorial.
 * Click on **Actions** > **Instance State** > **Terminate**
+
+## Clean up Azure resources
+
+* Log into the Azure Portal
+* Go to the **Virtual Machines** section.
+* Select check boxes for the three nodes that you created in part one of the tutorial.
+* Click on **Delete.**
 
 ## Next steps
 
