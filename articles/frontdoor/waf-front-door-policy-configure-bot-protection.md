@@ -28,7 +28,7 @@ Create a basic WAF policy for Front Door by following the instructions described
 ## Configure a WAF rule for bot protection
 
 1. In the basic policy page that you created in the preceding section, under **Settings**, click **Rules**.
-2. In the details page, under the Manage rules section, from the drop-down menu, select **BotProtection-preview-0.1**
+2. In the details page, under the **Manage rules** section, from the drop-down menu, select the check box in front of the rule **BotProtection-preview-0.1**, and then select **Enable** tab above.
     
 ![Bot protection rule](./media/waf-front-door-configure-bot-protection/botprotect.png)
 
