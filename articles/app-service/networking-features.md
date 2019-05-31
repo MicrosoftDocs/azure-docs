@@ -179,7 +179,7 @@ There are some things that are not yet possible from the multi-tenant service th
 * force TLS 1.1 across all of the apps hosted in the system without any abililty to disable at the app level 
 * provide a dedicated outbound address for all of the apps in your ASE that is not shared with any customers 
 
-![ASE in a VNet](media/networking-features/ase-in-vnet.png)
+![ASE in a VNet](media/networking-features/app-service-environment.png)
 
 The ASE provide the best story around isolated and dedicated app hosting but does come with some managemet challenges. Some things to consider before using an operational ASE are:
  
