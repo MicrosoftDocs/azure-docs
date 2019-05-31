@@ -14,7 +14,7 @@ ms.author: xurui
 
 ---
 
-# Quickstart: Create a dedicated Event Hubs cluster (preview) using Azure portal 
+# Quickstart: Create a dedicated Event Hubs cluster using Azure portal 
 Event Hubs clusters offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all features of the standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). For more information on Event Hubs dedicated clusters, see [Dedicated Event Hubs overview](event-hubs-dedicated-overview.md).
 
 Dedicated clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. To scale up a cluster, first create a cluster with one CU, then submit a [support ticket](#submit-a-support-request-for-your-dedicated-cluster). 
