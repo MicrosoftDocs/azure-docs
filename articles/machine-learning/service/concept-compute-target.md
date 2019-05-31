@@ -38,11 +38,13 @@ The following compute resources can be used to host your model deployment.
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 
-## <a name="amlcompute"></a> Managed compute
+## Managed compute
 
 A managed compute resource is created and managed by Azure Machine Learning service. This compute is optimized for machine learning workloads. Azure Machine Learning Compute is the only managed compute as of May 30, 2019. Additional managed compute resources may be added in the future.
 
-We recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run.
+### <a name="amlcompute"></a> Azure Machine Learning Compute
+
+We recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run.  Cluster management and job scheduling are done automatically.  This compute has support for both CPU and GPU resources. 
 
 You can create machine learning compute instances with any of the following:
 
