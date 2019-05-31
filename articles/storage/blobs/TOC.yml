@@ -61,7 +61,7 @@
           href: storage-blob-scalable-app-create-vm.md
         - name: 2 - Upload large data to an Azure storage account
           href: storage-blob-scalable-app-upload-files.md
-        - name: 3- Download large data from a Azure storage account
+        - name: 3- Download large data from an Azure storage account
           href: storage-blob-scalable-app-download-files.md
         - name: 4 - Verify throughput and latency metrics
           href: storage-blob-scalable-app-verify-metrics.md
@@ -275,6 +275,8 @@
       href: storage-blob-event-overview.md
     - name: Page blob features
       href: storage-blob-pageblob-overview.md
+    - name: Static websites
+      href: storage-blob-static-website.md
   - name: How to
     items:
     - name: Create and manage storage accounts
@@ -353,7 +355,7 @@
     - name: Set and retrieve properties and metadata
       href: storage-properties-metadata.md
     - name: Host a static website
-      href: storage-blob-static-website.md
+      href: storage-blob-static-website-how-to.md
     - name: Map Azure CDN to a custom domain for access over HTTPS
       href: storage-https-custom-domain-cdn.md
     - name: Configure a custom domain
