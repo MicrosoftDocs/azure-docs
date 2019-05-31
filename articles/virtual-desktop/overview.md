@@ -22,6 +22,10 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 * Virtualize both desktops and apps
 * Manage Windows 10, Windows Server, and Windows 7 desktops and apps with a unified management experience
 
+The following video is a brief overview of what else Windows Virtual Desktop can do for you:
+
+> [!VIDEO <https://www.youtube.com/watch?v=30dOLcZ4_9U>]
+
 ## Key capabilities
 
 With Windows Virtual Desktop, you can set up a scalable and flexible environment:
@@ -87,7 +91,6 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
-
 
 ## Supported virtual machine OS image
 
