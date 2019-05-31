@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in GitHub and Azure AD to automatically provision and de-provision user accounts from Azure AD to GitHub.
+The objective of this tutorial is to show you the steps you need to perform in GitHub and Azure AD to automatically provision and de-provision organization membership of user accounts from Azure AD to GitHub.
 
 ## Prerequisites
 
@@ -49,10 +49,10 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 ## Configuring user provisioning to GitHub
 
-This section guides you through connecting your Azure AD to GitHub's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in GitHub based on user and group assignment in Azure AD.
+This section guides you through connecting your Azure AD to GitHub's user account provisioning API, and configuring the provisioning service to invite existing GitHub Users, update provisioning information, and remove assigned users from your GitHub Organization based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for GitHub, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based Single Sign-On for GitHub, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### Configure automatic user account provisioning to GitHub in Azure AD
 
