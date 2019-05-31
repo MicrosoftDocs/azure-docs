@@ -1,5 +1,5 @@
 ---
-title: Memory and concurrency limits - Azure SQL Data Warehouse | Microsoft Docs
+title: Memory and concurrency limits in Azure SQL Data Warehouse | Microsoft Docs
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff

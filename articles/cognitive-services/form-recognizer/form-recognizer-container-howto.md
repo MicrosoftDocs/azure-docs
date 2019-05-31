@@ -280,6 +280,10 @@ The Form Recognizer containers send billing information to Azure, using a _Form 
 
 For more information about these options, see [Configure containers](form-recognizer-container-configuration.md).
 
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Form Recognizer containers. In summary:

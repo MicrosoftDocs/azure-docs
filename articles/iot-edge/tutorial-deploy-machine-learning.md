@@ -140,7 +140,7 @@ The following steps show you how to set up Visual Studio Code to monitor device-
 
 3. In the text box that opens at the top of the page, enter the iothubowner connection string for your IoT Hub. Your IoT Edge device should appear in the IoT Hub Devices list.
 
-4. Select **...** again then select **Start monitoring D2C message**.
+4. Select **...** again then select **Start Monitoring Built-in Event Endpoint**.
 
 5. Observe the messages coming from tempSensor every five seconds. The message body contains a property called **anomaly**, which the machinelearningmodule provides with a true or false value. The **AzureMLResponse** property contains the value "OK" if the model ran successfully.
 

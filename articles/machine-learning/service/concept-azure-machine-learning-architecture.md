@@ -34,6 +34,7 @@ The machine learning workflow generally follows this sequence:
 You perform these steps with any of the following:
 + [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
 +  The [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)
 
 > [!NOTE]

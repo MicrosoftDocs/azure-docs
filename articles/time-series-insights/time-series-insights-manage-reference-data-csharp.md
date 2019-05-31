@@ -4,7 +4,7 @@ description: This article describes how to manage reference data for an Azure Ti
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp

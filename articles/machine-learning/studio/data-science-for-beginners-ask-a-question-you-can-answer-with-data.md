@@ -43,7 +43,7 @@ We've talked about how data science is the process of using names (also called c
 
 A vague question doesn't have to be answered with a name or a number. A sharp question must.
 
-Imagine you found a magic lamp with a genie who will truthfully answer any question you ask. But it's a mischievous genie, and he'll try to make his answer as vague and confusing as he can get away with. You want to pin him down with a question so airtight that he can't help but tell you what you want to know.
+Imagine you found a magic lamp with a genie who will truthfully answer any question you ask. But it's a mischievous genie, who will try to make their answer as vague and confusing as they can get away with. You want to pin them down with a question so airtight that they can't help but tell you what you want to know.
 
 If you were to ask a vague question, like "What's going to happen with my stock?", the genie might answer, "The price will change". That's a truthful answer, but it's not very helpful.
 

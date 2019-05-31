@@ -58,7 +58,7 @@
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
   - name: Bing Entity Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference
   - name: SDKs
     items:
       - name: .NET
@@ -93,3 +93,5 @@
     href: entity-search-endpoint.md
   - name: Analytics for Bing Entity Search API
     href: bing-entity-stats.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

@@ -5,7 +5,7 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 04/25/2019
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
 

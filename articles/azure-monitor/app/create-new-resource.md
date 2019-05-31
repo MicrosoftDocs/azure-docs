@@ -65,7 +65,6 @@ If you're expecting more data, click **Refresh** after a few seconds  .
 You can write a [PowerShell script](../../azure-monitor/app/powershell.md) to create a resource automatically.
 
 ## Next steps
-* [Create a dashboard](../../azure-monitor/app/app-insights-dashboards.md)
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
 * [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
 * [Write Analytics queries](../../azure-monitor/app/analytics.md)
