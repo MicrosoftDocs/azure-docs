@@ -72,7 +72,15 @@ To run the script:
 1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
    ```azurepowershell
-   AzureAppGwMigration.ps1 -resourceId <v1 application gateway Resource ID> -subnetAddressRange <subnet space you want to use> -appgwName <string to use to append> -sslCertificates <comma-separated SSLCert objects as above> -trustedRootCertificates <comma-separated Trusted Root Cert objects as above> -privateIpAddress <private IP string> -publicIpResourceName <public IP name string> -validateMigration -enableAutoScale
+   AzureAppGwMigration.ps1 `
+    -resourceId <v1 application gateway Resource ID> `
+    -subnetAddressRange <subnet space you want to use> `
+    -appgwName <string to use to append> `
+    -sslCertificates <comma-separated SSLCert objects as above> `
+    -trustedRootCertificates <comma-separated Trusted Root Cert objects as above> `
+    -privateIpAddress <private IP string> `
+    -publicIpResourceName <public IP name string> `
+    -validateMigration -enableAutoScale
    ```
 
    Parameters for the script:
