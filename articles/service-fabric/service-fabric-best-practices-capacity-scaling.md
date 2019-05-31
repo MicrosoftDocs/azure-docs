@@ -50,7 +50,7 @@ Using automatic scaling through virtual machine scale sets will make your versio
 > [!NOTE]
 > Your primary node type that hosts stateful Service Fabric system services must be Silver durability level or greater. After you enable Silver durability, cluster operations such as upgrades, adding or removing of nodes, and so on will be slower because the system optimizes for data safety over speed of operations.
 
-Vertical scaling a virtual machine scale set is a destructive operation. Instead, horizontally scale your cluster by adding a new scale set with the desired SKU. Then, migrate your services to your desired SKU to complete a safe vertical scaling operation. Changing a virtual machine scale set resource SKU is a destructive operation because it re-images your hosts, which removes all locally persisted state.
+Vertical scaling a virtual machine scale set is a destructive operation. Instead, horizontally scale your cluster by adding a new scale set with the desired SKU. Then, migrate your services to your desired SKU to complete a safe vertical scaling operation. Changing a virtual machine scale set resource SKU is a destructive operation because it reimages your hosts, which removes all locally persisted state.
 
 Your cluster uses Service Fabric [node properties and placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) to decide where to host your application's services. When you're vertically scaling your primary node type, declare identical property values for `"nodeTypeRef"`. You can find these values in the Service Fabric extension for virtual machine scale sets. 
 
@@ -81,7 +81,7 @@ You can provision a new virtual machine scale set with managed disks, and perfor
 
 Back-end pool endpoints for the [Azure Load Balancer Basic SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) can be virtual machines in a single availability set or a virtual machine scale set. This means you can't use a Basic SKU load balancer if you move your Service Fabric systems application between scale sets, without causing temporary inaccessibility of your Service Fabric cluster management endpoint. This is true even though the cluster and its application are still running.
 
-Users commonly provision a Standard SKU load balancer when performing a virtual IP address (VIP) swap between Basic SKU load balancer and Standard SKU load balancer resources. This technique limits any future inaccessiblility to about 30 seconds required for VIP swapping.
+Users commonly provision a Standard SKU load balancer when performing a virtual IP address (VIP) swap between Basic SKU load balancer and Standard SKU load balancer resources. This technique limits any future inaccessibility to about 30 seconds required for VIP swapping.
 
 ## Horizontal scaling
 
