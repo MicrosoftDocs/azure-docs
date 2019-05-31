@@ -20,7 +20,7 @@ ms.author: pepogors
 
 Before you create any Azure Service Fabric cluster or scale compute resources that host your cluster, it's important to plan for capacity. For more information about planning for capacity, see [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). For further best-practice guidance for cluster scalability, see [Service Fabric scalability considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
-In addition to considering node type and cluster characteristics, you should plan for scaling operations to take longer than an hour to complete for a production environment. This consideration is true regardless of the number of VMs you're adding.
+In addition to considering node type and cluster characteristics, you should expect scaling operations to take longer than an hour to complete for a production environment. This consideration is true regardless of the number of VMs you're adding.
 
 ## Autoscaling
 You should perform scaling operations via Azure Resource Manager templates, because it's the best practice to treat [resource configurations as code]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
@@ -32,7 +32,7 @@ Using automatic scaling through virtual machine scale sets will make your versio
    In addition to manual scaling, you can configure a [Continuous integration and delivery pipeline in Azure DevOps Services by using Azure resource group deployment projects](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). This pipeline is commonly triggered by a logic app that uses virtual machine performance metrics queried from the [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). The pipeline effectively autoscales based on whatever metrics you want, while optimizing for Resource Manager templates.
 * You need to horizontally scale only one virtual machine scale set node at a time.
    
-   To scale out by three or more nodes at a time, you should [scale out a Service Fabric cluster by adding a virtual machine scale set](https://docs.microsoft.com/azure service-fabric/virtual-machine-scale-set-scale-node-type-scale-out). It's safest to scale in and out virtual machine scale sets horizontally, one node at a time.
+   To scale out by three or more nodes at a time, you should [scale out a Service Fabric cluster by adding a virtual machine scale set](virtual-machine-scale-set-scale-node-type-scale-out.md). It's safest to scale in and scale out virtual machine scale sets horizontally, one node at a time.
 * You have Silver reliability or higher for your Service Fabric cluster, and Silver durability or higher on any scale where you configure autoscaling rules.
   
    The minimum capacity for autoscaling rules must be equal to or greater than five virtual machine instances. It must also be equal to or greater than your Reliability Tier minimum for your primary node type.
@@ -75,9 +75,7 @@ With the node properties and placement constraints declared, do the following st
 4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. See [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) for a list of recommended instances.
 
 ### Example scenario
-A supported scenario for when to perform a vertical scaling operation is: 
-
-I can migrate my Service Fabric cluster and application from an unmanaged disk to managed disks without application downtime. 
+A supported scenario for when to perform a vertical scaling operation is: you want to migrate your Service Fabric cluster and application from an unmanaged disk to managed disks without application downtime. 
 
 You can provision a new virtual machine scale set with managed disks, and perform an application upgrade with placement constraints that target provisioned capacity. Your Service Fabric cluster can then schedule your workload on provisioned cluster node capacity that's rolled out by upgrade domain without application downtime. 
 
@@ -153,7 +151,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Deactivate and remove the node by using the same `FabricClient` instance (`client` in this case) and node instance name (`instanceIdString` in this case) that you used in the previous code:
+Deactivate and remove the node by using the same `FabricClient` instance (`client` in this case) and node instance (`instanceIdString` in this case) that you used in the previous code:
 
 ```c#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
