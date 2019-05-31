@@ -440,7 +440,12 @@ Image
 
 5. Running the app should now display all hotels in alphabetical order. 
  
-A more realistic alternative to a distance ordering display would be descending order of hotel rating. This would require returning the rating in the **Select** set of fields, then storing it in the **SearchData** class and adding the rating to the description for display in the view. Perhaps a distance ordering could be the second criteria so the nearest hotel of any rating appears before others of the same rating but that are further away. No need to do this now, but something to consider when deciding on the display order.
+A more realistic alternative to a distance ordering display would be descending order of hotel rating. In addition to specifying **Rating** in the **OrderBy** call, this would require returning the rating in the **Select** set of fields, then storing the value in the **SearchData** class and adding this value to the description for display in the view. Perhaps a distance ordering could be the second criteria so the nearest hotel of any rating appears before others of the same rating but that are further away. No need to do this now, but something to consider if you want to take ordering further. The search parameters would change to the following.
+
+```cs
+     Select = new[] { "HotelName", "Description", "Tags", "Rooms", "Location", "Rating" },
+     OrderBy = new[] { "Rating desc", $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
+```
 
 ## Takeaways
 
