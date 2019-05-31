@@ -4,7 +4,7 @@ description: Describes how consumers of Azure Managed Applications approve reque
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ---
 # Approve just-in-time access for Azure Managed Applications
@@ -94,7 +94,7 @@ To approve requests through Azure AD Privileged Identity Management:
 
    ![Search for service](./media/approve-just-in-time-access/search.png)
 
-1. Select **Approve Request**.
+1. Select **Approve requests**.
 
    ![Select approve requests](./media/approve-just-in-time-access/select-approve-requests.png)
 
