@@ -13,7 +13,7 @@ manager: carmonm
 With Azure Blueprints [resource locks](../concepts/resource-locking.md), you can protect newly
 deployed resources from being tampered with, even by an account with the _Owner_ role. You can add this
 protection in the
-blueprint definition of resources created by a Resource Manager template artifact.
+blueprint definitions of resources created by a Resource Manager template artifact.
 
 In this tutorial, you'll complete these steps:
 
@@ -35,7 +35,7 @@ First, create the blueprint definition.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. From the **Getting started** page on the left, select **Create** under **Create a
+1. On the **Getting started** page on the left, select **Create** under **Create a
    blueprint**.
 
 1. Find the **Blank Blueprint** blueprint sample at the top of the page. Select **Start with
@@ -53,15 +53,21 @@ First, create the blueprint definition.
 1. Select the **Artifacts** tab at the top of the page, or select **Next: Artifacts** at the bottom of the
    page.
 
-1. Add a resource group at the subscription level: Select the **Add artifact** row under **Subscription**.
-   Select **Resource Group** under **Artifact type**. Set the **Artifact display name** to **RGtoLock**.
-   Leave the **Resource Group Name** and **Location** boxes blank, but make sure the check box is
-   selected on each property to make them **dynamic parameters**. Select **Add** to add the artifact
+1. Add a resource group at the subscription level:
+   1. Select the **Add artifact** row under **Subscription**.
+   1. Select **Resource Group** under **Artifact type**.
+   1. Set the **Artifact display name** to **RGtoLock**.
+   1. Leave the **Resource Group Name** and **Location** boxes blank, but make sure the check box is
+   selected on each property to make them **dynamic parameters**.
+   1. Select **Add** to add the artifact
    to the blueprint.
 
-1. Add a template under the resource group: Select the **Add artifact** row under the **RGtoLock**
-   entry. Select **Azure Resource Manager template** under **Artifact type**, set **Artifact display name**
-   to **StorageAccount**, and leave **Description** blank. On the **Template** tab, paste the following Resource Manager template into the editor box. After you paste in the template, select **Add** to add
+1. Add a template under the resource group:
+   1. Select the **Add artifact** row under the **RGtoLock**
+   entry. 
+   1. Select **Azure Resource Manager template** under **Artifact type**, set **Artifact display name**
+   to **StorageAccount**, and leave **Description** blank. 
+   1. On the **Template** tab, paste the following Resource Manager template into the editor box. After you paste in the template, select **Add** to add
    the artifact to the blueprint.
 
    ```json
@@ -128,7 +134,7 @@ and must be published before it can be assigned and deployed.
    **Change notes**, such as **First version published for locking blueprint deployed resources**. Then
    select **Publish** at the bottom of the page.
 
-This step makes it possible to assign the blueprint to a subscription. After the blueprint definition is published, you can still make changes. If you make changes, you need to publish the definition with a new **Version** value to track
+This step makes it possible to assign the blueprint to a subscription. After the blueprint definition is published, you can still make changes. If you make changes, you need to publish the definition with a new version value to track
 differences between versions of the same blueprint definition.
 
 After the **Publishing blueprint definition succeeded** portal notification appears, go to the next
@@ -185,9 +191,9 @@ to make each deployment of the blueprint definition unique.
      |RGtoLock resource group|Resource group|Location|West US 2|Defines the location of the new resource group to apply blueprint locks to.|
      |StorageAccount|Resource Manager template|storageAccountType (StorageAccount)|Standard_GRS|The storage SKU. The default value is _Standard_LRS_.|
 
-1. After you have entered all parameters, select **Assign** at the bottom of the page.
+1. After you've entered all parameters, select **Assign** at the bottom of the page.
 
-   This step deploys the defined resources and configures the selected **Lock Assignment**. It can take up to 30 minutes to apply Blueprint
+This step deploys the defined resources and configures the selected **Lock Assignment**. It can take up to 30 minutes to apply Blueprint
 locks.
 
 After the **Assigning blueprint definition succeeded** portal notification appears, go to the next
@@ -206,7 +212,7 @@ on the assignment details page.
 
    From this page, we can see that the assignment succeeded and that the resources were deployed with the new
    blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down shows
-   details about the deployment of each definition version. You can select resource group to
+   details about the deployment of each definition version. You can select the resource group to
    open the property page.
 
 1. Select the **TestingBPLocks** resource group.
@@ -214,7 +220,7 @@ on the assignment details page.
 1. Select the **Access control (IAM)** page on the left. Then select the **Role assignments** tab.
 
    Here we see that the _assignment-locked-storageaccount-TestingBPLocks_ blueprint assignment has
-   the _Owner_ role. It has this role because it was used to deploy and lock the resource group.
+   the _Owner_ role. It has this role because this role was used to deploy and lock the resource group.
 
 1. Select the **Deny assignments** tab.
 
@@ -240,7 +246,7 @@ on the assignment details page.
    blueprint assignment. The blueprint lock prevents an account with permission, even _Owner_, from
    deleting the resource. For more information, see [blueprints resource locking](../concepts/resource-locking.md).
 
-These steps show that our deployed resources are now protected with blueprint locks that prevented
+These steps show that our deployed resources are now protected with blueprint locks that prevent
 unwanted deletion, even from an account that has permission to delete the resources.
 
 ## Unassign the blueprint
@@ -261,7 +267,7 @@ doesn't remove the associated artifacts.
 
 1. Select **Resource groups** from the Azure menu, and then select **TestingBPLocks**.
 
-1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
+1. Select the **Access control (IAM)** page on the left and then select the **Role assignments** tab.
 
 The security for the resource group shows that the blueprint assignment no longer has _Owner_
 access.
