@@ -99,7 +99,7 @@ Name | Purpose
 
 The Always match condition applies a default set of features to all requests.
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -126,7 +126,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -146,7 +146,7 @@ Key information:
 - The content access point identifies the service that should serve the requested content.
 - Don't use an AND IF statement to combine certain match conditions. For example, combining a CDN Origin match condition with a Customer Origin match condition would create a match pattern that could never be matched. For this reason, two CDN Origin match conditions cannot be combined through an AND IF statement.
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -175,7 +175,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -198,7 +198,7 @@ Key information:
   - Cookie name comparisons are case-insensitive.
 - Cookie value:
   - Specify multiple cookie values by delimiting each one with a single space.
-  - A cookie value can take advantage of [wildcard values](cdn-rules-engine-reference.md#wildcard-values). 
+  - A cookie value can take advantage of [wildcard values](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
   - If a wildcard value has not been specified, then only an exact match will satisfy this match condition. For example, specifying "Value" will match "Value," but not "Value1" or "Value2."
   - Use the **Ignore Case** option to control whether a case-sensitive comparison is made against the request's cookie value.
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
@@ -208,15 +208,14 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
-
+[Back to top](#reference-for-rules-engine-match-conditions)
 </br>
 
 ---
 
 ### Cookie Parameter Regex
 
-The Cookie Parameter Regex match condition defines a cookie name and value. You can use [regular expressions](cdn-rules-engine-reference.md#regular-expressions) to define the desired cookie value.
+The Cookie Parameter Regex match condition defines a cookie name and value. You can use [regular expressions](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) to define the desired cookie value.
 
 The **Matches**/**Does Not Match** option determines the conditions under which the Cookie Parameter Regex match condition is met.
 
@@ -241,7 +240,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -283,7 +282,7 @@ This match condition allows you to perform a multitude of customizations based o
 
 - Deny Access (403) Feature: Enable the [Deny Access (403) feature](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) to replicate the allow or block portion of the Country Filtering feature.
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -299,7 +298,7 @@ Key information:
   - An edge CNAME configuration
 - Don't use an AND IF statement to combine certain match conditions. For example, combining a Customer Origin match condition with a CDN Origin match condition would create a match pattern that could never be matched. For this reason, two Customer Origin match conditions cannot be combined through an AND IF statement.
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -330,9 +329,9 @@ A WURFL capability typically accepts any combination of numbers, letters, and sy
 
 Type     | Description
 ---------|------------
-Literal  | Select this option to prevent most characters from taking on special meaning by using their [literal value](cdn-rules-engine-reference.md#literal-values).
-Wildcard | Select this option to take advantage of all [wildcard characters]([wildcard values](cdn-rules-engine-reference.md#wildcard-values).
-Regex    | Select this option to use [regular expressions](cdn-rules-engine-reference.md#regular-expressions). Regular expressions are useful for defining a pattern of characters.
+Literal  | Select this option to prevent most characters from taking on special meaning by using their [literal value](cdn-verizon-premium-rules-engine-reference.md#literal-values).
+Wildcard | Select this option to take advantage of all [wildcard characters]([wildcard values](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
+Regex    | Select this option to use [regular expressions](cdn-verizon-premium-rules-engine-reference.md#regular-expressions). Regular expressions are useful for defining a pattern of characters.
 
 #### WURFL capabilities
 
@@ -341,7 +340,7 @@ A WURFL capability refers to a category that describes mobile devices. The selec
 The following table lists WURFL capabilities and their variables for the rules engine.
 
 > [!NOTE]
-> The follwing variables are supported in the **Modify Client Request Header** and **Modify Client Response Header** features.
+> The following variables are supported in the **Modify Client Request Header** and **Modify Client Response Header** features.
 
 Capability | Variable | Description | Sample values
 -----------|----------|-------------|----------------
@@ -366,7 +365,7 @@ Release Date | %{wurfl_cap_release_date} | A string that indicates the year and 
 Resolution Height | %{wurfl_cap_resolution_height} | An integer that indicates the device's height in pixels. | 768
 Resolution Width | %{wurfl_cap_resolution_width} | An integer that indicates the device's width in pixels. | 1024
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -386,7 +385,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -414,7 +413,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -439,7 +438,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -449,7 +448,7 @@ Key information:
 
 The **Matches**/**Does Not Match** option determines the conditions under which the Request Header Regex match condition is met.
 
-- **Matches**: Requires the request to contain the specified header. Its value must match the pattern that's defined in the specified [regular expression](cdn-rules-engine-reference.md#regular-expressions).
+- **Matches**: Requires the request to contain the specified header. Its value must match the pattern that's defined in the specified [regular expression](cdn-verizon-premium-rules-engine-reference.md#regular-expressions).
 - **Does Not Match**: Requires that the request meets either of the following criteria:
   - It does not contain the specified header.
   - It contains the specified header, but its value does not match the specified regular expression.
@@ -470,7 +469,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -502,7 +501,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -531,7 +530,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -553,7 +552,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -611,7 +610,7 @@ Key information:
 
 - Use the **Ignore Case** option to control whether a case-sensitive comparison is performed.
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -654,7 +653,7 @@ This match condition is met when it finds URLs that end with the following exten
 - .php
 - .html
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -685,7 +684,7 @@ Key information:
 
     For example, specifying "presentation.ppt" matches an asset named "presentation.ppt," but not one named "presentation.pptx."
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -734,7 +733,7 @@ For example, both of the following URLs point to the same asset and therefore ha
 
 - To match all requests made to a particular directory, use the [URL Path Directory](#url-path-directory) or the [URL Path Wildcard](#url-path-wildcard) match condition.
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -769,7 +768,7 @@ Key information:
     
 - Spaces in the URL path should be replaced with "%20."
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -835,7 +834,7 @@ Value                   | Relative to    | Result
 *.jpg *.gif *.png       | Root or Origin | This pattern is matched by all CDN or edge CNAME URLs ending with .jpg, .gif, or .png. An alternative way to specify this pattern is with the [URL Path Extension match condition](#url-path-extension).
 /images/* /media/*      | Origin         | This pattern is matched by CDN or edge CNAME URLs whose relative path starts with an "images" or "media" folder. <br />- CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -872,7 +871,7 @@ Key information:
    - Ignore Origin No-Cache
    - Internal Max-Stale
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -957,7 +956,7 @@ User  | Joe   | This pattern is matched when the query string for a requested UR
 User  | *     | This pattern is matched when the query string for a requested URL contains a User parameter.
 Email | Joe\* | This pattern is matched when the query string for a requested URL contains an Email parameter that starts with "Joe."
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -1005,8 +1004,7 @@ Key information:
    - Ignore Origin No-Cache
    - Internal Max-Stale
 
-
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -1057,7 +1055,7 @@ The following example demonstrates how this option works in specific situations:
 user=joe              | This pattern is matched when the query string for a requested URL is "?user=joe."
 \*user=\* \*optout=\* | This pattern is matched when the CDN URL query contains either the user or optout parameter.
 
-[Back to top](#match-conditions-for-the-azure-cdn-from-verizon-premium-rules-engine)
+[Back to top](#reference-for-rules-engine-match-conditions)
 
 </br>
 
