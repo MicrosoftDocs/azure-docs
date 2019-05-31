@@ -141,7 +141,7 @@ In this section, a user called Britta Simon is created in OutSystems. OutSystems
 
 When you select the OutSystems Azure AD tile in the Access Panel, you should be automatically signed in to the OutSystems Azure AD for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
