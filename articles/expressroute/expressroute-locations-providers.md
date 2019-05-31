@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
-ms.author: mialdrid
+ms.date: 05/30/2019
+ms.author: jaredr80
 ---
 # ExpressRoute partners and peering locations
 
@@ -81,7 +81,7 @@ The following table shows connectivity locations and the service providers for e
 | **Chennai** | Tata Communications | South India | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | South India | Airtel |
 | **Chicago** | Equinix | North Central US | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
-| **Dallas** | Equinix | n/a | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Verizon, Zayo|
+| **Dallas** | Equinix | n/a | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | West Central US | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat UAE | UAE North | Etisalat UAE |
 | **Dubai2** | du datamena | UAE North | du datamena |
@@ -101,7 +101,7 @@ The following table shows connectivity locations and the service providers for e
 | **Mumbai** | Tata Communications | West India | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | West India | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | n/a | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
-| **Newport(Wales)** | Next Generation Data | UK West | British Telecom, Level 3 Communications, Next Generation Data |
+| **Newport(Wales)** | Next Generation Data | UK West | British Telecom, Colt, Level 3 Communications, Next Generation Data |
 | **Osaka** | Equinix | Japan West | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** | Interxion | France Central | Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | n/a | Megaport, NextDC |

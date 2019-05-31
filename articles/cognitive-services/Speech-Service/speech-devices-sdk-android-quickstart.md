@@ -80,7 +80,7 @@ To validate your development kit setup, build and install the sample application
 
 1. Add your speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
 
-   For speech and LUIS your information goes into MainActivity.java:
+   For speech and LUIS, your information goes into MainActivity.java:
 
    ```java
     // Subscription
@@ -91,7 +91,7 @@ To validate your development kit setup, build and install the sample application
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    If you are using conversation transcription your speech key and region information are also needed in conversation.java:
+    If you are using conversation transcription, your speech key and region information are also needed in conversation.java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -141,7 +141,7 @@ To validate your development kit setup, build and install the sample application
 
    ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
 
-1. Newly added is the Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest, however if you have participant’s voice signatures they can be put into a file /video/participants.properties on the device. To generate the voice signature look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Try the new Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `/video/participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Demo Conversation Transcription application](media/speech-devices-sdk/qsg-15.png)
 
