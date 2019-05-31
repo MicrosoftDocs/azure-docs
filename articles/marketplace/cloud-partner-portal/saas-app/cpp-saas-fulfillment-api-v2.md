@@ -352,6 +352,7 @@ Internal Server Error<br>
 
 |                    |                   |
 |  ---------------   |  ---------------  |
+|  Content-Type      | `application/json`  |
 |  ApiVersion        |  Version of the operation to use for this request  |
 | subscriptionId     | Unique identifier of the SaaS subscription that's obtained after resolving the token using the Resolve API  |
 
