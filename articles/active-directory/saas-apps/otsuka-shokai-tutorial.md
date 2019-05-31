@@ -168,7 +168,7 @@ In this section, you create a user called Britta Simon in Otsuka Shokai. Work wi
 
 When you select the Otsuka Shokai tile in the Access Panel, you should be automatically signed in to the Otsuka Shokai for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
