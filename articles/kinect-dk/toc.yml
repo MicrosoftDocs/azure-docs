@@ -10,6 +10,8 @@
     href: record-sensor-streams-file.md
   - name: Build your first application
     href: setup.md
+  - name: Set up Body Tracking SDK
+    href: body-sdk-setup.md
 - name: Concepts
   items:
    - name: Depth camera
