@@ -93,7 +93,7 @@ The following compute targets, or compute resources, can be used to host your we
 | [Local web service](#local) | Testing/debug | Good for limited testing and troubleshooting.
 | [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
 | [Azure Container Instances (ACI)](#aci) | Testing | Good for low scale, CPU-based workloads. |
-| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
+| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | Batch inference | Run batch inference on serverless compute. Supports normal and low-priority VMs. |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
 
 
@@ -392,7 +392,7 @@ print(response.json())
 For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
 
 
-### <a id="azuremlcompute"></a> Batch consumption
+### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
 
 For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) article.
