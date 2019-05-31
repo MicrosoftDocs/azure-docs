@@ -4889,7 +4889,7 @@
       "source_path": "articles/azure-functions/functions-bindings-external-file.md",
       "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-functions/functions-create-vnet-old.md",
       "redirect_url": "/azure/azure-functions/functions-create-vnet",
@@ -13769,12 +13769,12 @@
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-portal.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-powershell.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
@@ -27685,7 +27685,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-data-warehouse/release-notes.md", 
+      "source_path": "articles/sql-data-warehouse/release-notes.md",
       "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
     },
@@ -36472,7 +36472,7 @@
       "source_path": "articles/cognitive-services/personalizer/personalizer-container-howto.md",
       "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-reference-prebuilt-keyphrase",
@@ -39559,9 +39559,69 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-detect.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-dictionary.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-languages.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-sentences.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-translate.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-transliterate.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-detect.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-dictionary.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-languages.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-sentences.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-translate.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-transliterate.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-upgrade-backup-to-recovery-services.md",
       "redirect_url": "/azure/backup/backup-create-rs-vault",
       "redirect_document_id": true
-    }   
+    }
   ]
 }
