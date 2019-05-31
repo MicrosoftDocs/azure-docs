@@ -105,7 +105,6 @@ The resolve endpoint enables the publisher to resolve a marketplace token to a p
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
 |  x-ms-requestid    |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers.  |
 |  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
@@ -784,15 +783,16 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
 }
 ```
 
@@ -802,7 +802,15 @@ Where action can be one of these:
 - `ChangePlan` (When the change plan operation has completed)
 - `ChangeQuantity` (When the change quantity operation has completed)
 - `Suspend` (When the resource has been suspended)
-- `Reinstate` (When resource has been reinstated after suspension)
+    - `Reinstate` (When resource has been reinstated after suspension)
+    - `Renew` (When a resource subscription is renewed)
+
+Where status can be one of these:
+        NotStarted,
+        InProgress,
+        Succeeded,
+        Failed,
+        Conflict
 
 
 ## Mock API
