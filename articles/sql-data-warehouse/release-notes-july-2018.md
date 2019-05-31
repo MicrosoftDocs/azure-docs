@@ -2,14 +2,14 @@
 title: Azure SQL Data Warehouse Release Notes July 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 08/06/2018
-ms.author: twounder
-ms.reviewer: twounder
+ms.author: anjangsh
+ms.reviewer: jrasnick
 ---
 
 # What's new in Azure SQL Data Warehouse? July 2018

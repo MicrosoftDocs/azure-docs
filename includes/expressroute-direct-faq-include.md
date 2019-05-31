@@ -38,6 +38,7 @@ The available ports will be dynamic and will be available by PowerShell to view 
 * Seoul
 * Silicon Valley
 * Singapore 
+* Sydney
 
 ### What is the SLA for ExpressRoute Direct?
 

@@ -10,7 +10,6 @@ ms.date: 11/05/2018
 ms.author: seanmck
 ---
 
-
 # Checking for Kubernetes best practices in your cluster
 
 There are several best practices that you should follow on your Kubernetes deployments to ensure the best performance and resilience for your applications. You can use the kube-advisor tool to look for deployments that aren't following those suggestions.
@@ -18,6 +17,8 @@ There are several best practices that you should follow on your Kubernetes deplo
 ## About kube-advisor
 
 The [kube-advisor tool][kube-advisor-github] is a single container designed to be run on your cluster. It queries the Kubernetes API server for information about your deployments and returns a set of suggested improvements.
+
+The kube-advisor tool can report on resource request and limits missing in PodSpecs for Windows applications as well as Linux applications, but the kube-advisor tool itself must be scheduled on a Linux pod. You can schedule a pod to run on a node pool with a specific OS using a [node selector][k8s-node-selector] in the pod's configuration.
 
 > [!NOTE]
 > The kube-advisor tool is supported by Microsoft on a best-effort basis. Issues and suggestions should be filed on GitHub.
@@ -70,3 +71,4 @@ If you are running the tool against a cluster that is not RBAC-enabled, no clean
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

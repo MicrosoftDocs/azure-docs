@@ -289,7 +289,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Apache Ambari web UI
@@ -423,7 +423,7 @@
     items:
     - name: HDInsight virtual network architecture
       href: ../hdinsight-virtual-network-architecture.md
-    - name: HDInsight restrict outbound traffic
+    - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md

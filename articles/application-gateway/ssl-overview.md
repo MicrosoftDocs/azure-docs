@@ -44,6 +44,9 @@ Application gateway supports the following types of certificates:
 
 For more information, see [configure SSL termination with application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
+### Size of the certificate
+Check the [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) section to know the maximum SSL certificate size supported.
+
 ## End to end SSL encryption
 
 Some customers may not desire unencrypted communication to the backend servers. This could be due to security requirements, compliance requirements, or the application may only accept a secure connection. For such applications, application gateway supports end to end SSL encryption.

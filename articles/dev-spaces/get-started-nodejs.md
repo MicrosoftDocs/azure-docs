@@ -6,7 +6,7 @@ ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/26/2018
-ms.topic: "tutorial"
+ms.topic: tutorial
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
@@ -49,7 +49,7 @@ az account set --subscription <subscription ID>
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-At the command prompt, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -58,7 +58,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -266,3 +266,5 @@ In this configuration, the container is configured to start *nodemon*. When serv
 > [!div class="nextstepaction"]
 > [Learn about multi-service development](multi-service-nodejs.md)
 
+
+[supported-regions]: about.md#supported-regions-and-configurations

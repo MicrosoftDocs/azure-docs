@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Protect App Service with Azure Security Center
