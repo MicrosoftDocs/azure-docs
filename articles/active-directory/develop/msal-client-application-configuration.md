@@ -106,7 +106,7 @@ If you're a public client app developer who's using MSAL:
 
 - You do need to configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
 
-![Redirect URI in App registrations](media/msal-client-application-configuration/redirect-uri.png)
+   ![Redirect URI in App registrations](media/msal-client-application-configuration/redirect-uri.png)
 
 You can override the redirect URI by using the `RedirectUri` property (for example, if you use brokers). Here are some examples of redirect URIs for that scenario:
 
