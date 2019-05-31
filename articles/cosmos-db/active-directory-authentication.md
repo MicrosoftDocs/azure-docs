@@ -1,18 +1,18 @@
 ---
-title: 
-description: This article describes
-author: 
+title: Certificate-based authentication with Azure Cosmos DB
+description: Learn how to configure an app for certificate-based authentication to access keys from Azure Cosmos DB.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/319/2019
-ms.author: 
+ms.author: sngun
 ms.reviewer: sngun
 
 ---
 
-# Certificate based authentication with Azure Cosmos DB
+# Certificate-based authentication with Azure Cosmos DB
 
-Certificate-based authentication enables your client application to be authenticated by using Azure Active Directory with a client certificate on a Windows, Android, or an iOS device. Your application can than read Azure Cosmo DB keys without having the keys directly in the application. This article describes a how to create a sample Azure Active Directory application, configure it for certificate based authentication, sign into Azure using the new application identity, and then it retrieves the keys from your Azure Cosmos account. This article uses Azure PowerShell to achieve the scenario, you can also do the same steps in C# code as well.
+Certificate-based authentication enables your client application to be authenticated by using Azure Active Directory with a client certificate on a Windows, Android, or an iOS device. Your application can then read Azure Cosmo DB keys without having the keys directly in the application. This article describes how to create a sample Azure Active Directory application, configure it for certificate-based authentication, sign into Azure using the new application identity, and then it retrieves the keys from your Azure Cosmos account. This article uses Azure PowerShell to achieve the scenario, you can also do the same steps in C# code as well.
 
 ## Prerequisites:
 
@@ -22,11 +22,11 @@ Certificate-based authentication enables your client application to be authentic
 
 ## Register an app in Azure Active Directory
 
-In this step you will register a sample web application in your Azure Active Directory account. This application is later used to read the keys from your Azure Cosmos account. Use the following steps to register an application: 
+In this step, you will register a sample web application in your Azure Active Directory account. This application is later used to read the keys from your Azure Cosmos account. Use the following steps to register an application: 
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-1. Open the Azure **Active Directory** pane, go to **App registrations** blade and select **New registration**. 
+1. Open the Azure **Active Directory** pane, go to App registrations pane, and select **New registration**. 
 
    ![New application registration in Active Directory](./media/active-directory-authentication/new-app-registration.png)
 
@@ -46,7 +46,7 @@ In this step you will register a sample web application in your Azure Active Dir
 
 ## Install the AzureAD module
 
-In this step you will install the Azure Active Directory PowerShell module. This module is required to get the ID of the application you registered in the previous step and associate a self-signed certificate to that application. 
+In this step, you will install the Azure Active Directory PowerShell module. This module is required to get the ID of the application you registered in the previous step and associate a self-signed certificate to that application. 
 
 1. Open Windows PowerShell ISE with administrator rights. If you haven’t already done, install the AZ PowerShell module and connect to your subscription. If you have multiple subscriptions, you can set the context of current subscription as shown in the following commands:
 
@@ -86,7 +86,7 @@ $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
 ## Create the certificate-based credential 
 
-Next run the following commands to get the object ID of your application and create the certificate-based credential. In this example we set the certificate to expire after an  year, you can set it to any required end date.
+Next run the following commands to get the object ID of your application and create the certificate-based credential. In this example, we set the certificate to expire after a year, you can set it to any required end date.
 
 ```powershell
 $application = Get-AzureADApplication -ObjectId <Object_ID_of_Your_Application>
@@ -96,7 +96,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 The above command results in the output similar to the screenshot below:
 
-![Certificate based credential creation output](./media/active-directory-authentication/certificate-based-credential-output.png)
+![Certificate-based credential creation output](./media/active-directory-authentication/certificate-based-credential-output.png)
 
 ## Configure your Azure Cosmos account to use the new identity
 
@@ -128,7 +128,7 @@ The previous command will display the primary and secondary master keys of your 
 
 ## Access the keys from a C# application 
 
-You can also validate this scenario by accessing keys from a C# application. The following is a C# console application, that can access Azure Cosmos DB keys by using the app registered in Active Directory. Make sure to update the tenantId, clientID, certName, resource group name, subscription id, Azure Cosmos account name details before you run the code. 
+You can also validate this scenario by accessing keys from a C# application. The following C# console application, that can access Azure Cosmos DB keys by using the app registered in Active Directory. Make sure to update the tenantId, clientID, certName, resource group name, subscription ID, Azure Cosmos account name details before you run the code. 
 
 ```csharp
 using System;
@@ -259,3 +259,7 @@ namespace TodoListDaemonWithCert
 
 
 ## Next steps
+
+* 
+
+* 
