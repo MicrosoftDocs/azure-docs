@@ -49,7 +49,7 @@ mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifac
 ```
 
 > [!NOTE]
-> If you're using Powershell, remeber to add "" around parameters.
+> If you're using PowerShell, remember to add "" around parameters.
 
 > [!NOTE]
 > If you're experiencing issues with running the command, take a look at what `maven-archetype-plugin` version is used. Because you are running the command in an empty directory with no `.pom` file, it might be attempting to use a plugin of the older version from `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` if you upgraded your Maven from an older version. If so, try deleting the `maven-archetype-plugin` directory and re-running the command.

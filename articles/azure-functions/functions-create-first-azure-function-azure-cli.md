@@ -12,99 +12,15 @@ In this article, you use command-line tools to create a function that responds t
 
 There is also a [Visual Studio Code-based version](functions-create-first-function-vs-code.md) of this article.
 
-## Configure your local environment
+[!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
-Before you begin, you must have the following:
-
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
-::: zone-end  
-::: zone pivot="programming-language-python"
-+ Python 3.6 and 3.7 require [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later 2.x version. Python 3.8 requires [version 3.x](./functions-run-local.md#v2) of the Core Tools.
-::: zone-end
-
-+ The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or later. 
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-::: zone-end
-
-::: zone pivot="programming-language-python"
-+ [Python 3.8](https://www.python.org/downloads/release/python-382/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions. 
-::: zone-end
-::: zone pivot="programming-language-powershell"
-+ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
-
-+ The [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)
-::: zone-end
-
-### Check your environment
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or a later 2.x version.
-
-+ Run `az --version` to check that the Azure CLI version is 2.0.76 or later.
-
-+ Run `az login` to sign in to Azure and verify an active subscription.
-
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ Run `node --version` to check your Node.js version reports 8.x or 10.x.
-::: zone-end
-::: zone pivot="programming-language-python"
-+ Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
-
-## <a name="create-venv"></a>Create and activate a virtual environment
-
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.8, 3.7 or 3.6, which are supported by Azure Functions.
-
-
-# [bash](#tab/bash)
-
-```bash
-python -m venv .venv
-```
-
-```bash
-source .venv/bin/activate
-```
-
-If Python didn't install the venv package on your Linux distribution, run the following command:
-
-```bash
-sudo apt-get install python3-venv
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-py -m venv .venv
-```
-
-```powershell
-.venv\scripts\activate
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-py -m venv .venv
-```
-
-```cmd
-.venv\scripts\activate
-```
-
----
-
-You run all subsequent commands in this activated virtual environment. (To exit the virtual environment, run `deactivate`.)
-
-::: zone-end
+[!INCLUDE [functions-cli-verify-prereqs-venv](../../includes/functions-cli-verify-prereqs-venv.md)]
 
 ## Create a local function project
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-1. In the virtual environment, run the `func init` command to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
+1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ::: zone pivot="programming-language-python"
     ```
@@ -132,14 +48,53 @@ In Azure Functions, a function project is a container for one or more individual
     ```
     ::: zone-end
 
+::: zone pivot="programming-language-java"
 
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+
+    # [bash](#tab/bash)
+    ```bash
+    mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+    ```
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+    ```
+    # [Cmd](#tab/cmd)
+    ```cmd
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+    ```
+    ---
+
+    Maven asks you for values needed to finish generating the project on deployment.   
+    Provide the following values when prompted:
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+    | **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
+    | **version** | `1.0-SNAPSHOT` | Choose the default value. |
+    | **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
+    
+    Type `Y` or press Enter to confirm.
+    
+    Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+::: zone-end
 
 1. Navigate into the project folder:
 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
     ```
-    cd LocalFunctionProj
+    cd LocalFunctionsProject
     ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-java"  
+    ```
+    cd fabrikam-functions
+    ```
+    ::: zone-end  
+        
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
     
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. 
 

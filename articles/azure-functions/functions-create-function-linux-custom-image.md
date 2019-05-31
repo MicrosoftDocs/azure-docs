@@ -4,7 +4,7 @@ description: Learn how to create Azure Functions running on a custom Linux image
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions02
 ---
 
 # Create a function on Linux using a custom container
@@ -28,83 +28,104 @@ In this tutorial, you learn how to:
 
 You can follow this tutorial on any computer running Windows, Mac OS, or Linux. Completing the tutorial will incur costs of a few US dollars in your Azure account.
 
-## Prerequisites
+[!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later
-- The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 or later
-- The [Azure Functions 2.x runtime](functions-versions.md)
-- The following language runtime components:
-    ::: zone pivot="programming-language-csharp"
-    - [.NET Core 2.2.x or later](https://dotnet.microsoft.com/download)
-    ::: zone-end
-    ::: zone pivot="programming-language-javascript"
-    - [Node.js](https://nodejs.org/en/download/)
-    ::: zone-end
-    ::: zone pivot="programming-language-powershell"
-    - [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)
-    ::: zone-end
-    ::: zone pivot="programming-language-python"
-    - [Python 3.6 - 64 bit](https://www.python.org/downloads/release/python-3610/) or [Python 3.7 - 64 bit](https://www.python.org/downloads/release/python-376/)
-    ::: zone-end
-    ::: zone pivot="programming-language-typescript"
-    - [Node.js](https://nodejs.org/en/download/)
-    - [TypeScript](http://www.typescriptlang.org/#download-links)
-    ::: zone-end
-- [Docker](https://docs.docker.com/install/)
-- A [Docker ID](https://hub.docker.com/signup)
+<!---Requirements specific to Docker --->
++ [Docker](https://docs.docker.com/install/)  
 
-### Prerequisite check
++ A [Docker ID](https://hub.docker.com/signup)
 
-1. In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
-1. Run `az --version` to check that the Azure CLI version is 2.0.76 or later.
-1. Run `az login` to sign in to Azure and verify an active subscription.
-1. Run `docker login` to sign in to Docker. This command fails if Docker is not running, in which case start docker and retry the command.
+[!INCLUDE [functions-cli-verify-prereqs-venv](../../includes/functions-cli-verify-prereqs-venv.md)]
 
 ## Create and test the local functions project
 
 1. In a terminal or command prompt, create a folder for this tutorial in an appropriate location, then navigate into that folder.
 
-1. Follow the instructions on [Create and activate a virtual environment](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) to create a virtual environment for use with this tutorial.
+::: zone pivot="programming-language-python"  
+1. Follow the instructions on [Create and activate a virtual environment](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) to create a virtual environment for use with this tutorial.  
+::: zone-end
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 1. Run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`. The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
-    ::: zone pivot="programming-language-csharp"
+::: zone-end
+
+    ::: zone pivot="programming-language-csharp"  
     ```
     func init LocalFunctionsProject --worker-runtime dotnet --docker
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-javascript"
+    ::: zone pivot="programming-language-javascript"  
     ```
     func init LocalFunctionsProject --worker-runtime node --language javascript --docker
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-powershell"
+    ::: zone pivot="programming-language-powershell"  
     ```
     func init LocalFunctionsProject --worker-runtime powershell --docker
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-python"
+    ::: zone pivot="programming-language-python"  
     ```
     func init LocalFunctionsProject --worker-runtime python --docker
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-typescript"
+    ::: zone pivot="programming-language-typescript"  
     ```
     func init LocalFunctionsProject --worker-runtime node --language typescript --docker
     ```
     ::: zone-end
+
+::: zone pivot="programming-language-java"
+
+1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+
+    # [bash](#tab/bash)
+    ```bash
+    mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+    ```
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+    ```
+    # [Cmd](#tab/cmd)
+    ```cmd
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+    ```
+    ---
+
+    Maven asks you for values needed to finish generating the project on deployment.   
+    Provide the following values when prompted:
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+    | **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
+    | **version** | `1.0-SNAPSHOT` | Choose the default value. |
+    | **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
+    
+    Type `Y` or press Enter to confirm.
+    
+    Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+::: zone-end
     
 1. Navigate into the project folder:
 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
     ```
     cd LocalFunctionsProject
     ```
-    
+    ::: zone-end  
+    ::: zone pivot="programming-language-java"  
+    ```
+    cd fabrikam-functions
+    ```
+    ::: zone-end  
+
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
     ```
@@ -119,23 +140,11 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-    ::: zone pivot="programming-language-javascript"
+    ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"
     ```
     func start
     ```
     ::: zone-end
-
-    ::: zone pivot="programming-language-powershell"
-    ```
-    func start
-    ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-python"
-    ```
-    func start
-    ```
-    ::: zone-end    
 
     ::: zone pivot="programming-language-typescript"
     ```
@@ -147,7 +156,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end
 
-1. Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like "Hello, Functions" (varied slightly depending on your chosen programming language).
+1. Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a "hello" message that echos back `Functions` value supplied to the name query parameter.
 
 1. Use **Ctrl**-**C** to stop the host.
 
