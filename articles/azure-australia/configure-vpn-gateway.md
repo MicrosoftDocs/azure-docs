@@ -1,6 +1,6 @@
 ---
-title: Azure Australia VPN Gateway Quickstart Guide
-description: Implementing VPN Gateway on Azure Australia Quickstart
+title: Getting started with Azure VPN Gateway in Azure Australia
+description: Implementing VPN Gateway on Azure Australia
 author: galey801
 ms.service: azure-australia
 ms.topic: article
@@ -8,21 +8,17 @@ ms.date: 04/25/19
 ms.author: grgale
 ---
 
-# Azure Virtual Network Gateway: Quick Start Guide
+# Getting started with Azure VPN Gateway in Azure Australia
 
-## Introduction
+A critical service with any public cloud is the secure connection of cloud resources and services to existing on-premises systems.  The service that provides this capability in Azure is the Azure VPN Gateway (VPN Gateway). This article outlines the key considerations with configuring the VPN Gateway to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
 
-### Purpose
-
-A critical service with any public cloud is the secure connection of cloud resources and services to existing on-premises systems.  The service that provides this capability in Azure is the Azure VPN Gateway (VPN Gateway). This guide outlines the key considerations with configuring the VPN Gateway to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
-
-A VPN Gateway is used to send encrypted traffic between an Azure virtual network (VNet) and another network.  There are three scenarios addressed by VPN Gateways:
+A VPN Gateway is used to send encrypted traffic between a virtual network in Azure and another network.  There are three scenarios addressed by VPN Gateways:
 
 - **Site-to-Site** (S2S)
 - **Point-to-Site** (P2S)
 - **VNet-to-VNet**
 
-This guide will focus on S2S VPN Gateways. Diagram 1 shows an example Site-to-Site VPN gateway configuration.
+This article will focus on S2S VPN Gateways. Diagram 1 shows an example Site-to-Site VPN gateway configuration.
 
 ![VPN Gateway with multi-site connections](media/vpngateway-multisite-connection-diagram.png)
 *Diagram 1 – Azure Site-to-Site VPN Gateway*
@@ -53,7 +49,7 @@ Access to “Owner”, “Contributor” and “Network Contributor” roles is 
 
 Azure VPN Gateways can have multiple connections (see Diagram 1) and support multiple on-premises VPN devices to the same on-premises environment.  
 
-Azure VNets can have multiple VPN Gateways that can be deployed in independent, active-passive, or active-active configurations.
+Virtual networks in Azure can have multiple VPN Gateways that can be deployed in independent, active-passive, or active-active configurations.
 
 It is recommended that all VPN Gateways are deployed in a [highly available configuration](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable): for example, two on-premises VPN devices connected to two VPN Gateways in either active-passive or active-active  mode (See Diagram 2).
 
@@ -68,43 +64,45 @@ Forced tunneling redirects or "forces" all Internet-bound traffic back to the on
 
 ### Service attributes
 
-VPN Gateways for S2S connections such have following attributes:
+VPN Gateways for S2S connections configured for Australian Government need to have following attributes:
 
-Attribute | SHOULD | MUST
---- | --- | ---
-gatewayType | | “VPN”
+|Attribute | SHOULD | MUST|
+|--- | --- | ---|
+|gatewayType | | “VPN”|
+|
 
 Attribute settings required to comply with the ISM controls for Protected are:
 
-Attribute | SHOULD | MUST
---- | --- | ---
-vpnType | | “RouteBased”
-vpnClientConfiguration/vpnClientProtocols | | “IkeV2”
+|Attribute | SHOULD | MUST|
+|--- | --- | ---|
+|vpnType | | “RouteBased”|
+|vpnClientConfiguration/vpnClientProtocols | | “IkeV2”|
+|
 
 Azure VPN Gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards.  The default policy sets maximise interoperability with a wide range of third-party VPN devices.  As a result, it is possible that during the IKE handshake a non-compliant configuration is negotiated.  It is, therefore, highly recommended that [custom IPsec/IKE policy](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters are applied to vpnClientConfiguration in VPN Gateways to ensure the connections meet the ISM controls for on-premise environment connections to Azure.  The key attributes are:
 
-Attribute | SHOULD | MUST
---- | --- | ---
-saLifeTimeSeconds | < 14,400 secs | > 300 secs (min)
-saDataSizeKilobytes | | > 1024 Kbytes (min)
-ipsecEncryption | | AES256|GCMAES256
-ipsecIntegrity | | SHA256|GCMAES256
-ikeEncryption | | AES256|GCMAES256
-ikeIntegrity | | SHA256|GCMAES256
-dhGroup | DHGroup14\|DHGroup24\|**ECP256\|ECP384**<sup>[1]</sup> | DHGroup2
-pfsGroup | PFS2048\|PFS24\|**ECP256\|ECP384**<sup>[1]</sup> |
+|Attribute | SHOULD | MUST|
+|--- | --- | ---|
+|saLifeTimeSeconds | < 14,400 secs | > 300 secs (min)|
+|saDataSizeKilobytes | | > 1024 Kbytes (min)|
+|ipsecEncryption | | AES256|GCMAES256|
+|ipsecIntegrity | | SHA256|GCMAES256|
+|ikeEncryption | | AES256|GCMAES256|
+|ikeIntegrity | | SHA256|GCMAES256|
+|dhGroup | DHGroup14\|DHGroup24\|**ECP256\|ECP384**<sup>[1]</sup> | DHGroup2|
+|pfsGroup | PFS2048\|PFS24\|**ECP256\|ECP384**<sup>[1]</sup> |
 |
 <sup>[1]- Use of Elliptic Curve encryption algorithms are preferred</sup>
 
 ### Related Services
 
-in designing and configuring an Azure VPN Gateway there are a number of related services that must also exist and be configured:
+When designing and configuring an Azure VPN Gateway there are a number of related services that must also exist and be configured:
 
 Service | Action Required
 --- | ---
-Virtual Network | VPN Gateways are attached to a virtual network.  A VNet needs to create prior to the creation of a new VPN Gateway.
+Virtual Network | VPN Gateways are attached to a virtual network.  A virtual network needs to be created prior to the creation of a new VPN Gateway.
 Public IP Address | S2S VPN Gateways need a public IP address to establish connectivity between the on-premises VPN device and the VPN Gateway.  A public IP address needs to create prior to creating a S2S VPN Gateway.
-Subnet | A subnet of the VNet needs to be created for the VPN Gateway.
+Subnet | A subnet of the virtual network needs to be created for the VPN Gateway.
 
 ## Implementation Steps using PowerShell
 
@@ -124,7 +122,7 @@ Subnet | A subnet of the VNet needs to be created for the VPN Gateway.
 
 ### Create VPN Gateway <sup>[2]</sup>
 
-<sup>[2] - Assuming VNet has previously been created</sup>
+<sup>[2] - Assuming virtual network has previously been created</sup>
 
 1. Create a new Public IP address
 2. Create a VPN Gateway subnet
@@ -149,7 +147,7 @@ After creating the VPN Gateway:
 
 An example PowerShell Script for creating a custom IPSEC/IKE policy that complies with ISM controls for Australian PROTECTED security classification.
 
-It assumes that the VNET, VPN Gateway, and Local Gateways exist.
+It assumes that the virtual network, VPN Gateway, and Local Gateways exist.
 
 #### Create an IPsec/IKE policy
 

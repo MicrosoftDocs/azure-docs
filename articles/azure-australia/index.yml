@@ -9,32 +9,3 @@ metadata:
 abstract:
   description: 'Microsoft Azure Australia delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Microsoft Azure Australia is certified by the Australian Cyber Security Centre (ACSC) and included on the Certified Cloud Services List (CCSL) at both the PROTECTED and Official: Sensitive (formerly Dissemination Limiting Markings) classifications. Microsoft Azure Australia employs world-class security and compliance services critical to Australian Government and Critical Infrastructure organisations and their suppliers, for all systems and applications built on its architecture.'
   
-sections:
-
-- title: Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to implement key security measures recommended by the ACSC
-  - type: list
-    style: unordered
-    items:
-    - text: Configure Azure VPN Gateway for IPSEC encryption
-      href: configure-vpn-gateway.md
-    - text: Configure and use Azure Key Vault for secure key management
-      href: configure-use-azure-key-vault.md
-    - text: Implement Azure system monitoring
-      href: implement-azure-system-monitoring.md
-  
-- title: How to guides
-  items:
-  - type: paragraph
-    text: Learn how to deploy and manage services that provide perimeter security that meets Government gateway requirements
-  - type: list
-    style: unordered
-    items:
-    - text: Implement gateway auditing, logging, and visibility
-      href: implement-gateway-auditing-logging-visibility.md
-    - text: Configure gateway secure remote administration
-      href: configure-gateway-secure-remote-administration.md
-    - text: Control ingress traffic at the gateway
-      href: control-gateway-ingress-traffic.md
