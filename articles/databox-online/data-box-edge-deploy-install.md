@@ -178,32 +178,42 @@ Before you start cabling your device, you need the following:
 > - For best performance and to handle large volumes of data, consider connecting all the data ports.
 > - The Edge device should be connected to the datacenter network so that it can ingest data from data source servers.
 
-Your Edge device has 8 NVMe SSDs. The front panel also has status LEDs and power buttons. The device includes redundant power supply units (PSUs) at the back. Your device has six network interfaces:
+- The front panel has disk drives and a power button.
 
-- Two 1-Gbps interfaces
-- Four 25-Gbps interfaces that can also serve as 10-Gbps interfaces.
-- A baseboard management controller (BMC). 
+    - There are 10 disk slots in the front of your device.
+    - Slot 0 has a 240-GB SATA drive used as an operating system disk. Slot 1 is empty and slots 2 to 9 are NVMe SSDs used as data disks.
+- The device includes redundant power supply units (PSUs) at the back.
+- Your device has six network interfaces:
 
-Identify the various ports on the backplane of your device.
- 
-  ![Backplane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    - Two 1-Gbps interfaces.
+    - Four 25-Gbps interfaces that can also serve as 10-Gbps interfaces.
+    - A baseboard management controller (BMC).
 
-The device has two network cards corresponding to the 6 ports: 
+- The device has two network cards corresponding to the 6 ports:
 
- - QLogic FastLinQ 41264
- - QLogic FastLinQ 41262
+    - QLogic FastLinQ 41264
+    - QLogic FastLinQ 41262
 
 For a full list of supported cables, switches, and transceivers for these network cards, go to [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Take the following steps to cable your device for power and network.
 
-1. Connect the power cords to each of the PSUs in the enclosure. To ensure high availability, install and connect both PSUs to different power sources.
+1. Identify the various ports on the back plane of your device.
+ 
+  ![Back plane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-2. Attach the power cords to the rack power distribution units (PDUs). Make sure that the two PSUs use separate power sources.
+2. Locate the disk slots and the power button on the front of the device.
 
-3. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 is the dedicated management interface.
+  ![Front plane of a device](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
 
-4. Connect one or more of PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 to the datacenter network/Internet. If connecting PORT 2, use the RJ-45 network cable. For the 10/25-GbE network interfaces, use the SFP+ copper cables.  
+3. Connect the power cords to each of the PSUs in the enclosure. To ensure high availability, install and connect both PSUs to different power sources.
+4. Attach the power cords to the rack power distribution units (PDUs). Make sure that the two PSUs use separate power sources.
+5. Press the power button to turn on the device.
+6. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 is the dedicated management interface.
+7. Connect one or more of PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 to the datacenter network/Internet.
+
+    - If connecting PORT 2, use the RJ-45 network cable.
+    - For the 10/25-GbE network interfaces, use the SFP+ copper cables.
 
 ## Next steps
 
