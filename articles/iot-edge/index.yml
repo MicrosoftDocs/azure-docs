@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure IoT Edge
-summary: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge", instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
+summary: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, or "at the edge", instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to events.
 
 landingContent:
   - title: Develop for Linux devices
@@ -46,7 +46,7 @@ landingContent:
             url: how-to-auto-provision-simulated-device-linux.md
           - text: Automatically provision Windows devices
             url: how-to-auto-provision-simulated-device-windows.md
-  - title: Engage with the open source community
+  - title: Engage with the open-source community
     linkLists:
       - linkListType: get-started
         links:
