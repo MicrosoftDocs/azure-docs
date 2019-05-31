@@ -70,6 +70,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * You can't delete the first node pool.
 * The HTTP application routing add-on can't be used.
 * You can't add/update/delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
+* The cluster autoscaler (currently in preview in AKS) can't be used.
 
 While this feature is in preview, the following additional limitations apply:
 
