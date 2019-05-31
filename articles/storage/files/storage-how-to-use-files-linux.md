@@ -97,7 +97,7 @@ ms.subservice: files
 
 1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
 
-1. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under the a new folder. Wherever you create this, note the absolute path of the folder. For example, the following command creates a new directory, replace **<storage_account_name>** and **<file_share_name>** with the appropriate information for your environment.
+1. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under a new folder. Wherever you create this, note the absolute path of the folder. For example, the following command creates a new directory, replace **<storage_account_name>** and **<file_share_name>** with the appropriate information for your environment.
 
     ```bash
     sudo mkdir -p <storage_account_name>/<file_share_name>
