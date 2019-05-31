@@ -73,7 +73,7 @@ The following FQDN / application rules are required:
 
 | FQDN                      | Port      | Use      |
 |---------------------------|-----------|----------|
-| *.azmk8s.io               | HTTPS:443 | This address is the API server endpoint. |
+| *.azmk8s.io               | HTTPS:443,22,9000 | This address is the API server endpoint. |
 | aksrepos.azurecr.io       | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). |
 | *.blob.core.windows.net   | HTTPS:443 | This address is the backend store for images stored in ACR. |
 | mcr.microsoft.com         | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). |

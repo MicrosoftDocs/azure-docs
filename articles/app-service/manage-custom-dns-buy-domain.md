@@ -135,13 +135,17 @@ Back in the **App Service Domain** page, click **OK**. While the operation is in
 
 ### Test the hostnames
 
-If you have assigned default hostnames to your app, you also see a success notification for each selected hostname. 
+If you have assigned default hostnames to your app, you also see a success notification for each selected hostname.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-You also see the selected hostnames in the **Custom domains** page, in the **Custom Hostnames** section. 
+You also see the selected hostnames in the **Custom domains** page, in the **Custom Hostnames** section.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> A **Note Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To configure SSL binding, see [Buy and configure an SSL certificate for Azure App Service](web-sites-purchase-ssl-web-site.md).
+>
 
 To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www\.kontoso.net_.
 

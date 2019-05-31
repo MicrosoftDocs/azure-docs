@@ -29,10 +29,11 @@ This tutorial:
 
 ## Before you begin
 
-To add an application to your tenant, you need:
+To add an on-premises application to Azure AD, you need:
 
 * A [Microsoft Azure AD basic or premium subscription](https://azure.microsoft.com/pricing/details/active-directory)
 * An application administrator account
+* User identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
 ### Windows server
 

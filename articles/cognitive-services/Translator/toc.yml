@@ -18,12 +18,8 @@
           href: quickstart-java-translate.md
         - name: Node.js, REST
           href: quickstart-nodejs-translate.md
-        - name: PHP, REST
-          href: quickstart-php-translate.md
         - name: Python, REST
           href: quickstart-python-translate.md
-        - name: Ruby, REST
-          href: quickstart-ruby-translate.md
       - name: Transliterate text
         items:
         - name: C#, REST
@@ -34,12 +30,8 @@
           href: quickstart-java-transliterate.md
         - name: Node.js, REST
           href: quickstart-nodejs-transliterate.md
-        - name: PHP, REST
-          href: quickstart-php-transliterate.md
         - name: Python, REST
           href: quickstart-python-transliterate.md
-        - name: Ruby, REST
-          href: quickstart-ruby-transliterate.md
       - name: Identify language
         items:
         - name: C#, REST
@@ -50,12 +42,8 @@
           href: quickstart-java-detect.md
         - name: Node.js, REST
           href: quickstart-nodejs-detect.md
-        - name: PHP, REST
-          href: quickstart-php-detect.md
         - name: Python, REST
           href: quickstart-python-detect.md
-        - name: Ruby, REST
-          href: quickstart-ruby-detect.md
       - name: Look up word translations
         items:
         - name: C#, REST
@@ -66,12 +54,8 @@
           href: quickstart-java-dictionary.md
         - name: Node.js, REST
           href: quickstart-nodejs-dictionary.md
-        - name: PHP, REST
-          href: quickstart-php-dictionary.md
         - name: Python, REST
           href: quickstart-python-dictionary.md
-        - name: Ruby, REST
-          href: quickstart-ruby-dictionary.md
       - name: Get supported languages
         items:
         - name: C#, REST
@@ -82,12 +66,8 @@
           href: quickstart-java-languages.md
         - name: Node.js, REST
           href: quickstart-nodejs-languages.md
-        - name: PHP, REST
-          href: quickstart-php-languages.md
         - name: Python, REST
           href: quickstart-python-languages.md
-        - name: Ruby, REST
-          href: quickstart-ruby-languages.md
       - name: Determine sentence length
         items:
         - name: C#, REST
@@ -98,17 +78,13 @@
           href: quickstart-java-sentences.md
         - name: Node.js, REST
           href: quickstart-nodejs-sentences.md
-        - name: PHP, REST
-          href: quickstart-php-sentences.md
         - name: Python, REST
           href: quickstart-python-sentences.md
-        - name: Ruby, REST
-          href: quickstart-ruby-sentences.md
   - name: Tutorials
     items:
-    - name: Create a WPF app for Translator Text
+    - name: Create a WPF app for Translator Text, C#
       href: tutorial-wpf-translation-csharp.md
-    - name: Create a Flask translation app
+    - name: Create a Flask translation app, Python
       href: tutorial-build-flask-app-translation-synthesis.md
   - name: Concepts
     items:
@@ -132,6 +108,22 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp
+    - name: Java
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java
+    - name: Python
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python
+    - name: Node.js
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS
+    - name: Go
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go
+    - name: PHP
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
+    - name: Ruby
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
   - name: Reference
     items:
     - name: v3 Translator Text API reference
@@ -175,7 +167,7 @@
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Request limits
       href: request-limits.md
     - name: Stack Overflow
@@ -243,7 +235,7 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - name: Compliance
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice

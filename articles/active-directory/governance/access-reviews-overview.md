@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/22/2019
+ms.date: 05/31/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -78,7 +78,7 @@ Here are some example scenarios to help you determine the number of licenses you
 
 For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
-## Get started with access reviews
+## Learn about access reviews
 
 To learn more about creating and performing access reviews, watch this short demo:
 
@@ -88,29 +88,25 @@ If you are ready to deploy access reviews in your organization, follow these ste
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
-## Enable access reviews
+## Onboard access reviews
 
-To enable access reviews, follow these steps.
+To onboard access reviews, follow these steps.
 
 1. As a Global administrator or User administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
 
-1. Click **All services** and find the access reviews service.
+1. In the left navigation, click **Azure Active Directory**.
+
+1. In the left menu, click **Identity Governance**.
 
 1. Click **Access reviews**.
 
-    ![All services - Access reviews](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![Access reviews start page](./media/access-reviews-overview/access-reviews-start.png)
 
-1. In the navigation list, click **Onboard** to open the **Onboard access reviews** page.
+1. On the page, click the **Onboard now** button.
 
     ![Access reviews onboard](./media/access-reviews-overview/onboard-button.png)
 
-1. Click **Create** to enable access reviews in the current directory.
-
-    ![Onboard access reviews](./media/access-reviews-overview/onboard-access-reviews.png)
-
-    The next time you start access reviews, the access review options will be enabled.
-
-    ![Access reviews enabled](./media/access-reviews-overview/access-reviews-enabled.png)
+1. Follow the instructions to onboard access reviews in the current directory.
 
 ## License requirements for using Azure AD access reviews
 

@@ -33,7 +33,7 @@ It is recommended to let Media Services to autogenerate content keys. Typically,
 > * Properties of **Content Key Policies** that are of the Datetime type are always in UTC format.
 > * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
 
-## Example
+### Example
 
 To get to the key, use **GetPolicyPropertiesWithSecretsAsync**, as shown in the [Get a signing key from the existing policy](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) example.
 
