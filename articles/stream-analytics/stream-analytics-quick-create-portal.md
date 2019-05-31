@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 05/31/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
@@ -78,7 +78,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 2. Select **Create a resource** in the upper left-hand corner of the Azure portal.  
 
-3. Select **Data+Analytics** > **Stream Analytics job** from the results list.  
+3. Select **Analytics** > **Stream Analytics job** from the results list.  
 
 4. Fill out the Stream Analytics job page with the following information:
 
@@ -183,7 +183,7 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 
 ## Next steps
 
-In this quickstart, you deployed a simple Stream Analytics job using Azure portal. You can also deploy Stream Analytics jobs using [PowerShell](stream-analytics-quick-create-powershell.md) and [Visual Studio](stream-analytics-quick-create-vs.md).
+In this quickstart, you deployed a simple Stream Analytics job using Azure portal. You can also deploy Stream Analytics jobs using [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-vs-code.md).
 
 To learn about configuring other input sources and performing real-time detection, continue to the following article:
 

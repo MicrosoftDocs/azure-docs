@@ -8,8 +8,7 @@ ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/07/2018
-ms.custom: seodec18
+ms.date: 05/31/2019
 
 #Customer intent: "As an IT admin/developer I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard."
 ---
