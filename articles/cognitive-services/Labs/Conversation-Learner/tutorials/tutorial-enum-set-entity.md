@@ -82,7 +82,7 @@ ENUM entities are created just like the other entities. Similar to "programmatic
 
 ![enumEntityCreation.png](../media/tutorial-enum-set-entity/enumEntityCreation.png)
 
-### Set Entity Actions
+### Set Entity actions
 
 As mentioned above, "Set Entity" actions simply set an entity to a known enum value. You could achieve the same results by creating an API callback action and using the memory manager to set the entity to a value. E.g. `memory.Set(entityName, entityValue)`. Having to write this code and create these actions would become tedious and hard to manage - so Conversation Learner has special actions to facilitate this work and automatically generate these actions when they are used. Having these as independent actions preserves the ability to compose these without being coupled with other actions or code in your bot.
 
