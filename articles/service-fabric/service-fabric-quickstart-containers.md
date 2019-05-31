@@ -21,7 +21,7 @@ ms.custom: mvc
 
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers.
 
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a pre-built Docker container image in a Service Fabric application. When you're finished, you'll have a running Windows Server Core 2016 Server and IIS container. This quickstart describes deploying a Windows container, read [this quickstart](service-fabric-quickstart-containers-linux.md) to deploy a Linux container.
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a pre-built Docker container image in a Service Fabric application. When you're finished, you'll have a running Windows Server Core 2016 Server and IIS container. This quickstart describes deploying a Windows container. Read [this quickstart](service-fabric-quickstart-containers-linux.md) to deploy a Linux container.
 
 ![IIS default web page][iis-default]
 
@@ -39,7 +39,7 @@ In this quickstart you learn how to:
 
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * A development computer running:
-  * Visual Studio 2015 or Visual Studio 2017.
+  * Visual Studio 2015 or Windows 2019.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
 
 ## Package a Docker image container with Visual Studio
@@ -62,7 +62,7 @@ Name your service "MyContainerService", and click **OK**.
 
 ## Specify the OS build for your container image
 
-Containers built with a specific version of Windows Server may not run on a host running a different version of Windows Server. For example, containers built using Windows Server version 1709 do not run on hosts running Windows Server 2016. To learn more, see [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
+Containers built with a specific version of Windows Server may not run on a host running a different version of Windows Server. For example, containers built using Windows Server version 1709 don't run on hosts running Windows Server 2016. To learn more, see [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
 
 With version 6.1 of the Service Fabric runtime and newer, you can specify multiple OS images per container and tag each with the build version of the OS that it should be deployed to. This helps to make sure that your application will run across hosts running different versions of Windows OS. To learn more, see [Specify OS build specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
@@ -95,11 +95,11 @@ If needed, install the Azure PowerShell using the instructions found in the [Azu
 
 Before you run the following script, in PowerShell run `Connect-AzAccount` to create a connection with Azure.
 
-Copy the following script to the clipboard and open **Windows PowerShell ISE**.  Paste the contents into the empty Untitled1.ps1 window. Then provide values for the variables in the script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`, etc.  The directory you specify for `certfolder` must exist before you run the script.
+Copy the following script to the clipboard and open **Windows PowerShell ISE**.  Paste the contents into the empty Untitled1.ps1 window. Then provide values for the variables in the script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`, and so on.  The directory you specify for `certfolder` must exist before you run the script.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
-Once you have provided your values for the variables, press **F5** to run the script.
+Once you've provided your values for the variables, press **F5** to run the script.
 
 After the script runs and the cluster is created, find the `ClusterEndpoint` in the output. For example:
 
@@ -110,9 +110,9 @@ ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/cluster
 
 ### Install the certificate for the cluster
 
-Now we will install the PFX in *CurrentUser\My* certificate store. The PFX file will be in the directory you specified using the `certfolder` environment variable in the PowerShell script above.
+Now we'll install the PFX in *CurrentUser\My* certificate store. The PFX file will be in the directory you specified using the `certfolder` environment variable in the PowerShell script above.
 
-Change to that directory, and then run the following PowerShell command, substituting the name of the PFX file that is in your `certfolder` directory, and the password that you specified in the `certpwd` variable. In this example, the current directory is set to the directory specified by the `certfolder` variable in the PowerShell script. From there the `Import-PfxCertificate` command is run:
+Change to that directory, and then run the following PowerShell command, replacing the name of the PFX file that is in your `certfolder` directory, and the password that you specified in the `certpwd` variable. In this example, the current directory is set to the directory specified by the `certfolder` variable in the PowerShell script. From there the `Import-PfxCertificate` command is run:
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
@@ -137,7 +137,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-Copy the content following **CN=** in the PowerShell window when you ran the `Import-PfxCertificate` command above, and add port `19000` to it. For example, `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Copy it into the **Connection Endpoint** field. Remember this value because you will need it in a future step.
+Copy the content following **CN=** in the PowerShell window when you ran the `Import-PfxCertificate` command above, and add port `19000` to it. For example, `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Copy it into the **Connection Endpoint** field. Remember this value because you'll need it in a future step.
 
 Click **Advanced Connection Parameters** and verify the connection parameter information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed when you ran `Import-PfxCertificate` in the previous step.
 
@@ -145,7 +145,7 @@ Click **Advanced Connection Parameters** and verify the connection parameter inf
 
 Click **Publish**.
 
-Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
+Each application in the cluster must have a unique name. If there's a name conflict, rename the Visual Studio project and deploy again.
 
 Open a browser and navigate to the address that you put into the **Connection Endpoint** field in the previous step. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
