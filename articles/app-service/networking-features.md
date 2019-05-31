@@ -186,12 +186,12 @@ The ASE provide the best story around isolated and dedicated app hosting but doe
  * an ASE runs inside your VNet but does have dependencies outside of the VNet. Those dependencies must be allowed. Read more in [Networking considerations for an App Service Environment][networkinfo]
  * an ASE does not scale immediately like the multi-tenant service. You need to anticipate need rather than reactively scaling. 
  * an ASE does have a higher up front cost associated with it. In order to get the most out of your ASE, you should plan on putting many workloads into one ASE rather than have it used for small efforts
- * the apps in an ASE cannot restrict access to some apps in an ASE and not others. 
- * The ASE is in a subnet and any networking rules apply to all the traffic to and from that ASE. The exception to this is the use of Access Restrictions on IP address blocks which can be configured on a per app basis. 
+ * the apps in an ASE cannot restrict access to some apps in an ASE and not others.
+ * The ASE is in a subnet and any networking rules apply to all the traffic to and from that ASE. The exception to this is the use of Access Restrictions on IP address blocks which can be configured on a per app basis.
 
 ## Combining features 
 
-The features noted for the multi-tenant service can all be used together. 
+The features noted for the multi-tenant service can be used together to solve more elaborate use cases. Two of the more common use cases are described here but they are just examples. By understanding what the various features do, you can solve nearly all of your system architecture needs.
 
 ### Inject app into a VNet
 
@@ -222,4 +222,3 @@ You can have multiple front end apps use the same API app by using VNet Integrat
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
-
