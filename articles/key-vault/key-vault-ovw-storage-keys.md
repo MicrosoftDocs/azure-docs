@@ -26,8 +26,8 @@ When you use the managed storage account key feature, consider the following poi
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys. 
 
 > [!NOTE]
-> [Azure Storage integration with Azure Active Directory (Azure AD)] is Microsoft's cloud-based identity and access management service.
-> Azure AD integration is available for [Azure Blob and Queue storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+> Azure Storage integration with Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service.
+> Azure AD integration is available for [Azure blobs and queues](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
 > Use Azure AD for authentication and authorization.
 > Azure AD provides OAuth2 token-based access to Azure Storage just like Azure Key Vault.
 >
