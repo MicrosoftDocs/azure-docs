@@ -56,7 +56,7 @@ Next, you use the Azure cloud shell to create a security token.
 
 The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-You can create a SAS using the Azure CLI through the Azure cloud shell, or with the Azure Storage Explorer. The following table describes the parameters you need to provide values for to generate a SAS with the CLI.
+You can create a SAS using the Azure CLI through the Azure cloud shell, or with the Azure portal or Azure Storage Explorer. The following table describes the parameters you need to provide values for to generate a SAS with the CLI.
 
 | Parameter      |Description  | Placeholder |
 |----------------|-------------|-------------|
@@ -84,7 +84,7 @@ You may find the series of values after each parameter a bit cryptic. These para
 | *resource-types* | sco     | The resources affected by the SAS are *service*, *container*, and *object*. |
 | *services*       | b       | The service affected by the SAS is the *blob* service. |
 
-Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step.
+Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step. If you generated your SAS using a method other than the Azure CLI, you will need to remove the initial `?` if it is present. This character is a URL separator that is already provided in the URL template later in this topic where the SAS is used.
 
 > [!IMPORTANT]
 > In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
@@ -296,10 +296,12 @@ Next, add code to upload files to the storage container when you press the *Sele
 const uploadFiles = async () => {
     try {
         reportStatus("Uploading files...");
+        const promises = [];
         for (const file of fileInput.files) {
             const blockBlobURL = azblob.BlockBlobURL.fromContainerURL(containerURL, file.name);
-            await azblob.uploadBrowserDataToBlockBlob(azblob.Aborter.none, file, blockBlobURL);
+            promises.push(azblob.uploadBrowserDataToBlockBlob(azblob.Aborter.none, file, blockBlobURL));
         }
+        await Promise.all(promises);
         reportStatus("Done.");
         listFiles();
     } catch (error) {
@@ -311,7 +313,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("input", uploadFiles);
 ```
 
-This code connects the *Select and upload files* button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function to upload each file you selected.
+This code connects the *Select and upload files* button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
 
 ### Delete blobs
 
