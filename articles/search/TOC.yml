@@ -19,6 +19,7 @@
     href: search-get-started-dotnet.md
     items:
   - name: OLD C#
+    items
     - name: 1 - Create an index
       href: search-create-index-dotnet.md
     - name: 2 - Load data
