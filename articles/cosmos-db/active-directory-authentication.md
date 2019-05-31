@@ -260,6 +260,6 @@ namespace TodoListDaemonWithCert
 
 ## Next steps
 
-* 
+* [Secure Azure Cosmos keys using Azure Key Vault](access-secrets-from-keyvault.md)
 
-* 
+* [Security attributes for Azure Cosmos DB](cosmos-db-security-attributes.md)
