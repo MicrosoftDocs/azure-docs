@@ -43,13 +43,13 @@ To implement facets we do not need to change any of the models (the data classes
 1. If you created it yourself and have the project handy, start from there. Alternatively download the numbered paging app from here.
 xxxx
 
-2. Run the project to make sure it works!
+2. Run the project to make sure it works.
 
 ### Examine the model fields marked as IsFacetable
 
 In order for a field to be located in a facet search it must be tagged with **IsFacetable**.
 
-1. Examine the **Hotel** class. Note that **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. A facet search will throw an error if a field is requested in the search that is not tagged appropriately.
+1. Examine the **Hotel** class. Note that **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. A facet search will throw an error if a field requested in the search is not tagged appropriately.
 
 ```cs
 public partial class Hotel
@@ -109,7 +109,7 @@ In order to initiate a facet search we need to add some javascript to the index.
     </div>
 ```
 
-2. Now add the javascript (after the closing **</div>** shown above works fine) for an autocomplete function based on the above id.
+2. Now add the following javascript (after the closing **&lt;/div&gt;** shown above works fine).
 
 ```cs
     <script>
@@ -191,9 +191,12 @@ Now we can use the predefined autocomplete jquery functions.
         }
 ```
 
-Notice that we are requesting up to 100 facets from the **Tags** fields and up to 20 from the **Category** fields. The **count** entries are optional, if none is set the default is 10.
+Notice that we are requesting up to 100 facets from the **Tags** fields and up to 20 from the **Category** fields. The **count** entries are optional, if no count is set the default is 10.
 
-2. If you get syntax errors with the **List<string>** declarations, make sure to add the appropriate **using** statement to the top of the file.
+> [!NOTE]
+> It is possible to set one or more of the following parameters for a facet search: **count**, **sort**, **interval** and **values**. Refer to [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation) for more details.
+
+2. If you get syntax errors with the **List&lt;string&gt;** declarations, make sure to add this **using** statement to the top of the file.
 
 ```cs
 using System.Collections.Generic;
@@ -222,7 +225,7 @@ Image
 
 ### When to use a facet search
 
-The clear difference between facet searches and other searches such as suggestions and autocompletion, is that the search is only carried out at the start of the app, so saves a lot of calls to the server. However, when should this search be used?
+The clear difference between facet searches and other searches such as suggestions and autocompletion, is that the search is only carried out when the app is initiated, so potentially saving a lot of calls to the server. However, when should this search be used?
 
 Facet searches are best used when:
 * The performance of other searches that call the server each time is an issue.
@@ -233,13 +236,13 @@ Facet searches are best used when:
 
 ## Takeaways
 
-Another tutorial completed, great work again.
+Another tutorial completed, great work again!
 
 You should consider the following takeaways from this project:
 
-* Facets are an efficient way of getting a helpful user experience without the repeated search calls.
+* Facets are an efficient way of getting a helpful user experience without the repeated server calls.
 * Facets work well if a manageable (to the user) number of results are displayed when they are typing.
-* Facets do not work as well if too many results need to be displayed (or end up being hidden).
+* Facets do not work as well if too many need to be displayed (or end up being hidden or cut).
 * It is imperative to mark each field as **IsFacetable** if they are to be included in a facet search.
 * Facets are an alternative to autocomplete/suggestions, not an addition.
 

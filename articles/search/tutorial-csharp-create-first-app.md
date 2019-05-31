@@ -116,7 +116,7 @@ Models (C# classes) are used to communicate data between the client (the view), 
 
 1. Open up the **Models** folder of your project, using Solution Explorer, and you will see one default model in there: **ErrorViewModel.cs**.
 
-2. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Note in particular the **Address** and **Room** members of the class, these are classes themselves and we will need models for these too.
+2. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice in particular the **Address** and **Room** members of the class, these are classes themselves and we will need models for these too.
 
 ```cs
 using System;
@@ -493,7 +493,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 }
 ```
 
-6. Finally we complete the view with paging buttons. We keep this simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and infinite scrolling.
+6. Finally, we complete the view with paging buttons. We keep this simple for this example, just "next" and "previous" paging buttons. Following tutorials address both more complete numbered paging and infinite scrolling.
 
 ```cs
     @if (Model != null && Model.pageCount > 1)
@@ -758,7 +758,7 @@ The Azure Search itself is encapsulated in our **RunQueryAsync** method.
 
 In this method we first ensure our Azure configuration is initiated, then set some search parameters. Note that the list of parameters are exactly the member names of the **hotel** class. It is possible to leave this empty, then all data is returned. However, this is inefficient if we are only interested in a subset of the data. By specifying the fields we are interested in, only this data will be returned.
 
-The asynchronous call to search (**results = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one and a really good idea is to stop at this point using a debugger and examine the contents of **results**. You should find that it is intuitive and makes a lot of sense, providing you with just the data you asked for and not much else.
+The asynchronous call to search (**results = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one and a really good idea is to stop at this point using a debugger and examine the contents of **results**. You should find that it is intuitive and makes a lot of sense, providing you with just the data you asked for and not much else.
 
 Now for the moment of truth.
 
@@ -794,7 +794,7 @@ It is important to verify that our error handling features work as they should, 
 
  ![Force an error](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
-> Note
+> [!Important]
 > It is considered a security risk to return internal error numbers in error pages. If your app is intended for general use, do some investigation into secure and best practices of what to return when an error occurs.
 
 3. Remove **Throw new Exception()** when you are satisfied the error handling works as it should.

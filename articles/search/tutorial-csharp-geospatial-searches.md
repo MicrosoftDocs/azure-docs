@@ -11,18 +11,18 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Add geospatial filters to an Azure Search
 
-Learn how to implement a geospatial filter, searching both on text and on a geographical area defined by a latitude, longitude and a radius from that point. If a geographical location of every piece of data (hotel, in our example) is known, then very valuable searches for your users can be carried out trying to locate suitable results.
+Learn how to implement a geospatial filter, searching both on text and on a geographical area defined by a latitude, longitude and a radius from that point. If a geographical location of every piece of data (hotels, in our example) is known, then very valuable searches for your users can be carried out trying to locate suitable results.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Search based on text then filtered on a given latitude, longitude and radius
+> * Search based on text then filter on a given latitude, longitude and radius
 > * Order results based on specified criteria, including distance from a specified point
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
+Have the infinite scrolling variant of the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
 
@@ -41,6 +41,7 @@ Although when you request a geospatial filter, the distance between the data poi
 1. Add the following code to your home controller, it calculates distances between two points in kilometers.
 
 ```cs
+        // Earth radius in kilometers.
         const double EarthRadius = 6371;
 
         public static double Degrees2Radians(double deg)
@@ -95,7 +96,7 @@ We'll need to add more code to the controller, but let's update the models and v
         }
 ```
 
-4. In the **GetFullHotelDescription** method change the setting of **fullDescription** to the following.
+4. In the **GetFullHotelDescription** method change the setting of **fullDescription** so that the distance will be displayed to the user.
 
 ```cs
             var fullDescription = "Distance: " + h.DistanceInKilometers.ToString("0.#") + " Km.";
@@ -106,7 +107,7 @@ We'll need to add more code to the controller, but let's update the models and v
             return fullDescription;
 ```
 
-5. Finally add some public properties for the latitude, longitude and radius variables, to the **SearchData** class, perhaps after the **paging** field. These will be used to communicate the user's input from the view to the controller.
+5. Finally, add some public properties for the latitude, longitude and radius values to the **SearchData** class, perhaps after the **paging** field. These will be used to communicate the user's input from the view to the controller.
 
 ```cs
         public string lat { get; set; }
@@ -257,15 +258,15 @@ The next task is to implement these two actions.
 
                 _serviceClient = CreateSearchServiceClient(_configuration);
                 _indexClient = _serviceClient.Indexes.GetClient("hotels");
-           
+
                 int page = 0;
 
                 if (model.paging != null && model.paging == "next")
                 {
-                    // Increment the page
+                    // The user has triggered a scroll so increment the page.
                     page = (int)TempData["page"] + 1;
 
-                    // Recover the geo info
+                    // Recover the geo info.
                     model.lat = (string)TempData["lat"];
                     model.lon = (string)TempData["lon"];
                     model.radius = (string)TempData["radius"];
@@ -274,7 +275,7 @@ The next task is to implement these two actions.
                     model.searchText = TempData["searchfor"].ToString();
                 } else
                 {
-                    // First call. Check for valid lat/lon/radius input
+                    // The first call. Check for valid lat/lon/radius input.
                     if (model.lat == null)
                     {
                         model.lat = "0";
@@ -285,7 +286,7 @@ The next task is to implement these two actions.
                     }
                     if (model.radius == null)
                     {
-                        // Find everything.
+                        // Find everything!
                         model.radius = "21000";
                     }
                     if (model.searchText == null)
@@ -294,7 +295,7 @@ The next task is to implement these two actions.
                     }
                 }
 
-                // Call suggest API and return results
+                // Call the search API and return results.
                 SearchParameters sp = new SearchParameters()
                 {
                     // "Location" is a field name and must match a field name in the Hotel class.
@@ -302,7 +303,7 @@ The next task is to implement these two actions.
                     // Point order is Longitude then Latitude.
                     Filter = $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') le {model.radius}",
 
-                    // Must return the Location to calculate the distance.
+                    // Request the return of the Location field to calculate the distance.
                     Select = new[] { "HotelName", "Description", "Tags", "Rooms", "Location" },
                     SearchMode = SearchMode.All,
                 };
@@ -391,15 +392,15 @@ The next task is to implement these two actions.
 
 Image
 
-You should get some results, and they are all within the 2000 Km radius, but are they in the logical order you would expect (nearest first)?
+You should get some results, and check they are all within the 2000 Km radius, but are they in the logical order you would expect (nearest first)?
 
-2. Try some other text using the same coordinates and verify that the results are not in the order you would expect.
+2. Try some other text and coordinates and verify that the results are not in the order you would expect.
 
 The current order of results we have does not make a lot of sense.
 
 ## Add code to order Azure Search results
 
-1. We need to make an addition to our Azure Search parameters to specify that the results should be ordered on the distance they are from the point the user has indicated. We do this by setting the **OrderBy** parameter. Change the **SearchParameters** initialization (in the **Geo** action of the home controller) to the following.
+1. We need to make an addition to our Azure Search parameters to specify that the results should be ordered on the distance they are from the point the user has specified. We do this by setting the **OrderBy** parameter. Change the **SearchParameters** initialization (in the **Geo** action of the home controller) to the following.
 
 ```cs
                 SearchParameters sp = new SearchParameters()
@@ -421,11 +422,11 @@ The current order of results we have does not make a lot of sense.
 
 Notice that **OrderBy** takes a list of strings, so we could add multiple criteria for ordering which would come into play if several returned objects had the same value for the first in the list. This is a bit unlikely with floating point distances, so we will leave our entry with just ordering on the basis of distance.
 
-The **geo.distance** function embedded in the **OrderBy** string takes two parameters. In our case the first is the name of a field containing lat/lon data (**Location** in the hotels database). If there were multiple fields containing position data, we could choose which field to compare. The second parameter is a known input for the geo.distance function (**geography'POINT(...)'**). In this latter case we entry the longitude and latitude (note the order of these two) entered by the user. The two parameters to **geo.distance** could both be field names, both geography points, or one of each as we have in our example.
+The **geo.distance** function embedded in the **OrderBy** string takes two parameters. In our case the first is the name of a field containing lat/lon data (**Location** in the hotels database). If there were multiple fields containing position data, we could choose which field to compare. The second parameter is a known input for the geo.distance function (**geography'POINT(...)'**). In this latter case, we enter the longitude and latitude (note the order of these two) entered by the user. The two parameters to **geo.distance** could both be field names, both geography points, or one of each as we have in our example.
 
 In order to calculate the distance again in the client, we have to return **Location** as one of our **Select** parameters.
 
-2. Now run the app and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance and use the infinite scroll to check this for all the results.
+2. Now run the app and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance. Use the infinite scroll to check this for all results.
 
 Image
 
@@ -439,7 +440,7 @@ Image
 
 5. Running the app should now display all hotels in alphabetical order. 
  
-A more realistic alternative to a distance ordering display would be descending order of hotel rating. This would require returning the rating in the **Select** set of fields, then storing it in the **SearchData** class and adding the rating to the description for display in the view. Perhaps a distance ordering could be the second criteria so the nearest hotel of any rating appears before others of the same rating but that are further away. No need to do this now, but something to consider when deciding on the display order of results.
+A more realistic alternative to a distance ordering display would be descending order of hotel rating. This would require returning the rating in the **Select** set of fields, then storing it in the **SearchData** class and adding the rating to the description for display in the view. Perhaps a distance ordering could be the second criteria so the nearest hotel of any rating appears before others of the same rating but that are further away. No need to do this now, but something to consider when deciding on the display order.
 
 ## Takeaways
 
@@ -450,7 +451,7 @@ You should consider the following takeaways from this project:
 * Geospatial filters provide a lot of valuable context to many user searches. Location is important to most users.
 * Ordering should rarely, if ever, be left to the order of the data. Entering one or more **OrderBy** criteria is good practice.
 
-Of course, entering latitude and longitude is not the preferred user experience for most people. To take this example further consider either entering a city name with a radius, or perhaps even locating a point on a map and selecting a radius. To investigate these options try the following resources:
+Of course, entering latitude and longitude is not the preferred user experience for most people. To take this example further consider either entering a city name with a radius, or perhaps even locating a point on a map and selecting a radius. These options are not built into Azure Search, so to investigate them try the following resources:
 
 * [Azure Maps Documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
 * [Find an address using the Azure Maps search service](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-search-for-address)

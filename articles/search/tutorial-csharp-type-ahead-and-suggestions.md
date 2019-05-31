@@ -15,8 +15,8 @@ Learn how to implement autocompletion (type-ahead and suggestions) when a user s
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Add a drop down list of suggestions for your user in an Azure Search
-> * Add a drop down list of autocompleted words in an Azure Search
+> * Add a drop down list of suggestions
+> * Add a drop down list of autocompleted words
 > * Combine suggestions and autocompletion to further improve the user experience
 > * Employ a few tricks when developing UI scripts
 
@@ -43,7 +43,7 @@ Let's start with the simplest case of offering up alternatives to the user: simp
 
 The key here is that we have set the **id** of the search box to **azureautosuggest**.
 
-2. Following this statement, after the closing **</div>**, enter this script.
+2. Following this statement, after the closing **&lt;/div&gt;**, enter this script.
 
 ```cs
 <script>
@@ -102,7 +102,7 @@ Now we can use the predefined autocomplete jquery functions.
             _serviceClient = CreateSearchServiceClient(_configuration);
             _indexClient = _serviceClient.Indexes.GetClient("hotels");
 
-            // Call suggest API and return results
+            // Setup the suggest parameters.
             SuggestParameters sp = new SuggestParameters()
             {
                 UseFuzzyMatching = fuzzy,
@@ -234,7 +234,7 @@ public async Task<ActionResult> AutoComplete(string term)
             _serviceClient = CreateSearchServiceClient(_configuration);
             _indexClient = _serviceClient.Indexes.GetClient("hotels");
 
-            //Call autocomplete API and return results
+            // Setup the autocomplete parameters.
             AutocompleteParameters ap = new AutocompleteParameters()
             {
                 AutocompleteMode = AutocompleteMode.OneTermWithContext,
@@ -253,7 +253,7 @@ Notice that we are using the same *suggester* function called "sg" in the autoco
 
 There are a range of **AutocompleteMode** settings and we are using **OneTermWithContext**. Refer to [Azure Autocomplete](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) for a description of the range of options here.
 
-4. Run the app. Notice how the range of options are just single words. Try typing "pa". Notice how the number of options reduces as more letters are typed.
+4. Run the app. Notice how the range of options are just single words. Try typing "re". Notice how the number of options reduces as more letters are typed.
 
 Image
 
@@ -316,7 +316,7 @@ There are libraries that offer this functionality - often called "inline autocom
 
 Note how the one autocompletion option is returned at the top of the list, followed by all the suggestions. We now need to implement a script to handle this.
 
-2. In the view, first we implement a trick so that a light gray autocompletion word is rendered right under bolder text being entered by the user. Html includes relative positioning for this purpose. Change the **TextBoxFor** statement (and its surrounding <div> statements) to the following, noting that a second search box identified as **underneath** is right under our normal search box, by pulling this search box 39 pixels off of its default location!
+2. In the view, first we implement a trick so that a light gray autocompletion word is rendered right under bolder text being entered by the user. Html includes relative positioning for this purpose. Change the **TextBoxFor** statement (and its surrounding &lt;div&gt; statements) to the following, noting that a second search box identified as **underneath** is right under our normal search box, by pulling this search box 39 pixels off of its default location!
 
 ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -348,7 +348,7 @@ Note how the one autocompletion option is returned at the top of the list, follo
                     success: function (data) {
                         if (data && data.length > 0) {
 
-                            // Show the autocomplete suggestion
+                            // Show the autocomplete suggestion.
                             document.getElementById("underneath").innerHTML = data[0];
 
                             // Remove the top suggestion as it is used for inline autocomplete.
@@ -436,12 +436,12 @@ Note how the one autocompletion option is returned at the top of the list, follo
     </script>
 ```
 
-Notice the clever use of the **interval** function to both clear the underlying text when it no longer matches what the user is typing, but also to set the same case as the user is typing (as "pa" matches "PA", "pA", "Pa" when searching) so that the overlaid text is neat.
+Notice the clever use of the **interval** function to both clear the underlying text when it no longer matches what the user is typing, but also to set the same case (upper or lower) as the user is typing (as "pa" matches "PA", "pA", "Pa" when searching) so that the overlaid text is neat.
 
 Read through the comments in the script to get a fuller understanding.
 
 
-4. Finally we need to make a minor adjustment to the html style **.searchBox** to make it transparent. Add the following line to this style.
+4. Finally, we need to make a minor adjustment to the HTML style **.searchBox** to make it transparent. Add the following line to this style.
 
 ```cs
             background: rgba(0,0,0,0);

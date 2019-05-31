@@ -40,7 +40,7 @@ The system will treat the left-most and right-most page number buttons as specia
 1. If you created it yourself and have the project handy, start from there. Alternatively download the first app from here.
 xxxx
 
-2. Run the project to make sure it works!
+2. Run the project to make sure it works.
 
 ### Add paging fields to the model
 
@@ -81,7 +81,7 @@ xxxx
 
 ### Add a table of paging options to the view
 
-1. Replace the paging options (starting with **@if (Model != null && Model.pageCount > 1)** and ending with **}** before the final &lt;/body&gt; tag) with the following code. This new code presents a table of paging options: first, previous, 1, 2, 3, 4, 5, next, last.
+1. Replace the paging options (starting with **@if (Model != null && Model.pageCount &gt; 1)** and ending with **}** before the final &lt;/body&gt; tag) with the following code. This new code presents a table of paging options: first, previous, 1, 2, 3, 4, 5, next, last.
 
 ```cs
 @if (Model != null && Model.pageCount > 1)
@@ -205,7 +205,7 @@ The first and last page options do not send strings such as "first" and "last", 
                         break;
                 }
 
-                // Recover the leftMostPage
+                // Recover the leftMostPage.
                 int leftMostPage = (int)TempData["leftMostPage"];
 
                 // Recover the search text and search for the data for the new page.
@@ -361,7 +361,7 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 2. Try clicking on the right-most and later left-most page numbers. Do the page numbers adjust appropriately to center the page you are on?
 
-3. Are the "first" and "last" options useful? Some popular web searches use these options, and others do not!
+3. Are the "first" and "last" options useful? Some popular web searches use these options, and others do not.
 
 Now save off this project and let's try an alternative to this form of paging.
 
@@ -393,11 +393,11 @@ This variable is a string which will simply hold "next" if the next page of resu
 
 ### Add a vertical scroll bar to the view
 
-1. Locate the section of the index.cshtml file that displays the results (it starts with the **@for (var i = 0; i < Model.hotels.Count; i++)** ).
+1. Locate the section of the index.cshtml file that displays the results (it starts with the **@for (var i = 0; i &lt; Model.hotels.Count; i++)** ).
 2. Replace the entire loop with the **&lt;div&gt;** section below. The **&lt;div&gt;** section is around the area that should be scroll-able and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
 
 ```cs
-        <div id="myDiv" style="width: 800px; height: 440px; overflow-y: scroll;" onscroll="scrolled()">
+        <div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()">
             <!-- Show the hotel data. All pages will have ResultsPerPage entries, except for the last page. -->
             @for (var i = 0; i < Model.hotels.Count; i++)
             {
@@ -430,13 +430,13 @@ This variable is a string which will simply hold "next" if the next page of resu
         </script>
 ```
 
-Note the call in the script above that tests to see if the user has scrolled to the bottom of the results list. If they have a call to the **Home** controller is make to an action called **Next**. No other information is needed by the controller, it will simply return the next page of data. This data is then formatted using identical styles as the original page. If no results are returned nothing is appended and things stay as they are.
+Note the call in the script above that tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will simply return the next page of data. This data is then formatted using identical styles as the original page. If no results are returned, nothing is appended and things stay as they are.
 
-4. Delete the old page handling section that begins with **@if (Model != null && Model.pageCount > 1)** and ends just before the end &lt;/body&gt; tag. No need for this with our infinite page system!
+4. Delete the old page handling section that begins with **@if (Model != null && Model.pageCount &gt; 1)** and ends just before the end &lt;/body&gt; tag. No need for this with our infinite page system!
 
 ### Handle the Next action
 
-There are only three actions that can be sent to the controller: the first running of the app which calls **Index()**, the first search by the user which calls **Index(model)** and the calls for more results via **Next(model)**.
+There are only three actions that need to be sent to the controller: the first running of the app which calls **Index()**, the first search by the user which calls **Index(model)** and the calls for more results via **Next(model)**.
 
 1. Open the home controller file and delete the old actions **Next** and **Prev** and the **RunQueryAsync** method from the original tutorial.
 
@@ -473,7 +473,7 @@ There are only three actions that can be sent to the controller: the first runni
                     page = 0;
                 }
 
-                // Call the search API and return results.
+                // Setup the search parameters.
                 SearchParameters sp = new SearchParameters()
                 {
                     Select = new[] { "HotelName", "Description", "Tags", "Rooms" },
@@ -548,7 +548,7 @@ There are only three actions that can be sent to the controller: the first runni
         }
 ```
 
-4. Notice that you are getting a syntax error on **List<string>**. We need to add the following **using** directive to the head of the controller file.
+4. If you are getting a syntax error on **List&lt;string&gt;**, then add the following **using** directive to the head of the controller file.
 
 ```cs
 using System.Collections.Generic;
@@ -558,9 +558,12 @@ using System.Collections.Generic;
 
 Now select **Start Without Debugging** (or press the F5 key).
 
-1. Enter a term that will give plenty of results (such as "wifi") and then test the vertical scroll bar. Does it trigger a new page of results? If the scroll bar is not scroll-able and there are more than one page worth of results, then it might just be that the scroll-able height is a bit too large for one page of entries. You want it slightly too small so that a scroll bar is available on the first page. In this case, consider reducing the height of the scroll-able area by a few pixels in the statement **<div id="myDiv" style="width: 800px; height: 440px; overflow-y: scroll;" onscroll="scrolled()">** in the view file.
+1. Enter a term that will give plenty of results (such as "wifi") and then test the vertical scroll bar. Does it trigger a new page of results? If the scroll bar is not scroll-able and there are more than one page worth of results, then it might just be that the scroll-able height is a bit too large for one page of entries. You want it slightly too small so that a scroll bar is available on the first page. In this case, consider reducing the height of the scroll-able area by a few pixels in the statement **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;** in the view file.
 
-2. Scroll down all the way to the bottom of the results. Note how all information is now on the one view page as you can scroll all the way back to the top without triggering any server calls.
+> [!Tip]
+> To ensure that a scroll bar appears on the first page, the first page of results must slightly exceed the height of the area they are being displayed in. To calculate the size three results (our setting of results per page), multiply the size of each result by three. In our example **.box1** has a height of 30 pixels, **.box2** has a height of 100 pixels and a bottom margin of 24 pixels. So each entry uses 154 pixels. Three entries will take up 3 x 154 = 462 pixels. To ensure that a vertical scroll bar appears a height to the display area must be set that is smaller than 462 pixels, even 461 works. This issue only occurs on the first page, after that a scroll bar is sure to appear.
+
+2. Scroll down all the way to the bottom of the results. Notice how all information is now on the one view page as you can scroll all the way back to the top without triggering any server calls.
 
 More sophisticated infinite scrolling systems might use the mouse wheel or similar other mechanism to trigger the loading of a new page of results. We will not be taking infinite scrolling any further in these tutorials, but it has a certain charm to it as it avoids extra mouse clicks and you might want to investigate other options further!
 
