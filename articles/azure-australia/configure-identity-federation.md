@@ -1,20 +1,18 @@
 ---
-title: Configuring identity federation on Azure
+title: Identity Federation within Azure Australia
 description: Guidance on configuring identity federation within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
 ms.topic: quickstart
-ms.date: 04/25/2019
+ms.date: 05/31/2019
 ms.author: grgale
 ---
 
-# Identity Federation Within Azure: Quickstart Guide
-
-## Background
+# Identity federation within Azure Australia
 
 Identity Management and Federation with Public Cloud offerings is one of the most crucial first-steps for using the cloud. Microsoft's Azure Active Directory service stores user information to enable access to cloud services and is a pre-requisite for consuming other Azure services.
 
-This guide covers the key design points for implementing Azure Active Directory, synchronising users from an Active Directory Domain Services domain, and implementing secure authentication. Specific focus is placed on the recommendations in the Australian Cyber Security Center's Information Security Manual (ISM) and Azure Certification Reports.
+This article covers the key design points for implementing Azure Active Directory, synchronising users from an Active Directory Domain Services domain, and implementing secure authentication. Specific focus is placed on the recommendations in the Australian Cyber Security Center's Information Security Manual (ISM) and Azure Certification Reports.
 
 The classification of information stored within Azure Active Directory should inform decisions about how it is designed. The following excerpt is provided from the [ACSC Certification Report – Microsoft Azure](https://aka.ms/au-irap):
 
@@ -27,9 +25,9 @@ provided from outside of Australia.
 
 As such, what information is synchronised, and the mechanism by which users are authenticated, are the two key concerns covered here.
 
-## Key Design Considerations
+## Key design considerations
 
-### User Synchronisation
+### User synchronisation
 
 When deploying Azure AD Connect, there are several decisions that must be made about the data that will be synchronised. Azure AD Connect is based upon Microsoft Identity Manager and provides a robust feature-set for [transforming](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration) data between directories.
 
@@ -60,7 +58,7 @@ All three of these options support [Password Write-Back](https://docs.microsoft.
 
 Pass-Through Authentication was released after the IRAP assessment was completed and therefore; should be individually evaluated to determine how the solution fits your organisation's risk profile. Pass-Through Authentication is preferred over Federation by Microsoft due to the improved security posture.
 
-![Pass-Through Authentication](/media/pta1.png)
+![Pass-Through Authentication](media/pta1.png)
 
 Pass-Through Authentication presents several design factors to be considered:
 

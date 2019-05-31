@@ -1,5 +1,5 @@
 ---
-title: Implementing Role Based Access Control and Privileged Identity Management on Azure Quickstart Guide
+title: Implementing Role Based Access Control and Privileged Identity Management in Azure Australia
 description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: Galey801
 ms.service: azure-australia
@@ -9,8 +9,6 @@ ms.author: grgale
 ---
 
 # Implementing Role Based Access Control and Privileged Identity Management
-
-## Background
 
 Managing administrative privilege is a critical step in ensuring security within any IT environment. Restricting administrative privilege via the use of Least Privilege Security is a requirement of the [ACSC ISM](https://acsc.gov.au/infosec/ism/index.htm) and forms part of the [ACSC Essential 8](https://www.acsc.gov.au/infosec/mitigationstrategies.htm) list of security recommendations.
 
@@ -126,7 +124,7 @@ Microsoft has implemented Just-In-Time and Just-Enough-Access through Azure Priv
 
 The use of PIM prevents the common privilege assignment issues that can occur in environments that don't use Just-In-Time access or don't conduct routine audits of privilege assignment. One common issue is the assignment of elevated privileges being forgotten and remaining in place long after the task requiring elevated privileges has been completed. Another issue is the proliferation of elevated privileges within an environment through the cloning of the access assigned to a Security Principal when configuring other similar Security Principals.
 
-## Key Design Considerations
+## Key design considerations
 
 When designing an RBAC strategy with the intention of enforcing Least Privilege Security, the following security requirements should be considered:
 
@@ -137,17 +135,17 @@ When designing an RBAC strategy with the intention of enforcing Least Privilege 
 
 The process of designing an RBAC strategy will necessitate a detailed review of business functions to understand the difference in access between distinct business roles, and the type and frequency of work that requires elevated privileges. The difference in function between a Backup Operator, a Security Administrator, and an Auditor will require different levels of access at different times with varying levels of ongoing review.
 
-## Validate Requests for Access
+## Validate requests for access
 
 Elevated privileges must be explicitly approved. To support this, an approval process must be developed and appropriate staff made responsible for validating that all requests for additional privileges are legitimate. Privileged Identity Management provides multiple options for approving Role assignment. A role activation request can be configured to allow for self-approval or be gated and require nominated approvers to manually review and approve all Role activation requests. Activation requests can also be configured to require additional supporting information is included with the activation request, such as ticket numbers.
 
-### Restrict Privilege Based on Duties
+### Restrict privilege based on duties
 
 Restricting the level of privilege granted to Security Principals is critical, as the over assignment of privileges is a common IT Security attack vector. The types of resources being managed, and the teams responsible, must be assessed so the minimum level of privileges required for daily duties can be assigned. Additional privileges that go beyond those required for daily duties should only ever be granted for the period of time required to perform a specific task. An example of this would be providing "Contributor" access to a customer's administrator, but allowing them to request "Owner" permissions for an Azure Resource for a specific task requiring temporary high-level access.
 
 This ensures that each individual administrator only has elevated access for the shortest period of time. Adherence to these practices reduces the overall attack surface for any organisations IT infrastructure.
 
-### Regular Evaluation of Administrative Privilege
+### Regular evaluation of administrative privilege
 
 It is vital that Security Principals within an environment are routinely audited to ensure that the correct level of privilege is currently assigned. Microsoft Azure provides a number of means to audit and evaluate the privileges assigned to Azure Security Principals. Privileged Identity Management allows administrative staff to periodically perform "Access Reviews" of the Roles granted to Security Principals. An Access Review can be undertaken to audit both Azure Resource Role assignment and Azure Active Directory Administrative Role assignment. An Access Review can be configured with the following properties:
 
@@ -155,21 +153,21 @@ It is vital that Security Principals within an environment are routinely audited
 
 * **Role to be reviewed**: Each Access Review focuses on a single Azure Role.
 
-* **Nominated Reviewers**: There are three options for performing a review. You can assign the review to someone else to complete, you can do it yourself, or you can have each user review their own access.
+* **Nominated reviewers**: There are three options for performing a review. You can assign the review to someone else to complete, you can do it yourself, or you can have each user review their own access.
 
 * **Require users to provide a reason for access**: Users can be required to enter a reason for maintaining their level of privilege when completing the access review.
 
 The progress of pending Access Reviews can be monitored at any time via a dashboard in the Azure portal. Access to the role being reviewed will remain unchanged until the Access Review has been completed. It is also possible to [audit](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-use-audit-log) all PIM user assignments and activations within a nominated time period.
 
-## Further Reading
+## Further reading
 
-### Azure Solutions Overview
+### Azure solutions overview
 
 * [Azure RBAC Overview](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 * [Azure Privileged Identify Management Overview](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure)
 * [Azure Management Groups Overview](https://docs.microsoft.com/en-us/azure/governance/management-groups/)
 
-### Related Documentation
+### Related documentation
 
 * [Azure Identity and Access Control Best Practices](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices)
 * [Managing AAD Groups](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-manage-groups)
