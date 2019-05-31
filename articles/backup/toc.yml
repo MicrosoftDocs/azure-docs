@@ -13,6 +13,9 @@
     href: quick-backup-vm-powershell.md
   - name: Back up a VM - CLI
     href: quick-backup-vm-cli.md
+  - name: Back up a VM - Resource Manager template
+    displayName: ARM
+    href: quick-backup-vm-template.md
 - name: Tutorials
   items:
   - name: Back up Azure VMs at scale
