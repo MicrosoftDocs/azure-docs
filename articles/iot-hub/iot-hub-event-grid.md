@@ -12,19 +12,19 @@ ms.author: kgremban
 
 # React to IoT Hub events by using Event Grid to trigger actions
 
-Azure IoT Hub integrates with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. Configure your business applications to listen for IoT Hub events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application that updates a database, creates a work ticket, and delivers an email notification every time a new IoT device is registered to your IoT hub. 
+Azure IoT Hub integrates with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. Configure your business applications to listen for IoT Hub events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application that updates a database, creates a work ticket, and delivers an email notification every time a new IoT device is registered to your IoT hub.
 
-[Azure Event Grid](../event-grid/overview.md) is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](../event-grid/overview.md). 
+[Azure Event Grid](../event-grid/overview.md) is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](../event-grid/overview.md).
 
 ![Azure Event Grid architecture](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## Regional availability
 
-The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. All device events except device telemetry events are generally available. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md). 
+The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. All device events except device telemetry events are generally available. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md).
 
 ## Event types
 
-IoT Hub publishes the following event types: 
+IoT Hub publishes the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -42,15 +42,15 @@ IoT Hub events contain all the information you need to respond to changes in you
 
 ### Device connected schema
 
-The following example shows the schema of a device connected event: 
+The following example shows the schema of a device connected event:
 
 ```json
 [{  
-  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
-  "subject": "devices/LogicAppTestDevice", 
-  "eventType": "Microsoft.Devices.DeviceConnected", 
-  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+  "subject": "devices/LogicAppTestDevice",
+  "eventType": "Microsoft.Devices.DeviceConnected",
+  "eventTime": "2018-06-02T19:17:44.4383997Z",
   "data": {
       "deviceConnectionStateEventInfo": {
         "sequenceNumber":
@@ -60,41 +60,45 @@ The following example shows the schema of a device connected event:
     "deviceId": "LogicAppTestDevice",
     "moduleId" : "DeviceModuleID",
   }, 
-  "dataVersion": "1", 
-  "metadataVersion": "1" 
+  "dataVersion": "1",
+  "metadataVersion": "1"
 }]
 ```
 
 ### Device Telemetry schema
 
-Device telemetry message must be in a valid JSON format with the contentType set to JSON and contentEncoding set to UTF-8 in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). If this is not set, then IoT Hub will write the messages in base 64 encoded format. The following example shows the schema of a device telemetry event: 
+Device telemetry message must be in a valid JSON format with the contentType set to JSON and contentEncoding set to UTF-8 in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). If this is not set, then IoT Hub will write the messages in base 64 encoded format.
+
+You can enrich device telemetry events before they are published to Event Grid by selecting the endpoint as Event Grid. For more information, see [Message Enrichments Overview](iot-hub-message-enrichments-overview.md).
+
+The following example shows the schema of a device telemetry event:
 
 ```json
 [{  
   "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
   "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice", 
+  "subject": "devices/LogicAppTestDevice",
   "eventType": "Microsoft.Devices.DeviceTelemetry",
   "eventTime": "2019-01-07T20:58:30.48Z",
-  "data": {        
-      "body": {            
-          "Weather": {                
-              "Temperature": 900            
+  "data": {
+      "body": {
+          "Weather": {
+              "Temperature": 900
             },
-            "Location": "USA"        
+            "Location": "USA"
         },
-        "properties": {            
-            "Status": "Active"        
+        "properties": {
+            "Status": "Active"
         },
-        "systemProperties": {            
+        "systemProperties": {
           "iothub-content-type": "application/json",
           "iothub-content-encoding": "utf-8",
           "iothub-connection-device-id": "d1",
           "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
           "iothub-connection-auth-generation-id": "123455432199234570",
           "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
-          "iothub-message-source": "Telemetry"        
-        }    
+          "iothub-message-source": "Telemetry"
+        }
   },
   "dataVersion": "",
   "metadataVersion": "1"
@@ -103,7 +107,7 @@ Device telemetry message must be in a valid JSON format with the contentType set
 
 ### Device created schema
 
-The following example shows the schema of a device created event: 
+The following example shows the schema of a device created event:
 
 ```json
 [{
@@ -157,7 +161,7 @@ For a detailed description of each property, see [Azure Event Grid event schema 
 
 IoT Hub event subscriptions can filter events based on event type, data content and subject, which is the device name.
 
-Event Grid enables [filtering](../event-grid/event-filtering.md) on event types, subjects and data content. While creating the Event Grid subscription, you can choose to subscribe to selected IoT events. Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
+Event Grid enables [filtering](../event-grid/event-filtering.md) on event types, subjects and data content. While creating the Event Grid subscription, you can choose to subscribe to selected IoT events. Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber.
 
 The subject of IoT Events uses the format:
 
@@ -165,22 +169,21 @@ The subject of IoT Events uses the format:
 devices/{deviceId}
 ```
 
-Event Grid also allows for filtering on attributes of each event, including the data content. This allows you to choose what events are delivered based contents of the telemetry message. Please see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering) to view examples. 
+Event Grid also allows for filtering on attributes of each event, including the data content. This allows you to choose what events are delivered based contents of the telemetry message. Please see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering) to view examples.
 
 For non-telemetry events like DeviceConnected, DeviceDisconnected, DeviceCreated and DeviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body through the message routing query. We create a default [route](iot-hub-devguide-messages-d2c.md) in IoT Hub, based on your Event Grid subscription to device telemetry. This single route can handle all of your Event Grid subscriptions. To filter messages before telemetry data is sent, you can update your [routing query](iot-hub-devguide-routing-query-syntax.md). Note that routing query can be applied to the message body only if the body is JSON.
 
-
 ## Limitations for device connected and device disconnected events
 
-To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
 
-The D2C link is open if you are sending telemetry. If the device connection is flickering, which means the device connects and disconnects frequently, we will not send every single connection state, but will publish the connection state that is snapshotted every minute. In case of an IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
+The D2C link is open if you are sending telemetry. If the device connection is flickering, which means the device connects and disconnects frequently, we will not send every single connection state, but will publish the connection state of which a snapshot is taken every minute. In case of an IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
 
 ## Tips for consuming events
 
 Applications that handle IoT Hub events should follow these suggested practices:
 
-* Multiple subscriptions can be configured to route events to the same event handler, so don't assume that events are from a particular source. Always check the message topic to ensure that it comes from the IoT hub that you expect. 
+* Multiple subscriptions can be configured to route events to the same event handler, so don't assume that events are from a particular source. Always check the message topic to ensure that it comes from the IoT hub that you expect.
 
 * Don't assume that all events you receive are the types that you expect. Always check the eventType before processing the message.
 
@@ -189,6 +192,9 @@ Applications that handle IoT Hub events should follow these suggested practices:
 ## Next steps
 
 * [Try the IoT Hub events tutorial](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+
 * [Learn how to order device connected and disconnected events](iot-hub-how-to-order-connection-state-events.md)
+
 * [Learn more about Event Grid](../event-grid/overview.md)
+
 * [Compare the differences between routing IoT Hub events and messages](iot-hub-event-grid-routing-comparison.md)

@@ -778,26 +778,35 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
+
 }
 ```
+Where action can be one of these: 
+- `Subscribe`, (When the resource has been activated)
+- `Unsubscribe`, (When the resource has been deleted)
+- `ChangePlan`, (When the change plan operation has completed)
+- `ChangeQuantity`, (When the change quantity operation has completed),
+- `Suspend`, (When resource has been suspended)
+- `Reinstate`, (When resource has been reinstated after suspension)
 
-Where action can be one of the following: 
-- `Subscribe`  (When the resource has been activated)
-- `Unsubscribe` (When the resource has been deleted)
-- `ChangePlan` (When the change plan operation has completed)
-- `ChangeQuantity` (When the change quantity operation has completed)
-- `Suspend` (When the resource has been suspended)
-- `Reinstate` (When resource has been reinstated after suspension)
+Where status can be one of these: <br>
+        - NotStarted, <br>
+        - InProgress, <br>
+        - Succeeded, <br>
+        - Failed, <br>
+        - Conflict <br>
 
+Actionable statuses are Succeeded and Failed in a webhook notification. An operation's lifecycle is from NotStarted to a terminal state like Succeeded/Failed/Conflict. If you receive Not started or in progress, please continue to request the status via GET operation API until the operation reaches a terminal state before taking any action. 
 
 ## Mock API
 
