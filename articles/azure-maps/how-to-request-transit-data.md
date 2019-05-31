@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Request public transit data using the Azure Maps Mobility Service 
 
-This article shows you how to use Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService) to request public transit data, including stops, route information, and travel time estimations.
+This article shows you how to use Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) to request public transit data, including stops, route information, and travel time estimations.
 
 In this article you will learn, how to:
 
@@ -758,3 +758,16 @@ The Azure Maps [Get Transit Itinerary](https://aka.ms/AzureMapsMobilityTransitIt
           ]
     }
     ```
+
+## Next steps
+
+Learn how to request real-time data using Mobility Service:
+
+> [!div class="nextstepaction"]
+> [How to request real-time data](how-to-request-real-time-data.md)
+
+Explore the Azure Maps Mobility Service API documentation
+
+> [!div class="nextstepaction"]
+> [Mobility Service API documentation](https://aka.ms/AzureMapsMobilityService)
+

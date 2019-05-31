@@ -12,17 +12,15 @@ manager: philmea
 
 # Data structures in Azure Maps Mobility Service
 
-This article introduces you to some of the common fields returned via the [Azure Maps Mobility Service API](https://aka.ms/AzureMapsMobilityService), when it is queried for public transit stops and lines. We recommend going through this article before starting out with the Mobility Service APIs. We discuss these common fields below.
+This article introduces the concept of Metro Area in [Azure Maps Mobility Service](https://aka.ms/AzureMapsMobilityService) and some of the common fields returned via the services, when it is queried for public transit stops and lines. We recommend going through this article before starting out with the Mobility Service APIs. We discuss these common fields below.
 
 ## Metro Area
 
-Mobility Service data is split into supported metro areas. Metro areas do not follow city boundaries, a metro area can contain multiple cities (e.g a densely populated city and its surrounding cities) and a country/region can support multiple metro areas. Metro area IDs are also subject to change.
+Mobility Service data is split into supported metro areas. Metro areas do not follow city boundaries, a metro area can contain multiple cities, for example, densely populated city and its surrounding cities; and a country/region can be one metro area. 
 
-The `metroID` is a metro area's ID that can be used to call the [Get Metro Area Info](https://aka.ms/AzureMapsMobilityMetroAreaInfo) API to request supported transit types and additional details for the metro area such as transit agencies and active alerts. You can use the [Azure Maps Get Metro API](https://aka.ms/AzureMapsMobilityMetro) to request the supported metro areas and metroIDs.
+The `metroID` is a metro area's ID that can be used to call the [Get Metro Area Info API](https://aka.ms/AzureMapsMobilityMetroAreaInfo) to request supported transit types and additional details for the metro area such as transit agencies and active alerts. You can use the Azure Maps Get Metro API to request the supported metro areas and metroIDs. Metro area IDs are subject to change.
 
-| metroID | Name |
-|:---------:|:------|
-| 522       | Seattle-Tacoma-Bellevue|
+**metroID:** 522   **Name:** Seattle-Tacoma-Bellevue
 
 ![Seattle-metro-area](./media/mobility-service-data-structure/seattle-metro.png)
 

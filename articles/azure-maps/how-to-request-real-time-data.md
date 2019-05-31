@@ -195,3 +195,16 @@ Follow the steps below to make a request to the Get Transit Dock Info API to get
         }
     }
     ```
+
+
+## Next steps
+
+Learn how to request transit data using Mobility Service:
+
+> [!div class="nextstepaction"]
+> [How to request transit data](how-to-request-transit-data.md)
+
+Explore the Azure Maps Mobility Service API documentation:
+
+> [!div class="nextstepaction"]
+> [Mobility Service API documentation](https://aka.ms/AzureMapsMobilityService)
