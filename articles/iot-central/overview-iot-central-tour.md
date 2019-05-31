@@ -3,7 +3,7 @@ title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -58,7 +58,9 @@ You can choose between a light theme or a dark theme for the UI:
 
 ![Dashboard](media/overview-iot-central-tour/homepage.png)
 
-The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial. Users can also [create their own personal dashboards](howto-personalize-dashboard.md).
+* The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial.
+
+* As a operator, you can create personalized dashboards and switch between them and the default dashboard. To learn more, see the [Create and manage personal dashboards](howto-personalize-dashboard.md) how-to article.
 
 ## Device explorer
 
@@ -87,13 +89,19 @@ The analytics page shows charts that help you understand how the devices connect
 
 The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job.md) article.
 
-## Device Templates
+## Device templates
 
 ![Device Templates page](media/overview-iot-central-tour/templates.png)
 
-The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
+The device templates page is where a builder creates and manages the device templates in the application. A device template specifies device characteristics such as:
+- Telemetry, state and event measurements.
+- Settings and properties.
+- Commands.
+- Rules based on events or telemetry values.
 
-## Continuous Data Export
+To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
+
+## Continuous Data export
 
 ![Continuous Data Export page](media/overview-iot-central-tour/export.png)
 
@@ -103,7 +111,7 @@ The continuous data export page is where an administrator defines how to export 
 
 ![Administration page](media/overview-iot-central-tour/administration.png)
 
-The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
+The administration page contains links to the tools an administrator uses such as defining users and roles in the application and customizing the UI. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
 
 ## Next steps
 
