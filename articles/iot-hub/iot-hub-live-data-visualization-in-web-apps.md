@@ -60,7 +60,7 @@ Run the following command to add a consumer group to the built-in endpoint of yo
 az iot hub consumer-group create --hub-name YourIoTHubName --name YourConsumerGroupName
 ```
 
-Note down the name you choose, you will need it later in this tutorial.
+Note down the name you choose, you'll need it later in this tutorial.
 
 ## Get a service connection string for your IoT hub
 
@@ -76,7 +76,7 @@ The connection string should look similar to the following:
 "HostName={YourIotHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"
 ```
 
-Note down the service connection string, you will need it later in this tutorial.
+Note down the service connection string, you'll need it later in this tutorial.
 
 ## Download the web app from GitHub
 
@@ -112,7 +112,7 @@ const iotHubConnectionString = process.env.IotHubConnectionString;
 const eventHubConsumerGroup = process.env.EventHubConsumerGroup;
 ```
 
-Set the environment variables in your command window with the following commands. Replace the placeholder values with the service connection string for your IoT hub and the name of the consumer group you created previously. Do not quote the strings.
+Set the environment variables in your command window with the following commands. Replace the placeholder values with the service connection string for your IoT hub and the name of the consumer group you created previously. Don't quote the strings.
 
 ```cmd
 set IotHubConnectionString=YourIoTHubConnectionString
@@ -150,7 +150,7 @@ You should also see output in the console that shows the messages that your web 
 
 The [Web Apps feature of Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview) provides a platform as a service (PAAS) for hosting web applications. Web applications hosted in Azure App Service can benefit from powerful Azure features like additional security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. Azure App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
 
-In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest) documentation. Before starting, make sure you have completed the steps to [add a resource group to your IoT hub](#add-a-consumer-group-to-your-Iot-hub), [get a service connection string for your IoT hub](#get-a-service-connection-string-for-your-iot-hub), and [download the web app from GitHub](#download-the-web-app-from-github).
+In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest) documentation. Before starting, make sure you've completed the steps to [add a resource group to your IoT hub](#add-a-consumer-group-to-your-Iot-hub), [get a service connection string for your IoT hub](#get-a-service-connection-string-for-your-iot-hub), and [download the web app from GitHub](#download-the-web-app-from-github).
 
 1. An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) defines a set of compute resources for an app hosted in App Service to run. In this tutorial, we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
 
@@ -166,7 +166,7 @@ In this section, you provision a web app in App Service and deploy your code to 
    az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --deployment-local-git
    ```
 
-3. Now add Application Settings for the environment variables that specify the IoT hub connection string and the Event hub consumer group. Individual settings are space delimited in the `-settings` parameter. Use the service connection string for your IoT hub and the consumer group you created previously in this tutorial. Do not quote the values.
+3. Now add Application Settings for the environment variables that specify the IoT hub connection string and the Event hub consumer group. Individual settings are space delimited in the `-settings` parameter. Use the service connection string for your IoT hub and the consumer group you created previously in this tutorial. Don't quote the values.
 
    ```azurecli-interactive
    az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=<your IoT hub connection string>
@@ -179,27 +179,27 @@ In this section, you provision a web app in App Service and deploy your code to 
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. Get the Git URL to use to push your code up to App Service.
+5. To deploy the code to App Service, you'll use your [user-level deployment credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). Your user-level deployment credentials are different from your Azure credentials and are used for Git local and FTP deployments to a web app. Once set, they're valid across all of your App Service apps in all subscriptions in your Azure account. If you've previously set user-level deployment credentials, you can use them.
+
+   If you haven't previously set user-level deployment credentials or you can't remember your password, run the following command. Your username must be unique within Azure, and it must not contain the ‘@’ symbol for local Git pushes. When you're prompted, enter and confirm your new password. The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
+
+   ```azurecli-interactive
+   az webapp deployment user set --user-name <your new user name>
+   ```
+
+6. Get the Git URL to use to push your code up to App Service.
 
    ```azurecli-interactive
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-6. Add a remote to your clone that references the Git repository for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following command in your command window.
+7. Add a remote to your clone that references the Git repository for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following command in your command window.
 
    ```cmd
    git remote add webapp <Git clone URL>
    ```
 
-7. To push your changes to App Service, you need either user-level or app-level credentials. Both sets of credentials enable you to authenticate for Git-local, FTP, and WebDeploy deployments. User-level credentials are valid for all apps across your Azure subscription while app-level credentials are auto-generated and valid only for a specific app. To learn more, see [Configure deployment credentials for Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). 
-
-   For this tutorial app-level credentials are sufficient. To get the app-level credentials for your web app, run the following command and copy the values of the `publishingUserName` and `publishingPassword` properties in the response.
-
-   ```azurecli-interactive
-   az webapp deployment list-publishing-credentials -n <your web app name> -g <your resource group name>
-   ```
-
-8. To push the web application code up to App Service, enter the following command in your command window. If you are prompted for credentials, enter the app-level credentials that you got in the previous step. Make sure that you push to the master branch of the App Service remote.
+8. To deploy the code to App Service, enter the following command in your command window. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Make sure that you push to the master branch of the App Service remote.
 
     ```cmd
     git push webapp master:master
@@ -226,7 +226,7 @@ In this section, you provision a web app in App Service and deploy your code to 
 
 ## Troubleshooting
 
-If you encounter any issues with this sample, try the steps in the following sections. If you still have problems, send us feedback at the bottom of this topic.
+If you come across any issues with this sample, try the steps in the following sections. If you still have problems, send us feedback at the bottom of this topic.
 
 ### Client issues
 
