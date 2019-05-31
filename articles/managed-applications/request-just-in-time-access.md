@@ -1,20 +1,22 @@
 ---
-title: Test the UI definition for Azure Managed Applications | Microsoft Docs
-description: Describes how to test the user experience for creating your Azure Managed Application through the portal.
+title: Approve just-in-time access for Azure Managed Applications
+description: Describes how publishers of Azure Managed Applications request just-in-time access to a managed application.
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/26/2019
+ms.date: 05/30/2019
 ms.author: tomfitz
 ---
-# Test your portal interface for Azure Managed Applications
+# Request just-in-time access for Azure Managed Applications
 
 Not all consumers of Managed Applications want their service providers to have standing high-level access for their resources and not all service providers want standing high-level access for their support teams. Instead, Just-in-time (JIT) access allows service providers to request temporary elevated access to a managed application’s resources for troubleshooting or maintaining a customer’s Managed App. Publishers can now enable the JIT capability on their Managed Applications offerings to provide JIT enabled Managed Applications, giving them standing read-only access with the ability to elevate access for a period of time on request. 
 Publishing JIT Capable Managed Applications
 To learn more about publishing your first Managed Application offer to the Azure Marketplace, please read Azure Managed Applications in the Marketplace.
 
-Prepare your Managed Application Package
+## Prepare your managed application Package for JIT access
+
 Note: The schema mentioned in this section for CreateUiDefinition.json file is not final – there could be changes to this schema as appropriate in the future iterations.
+
 To support JIT capability for your offer, add the following content to your CreateUiDefinition.json file:
  
 In "steps":
@@ -44,43 +46,42 @@ In "outputs":
 "jitAccessPolicy": "[parse(concat('{\"jitAccessEnabled\":', string(steps('jitConfiguration').jitConfigurationControl.jitEnabled), ',\"jitApprovalMode\":\"', steps('jitConfiguration').jitConfigurationControl.jitApprovalMode, '\",\"maximumJitAccessDuration\":\"', steps('jitConfiguration').jitConfigurationControl.maxAccessDuration, '\",\"jitApprovers\":', string(steps('jitConfiguration').jitConfigurationControl.approvers), '}'))]"
 ```
 
-Enable JIT configuration for a Managed Application package
-Login to the Cloud Partner publishing portal : https://cloudpartner.azure.com
-While publishing the package, select 'Yes' for 'Enable JIT Access' option
+## Enable JIT access in marketplace
 
-![Enable just-in-time access](./media/request-just-in-time-access/marketplace-enable.png)
+When defining your offering in the marketplace, make sure you enable JIT access.
 
-Making a JIT Access Request as a Service Provider
+1. Sign in to the [Cloud Partner publishing portal](https://cloudpartner.azure.com).
 
-Select the role to activate
-When viewing the Managed Application you want to make a JIT Access Request for, open the 'JIT Access' menu item. 
+1. Provide values to publish your managed application in the marketplace. Select **Yes** for **Enable JIT Access**.
 
-On the ‘Eligible Roles’ tab, click on the ‘Activate’ link in the ACTION column for the role you want to activate for your JIT Access Request.
+   ![Enable just-in-time access](./media/request-just-in-time-access/marketplace-enable.png)
 
-![Activate request for access](./media/request-just-in-time-access/send-request.png)
+## Request access
 
-Submit request for role activation
-On the 'Activate Role' form, select a start time and duration for your role to be active, then click 'Activate' to send the request.
+To send a JIT access request:
 
-![Activate access](./media/request-just-in-time-access/activate-access.png) 
+1. Select **JIT Access** for the managed application you need to access. 
 
-Follow the notifications to see the progress and the result of creating new JIT request. Sample statuses:
-In Progress
+1. Select **Eligible Roles**, and select **Activate** in the ACTION column for the role you want.
 
-![Notification](./media/request-just-in-time-access/in-progress.png)
+   ![Activate request for access](./media/request-just-in-time-access/send-request.png)
 
-Success
+1. On the **Activate Role** form, select a start time and duration for your role to be active. Select **Activate** to send the request.
 
-View JIT request status & request history
-To view the status of all JIT requests for a managed application, open the 'JIT Access' menu item, then select the 'Request History' tab.
+   ![Activate access](./media/request-just-in-time-access/activate-access.png) 
 
-![View status](./media/request-just-in-time-access/view-status.png)
+1. View the notifications to see that the new JIT request is successfully sent to the consumer.
+
+   ![Notification](./media/request-just-in-time-access/in-progress.png)
+
+1. To view the status of all JIT requests for a managed application, select **JIT Access** and **Request History**.
+
+   ![View status](./media/request-just-in-time-access/view-status.png)
 
 ## Known issues
 
-•	The JIT requestor’s principal Id in the ISV tenants should explicitly be part of the application package. It is not enough for this user to be part of a security group. This is a temporary limitation that will be fixed in the future releases of this feature.
-
+The principal ID of the account requesting JIT access must be explicitly included in the application package. The account can't only be included through a group that is specified in the package. This is a temporary limitation that will be fixed in a future release.
 
 ## Next steps
 
-
+To learn about approving requests for JIT access, see [Approve just-in-time access in Azure Managed Applications](approve-just-in-time-access.md).

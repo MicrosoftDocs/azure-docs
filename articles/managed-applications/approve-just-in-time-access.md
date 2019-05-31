@@ -1,72 +1,104 @@
 ---
-title: Test the UI definition for Azure Managed Applications | Microsoft Docs
-description: Describes how to test the user experience for creating your Azure Managed Application through the portal.
+title: Approve just-in-time access for Azure Managed Applications
+description: Describes how consumers of Azure Managed Applications approve requests for just-in-time access to a managed application.
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/26/2019
+ms.date: 05/30/2019
 ms.author: tomfitz
 ---
 # Approve just-in-time access for Azure Managed Applications
 
-Note: Customers looking to make use of the JIT feature on managed applications should have Azure Active Directory P2 license. For more information, please check here: https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/subscription-requirements
+As a consumer of a managed application, you might not be comfortable giving the publisher permanent access to the managed resource group. Azure Managed Applications provides a feature called just-in-time (JIT) access that enables you to approve when and for how long the publisher has access to the resource group. The publisher can make required updates during that time, but when that time is over, the publisher's access expires.
 
-Login as customer on the Azure portal – https://portal.azure.com
-Configure JIT access during deployment
-Select a marketplace entry for a managed application offer with JIT capability and click ‘Create’.
-During the create experience, the 'JIT Configuration' step allows you to enable and disable JIT access for the Managed Application. Managed Applications with the JIT access capability will have JIT access enabled by default. Select ‘Yes’ for the 'Enable JIT Access' option to enable JIT access on the managed application enabled by default)
+The work flow for granting access is:
 
-![Configure access](./media/approve-just-in-time-access/configure-jit-access.png)
+1. The publisher adds a managed application in the marketplace and specifies that JIT access is available for the application.
 
-JIT Access for a Managed Application can only be enabled at deployment and cannot be changed later. Configuration for your Managed Application’s JIT access once it is enabled may be changed any time.
+1. During deployment of the managed application, you enable just-in-time access.
+
+1. At any time after deployment, you can change the settings for just-in-time access.
+
+1. When needed, the publisher sends a request for access.
+
+1. You approve the request.
+
+To use just-in-time access, you must have a [Azure Active Directory P2 license](../active-directory/privileged-identity-management/subscription-requirements).
+
+## Approval settings
+
+By default, a managed application with JIT enabled has the following settings:
+
+* Approval mode – automatic
+* Maximum access duration – 8 hours
+* Approvers – none
+
+When the approval mode is set to automatic, the approvers are notified that a request was received but the request is automatically approved. When set to manual, the approvers are notified that a request was received, and one of them must approve it.
+
+The activation maximum duration specifies the maximum amount of time a publisher can request for access to the manage resource group.
  
+The approvers list is the Azure Active Directory users that can approve of JIT access requests.
 
-If you want to customize the JIT configuration settings, click on ‘Customize JIT Configuration’ button.
+You can change these default setting either during deployment or after deployment.
 
-![Customize access](./media/approve-just-in-time-access/customize-jit-access.png)
+## Enable during deployment
 
-Approval Mode: Automatic will notify approvers that a request was received and approved automatically. Manual will notify approvers that a request was received and that it is waiting for them to approve it.
-Activation maximum duration: The maximum amount of time a service provider can request to have elevated access to the Managed Application’s resources. 
-Approvers: Azure Active Directory users that can approve of JIT Access requests sent by a Managed Application’s service provider.
-After updating the configuration, click on ‘Save’ button to save the settings.
-If you do not click on the Customize JIT Configuration’ button, the default configuration will be as follows:
-	JIT request approval mode – Auto Approval
-	Maximum access duration – 8 hours
-	Approvers – None
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
+1. Find a marketplace entry for a managed application with JIT enabled. Select **Create**.
 
-Configure JIT access after deployment
+1. While providing values for the new managed application, the **JIT Configuration** step allows you to enable or disable JIT access for the managed application. Select **Yes** for **Enable JIT Access**. This option is selected by default for managed applications that defined with JIT enabled in the marketplace.
+
+   ![Configure access](./media/approve-just-in-time-access/configure-jit-access.png)
+
+   You can only enable JIT access during deployment. If you select **No**, you can't enable it later.
+
+1. To change the default approval settings, select **Customize JIT Configuration**.
+
+   ![Customize access](./media/approve-just-in-time-access/customize-jit-access.png)
+
+   After updating the setting, select **Save**.
+
+## Change approval settings after deployment
+
+You can change the values for how requests are approved at any time. However, if you didn't enable JIT access during deployment, you can't enable it later.
+
+To change the settings for a deployed managed application:
+
+1. In the portal, select the manage application.
+
+1. Select **JIT Configuration** and change the settings as needed.
+
+   ![Change access settings](./media/approve-just-in-time-access/change-settings.png)
+
+1. When done, select **Save**.
+
+## Approve requests
+
+You can approve JIT access requests either directly through the managed application, or across all managed applications through the Azure AD Privileged Identity Management service.
+
+To approve requests through the managed application:
+
+1. Select **JIT Access** for the managed application, and select **Approve Requests**.
+
+   ![Approve requests](./media/approve-just-in-time-access/approve-requests.png)
  
-On the manage application blade:
-•	Open the 'JIT Configuration' menu item to configure JIT settings
+1. A pane called **Privileged Identity Management – Approve requests** is opened. Select the request to approve.
 
-![Change access settings](./media/approve-just-in-time-access/change-settings.png)
- 
-Approving a JIT request from a service provider
-NOTE: Customers looking to make use of the JIT feature on managed applications should have Azure Active Directory P2 license. For more information, please check here: https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/subscription-requirements
-JIT Access Requests can be approved either directly on each Managed Application, or across all Managed Applications inside of the Azure AD Privileged Identity Management service.
+   ![Select request](./media/approve-just-in-time-access/select-request.png)
 
-Approve a JIT Request directly on the Managed Application
-Open the ‘JIT Access’ menu item on the Managed Application you want to approve JIT Access Requests for.
+1. In the form, provide the reason for the approval and select **Approve**.
 
- 
-Click on the ‘Approve Requests’ button on the top. It will open a new blade with title ‘Privileged Identity Management – Approve requests’.
+To approve requests through Azure AD Privileged Identity Management:
 
-![Approve requests](./media/approve-just-in-time-access/approve-requests.png)
- 
-Select the request to be approved (based on the name of the managed application), and in the new form that opens, provide the reason for the approval and click on ‘Approve’ button.
+1. Navigate to the **Azure AD Privileged Identity Management** service in the portal.
 
-Approve JIT Requests in Azure AD Privileged Identity Management
-Navigate to the ‘Azure AD Privileged Identity Management’ service by viewing all services in Azure.
+1. Select **Approve Request**.
 
- 
+1. Select **Azure managed applications**.
 
-Click on the 'Approve Request' menu item and in the newly opened blade, click on the ‘Azure managed applications’ menu item
-
-## Known issues
- 
-•	The JIT requestor’s principal Id in the ISV tenants should explicitly be part of the application package. It is not enough for this user to be part of a security group. This is a temporary limitation that will be fixed in the future releases of this feature.
+   ![Select requests](./media/approve-just-in-time-access/view-requests.png)
 
 ## Next steps
 
-
+To learn about publishing a managed application with JIT access, see [Request just-in-time access in Azure Managed Applications](request-just-in-time-access.md).
