@@ -93,11 +93,6 @@ Here is an example of table projections.
             { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
             { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
           ]
-        },
-        {
-          "objects": [
-            
-          ]
         }
       ]
     }
@@ -128,9 +123,6 @@ Object projections are JSON representations of the enrichment tree that can be s
     "knowledgeStore": {
       "storageConnectionString": "an Azure storage connection string",
       "projections" : [
-        {
-          "tables": [ ]
-        },
         {
           "objects": [
             {
