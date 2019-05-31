@@ -102,9 +102,9 @@ Locate the components for installing the rail kit assembly:
 > [!TIP]
 > This option is tool-less because it does not require tools to install and remove the rails into the unthreaded square or round holes in the racks.
 
-1. Position the left and right rail end pieces labeled **FRONT** facing inward and orient each end piece to seat in the holes on the front side of the vertical rack flanges .
+1. Position the left and right rail end pieces labeled **FRONT** facing inward and orient each end piece to seat in the holes on the front side of the vertical rack flanges.
 2. Align each end piece in the bottom and top holes of the desired U spaces.
-3. Engage the back end of the rail until it fully seats on the vertical rack flange and the latch clicks into place. Repeat these steps to position and seat the front end piece on the vertical rack flange.
+3. Engage the back end of the rail until it fully seats on the vertical rack flange and the latch clicks into place. Repeat these steps to position and seat the front-end piece on the vertical rack flange.
 4. To remove the rails, pull the latch release button on the end piece midpoint and unseat each rail.
 
     ![Install and remove tool-less rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
