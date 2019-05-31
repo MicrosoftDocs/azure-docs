@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -63,8 +63,8 @@ To create an app in an ASE:
 
 	b. Enter the name for your App Service plan.
 
-	c. Select your ASE in the **Location** drop-down list. Hosting a Linux app in an ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
-
+	c. Select your ASE in the **Location** drop-down list. 
+	
 	d. Select an **Isolated** pricing tier. Select **Select**.
 
 	e. Select **OK**.
