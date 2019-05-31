@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
 ---
-# Management in Azure
+# Overview of Management services in Azure
 
 Governance in Azure is one aspect of Azure Management. This article covers the different areas of
 management for deploying and maintaining your resources in Azure.
@@ -24,7 +24,7 @@ any application or resource. These different areas can be thought of as a lifecy
 required in continuous succession over the lifespan of a resource. This resource lifecycle starts
 with the initial deployment, through continued operation, and finally when retired.
 
-![Management disciplines](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplines of Management in Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 No single Azure service completely fills the requirements of a particular management area. Instead,
 each is realized by several services working together. Some services, such as Application Insights,

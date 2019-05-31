@@ -29,7 +29,7 @@ To obtain the RUM Key using Azure portal:
 3. In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
 4. Click **Generate Key** to create a new RUM Key.
  
-  ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Figure 1: Real User Measurements Key Generation**
 
@@ -39,7 +39,7 @@ To obtain the RUM Key using Azure portal:
 
     **Figure 2: Real User Measurements Key and Measurement JavaScript**
  
-6.	Click the **Copy** button to copy the JavaScript code. 
+6. Click the **Copy** button to copy the JavaScript code. 
 
 >[!IMPORTANT]
 > Use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.

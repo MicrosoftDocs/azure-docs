@@ -3,7 +3,7 @@ title: Use device sets in your Azure IoT Central application | Microsoft Docs
 description: As an operator, how to use device sets in your Azure IoT Central application.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -22,7 +22,7 @@ To create a device set:
 
 1. Choose **Device Sets** on the left navigation menu.
 
-1. Click **+ New**.
+1. Select **+ New**.
 
     ![New device set](media/howto-use-device-sets/image1.png)
 
@@ -43,9 +43,11 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
 1. Choose **Device Sets** on the left navigation menu.
 
-1. Choose the **Dashboard** tab.
+1. Select your device set.
 
-1. Click **Edit Template**.
+1. Select the **Dashboard** tab.
+
+1. Select **Edit**.
 
     ![Design Mode on](media/howto-use-device-sets/image3.png)
 
@@ -54,7 +56,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 1. Add a link tile:
     1. Choose **Link** on the right pane.
     1. Give your link a **Title**.
-    1. Choose a URL to be opened when the link is clicked.
+    1. Choose a URL to be opened when the link is selected.
     1. Give your link a description that shows below the **Title**.
     1. Choose **Save**.
 
@@ -64,9 +66,6 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
 1. Add a grid. A grid is a table of devices in the device set with the columns you choose.
     1. Choose **Grid** on the right pane.
-
-        ![Choose grid](media/howto-use-device-sets/image8.png)
-
     1. Give your grid a **Title**.
     1. Select the columns to be shown by choosing **Add/Remove**. In the panel that pops up, choose the column you want shown and choose the right arrow to select it.
     1. Choose **OK**.
@@ -76,31 +75,24 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
     1. Drag and drop the grid to place it on the **Dashboard**.
 
-    > [!NOTE]
-    > You can add multiple images, links, and grids.
+        > [!NOTE]
+        > You can add multiple images, links, and grids.
   
-    1. Click **Done**.
+    1. Select **Done**.
 
-    ![Design Mode off](media/howto-use-device-sets/image10.png)
+### Configuring Location Map in your device sets dashboard
 
-
-### Configuring Location Map in your device sets dashboard 
 You can add a location map to visualize location of your devices sets in a Map.
 
 In order to add a location map to you device sets dashboard you must have configured location property in your Device template, see [Create a Location Property powered by Azure Maps](howto-set-up-template.md).
 
-
 1. On your Device Set Dashboard, select Map from the library.
-
-    ![Device Sets Dashboard Maps](media/howto-use-device-sets/LocationMaps1.png)
-
 2. Give a title and choose the location property you have previously configured as part of your Device Property.
 3. Save and you will see the map tile displaying the location of your devices in the Device Set.
-4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location Map to visualize all the devices location at a glance! 
-    
-> [!NOTE] 
-> You will be able to resize the map to your desired size. Clicking on a pin in the map will display the device information, name and location. You can click on the pop-up to go to the device property page.  
+4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location Map to visualize all the devices location at a glance!
 
+> [!NOTE]
+> You can resize the map to your desired size. Selecting a pin in the map displays the device information, name and location. You can select the pop-up to go to the device property page.
 
 ## Configure the List for your device set
 
@@ -122,7 +114,7 @@ After you create your device set, you can configure the **List**. The **List** s
 
 ## Analytics
 
-The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-create-analytics.md).
+The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets.md).
 
 ## Next steps
 

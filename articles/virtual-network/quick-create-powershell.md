@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this quickstart, you learn to create a virtual network using the Azure portal. A virtual network lets Azure resources, like virtual machines, communicate privately with each other, and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Quickstart: Create a virtual network using PowerShell
@@ -135,9 +135,6 @@ Open a command prompt on your local computer. Run the `mstsc` command. Replace `
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-A Remote Desktop Protocol (*.rdp*) file downloads to your computer and a Remote Desktop opens.
-
 1. If prompted, select **Connect**.
 
 1. Enter the user name and password you specified when creating the VM.

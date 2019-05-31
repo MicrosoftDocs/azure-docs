@@ -82,7 +82,7 @@ You might not see the **Switch to another offer** button if:
 ### Why do I see "There are no offers available in your region or country at this time"?
 
 * You might not be eligible for any offer switches. Check the [list of available offers you can switch to](#whats-supported) and make sure that you've activated the right benefits with Visual Studio or Bizspark.
-* Some offers may not be available in all countries.
+* Some offers may not be available in all countries/regions.
 
 ### What does switching Azure offers do to my service and billing?
 
@@ -112,4 +112,4 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

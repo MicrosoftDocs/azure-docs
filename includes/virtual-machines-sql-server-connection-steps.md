@@ -49,7 +49,7 @@ The SQL Server Database Engine cannot use Windows Authentication without domain 
 1. While connected to the virtual machine, on the Start page, type **SQL Server Management Studio** and click the selected icon.
    
     The first time you open Management Studio it must create the users Management Studio environment. This may take a few moments.
-2. Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**). Select **Windows Authentication**, and leave ***your_VM_name*\your_local_administrator** in the **User name** box. Click **Connect**.
+2. Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**). Select **Windows Authentication**, and leave ***your_VM_name\your_local_administrator*** in the **User name** box. Click **Connect**.
    
     ![Connect to Server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. In SQL Server Management Studio Object Explorer, right-click the name of the instance of SQL Server (the virtual machine name), and then click **Properties**.

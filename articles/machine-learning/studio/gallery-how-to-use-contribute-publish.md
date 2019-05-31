@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
 
-**[Azure AI Gallery](http://gallery.azure.ai)** is a community-driven site for discovering and sharing solutions built with Azure AI.
+**[Azure AI Gallery](https://gallery.azure.ai)** is a community-driven site for discovering and sharing solutions built with Azure AI.
 The Gallery has a variety of resources that you can use to develop your own analytics solutions.
 
 ## What can I find in the Gallery?
@@ -196,4 +196,4 @@ We want the Gallery to be driven by our users and for our users. Use the smiley 
 
 ![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[TAKE ME TO THE GALLERY >>](http://gallery.azure.ai)**
+**[TAKE ME TO THE GALLERY >>](https://gallery.azure.ai)**

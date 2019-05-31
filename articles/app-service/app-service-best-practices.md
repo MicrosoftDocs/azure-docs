@@ -48,7 +48,7 @@ Always handle the `http` response, even if you do nothing in the handler. If you
 For example, when working with the `http` or `https` package:
 
 ```javascript
-var request = https.request(options, function(response) {
+const request = https.request(options, function(response) {
     response.on('data', function() { /* do nothing */ });
 });
 ```

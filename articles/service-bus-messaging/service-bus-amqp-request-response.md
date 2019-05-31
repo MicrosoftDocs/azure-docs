@@ -42,72 +42,72 @@ All the operations described in this document follow a request/response pattern,
 
 Creates a link to the management node for sending requests.  
   
-```  
-requestLink = session.attach( 	  
-role: SENDER,   
-   	target: { address: "<entity address>/$management" },   
-   	source: { address: ""<my request link unique address>" }   
-)  
-  
-```  
+```
+requestLink = session.attach(
+role: SENDER,
+   	target: { address: "<entity address>/$management" },
+   	source: { address: ""<my request link unique address>" }
+)
+
+```
   
 ### Create link for receiving responses  
 
 Creates a link for receiving responses from the management node.  
   
-```  
-responseLink = session.attach(	  
-role: RECEIVER,   
-	source: { address: "<entity address>/$management" }   
-   	target: { address: "<my response link unique address>" }   
-)  
-  
-```  
+```
+responseLink = session.attach(
+role: RECEIVER,
+	source: { address: "<entity address>/$management" }
+   	target: { address: "<my response link unique address>" }
+)
+
+```
   
 ### Transfer a request message  
 
 Transfers a request message.  
 A transaction-state can be added optionally for operations which supports transaction.
 
-```  
-requestLink.sendTransfer(  
-        Message(  
-                properties: {  
-                        message-id: <request id>,  
-                        reply-to: "<my response link unique address>"  
-                },  
-                application-properties: {  
-                        "operation" -> "<operation>",  
+```
+requestLink.sendTransfer(
+        Message(
+                properties: {
+                        message-id: <request id>,
+                        reply-to: "<my response link unique address>"
+                },
+                application-properties: {
+                        "operation" -> "<operation>",
                 }
         ),
         [Optional] State = transactional-state: {
                 txn-id: <txn-id>
         }
 )
-```  
+```
   
 ### Receive a response message  
 
 Receives the response message from the response link.  
   
-```  
-responseMessage = responseLink.receiveTransfer()  
-```  
+```
+responseMessage = responseLink.receiveTransfer()
+```
   
 The response message is in the following form:
   
-```  
-Message(  
-properties: {	  
-		correlation-id: <request id>  
-	},  
-	application-properties: {  
-			"statusCode" -> <status code>,  
-			"statusDescription" -> <status description>,  
-           },		  
-)  
-  
-```  
+```
+Message(
+properties: {
+		correlation-id: <request id>
+	},
+	application-properties: {
+			"statusCode" -> <status code>,
+			"statusDescription" -> <status description>,
+           },
+)
+
+```
   
 ### Service Bus entity address  
 
@@ -604,7 +604,7 @@ Each map entry in the array includes the following properties:
 `com.microsoft:correlation-filter:list` is a described array which includes:
 
 |Index (if exists)|Value Type|Value Contents|  
-|---------|----------------|--------------|--------------------|  
+|---------|----------------|--------------|
 | 0 | string | Correlation ID |
 | 1 | string | Message ID |
 | 2 | string | To |

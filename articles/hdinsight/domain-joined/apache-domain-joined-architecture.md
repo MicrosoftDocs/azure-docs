@@ -1,14 +1,13 @@
 ---
 title: Azure HDInsight architecture with Enterprise Security Package
 description: Learn how to plan HDInsight security with Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/29/2019
 ---
 # Use Enterprise Security Package in HDInsight
 
@@ -16,7 +15,7 @@ The standard Azure HDInsight cluster is a single-user cluster. It's suitable for
 
 Many enterprises have moved toward a model in which IT teams manage clusters, and multiple application teams share clusters. These larger enterprises need multiuser access to each cluster in Azure HDInsight.
 
-HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), you can access the clusters by using your domain credentials. 
+HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), you can access the clusters by using your domain credentials. 
 
 The virtual machines (VMs) in HDInsight are domain joined to your provided domain. So, all the services running on HDInsight (Apache Ambari, Apache Hive server, Apache Ranger, Apache Spark thrift server, and others) work seamlessly for the authenticated user. Administrators can then create strong authorization policies by using Apache Ranger to provide role-based access control for resources in the cluster.
 
@@ -40,7 +39,7 @@ To summarize, you need to set up an environment with:
 HDInsight currently supports only Azure AD DS as the main domain controller that the cluster uses for Kerberos communication. But other complex Active Directory setups are possible, as long as such a setup leads to enabling Azure AD DS for HDInsight access.
 
 ### Azure Active Directory Domain Services
-[Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md) provides a managed domain that's fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the domain in a highly available (HA) setup. You can deploy your cluster without worrying about maintaining domain controllers. 
+[Azure AD DS](../../active-directory-domain-services/overview.md) provides a managed domain that's fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the domain in a highly available (HA) setup. You can deploy your cluster without worrying about maintaining domain controllers. 
 
 Users, groups, and passwords are synchronized from Azure AD. The one-way sync from your Azure AD instance to Azure AD DS enables users to sign in to the cluster by using the same corporate credentials. 
 
@@ -58,33 +57,33 @@ Using on-premises Active Directory or Active Directory on IaaS VMs alone, withou
 
 If federation is being used and password hashes are synced correctly, but you are getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Azure AD tenant. To check and set the HRD policy:
 
- 1. Install the Azure AD PowerShell module.
+1. Install the Azure AD PowerShell module.
 
- ```
-    Install-Module AzureAD
- ```
+   ```
+   Install-Module AzureADPreview
+   ```
 
- 2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.
+2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.
 
- 3. Check if the Microsoft Azure PowerShell service principal has already been created.
+3. Check if the Microsoft Azure PowerShell service principal has already been created.
 
- ```
-    $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
- ```
+   ```
+   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```
 
- 4. If it doesn't exist (that is, if `($powershellSPN -eq $null)`), then create the service principal.
+4. If it doesn't exist (that is, if `($powershellSPN -eq $null)`), then create the service principal.
 
- ```
-    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
- ```
+   ```
+   $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+   ```
 
- 5. Create and attach the policy to this service principal.
+5. Create and attach the policy to this service principal.
 
- ```
-    $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```
+   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
-    Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
- ```
+   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+   ```
 
 ## Next steps
 

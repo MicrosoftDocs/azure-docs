@@ -20,7 +20,6 @@ Transactional replication is a feature of Azure SQL Database and SQL Server that
 ## When to use Transactional replication
 
 Transactional replication is useful in the following scenarios:
-
 - Publish changes made in one or more tables in a database and distribute them to one or many SQL Server or Azure SQL databases that subscribed for the changes.
 - Keep several distributed databases in synchronized state.
 - Migrate databases from one SQL Server or Managed Instance to another database by continuously publishing the changes.
@@ -53,7 +52,10 @@ The **Subscriber** is an instance or server that is receiving the changes made o
 | **Push Subscriber**| Yes | Yes|
 | &nbsp; | &nbsp; | &nbsp; |
 
-There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
+  >[!NOTE]
+  > A pull subscription is not supported when the distributor is an Instance database and the subscriber is not. 
+
+There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
 | Replication | Single and pooled databases | Instance  databases|
@@ -69,14 +71,37 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
   >[!NOTE]
   > - Attempting to configure replication using an older version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQ_REPL40532 (Cannot open server \<name> requested by the login. The login failed.)
-  > - To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  > - To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  
+  ### Supportability matrix for Instance Databases and On-premises systems
+  The replication supportability matrix for instance databases is the same as the one for SQL Server on-premises. 
+  
+  | **Publisher**   | **Distributor** | **Subscriber** |
+| :------------   | :-------------- | :------------- |
+| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| &nbsp; | &nbsp; | &nbsp; |
 
 ## Requirements
 
 - Connectivity uses SQL Authentication between replication participants. 
 - An Azure Storage Account share for the working directory used by replication. 
-- Port 445 (TCP outbound) needs to be open in the security rules of the Managed  Instance subnet to access the Azure file share. 
-- Port 1433 (TCP outbound) needs to be opened if the Publisher/Distributor are on a Managed Instance and the subscriber is on-premises. 
+- Port 445 (TCP outbound) needs to be open in the security rules of the Managed Instance subnet to access the Azure file share. 
+- Port 1433 (TCP outbound) needs to be opened if the Publisher/Distributor are on a Managed Instance and the subscriber is on-premises.
+
+  >[!NOTE]
+  > You may encounter error 53 when connecting to an Azure Storage File if the outbound network security group (NSG) port 445 is blocked when the distributor is an instance database and the subscriber is on-premises. [Update the vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) to resolve this issue. 
+
+### Compare Data Sync with Transactional Replication
+
+| | Data Sync | Transactional Replication |
+|---|---|---|
+| Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
+| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database single database or pooled database<br/>-	High maintenance cost |
+| | | |
 
 ## Common configurations
 
@@ -106,11 +131,13 @@ Publisher and distributor are configured on two Managed Instances. In this confi
  
 In this configuration, an Azure SQL Database (single, pooled, and instance database) is a subscriber. This configuration supports migration from on-premises to Azure. If a subscriber is on a single or pooled database, it must be in push mode.  
 
+
 ## Next steps
 
-1. [Configure transactional replication for a Managed Instance](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
+1. [Configure transactional replication for a Managed Instance](replication-with-sql-database-managed-instance.md). 
 1. [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) by using the Azure SQL Database server name as the subscriber (for example `N'azuresqldbdns.database.windows.net` and the Azure SQL Database name as the destination database (for example **Adventureworks**. )
+
 
 
 ## See Also  

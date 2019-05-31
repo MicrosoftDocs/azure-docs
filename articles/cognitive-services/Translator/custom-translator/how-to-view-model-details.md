@@ -5,9 +5,9 @@ description: Models tab under any project shows details of each model such as mo
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to view model details, so that I can review details of each translation model.
 ---
@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 The Models tab under project shows all models in that project. All models trained for that project is listed in this tab.
 
-For each model in the project, the following model details are displayed.
+For each model in the project, these details are displayed.
 
 1.  Model Name: Shows the model name of a given model.
 

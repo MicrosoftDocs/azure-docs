@@ -99,7 +99,7 @@ Selecting a machine group from the list opens the Machine groups page. This page
 
 Click the **+ Clone** button to clone the machine group. Here you must give the group a new name and alias for the group. The definition can be altered at this time. After changing the query press **Validate query** to preview the machines that would be selected. When you are happy with the group click **Create** to create the machine group
 
-If you want to create a new mchine group, select **+ Create a machine group**. This button opens the **Create a machine group page** where you can define your new group. Click **Create** to create the group.
+If you want to create a new machine group, select **+ Create a machine group**. This button opens the **Create a machine group page** where you can define your new group. Click **Create** to create the group.
 
 ![Create new machine group](./media/automation-vm-inventory/create-new-group.png)
 

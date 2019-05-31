@@ -106,7 +106,7 @@ Here are a few tips for finding and diagnosing performance issues:
 * Compare the Request count with other metrics to see if failures or slow response are related to load.
 * [Insert and search trace statements][diagnostic] in your code to help pinpoint problems.
 * Monitor your Web app in operation with [Live Metrics Stream][livestream].
-* Capture the state of your .Net application with [Snapshot Debugger][snapshot].
+* Capture the state of your .NET application with [Snapshot Debugger][snapshot].
 
 ## Find and fix performance bottlenecks with performance investigation experience
 

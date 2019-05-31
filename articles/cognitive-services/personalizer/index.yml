@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Personalizer Documentation
+metadata:
+  document_id: 
+  title: Personalizer - Tutorials, Quickstarts, API Reference
+  description: Learn how to use Personalizer service to allow your application to choose the best experience to show to your users, learning from their real-time behavior. 
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: nitinme
+abstract:
+  description: Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+
+sections:
+
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/personalizer/what-is-personalizer
+          html: <p>Understand what Personalizer does and how you use it.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: What is Personalizer?
+        - href: /azure/cognitive-services/personalizer/how-personalizer-works
+          html: <p>Learn how the Personalizer feedback loop works with the Rank and Reward APIs.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: How Personalizer works
+        - href: /azure/cognitive-services/personalizer/ethics-responsible-use
+          html: <p>Implement personalization in a way that builds trust in your company and service.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Ethics and responsibility
+
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: ''
+  - type: list
+    style: icon48
+    items:
+      - image:
+          src: ../media/index/logo_Csharp.svg
+        href: csharp-quickstart-commandline-feedback-loop.md
+        text: "C#"
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST APIs 
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2092082"> Personalizer API</a></p>   
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>

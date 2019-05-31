@@ -9,14 +9,14 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 04/03/2019
 ---
 # Upgrade your data warehouse to Gen2
 
 Microsoft is helping drive down the entry-level cost of running a data warehouse.  Lower compute tiers capable of handling demanding queries are now available for Azure SQL Data Warehouse. Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
 
 - **The automatic upgrade process:** Automatic upgrades don't start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule.
-- [**Self-upgrade to Gen2:**](#Self-upgrade-to-Gen2) You can control when to upgrade by doing a self-upgrade to Gen2. If your region is not yet supported, you can restore from a restore point directly to a Gen2 instance in a supported region.
+- [**Self-upgrade to Gen2:**](#self-upgrade-to-gen2) You can control when to upgrade by doing a self-upgrade to Gen2. If your region is not yet supported, you can restore from a restore point directly to a Gen2 instance in a supported region.
 
 ## Automated Schedule and Region Availability Table
 
@@ -26,44 +26,44 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
-| Australia East |Available |May 1, 2019 |
-| Australia Southeast |April 2, 2019 |June 1, 2019 |
-| Brazil South |May 15, 2019 |\* |
-| Canada Central |Available |May 1, 2019 |
+| Australia East |Available |June 1, 2019 |
+| Australia Southeast |Available |May 1, 2019 |
+| Brazil South |Available |June 1, 2019 |
+| Canada Central |Available |June 1, 2019 |
 | Canada East |\* |\* |
-| Central US |Available |May 1, 2019 |
+| Central US |Available |June 1, 2019 |
 | China East |\* |\* |
-| China East 2 |\* |\* |
+| China East 2 |\* |Gen2 only |
 | China North |\* |\* |
-| China North 2 |\* |\* |
-| East Asia |Available |May 1, 2019 |
-| East US |Available |April 2, 2019 |
-| East US 2 |Available |April 2, 2019 |
-| France Central |\* |\* |
+| China North 2 |Available |Gen2 only |
+| East Asia |Available |June 1, 2019 |
+| East US |Available |June 1, 2019 |
+| East US 2 |Available |June 1, 2019 |
+| France Central |\* |June 1, 2019 |
 | Germany Central |\* |\* |
 | Germany West Central |September 1, 2019|January 2, 2020 |
-| India Central |Available |May 1, 2019 |
-| India South |April 2, 2019 |June 1, 2019 |
-| Japan East |Available |May 1, 2019 |
-| Japan West |Available |June 1, 2019 |
-| Korea Central |April 2, 2019 |May 1, 2019 |
-| Korea South |April 2, 2019 |June 1, 2019 |
-| North Central US |April 2, 2019 |June 1, 2019 |
-| North Europe |Available |April 2, 2019 |
-| South Central US |Available |May 1, 2019 |
-| South East Asia |Available |April 2, 2019 |
-| UK South |April 2, 2019 |May 1, 2019 |
+| India Central |Available |June 1, 2019 |
+| India South |Available |June 1, 2019 |
+| Japan East |Available |June 1, 2019 |
+| Japan West |Available |May 1, 2019 |
+| Korea Central |Available |June 1, 2019 |
+| Korea South |Available |May 1, 2019 |
+| North Central US |Available |May 1, 2019 |
+| North Europe |Available |June 1, 2019 |
+| South Central US |Available |June 1, 2019 |
+| South East Asia |Available |June 1, 2019 |
+| UK South |Available, 2019 |June 1, 2019 |
 | UK West |\*|\* |
 | West Central US |September 2, 2019 |January 2, 2020|
-| West Europe |Available |April 2, 2019 |
-| West US |April 2, 2019 |June 1, 2019 |
-| West US 2 |Available |April 2, 2019 |
+| West Europe |Available |June 1, 2019 |
+| West US |Available |June 1, 2019 |
+| West US 2 |Available |June 1, 2019 |
 
 ## Automatic upgrade process
 
-Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
+Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
 
-The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
+The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
 You can also expedite the data file upgrade process by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables using a larger SLO and resource class after the restart.
 
@@ -76,7 +76,7 @@ You can choose to self-upgrade by following these steps on an existing Gen1 data
 
 There are two options when conducting a self-upgrade.  You can either upgrade your current data warehouse in-place or you can restore a Gen1 data warehouse into a Gen2 instance.
 
-- [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
+- [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
 - [Upgrade from restore point](sql-data-warehouse-restore.md) - Create a user-defined restore point on your current Gen1 data warehouse and then restore directly to a Gen2 instance. The existing Gen1 data warehouse will stay in place. Once the restore has been completed, your Gen2 data warehouse will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
 
    - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).

@@ -3,7 +3,7 @@ title: Migrate users with social identities in Azure Active Directory B2C | Micr
 description: Discuss core concepts on the migration of users with social identities into Azure AD B2C using Graph API.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -28,14 +28,14 @@ This article is a continuation of the user migration article, and focuses on soc
 * **Combine local account with social identity**. As mentioned, local account sign-in names, and social account identities are stored in different attributes. `signInNames` is used for local account, while `userIdentities` for social account. A single Azure AD B2C account, can be a local account only, social account only, or combine a local account with social identity in one user record. This behavior allows you to manage a single account, while a user can sign in with the local account credential(s) or with the social identities.
 
 * `UserIdentity` Type - Contains information about the identity of a social account user in an Azure AD B2C tenant:
-    * `issuer` The string representation of the identity provider that issued the user identifier, such as facebook.com.
-    * `issuerUserId` The unique user identifier used by the social identity provider in base64 format.
+  * `issuer` The string representation of the identity provider that issued the user identifier, such as facebook.com.
+  * `issuerUserId` The unique user identifier used by the social identity provider in base64 format.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 
@@ -60,7 +60,7 @@ The following list shows the properties that are required when you create a user
 * **userIdentities** - One or more UserIdentity records that specify the social account type and the unique user identifier from the social identity provider.
 * [optional] **otherMails** - For social account only, the user's email addresses 
 
-For more information, see: [Graph API reference](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+For more information, see: [Graph API reference](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## Migrate social account (only)
 To create social account only, without local account credentials. Send HTTPS POST request to Graph API. The request body contains the properties of the social account user to create. At a minimum, you must specify the required properties. 

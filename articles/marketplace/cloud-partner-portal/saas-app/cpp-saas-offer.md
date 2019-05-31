@@ -1,19 +1,11 @@
 ---
-title: Azure SaaS application offer | Microsoft Docs
+title: Azure SaaS application offer | Azure Marketplace
 description: Overview of the process for publishing an Azure SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/16/2019
 ms.author: pbutlerm
 ---
 
@@ -21,7 +13,14 @@ ms.author: pbutlerm
 
 This section explains how to publish a software as a service (SaaS) application offer to the <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.
 
-Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will log on through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment.
+> [!IMPORTANT] 
+> SaaS offer functionality is being migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
+> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
+> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
+> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
+
+
+Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will sign in through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment.
 
 ## Benefits
 
@@ -32,6 +31,9 @@ Some of the benefits of listing your applications on a Microsoft marketplace inc
 - Extending your sales team: reach business users worldwide and gain a sales channel that engages end users, helps generate leads, and initiates conversations with new customers across industries.
 
 - Getting actionable insights: we will share insights into how your app is performing on AppSource, what works well, and how to further improve your sales procedures.
+ 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Publishing process workflow 
 

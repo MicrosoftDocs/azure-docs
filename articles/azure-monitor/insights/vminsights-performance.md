@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2019
+ms.date: 05/07/2019
 ms.author: magoedte
 ---
 
@@ -101,12 +101,27 @@ Clicking on the pin icon at the upper right-hand corner of any one of the charts
 
 ![VM insights Performance directly from VM view](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
+## View performance directly from an Azure virtual machine scale set
+To access directly from an Azure virtual machine scale set, perform the following steps.
+
+1. In the Azure portal, select **Virtual machine scale sets**.
+2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)** to view the **Performance** tab.
+
+This page loads the Azure Monitor performance view, scoped to the selected scale set. This enables you to see the Top N Instances in the scale set across the set of monitored metrics, view the aggregate performance across the scale set, and see the trends for selected metrics across the individual instances n the scale set. Selecting an instance from the list view lets you load it's map or navigate into a detailed performance view for that instance.
+
+Clicking on the pin icon at the upper right-hand corner of any one of the charts pins the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for VMs and loads the performance detail view for the VM.  
+
+![VM insights Performance directly from virtual machine scale set view](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+
+>[!NOTE]
+>You can also access a detailed performance view for a specific instance from the Instances view for your scale set. Navigate to **Instances** under the **Settings** section, and then choose **Insights (preview)**.
+
 ## Alerts  
 Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. There are [health alerts](vminsights-health.md#alerts) corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, low disk space, etc.  However, these health alerts only apply to all VMs enabled for Azure Monitor for VMs. 
 
 However, we may only collect and store a subset of the performance metrics you require in the Log Analytics workspace. If your monitoring strategy requires analysis or alerting that includes other performance metrics in order to effectively evaluate capacity or health of the virtual machine, or you need the flexibility to specify your own alerting criteria or logic, you can configure [collection of those performance counters](../platform/data-sources-performance-counters.md) in Log Analytics and define [log alerts](../platform/alerts-log.md). While Log Analytics allows you to perform complex analysis with other data types, and provide longer retention to support trend analysis, metrics on the other hand, are lightweight and capable of supporting near real-time scenarios. They are collected by the [Azure Diagnostic agent](../../virtual-machines/windows/monitor.md) and stored in the Azure Monitor metrics store, allowing you to create alerts with lower latency and at a lower cost.
 
-Review the overview of [collection of metrics and logs with Azure Monitor](../platform/data-collection.md) to further understand the fundamental differences and other considerations before configuring collection of these additional metrics and alert rules.  
+Review the overview of [collection of metrics and logs with Azure Monitor](../platform/data-platform.md) to further understand the fundamental differences and other considerations before configuring collection of these additional metrics and alert rules.  
 
 ## Next steps
 To learn how to use the health feature, see [View Azure Monitor for VMs Health](vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 

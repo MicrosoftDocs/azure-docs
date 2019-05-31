@@ -57,6 +57,7 @@ The following diagram helps you determine what strategy to use for your file ser
 
 ### Site Recovery support
 Because Site Recovery replication is application agnostic, these recommendations are expected to hold true for the following scenarios.
+
 | Source	|To a secondary site	|To Azure
 |---------|---------|---------|
 |Azure|	-|Yes|

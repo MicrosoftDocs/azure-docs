@@ -1,5 +1,5 @@
 ---
-title: Manage access to Azure resoruces using RBAC and the REST API - Azure | Microsoft Docs
+title: Manage access to Azure resources using RBAC and the REST API - Azure | Microsoft Docs
 description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and the REST API. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: na
@@ -24,7 +24,7 @@ ms.reviewer: bagovind
 
 ## List access
 
-In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter. To call the API, you must have access to the `Microsoft.Authorization/roleAssignments/read` operation at the specified scope. Several [built-in roles for Azure resources](built-in-roles.md) are granted access to this operation.
+In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter.
 
 1. Start with the following request:
 
@@ -39,7 +39,11 @@ In RBAC, to list access, you list the role assignments. To list role assignments
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-
+    
+       
+     > [!NOTE]
+     > In the above example Microsoft.web is the resource provider is used which refers to App service instance. Similarly you can use any other resource provider and build the Scope URI. In order to understand more please refer to [Azure Resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) and supported [Azure RM resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+     
 1. Replace *{filter}* with the condition that you want to apply to filter the role assignment list.
 
     | Filter | Description |

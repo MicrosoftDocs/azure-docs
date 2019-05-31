@@ -3,7 +3,6 @@ title: "How to create a Kubernetes cluster enabled for Azure Dev Spaces using Az
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: "10/04/2018"
@@ -17,7 +16,7 @@ You can use [Azure Cloud Shell](/azure/cloud-shell) to create a cluster for Azur
 
 ## Create the cluster
 
-First, create the resource group. Use one of the currently supported regions (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast).
+First, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -26,7 +25,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9
+az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.  When complete, the output is shown in the JSON format. Look for `provisioningState` and verify it's `Succeeded`.
@@ -34,3 +33,6 @@ It takes a few minutes to create the cluster.  When complete, the output is show
 ## Next steps
 
 See [Azure Dev Spaces](/azure/dev-spaces/) for links to full tutorials.
+
+
+[supported-regions]: ../about.md#supported-regions-and-configurations

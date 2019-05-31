@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues creating, assigning, and removing blueprints.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/11/2018
@@ -68,16 +67,17 @@ dynamic function.
 
 #### Resolution
 
-To pass a function through as a parameter, escape the entire string with `[` such that the
-blueprint parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes
-Blueprints to treat the value as a string when processing the blueprint. Blueprints then places the
-function on the artifact allowing it to be dynamic as expected.
+To pass a function through as a parameter, escape the entire string with `[` such that the blueprint
+parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes Blueprints to
+treat the value as a string when processing the blueprint. Blueprints then places the function on
+the artifact allowing it to be dynamic as expected. For more information, see
+[Template file structure - syntax](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following
 channels for more support:
 
-- Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
+- Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 - If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

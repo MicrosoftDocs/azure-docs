@@ -15,7 +15,7 @@ ms.author: liydu
 
 Internet of Things (IoT) systems often deal with intermittent, poor quality, or slow internet connections. MQTT is a machine-to-machine (M2M) connectivity protocol, which was developed with such challenges in mind. 
 
-The MQTT client library used here is part of the [Eclipse Paho](http://www.eclipse.org/paho/) project, which provides APIs for using MQTT over multiple means of transport.
+The MQTT client library used here is part of the [Eclipse Paho](https://www.eclipse.org/paho/) project, which provides APIs for using MQTT over multiple means of transport.
 
 ## What you learn
 
@@ -75,7 +75,7 @@ The Serial Monitor displays all the messages sent by the sample sketch. The sket
 
 If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or connect using the following channels:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## See also

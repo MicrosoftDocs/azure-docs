@@ -40,5 +40,7 @@ Absolute file path on Linux/Mac and Windows OS
 * `@ "/usr/home/mytestfile.json"`
 *	`@"c:\tmp\user\mytestfile.json"`
 
+Use `{file}` if the command is asking for a path to the file. For example, `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> 
+Use `@{file}` if the command is going to load the specified file. For example, `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
 
 [Upload files]: ./media/media-services-cli/upload-download-files.png

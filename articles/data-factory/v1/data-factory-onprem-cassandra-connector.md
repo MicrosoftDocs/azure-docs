@@ -258,7 +258,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 ```
 
 ### Type mapping for Cassandra
-| Cassandra Type | .Net Based Type |
+| Cassandra Type | .NET Based Type |
 | --- | --- |
 | ASCII |String |
 | BIGINT |Int64 |

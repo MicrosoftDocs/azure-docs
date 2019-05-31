@@ -21,6 +21,9 @@ ms.author: rkarlin
 This article helps you use Azure Security Center to monitor users' identity and access activity.
 
 > [!NOTE]
+> The "View *classic* Identity & Access" link will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_classicidentity) to learn on alternative services.
+
+> [!NOTE]
 > Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 >
 
@@ -64,11 +67,11 @@ Under **Overview**, there is a list of recommendations. The first column lists t
 
 1. Select a recommendation. The recommendation’s window opens and displays:
 
-  - Description of the recommendation
-  - List of unhealthy and healthy subscriptions
-  - List of resources that are unscanned due to a failed assessment or the resource is under a subscription running on the Free tier and is not assessed
+   - Description of the recommendation
+   - List of unhealthy and healthy subscriptions
+   - List of resources that are unscanned due to a failed assessment or the resource is under a subscription running on the Free tier and is not assessed
 
-  ![Recommendation's window][3]
+   ![Recommendation's window][3]
 
 1. Select a subscription in the list for additional detail.
 
@@ -77,27 +80,27 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
 ![Subscription's tab][4]
 
-1.	Select a subscription. A summary view opens with three tabs:
+1. Select a subscription. A summary view opens with three tabs:
 
-  - **Recommendations**:  based on assessments performed by Security Center that failed.
-  - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
+   - **Recommendations**:  based on assessments performed by Security Center that failed.
+   - **Passed assessments**: list of assessments performed by Security Center that passed.
+   - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
 
-  Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
+   Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
 
-  ![Recommendations for select subscription][5]
+   ![Recommendations for select subscription][5]
 
 1. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
 
-  ![Description of recommendation][6]
+   ![Description of recommendation][6]
 
-  Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
+   Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
 
-  ![Passed assessments][7]
+   ![Passed assessments][7]
 
 1. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
 
-  ![Passed assessments][8]
+   ![Passed assessments][8]
 
 ## Recommendations
 Use the table below as a reference to help you understand the available Identity & Access recommendations and what each one does if you apply it.
@@ -111,8 +114,8 @@ Use the table below as a reference to help you understand the available Identity
 |Subscription|30|Remove external accounts with owner permissions from your subscription|Remove external accounts with owner permissions from your subscription in order to prevent unmonitored access. |
 |Subscription|30|Enable MFA for Azure Management App accounts with read permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources.|
 |Subscription|25|Remove external accounts with write permissions from your subscription|Remove external accounts with write permissions from your subscription in order to prevent unmonitored access. |
-|Subscription|20|Remove  deprecated accounts with owner permissions from your subscription|Remove deprecated accounts with owner permissions from your subscriptions.|
-|Subscription|5|Remove deprecated accounts from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. |
+|Subscription|20|Remove  deprecated accounts with owner permissions from your subscription|Remove deprecated accounts with owner permissions from your subscriptions. Deprecated accounts are the accounts for which sign-in has been blocked in Azure AD.|
+|Subscription|5|Remove deprecated accounts from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. Deprecated accounts are the accounts for which sign-in has been blocked in Azure AD.|
 |Subscription|5|Designate more than one owner on your subscription|Designate more than one subscription owner in order to have administrator access redundancy.|
 |Subscription|5|Designate up to 3 owners on your subscription|Designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner.|
 |Key vault|5|Enable diagnostic logs in Key Vault|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |

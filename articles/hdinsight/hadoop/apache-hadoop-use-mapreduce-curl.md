@@ -1,7 +1,6 @@
 ---
 title: Use MapReduce and Curl with Apache Hadoop in HDInsight - Azure 
 description: Learn how to remotely run MapReduce jobs with Apache Hadoop on HDInsight using Curl.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -14,7 +13,7 @@ ms.author: hrasheed
 ---
 # Run MapReduce jobs with Apache Hadoop on HDInsight using REST
 
-Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on a Apache Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
+Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on an Apache Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
 
 > [!NOTE]  
 > If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see the [What you need to know about Linux-based Apache Hadoop on HDInsight](../hdinsight-hadoop-linux-information.md) document.
@@ -32,7 +31,7 @@ Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on a Apa
 >
 > The REST API is secured by using [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
-1. To set the cluster login that is used by the scripts in this document, use one of the followig commands:
+1. To set the cluster login that is used by the scripts in this document, use one of the following commands:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN
@@ -103,10 +102,10 @@ Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on a Apa
     The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
    * **-d**: `-G` is not used, so the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
-    * **user.name**: The user who is running the command
-    * **jar**: The location of the jar file that contains class to be ran
-    * **class**: The class that contains the MapReduce logic
-    * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
+     * **user.name**: The user who is running the command
+     * **jar**: The location of the jar file that contains class to be ran
+     * **class**: The class that contains the MapReduce logic
+     * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
    This command should return a job ID that can be used to check the status of the job:
 

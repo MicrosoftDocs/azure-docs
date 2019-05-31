@@ -82,19 +82,19 @@ To add a Speech Services resource (free or paid tier) to your Azure account:
 
 1. Under **Create**, enter:
 
-    * A name for the new resource. The name helps you distinguish among multiple subscriptions to the same service.
-    * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
-    * Choose the region where the resource will be used. Currently, the Speech Services is available in East Asia, North Europe, and West US regions.
-    * Choose either a free or paid pricing tier. Click **View full pricing details** for complete information about pricing and usage quotas for each tier.
-    * Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
-    * For convenient access to your subscription in the future, select the **Pin to dashboard** check box.
-    * Select **Create.**
+   * A name for the new resource. The name helps you distinguish among multiple subscriptions to the same service.
+   * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
+   * Choose the region where the resource will be used. Currently, the Speech Services is available in East Asia, North Europe, and West US regions.
+   * Choose either a free or paid pricing tier. Click **View full pricing details** for complete information about pricing and usage quotas for each tier.
+   * Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
+   * For convenient access to your subscription in the future, select the **Pin to dashboard** check box.
+   * Select **Create.**
 
-    ![Select the Create button](media/index/try-speech-api-create-speech4.png)
+     ![Select the Create button](media/index/try-speech-api-create-speech4.png)
 
-    It takes a moment to create and deploy your new Speech resource. Select **Quickstart** to see information about your new resource.
+     It takes a moment to create and deploy your new Speech resource. Select **Quickstart** to see information about your new resource.
 
-    ![Quickstart panel](media/index/try-speech-api-create-speech5.png)
+     ![Quickstart panel](media/index/try-speech-api-create-speech5.png)
 
 1. Under **Quickstart**, click the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
 

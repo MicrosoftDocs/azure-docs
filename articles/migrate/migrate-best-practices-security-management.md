@@ -263,7 +263,7 @@ Often, using only a resource group name related to resources won't provide enoug
 
 - [Learn about](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) tagging and tag limitations.
 - [Review](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) PowerShell and CLI examples to set up tagging, and to apply tags from a resource group to its resources.
-- [Read](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure tagging best practices.
+- [Read](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure tagging best practices.
 
 
 ## Best practice: Implement blueprints
@@ -433,7 +433,7 @@ Since Azure Functions functions more or less as code, you should back them up us
 
 **Learn more:**
 
-- [Data protection](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) for Azure DevOps.
+- [Data protection](/azure/devops/organizations/security/data-protection) for Azure DevOps.
 
 ## Best practice: Set up disaster recovery 
 

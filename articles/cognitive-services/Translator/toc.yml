@@ -108,6 +108,8 @@
     items:
     - name: Create a WPF app for Translator Text
       href: tutorial-wpf-translation-csharp.md
+    - name: Create a Flask translation app
+      href: tutorial-build-flask-app-translation-synthesis.md
   - name: Concepts
     items:
     - name: Customize and improve text translation
@@ -172,6 +174,8 @@
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
     - name: Request limits
       href: request-limits.md
     - name: Stack Overflow
@@ -226,6 +230,8 @@
       href: custom-translator/how-to-manage-settings.md
     - name: Migrate from Hub
       href: custom-translator/how-to-migrate.md
+    - name: Unsupported language deployments
+      href: custom-translator/unsupported-language-deployments.md
   - name: Resources
     items:
     - name: Language Support
@@ -236,6 +242,8 @@
       href: custom-translator/faq.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+    - name: Compliance
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice

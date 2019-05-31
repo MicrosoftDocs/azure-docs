@@ -27,7 +27,7 @@ In this walkthrough, we set up Vamp on Azure Container Service with a DC/OS clus
 
 [Canary releasing](https://martinfowler.com/bliki/CanaryRelease.html) is a smart deployment strategy adopted by innovative organizations like Netflix, Facebook, and Spotify. It’s an approach that makes sense, because it reduces issues, introduces safety-nets, and increases innovation. So why aren’t all companies using it? Extending a CI/CD pipeline to include canary strategies adds complexity, and requires extensive devops knowledge and experience. That’s enough to block smaller companies and enterprises alike before they even get started. 
 
-[Vamp](http://vamp.io/) is an open-source system designed to ease this transition and bring canary releasing features to your preferred container scheduler. Vamp’s canary functionality goes beyond percentage-based rollouts. Traffic can be filtered and split on a wide range of conditions, for example to target specific users, IP-ranges, or devices. Vamp tracks and analyzes performance metrics, allowing for automation based on real-world data. You can set up automatic rollback on errors, or scale individual service variants based on load or latency.
+[Vamp](https://vamp.io/) is an open-source system designed to ease this transition and bring canary releasing features to your preferred container scheduler. Vamp’s canary functionality goes beyond percentage-based rollouts. Traffic can be filtered and split on a wide range of conditions, for example to target specific users, IP-ranges, or devices. Vamp tracks and analyzes performance metrics, allowing for automation based on real-world data. You can set up automatic rollback on errors, or scale individual service variants based on load or latency.
 
 ## Set up Azure Container Service with DC/OS
 
@@ -40,7 +40,7 @@ In this walkthrough, we set up Vamp on Azure Container Service with a DC/OS clus
 
 ## Set up Vamp
 
-Now that you have a running DC/OS cluster, you can install Vamp from the DC/OS UI (http://localhost:80). 
+Now that you have a running DC/OS cluster, you can install Vamp from the DC/OS UI (http:\//localhost:80). 
 
 ![DC/OS UI](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -58,12 +58,12 @@ Vamp requires Elasticsearch for metrics collection and aggregation. You can use 
 
 2. Select **JSON mode** from the **Deploy New Service** pop-up.
 
-  ![Select JSON mode](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
+   ![Select JSON mode](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
 
 3. Paste in the following JSON. This configuration runs the container with 1 GB of RAM and a basic health check on the Elasticsearch port.
   
-  ```JSON
-  {
+   ```JSON
+   {
     "id": "elasticsearch",
     "instances": 1,
     "cpus": 0.2,
@@ -85,47 +85,47 @@ Vamp requires Elasticsearch for metrics collection and aggregation. You can use 
         "maxConsecutiveFailures": 0
       }
     ]
-  }
-  ```
+   }
+   ```
   
 
 3. Click **Deploy**.
 
-  DC/OS deploys the Elasticsearch container. You can track progress on the **Services** page.  
+   DC/OS deploys the Elasticsearch container. You can track progress on the **Services** page.  
 
-  ![deploy e?Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
+   ![deploy e?Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
 
 ### Deploy Vamp
 
 Once Elasticsearch reports as **Running**, you can add the Vamp DC/OS Universe package. 
 
 1. Go to **Universe** and search for **vamp**. 
-  ![Vamp on DC/OS universe](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
+   ![Vamp on DC/OS universe](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
 
 2. Click **install** next to the vamp package, and choose **Advanced Installation**.
 
 3. Scroll down and enter the following elasticsearch-url: `http://elasticsearch.marathon.mesos:9200`. 
 
-  ![Enter Elasticsearch URL](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
+   ![Enter Elasticsearch URL](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
 4. Click **Review and Install**, then click **Install** to start the deployment.  
 
-  DC/OS deploys all required Vamp components. You can track progress on the **Services** page.
+   DC/OS deploys all required Vamp components. You can track progress on the **Services** page.
   
-  ![Deploy Vamp as universe package](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
+   ![Deploy Vamp as universe package](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
   
 5. Once deployment has completed, you can access the Vamp UI:
 
-  ![Vamp service on DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
+   ![Vamp service on DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
   
-  ![Vamp UI](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
+   ![Vamp UI](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
 
 
 ## Deploy your first service
 
 Now that Vamp is up and running, deploy a service from a blueprint. 
 
-In its simplest form, a [Vamp blueprint](http://vamp.io/documentation/using-vamp/blueprints/) describes the endpoints (gateways), clusters, and services to deploy. Vamp uses clusters to group different variants of the same service into logical groups for canary releasing or A/B testing.  
+In its simplest form, a [Vamp blueprint](https://vamp.io/documentation/using-vamp/blueprints/) describes the endpoints (gateways), clusters, and services to deploy. Vamp uses clusters to group different variants of the same service into logical groups for canary releasing or A/B testing.  
 
 This scenario uses a sample monolithic application called [**sava**](https://github.com/magneticio/sava), which is at version 1.0. The monolith is packaged in a Docker container, which is in Docker Hub under magneticio/sava:1.0.0. The app normally runs on port 8080, but you want to expose it under port 9050 in this case. Deploy the app through Vamp using a simple blueprint.
 
@@ -135,11 +135,11 @@ This scenario uses a sample monolithic application called [**sava**](https://git
 
 3. Paste in the following blueprint YAML. This blueprint contains one cluster with only one service variant, which we change in a later step:
 
-  ```YAML
-  name: sava                    	# deployment name
-  gateways:
+   ```YAML
+   name: sava                        # deployment name
+   gateways:
     9050: sava_cluster/webport  	# stable endpoint
-  clusters:
+   clusters:
     sava_cluster:               # cluster to create
      services:
         -
@@ -148,7 +148,7 @@ This scenario uses a sample monolithic application called [**sava**](https://git
             deployable: magneticio/sava:1.0.0
             ports:
               webport: 8080/http # cluster endpoint, used for canary releasing
-  ```
+   ```
 
 4. Click **Save**. Vamp initiates the deployment.
 
@@ -198,9 +198,9 @@ To merge the new sava 1.1 service with the running deployment:
 
 2. Click **Add** and paste in the following blueprint YAML: This blueprint describes a new service variant (sava:1.1.0) to deploy within the existing cluster (sava_cluster).
 
-  ```YAML
-  name: sava:1.1.0      # blueprint name
-  clusters:
+   ```YAML
+   name: sava:1.1.0      # blueprint name
+   clusters:
     sava_cluster:       # cluster to update
       services:
         -
@@ -209,17 +209,17 @@ To merge the new sava 1.1 service with the running deployment:
             deployable: magneticio/sava:1.1.0    
             ports:
               webport: 8080/http # cluster endpoint to update
-  ```
+   ```
   
 3. Click **Save**. The blueprint is stored and listed on the **Blueprints** page.
 
 4. Open the action menu on the sava:1.1 blueprint and click **Merge to**.
 
-  ![Vamp UI - blueprints](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
+   ![Vamp UI - blueprints](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
 
 5. Select the **sava** deployment and click **Merge**.
 
-  ![Vamp UI - merge blueprint to deployment](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
+   ![Vamp UI - merge blueprint to deployment](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
 
 Vamp deploys the new sava:1.1.0 service variant described in the blueprint alongside sava:1.0.0 in the **sava_cluster** of the running deployment. 
 
@@ -237,11 +237,11 @@ With both versions of sava deployed in the same cluster, adjust the distribution
 
 2. Set the weight distribution to 50%/50% and click **Save**.
 
-  ![Vamp UI - gateway weight slider](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
+   ![Vamp UI - gateway weight slider](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
 
 3. Go back to your browser and refresh the sava page a few more times. The sava application now switches between a sava:1.0 page and a sava:1.1 page.
 
-  ![alternating sava1.0 and sava1.1 services](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
+   ![alternating sava1.0 and sava1.1 services](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
 
 
   > [!NOTE]
@@ -260,23 +260,23 @@ You can create a condition to filter all Firefox users and direct them to the ol
 
 2. Enter the condition **user-agent == Firefox** and click ![Vamp UI - save](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png).
 
-  Vamp adds the condition with a default strength of 0%. To start filtering traffic, you need to adjust the condition strength.
+   Vamp adds the condition with a default strength of 0%. To start filtering traffic, you need to adjust the condition strength.
 
 3. Click ![Vamp UI - edit](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) to change the **STRENGTH** applied to the condition.
  
 4. Set the **STRENGTH** to 100% and click ![Vamp UI - save](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) to save.
 
-  Vamp now sends all traffic matching the condition (all Firefox users) to sava:1.0.0.
+   Vamp now sends all traffic matching the condition (all Firefox users) to sava:1.0.0.
 
-  ![Vamp UI - apply condition to gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
+   ![Vamp UI - apply condition to gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
 
 5. Finally, adjust the gateway weight to send all remaining traffic (all non-Firefox users) to the new sava:1.1.0. Click ![Vamp UI - edit](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) next to **WEIGHT** and set the weight distribution so 100% is directed to the route sava/sava_cluster/sava:1.1.0/webport.
 
-  All traffic not filtered by the condition is now directed to the new sava:1.1.0.
+   All traffic not filtered by the condition is now directed to the new sava:1.1.0.
 
 6. To see the filter in action, open two different browsers (one Firefox and one other browser) and access the sava service from both. All Firefox requests are sent to sava:1.0.0, while all other browsers are directed to sava:1.1.0.
 
-  ![Vamp UI - filter traffic](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
+   ![Vamp UI - filter traffic](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
 
 ## Summing up
 
@@ -287,9 +287,9 @@ We also touched on some powerful features of Vamp:  merging a new service varian
 
 ## Next steps
 
-* Learn about managing Vamp actions through the [Vamp REST API](http://vamp.io/documentation/api/api-reference/).
+* Learn about managing Vamp actions through the [Vamp REST API](https://vamp.io/documentation/api/api-reference/).
 
 * Build Vamp automation scripts in Node.js and run them as [Vamp workflows](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
 
-* See additional [VAMP tutorials](http://vamp.io/documentation/tutorials/).
+* See additional [VAMP tutorials](https://vamp.io/documentation/tutorials/).
 

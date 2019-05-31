@@ -3,7 +3,7 @@ title: Configure hybrid Azure Active Directory join for managed domains | Micros
 description: Learn how to configure hybrid Azure Active Directory join for managed domains.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: markvi
+ms.date: 03/20/2019
+ms.author: joflore
 ms.reviewer: sandeo
 
-#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices for managed domains so that I can automatically bring AD domain-joined devices under control
+#Customer intent: As an IT admin, I want to setup hybrid Azure AD joined devices for managed domains so that I can automatically bring AD domain-joined devices under control
 
 ms.collection: M365-identity-device-management
 ---
@@ -50,7 +50,10 @@ This tutorial assumes that you are familiar with:
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
-  
+
+> [!NOTE]
+> Azure AD does not support smartcards or certificates in managed domains.
+
 
 To configure the scenario in this article, you need:
 
@@ -173,12 +176,12 @@ Additionally, you need to enable **Allow updates to status bar via script** in t
 
 ### Configure Seamless SSO
 
-To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using Pass-through Authentication (PTA) or Password Hash Sync (PHS) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using Pass-through Authentication (PTA) or Password Hash Sync (PHS) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). If you are having trouble configuring Seamless SSO, see the article [Troubleshoot Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### Control Windows down-level devices 
 
-To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, click [here](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, see the article [Control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 
 ## Verify the registration
@@ -218,5 +221,5 @@ If you are experiencing issues with completing hybrid Azure AD join for domain j
 
 > [!div class="nextstepaction"]
 > [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual-steps.md)
+> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
 

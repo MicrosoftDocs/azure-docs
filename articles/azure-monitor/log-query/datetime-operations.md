@@ -109,6 +109,7 @@ Event
 ```
 
 This query produces the following table:  
+
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|

@@ -24,7 +24,7 @@ The [built-in monitoring and alerting article](backup-azure-monitoring-built-in-
 ## Using Log Analytics Workspace
 
 > [!NOTE]
-> Data from Azure VM backups, MAB Agent, System Center DPM (SC-DPM) is being pumped to the Log Analytics workspace via diagnostic settings. Support for SQL backups in Azure VMs, Azure File share backups, Microsoft Azure Backup Server (MABS) is coming soon.
+> Data from Azure VM backups, MAB Agent, System Center DPM (SC-DPM), SQL backups in Azure VMs  is being pumped to the Log Analytics workspace via diagnostic settings. Support for Azure File share backups, Microsoft Azure Backup Server (MABS) is coming soon.
 
 We are leveraging the capabilities of two Azure services - **Diagnostic settings** (to send data from multiple Azure Resource Manager resources to another resource) and **Log Analytics** (LA - to generate custom alerts where you can define other notification channels using Action groups) for monitoring at scale. The following sections detail on how to use LA to monitor Azure Backup at scale.
 
@@ -104,7 +104,7 @@ The key aspect is the triggering condition of the alert. Clicking on 'Condition'
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Edit the Kusto query, if necessary, select the right threshold (which will decide when the alert will be fired), the right period (time window for which the query is run), and the frequency. For for example: For for example: If the threshold is greater than 0, the period is 5 minutes and the frequency is 5 minutes, then the rule is translated as "Run the query every 5 minutes for the last 5 minutes and if the number of results is greater than 0, notify me via the selected action group"
+Edit the Kusto query, if necessary, select the right threshold (which will decide when the alert will be fired), the right period (time window for which the query is run), and the frequency. For example: If the threshold is greater than 0, the period is 5 minutes and the frequency is 5 minutes, then the rule is translated as "Run the query every 5 minutes for the last 5 minutes and if the number of results is greater than 0, notify me via the selected action group"
 
 #### Action group integration
 
@@ -249,7 +249,7 @@ Here the resource is the RS vault itself and hence you need to repeat the same a
 
 ***All alerts created from activity logs and LA workspaces can be viewed in Azure Monitor in the 'Alerts' pane to the left.***
 
-While the notification via Activity logs can be used, ***Azure Backup service highly recommends to [use LA for monitoring at scale](#monitoring-at-scale) and NOT activity logs for the following reasons***.
+While the notification via Activity logs can be used, ***Azure Backup service highly recommends to use LA for monitoring at scale and NOT activity logs for the following reasons***.
 
 - **Limited Scenarios:** Applicable only for Azure VM backups and should be repeated for every RS vault.
 - **Definition fit:** The scheduled backup activity doesn't fit with the latest definition of activity logs and aligns with [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). This lead to unexpected impact when the data pumping via activity log channel is changed as pointed below.

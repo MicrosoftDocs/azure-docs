@@ -28,13 +28,13 @@ A Visual Studio solution file for this application is [available on GitHub](http
 
 ## Prerequisites
 
-For this tutorial, you need any edition of Visual Studio 2017, including the Community Edition.
+For this tutorial, you need any edition of Visual Studio 2019, including the Community Edition.
 
 The Visual Studio solution also builds an installer for the application. You need the [WiX Toolset](http://wixtoolset.org/) and the [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) to support this functionality.
 
 You also need a subscription key for the Translator Speech service, which you can obtain from the Microsoft Azure dashboard. A free pricing tier is available that allows you to translate up to 10 hours of speech per month at no charge. This tier is sufficient for this tutorial.
 
-The third-party [JSON.Net library](https://www.newtonsoft.com/json) (from Newtonsoft) is also required. This assembly is automatically installed by NuGet if both Package Restore checkboxes are enabled in the Visual Studio options.
+The third-party [JSON.NET library](https://www.newtonsoft.com/json) (from Newtonsoft) is also required. This assembly is automatically installed by NuGet if both Package Restore checkboxes are enabled in the Visual Studio options.
 
 ## Trying the translation app
 

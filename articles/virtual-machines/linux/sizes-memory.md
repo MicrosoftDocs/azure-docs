@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 05/16/2019
 ms.author: jonbeck
 
 ---
@@ -27,6 +27,7 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
+
 ## Other sizes
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
@@ -36,4 +37,7 @@ ms.author: jonbeck
 - [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+* Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+* Learn how to [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md)

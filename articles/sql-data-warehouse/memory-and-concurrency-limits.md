@@ -1,13 +1,13 @@
 ---
-title: Memory and concurrency limits - Azure SQL Data Warehouse | Microsoft Docs
+title: Memory and concurrency limits in Azure SQL Data Warehouse | Microsoft Docs
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
-ms.date: 10/04/2018
+ms.subservice: workload management
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -66,7 +66,7 @@ The service levels for Gen1 range from DW100 to DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## Concurrency maximums
-To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough [concurrency slots](resource-classes-for-workload-management.md#concurrency-slots) are available. Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 ### Gen2
  

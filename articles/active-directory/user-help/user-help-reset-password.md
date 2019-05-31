@@ -89,15 +89,15 @@ If you can't access your Azure Active Directory (Azure AD) account, it could be 
 
 - **Reset your password using a code from your authenticator app.** Accepts a random code provided by your authentication app. If your administrator has turned on the security info experience, you can find more info about setting up an authenticator app to provide a code in the [Set up security info to use an authentication app (preview)](security-info-setup-auth-app.md) article. If you're not yet using security info, you can find more info about setting up an authenticator app to provide a code in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
 
-    1. Select **Enter a code from my authenticator app**, and then select **Send Notification**.
+  1. Select **Enter a code from my authenticator app**, and then select **Send Notification**.
 
-    2. Open your authenticator app, type the verification code for your account into the box, and then select **Next**.
+  2. Open your authenticator app, type the verification code for your account into the box, and then select **Next**.
 
-    3. Type and confirm your new password, and then select **Finish**.
+  3. Type and confirm your new password, and then select **Finish**.
 
-    4. After you get the message saying that your password has been reset, you can sign in to your account using your new password.
+  4. After you get the message saying that your password has been reset, you can sign in to your account using your new password.
         
-    If you still can't access your account, you should contact your organization's administrator for more help.
+     If you still can't access your account, you should contact your organization's administrator for more help.
 
 After resetting your password, you might get a confirmation email that comes from an account like, "Microsoft on behalf of \<*your_organization*>." If you get a similar email, but you didn't recently reset your password, you must contact your organization's administrator immediately.
 
@@ -109,7 +109,7 @@ If you just want to change your password, you can do it through the Office 365 p
 
 Use this method if you typically access your apps through the Office portal:
 
-1. Sign in to your [Office 365 account](https://www.office.com), using your existing password.
+1. Sign in to your [Office 365 account](https://portal.office.com), using your existing password.
 
 2. Select your profile on the upper-right side, and then select **View account**.
 

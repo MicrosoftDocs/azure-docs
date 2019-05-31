@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 03/26/2019
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
 
@@ -197,6 +197,12 @@ When managing logins and users in SQL Database, consider the following:
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  Instead, use the following Transact-SQL statement:
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.

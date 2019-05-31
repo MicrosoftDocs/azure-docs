@@ -32,12 +32,12 @@ The window will appear as shown:
 | Function Requests      | Number of calls to the Azure Machine Learning function (if present). |
 | Input Deserialization Errors       | Number of input events that could not be deserialized.  |
 | Input Event Bytes      | Amount of data received by the Stream Analytics job, in bytes. This can be used to validate that events are being sent to the input source. |
-| Input Events           | Number of records deserialized from the input events. |
-| Input Sources Received       | Number of event received by the job. This can be used to validate that events are being sent to the input source. |
+| Input Events           | Number of records deserialized from the input events. This count does not include incoming events that result in deserialization errors. |
+| Input Sources Received       | Number of messages received by the job. For Event Hub, a message is a single EventData. For Blob, a message is a single blob. Please note that Input Sources are counted before deserialization. If there are deserialization errors, input sources can be greater than input events. Otherwise, it can be less than or equal to input events since each message can contain multiple events. |
 | Late Input Events      | Events that arrived later than the configured late arrival tolerance window. Learn more about [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md) . |
 | Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Output Events          | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
-| Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputing results) |
+| Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputting results) |
 | SU % Utilization       | The utilization of the Streaming Unit(s) assigned to a job from the Scale tab of the job. Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress. |
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 

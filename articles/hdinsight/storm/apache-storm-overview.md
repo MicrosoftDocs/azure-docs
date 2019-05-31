@@ -1,7 +1,6 @@
 ---
 title: What is Apache Storm - Azure HDInsight 
 description: Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm use cases,storm cluster,what is apache storm
@@ -9,10 +8,10 @@ keywords: apache storm use cases,storm cluster,what is apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-
 ---
+
 # What is Apache Storm on Azure HDInsight?
 
 [Apache Storm](https://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with [Apache Hadoop](https://hadoop.apache.org/). Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
@@ -44,7 +43,7 @@ Storm on HDInsight provides the following features:
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-To get started using Storm, see [Get started with pache Storm on HDInsight][gettingstarted].
+To get started using Storm, see [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md).
 
 ## How does Apache Storm work
 
@@ -82,7 +81,7 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
 * __Azure PowerShell and Azure Classic CLI__: PowerShell and classic CLI both provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
-* __Visual Studio integration__: Azure Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies by using the SCP.Net framework. Data Lake Tools also provide tools to deploy, monitor, and manage solutions with Storm on HDInsight.
+* __Visual Studio integration__: Azure Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies by using the SCP.NET framework. Data Lake Tools also provide tools to deploy, monitor, and manage solutions with Storm on HDInsight.
 
   For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
@@ -138,7 +137,7 @@ For more information, see [Guarantees on data processing](https://storm.apache.o
 
 ### IBasicBolt
 
-The pattern of reading an input tuple, emitting zero or more tuples, and then acking the input tuple immediately at the end of the execute method is common. Storm provides the [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) interface to automate this pattern.
+The pattern of reading an input tuple, emitting zero or more tuples, and then acknowledging the input tuple immediately at the end of the execute method is common. Storm provides the [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) interface to automate this pattern.
 
 ### Joins
 
@@ -174,10 +173,5 @@ For an example topology that demonstrates how to configure logging, see [Java-ba
 
 Learn more about real-time analytics solutions with Apache Storm on HDInsight:
 
-* [Get started with Apache Storm on HDInsight][gettingstarted]
+* [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md)
 * [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

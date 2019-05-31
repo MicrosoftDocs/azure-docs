@@ -48,7 +48,7 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
-      - name: Identity governance
+      - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
       - name: Application management
@@ -61,7 +61,6 @@
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
-        
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -100,18 +99,30 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
+  - name: ASC for IoT
+    tocHref: /azure/asc-for-iot/
+    topicHref: /azure/asc-for-iot/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Azure Blockchain Service
+    tocHref: /azure/blockchain/service
+    topicHref: /azure/blockchain/service
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
+  - name: Azure Digital Twins
+    tocHref: /azure/digital-twins/
+    topicHref: /azure/digital-twins/
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
+  - name: Azure Spatial Anchors
+    tocHref: /azure/spatial-anchors/
+    topicHref: /azure/spatial-anchors/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -131,15 +142,43 @@
   - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
-  - name: Azure China 21Vianet
-    tocHref: /azure/china/
-    topicHref: /azure/china/
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
+  - name: Azure VMware Solution by CloudSimple
+    tocHref: /azure/vmware-cloudsimple/
+    topicHref: /azure/vmware-cloudsimple/
   - name: Azure portal customization
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/
+    topicHref: /azure/azure-portal/\
+  - name: Internet of Things
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/
+    items:
+      - name: IoT Hub
+        tocHref: /azure/iot-hub/
+        topicHref: /azure/iot-hub/
+      - name: IoT Central
+        tocHref: /azure/iot-central/
+        topicHref: /azure/iot-central/
+      - name: IoT Edge
+        tocHref: /azure/iot-edge/
+        topicHref: /azure/iot-edge/
+      - name: Azure Digital Twins
+        tocHref: /azure/digital-twins/
+        topicHref: /azure/digital-twins/
+      - name: IoT Solution Accelerators
+        tocHref: /azure/iot-accelerators/
+        topicHref: /azure/iot-accelerators/
+      - name: IoT Hub Device Provisioning Service
+        tocHref: /azure/iot-dps/
+        topicHref: /azure/iot-dps/
+      - name: Time Series Insights
+        tocHref: /azure/time-series-insights/
+        topicHref: /azure/time-series-insights/
+      - name: Azure Maps
+        tocHref: /azure/azure-maps/
+        topicHref: /azure/azure-maps/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -173,6 +212,9 @@
   - name: Blockchain Workbench
     tocHref: /azure/blockchain-workbench/
     topicHref: /azure/blockchain-workbench/
+  - name: Bot Service
+    tocHref: /azure/bot-service/
+    topicHref: /azure/bot-service/    
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
@@ -189,6 +231,9 @@
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: /azure/cognitive-services/academic-knowledge/home
+    - name: Anomaly Detector
+      tocHref: /azure/cognitive-services/anomaly-detector/
+      topicHref: /azure/cognitive-services/anomaly-detector/
     - name: Bing Autosuggest
       tocHref: /azure/cognitive-services/Bing-Autosuggest/
       topicHref: /azure/cognitive-services/Bing-Autosuggest/
@@ -216,6 +261,9 @@
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Bing Local Business Search
+      tocHref: /azure/cognitive-services/bing-local-business-search/
+      topicHref: /azure/cognitive-services/bing-local-business-search/
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
@@ -297,6 +345,9 @@
   - name: AKS
     tocHref: /azure/aks/
     topicHref: /azure/aks/
+  - name: OpenShift
+    tocHref: /azure/openshift/
+    topicHref: /azure/openshift/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -356,6 +407,9 @@
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
+  - name: Genomics
+    tocHref: /azure/genomics/
+    topicHref: /azure/genomics/    
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/
@@ -396,7 +450,7 @@
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
       - name: ML Services
         tocHref: /azure/hdinsight/r-server
-        topicHref: /azure/hdinsight/r-server-overview
+        topicHref: /azure/hdinsight/r-server/r-server-overview
       - name: Spark
         tocHref: /azure/hdinsight/spark
         topicHref: /azure/hdinsight/spark/apache-spark-overview
@@ -406,40 +460,43 @@
   - name: Azure API for FHIR
     tocHref: /azure/healthcare-apis
     topicHref: /azure/healthcare-apis
-  - name: Internet of Things
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
-    items:  
-    - name: IoT Fundamentals
-      tocHref: /azure/iot-fundamentals/
-      topicHref: /azure/iot-fundamentals/
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
-    - name: IoT Hub
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/ 
-    - name: IoT Hub Device Provisioning Service
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: IoT solution accelerators
-      tocHref: /azure/iot-accelerators/
-      topicHref: /azure/iot-accelerators/
-    - name: IoT Central
-      tocHref: /azure/iot-central/
-      topicHref: /azure/iot-central/         
-    - name: Maps
-      tocHref: /azure/azure-maps/
-      topicHref: /azure/azure-maps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/                     
+#  - name: Internet of Things
+#    tocHref: /azure/iot-fundamentals/
+#    topicHref: /azure/iot-fundamentals/
+#    items:  
+#    - name: IoT Fundamentals
+#      tocHref: /azure/iot-fundamentals/
+#      topicHref: /azure/iot-fundamentals/
+#    - name: IoT Edge
+#      tocHref: /azure/iot-edge/
+#      topicHref: /azure/iot-edge/
+#    - name: IoT Hub
+#      tocHref: /azure/iot-hub/
+#      topicHref: /azure/iot-hub/ 
+#    - name: IoT Hub Device Provisioning Service
+#      tocHref: /azure/iot-dps/
+#      topicHref: /azure/iot-dps/
+#    - name: IoT solution accelerators
+#     tocHref: /azure/iot-accelerators/
+#      topicHref: /azure/iot-accelerators/
+#    - name: IoT Central
+#      tocHref: /azure/iot-central/
+#      topicHref: /azure/iot-central/         
+#    - name: Maps
+#      tocHref: /azure/azure-maps/
+#      topicHref: /azure/azure-maps/
+#    - name: Time Series Insights
+#      tocHref: /azure/time-series-insights/
+#      topicHref: /azure/time-series-insights/                     
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Lab Services
+    tocHref: /azure/lab-services/
+    topicHref: /azure/lab-services/    
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
@@ -453,6 +510,10 @@
       - name: Service
         tocHref: /azure/machine-learning/service
         topicHref: /azure/machine-learning/service/
+        items:
+        - name: Algorithm and Module Reference
+          tocHref: /azure/machine-learning/algorithm-module-reference
+          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
       - name: Studio
         tocHref: /azure/machine-learning/studio
         topicHref: /azure/machine-learning/studio/
@@ -509,6 +570,9 @@
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
+  - name: Open Datasets
+    tocHref: /azure/open-datasets/
+    topicHref: /azure/open-datasets/
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
@@ -632,14 +696,14 @@
         items:
           - name: Linux classic deployments
             tocHref: /azure/virtual-machines/linux/classic/
-            topicHref: /azure/virtual-machines/linux/classic/
+            topicHref: /previous-versions/azure/virtual-machines/linux/classic/
       - name: Windows
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/
         items:
           - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
-            topicHref: /azure/virtual-machines/windows/classic/
+            topicHref: /previous-versions/azure/virtual-machines/windows/classic/
           - name: SQL VM
             tocHref: /azure/virtual-machines/windows/sql
             topicHref: /azure/virtual-machines/windows/sql
@@ -649,3 +713,6 @@
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Windows Virtual Desktop
+    tocHref: /azure/virtual-desktop/
+    topicHref: /azure/virtual-desktop/

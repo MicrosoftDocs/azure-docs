@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
 ---
 
@@ -86,7 +86,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
     ![Visual Studio- iOS App Config][32]
 
-4. From the Solution view, double-click the `Entitlements.plist` and ensure that **Enable Push Notifications**"** is checked.
+4. From the Solution view, double-click the `Entitlements.plist` and ensure that **Enable Push Notifications** is checked.
 
     ![Visual Studio- iOS Entitlements Config][33]
 
@@ -104,6 +104,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
     ```csharp
     using WindowsAzure.Messaging;
+    using UserNotifications
     ```
 
 8. Declare an instance of `SBNotificationHub`:
@@ -244,10 +245,10 @@ In this tutorial, you sent broadcast notifications to all your iOS devices regis
 
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: https://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio for Mac]: https://visualstudio.microsoft.com/vs/mac/
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
-[Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Apple Push Notification Service fwlink]: https://go.microsoft.com/fwlink/p/?LinkId=272584
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Azure portal]: https://portal.azure.com

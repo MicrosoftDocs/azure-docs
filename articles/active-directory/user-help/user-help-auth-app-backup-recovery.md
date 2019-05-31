@@ -23,9 +23,9 @@ ms.collection: M365-identity-device-management
 
 The Microsoft Authenticator app backs up your account credentials and related app settings, such as the order of your accounts, to the cloud. After backup, you can also use the app to recover your information on a new device, potentially avoiding getting locked out or having to recreate accounts.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > You need one personal Microsoft account and one iCloud account for each backup storage location. But within that storage location, you can back up several accounts. For example, you can have a personal account, a school account, and a third-party account like Facebook, Google, and so on.
-
+> 
 > Only your personal and 3rd-party account credentials are stored, which includes your user name and the account verification code that’s required to prove your identity. We don’t store any other information associated with your accounts, including emails or files. We also don’t associate or share your accounts in any way or with any other product or service. And finally, your IT admin won’t get any information about any of these accounts.
 
 ## Back up your account credentials

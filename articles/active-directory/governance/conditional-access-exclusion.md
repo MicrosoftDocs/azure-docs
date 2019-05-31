@@ -1,6 +1,6 @@
 ---
-title: Use Azure AD Access Reviews to manage users excluded from conditional access policies | Microsoft Docs
-description: Learn how to use Azure Active Directory (Azure AD) Access Reviews to manage users that have been excluded from conditional access policies
+title: Use access reviews to manage users excluded from conditional access policies - Azure Active Directory | Microsoft Docs
+description: Learn how to use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from conditional access policies
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,9 +18,9 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Use Azure AD Access Reviews to manage users excluded from conditional access policies
+# Use Azure AD access reviews to manage users excluded from conditional access policies
 
-In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article describes some examples where exclusions might be required and how you, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) Access Reviews.
+In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article describes some examples where exclusions might be required and how you, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) access reviews.
 
 > [!NOTE]
 > A valid Azure AD Premium P2, Enterprise Mobility + Security E5 paid, or trial license is required to use Azure AD access reviews. For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
@@ -33,13 +33,13 @@ As another example, you might use [named locations](../conditional-access/locati
 
 ![Named locations](./media/conditional-access-exclusion/named-locations.png)
 
-However, in some cases, users might have a legitimate reason to sign in from these blocked countries. For example, users might be traveling for work or personal reasons. In this example, the conditional access policy to block these countries could have a dedicated cloud security group for the users who are excluded from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../users-groups-roles/groups-self-service-management.md).
+However, in some cases, users might have a legitimate reason to sign in from these blocked countries/regions. For example, users might be traveling for work or personal reasons. In this example, the conditional access policy to block these countries/regions could have a dedicated cloud security group for the users who are excluded from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../users-groups-roles/groups-self-service-management.md).
 
 Another example might be that you have a conditional access policy that [blocks legacy authentication for the vast majority of your users](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft strongly recommends that you block the use of legacy protocols in your tenant to improve your security posture. However, if you have some users that absolutely need to use legacy authentication methods to access your resources via Office 2010 or IMAP/SMTP/POP based clients, then you can exclude these users from the policy that block legacy authentication methods.
 
 ## Why are exclusions challenging?
 
-In Azure AD, you can scope a conditional access policy to a set of users. You can also exclude some of these users by selecting directory roles, individual users, or guests of users. It is important to remember that when these exclusions are configured, the policy intent can't be enforced for those users. If these exclusions were configured as either a list of individual users or via a legacy on-premises security group, then it limits the visibility of this exclusion list (users may not know of its existence) and the IT administrator's control over it (users can join the security group to by-pass the policy). Additionally, users that qualified for the exclusion at one time may no longer need it or be eligible for it.
+In Azure AD, you can scope a conditional access policy to a set of users. You can also exclude some of these users by selecting Azure AD roles, individual users, or guests of users. It is important to remember that when these exclusions are configured, the policy intent can't be enforced for those users. If these exclusions were configured as either a list of individual users or via a legacy on-premises security group, then it limits the visibility of this exclusion list (users may not know of its existence) and the IT administrator's control over it (users can join the security group to by-pass the policy). Additionally, users that qualified for the exclusion at one time may no longer need it or be eligible for it.
 
 At the beginning of an exclusion, there is a short list of users who bypass the policy. Over time, more and more users are excluded, and the list grows. At some point, there is a need to review the list and confirm that each of these users should still be excluded. Managing the list from a technical point of view, can be relatively easy, but who makes the business decisions and how do you make sure it is all auditable?
 
@@ -92,12 +92,12 @@ Now you can create a conditional access policy that uses this exclusion group.
 
 Let's cover two examples where you can use access reviews to manage exclusions in conditional access policies.
 
-## Example 1: Access review for users accessing from blocked countries
+## Example 1: Access review for users accessing from blocked countries/regions
 
-Let's say you have a conditional access policy that blocks access from certain countries. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
+Let's say you have a conditional access policy that blocks access from certain countries/regions. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
 
 > [!NOTE]
-> A Global Administrator or User Account Administrator role is required to create access reviews.
+> A Global administrator or User administrator role is required to create access reviews.
 
 1. The review will reoccur every week.
 
@@ -105,9 +105,9 @@ Let's say you have a conditional access policy that blocks access from certain c
 
 3. All members of this group will be in scope for the review.
 
-4. Each user will have to self-attest that they still need to have access from these blocked countries, therefore they still need to be a member of the group.
+4. Each user will have to self-attest that they still need to have access from these blocked countries/regions, therefore they still need to be a member of the group.
 
-5. If the user doesn't respond to the review request, they will be automatically removed from the group, and therefore, can no longer access the tenant while traveling to these countries.
+5. If the user doesn't respond to the review request, they will be automatically removed from the group, and therefore, can no longer access the tenant while traveling to these countries/regions.
 
 6. Enable mail notifications so users are notified about the start and completion of the access review.
 

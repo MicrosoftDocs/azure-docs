@@ -2,11 +2,11 @@
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -70,7 +70,7 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 #### Download Instructions
 1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
         Install-Module -Name PowerShellGet -Repository PSGallery -Force
     ```
@@ -78,29 +78,29 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 2. Restart PowerShell
 3. Install the modules
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
 
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 To test only your dataset:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 To test system requirements only:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 To display the results in CSV:
-```PowerShell
+```powershell
     $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
@@ -127,6 +127,7 @@ To display the results in CSV:
 - A locally attached volume formatted with the NTFS file system.
 
 ### File system features
+
 | Feature | Support status | Notes |
 |---------|----------------|-------|
 | Access control lists (ACLs) | Fully supported | Windows ACLs are preserved by Azure File Sync, and are enforced by Windows Server on server endpoints. Windows ACLs are not (yet) supported by Azure Files if files are accessed directly in the cloud. |
@@ -143,6 +144,7 @@ To display the results in CSV:
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
 ### Files skipped
+
 | File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
@@ -230,13 +232,18 @@ Azure File Sync is available only in the following regions:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Australia Southeast | Victoria |
+| Brazil South | Sao Paolo State |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central India | Pune |
 | Central US | Iowa |
-| East Asia | Hong Kong |
+| East Asia | Hong Kong SAR |
 | East US | Virginia |
 | East US2 | Virginia |
+| Korea Central| Seoul |
+| Korea South| Busan |
+| Japan East | Tokyo, Saitama |
+| Japan West | Osaka |
 | North Central US | Illinois |
 | North Europe | Ireland |
 | South Central US | Texas |
@@ -244,10 +251,18 @@ Azure File Sync is available only in the following regions:
 | Southeast Asia | Singapore |
 | UK South | London |
 | UK West | Cardiff |
+| US Gov Arizona (preview) | Arizona |
+| US Gov Texas (preview) | Texas |
+| US Gov Virginia (preview) | Virginia |
 | West Europe | Netherlands |
+| West Central US | Wyoming |
 | West US | California |
+| West US 2 | Washington |
 
 Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+
+> [!Note]  
+> Azure File Sync is currently only available in private preview for the government regions. See our [release notes](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) for instructions on enrolling in the preview program.
 
 ### Azure disaster recovery
 To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will failover storage to the paired region. 
@@ -259,8 +274,9 @@ To support the failover integration between geo-redundant storage and Azure File
 
 | Primary region      | Paired region      |
 |---------------------|--------------------|
-| Australia East      | Australia Southeast |
+| Australia East      | Australia Southeast|
 | Australia Southeast | Australia East     |
+| Brazil South        | South Central US   |
 | Canada Central      | Canada East        |
 | Canada East         | Canada Central     |
 | Central India       | South India        |
@@ -268,14 +284,24 @@ To support the failover integration between geo-redundant storage and Azure File
 | East Asia           | Southeast Asia     |
 | East US             | West US            |
 | East US 2           | Central US         |
+| Japan East          | Japan West         |
+| Japan West          | Japan East         |
+| Korea Central       | Korea South        |
+| Korea South         | Korea Central      |
 | North Europe        | West Europe        |
 | North Central US    | South Central US   |
+| South Central US    | North Central US   |
 | South India         | Central India      |
 | Southeast Asia      | East Asia          |
 | UK South            | UK West            |
 | UK West             | UK South           |
+| US Gov Arizona      | US Gov Texas       |
+| US Gov Iowa         | US Gov Virginia    |
+| US Gov Virgini      | US Gov Texas       |
 | West Europe         | North Europe       |
+| West Central US     | West US 2          |
 | West US             | East US            |
+| West US 2           | West Central US    |
 
 ## Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
