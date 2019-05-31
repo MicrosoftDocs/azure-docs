@@ -11,7 +11,7 @@ ms.author: v-hevem
 ---
 # Customize RDP Properties for Windows Virtual Desktop
 
-Customizing RDP properties such as Audio Redirection etc., allows you to deliver an optimal experience for your Users based on their needs. This can be accomplished in Windows Virtual Desktop using the **-customRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
+Customizing Client Redirection RDP properties such as Audio Redirection, Printer Redirection etc., allows you to deliver an optimal experience for your Users based on their needs. This can be accomplished in Windows Virtual Desktop using the **-customRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
 
 Refer [Remote Desktop RDP file settings](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files) for a full list of supported values.
 
