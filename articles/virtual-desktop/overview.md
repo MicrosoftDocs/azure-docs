@@ -22,7 +22,9 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 * Virtualize both desktops and apps
 * Manage Windows 10, Windows Server, and Windows 7 desktops and apps with a unified management experience
 
-The following video is a brief overview of what else Windows Virtual Desktop can do for you:
+## Introductory video
+
+The following video is a brief demonstration of Windows Virtual Desktop's capabilities by Scott Manchester:
 
 <br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
