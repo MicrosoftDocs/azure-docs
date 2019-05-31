@@ -265,7 +265,8 @@ const listFiles = async () => {
         reportStatus("Retrieving file list...");
         let marker = undefined;
         do {
-            const listBlobsResponse = await containerURL.listBlobFlatSegment(azblob.Aborter.none, marker);
+            const listBlobsResponse = await containerURL.listBlobFlatSegment(
+                azblob.Aborter.none, marker);
             marker = listBlobsResponse.nextMarker;
             const items = listBlobsResponse.segment.blobItems;
             for (const blob of items) {
@@ -299,7 +300,8 @@ const uploadFiles = async () => {
         const promises = [];
         for (const file of fileInput.files) {
             const blockBlobURL = azblob.BlockBlobURL.fromContainerURL(containerURL, file.name);
-            promises.push(azblob.uploadBrowserDataToBlockBlob(azblob.Aborter.none, file, blockBlobURL));
+            promises.push(azblob.uploadBrowserDataToBlockBlob(
+                azblob.Aborter.none, file, blockBlobURL));
         }
         await Promise.all(promises);
         reportStatus("Done.");
