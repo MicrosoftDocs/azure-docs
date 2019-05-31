@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in GitHub and Azure AD to automatically provision and de-provision organization membership of user accounts from Azure AD to GitHub.
+The objective of this tutorial is to show you the steps you need to perform in GitHub and Azure AD to automatically provision and de-provision GitHub organization membership of user accounts from Azure AD to GitHub.
 
 ## Prerequisites
 
