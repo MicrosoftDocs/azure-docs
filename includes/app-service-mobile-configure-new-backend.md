@@ -90,7 +90,7 @@ ms.custom: "include file"
 
         2. Build the .NET server project locally in Visual Studio.
 
-        3. In Visual Studio, open Solution Explorer, right-click on `ZUMOAPPNAMEService` project, click **Publish**, you will see a `Publish to App Service` window. If you are working on Mac, check out other ways to deploy the app [here](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git).
+        3. In Visual Studio, open Solution Explorer, right-click on `ZUMOAPPNAMEService` project, click **Publish**, you will see a `Publish to App Service` window. If you are working on Mac, check out other ways to deploy the app [here](https://docs.microsoft.com/azure/app-service/deploy-local-git).
         
            ![Visual studio publishing](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 
