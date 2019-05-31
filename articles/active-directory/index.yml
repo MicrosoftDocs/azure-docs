@@ -32,9 +32,9 @@ highlightedContent:
     - title: Azure AD deployment checklist 
       itemType: concept
       url: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
-    - title: Secure your Azure resources with Conditional Access
-      itemType: learn 
-      url: /learn/modules/secure-azure-resources-with-conditional-access/
+    - title: Add a subscription to your tenant
+      itemType: how-to-guide 
+      url: /azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory
 
 conceptualContent: 
   items: 
