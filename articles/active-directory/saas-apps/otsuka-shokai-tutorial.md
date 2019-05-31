@@ -51,7 +51,7 @@ To configure the integration of Otsuka Shokai into Azure AD, you need to add Ots
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Otsuka Shokai** in the search box.
 1. Select **Otsuka Shokai** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-1. Click on **Properties** tab and copy the **Application ID** and save it on your computer for subsequent use.
+1. Click on **Properties** tab, copy the **Application ID** and save it on your computer for subsequent use.
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,6 +96,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Name | Source Attribute|
 	| ---------------| --------------- |
 	| Appid | `<Application ID>` |
+
+	>[!NOTE]
+	>`<Application ID>` is the value which you have copied from the **Properties** tab of Azure portal.
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
