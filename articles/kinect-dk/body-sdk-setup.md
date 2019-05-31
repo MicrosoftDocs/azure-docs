@@ -38,11 +38,11 @@ Please follow the the on-screen prompts to install the CUDA 10.1 and all their p
 You will need to log-in your NVIDIA account to download the cudnn64_7.dll. Remember to add the dll path to the "Environment Variables - Path":
 1. Launch "Control Pannel" -> Select "System and Security" -> Select "System" -> Select "Advanced system settings"
 
-    ![Setup system path 1](images/install_system_path_1.png)
+    ![Setup system path 1](./media/quickstarts/install_system_path_1.png)
 
 2. Select "Environment Variables" -> Double click the "Path" variable under "System variables" block -> Make sure the path that contains your cudnn64_7.dll is there.
 
-    ![Setup system path 2](images/install_system_path_2.png)
+    ![Setup system path 2](./media/quickstarts/install_system_path_2.png)
 
 ### [Install the latest NVIDIA Driver](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
@@ -71,7 +71,7 @@ If everything is set up properly, you will see the 3d point cloud and the tracke
 > The first time an Azure Kinect Body Tracking application is launched on a machine it may take several minutes to load as CUDA is initialized. 
 > Subsequent launches on the same machine will be faster. 
 
-![Simple 3D Viewer](images/samples_simple3dviewer.png)
+![Simple 3D Viewer](./media/quickstarts/samples_simple3dviewer.png)
 
 ## Next steps
 
