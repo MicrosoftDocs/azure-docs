@@ -95,7 +95,8 @@ The installer creates a scheduled task on the system that runs in the user conte
 
 To control the device registration, you should deploy the Windows Installer package to your selected group of Windows down-level devices.
 
-[!NOTE] If SCP is not configured in AD, then you should follow the same approach as described above to Configure client-side registry setting for SCP on your domain-joined computers using a Group Policy Object (GPO).
+> [!NOTE]
+> If SCP is not configured in AD, then you should follow the same approach as described above to configure the client-side registry setting for SCP on your domain-joined computers using a Group Policy Object (GPO).
 
 After you verify that everything works as expected, you can automatically register the rest of your Windows down-level devices with Azure AD by deploying the package to all down-level devices and [configuring SCP using Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
