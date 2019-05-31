@@ -36,7 +36,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../../azure-monitor/app/metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md), and maybe setting up a [dashboard](../../azure-monitor/app/app-insights-dashboards.md). 
+Your next steps are [viewing metrics from your app](../../azure-monitor/app/metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) and [add code to your webpages](../../azure-monitor/app/javascript.md).
 
@@ -56,7 +56,7 @@ The telemetry from your app is stored, analyzed, and displayed in an Azure resou
 Each resource belongs to a resource group. Resource groups are used to manage costs, to grant access to team members, and to deploy updates in a single coordinated transaction. For example, you could [write a script to deploy](../../azure-resource-manager/resource-group-template-deploy.md) an Azure cloud service and its Application Insights monitoring resources all in one operation.
 
 ### Resources for components
-We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](../../azure-monitor/app/app-insights-dashboards.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
+We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](../../azure-monitor/app/overview-dashboard.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
 
 An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
 
@@ -224,7 +224,7 @@ To get browser-based telemetry, such as page view counts, page load times, or sc
 To make sure your app stays live and responsive, [Set up web tests][availability].
 
 ## Display everything together
-For an overall picture of your system, you can display the key monitoring charts together on one [dashboard](../../azure-monitor/app/app-insights-dashboards.md). For example, you could pin the request and failure counts of each role. 
+For an overall picture of your system, you can display the key monitoring charts together on one [dashboard](../../azure-monitor/app/overview-dashboard.md). For example, you could pin the request and failure counts of each role. 
 
 If your system uses other Azure services, such as Stream Analytics, include their monitoring charts as well. 
 

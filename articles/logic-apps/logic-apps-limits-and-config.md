@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/23/2019
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -194,11 +194,11 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 
 | Artifact | Free | Basic | Standard |
 |----------|------|-------|----------|
-| EDI trading agreements | 10 | 1 | 500 |
-| EDI trading partners | 25 | 2 | 500 |
+| EDI trading agreements | 10 | 1 | 1,000 |
+| EDI trading partners | 25 | 2 | 1,000 |
 | Maps | 25 | 500 | 1,000 |
 | Schemas | 25 | 500 | 1,000 |
-| Assemblies | 10 | 25 | 50 |
+| Assemblies | 10 | 25 | 1,000 |
 | Certificates | 25 | 2 | 500 |
 | Batch configurations | 5 | 1 | 50 |
 ||||

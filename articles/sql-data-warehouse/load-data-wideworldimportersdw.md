@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a public Azure blob to Azure SQL Data Warehouse. 
+description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a public Azure blob to Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Tutorial: Load data to Azure SQL Data Warehouse
 
-This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
+This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -32,7 +32,6 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 ## Before you begin
 
 Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
-
 
 ## Log in to the Azure portal
 
@@ -1116,7 +1115,7 @@ You did these things:
 > * Viewed the progress of data as it is loading
 > * Created statistics on the newly loaded data
 
-Advance to the migration overview to learn how to migrate an existing database to SQL Data Warehouse.
+Advance to the development overview to learn how to migrate an existing database to SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Learn how to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Design decisions to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

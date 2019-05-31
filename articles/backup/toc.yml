@@ -219,18 +219,18 @@
       href: backup-azure-restore-windows-server.md
     - name: Restore Windows Server System State
       href: backup-azure-restore-system-state.md
-    - name: Monitor and manage Recovery Services vaults
-      href: backup-azure-manage-windows-server.md
   - name: Recovery Services vault
     items:
     - name: Overview of Recovery Services vaults
       href: backup-azure-recovery-services-vault-overview.md
-    - name: Upgrading a Backup vault to Recovery Services vault
-      href: backup-azure-upgrade-backup-to-recovery-services.md
+    - name: Create Recovery Services vault
+      href: backup-create-rs-vault.md
     - name: Delete a Recovery Services vault
       href: backup-azure-delete-vault.md
     - name: Move a Recovery Services vault
       href: backup-azure-move-recovery-services-vault.md
+    - name: Monitor and manage Recovery Services vaults
+      href: backup-azure-manage-windows-server.md
   - name: Troubleshoot
     items:
     - name: Azure VM

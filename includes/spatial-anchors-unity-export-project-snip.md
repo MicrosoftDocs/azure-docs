@@ -7,4 +7,4 @@ ms.author: crtreasu
 ---
 Open **Build Settings** by selecting **File** > **Build Settings**.
 
-Under **Scenes In Build**, add a check mark next to the `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsBasicDemo` scene and clear the check marks from all other scenes.
+Under **Scenes In Build**, ensure all the scenes have a check mark next to them.

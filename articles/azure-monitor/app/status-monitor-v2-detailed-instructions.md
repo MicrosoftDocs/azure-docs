@@ -236,7 +236,7 @@ Review our [API Reference](status-monitor-v2-api-enable-monitoring.md) for a det
 - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
 - [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems
 - [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
-- [Create dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+- [Create dashboards](../../azure-monitor/app/overview-dashboard.md)
 
  Add more telemetry:
 

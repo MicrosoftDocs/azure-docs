@@ -209,6 +209,8 @@
         href: how-to-troubleshoot-application-gateway-session-affinity-issues.md           
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
+  - name: Migrate from v1 to v2
+    href: migrate-v1-v2.md
 - name: Reference
   items:
   - name: CRS rules
