@@ -33,7 +33,7 @@ Azure Machine Learning service has varying support across different compute reso
 
 ## <a name="deploy"></a>Deployment targets
 
-The following compute resource can be used to host your model deployment.
+The following compute resources can be used to host your model deployment.
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 

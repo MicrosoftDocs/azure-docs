@@ -15,7 +15,7 @@ ms.date: 05/30/2019
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](../articles/machine-learning/service/how-to-set-up-training-targets.md#local)| maybe | yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning Compute](../articles/machine-learning/service/how-to-set-up-training-targets.md#amlcompute)| yes | yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
-|[Remote VM](#vm) |yes | yes & <br/>hyperparameter tuning | yes | &nbsp; |
+|[Remote VM](../articles/machine-learning/service/how-to-set-up-training-targets.md#vm) |yes | yes & <br/>hyperparameter tuning | yes | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#databricks)| &nbsp; | yes | yes | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | yes | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/service/how-to-set-up-training-targets.md#hdinsight)| &nbsp; | &nbsp; | yes | &nbsp; |
