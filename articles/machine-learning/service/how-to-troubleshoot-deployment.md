@@ -58,7 +58,7 @@ Breaking the deployment into tasks is helpful if you are using the [Webservice.d
     ```python
     # configure the image
     image_config = ContainerImage.image_configuration(runtime="python",
-                                                      execution_script="score.py",
+                                                      entry_script="score.py",
                                                       conda_file="myenv.yml")
 
     # create the image
