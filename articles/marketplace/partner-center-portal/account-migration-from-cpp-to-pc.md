@@ -1,9 +1,9 @@
 ---
-title: Account migration from Cloud Partner Portal to Partner Center
-description: How to migrate your account from CPP to Partner Center. 
+title: Account migration from Cloud Partner Portal to Partner Center - Commercial Marketplace for Azure
+description: How to migrate your account from CPP to Partner Center. - Commercial Marketplace for Azure
 author: qianw211
 manager: evansma
-ms.author:  
+ms.author: v-qiwe
 ms.service: marketplace 
 ms.topic: how-to
 ms.date: 05/30/2019

@@ -1,6 +1,6 @@
 ---
-title: Offer creation checklist 
-description: The details you can provide in the offer creation process. 
+title: Offer creation checklist - Commercial Marketplace for Azure
+description: The details you can provide in the offer creation process. - Commercial Marketplace for Azure
 author: qianw211 
 manager: evansma
 ms.author: v-qiwe 

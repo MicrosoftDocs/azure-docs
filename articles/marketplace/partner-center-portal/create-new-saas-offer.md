@@ -13,7 +13,7 @@ ms.date: 05/30/2019
 
 To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
-![Commercial Marketplace dashboard on Partner Center](./media/NewOffer.png)
+![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
 Select the + **Create a new…** button, then select the **Software as a Service** menu item. 
 
