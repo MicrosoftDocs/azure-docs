@@ -139,7 +139,7 @@
         href: /rest/api/time-series-insights/preview-tsx
   - name: Client SDK
     items:
-    - name: Client SDK
+    - name: JavaScript Client SDK
       href: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
 - name: Related
   items:

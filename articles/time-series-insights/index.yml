@@ -63,4 +63,4 @@ sections:
     - title: Time Series Insights Preview APIs
       html: <p><a href="/rest/api/time-series-insights/preview-query">Query API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Model API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Environment API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Time Series Expression API</a></p>
     - title: Client SDK
-      html: <p><a href="https://github.com/microsoft/tsiclient/blob/master/docs/API.md">Client SDK</a></p>
+      html: <p><a href="https://github.com/microsoft/tsiclient/blob/master/docs/API.md">JavaScript Client SDK</a></p>
