@@ -477,8 +477,12 @@
       href: ./partner-center-portal/manage-account.md
     - name: Find or create a company work account
       href: ./partner-center-portal/company-work-accounts.md
+    - name: Account Migration from CPP to Partner Center
+      href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
   - name: Create a new offer
     items:
+    - name: Offer creation checklist
+      href: ./partner-center-portal/offer-creation-checklist.md
     - name: Create a SaaS offer
       href: ./partner-center-portal/create-new-saas-offer.md
     - name: SaaS Fulfillment APIs
