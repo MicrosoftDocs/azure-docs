@@ -16,7 +16,9 @@
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
   - name: C#
+    href: search-get-started-dotnet.md
     items:
+  - name: OLD C#
     - name: 1 - Create an index
       href: search-create-index-dotnet.md
     - name: 2 - Load data

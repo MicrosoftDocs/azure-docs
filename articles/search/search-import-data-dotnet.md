@@ -25,7 +25,7 @@ This article shows you how to import data into [an Azure Search index](search-wh
 [Create an Azure Search index](search-create-index-dotnet.md) and a `SearchServiceClient` object, as shown in ["Create a client"](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 
-## Create a client
+###  Create an index client
 To import data, you need an instance of the `SearchIndexClient` class. There are several approaches for creating this class, including using the `SearchServiceClient` instance that is already created. 
 
 As the following example illustrates, you can use the `SearchServiceClient` instance and call its `Indexes.GetClient` method. This snippet obtains a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`.
@@ -43,7 +43,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 <a name="construct-indexbatch"></a>
 
-## Construct IndexBatch
+### Construct IndexBatch
 
 To import data using the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document (upload, merge, delete, and mergeOrUpload). For more information about indexing actions, see [Indexing actions: upload, merge, mergeOrUpload, delete](search-what-is-data-import.md#indexing-actions).
 
