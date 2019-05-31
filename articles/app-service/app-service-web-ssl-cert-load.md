@@ -36,7 +36,7 @@ When you're ready to upload, run the following command in the <a target="_blank"
 az webapp config ssl upload --name <app-name> --resource-group <resource-group-name> --certificate-file <path-to-PFX-file> --certificate-password <PFX-password> --query thumbprint
 ```
 
-Copy the certificate thumbprint and see [Load your certificate](#load-your-certificate).
+Copy the certificate thumbprint and see [Make the certificate accessible](#make-the-certificate-accessible).
 
 ## Upload a public certificate
 
@@ -50,19 +50,17 @@ Click **Upload**.
 
 ![Upload public certificate](./media/app-service-web-ssl-cert-load/private-cert-upload.png)
 
-Once the certificate is uploaded, copy the certificate thumbprint and see [Load your certificate](#load-your-certificate).
+Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](#make-the-certificate-accessible).
 
 ## Import an App Service certificate
 
 See [Buy and configure an SSL certificate for Azure App Service](web-sites-purchase-ssl-web-site.md).
 
-Once the certificate is imported, copy the certificate thumbprint and see [Load your certificate](#load-your-certificate).
+Once the certificate is imported, copy the certificate thumbprint and see [Make the certificate accessible](#make-the-certificate-accessible).
 
-## Load your certificate
+## Make the certificate accessible
 
-To use an uploaded or imported certificate in your app code, first make its thumbprint accessible to your application code with the `WEBSITE_LOAD_CERTIFICATES` app setting.
-
-Set the `WEBSITE_LOAD_CERTIFICATES` app setting to your app by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+To use an uploaded or imported certificate in your app code, make its thumbprint accessible with the `WEBSITE_LOAD_CERTIFICATES` app setting, by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
@@ -71,16 +69,16 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 To make all your certificates accessible, set the value to `*`.
 
 > [!NOTE]
-> This setting places the certificate in the [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store for most pricing tiers, but in the **Isolated** tier (i.e. app runs in an [App Service Environment](environment/intro.md)), it places the certificate in the [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store.
+> This setting places the specified certificates in the [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store for most pricing tiers, but in the **Isolated** tier (i.e. app runs in an [App Service Environment](environment/intro.md)), it places the certificates in the [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store.
 >
 
 ![Configure app setting](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 
 When finished, click **Save**.
 
-The configured certificate is now ready to be used by your code.
+The configured certificates are now ready to be used by your code.
 
-## Use certificate in C# code
+## Load the certificate in code
 
 Once your certificate is accessible, you access it in C# code by the certificate thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
@@ -110,9 +108,9 @@ certStore.Close();
 <a name="file"></a>
 ## Load certificate from file
 
-If you need to load a certificate file from your application directory, it's better to upload it using [FTPS](deploy-ftp.md) instead of [Git](deploy-local-git.md), for example. It's best to keep sensitive data like a private certificate out of source control.
+If you need to load a certificate file from your application directory, it's better to upload it using [FTPS](deploy-ftp.md) instead of [Git](deploy-local-git.md), for example. You should keep sensitive data like a private certificate out of source control.
 
-Even though you're loading the file directly in your .NET code, the library still verifies if the current user profile is loaded. To load the current user profile, set the `WEBSITE_LOAD_USER_PROFILE` app setting by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Even though you're loading the file directly in your .NET code, the library still verifies if the current user profile is loaded. To load the current user profile, set the `WEBSITE_LOAD_USER_PROFILE` app setting with the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
