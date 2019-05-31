@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Update Management
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -90,6 +90,8 @@ This can be caused by potential local configuration issues or by improperly conf
 
 The Hybrid Runbook Worker may need to be re-registered and reinstalled.
 
+You may have defined a quota in your workspace that has been reached and stopping data from being stored.
+
 #### Resolution
 
 * Ensure your machine is reporting to the correct workspace. Verify what workspace your machine is reporting to. For instructions on how to verify this, see [Verify agent connectivity to Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Then, ensure this is the workspace that is linked to your Azure Automation account. To confirm this, navigate to your Automation Account and click **Linked workspace** under **Related Resources**.
@@ -104,6 +106,14 @@ The Hybrid Runbook Worker may need to be re-registered and reinstalled.
 * Check for scope configuration problems. [Scope Configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but is not showing up you will need to configure the scope config to target the machines. To learn how to do this, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
 * If the above steps do not solve your problem, Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows or [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) for Linux.
+
+* In your workspace, run the following query. If you see the result `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` you have a quota defined on your workspace that has been reached and has stopped data from being saved. In your workspace, navigate to **Usage and estimated costs** > **data volume management** and check your quota or remove the quota you have.
+
+  ```loganalytics
+  Operation
+  | where OperationCategory == 'Data Collection Status'
+  | sort by TimeGenerated desc
+  ```
 
 ## Windows
 
