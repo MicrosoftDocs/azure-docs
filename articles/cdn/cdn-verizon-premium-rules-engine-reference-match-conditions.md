@@ -20,7 +20,7 @@ The second part of a rule is the match condition. A match condition identifies s
 For example, you can use a match condition to:
 
 - Filter requests for content at a particular location.
-- Filter requests generated from a particular IP address or country.
+- Filter requests generated from a particular IP address or country/region.
 - Filter requests by header information.
 
 ## Always match condition
@@ -46,7 +46,7 @@ The Location match conditions identify requests based on the requester's locatio
 Name | Purpose
 -----|--------
 [AS Number](#as-number) | Identifies requests that originate from a particular network.
-[Country](#country) | Identifies requests that originate from the specified countries.
+[Country](#country) | Identifies requests that originate from the specified countries/regions.
 
 ## Origin match conditions
 
