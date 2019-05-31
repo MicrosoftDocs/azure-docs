@@ -137,6 +137,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
+### Factors influencing query plan changes
+
+A query execution plan recompilation may result in a generated query plan that differs from what was originally cached. There are various reasons why an existing original plan might be automatically recompiled:
+- Changes in the schema being referenced by the query
+- Data changes to the tables being referenced by the query 
+- Changes to query context options 
+
+A compiled plan may be ejected from cache for a variety of reasons, including instance restarts, database scoped configuration changes, memory pressure, and explicit requests to clear the cache. Additionally, using a RECOMPILE hint means a plan won't be cached.
+
+A recompilation (or fresh compilation after cache eviction) can still result in the generation of an identical query execution plan from the one originally observed.  If, however, there are changes to the plan compared to the prior or original plan, the following are the most common explanations for why a query execution plan changed:
+
+- **Changed physical design**. For example, new indexes created that more effectively cover the requirements of a query may be used on a new compilation if the query optimizer decides it is more optimal to leverage that new index than use the data structure originally selected for the first version of the query execution.  Any physical changes to the referenced objects may result in a new plan choice at compile-time.
+
+- **Server resource differences**. In a scenario where one plan differs on “system A” vs. “system B” – the availability of resources, such as number of available processors, can influence what plan gets generated.  For example, if one system has a higher number of processors, a parallel plan may be chosen. 
+
+- **Different statistics**. The statistics associated with the referenced objects changed or are materially different from the original system’s statistics.  If the statistics change and a recompile occurs, the query optimizer will use statistics as of that specific point in time. The revised statistics may have significantly different data distributions and frequencies that were not the case in the original compilation.  These changes are used to estimate cardinality estimates (number of rows anticipated to flow through the logical query tree).  Changes to cardinality estimates can lead us to choose different physical operators and associated order-of-operations.  Even minor changes to statistics can result in a changed query execution plan.
+
+- **Changed database compatibility level or cardinality estimator version**.  Changes to the database compatibility level can enable new strategies and features that may result in a different query execution plan.  Beyond the database compatibility level, disabling or enabling trace flag 4199 or changing the state of the database scoped configuration QUERY_OPTIMIZER_HOTFIXES can also influence query execution plan choices at compile-time.  Trace flags 9481 (force legacy CE) and 2312 (force default CE) are also plan affecting. 
 
 ### Resolve problem queries or provide more resources
 
