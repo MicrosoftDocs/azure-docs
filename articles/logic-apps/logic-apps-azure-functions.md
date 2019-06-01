@@ -1,6 +1,6 @@
 ---
 title: Add and run code in Azure Logic Apps with Azure Functions
-description: Add and run code in Azure Logic Apps with Azure Functions
+description: Add and run Azure functions from inside logic apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -13,119 +13,62 @@ ms.reviewer: klam, LADocs
 
 # Add and run code by using Azure Functions in Azure Logic Apps
 
-When you want to run code that performs a specific job in your logic apps, 
-you can create your own functions with [Azure Functions](../azure-functions/functions-overview.md). 
-This service helps you create Node.js, C#, and F# code so you don't 
-have to build a complete app or the infrastructure for running your code. 
-You can also [call logic apps from inside Azure functions](#call-logic-app).
-Azure Functions provides serverless computing in the cloud 
-and is useful for performing tasks such as these examples:
+When you want to run code that performs a specific job in your logic apps, you can create your own function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. You can also [call logic apps from inside Azure functions](#call-logic-app). Azure Functions provides serverless computing in the cloud and is useful for performing tasks such as these examples:
 
 * Extend your logic app's behavior with functions in Node.js or C#.
 * Perform calculations in your logic app workflow.
 * Apply advanced formatting or compute fields in your logic apps.
 
-To run code snippets without creating Azure functions, 
-learn how to [add and run inline code](../logic-apps/logic-apps-add-run-inline-code.md).
+To run code snippets without creating Azure functions, learn how to [add and run inline code](../logic-apps/logic-apps-add-run-inline-code.md).
+
+> [!NOTE]
+> Integration between Logic Apps and Azure Functions currently doesn't work with Slots enabled.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An Azure function app, which is a container for Azure functions, 
-and your Azure function. If you don't have a function app, 
-[create your function app first](../azure-functions/functions-create-first-azure-function.md). 
-You can then create your function either [separately outside your logic app](#create-function-external), 
-or [from inside your logic app](#create-function-designer) in the Logic App Designer.
+* An Azure function app, which is a container for Azure functions, along with your Azure function. If you don't have a function app, [create your function app first](../azure-functions/functions-create-first-azure-function.md). You can then create your function either outside your logic app in the Azure portal, or [from inside your logic app](#create-function-designer) in the Logic App Designer.
 
-  Both existing and new function apps and functions 
-  have the same requirements for working with logic apps:
+* When working with logic apps, the same requirements apply to function apps and functions whether existing and new:
 
-  * Your function app must have the same Azure subscription as your logic app.
+  * Your function app and logic app must use the same Azure subscription.
 
-  * Your function uses an HTTP trigger, for example, 
-  the **HTTP trigger** function template for **JavaScript** or **C#**. 
+  * Your function uses the **HTTP trigger** template for either JavaScript or C#.
 
-    The HTTP trigger template can accept content that has 
-    `application/json` type from your logic app. 
-    When you add an Azure function to your logic app, 
-    the Logic App Designer shows custom functions created 
-    from this template within your Azure subscription. 
+    The HTTP trigger template can accept content that has `application/json` type from your logic app. When you add an Azure function to your logic app, the Logic App Designer shows custom functions that are created from this template within your Azure subscription.
 
-  * Your function doesn't use custom routes unless you've defined an 
-  [OpenAPI definition](../azure-functions/functions-openapi-definition.md), 
-  formerly known as a [Swagger file](https://swagger.io/). 
-  
-  * If you've defined an OpenAPI definition for your function, 
-  the Logic Apps Designer gives you a richer experience for 
-  working with function parameters. Before your logic app can 
-  find and access functions that have OpenAPI definitions, 
-  [set up your function app by following these steps](#function-swagger).
+  * Your function doesn't use custom routes unless you've defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md) (formerly known as a [Swagger file](https://swagger.io/)).
 
-* The logic app where you want to add the function, including a 
-[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
-as the first step in your logic app 
+  * If you have an OpenAPI definition for your function, the Logic Apps Designer gives you a richer experience when your work with function parameters. Before your logic app can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#function-swagger).
 
-  Before you can add actions that can run functions, 
-  your logic app must start with a trigger.
+* The logic app where you want to add the function, including a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app
 
-  If you're new to logic apps, review 
-  [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+  Before you can add actions that run functions, your logic app must start with a trigger.
+  If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
   and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-> [!NOTE]
-> Logic apps integration with Functions does not work when slots (preview) are enabled.
-
-<a name="create-function-external"></a>
-
-## Create functions outside logic apps
-
-In the [Azure portal](https://portal.azure.com), 
-create your Azure function app, which must have the same Azure subscription 
-as your logic app, and then create your Azure function.
-If you're new to creating Azure functions, learn how to 
-[create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
-but note these requirements for creating functions that you can call from logic apps:
-
-* Make sure you select the **HTTP trigger** function 
-template for either **JavaScript** or **C#**.
-
-  ![HTTP trigger - JavaScript or C#](./media/logic-apps-azure-functions/http-trigger-function.png)
 
 <a name="function-swagger"></a>
 
-* Optionally, if you [generate an API definition](../azure-functions/functions-openapi-definition.md), 
-formerly known as a [Swagger file](https://swagger.io/), for your function, 
-you can get a richer experience when you work with function parameters 
-in the Logic Apps Designer. To set up your function app so your logic 
-app can find and use functions that have Swagger descriptions, 
-follow these steps:
+## Find functions that have OpenAPI descriptions
 
-  1. Make sure your function app is actively running.
+For a richer experience when you work with function parameters in the Logic Apps Designer, [generate an OpenAPI definition](../azure-functions/functions-openapi-definition.md), formerly known as a [Swagger file](https://swagger.io/), for your function. To set up your function app so your logic app can find and use functions that have Swagger descriptions, follow these steps:
 
-  2. In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so all 
-  origins are permitted by following these steps:
+1. Make sure your function app is actively running.
 
-     1. From the **Function Apps** list, 
-     select your function app > **Platform features** > **CORS**.
+1. In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so that all origins are permitted by following these steps:
 
-        ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
+   1. From the **Function Apps** list, select your function app > **Platform features** > **CORS**.
 
-     2. Under **CORS**, add the `*` wildcard character, 
-     but remove all the other origins in the list, and choose **Save**.
+      ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-        ![Set "CORS* to the wildcard character "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
+   1. Under **CORS**, add the `*` wildcard character, but remove all the other origins in the list, and choose **Save**.
 
-### Access property values inside HTTP requests
+      ![Set "CORS* to the wildcard character "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
-Webhook functions can accept HTTP requests as inputs and pass those 
-requests to other functions. For example, although Logic Apps has 
-[functions that convert DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), 
-this basic sample JavaScript function shows how you can access a property 
-inside a request object that's passed to the function and perform operations 
-on that property value. To access properties inside objects, this example uses the 
-[dot (.) operator](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Property_accessors): 
+## Access property values inside HTTP requests
+
+Webhook functions can accept HTTP requests as inputs and pass those requests to other functions. For example, although Logic Apps has [functions that convert DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), this basic sample JavaScript function shows how you can access a property inside a request object that's passed to the function and perform operations on that property value. To access properties inside objects, this example uses the [dot (.) operator](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Property_accessors):
 
 ```javascript
 function convertToDateString(request, response){
@@ -138,19 +81,14 @@ function convertToDateString(request, response){
 
 Here's what happens inside this function:
 
-1. The function creates a `data` variable and assigns the 
-`body` object inside the `request` object to that variable. 
-The function uses the dot (.) operator to reference the 
-`body` object inside the `request` object: 
+1. The function creates a `data` variable and assigns the `body` object inside the `request` object to that variable. The function uses the dot (.) operator to reference the `body` object inside the `request` object: 
 
    ```javascript
    var data = request.body;
    ```
 
-2. The function can now access the `date` property 
-through the `data` variable, and convert that property 
-value from DateTime type to DateString type by calling 
-the `ToDateString()` function. The function also returns 
+1. The function can now access the `date` property through the `data` variable, and convert that property 
+value from DateTime type to DateString type by calling the `ToDateString()` function. The function also returns 
 the result through the `body` property in the function's response: 
 
    ```javascript
