@@ -347,7 +347,7 @@
         href: iot-hub-visual-studio-cloud-device-messaging.md
       - name: Data Visualization in Power BI
         href: iot-hub-live-data-visualization-in-power-bi.md
-      - name: Data Visualization with Web Apps
+      - name: Data Visualization in a web app
         href: iot-hub-live-data-visualization-in-web-apps.md
       - name: Weather forecast using Azure Machine Learning
         href: iot-hub-weather-forecast-machine-learning.md
@@ -419,9 +419,9 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
