@@ -110,7 +110,7 @@ PowerShell Core installs side by side with Windows PowerShell. Set PowerShell Co
 
 1. Choose **PowerShell: Show Session Menu**.
 
-1. If your **Current session** isn't Choose **PowerShell Core 6**, choose **Switch to: PowerShell Core 6**.
+1. If your **Current session** isn't **PowerShell Core 6**, choose **Switch to: PowerShell Core 6**.
 
 When you have a PowerShell file open, you see the version displayed in green at the bottom right of the window. Selecting this text also displays the session menu. To learn more, see the [Choosing a version of PowerShell to use with the extension](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
