@@ -54,15 +54,15 @@ To run code snippets without creating Azure functions, learn how to [add and run
 
 For a richer experience when you work with function parameters in the Logic Apps Designer, [generate an OpenAPI definition](../azure-functions/functions-openapi-definition.md), formerly known as a [Swagger file](https://swagger.io/), for your function. To set up your function app so your logic app can find and use functions that have Swagger descriptions, follow these steps:
 
-1. Make sure your function app is actively running.
+1. Make sure that your function app is actively running.
 
 1. In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so that all origins are permitted by following these steps:
 
-   1. From the **Function Apps** list, select your function app > **Platform features** > **CORS**.
+   1. From the **Function Apps** list, select your function app. In the right-hand pane, select **Platform features** > **CORS**.
 
       ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. Under **CORS**, add the `*` wildcard character, but remove all the other origins in the list, and choose **Save**.
+   1. Under **CORS**, add the asterisk (**`*`**) wildcard character, but remove all the other origins in the list, and choose **Save**.
 
       ![Set "CORS* to the wildcard character "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
