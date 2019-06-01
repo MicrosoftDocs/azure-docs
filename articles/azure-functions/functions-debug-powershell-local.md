@@ -102,7 +102,7 @@ After installing these dependencies, load an existing PowerShell Functions proje
 >[!NOTE]
 > Should your project not have the needed configuration files, you are prompted to add them.
 
-### Set PowerShell Core
+### Set the PowerShell version
 
 PowerShell Core installs side by side with Windows PowerShell. Set PowerShell Core as the PowerShell version to use with the PowerShell extension for Visual Studio Code.
 
