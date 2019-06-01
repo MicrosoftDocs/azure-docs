@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 05/20/2019
+ms.date: 05/31/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 
@@ -249,13 +249,15 @@ The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown 
 
 ![View the health of running containers in AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, choose the option to **View in analytics**, then select **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
+To see logs for the `azure-vote-front` pod, click on it and change the dropdown on the right (you may need to scroll the window to the right to it) from **View in analytics** to **View container logs**. These logs include the *stdout* and *stderr* streams from the container.
+
+Click **Run** to see the logs.  You can view a log by opening its entry in the list.
 
 ![View the containers logs in AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
 ## Delete cluster
 
-When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+When you no longer need the cluster, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
