@@ -8,12 +8,12 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/15/2019
 ---
 
 # Deploy logic apps with Azure Resource Manager templates
 
-After you create an Azure Resource Manager template for deploying your logic app, you can deploy your template in these ways:
+After you create an Azure Resource Manager template for your logic app, you can deploy your template in these ways:
 
 * [Azure portal](#portal)
 * [Azure PowerShell](#powershell)
@@ -38,12 +38,10 @@ For example, you're prompted for this information after you sign in to the Azure
 * A test URI
 * Acceptance of the specified terms and conditions
 
-For more information, see 
-[Deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+For more information, see these topics:
 
-## Authorize OAuth connections
-
-After deployment, the logic app works end-to-end with valid parameters. However, you must still authorize OAuth connections to generate a valid access token. For automated deployments, you can use a script that consents to each OAuth connection, such as this [example script in the GitHub LogicAppConnectionAuth project](https://github.com/logicappsio/LogicAppConnectionAuth). You can also authorize OAuth connections through the Azure portal or in Visual Studio by opening your logic app in the Logic Apps Designer.
+* [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md)
+* [Deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 <a name="powershell"></a>
 
@@ -55,7 +53,7 @@ To deploy to a specific *Azure resource group*, use this command:
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-To deploy to a specific Azure subscription, use this command:
+To deploy to a specific *Azure subscription*, use this command:
 
 ```powershell
 New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
@@ -75,7 +73,7 @@ To deploy to a specific *Azure resource group*, use this command:
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-To deploy to a specific Azure subscription, use this command:
+To deploy to a specific *Azure subscription*, use this command:
 
 ```azurecli
 az deployment create --location <location> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
@@ -109,9 +107,15 @@ Here are general high-level steps for using Azure Pipelines:
 
 1. Continue to build out steps in the release process for any other environment, automated test, or approvers as needed.
 
-## Get support
+<a name="authorize-oauth-connections"></a>
 
-For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
+## Authorize OAuth connections
+
+After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize OAuth connections to generate a valid access token. Here are ways that you can authorize OAuth connections:
+
+* For automated deployments, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
+
+* To manually authorize OAuth connections, open your logic app in Logic App Designer, either in the Azure portal or in Visual Studio. In the designer, authorize any required connections.
 
 ## Next steps
 

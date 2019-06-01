@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/15/2019
 ---
 
 # Overview: Automate deployment for logic apps with Azure Resource Manager templates
@@ -27,13 +27,12 @@ The example logic app in this topic uses an [Office 365 Outlook trigger](/connec
 For more information about Resource Manager templates, see these topics:
 
 * [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md)
-
 * [Azure Resource Manager template best practices](../azure-resource-manager/template-best-practices.md)
+* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates-cloud-consistency.md)
 
 For sample templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
-
 * [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
 <a name="template-structure"></a>
@@ -63,7 +62,11 @@ For logic app deployment, you primarily work with the template's parameters and 
 ||||
 
 > [!IMPORTANT]
-> Template syntax is case-sensitive so make sure that you use consistent casing.
+> Template syntax is case-sensitive so make sure that you use consistent casing. 
+> Also, if you want to deploy your template at the 
+> [subscription level](../azure-resource-manager/deploy-to-subscription.md), 
+> your template can't use the [resourceGroup() function](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup). 
+> You can use this function only in templates that deploy to an Azure resource group.
 
 <a name="template-parameters"></a>
 
@@ -577,7 +580,9 @@ When your logic app creates and uses connections to other services and system by
 }
 ```
 
-Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameter file. Here is an example resource definition for an Office 365 Outlook connection and the corresponding template parameters:
+Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameter file. Make sure that connections use the same Azure resource group and location as your logic app. Although your logic app works end-to-end with valid parameters after deployment, you must still authorize OAuth connections to generate a valid access token. For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-temmplates.md#authorize-oauth-connections).
+
+Here is an example resource definition for an Office 365 Outlook connection and the corresponding template parameters:
 
 ```json
 {
@@ -648,6 +653,8 @@ Your logic app's resource definition also works with connection resource definit
   ```
 
 * Your logic app's resource definition has a `dependsOn` section that specifies the dependencies on the connections used by your logic app.
+
+Each connection that you create has a unique name in Azure. When you create multiple connections to the same service or system, each connection name is appended with a number, which increments with each new connection created, for example, `office365`, `office365-1`, and so on.
 
 This example shows the interactions between your logic app's resource definition and a connection resource definition for Office 365 Outlook:
 
@@ -721,9 +728,6 @@ This example shows the interactions between your logic app's resource definition
    "outputs": {}
 }
 ```
-
-> [!NOTE]
-> Make sure that connections in your template use the same Azure resource group and location as your logic app. Also, each connection that you create has a unique name in Azure. When you create multiple connections to the same service or system, each connection name is appended with a number, which increments with each new connection created, for example, `office365`, `office365-1`, and so on.
 
 <a name="secure-connection-parmameters"></a>
 
@@ -901,7 +905,9 @@ To reference workflow definition parameters, you use [Workflow Definition Langua
 
 `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
 
-You can pass template parameter values to your workflow definition for your logic app to use at runtime. However, avoid mixing template expressions and syntax inside workflow definition expressions, which complicates your code due to the differences in when these expressions are evaluated. Instead, follow these general steps to define and reference the workflow definition parameters for use at runtime, define and reference the template parameters for use at deployment, and define the values to pass in at deployment by using a parameter file. For full details, see the [Workflow definition and parameters](#workflow-definition-parameters) section earlier in this topic.
+You can pass template parameter values to your workflow definition for your logic app to use at runtime. However, avoid using template parameters, expressions, and syntax in your workflow definition because the Logic App Designer doesn't support template elements. Also, template syntax and expressions can complicate your code due to differences in when expressions are evaluated.
+
+Instead, follow these general steps to define and reference the workflow definition parameters to use at runtime, define and reference the template parameters to use at deployment, and define the values to pass in at deployment by using a parameter file. For full details, see the [Workflow definition and parameters](#workflow-definition-parameters) section earlier in this topic.
 
 1. Create your template and define the template parameters for the values to accept and use at deployment.
 
@@ -1122,14 +1128,6 @@ Here is the parameterized sample template that's used by this topic's examples:
    "outputs": {}
 }
 ```
-
-## Authorize OAuth connections
-
-At deployment, your logic app works end-to-end with valid parameters. However, you must still authorize OAuth connections to generate a valid access token. Here are ways that you can authorize OAuth connections:
-
-* For automated deployment, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
-
-* To manually authorize OAuth connections, open your logic app in Logic App Designer. In the designer, authorize any required connections.
 
 ## Next steps
 
