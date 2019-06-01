@@ -38,35 +38,66 @@ The template also *parameterizes*, or defines parameters for, the values used fo
 
 ## Create templates with Azure PowerShell
 
-You can create Resource Manager templates by using the [PowerShell module for logic app templates](https://github.com/jeffhollan/LogicAppTemplateCreator). This open-source module first evaluates your logic app and any connections that the logic app uses. The module then generates template resources with the necessary parameters for deployment.
+You can create Resource Manager templates by using PowerShell with the [LogicAppTemplate module](https://github.com/jeffhollan/LogicAppTemplateCreator). This open-source module first evaluates your logic app and any connections that the logic app uses. The module then generates template resources with the necessary parameters for deployment.
 
 For example, suppose you have a logic app that receives a message from an Azure Service Bus queue and uploads data to an Azure SQL database. The module preserves all the orchestration logic and parameterizes the SQL and Service Bus connection strings so that you can provide and change those values based on your deployment needs.
 
-> [!IMPORTANT]
-> For the PowerShell module to work with any Azure tenant and subscription access token, 
-> use the module with the [Azure Resource Manager client tool](https://github.com/projectkudu/ARMClient). 
-> For more information about this tool, see this 
-> [article about the Azure Resource Manager client tool](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
+For more information about the LogicAppTemplate module, see 
 
-### Install PowerShell module for logic app templates
+### Install PowerShell modules
 
-For the easiest way to install the module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), use this command:
+1. If you haven't already, install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-`Install-Module -Name LogicAppTemplate`
+1. For the easiest way to install the LogicAppTemplate module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate), run this command:
 
-Or, you can manually install the PowerShell module:
+   ```text
+   PS> Install-Module -Name LogicAppTemplate
+   ```
 
-1. Download the latest [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).
+   To update to the latest version, run this command:
 
-1. Extract the folder in your PowerShell module folder, which is usually `%UserProfile%\Documents\WindowsPowerShell\Modules`.
+   ```text
+   PS> Update-Module -Name LogicAppTemplate
+   ```
+
+Or, to install manually, follow the steps in GitHub for [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator).
+
+### Install Azure Resource Manager client
+
+To work with any Azure tenant and subscription access token, install the [Azure Resource Manager client tool](https://github.com/projectkudu/ARMClient) for use with the LogicAppTemplate module.
+When you run the `Get-LogicAppTemplate` command with this tool, the command first gets an access token through the ARMClient tool, pipes the token to the PowerShell script, and creates the template as a JSON file. For more information about the tool, see this [article about the Azure Resource Manager client tool](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
 
 ### Generate template with PowerShell
 
-After you install the PowerShell module, generate your template by using the following command:
+To generate your template after installing the LogicAppTemplate module, run this PowerShell command:
 
-`armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <your-logic-app> -ResourceGroup <your-Azure-resource-group> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
+```text
+PS> `Get-LogicAppTemplate`
+```
 
-`$SubscriptionId` is the Azure subscription ID. This command first gets an access token through the ARMClient tool, then pipes the token through to the PowerShell script, and then creates the template in a JSON file.
+To follow the recommendation for piping in a token from the [Azure Resource Manager client tool](https://github.com/projectkudu/ARMClient), run this command instead where `$SubscriptionId` is your Azure subscription ID:
+
+```text
+PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
+```
+
+After extraction, you can then create a parameters file from your template by running this command:
+
+```text
+PS> Get-ParameterTemplate -TemplateFile $filename | Out-File `paramfile.json`
+```
+
+For extraction with Azure Key Vault references (static only), run this command:
+
+```text
+PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
+```
+
+| Parameters | Required | Description |
+|------------|----------|-------------|
+| TemplateFile | Yes | The file path to your template file |
+| KeyVault | No | An enum that describes how to handle possible key vault values. The default is `None`. |
+||||
 
 ## Next steps
 
