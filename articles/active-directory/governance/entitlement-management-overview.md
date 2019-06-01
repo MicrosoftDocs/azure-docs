@@ -76,18 +76,6 @@ You can also control access to other resources that rely upon Azure AD security 
 - You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
 - You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
 
-
-## Prerequisites
-
-To use Azure AD entitlement management (Preview), you must have one of the following licenses:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
-
-For more information, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
-
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
-
 ## What are access packages and policies?
 
 Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. The resources include access to groups, applications, or sites. Access packages are used to govern access for your internal employees, and also users outside your organization. Access packages are defined in containers called *catalogs*.
@@ -174,6 +162,12 @@ The following table lists the permissions for each of these roles.
 | [Add/remove resources to/from a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Add catalog owners or access package managers](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## License requirements
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
 
 ## Next steps
 
