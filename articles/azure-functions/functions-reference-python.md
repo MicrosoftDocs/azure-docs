@@ -25,7 +25,7 @@ This article is an introduction to developing Azure Functions using Python. The 
 
 An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file.
 
-You can change the default  configuration by specifying the `scriptFile` and `entryPoint` properties in the `function.json` file. For example, the _function.json_ below tells the runtime to use the _customentry()_ method in the _main.py_ file, as the entry point for your Azure Function.
+You can change the default configuration by specifying the `scriptFile` and `entryPoint` properties in the `function.json` file. For example, the _function.json_ below tells the runtime to use the _customentry()_ method in the _main.py_ file, as the entry point for your Azure Function.
 
 ```json
 {
@@ -35,7 +35,7 @@ You can change the default  configuration by specifying the `scriptFile` and `en
 }
 ```
 
-Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the `function.json` configuration file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
+Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the `function.json` file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
 ```json
 {
@@ -63,7 +63,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Optionally, you can also declare the input attribute types and return type in the function using Python type annotations in order to leverage the auto-complete and intellisense features provided by your code editor. For example, the same function can be written using annotations, as follows:
+Optionally, to leverage the intellisense and auto-complete features provided by your code editor, you can also declare the attribute types and return type in the function using Python type annotations. 
 
 ```python
 import azure.functions
@@ -73,7 +73,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```  
 
-Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods. 
+Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods.
 
 ## Folder structure
 
@@ -102,11 +102,11 @@ Shared code should be kept in a separate folder. To reference modules in the Sha
 from __app__.SharedCode import myFirstHelperFunction
 ```
 
-When deploying a Functions project to your function app in Azure, the entire content of the FunctionApp folder should be included in the package, but not the folder itself.
+When deploying a Function project to your function app in Azure, the entire content of the FunctionApp folder should be included in the package, but not the folder itself.
 
 ## Triggers and Inputs
 
-Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in `function.json`, the usage is identical in Python code.  Connection strings for trigger and input sources should map to values in the `local.settings.json` file locally, and the application settings when running in Azure. Let's take the following code snippet as an example:
+Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in `function.json`, the usage is identical in Python code.  Connection strings or secrets for trigger and input sources should map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure. Let's take the following code snippet as an example:
 
 ```json
 // function.json
@@ -226,7 +226,7 @@ Additional logging methods are available that let you write to the console at di
 
 ## Async
 
-Since only a single Python process can exist per function app, it is recommended to implement your Azure Function as an asynchronous coroutine using the `async def` statement.
+It is recommended to implement your Azure Function as an asynchronous coroutine using the `async def` statement.
 
 ```python
 # Will be run with asyncio directly
@@ -234,7 +234,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-If the main() function is synchronous (no `async` qualifier) we automatically run it in an `asyncio` thread-pool.
+If the main() function is synchronous (no `async` qualifier) we automatically run the function in an `asyncio` thread-pool.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -267,6 +267,21 @@ Name of the function.
 `invocation_id`  
 ID of the current function invocation.
 
+## Data caching
+
+It is not gauranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable. 
+
+```python
+CACHED_DATA = None
+
+def main(req):
+    global CACHED_DATA
+    if CACHED_DATA is None:
+        CACHED_DATA = load_json()
+
+    # ... use CACHED_DATA in code
+```
+
 ## Python version and package management
 
 Currently, Azure Functions only supports Python 3.6.x (official CPython distribution).
@@ -287,11 +302,9 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-When you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file, located at the root of your project directory. 
-
 ## Publishing to Azure
 
-If you're using a package that requires a compiler and does not support the installation of manylinux-compatible wheels from PyPI, publishing to Azure will fail with the following error: 
+When you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file, located at the root of your project directory. If you're using a package that requires a compiler and does not support the installation of manylinux-compatible wheels from PyPI, publishing to Azure will fail with the following error: 
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
@@ -306,7 +319,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
 
-To build your dependencies and publish using a continuous delivery (CD) system, you can [use Azure DevOps Piplines](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops. 
+To build your dependencies and publish using a continuous delivery (CD) system, [use Azure DevOps Piplines](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops. 
 
 ## Unit Testing
 
@@ -351,7 +364,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Another example, with a queue triggered function:
+Following is another example, with a queue triggered function:
 
 ```python
 # myapp/__init__.py
