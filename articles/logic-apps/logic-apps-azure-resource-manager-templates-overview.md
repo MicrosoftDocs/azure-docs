@@ -55,13 +55,17 @@ At the top level, a Resource Manager template follows this structure, which is f
 }
 ```
 
-For logic app deployment, you primarily work with the template's parameters and resources sections:
+For a logic app template, you primarily work with these template sections:
 
 | Attribute | Description |
 |-----------|-------------|
 | `parameters` | Defines the [template parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) for accepting the values to use when creating and customizing resources for deployment in Azure. For example, these parameters accept the values for your logic app's name and location, connections, and other resources necessary for deployment. You can store these parameter values in a [parameter file](#template-parameter-files), which is described later in this topic. For general details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#parameters). |
 | `resources` | Defines the [resources](../azure-resource-manager/resource-group-authoring-templates.md#resources) to create or update and deploy to an Azure resource group, such as your logic app, connections, Azure storage accounts, and so on. For general details, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources). |
 ||||
+
+Your logic app template uses this file name format:
+
+**<*logic-app-name*>.json**
 
 > [!IMPORTANT]
 > Template syntax is case-sensitive so make sure that you use consistent casing. 
@@ -98,7 +102,6 @@ Here is the general structure and syntax for a parameter definition, which is fu
 This example shows just the template parameters for the values used to create and deploy these resources in Azure:
 
 * Name and location for your logic app
-
 * ID to use for an integration account that's linked to the logic app
 
 ```json
@@ -176,11 +179,12 @@ For more template best practices, see [Best practices for template parameters](.
 
 ## Template parameter files
 
-To provide the values for template parameters, store those values in a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameter files based on your deployment needs. Here is the syntax for naming a parameter file for a logic app template:
+To provide the values for template parameters, store those values in a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameter files based on your deployment needs. Here is the file name format to use:
 
-**<*logic-app-name*>.parameters.json**
+* Logic app template file name: **<*logic-app-name*>.json**
+* Parameter file name: **<*logic-app-name*>.parameters.json**
 
-Here is the syntax to use inside the parameter file, which includes the syntax for [passing a secure parameter value with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md):
+Here is the structure inside the parameter file, which includes a key vault reference for [passing a secure parameter value with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md):
 
 ```json
 {
