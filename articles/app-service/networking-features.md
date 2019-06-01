@@ -18,6 +18,8 @@ ms.author: ccompy
 ms.custom: seodec18
 
 ---
+# App Service networking features
+
 Applications in the Azure App Service can be deployed in multiple ways. By default, App Service hosted apps are directly internet accessible and can only reach internet hosted endpoints. Many customer applications however need to control the inbound and outbound network traffic. There are several features available in the App Service to satisfy those needs. The challenge is knowing what feature should be used to solve a given problem. This document is intended to help customers determine what feature should be used based on some example use cases.
 
 There are two primary deployment types for the Azure App Service. There is the multi-tenant public service which hosts App Service plans in the Free, Shared, Basic, Standard, Premium and Premiumv2 pricing SKUs. Then there is the single tenant App Service Environment(ASE) which hosts Isolated SKU App Service plans directly in your Azure Virtual Network (VNet). The features you use will vary on if you are in the multi-tenant service or in an ASE. 
