@@ -48,9 +48,9 @@ Follow the steps below to access the managed version of the portal.
 
 ## Edit and customize the managed version of the portal
 
-In the video below we demonstrate how to add a new page, edit the content of the portal, customize the website's look, and publish the changes.
+In the video below we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
 
-// Video
+[!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
 ## Next steps
 
