@@ -48,6 +48,6 @@ You can deploy and use the Bastion resource in any of these preview regions via 
 
 [!INCLUDE [region](bastion-regions-include.md)]
 
-### <a name="previewbill"></a>Pricing - Do I get billed for participating in the preview?
+### <a name="previewbill"></a>Pricing - Will I be billed for participating in the preview?
 
 You will only be billed partially during public preview. However, there is no SLA attached with your deployment. For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
