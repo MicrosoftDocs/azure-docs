@@ -63,7 +63,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Optionally, you can also declare the parameter types and return type in the function using Python type annotations. For example, the same function can be written using annotations, as follows:
+Optionally, you can also declare the input attribute types and return type in the function using Python type annotations in order to leverage the auto-complete and intellisense features provided by your code editor. For example, the same function can be written using annotations, as follows:
 
 ```python
 import azure.functions
@@ -92,8 +92,6 @@ The folder structure for a Python Functions project looks like the following:
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
- | - extensions.csproj
- | - bin
 ```
 
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). 
@@ -101,10 +99,8 @@ There's a shared [host.json](functions-host-json.md) file that can be used to co
 Shared code should be kept in a separate folder. To reference modules in the SharedCode folder, you can use the following syntax:
 
 ```
-from ..SharedCode import myFirstHelperFunction
+from __app__.SharedCode import myFirstHelperFunction
 ```
-
-Binding extensions used by the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) using Azure Functions Core Tools. 
 
 When deploying a Functions project to your function app in Azure, the entire content of the FunctionApp folder should be included in the package, but not the folder itself.
 
@@ -228,19 +224,6 @@ Additional logging methods are available that let you write to the console at di
 | logging.**info(_message_)**    | Writes a message with level INFO on the root logger.  |
 | logging.**debug(_message_)** | Writes a message with level DEBUG on the root logger.  |
 
-## Importing shared code into a function module
-
-Python modules published alongside function modules must be imported using the relative import syntax:
-
-```python
-from . import helpers  # Use more dots to navigate up the folder structure.
-def main(req: func.HttpRequest):
-    helpers.process_http_request(req)
-```
-
-Alternatively, put shared code into a standalone package, publish it to a public or a private
-PyPI instance, and specify it as a regular dependency.
-
 ## Async
 
 Since only a single Python process can exist per function app, it is recommended to implement your Azure Function as an asynchronous coroutine using the `async def` statement.
@@ -304,16 +287,7 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-When you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file, located at the root of your project directory. To successfully execute your Azure Functions, the requirements file should contain a minimum of the following packages:
-
-```txt
-azure-functions
-azure-functions-worker
-grpcio==1.14.1
-grpcio-tools==1.14.1
-protobuf==3.6.1
-six==1.11.0
-```
+When you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file, located at the root of your project directory. 
 
 ## Publishing to Azure
 
@@ -332,70 +306,83 @@ func azure functionapp publish <app name> --build-native-deps
 
 Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
 
-> [!NOTE]
-> Core Tools (func) uses the PyInstaller program to freeze the user's code and dependencies into a single stand-alone executable to run in Azure. This functionality is currently in preview and may not extend to all types of Python packages. If you're unable to import your modules, try publishing again using the `--no-bundler` option. 
-> ```
-> func azure functionapp publish <app_name> --build-native-deps --no-bundler
-> ```
-> If you continue to experience issues, please let us know by [opening an issue](https://github.com/Azure/azure-functions-core-tools/issues/new) and including a description of the problem. 
+To build your dependencies and publish using a continuous delivery (CD) system, you can [use Azure DevOps Piplines](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops. 
 
+## Unit Testing
 
-To build your dependencies and publish using a continuous integration (CI) and continuous delivery (CD) system, you can use an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts) or [Travis CI custom script](https://docs.travis-ci.com/user/deployment/script/). 
+Azure Functions written in Python can be tested like regular Python code using standard testing frameworks. For most bindings it is possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package.
 
-Following is an example `azure-pipelines.yml` script for the build and publishing process.
-```yml
-pool:
-  vmImage: 'Ubuntu 16.04'
+For example, following is a mock test of an HTTP triggered function:
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '8.x'
+```python
+# myapp/__init__.py
+import azure.functions as func
+import logging
 
-- script: |
-    set -e
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-    sudo apt-get install -y apt-transport-https
-    echo "install Azure CLI..."
-    sudo apt-get update && sudo apt-get install -y azure-cli
-    npm i -g azure-functions-core-tools --unsafe-perm true
-    echo "installing dotnet core"
-    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 2.0
-- script: |
-    set -e
-    az login --service-principal --username "$(APP_ID)" --password "$(PASSWORD)" --tenant "$(TENANT_ID)" 
-    func settings add FUNCTIONS_WORKER_RUNTIME python
-    func extensions install
-    func azure functionapp publish $(APP_NAME) --build-native-deps
+def main(req: func.HttpRequest,
+         obj: func.InputStream):
+
+    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Following is an example `.travis.yaml` script for the build and publishing process.
+```python
+# myapp/test_func.py
+import unittest
 
-```yml
-sudo: required
+import azure.functions as func
+from . import my_function
 
-language: node_js
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock HTTP request.
+        req = func.HttpRequest(
+            method='GET',
+            body=None,
+            url='/my_function', 
+            params={'name': 'Test'})
 
-node_js:
-  - "8"
+        # Call the function.
+        resp = my_function(req)
 
-services:
-  - docker
-
-before_install:
-  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-  - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  - sudo apt-get install -y apt-transport-https
-  - sudo apt-get update && sudo apt-get install -y azure-cli
-  - npm i -g azure-functions-core-tools --unsafe-perm true
-
-
-script:
-  - az login --service-principal --username "$APP_ID" --password "$PASSWORD" --tenant "$TENANT_ID"
-  - az account get-access-token --query "accessToken" | func azure functionapp publish $APP_NAME --build-native-deps
-
+        # Check the output.
+        self.assertEqual(
+            resp.get_body(), 
+            'Hello, Test!',
+        )
 ```
+
+Another example, with a queue triggered function:
+
+```python
+# myapp/__init__.py
+import azure.functions as func
+
+def my_function(msg: func.QueueMessage) -> str:
+    return f'msg body: {msg.get_body().decode()}'
+```
+
+```python
+# myapp/test_func.py
+import unittest
+
+import azure.functions as func
+from . import my_function
+
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock Queue message.
+        req = func.QueueMessage(
+            body=b'test')
+
+        # Call the function.
+        resp = my_function(req)
+
+        # Check the output.
+        self.assertEqual(
+            resp, 
+            'msg body: test',
+        )
+``` 
 
 ## Known issues and FAQ
 
