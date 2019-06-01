@@ -11,21 +11,20 @@ ms.author: bwren
 ---
 
 # Log query scope and time range in Azure Monitor Log Analytics
-This article describes the scope and time range that define the records that are included in a log query that you run in Log Analytics in the Azure portal.
+When you run a [query](log-query-overview.md) in [Log Analytics in the Azure portal](get-started-portal.md), the set of data evaluated by the query depends on the scope and the time range that you select. This article describes the scope and time range and how you can set each depending on your requirements.
 
 
 ## Query scope
-The scope defines the records that are evaluated by the query. This may include all records in a single Log Analytics workspace or it may include records created by particular Azure resources across multiple workspaces. The scope is displayed at the top left of the Log Analytics window. An icon indicates whether the scope is a Log Analytics workspace or an Application Insights application. No icon indicates another Azure resource.
+The query scope defines the records that are evaluated by the query. This may include all records in a single Log Analytics workspace or Application Insights application, or it may include records created by particular Azure resources across multiple workspaces. The scope is always displayed at the top left of the Log Analytics window. An icon indicates whether the scope is a Log Analytics workspace or an Application Insights application. No icon indicates another Azure resource.
 
-![Scope](media/scope/scope-workspace.png)
-![Scope](media/scope/scope-application.png)
+![Scope](media/scope/scope-workspace.png) ![Scope](media/scope/scope-application.png)
 
 
-The scope is defined by a single Azure resource and functions differently depending on the resource type. It's initially determined depending on how you start Log Analytics, and in some cases you can change the scope by clicking on it.
+The scope is defined by a single Azure resource and functions differently depending on the resource type. The scope is determined by the method you use to start Log Analytics, and in some cases you can change the scope by clicking on it.
 
-The following table lists the different resource types, how they define the query scope, and how the scope is determined.
+The following table lists the different resource types used for the query scope and different details for each.
 
-| Resource | Records in scope | How to select | Changing Scope |
+| Query scope resource | Records in scope | How to select | Changing Scope |
 |:---|:---|:---|:---|
 | Log Analytics workspace | All records in the Log Analytics workspace. | Select **Logs** from the **Azure Monitor** menu or the **Log Analytics workspaces** menu.  | Can change scope to any other resource type. |
 | Application Insights application | All records in the Application Insights application. | Select **Analytics** from **Overview** page of Application Insights. | Can only change scope to another Application Insights application. |
@@ -35,39 +34,41 @@ The following table lists the different resource types, how they define the quer
 
 
 ## Scope limitations
-When the scope is set to any resource other than a Log Analytics workspace or an Application Insights application, the following limitations apply:
+When the query scope is a Log Analytics workspace or an Application Insights application, all options in the portal and all query commands are available. The following limitations though apply when another resource type is used for the scope.
 
-- The following options in the portal not available:
-    - Save
-    - New alert rule
-    - Query explorer
-- You cannot use the following commands in the query:
-    - [app](app-expression.md)
-    - [workspace](workspace-expression.md)
+The following options in the portal not available:
+- Save
+- New alert rule
+- Query explorer
+
+The following commands cannot be used in the query:
+- [app](app-expression.md)
+- [workspace](workspace-expression.md)
  
 
 
 
 ## Query limits
-When the query scope includes multiple Log Analytics workspaces, it can significantly affect performance if those workspaces are spread across multiple Azure regions. In this case, your query may receive a warning or be blocked from running.
+When the query scope is a resource group or Azure subscription, it may
+include multiple Log Analytics workspaces, and it can significantly affect performance if those workspaces are spread across multiple Azure regions. In this case, your query may receive a warning or be blocked from running.
 
 Your query will receive a warning if the scope includes workspaces in 7 or more regions, it will still run but may take excessive time to complete.
 
 ![Query warning](media/scope/query-warning.png)
 
-Your query will be blocked from running if the scope includes workspaces in 20 or more regions. In this case you will be prompted to reduce the number of workspace regions and attempt to run the query again.
+Your query will be blocked from running if the scope includes workspaces in 20 or more regions. In this case you will be prompted to reduce the number of workspace regions and attempt to run the query again. The dropdown will display all of the regions in the scope of the query, but you may only select up to 5 before attempting to run the query again.
 
 ![Query failed](media/scope/query-failed.png)
 
 ## Time range
-The time range species the records that are evaluated for the query based on when the record was created. This is defined by a standard property on every record in the workspace or application as specified in the following table.
+The time range species the set of records that are evaluated for the query based on when the record was created. This is defined by a standard property on every record in the workspace or application as specified in the following table.
 
 | Location | Property |
 |:---|:---|
 | Log Analytics workspace          | TimeGenerated |
 | Application Insights application | timestamp     |
 
-Select the time range from the time picker at the top of the Log Analytics window.  You can select a predefined period or select **Custom** to specify a specific time range.
+Set the time range by selecting the time range from the time picker at the top of the Log Analytics window.  You can select a predefined period or select **Custom** to specify a specific time range.
 
 ![Time picker](media/scope/time-picker.png)
 

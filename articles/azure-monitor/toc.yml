@@ -702,6 +702,8 @@
         href: log-query/get-started-portal.md
       - name: Log query portals
         href: log-query/portals.md
+      - name: Query scope
+        href: log-query/scope.md
       - name: Get started with queries
         href: log-query/get-started-queries.md
       - name: Functions
