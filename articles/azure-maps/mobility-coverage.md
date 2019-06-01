@@ -29,11 +29,11 @@ The following table provides coverage information for Azure Maps Mobility serv
 |----------------|---------|
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, Comodoro Rivadavia, Córdoba, Corrientes, General Pico, La Rioja, Mar del Plata, Mendoza, Miramar, Neuquén,Oberá,Olavarría, Paraná, Posadas, Rio Tercero, Rosario, Salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados* |
-| Brazil         | <p>Americana, Anápolis, Angra dos Reis, Aparecida, Apucarana, Araçatuba, Araraquara, Barra Mansa & Porto Real, Bauru, Belém, Belo Horizonte, Blumenau Boa Vista,Bom Despacho, Brasília, Caldas Novas, Campina Grande, Campinas, Campo Grande, Caraguatatuba, Catalão, Caxias do Sul, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, Cuiabá, Curitiba, Diamantina, Estrela, Florianópolis, Fortaleza, Foz do Iguaçu, Franca, Goiania, Governador Valadares, Guarapuava, Guaratinguetá, Ipatinga, Itabuna, Itajaí e Brusque, Jandaia do Sul, Jaraguá do Sul, João Pessoa, Joinville, Juazeiro do Norte, Juiz de Fora, Jundiaí, Limeira, Londrina, Macapá, Maceió, Manaus, Mariana, Marília, Maringá, Montes Claros, Natal, Ouro Preto, Palmas, Parnaíba, Passos, Patos de Minas, Pelotas, Petrópolis, Poços de Caldas, Ponta Grossa, Porto Alegre, Porto Feliz, Porto Velho, Praia Grande, Recife, Ribeirão Preto, Rio Branco, Rio de Janeiro, Rio Grande, Rondonópolis, Salinas, Salvador, Santa Cruz do Sul, Santa Maria, Santa Rita do Sapucaí, Santos, São Carlos, São Francisco do Sul, São Gabriel do Oeste, São José dos Campos, São Lourenço, São Luís, São Paulo, São Vicente, Sorocaba, Teresina, Teutônia, Toledo, Três Lagoas, Ubá, Ubatuba, Uberaba, Uberlândia, Valinhos, Vespasiano, Vitória da Conquista, Votuporanga, Aracaju, Araguari, Araxá, Bagé, Barretos, Belo Vale, Bertioga, Cabo frio, Cambé, Cascavel, Castanhal, Cataguases, Curvelo, Divinópolis, Dourados, Fernando de Noronha, Frei Inocêncio, Garanhuns, Hortolândia, Imperatriz, Indaiatuba, Itabira, Itabirito, Itápolis, Itaquaquecetuba, Itu, João Monlevade,  Rio Piracicaba and Bela Vista de Minas, Lages, Leme, Macaé, Monte Carmelo, Nova Era, Nova Friburgo & Bom Jardim, Nova Prata, Osório e Microrregião, Paracatu, Passo Fundo, Patos, Patrocínio, Peruíbe e Itanhaém, Pinheiral, Piracicaba, Piracicaba, Poá, Ponta Porã, Ponte Nova, Quatis, Resende, Santa Bárbara, Santa Terezinha de Itaipu, São José do Rio Preto, São Lourenço do Sul, São Mateus, Saquarema, Sumaré, Telêmaco Borba, Teresópolis, Três Rios, Tubarão, Tucuruí, Uruguaiana, Varginha, Viçosa, Videira e Fraiburgo, Vinhedo, Vitória, Volta Redonda|
+| Brazil         | <p>Angra dos Reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Bage, Barretos, Bauru, Belem, Belo Horizonte, Blumenau, Boa Vista, Brasilia, Caldas Novas, Campina Grande, Campinas, Campo Belo, Campo Grande, Caraguatatuba, Cascavel, Cataguases, Leopoldina e Região, Catalão, Caxias do Sul, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, Cruzeiro do Sul, Cuiabá, Curitiba, Curitibanos, Curvelo, Diamantina, Divinópolis, Dourados, Estrela, Fernando de Noronha, Florianópolis, Fortaleza, Foz do Iguaçu, Franca, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Ituiutaba, Jaraguá do Sul, Joao Pessoa, Joinville, Juazeiro do Norte, Juiz de Fora, Jundiaí, Lages, Londrina, Macapa, Macaé, Maceió, Mafra e Rio Negro, Manaus, Manhuacu, Maringá, Marília, Monte Carmelo, Montes Claros, Mossoró, Natal, Osorio, Ourinhos, Ouro Preto, Palmas, Paracatu, Parnaíba, Passo Fundo, Passos, Patos de Minas, Patrocínio, Pelotas, Piracicaba, Pocos de Caldas, Ponta Grossa, Porto Alegre, Porto Ferreira, Porto Seguro, Porto Velho, Praia Grande, Recife, Ribeirão Preto, Rio, Rio Branco, Rondonópolis, Salinas, Salvador, Santa Cruz do Sul, Santa Maria, Santa Rita do Sapucaí, Santarem, Santos, Sao Gabriel do Oeste, Sao Joao del Rei, Tiradentes e Regiao, Sao Jose do Rio Preto, Sao Mateus, Sao Paulo, Sorocaba, São Carlos, São Francisco do Sul, São José dos Campos, São Lourenço, São Luís, Taubaté, Telemaco Borba, Teofilo Otoni, Teresina, Toledo , Três Lagoas, Tucurui, Ubatuba, Uberaba, Uberlândia, Ubá, Uruguaiana, Varginha, Vicosa, Videira & Fraiburgo, Vitória, Vitória da Conquista, Volta Redonda, Votuporanga </p>|
 | Canada | Banff (AB), Brandon (MB), Calgary (AB), Comox Valley (BC), Cowichan Valley (BC), Edmonton (AB), Fort St. John, Fredericton (NB), Greater Sudbury (ON), Greater Vancouver (BC), Halifax (NS), Kamloops (BC), Kelowna (BC), Kingston (ON), London (ON), Moncton (NB), Montreal (QC), Nanaimo (BC), Ottawa (ON), Prince George (BC), Québec City (QC), Red Deer (AB), Regina (SK), Rimouski (QC), Saskatoon (SK), Sherbrooke (QC), Squamish (BC), St. John's (NL), Sunshine Coast, Thunder Bay (ON), Toronto (ON), Victoria (BC), Whistler (BC), Windsor (ON), Winnipeg (MB), Woodstock</p>|
-| Chile  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Copiapó, Curicó, Iquique, La Serena y Coquimbo, Linares, Los Lagos, Punta Arenas, Rancagua, Santiago, Talca, Temuco, Valdivia, Valparaíso, Viña del Mar</p>|
+| Chile  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Copiapó, Curicó, Iquique, La Serena y Coquimbo, Linares, Los Angeles (Chile), Los Lagos, Punta Arenas, Rancagua, Santiago, Talca, Temuco, Valdivia, Valparaíso, Viña del Mar</p>|
 | Columbia | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, Pasto, Popayán, Santa Marta, Sincelejo, Valledupar</p>|  
-| Costa Rica | Ciudad Quesada, San José|
+| Costa Rica | San José|
 | Ecuador | Cuenca, Guayaquil, Manta|
 | Mexico | Aguascalientes, Mexico City, Guadalajara, Lion, Merida, Monterrey, Puebla, Querétaro, San Luis Potosi|
 | Nicaragua | Managua | 
@@ -50,15 +50,17 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Country/region |  City (Metro Area) |
 |--------|---------|
 | Australia      | <p>Adelaide, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnetic Island, Maryborough-Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, South East Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
-| China | <p>Changchun, Changsha, Chengdu, Chongqing, Dalian, Dongguan, Foshan, Hangzhou, Harbin, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Beijing, Guangzhou, Shenzhen, Zhengzhou</P>| 
+| China | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Beijing, Guangzhou, Shenzhen, Zhengzhou</P>| 
 | Hong Kong SAR | Hong Kong*|
 | Macau | Macau*|
 | India | Ahmedabad, Bengaluru, Delhi, Mumbai, Mysuru|
-| Indonesia | Bandung, Banyuwangi, Batam, Denpasar, Jakarta, Malang, Semarang, Surabaya, Surakarta, Yogyakarta |
+| Indonesia | Bandung, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | Japan | Shizuoka Prefecture, Tokyo, Wakkanai, Yamanashi Prefecture |
-| Malaysia | Johar Bahru, Kuala Lumpur, Penang |
+| Malaysia | Ipoh, Johar Bahru, Kuala Lumpur, Penang |
+| New Zealand | Auckland, Christchurch, Dunedin, Queenstown, Timaru, Wellington|
 | Philippines | Manila |
 | Singapore | Singapore* |
+| South Korea | Busan, Seoul |
 | Taiwan | Changhua County, New Taipei, Taipei | 
 | Thailand | Bangkok, Chiang Mai | 
 | Vietnam | Hanoi, Ho Chi Minh City | 
@@ -77,34 +79,36 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Bosnia and Herzegovina | Sarajevo | 
 | Bulgaria       | <p>Balchik, Blagoevgrad, Burgas, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, Sofia</P> |
 | Croatia | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, Zagreb | 
-| Cyprus | Ayia Napa, Larnaca, Nicosia | 
-| Czech Republic | Brno, Česká Lípa, Děčín & Varnsdorf , Jablonec, Karlovy Vary, Liberec, Ostrava, Prague | 
+| Cyprus | Larnaca, Limassol, Nicosia | 
+| Czech Republic | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Prague | 
 | Denmark   | Denmark* |
 | Estonia   | Estonia* |   
-| Finland   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta |
-| France    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Brest, Briançon, Cannes, Châlons-en-Champagne, Chambéry, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Dreux, Grenoble, Guérande, Haguenau, Hérault, La Rochelle, Lanciano, Le Mans, Le Péage-de-Roussillon, Lens, Lille, Lorient, Lourdes, Lyon, MACS, Marseille, Metz, Millau, Mont-de-Marsan, Montbéliard, Montpellier, Mulhouse, Nancy, Nantes, Nevers, Nice, Nimes, Normandy, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Cézaire-sur-Siagne, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, Strasbourg, Toulouse, Tournon-sur-Rhône, Tours, Voiron, Voiron</P> | 
+| Finland   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
+| France    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, cannes, Châlons-en-Champagne,   Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lens, Lille, Lorient, Lyon,MACS, Marseille & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, Nice, Nimes, Normandy, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Strasbourg, Tarbes, Toulouse, Tours</P> | 
 | +French Guiana | Cayenne |
 | +New Caledonia | Nouméa  |
 | Georgia | Tbilisi | 
-| Germany | <p>Aachen, Baden-Baden, Berlin, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburg, Karlsruhe, Mainz, München - Munich, Rhein-Neckar Region, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> | 
-| Greece | <p>Amorgos, Corfu, Kos, Larissa, Meganisi, Mykonos, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Veria, Volos, Xanthi, Athens, Arta, Heraklion, Thessaloniki, Ioannina, Kavala, Patra, Chania</P> |
+| Germany | <p>Berlin, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburg, Karlsruhe, Mainz, München - Munich, Rhein-Neckar Region, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> | 
+| Greece | <p>Athens, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |
 | Hungary | Budapest, Szeged, Székesfehérvár |
 | Iceland | Ísland - Iceland* | 
 | Ireland | Ireland* |   
-| Italy   | <p>Abbiategrasso, Agrigento, Alessandria, Alghero, Ancona, Aosta, Arzano, Ascoli Piceno, Assisi, Asti, Avellino, Bacoli, Bari, Bassano del Grappa, Belluno, Benevento, Bergamo, Bollate, Bologna - Bologne, Bolzano, Brescia, Bresso, Brindisi, Brugherio, Buccinasco, Busto Arsizio, Cagliari - Sardinia, Campi Bisenzio, Campobasso, Carbonia, Carmagnola, Carpi, Carrara, Caserta, Castellammare di Stabia, Catania e Messina, Cava de' Tirreni, Cecina, Cernusco sul Naviglio, Cervia, Cesano Maderno, Cesena, Cesenatico, Chiavari, Chieti, Chivasso, Ciampino, Cinisello Balsamo, Città di Castello, Civitanova Marche, Collegno, Cologno Monzese, Como, Conegliano, Corsico, Cosenza, Crema, Cremona, Crotone, Cuneo, Desenzano del Garda, Desio, Ercolano, Faenza, Falconara Marittima, Fano, Fermo, Ferrara, Firenze - Florence, Fiumicino, Foggia, Foligno, Fondi, Forlì, Frosinone, Gallarate, Genova - Genoa, Gioia del Colle, Giugliano in Campania, Gorizia, Grosseto, Grugliasco, Gubbio, Iglesias, Imola, Imperia, Jesi, Jesolo, L'Aquila, La Spezia, Lainate, Lanciano, Latina, Lecce, Lecco, Legnago, Legnano, Limbiate, Lissone, Livorno, Lodi, Lucca, Lucera, Macerata, Manfredonia, Mantova, Massa, Matera, Merano, Messina, Milano - Milan, Modena, Moncalieri, Monfalcone, Montebelluna, Monza, Mugnano di Napoli, Napoli - Naples, Novara, Nuoro, Olbia, Oristano, Paderno Dugnano, Padova, Palermo, Parma, Pavia, Perugia, Pesaro, Pescara, Piacenza, Pioltello, Pisa, Pistoia, Pomezia, Pordenone, Portici, Potenza, Pozzuoli, Prato, Quartu Sant'Elena, Ragusa, Rapallo, Ravenna, Reggio di Calabria, Reggio nell'Emilia, Rho, Riccione, Rimini, Rivoli, Roma - Rome, Rosignano Marittimo, Rovereto, Rovigo, Rozzano, Salerno, San Donato Milanese, San Giuliano Milanese, San Severo, Sant'Anastasia, Saronno, Sassari, Sassuolo, Savona, Scandicci, Segrate, Senigallia, Seregno, Seriate, Sesto Fiorentino, Sesto San Giovanni, Settimo Torinese, Siena e Grosseto, Siracusa - Syracuse, Spoleto, Taranto, Teramo, Terni, Torino - Turin, Torre Annunziata, Torre del Greco, Trapani, Trento, Treviglio, Treviso, Trieste, Udine, Varese, Vasto, Velletri, Venezia - Venice, Verbania, Verona, Viareggio, Vicenza, Vigevano, Vimercate, Vittorio Veneto</p> |
+| Italy   | <p>Agrigento, Alessandria, Ancona, Bari,  Bologna - Bologne, Cagliari - Sardinia, Campobasso, Catania e Messina, Cosenza, Crema, Cremona, Crotone, Cuneo,  Firenze - Florence, Foggia, Genova - Genoa, Iglesias, La Spezia, Lecce, Matera, Milano - Milan, Napoli - Naples, Padova, Palermo, Parma, Perugia, Pescara, Pisa, Potenza, Roma - Rome, Siena e Grosseto, Siracusa - Syracuse, Taranto, Torino - Turin, Trento, Trieste, Udine, Venezia - Venice, </p> |
 | Latvia | Rīga |
 | Lithunia | Druskininkai, Kauno, Klaipėda, Panevėžys, Vilnius |
 | Luxembourg | Luxembourg* |
+| Moldova | Chisinau |
 | Montenegro | Podgorica |
 | Netherlands | Netherlands* |
-| Norway | Oslo, Stavenger | 
-| Poland | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Grudziądz, Kętrzyna, Krakow, Leszno, Lodz, Łomża, Lublin, Mrągowo, Nowe Warpno, Olsztyn, Ostróda, Poznań, Radom, Rybnik, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Toruń, Tricity, Warsaw, Wodzisław Śląski, Województwo śląskie, Zakopane</p> | 
+| Norway | Norway* | 
+| Poland | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, Warsaw, Wodzisław Śląski, Wrocław, Zakopane</p> |
+| Portugal | Bragança, Coimbra, Funchal, Leiria, Lisboa, Portimao, Porto|
 | Republic of Malta | Malta* | 
-| Romania | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, Bucharest, Buzau, Cluj Napoca, Constanța, Craiova, Focșani, Galati, Iaşi, Miercurea Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Roman and Bacău, Satu Mare, Sfântu Gheorghe, Sibiu, Slatina, Suceava, Targu Mures, Timisoara, Tulcea, Zalau</p> | 
-| Russia  | Rostov-on-Don, Volgograd, Yekaterinburg, Kazan, Kirov, Krasnodar, Moscow, Nizhny Novgorod, Novosibirsk, Noyabrsk, Omsk, Perm, St Petersburg, Tver, Tomsk |
-| Serbia  | Beograd, Kragujevac, Nis, Novi Sad, Pančevo, Smederevo, Valjevo, Subotica | 
+| Romania | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, Bucharest, Buzau, Cluj Napoca, Constanța, Craiova, Deva, Focșani, Galati, Iaşi, Miercurea Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Satu Mare, Sibiu, Suceava, Targu Mures, Timisoara, Tulcea, Zalau</p> | 
+| Russia  | Rostov-on-Don, Volgograd, Yekaterinburg, Kazan, Kirov, Krasnodar, Moscow, Nalchik, Nizhny Novgorod, Novosibirsk, Noyabrsk, Omsk, Perm, St Petersburg, Tver, Tomsk |
+| Serbia  | Beograd, Kragujevac, Nis, Novi Sad, Valjevo, Subotica | 
 | Slovakia | Banská Bystrica, Bratislava, Kosice, Presov, Prievidza, Trencin | 
-| Slovenia | Ljubljana, Nova Gorica | 
+| Slovenia | Koper, Ljubljana | 
 | Spain    | <p>Corunna, Alicante, Almería, Asturias, Avila, Badajoz, Bay of Cadiz, Barcelona, Bilbao, Burgos, Caceres, Cambrils, Campo de Gibraltar, Castellon de la Plana, Ceuta, Ciudad Real, Cordoba, Cuenca, El Hierro, Ferrol, Gran Canaria, Granada, Huelva, Huesca, Ibiza, Jaén - Úbeda, La Palma, Lanzarote, Linares, Lleida, Logroño, Madrid, Malaga, Mallorca - Majorca, Melilla, Menorca, Merida, Murcia, Palencia, Pamplona, Salamanca, San Sebastian, Santander, Santiago de Compostela, Segovia, Seville, Soria, Tarragona - Reus, Tenerife, Toledo, Torrelavega, Torrevieja, Valencia, Valladolid, Vigo, Vitoria-Gasteiz, Zaragoza - Saragossa</p> |
 | Sweden | Goteborg/Gothenburg/Jonkoping, Koper, Malmö kommun - Malmö, Norrköping och Linköping, Stockholm, Sundsvall |
 | Switzerland | Basel, Geneva, Yverdon-les-Bains - Yverdon les Bains, Zurich | 
@@ -123,6 +127,8 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Kenya | Nairobi  | 
 | Madagascar | Antananarivo |
 | Morocco | Casablanca, Khouribga, Tétouan|
+| Saudi Arabia | Thuwal |
+| South Africa | Cape Town |
 | Tunisia | Kairouan |
 | United Arab Emirates  | Abu Dhabi, Dubai |
 
