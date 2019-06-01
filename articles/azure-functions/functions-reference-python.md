@@ -290,10 +290,6 @@ When developing locally using the Azure Functions Core Tools or Visual Studio Co
 
 For example, the following requirements file and pip command can be used to install the `requests` package from PyPI.
 
-```bash
-pip install requests
-```
-
 ```txt
 requests==2.19.1
 ```
@@ -319,7 +315,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
 
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure DevOps Piplines](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops. 
+To build your dependencies and publish using a continuous delivery (CD) system, [use Azure DevOps Piplines](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops). 
 
 ## Unit Testing
 
@@ -364,7 +360,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Following is another example, with a queue triggered function:
+Here is another example, with a queue triggered function:
 
 ```python
 # myapp/__init__.py
