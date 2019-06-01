@@ -42,8 +42,6 @@ You can create Resource Manager templates by using PowerShell with the [LogicApp
 
 For example, suppose you have a logic app that receives a message from an Azure Service Bus queue and uploads data to an Azure SQL database. The module preserves all the orchestration logic and parameterizes the SQL and Service Bus connection strings so that you can provide and change those values based on your deployment needs.
 
-For more information about the LogicAppTemplate module, see 
-
 ### Install PowerShell modules
 
 1. If you haven't already, install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
@@ -64,7 +62,8 @@ Or, to install manually, follow the steps in GitHub for [Logic App Template Crea
 
 ### Install Azure Resource Manager client
 
-To work with any Azure tenant and subscription access token, install the [Azure Resource Manager client tool](https://github.com/projectkudu/ARMClient) for use with the LogicAppTemplate module.
+For the LogicAppTemplate module to work with any Azure tenant and subscription access token, install the [Azure Resource Manager client tool](https://github.com/projectkudu/ARMClient), which is a simple command line tool that calls the Azure Resource Manager API.
+
 When you run the `Get-LogicAppTemplate` command with this tool, the command first gets an access token through the ARMClient tool, pipes the token to the PowerShell script, and creates the template as a JSON file. For more information about the tool, see this [article about the Azure Resource Manager client tool](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
 
 ### Generate template with PowerShell
