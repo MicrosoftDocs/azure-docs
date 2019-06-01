@@ -86,4 +86,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[azure-outbound-traffic]: ../load-balancer-outbound-connections#defaultsnat
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
