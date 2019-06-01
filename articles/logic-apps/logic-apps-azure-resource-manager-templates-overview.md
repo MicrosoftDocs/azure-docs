@@ -35,7 +35,7 @@ For sample logic app templates, see these examples:
 * [Full template](#full-example-template) that's used for this topic's examples
 * [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](../templates/microsoft.logic/allversions).
+For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
@@ -320,7 +320,7 @@ Here are the attributes that are specific to your logic app resource definition:
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](../templates/microsoft.logic/allversions).
+For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
