@@ -24,7 +24,7 @@ The Azure App Service has two forms.
 1. The multi-tenant systems that support the full range of pricing plans except Isolated
 2. The App Service Environment (ASE), which deploys into your VNet and supports Isolated pricing plan apps
 
-This document goes through the two VNet Integration features, which is for use in the multi-tenant App Service. If your app is in [App Service Environment][ASEintro], then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet.
+This document goes through the two VNet Integration features, which is for use in the multi-tenant App Service. If your app is in [App Service Environment][ASEintro], then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet. For details on all of the App Service networking features, read [App Service networking features](networking-features.md)
 
 There are two forms to the VNet Integration feature
 
@@ -39,6 +39,8 @@ An app can only use one form of the VNet Integration feature at a time. The ques
 | Want to reach a Classic VNet or a VNet in another region | gateway required VNet Integration |
 | Want to reach RFC 1918 endpoints across ExpressRoute | regional VNet Integration |
 | Want to reach resources across service endpoints | regional VNet Integration |
+
+Neither feature will enable you to reach non-RFC 1918 addresses across ExpressRoute. To do that you need to use an ASE for now.
 
 Using the regional VNet Integration does not connect your VNet to on-premises or configure service endpoints. That is separate networking configuration. The regional VNet Integration simply enables your app to make calls across those connection types.
 
@@ -165,7 +167,7 @@ The gateway required VNet Integration feature is built on top of point-to-site V
 
 ![How VNet Integration works][3]
 
-## Managing the VNet Integrations
+## Managing VNet Integration
 The ability to connect and disconnect to a VNet is at an app level. Operations that can affect the VNet Integration across multiple apps are at the App Service plan level. From the app > Networking > VNet Integration portal, you can get details on your VNet. You can see similar information at the ASP level in the ASP > Networking > VNet Integration portal including what apps in that App Service plan are using a given integration.
 
  ![VNet details][4]
@@ -211,7 +213,9 @@ There is no additional configuration required for the regional VNet Integration 
 > 
 
 ## Peering
-You can use VNet Integration to access resources in VNets that are peered to the VNet you are connected to. To configure peering to work with your app:
+If you are using peering with the regional VNet Integration, you do not need to do any additional configuration. 
+
+If you are using the gateway required VNet Integration with peering, you need to configure a few additional items. To configure peering to work with your app:
 
 1. Add a peering connection on the VNet your app connects to. When adding the peering connection, enable **Allow virtual network access** and check **Allow forwarded traffic** and **Allow gateway transit**.
 1. Add a peering connection on the VNet that is being peered to the VNet you are connected to. When adding the peering connection on the destination VNet, enable **Allow virtual network access** and check **Allow forwarded traffic** and **Allow remote gateways**.
@@ -219,17 +223,14 @@ You can use VNet Integration to access resources in VNets that are peered to the
 
 
 ## Pricing details
-There are three related charges to the use of the VNet Integration feature:
+The regional VNet Integration feature has no additional charge for use beyond the ASP pricing tier charges.
 
-* ASP pricing tier requirements
-* Data transfer costs
-* VPN Gateway costs.
+There are three related charges to the use of the gateway required VNet Integration feature:
 
-Your apps need to be in a Standard, Premium, or PremiumV2 App Service Plan. You can see more details on those costs here: [App Service Pricing][ASPricing]. 
+* ASP pricing tier charges - Your apps need to be in a Standard, Premium, or PremiumV2 App Service Plan. You can see more details on those costs here: [App Service Pricing][ASPricing]. 
+* Data transfer costs - There is a charge for data egress, even if the VNet is in the same data center. Those charges are described in [Data Transfer Pricing Details][DataPricing]. 
+* VPN Gateway costs - There is a cost to the VNet gateway that is required for the point-to-site VPN. The details are on the [VPN Gateway Pricing][VNETPricing] page.
 
-There is a charge for data egress, even if the VNet is in the same data center. Those charges are described in [Data Transfer Pricing Details][DataPricing]. 
-
-There is a cost to the VNet gateway that is required for the point-to-site VPN. The details are on the [VPN Gateway Pricing][VNETPricing] page.
 
 ## Troubleshooting
 While the feature is easy to set up, that doesn't mean that your experience will be problem free. Should you encounter problems accessing your desired endpoint there are some utilities you can use to test connectivity from the app console. There are two consoles that you can use. One is the Kudu console and the other is the console in the Azure portal. To reach the Kudu console from your app, go to Tools -> Kudu. This is the same as going to [sitename].scm.azurewebsites.net. Once that opens, go to the Debug console tab. To get to the Azure portal hosted console then from your app go to Tools -> Console. 
@@ -251,23 +252,22 @@ The **tcpping** utility tells you if you can reach a specific host and port. It 
 There are a number of things that can prevent your app from reaching a specific host and port. Most of the time it is one of three things:
 
 * **A firewall is in the way.** If you have a firewall in the way, you will hit the TCP timeout. The TCP timeout is 21 seconds in this case. Use the **tcpping** tool to test connectivity. TCP timeouts can be due to many things beyond firewalls but start there. 
-* **DNS isn't accessible.** The DNS timeout is three seconds per DNS server. If you have two DNS servers, the timeout is 6 seconds. Use nameresolver to see if DNS is working. Remember you can't use nslookup as that doesn't use the DNS your VNet is configured with.
-* **The point-to-site address range is invalid.** The point-to-site IP range needs to be in the RFC 1918 private IP ranges (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255). If the range uses IPs outside of that, then things won't work. 
+* **DNS isn't accessible.** The DNS timeout is three seconds per DNS server. If you have two DNS servers, the timeout is 6 seconds. Use nameresolver to see if DNS is working. Remember you can't use nslookup as that doesn't use the DNS your VNet is configured with. If inaccessible, you could have a firewall or NSG blocking access to DNS or it could be down.
 
-If those items don't answer your problem, look first for the simple things like: 
+If those items don't answer your problems, look first for things like: 
 
-* Does the Gateway show as being up in the portal?
-* Do certificates show as being in sync?
-* Did anybody change the network configuration without doing a "Sync Network" in the affected ASPs? 
+**regional VNet Integration**
+* is your destination an RFC 1918 address
+* is there an NSG blocking egress from your integration subnet
+* if going across ExpressRoute or a VPN, is your on-premise gateway configured to route traffic back up to Azure? If you can reach endpoints in your VNet but not on-premises, this is good to check.
 
-If your gateway is down, then bring it back up. If your certificates are out of sync, then go to the ASP view of your VNet Integration and hit "Sync Network". If you suspect that there has been a change made to your VNet configuration that wasn't synced with your ASPs, then hit "Sync Network".  A "Sync Network" operation will restart any apps in the ASP that are integrated with that VNet. 
+**gateway required VNet Integration**
+* is the point-to-site address range in the RFC 1918 ranges (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
+* Does the Gateway show as being up in the portal? If your gateway is down, then bring it back up.
+* Do certificates show as being in sync or do you suspect that the network configuration was changed?  If your certificates are out of sync or you suspect that there has been a change made to your VNet configuration that wasn't synced with your ASPs, then hit "Sync Network".
+* if going across ExpressRoute or a VPN, is your on-premise gateway configured to route traffic back up to Azure? If you can reach endpoints in your VNet but not on-premises, this is good to check.
 
-If all of that is fine, then you need to dig in a bit deeper:
-
-* Are there any other apps using VNet Integration to reach resources in the same VNet? 
-* Can you go to the app console and use tcpping to reach any other resources in your VNet? 
-
-If either of the above are true, then your VNet Integration is fine and the problem is somewhere else. This is where it gets to be more of a challenge because there is no simple way to see why you can't reach a host:port. Some of the causes include:
+Debugging networking issues is a challenge because there you cannot see what is blocking access to a specific host:port combination. Some of the causes include:
 
 * you have a firewall up on your host preventing access to the application port from your point to site IP range. Crossing subnets often requires Public access.
 * your target host is down
@@ -276,7 +276,7 @@ If either of the above are true, then your VNet Integration is fine and the prob
 * your application is listening on a different port than what you expected. You can match your process ID with the listening port by using "netstat -aon" on the endpoint host. 
 * your network security groups are configured in such a manner that they prevent access to your application host and port from your point to site IP range
 
-Remember that you don't know what IP in your Point-to-Site IP range that your app will use so you need to allow access from the entire range. 
+Remember that you don't know what address your app will actually use. It could be any address in the integration subnet or point-to-site address range, so you need to allow access from the entire address range. 
 
 Additional debug steps include:
 
@@ -284,44 +284,23 @@ Additional debug steps include:
 
       test-netconnection hostname [optional: -Port]
 
-* bring up an application on a VM and test access to that host and port from the console from your app
+* bring up an application on a VM and test access to that host and port from the console from your app using **tcpping**
 
 #### On-premises resources ####
 
-If your app cannot reach a resource on-premises, then check if you can reach the resource from your VNet. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, then make sure your Site to Site VPN connection is working. If it is working, then check the same things noted earlier as well as the on-premises gateway configuration and status. 
+If your app cannot reach a resource on-premises, then check if you can reach the resource from your VNet. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection may not be configured properly.
 
 If your VNet hosted VM can reach your on-premises system but your app can't, then the cause is likely one of the following reasons:
 
-* your routes are not configured with your point to site IP ranges in your on-premises gateway
+* your routes are not configured with your subnet or point to site address ranges in your on-premises gateway
 * your network security groups are blocking access for your Point-to-Site IP range
 * your on-premises firewalls are blocking traffic from your Point-to-Site IP range
+* you are trying to reach a non-RFC 1918 address using the regional VNet Integration feature
 
 
 ## PowerShell automation
 
 You can integrate App Service with an Azure Virtual Network using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
-
-## Hybrid Connections and App Service Environments
-There are three features that enable access to VNet hosted resources. They are:
-
-* VNet Integration
-* Hybrid Connections
-* App Service Environments
-
-Hybrid Connections requires you to install a relay agent called the Hybrid Connection Manager(HCM) in your network. The HCM needs to be able to connect to Azure and also to your application. Hybrid Connections doesn't require an inbound internet accessible endpoint for your remote network, as is required for a VPN connection. The HCM only runs on Windows and you can have up to five instances running to provide high availability. Hybrid Connections only supports TCP though and each HC endpoint has to match to a specific host:port combination. 
-
-The App Service Environment feature allows you to run a single tenant instance of the Azure App Service in your VNet. If your apps are in an App Service Environment, then your apps can access resources in your VNet without any extra steps. With an App Service Environment your apps run on more powerful workers and can scale up to 100 ASP instances. App Service Environments work with all of the networking features including ExpressRoute and Service Endpoints.  
-
-While there is some use case overlap, none of these features can replace any of the others. Knowing what feature to use is tied to your needs. For example:
-
-* If you are a developer and want to run a site in Azure that can access a database on the workstation under your desk, then the easiest thing to use is Hybrid Connections. 
-* If you are a large organization that wants to put a large number of web properties in the public cloud and manage them in your own network, then you want to go with the App Service Environment. 
-* If you have multiple apps that need to access resources in your VNet, then VNet Integration is the way to go. 
-
-When your VNet is already connected to your on-premises network, then using VNet Integration or an App Service Environment is an easy way to consume on-premises resources. If your VNet isn't connected to your on-premises network, then it's a lot more overhead to set up a site to site VPN with your VNet compared with installing the HCM. 
-
-Beyond the functional differences, there are also pricing differences. The App Service Environment feature is a Premium service offering but offers the most network configuration possibilities in addition to other great features. VNet Integration can be used with Standard or Premium ASPs and is perfect for securely consuming resources in your VNet from the multi-tenant App Service. Hybrid Connections currently depends on a BizTalk account, which has pricing levels that start free and then get progressively more expensive based on the amount you need. When it comes to working across many networks though, there is no other feature like Hybrid Connections, which can enable you to access resources in well over 100 separate networks. 
-
 
 
 <!--Image references-->
