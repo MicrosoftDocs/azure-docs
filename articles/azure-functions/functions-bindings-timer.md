@@ -164,7 +164,7 @@ module.exports = function (context, myTimer) {
 
 ### Python example
 
-The following example shows a timer trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence. A [TimerRequest object](../../../python/api/azure-functions/azure.functions.timerrequest?view=azure-python) is passed into the function.
+The following example uses a timer trigger binding whose configuration is described in the *function.json* file. The actual [Python function](functions-reference-python.md) that uses the binding is described in the *__init__.py* file. The object passed into the function is of type [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). The function logic writes to the logs indicating whether the current invocation is due to a missed schedule occurrence. 
 
 Here's the binding data in the *function.json* file:
 
