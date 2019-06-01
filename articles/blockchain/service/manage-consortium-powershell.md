@@ -15,7 +15,7 @@ manager: femila
 
 # Manage consortium members in Azure Blockchain Service by using PowerShell
 
-Use PowerShell to manage blockchain consortium members for your Azure Blockchain Service. Members who have administrator privileges can invite, add, remove, and change roles for all participants in the blockchain consortium. Members who have user privileges can view all participants in the blockchain consortium and change their member display names.
+You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service. Members who have administrator privileges can invite, add, remove, and change roles for all participants in the blockchain consortium. Members who have user privileges can view all participants in the blockchain consortium and change their member display names.
 
 ## Prerequisites
 
@@ -24,9 +24,9 @@ Use PowerShell to manage blockchain consortium members for your Azure Blockchain
 
 ## Open Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-You can also open Cloud Shell in a separate browser tab by going to [shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
+You can also open Cloud Shell in a separate browser tab by going to [shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into Cloud Shell, and select **Enter** to run it.
 
 ## Install the PowerShell module
 
@@ -49,7 +49,7 @@ $InformationPreference = 'Continue'
 
 ## Establish a Web3 connection
 
-To manage consortium members, establish a Web3 connection to your Blockchain Service member endpoint. You can use this script to set global variables to use when calling the consortium management cmdlets.
+To manage consortium members, establish a Web3 connection to your Blockchain Service member endpoint. You can use this script to set global variables for calling the consortium management cmdlets.
 
 ```powershell-interactive
 $Connection = New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
@@ -57,18 +57,18 @@ $MemberAccount = Import-Web3Account -ManagedAccountAddress '<Member account addr
 $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>' -Web3Client $Connection
 ```
 
-Replace *\<Member account password\>* with the member account password you used when you created the member.
+Replace *\<Member account password\>* with the member account password that you used when you created the member.
 
-Find the other values in the Azure portal by following these steps:
+Find the other values in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your default Blockchain Service member **Overview** page.
+1. Go to your default Blockchain Service member **Overview** page.
 
     ![Member overview](./media/manage-consortium-powershell/member-overview.png)
 
     Replace *\<Member account\>* and *\<RootContract address\>* with the values from the portal.
 
-1. For the endpoint address, select **Transaction nodes**, and then select the **default node**. The default node has the same name as the blockchain member.
+1. For the endpoint address, select **Transaction nodes**, and then select the **default transaction node**. The default node has the same name as the blockchain member.
 1. Select **Connection strings**.
 
     ![Connection strings](./media/manage-consortium-powershell/connection-strings.png)
@@ -115,7 +115,7 @@ Import-Web3Account -ManagedAccountAddress '<Member account address>'  -ManagedAc
 
 ### New-Web3Connection
 
-Use this cmdlet to establish a connection to a transaction node's RPC endpoint.
+Use this cmdlet to establish a connection to the RPC endpoint of a transaction node.
 
 `New-Web3Connection [-RemoteRPCEndpoint <String>]`
 
@@ -141,7 +141,7 @@ Use this cmdlet to get member details or list members of the consortium.
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| Name | The name of the Blockchain Service member you want to retrieve details about. When a name is entered, it returns the member's details. When a name is omitted, it returns a list of all consortium members. | No |
+| Name | The name of the Blockchain Service member that you want to retrieve details about. When a name is entered, it returns the member's details. When a name is omitted, it returns a list of all consortium members. | No |
 | Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
 | Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
@@ -185,7 +185,7 @@ $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $
 
 Use this cmdlet to set blockchain member attributes, including the display name and the consortium role.
 
-Consortium administrators can set **DisplayName** and **Role** for all members. The consortium member with the user role is able to change only their own member's display name.
+Consortium administrators can set **DisplayName** and **Role** for all members. The consortium member with the user role can change only their own member's display name.
 
 `Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
  -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
@@ -218,8 +218,8 @@ Use this cmdlet to invite new members to the consortium.
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| SubscriptionId | Azure subscription ID of invited member | Yes |
-| Role | The consortium role. Values can be ADMIN or USER. ADMIN is the consortium administrator role, while USER is the consortium member role. | Yes |
+| SubscriptionId | Azure subscription ID of an invited member | Yes |
+| Role | The consortium role. Values can be ADMIN or USER. ADMIN is the consortium administrator role. USER is the consortium member role. | Yes |
 | Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
 | Web3Account | Web3Account object obtained from Import-Web3Account | Yes |
 | Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
@@ -238,7 +238,7 @@ Use this cmdlet to retrieve or list a consortium member's invitation status.
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| SubscriptionId | The Azure subscription ID of invited member: If the subscription ID is provided, it returns the subscription ID's invitation details. If the subscription ID is omitted, it returns a list of all member invitations. | No |
+| SubscriptionId | The Azure subscription ID of an invited member. If the subscription ID is provided, it returns the subscription ID's invitation details. If the subscription ID is omitted, it returns a list of all member invitations. | No |
 | Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
 | Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
@@ -258,14 +258,14 @@ SubscriptionId                       Role CorrelationId
 
 ### Remove-BlockchainMemberInvitation
 
-Use this cmdlet to revoke a consortium member's invite.
+Use this cmdlet to revoke a consortium member's invitation.
 
 `Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
  -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| SubscriptionId | Azure subscription ID of member to revoke | Yes |
+| SubscriptionId | Azure subscription ID of the member to revoke | Yes |
 | Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
 | Web3Account | Web3Account object obtained from Import-Web3Account | Yes |
 | Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
@@ -285,7 +285,7 @@ Use this cmdlet to set the **Role** for an existing invitation. Only consortium 
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| SubscriptionId | Azure subscription ID of invited member | Yes |
+| SubscriptionId | Azure subscription ID of an invited member | Yes |
 | Role | New consortium role for invitation. Values can be **USER** or **ADMIN**. | Yes |
 | Members |  Members object obtained from Import-ConsortiumManagementContracts | Yes |
 | Web3Account | Web3Account object obtained from Import-Web3Account | Yes |
