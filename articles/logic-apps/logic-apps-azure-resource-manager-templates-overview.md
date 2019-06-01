@@ -30,10 +30,12 @@ For more information about Resource Manager templates, see these topics:
 * [Azure Resource Manager template best practices](../azure-resource-manager/template-best-practices.md)
 * [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates-cloud-consistency.md)
 
-For sample templates, see these examples:
+For sample logic app templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
 * [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
+
+For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](../templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
@@ -75,9 +77,7 @@ For logic app deployment, you primarily work with the template's parameters and 
 A logic app template has multiple parameters sections that exist at different levels and perform different functions. For example, at the top level, you can define [template parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
 
 * Your logic app
-
 * Connections that your logic uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
-
 * Other resources that your logic app needs for deployment
 
   For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top-level parameters section defines the parameter that accepts the resource ID for that integration account.
@@ -145,7 +145,6 @@ Except for parameters that handle values that are sensitive or must be secured, 
 To secure template parameters, see these topics:
 
 * [Security recommendations for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
-
 * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
 Other template sections often reference template parameters so they can use the values that pass through template parameters, for example:
@@ -167,7 +166,6 @@ Here are some best practices for defining parameters:
 * Include the `defaultValue` attribute, which can specify empty values, for all parameters except for values that are sensitive or must be secured. Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
   
   * [Security recommendations for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
-
   * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
 * To differentiate template parameter names from workflow definition parameter names, you can use descriptive template parameter names, for example: `TemplateFabrikamPassword`
@@ -262,7 +260,6 @@ Your template has a resources section, which is an array that contains definitio
 For general information about template resources and their attributes, see these topics:
 
 * [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources)
-
 * [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources).
 
 <a name="logic-app-resource-definition"></a>
@@ -323,7 +320,7 @@ Here are the attributes that are specific to your logic app resource definition:
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-For information about general resource attributes, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources).
+For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](../templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
