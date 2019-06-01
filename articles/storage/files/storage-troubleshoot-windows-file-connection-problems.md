@@ -130,7 +130,7 @@ Error 1816 happens when you reach the upper limit of concurrent open handles tha
 
 Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
+<a id="authorizationfailureportal"></a>
 ## Error “Authorization failure” when browsing to an Azure file share in the portal
 
 When you browse to an Azure file share in the portal, you may receive the following error:
