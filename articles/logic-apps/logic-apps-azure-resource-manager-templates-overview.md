@@ -328,7 +328,7 @@ For information about general resource attributes, see [Resources - Resource Man
 
 In the properties section for your logic app's resource definition, your logic app's workflow definition appears in the `definition` section. This `definition` section is the same section that appears in code view and is fully described in the [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) topic. Your workflow definition has a `parameters` section where you can define new or edit existing parameters for values that your workflow definition uses at runtime. You can then reference these parameters inside the trigger or actions in your workflow. By default, this `parameters` section is empty unless your logic app creates connections to other services and systems through [managed connectors](../connectors/apis-list.md).
 
-To specify the values for workflow definition parameters, use the next-level `parameters` section that's *outside* your workflow definition but still *inside* your logic app's resource definition. In this outer parameters section, you can reference previously defined parameters, which can accept values at deployment from a parameter file.
+To specify the values for workflow definition parameters, use the next-level `parameters` section that's *outside* your workflow definition but still *inside* your logic app's resource definition. In this outer parameters section, you can reference previously defined template parameters, which can accept values at deployment from a parameter file.
 
 This syntax shows where you define parameters at both the template and workflow definition levels along with where you can use those parameter values by referencing the template and workflow definition parameters:
 
@@ -901,13 +901,13 @@ To reference workflow definition parameters, you use [Workflow Definition Langua
 
 `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
 
-You can pass template parameter values to your workflow definition for your logic app to use at runtime. However, avoid mixing template expressions and syntax inside workflow definition expressions, which complicates your code due to the differences in when these expressions are evaluated. Instead, follow these general steps to define and reference the workflow definition parameters to use at runtime, define and reference the template parameters to use at deployment, and define the values to pass in at deployment by using a parameter file. For full details, see the [Workflow definition and parameters](#workflow-definition-parameters) section earlier in this topic.
+You can pass template parameter values to your workflow definition for your logic app to use at runtime. However, avoid mixing template expressions and syntax inside workflow definition expressions, which complicates your code due to the differences in when these expressions are evaluated. Instead, follow these general steps to define and reference the workflow definition parameters for use at runtime, define and reference the template parameters for use at deployment, and define the values to pass in at deployment by using a parameter file. For full details, see the [Workflow definition and parameters](#workflow-definition-parameters) section earlier in this topic.
 
-1. In your workflow definition's parameters section, define the parameters for the values to pass in and use at runtime. You can then reference these values throughout and within your workflow definition.
+1. Create your template and define the template parameters for the values to accept and use at deployment.
 
-1. Create your template and define the template parameters for the values to pass in and use at deployment.
+1. In your workflow definition, define the parameters for the values to accept and use at runtime. You can then reference these values throughout and within your workflow definition.
 
-1. In the parameters section that's *outside* your workflow definition but still *inside* your logic app's resource definition, specify the values for your workflow definition parameters by referencing the corresponding template parameters.
+1. In the parameters section that's *outside* your workflow definition but still *inside* your logic app's resource definition, specify the values for your workflow definition parameters by referencing the corresponding template parameters. That way, you can pass template parameter values into your workflow definition parameters.
 
 1. In the parameter file, define the values for your template to use at deployment.
 
