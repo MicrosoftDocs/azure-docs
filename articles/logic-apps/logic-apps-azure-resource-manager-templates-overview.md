@@ -577,7 +577,7 @@ When your logic app creates and uses connections to other services and system by
 }
 ```
 
-Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameter file. Make sure that connections use the same Azure resource group and location as your logic app. Although your logic app works end-to-end with valid parameters after deployment, you must still authorize OAuth connections to generate a valid access token. For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-temmplates.md#authorize-oauth-connections).
+Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameter file. Make sure that connections use the same Azure resource group and location as your logic app. Although your logic app works end-to-end with valid parameters after deployment, you must still authorize OAuth connections to generate a valid access token. For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
 Here is an example resource definition for an Office 365 Outlook connection and the corresponding template parameters:
 
