@@ -108,7 +108,7 @@ PowerShell Core installs side by side with Windows PowerShell. Set PowerShell Co
 
 1. Press F1 to display the command pallet, then search for `Session`.
 
-1. Choose "PowerShell: Show Session Menu".
+1. Choose **PowerShell: Show Session Menu**.
 
 1. If your **Current session** isn't Choose **PowerShell Core 6**, choose **Switch to: PowerShell Core 6**.
 
