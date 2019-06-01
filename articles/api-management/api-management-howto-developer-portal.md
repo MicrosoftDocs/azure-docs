@@ -50,7 +50,7 @@ Follow the steps below to access the managed version of the portal.
 
 In the video below we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
 
-[!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
+> [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
 ## Next steps
 
