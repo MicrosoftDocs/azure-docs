@@ -90,7 +90,7 @@ PIM supports the following scenarios:
 - View the status of your request to activate
 - Complete your task in Azure AD if activation was approved
 
-## License requirements for using PIM
+## License requirements
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
