@@ -18,7 +18,8 @@ This article describes the main concepts in Azure Event Grid.
 
 An event is the smallest amount of information that fully describes something that happened in the system. Every event has common information like: source of the event, time the event took place, and unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. Or, an Event Hubs event has the URL of the Capture file. 
 
-Each event is limited to 64 KB of data.
+An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA). The support for an event of size up to 1 MB is currently in preview. Events over 64 KB are charged in 64-KB increments. 
+
 
 For the properties that are sent in an event, see [Azure Event Grid event schema](event-schema.md).
 
@@ -55,9 +56,6 @@ For examples of creating subscriptions, see:
 For information about getting your current event grid subscriptions, see [Query Event Grid subscriptions](query-event-subscriptions.md).
 
 ## Event subscription expiration
-
-The [Event Grid extension](/cli/azure/azure-cli-extensions-list) for Azure CLI allows you to set an expiration date when creating an event subscription. If you are using the REST API, use `api-version=2018-09-15-preview`
-
 The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time and you don't want to worry about cleaning up those subscriptions. For example, when creating an event subscription to test a scenario, you might want to set an expiration. 
 
 For an example of setting an expiration, see [Subscribe with advanced filters](how-to-filter-events.md#subscribe-with-advanced-filters).
@@ -78,7 +76,10 @@ If Event Grid can't confirm that an event has been received by the subscriber's 
 
 ## Batching
 
-When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not be greater than 64 KB.
+When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not be greater than 64 KB (General Availability) or 1 MB (preview).
+
+> [!NOTE]
+> An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA). The support for an event of size up to 1 MB is currently in preview. Events over 64 KB are charged in 64 KB increments. 
 
 ## Next steps
 

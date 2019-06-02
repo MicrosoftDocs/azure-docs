@@ -10,29 +10,28 @@ keywords: azure functions, functions, serverless architecture
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/22/2019
+ms.date: 05/28/2019
 ms.author: jehollan, glenga, cshoe
 ---
 # Use dependency injection in .NET Azure Functions
 
-Azure Functions supports the dependency injection (DI) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
+Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
 
-Azure Functions builds on top of the ASP.NET Core Dependency Injection features.  You should understand services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using them in functions.
+Azure Functions builds on top of the ASP.NET Core Dependency Injection features. Being aware of services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app is recommended.
 
 ## Prerequisites
 
-Before you can use dependency injection, you must install the [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) NuGet package. You can install this package by running the following command from the package console:
+Before you can use dependency injection, you must install the following NuGet packages:
 
-```powershell
-Install-Package Microsoft.Azure.Functions.Extensions
-```
-You must also be using version 1.0.28 of the [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/), or a later version.
+- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-## Registering services
+- [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
 
-To register services, you can create a configure method and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an `IFunctionsHostBuilder` and passes it directly into your configured method.
+## Register services
 
-To register your configure method, you must add an assembly attribute that specifies the type for your configure method using the `FunctionsStartup` attribute.
+To register services, you can create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
+
+To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
@@ -53,39 +52,76 @@ namespace MyNamespace
 }
 ```
 
+## Use injected dependencies
+
+ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
+
+```csharp
+namespace MyNamespace
+{
+    public class HttpTrigger
+    {
+        private readonly IMyService _service;
+        private readonly HttpClient _client;
+
+        public HttpTrigger(IMyService service, HttpClient client)
+        {
+            _service = service;
+            _client = client;
+        }
+
+        [FunctionName("GetPosts")]
+        public async Task<IActionResult> Get(
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "posts")] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            var res = await _client.GetAsync("https://microsoft.com");
+            await _service.AddResponse(res);
+
+            return new OkResult();
+        }
+    }
+}
+```
+
+The use of constructor injection means that you should not use static functions if you want to take advantage of dependency injection.
+
 ## Service lifetimes
 
-Azure Function apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes), transient, scoped, and singleton.
+Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): transient, scoped, and singleton.
 
-In a function app, a scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution.  Later requests for that service during the execution reuse that instance.  A singleton service lifetime matches the host lifetime and is reused across function executions on that instance.
+In a functions app, a scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance. A singleton service lifetime matches the host lifetime and is reused across function executions on that instance.
 
-Singleton lifetime services are recommended for connections and clients, for example a `SqlConnection`, `CloudBlobClient`, or `HttpClient`.
+Singleton lifetime services are recommended for connections and clients, for example `SqlConnection`, `CloudBlobClient`, or `HttpClient` instances.
 
-View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample).
+View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample) on GitHub.
 
 ## Logging services
 
-If you need your own logging provider, the recommended way is to register an `ILoggerProvider`.  For Application Insights, Functions adds Application Insights automatically for you.  
+If you need your own logging provider, the recommended way is to register an `ILoggerProvider` instance. Application Insights is added by Azure Functions automatically.
 
 > [!WARNING]
-> Do not add `AddApplicationInsightsTelemetry()` to the services collection as it will register services that will conflict with what is provided by the environment. 
- 
+> Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
+
 ## Function app provided services
 
-The function host will register many services itself.  Below are services that are safe to take a dependency on.  Other host services are not supported to register or depend on.  If there are other services you want to take a dependency on, please [create an issue and discussion on GitHub](https://github.com/azure/azure-functions-host).
+The function host registers many services. The following services are safe to take as a dependency in your application:
 
 |Service Type|Lifetime|Description|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Runtime configuration|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsible for providing the ID of the host instance|
 
-### Overriding Host Services
+If there are other services you want to take a dependency on, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
 
-Overriding services provided by the host is currently not supported.  If there are services you want to overriding, please [create an issue and discussion on GitHub](https://github.com/azure/azure-functions-host).
+### Overriding host services
+
+Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
 
 ## Next steps
 
 For more information, see the following resources:
 
-* [How to monitor your function app](functions-monitoring.md)
-* [Best practices for functions](functions-best-practices.md)
+- [How to monitor your function app](functions-monitoring.md)
+- [Best practices for functions](functions-best-practices.md)

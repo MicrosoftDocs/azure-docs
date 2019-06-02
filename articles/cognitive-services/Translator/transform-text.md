@@ -3,13 +3,13 @@ title: Transform text - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Transform text using the Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
+ms.author: v-pawal
 ---
 
 # How to use the TransformText method
