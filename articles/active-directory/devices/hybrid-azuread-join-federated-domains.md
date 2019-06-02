@@ -60,7 +60,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 - Backs up your existing Azure AD relying party trust
 - Updates the claim rules in your Azure AD trust
 
-The configuration steps in this article are based on this wizard. If you have an older version of Azure AD Connect installed, you need upgrade it to 1.1.819 or higher. If installing the latest version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md).
+The configuration steps in this article are based on this wizard. If you have an older version of Azure AD Connect installed, you need upgrade it to 1.1.819 or higher. If installing the latest version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual).
 
 Hybrid Azure AD join requires the devices to have access to the following Microsoft resources from inside your organization's network:  
 
