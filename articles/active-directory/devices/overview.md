@@ -155,6 +155,6 @@ As a rule of a thumb, you should use:
 - To get an overview of how to manage device identities in the Azure portal, see [managing devices identities using the Azure portal](device-management-azure-portal.md)
 - To setup:
    - Azure Active Directory registered Windows 10 devices, see [how to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md)
-   - Azure Active Directory joined devices, see [how to plan your Azure Active Directory join implementation](azuread-join-plan.md)
+   - Azure Active Directory joined devices, see [how to plan your Azure Active Directory join implementation](azureadjoin-plan.md)
    - Hybrid Azure AD joined devices, see [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).   
 - To learn more about device-based conditional access, see [configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).
