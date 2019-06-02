@@ -46,17 +46,25 @@ The list will show all of the current restrictions that are on your app. If you 
 
 You can click on **[+] Add** to add a new access restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule.
 
+### Adding IP address rules
+
 ![add an IP access restriction rule](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 When creating a rule, you must select allow/deny and also the type of rule. You are also required to provide the priority value and what you are restricting access to.  You can optionally add a name, and description to the rule.  
 
 To set an IP address based rule, select a type of IPv4 or IPv6. IP Address notation must be specified in CIDR notation for both IPv4 and IPv6 addresses. To specify an exact address, you can use something like 1.2.3.4/32 where the first four octets represent your IP address and /32 is the mask. The IPv4 CIDR notation for all addresses is 0.0.0.0/0. To learn more about CIDR notation, you can read [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
+### Service endpoints
+
 ![add a VNet access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 To restrict access to selected subnets, select a type of Virtual Network. Below that you will be able to pick the subscription, VNet, and subnet you wish to allow or deny access with. If service endpoints are not already enabled with Microsoft.Web for the subnet that you selected, it will automatically be enabled for you unless you check the box asking not to do that. The situation where you would want to enable it on the app but not the subnet is largely related to if you have the permissions to enable service endpoints on the subnet or not. If you need to get somebody else to enable service endpoints on the subnet, you can check the box and have your app configured for service endpoints in anticipation of it being enabled later on the subnet. 
 
 Service endpoints cannot be used to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to your app with IP access rules. 
+
+With service endpoints you can configure your app with Application Gateways or other WAF devices. You can also configure multi-tier applicaitons with secure backends. For more details on some of the possibilites read [Networking features and App Service](networking-features.md).
+
+### Managing access restriction rules
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
 
@@ -70,7 +78,7 @@ To delete a rule, click the **...** on your rule and then click **remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-## Blocking a single IP Address ##
+### Blocking a single IP Address ##
 
 When adding your first IP Restriction rule, the service will add an explicit **deny all** rule with a priority of 2147483647. In practice, the explicit **deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
 
