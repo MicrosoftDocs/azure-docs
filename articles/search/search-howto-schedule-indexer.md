@@ -14,7 +14,7 @@ ms.custom: seodec2018
 ---
 
 # How to schedule indexers for Azure Search
-An indexer normally runs once, immediately after it is created. It can be run again on demand from the Portal or the REST API. You can also can configure an indexer to run periodically on a schedule.
+An indexer normally runs once immediately after it is created. It can be run again on demand from the Portal, the REST AP, or the .NET SDK. You can also can configure an indexer to run periodically on a schedule.
 
 Some situations where indexer scheduling is useful:
 
