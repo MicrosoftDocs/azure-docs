@@ -69,16 +69,14 @@ The project can include both VMware VMs and Hyper-V VMs, up to the assessment li
 
 
 
+| **Support**                | **Details**               
+| :-------------------       | -------------------: |
+| **Azure Migrate project**  |  An appliance can be associated with a single project.
+| **Hyper-V limitations**    |  The appliance is set up as a Hyper-V VM.<br/> The appliance VM provided is Hyper-V VM version 5.0.<br/> The VM host must be running Windows Server 2012 R2 or later.<br/> It needs sufficient space to allocate 16 GB RAM, 4 virtual processors, and 1 external switch for the appliance VM.<br/> Appliance requires a static or dynamic IP address, and internet access.
+| **Hyper-V appliance**      |  The appliance is set up as a Hyper-V VM.<br/> The appliance VM provided is Hyper-V VM version 5.0.<br/> The VM host must be running Windows Server 2012 R2 or later.<br/> It needs sufficient space to allocate 16 GB RAM, 4 virtual processors, and one external switch for the appliance VM.<br/> Appliance requires a static or dynamic IP address, and internet access.<br/> An appliance can discover both VMware VMs and Hyper-V VMs in the same project, up to the supported limits. If VMs in the project are greater than appliance limits, then deploy multiple appliances. |
+| **Migration support**      | To start replicating machines, The Migration Gateway service on the appliance must be 1.18.7141.12919 or later. Sign into the appliance web app to check the version. |
 
-## Azure Migrate appliance support
 
-**Support** | **Details**
---- | ---
-**Azure Migrate project** | An appliance can be associated with a single project.
-**Hyper-V limitations** | An appliance can discover up to 5000 VMs on a Hyper-V host.<br/> An appliance can connect to up to 300 Hyper-V hosts.
-**Hyper-V appliance** | The appliance is set up as a Hyper-V VM.<br/> The appliance VM provided is Hyper-V VM version 5.0.<br/> The VM host must be running Windows Server 2012 R2 or later.<br/> It needs sufficient space to allocate 16 GB RAM, 4 virtual processors, and 1 external switch for the appliance VM.<br/> Appliance requires a static or dynamic IP address, and internet access.
-An appliance can discover both VMware VMs and Hyper-V VMs in the same project, up to the supported limits. If VMs in the project are greater than appliance limits, then deploy multiple appliances.
-**Migration support** | To start replicating machines, The Migration Gateway service on the appliance must be 1.18.7141.12919 or later. Sign into the appliance web app to check the version.
 
 ## Hyper-V host requirements
 
