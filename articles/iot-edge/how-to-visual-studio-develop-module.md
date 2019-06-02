@@ -116,7 +116,7 @@ When you're ready to customize the module template with your own code, use the [
 
    ![Copy Edge Device Connection String](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. Go to **Tools** > **Azure IoT Edge Tools** > **Setup IoT Edge Simulator**, pasten the connection string and click **OK**.
+1. Go to **Tools** > **Azure IoT Edge Tools** > **Setup IoT Edge Simulator**, paste the connection string and click **OK**.
 
    ![Open Set Edge Connection String Window](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 
