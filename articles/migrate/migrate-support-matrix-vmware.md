@@ -112,7 +112,7 @@ VirtualMachine.SnapshotManagement.* | Allow creation and management of VM snapsh
 Virtual Machine.Interaction.Power Off | Allow the VM to be powered off during migration to Azure.
 
 
-### Migration: agent-based**
+### Migration: agent-based
 
 **Permissions** | **Details**
 --- | --- 
