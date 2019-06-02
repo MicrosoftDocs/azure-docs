@@ -133,7 +133,8 @@ Virtual Machine.Interaction.ConfigureCDMedia | Allow configuration of a virtual 
 Virtual Machine.Interaction.ConfigureFloppyMedia | Allow configuration of a virtual floppy device.
 Virtual Machine.Interaction.PowerOff | Allows for the VM to be powered off during migration to Azure.
 Virtual Machine.Interaction.PowerOn | Allow powering on a powered-off VM, and resuming a suspended VM.
-Virtual Machine.Interaction.VMwareToolsInstall | Allow mounting and unmounting the VMware Tools CD installer as a CD-ROM for the guest operating system. VirtualMachine.Inventory.CreateNew | Allow creation of a VM and allocation of required resources.
+Virtual Machine.Interaction.VMwareToolsInstall | Allow mounting and unmounting the VMware Tools CD installer as a CD-ROM for the guest operating system.
+VirtualMachine.Inventory.CreateNew | Allow creation of a VM and allocation of required resources.
 VirtualMachine.Inventory.Register | Allow adding an existing VM to a vCenter Server or host inventory.
 VirtualMachine.Inventory.Unregister | Allow unregistering a VMe from a vCenter Server or host inventory.
 VirtualMachine.Provisioning.AllowVirtualMachineFilesUpload | Allow write operations on files associated with a VM, including vmx, disks, logs, and nvram.
