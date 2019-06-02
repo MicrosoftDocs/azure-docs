@@ -177,6 +177,4 @@ If you are experiencing issues with completing hybrid Azure AD join for domain j
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
+- For more information about managing device identities in the Azure AD portal, see [managing device identities using the Azure portal](device-management-azure-portal.md).
