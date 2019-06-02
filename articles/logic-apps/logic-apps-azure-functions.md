@@ -1,17 +1,17 @@
 ---
-title: Add and run code in Azure Logic Apps with Azure Functions
-description: Add and run Azure functions from inside logic apps
+title: Add and call Azure functions from Azure Logic Apps
+description: Add and run Azure functions from logic apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 06/04/2019
 ms.reviewer: klam, LADocs
 ---
 
-# Add and run code by using Azure Functions in Azure Logic Apps
+# Call Azure functions from Azure Logic Apps
 
 When you want to run code that performs a specific job in your logic apps, you can create your own function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. You can also [call logic apps from inside Azure functions](#call-logic-app). Azure Functions provides serverless computing in the cloud and is useful for performing tasks such as these examples:
 
@@ -192,9 +192,9 @@ To call existing Azure functions from your logic apps, you can add Azure functio
 
 <a name="call-logic-app"></a>
 
-## Call logic apps from functions
+## Call logic apps from Azure functions
 
-When you want to trigger a logic app from inside an Azure function, the logic app must start with a trigger that provides a callable endpoint. For example, you can start the logic app with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL, and include the payload you want that logic app to process. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). 
+When you want to trigger a logic app from inside an Azure function, the logic app must start with a trigger that provides a callable endpoint. For example, you can start the logic app with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL, and include the payload you want that logic app to process. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md).
 
 ## Next steps
 
