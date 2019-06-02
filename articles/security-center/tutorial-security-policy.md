@@ -70,13 +70,6 @@ To view your security policies in Security Center:
    > - The Security Center dashboard may show a higher number of subscriptions under **Subscription coverage** than the number of subscriptions shown under **Policy management**. Subscription coverage shows the number of Standard, Free, and “not covered” subscriptions. The “not covered” subscriptions do not have Security Center enabled and are not displayed under **Policy management**.
    >
 
-   The columns in the table display:
-
-   - **Policy initiative assignment** – Security Center [built-in policies](security-center-policy-definitions.md) and initiatives that are assigned to a subscription or management group.
-   - **Coverage** – Identifies the pricing tier, Free or Standard, that the management group, subscription, or workspace is running on.  See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
-   - **Settings** – Subscriptions have the link **Edit settings**. Selecting **Edit settings** lets you update your [Security Center settings](security-center-policies-overview.md) for each subscription or management group.
-   - **Secure score** - The [Secure score](security-center-secure-score.md) provides a measure of how secure your workload security posture and helps you prioritize recommendations for improvement.
-
 2. Select the subscription or management group whose policies you want to view.
 
    - The **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.

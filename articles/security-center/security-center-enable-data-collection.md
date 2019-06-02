@@ -43,12 +43,12 @@ When automatic provisioning is On, Security Center provisions the Microsoft Moni
 
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
-1. Under the Security Center main menu, select **Security policy**.
-2. Click **Edit settings** in the Settings column of the desired subscription in the list.
+1. Under the Security Center main menu, select **Pricing & settings**.
+2. Click on the applicable subscription
 
    ![Select subscription][7]
 
-3. Under **Security policy**, select **Data Collection**.
+3. Select **Data Collection**.
 4. Under **Auto Provisioning**, select **On** to enable automatic provisioning.
 5. Select **Save**.
 
@@ -131,12 +131,12 @@ To select an existing Log Analytics workspace:
 
 5. Select the pricing tier for the desired workspace you intend to set the Microsoft Monitoring agent. <br>To use an existing workspace, set the pricing tier for the workspace. This will install a security Center solution on the workspace if one is not already present.
 
-    a.  In the Security Center main menu, select **Security policy**.
+    a.  In the Security Center main menu, select **Pricing & settings**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent by clicking **Edit settings** in the Settings column of the desired subscription in the list.
-        ![Select workspace][8]
+    b.	Select the desired Workspace in which you intend to connect the agent.
+        ![Select workspace][7]
     c. Set the pricing tier.
-        ![Select pricing tier][9] 
+        ![Select pricing tier][9]
    
    >[!NOTE]
    >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
@@ -192,7 +192,7 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 >
 
 To choose your filtering policy:
-1. On the **Security policy Data Collection** blade, select your filtering policy under **Security Events**.
+1. On the **Data Collection** page, select your filtering policy under **Security Events**.
 2. Select **Save**.
 
    ![Choose filtering policy][5]

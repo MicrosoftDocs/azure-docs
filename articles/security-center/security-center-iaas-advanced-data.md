@@ -92,7 +92,7 @@ You can view and manage your current security alerts.
 
 You can set a list of recipients to receive an email notification when ASC alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
 
-1. Go to **Security Center** > **Security policy** and in the row of the relevant subscription click **Edit settings>**.
+1. Go to **Security Center** > **Pricing & settings** and click on the relevant subscription
 
     ![Subscription Settings](./media/security-center-advanced-iaas-data/subscription-settings.png)
 

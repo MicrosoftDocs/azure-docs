@@ -35,9 +35,9 @@ You can upgrade an entire Azure subscription to the Standard tier, which is inhe
 
 To get the Standard tier:
 
-1. Select **Security Policy** on the **Security Center** main menu.
+1. Select **Pricing & settings** on the **Security Center** main menu.
 2. Select the subscription that you want to upgrade to Standard.
-3. On the **Security policy** blade, select **Pricing tier**.
+3. select **Pricing tier**.
 4. Select **Standard** to upgrade.
 5. Click **Save**.
 
