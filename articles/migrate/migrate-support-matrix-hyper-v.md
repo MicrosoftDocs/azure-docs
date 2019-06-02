@@ -9,7 +9,7 @@ ms.date: 06/02/2019
 ms.author: raynew
 ---
 
-# Azure Migrate support matrix
+# Support matrix for Hyper-V assessment and migration
 
 You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This articles summarizes general support settings and limitations for assessing and migrating on-premises Hyper-V VMs.
 
@@ -71,6 +71,7 @@ The project can include both VMware VMs and Hyper-V VMs, up to the assessment li
 
 
 ## Azure Migrate appliance support
+
 **Support** | **Details**
 --- | ---
 **Azure Migrate project** | An appliance can be associated with a single project.
@@ -110,7 +111,6 @@ If /boot is part of the root (/) partition, then the ‘/’ partition should be
 
 The Azure Migrate appliance collects machine metadata and performance data, as summarized in the table.
 
-The Azure Migrate appliance collects machine metadata and performance data, as summarized in the table.
 
 **Data** | **Details**
 --- | ---
@@ -134,16 +134,22 @@ The Azure Migrate appliance needs internet connectivity to the internet.
 - When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
 - If you're using a URL-based firewall.proxy, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
 
+## Server assessment
+
 **URL** | **Details**  
 --- | --- 
-**Server assessment** | 
 *.portal.azure.com | Navigation to the Azure portal
 *.windows.net | Sign in to your Azure subscription
 *.microsoftonline.com | Creation of Azure Active Directory applications for appliance to service communications.
 management.azure.com | Creation of Azure Active Directory applications for appliance to service communications.
 dc.services.visualstudio.com | Logging and monitoring *.vault.azure.net | Manage secrets in Azure Key Vault
 *.vault.azure.net | Persist secrets when communicating between agent and service.
-**Server migration** | 
+
+
+## Server migration
+
+**URL** | **Details**  
+--- | ---
 login.microsoftonline.com | Access control and identity management using Active Directory.
 *.backup.windowsazure.com | Replication data transfer and coordination.
 *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
@@ -155,12 +161,17 @@ time.windows.com | Verifies time sychronization between system and global time.
 
 ## Required ports
 
+### Assessment
+
 **Device** | **Connection**
 --- | --- 
-**Assessment** | 
 **Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: https://<appliance-ip-or-name>:44368<br/> Outbound connections on port 443 to send discovery and performance metadata to Azure Migrate.
 **Hyper-V host/cluster** | Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS) to pull configuration and performance metadata of the Hyper-V VMs using a Common Information Model (CIM) session.
-**Migration** | 
+
+### Migration
+
+**Device** | **Connection**
+--- | --- 
 Hyper-V hosts/VMs | Outbound connections on HTTPS port 443 to send VM replication data to Azure Migrate.
 
 ## Next steps
