@@ -80,7 +80,7 @@ The project can include both VMware VMs and Hyper-V VMs, up to the assessment li
 An appliance can discover both VMware VMs and Hyper-V VMs in the same project, up to the supported limits. If VMs in the project are greater than appliance limits, then deploy multiple appliances.
 **Migration support** | To start replicating machines, The Migration Gateway service on the appliance must be 1.18.7141.12919 or later. Sign into the appliance web app to check the version.
 
-# Hyper-V host requirements
+## Hyper-V host requirements
 
 **Support** | **Details**
 --- | ---
