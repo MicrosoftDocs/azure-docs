@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 Access Panel is a web-based portal. It enables users who have Azure Active Directory (Azure AD) work or school accounts to access cloud-based apps that they have permissions for. Users who have Azure AD editions can also use self-service group and app-management capabilities through Access Panel. Access Panel is separate from the Azure portal. Users don't need an Azure subscription to use Access Panel.
 
-To use password-based single sign-on (SSO) in Access Panel, the Access Panel extension must be installed in the user’s browser. The extension downloads automatically when the user selects an app that's configured for password-based SSO.
+To use password-based single sign-on (SSO) in Access Panel, the Access Panel extension must be installed in your browser. The extension downloads automatically when you select an app that's configured for password-based SSO.
 
 ## Browser requirements for Access Panel
 
@@ -88,7 +88,7 @@ To configure an app from the Azure AD gallery, you need to do these things:
 -   [Configure the app for password single sign-on](#configure-the-app-for-password-sso)
 -   [Assign users to the app](#assign-users-to-the-app)
 
-### Add an app from the Azure AD gallery
+### Add the app from the Azure AD gallery
 
 Follow these steps:
 
@@ -106,7 +106,7 @@ Follow these steps:
 
 7. Select the app that you want to configure for SSO.
 
-8. Before adding the application, you can change its name in the **Name** textbox.
+8. *Optional:* Before you add the app, you can change its name in the **Name** box.
 
 9. Click **Add** to add the app.
 
@@ -118,7 +118,7 @@ To configure single sign-on for an app, follow these steps:
 
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global administrator or co-admin.
 
-2. Select **All services** at the top of the navigation pain on the left side to open the Azure AD extension.
+2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
 
 3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
 
@@ -129,22 +129,22 @@ To configure single sign-on for an app, follow these steps:
    > [!NOTE]
    > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
 
-6. Select the app you want to configure for single sign-on.
+6. Select the app that you want to configure for SSO.
 
-7. After the app loads, select **Single sign-on** from the menu on the left side of the app.
+7. After the app loads, select **Single sign-on** in the pane on the left side of the app.
 
 8. Select **Password-based Sign-on** mode.
 
 9. Assign users to the app.
 
-10. You can also provide credentials on behalf of users. To do this, follow these steps:
+10. You can also provide credentials for your users. (Otherwise, the users will be prompted to enter credentials at startup). To do this, follow these steps:
     1. Select the rows of the users.
     2. Select **Update Credentials**.
-    3. Enter the user names and passwords for the users. (Otherwise, the users will be prompted to enter credentials at startup).
+    3. Enter the user names and passwords for the users.
 
 ### Assign users to the app
 
-To assign one or more users to an app directly, follow these steps:
+To assign users to an app directly, follow these steps:
 
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global admin.
 
@@ -181,14 +181,14 @@ To assign one or more users to an app directly, follow these steps:
 
     After a brief delay, the users will be able to access those apps from Access Panel.
 
-## If these troubleshoot steps don't resolve the issue 
+## If you can't set up SSO and assign users 
 Open a support ticket. Include as much of the following information as possible:
 
 -   Correlation error ID
 -   UPN (user email address)
 -   TenantID
 -   Browser type
--   Time zone and time/timeframe when error occurs
+-   Time zone and time/time frame when the error occurred
 -   Fiddler traces
 
 ## Next steps
