@@ -53,10 +53,11 @@ Use the limits summarized in this table for planning.
 
 Prepare Azure and Hyper-V for server assessment. 
 
-1. Set up permissions for your Azure account to create Azure Active Directory (Azure AD) apps and verify on-premises Hyper-V settings. 
-2. Set up an account on Hyper-V hosts or clusters. Azure Migrate uses this account for VM discovery. 
-3. Enable Integration Services on each VM you want to discover.
-4. Verify internet access so that the appliance VM can reach Azure URLs.
+1. Verify [Hyper-V support requirements and limitations](migrate-support-matrix-hyper-v.md).
+2. Set up permissions for your Azure account to create Azure Active Directory (Azure AD) apps and verify on-premises Hyper-V settings. 
+3. Set up an account on Hyper-V hosts or clusters. Azure Migrate uses this account for VM discovery. 
+4. Enable Integration Services on each VM you want to discover.
+5. Verify internet access so that the appliance VM can reach Azure URLs.
 
 Follow the instructions in [this tutorial](tutorial-prepare-hyper-v.md) to configure these settings, and then come back to this article.
 

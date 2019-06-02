@@ -31,13 +31,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- Follow the [first tutorial](tutorial-prepare-hyper-v.md) in the series to prepare VMware VMs for assessment.
+- Make sure that you [complete the first tutorial](tutorial-prepare-hyper-v.md) in the series to prepare VMware VMs for assessment. If you don't complete the first tutorial, the instructions in this tutorial won't work.
 - After following the first tutorial here's what you should have set up before you continue with the steps in the article:
     - [Azure permissions](tutorial-prepare-vmware.md#set-up-azure-permissions) for Azure Migrate should be configured. 
-    - [VMware settings](tutorial-prepare-vmware.md#verify-vmware-settings) should be verified.
-- You should have an [account set up](tutorial-prepare-vmware.md#set-up-a-vcenter-server-account) for VM discovery.
-- You should have [permissions](tutorial-prepare-vmware.md#assign-permissions-to-create-a-vm) to create a VM with a OVA file on vCenter Server.
-- The appliance should to able to [access Azure URLs](tutorial-prepare-vmware.md#verify-url-access).
+    - [VMware settings](tutorial-prepare-vmware.md#verify-vmware-settings) should be verified, and you should have permissions to create a VM with an OVA template.
+- You should have an [account set up](tutorial-prepare-vmware.md#set-up-an-account-for-discovery) for VM discovery.
+- Required ports should be available, and the appliance should to able to [access Azure URLs](tutorial-prepare-vmware.md#verify-port-and-url-access).
 
 
 ## Set up an Azure Migrate project
@@ -53,7 +52,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Discover and assess servers](./media/tutorial-assess-vmware/assess-migrate.png)
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
-2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-key-vault-permissions).
+2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-role-assignment-permissions).
 3. In **Project Details**, specify the project name, and geography in which you want to create the project. You can create an Azure Migrate project in the regions summarized in the table.
 
     - The region specified for the project is only used to store the metadata gathered from on-premises VMs.
@@ -134,7 +133,7 @@ will be hosted.
 
 ### Verify internet access
 
-Make sure that the appliance has internet access and can reach the [Azure URLs](tutorial-prepare-vmware.md#verify-url-access).
+Make sure that the appliance has internet access and can reach the [Azure URLs](tutorial-prepare-vmware.md#verify-port-and-url-access).
 
 
 ### Configure the appliance
@@ -170,7 +169,7 @@ Now connect to the vCenter Server and start discovery.
 
 1. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-    - In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions](tutorial-prepare-vmware.md#set-up-a-vcenter-server-account).
+    - In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions](tutorial-prepare-vmware.md#set-up-an-account-for-discovery).
     - In **Collection scope**, select a scope for VM discovery. The collector discovers VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster.
 2. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 3. After the connection is established, click **Save** > **Start discovery**.

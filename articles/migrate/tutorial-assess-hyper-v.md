@@ -14,15 +14,15 @@ ms.custom: mvc
 
 As you move on-premises resources to the cloud, [Azure Migrate](migrate-overview.md) helps you to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises Hyper-V VMs before migrating them to Azure.
 
-This tutorial is the second in a series that shows you how to assess and migrate Hyper-V VMs to Azure. ou should complete the [first tutorial](tutorial-prepare-hyper-v.md) before you begin this one.
+This tutorial is the second in a series that shows you how to assess and migrate Hyper-V VMs to Azure. You should complete the [first tutorial](tutorial-prepare-hyper-v.md) before you begin this one.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up an Azure Migrate project.
-> * Set up an Azure Migrate appliance that runs on-premises to assess VMs.
-> * Start continuous discovery of on-premises VMs. The appliance sends metadata and performance data for discovered VMs to Azure.
-> * Group discovered VMs, and assess the VM group.
+> * Set up and register an Azure Migrate appliance.
+> * Start continuous discovery of on-premises VMs. 
+> * Group discovered VMs, and assess the group.
 > * Review the assessment.
 
 > [!NOTE]
@@ -33,13 +33,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- Follow the [first tutorial](tutorial-prepare-hyper-v.md) in the series to prepare Hyper-V VMs for assess.
+- Make sure that you [complete the first tutorial](tutorial-prepare-hyper-v.md) in the series to prepare Hyper-V VMs for assessment. If you don't complete the first tutorial, the instructions in this tutorial won't work.
 - After following the first tutorial here's what you should have set up before you continue with the steps in the article:
+    - Hyper-V [support requirements](migrate-support-matrix-hyper-v.md) should be reviewed.
     - [Azure permissions](tutorial-prepare-hyper-v.md#set-up-azure-permissions) for Azure Migrate should be configured. 
-    - Hyper-V host settings for [Azure Migrate](tutorial-prepare-hyper-v.md#verify-hyper-v-host-settings) and for the [Azure Migrate appliance](tutorial-prepare-hyper-v.md#verify-settings-for-the-azure-migrate-appliance) should be verified.
+    - Hyper-V host settings for [Azure Migrate](tutorial-prepare-hyper-v.md#verify-hyper-v-host-settings) and for the [Azure Migrate appliance](tutorial-prepare-hyper-v.md#verify-settings-for-the-azure-migrate-appliance) should be checked.
 - You should have an [account set up](tutorial-prepare-hyper-v.md#set-up-an-account-for-vm-discovery) for VM discovery.
 - Integration Services should be [enabled on VMs](tutorial-prepare-hyper-v.md#enable-integration-services-on-vms) you want to discover.
-- The appliance should to able to [access Azure URLs](tutorial-prepare-hyper-v.md#verify-url-access).
+- Required ports should be available, and the appliance should be able to [access Azure URLs](tutorial-prepare-hyper-v.md#verify-port-and-url-access).
 
 ## Set up an Azure Migrate project
 
@@ -54,7 +55,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Discover and assess servers](./media/tutorial-assess-hyper-v/assess-migrate.png)
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
-2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-hyper-v.md#assign-permissions-for-assessment-and-migration).
+2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-hyper-v.md#assign-role-assignment-permissions).
 3. In **Project Details**, specify the project name, and geography in which you want to create the project. You can create an Azure Migrate project in the regions summarized in the table.
 
     - The region specified for the project is only used to store the metadata gathered from on-premises VMs.
@@ -109,7 +110,7 @@ Check that the zipped file is secure, before you deploy it.
 3. The generated hash should match these settings.
 
 
-  For appliancce version 1.19.05.10
+  For appliance version 1.19.05.10
 
   **Algorithm** | **Hash value**
   --- | ---
@@ -139,7 +140,7 @@ Import the downloaded file to the Hyper-V host, and create a VM from it.
 
 ### Verify appliance access to Azure
 
-Ensure that the appliance VM has internet connectivity to [Azure URLs](tutorial-prepare-hyper-v.md#verify-url-access).
+Ensure that the appliance VM has internet connectivity to [Azure URLs](tutorial-prepare-hyper-v.md#verify-port-and-url-access).
 
 ## Configure and the appliance
 
@@ -170,10 +171,8 @@ Set up the appliance for the first time.
 
 ## Delegate credentials for SMB VHDs
 
-If you're running VHDs on SMBs, in order to discover as needed, enable delegation of credentials from the appliance to the
-Hyper-V hosts you want to discover.
+If you're running VHDs on SMBs, you need to enable delegation of credentials from the appliance to the Hyper-V hosts you want to discover. If you didn't [do this in the previous tutorial](tutorial-prepare-hyper-v.md#enable-credssp-authentication), you can do this now from the appliance, as follows:
 
-- If you run VHDs on SMB in your on-premises site, enable delegation of credentials from the appliance VM to the Hyper-V hosts/cluster running the VMs that you want to discover. This enables Azure Migrate to capture required information from the discovered machines.
 
 1. On the appliance VM, run this command. We're using HyperVHost1/HyperVHost2 as example host names.
 
@@ -181,23 +180,14 @@ Hyper-V hosts you want to discover.
     Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
     ```
 
-2. On the appliance, open the Local Group Policy Editor.
-3. Navigate to **Computer Configuration** > **Administrative Templates** > **System** > **Credentials Delegation**.
-4. Double-click **Allow Delegating Fresh Credentials**.
-5. Select **Enabled**.
-6. In **Options**, click **Show**.
-7. Add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
-8. Double-click **Allow delegating fresh credentials with NTLM-only server authentication**.
-9. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
-10. On every Hyper-V host running VMs you want to discover, run the following command.
+2. Alternatively, you can do this in the Local Group Policy Editor:
+    - Navigate to **Computer Configuration** > **Administrative Templates** > **System** > **Credentials Delegation**.
+    - Double-click **Allow Delegating Fresh Credentials** > **Enabled**. In **Options**, click **Show**.
+    - Add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+    - Double-click **Allow delegating fresh credentials with NTLM-only server authentication**.
+    - Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
 
-    ```
-    Enable-WSManCredSSP -Role Server -Force
-    ```
-
-    - You can run the command remotely on all Hyper-V hosts.
-    - If you add new standalone Hyper-V hosts, remember to configure these settings.
-    - If you enable delegation on a cluster, Azure Migrate automatically starts track new hosts added to the cluster.
+If you enable delegation on a cluster, Azure Migrate automatically tracks added nodes. Remember to enable CredSSP on added nodes if needed. 
 
 
 ## Start continuous discovery

@@ -48,6 +48,6 @@ Azure Migrate assesses and migrates as follows:
 ## Next steps
 
 - [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about Azure Migrate pricing.
-- [Review](migrate-support-matrix.md) support requirements and limitations for discovery, assessment, and migration.
+- Review support requirements and limitations for discovery, assessment, and migration in the [VMware VM](migrate-support-matrix-vmware.md) and [Hyper-V VM](migrate-support-matrix-hyper-v.md) support matrices.
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.
 

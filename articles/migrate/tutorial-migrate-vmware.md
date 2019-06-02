@@ -86,7 +86,7 @@ If you haven't yet set up a project, follow the next procedure.
 3. In **Overview**, click **Assess and migrate servers**.
 4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
 5. In **Discover, assess and migrate servers**, click **Add tools**.
-6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-key-vault-permissions).
+6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-role-assignment-permissions).
 7. In **Project Details**, specify the project name, and geography in which you want to create the project. You can create an Azure Migrate project in the regions summarized in the table.
 
     - The region specified for the project is only used to store the metadata gathered from on-premises VMs.
@@ -141,7 +141,7 @@ Now connect to the vCenter Server and start discovery.
 
 1. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-    - In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions](tutorial-prepare-vmware.md#set-up-a-vcenter-server-account).
+    - In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions](tutorial-prepare-vmware.md#set-up-an-account-for-discovery).
     - In **Collection scope**, select a scope for VM discovery. The collector discovers VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster.
 2. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 3. After the connection is established, click **Save** > **Start discovery**.
@@ -218,7 +218,7 @@ If this is the first VM you're replicating in the Azure Migrate project, Azure M
 - **Service bus**: Azure Migrate uses the service bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Azure Migrate uses the gateway storage account to store state information about the VMs being replicated.
 - **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [Review these permissions](tutorial-prepare-vmware.md#assign-key-vault-permissions).
+- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [Review these permissions](tutorial-prepare-vmware.md#assign-role-assignment-permissions).
 
 
 ## Run a test migration
