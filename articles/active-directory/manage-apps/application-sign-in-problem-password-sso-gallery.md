@@ -19,7 +19,7 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ---
 
-# Sign in problems with an Azure AD gallery app configured for single sign-on
+# Sign in problems with an Azure AD gallery app configured for SSO
 
 Access Panel is a web-based portal. It enables users who have Azure Active Directory (Azure AD) work or school accounts to access cloud-based apps that they have permissions for. Users who have Azure AD editions can also use self-service group and app-management capabilities through Access Panel. Access Panel is separate from the Azure portal. Users don't need an Azure subscription to use Access Panel.
 
@@ -38,7 +38,7 @@ The following browsers support password-based SSO:
 - Firefox 26.0 or later on Windows XP SP2 or later or on Mac OS X 10.6 or later
 
 >[!NOTE]
->The password-based SSO extension become available for Microsoft Edge in Windows 10 when browser extensions become supported for Microsoft Edge.
+>The password-based SSO extension become available for Microsoft Edge in Windows 10 when Microsoft Edge began to support browser extensions.
 
 ## How to install the Access Panel Browser extension
 
@@ -78,7 +78,7 @@ To configure the group policy and deploy it to users, see [How to deploy the Acc
 
 ## Troubleshoot Access Panel in Internet Explorer
 
-To access a diagnostics tool and instructions for configuring the extension, see [Troubleshoot the Access Panel extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
+To access a diagnostics tool and instructions to configure the extension, see [Troubleshoot the Access Panel extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## How to configure password SSO for an Azure AD gallery app
 
@@ -114,9 +114,9 @@ Follow these steps:
 
 ### Configure the app for password SSO
 
-To configure single sign-on for an app, follow these steps:
+Follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global administrator or co-admin.
+1. Open the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
 
 2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
 
@@ -133,7 +133,7 @@ To configure single sign-on for an app, follow these steps:
 
 7. After the app loads, select **Single sign-on** in the pane on the left side of the app.
 
-8. Select **Password-based Sign-on** mode.
+8. Select **Password-based sign-on** mode.
 
 9. Assign users to the app.
 
@@ -146,7 +146,7 @@ To configure single sign-on for an app, follow these steps:
 
 To assign users to an app directly, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global admin.
+1. Open the [Azure portal](https://portal.azure.com/) and sign in as a global admin.
 
 2. Select **All services** in the navigation pain on the left side to open the Azure AD extension.
 
@@ -181,7 +181,7 @@ To assign users to an app directly, follow these steps:
 
     After a brief delay, the users will be able to access those apps from Access Panel.
 
-## If you can't set up SSO and assign users 
+## If you get an error when you set up SSO and assign users 
 Open a support ticket. Include as much of the following information as possible:
 
 -   Correlation error ID

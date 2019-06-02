@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 In this scenario, Azure Active Directory (Azure AD) signs the user in. But the application displays an error message and doesn't let the user finish the sign-in flow. The problem is that the app didn't accept the response that Azure AD issued.
 
-There can be several reasons why the app doesn’t accept the response from Azure AD. If the error message doesn't clearly identify what's missing from the response, try the following:
+There can be several reasons why the app didn't accept the response from Azure AD. If the error message doesn't clearly identify what's missing from the response, try the following:
 
 -   If the app is the Azure AD gallery, verify that you followed the steps in [How to debug SAML-based single sign-on to applications in Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
@@ -102,7 +102,7 @@ Azure AD selects the format for the **NameID** attribute (User Identifier) based
 
 To change which parts of the SAML token are digitally signed by Azure AD, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global administrator or co-admin.
+1. Open the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
 
 2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
 
@@ -135,7 +135,7 @@ By default, Azure AD signs the SAML token by using the most-secure algorithm. We
 
 To change the signing algorithm, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global administrator or co-admin.
+1. Open the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
 
 2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
 
@@ -152,7 +152,7 @@ To change the signing algorithm, follow these steps:
 
 7. After the app loads, select **Single sign-on** from the navigation pane on the left side of the app.
 
-8. Select **Show advanced certificate signing settings** under **SAML Signing Certificate**.
+8. Under **SAML Signing Certificate**, select **Show advanced certificate signing settings**.
 
 9. Select **SHA-1** as the **Signing Algorithm**.
 
