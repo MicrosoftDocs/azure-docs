@@ -12,7 +12,13 @@
 
 ### <a name="preview"></a>How do I participate in the public preview?
 
-You do not need to onboard in order to participate in the public preview. Use the steps in [this article](../articles/bastion/bastion-create-host-portal.md) to create a new Azure Bastion resource. Currently, when accessing and using this service, you must use the [Azure portal - preview](https://aka.ms/BastionHost) instead of the regular Azure portal. The public preview is available in [these public regions](#regions).
+You do not need to onboard in order to participate in the public preview. Use the steps in [this article](../articles/bastion/bastion-create-host-portal.md) to create a new Azure Bastion resource. Currently, when accessing and using this service, you must use the [Azure portal - preview](https://aka.ms/BastionHost) instead of the regular Azure portal.
+
+### <a name="regions"></a>Which regions are available during preview?
+
+You can deploy and use the Bastion resource in any of these preview regions via the [Azure portal - preview link](https://aka.ms/BastionHost).
+
+[!INCLUDE [region](bastion-regions-include.md)]
 
 ### <a name="portal"></a>I can't find the Bastion resource in the Azure portal. What should I do?
 
@@ -41,12 +47,6 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine
 * Reader role on the NIC with private IP of the virtual machine
 * Reader role on the Azure Bastion resource
-
-### <a name="regions"></a>Which regions are available during preview?
-
-You can deploy and use the Bastion resource in any of these preview regions via the [Azure portal - preview link](https://aka.ms/BastionHost).
-
-[!INCLUDE [region](bastion-regions-include.md)]
 
 ### <a name="previewbill"></a>Pricing - Will I be billed for participating in the preview?
 
