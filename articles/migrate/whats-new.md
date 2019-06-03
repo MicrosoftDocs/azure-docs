@@ -20,7 +20,7 @@ A new version of Azure Migrate has recently been released (June 2019). The new v
 The new version of Azure Migrate provides a number of new features:
 
 - **Unified migration platform**: Azure Migrate now provides single portal to centralize, manage, and track your migration journey to Azure, with an improved deployment flow and portal experience.
-- **Server assessment and migration**: You can assess on-premises VMware VMs and Hyper-V VMs for migration to Azure using the Azure Migrate Server Assessment tool, or integrated third-party tools.. You can migrate on-premises VMware VMs, Hyper-V VMs, physical servers, AWS and GCP instances to Azure using the Azure Migrate Server Migration tool, or integrated third-party tools.
+- **Server assessment and migration**: You can assess on-premises VMware VMs and Hyper-V VMs for migration to Azure using the Azure Migrate Server Assessment tool, or integrated third-party tools. You can migrate on-premises VMware VMs, Hyper-V VMs, physical servers, AWS and GCP instances to Azure using the Azure Migrate Server Migration tool, or integrated third-party tools.
 - **VMware VM migration**:  Azure Migrate provides an agentless migration experience for migration of VMware VMs to Azure. Discovery,assessment, and migration is handled by an Azure Migrate appliance running as a VMware VM, interacting with vCenter Server. An alternative agent-based migration is also available.
  - **Database assessment and migration**: From Azure Migrate, you can assess on-premises databases for migration to Azure using the Azure Database Migration Assistant. You can migrate databases using the Azure Database Migration Service.
 - **Web app migration**: You can assess web apps using a public endpoint URL with the Azure App Service. For migration of internal .NET apps you can download and run the App Service Migration Assistant. 
@@ -45,6 +45,6 @@ Zerto | Server migration
 ## Next steps
 
 - [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about Azure Migrate pricing.
-- [Review](migrate-support-matrix.md) the support matrix for information about requirements and limitations for discovery, assessment, and migration.
+- Review the support matrix for information about requirements and limitations for discovery, assessment, and migration of [VMware VMs](migrate-support-matrix-vmware.md) and [Hyper-V VMs](migrate-support-matrix-hyper-v.md).
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.
 

@@ -10,6 +10,8 @@
   items:
   - name: VMware VM assessment and migration
     items:
+    - name: Support matrix for VMware assessment and migration
+      href: migrate-support-matrix-vmware.md
     - name: Prepare VMware for assessment and migration
       href: tutorial-prepare-vmware.md
     - name: Assess VMware VMs for migration
@@ -24,6 +26,8 @@
         href: tutorial-migrate-vmware-agent.md
   - name: Hyper-V assessment and migration
     items:
+    - name: Support matrix for Hyper-V assessment and migration
+      href: migrate-support-matrix-hyper-v.md
     - name: Prepare Hyper-V for assessment and migration
       href: tutorial-prepare-hyper-v.md
     - name: Assess Hyper-V VMs for migration
@@ -34,8 +38,6 @@
   items:
   - name: Azure Migrate architecture
     href: migrate-architecture.md
-  - name: Azure Migrate support matrix
-    href: migrate-support-matrix.md
   - name: About the collector
     href: concepts-collector.md
   - name: Collector version upgrades

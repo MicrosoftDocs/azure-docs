@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/29/2019
+ms.date: 06/02/2019
 ms.author: raynew
 ms.custom: MVC
 ---

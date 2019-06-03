@@ -116,7 +116,6 @@ Collected performance data: CPU/memory usage; per disk data (disk read/write thr
 
 ## Next steps
 
-- [Review](migrate-support-matrix.md) support requirements and limitations for discovery, assessment, and migration.
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.
 - For help from the community, visit the [Azure Migrate MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureMigrate&filter=alltypes&sort=lastpostdesc) or [Stack Overflow](https://stackoverflow.com/search?q=azure+migrate).
 

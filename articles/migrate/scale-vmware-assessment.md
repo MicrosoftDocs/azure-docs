@@ -69,9 +69,10 @@ If you're planning for a multi-tenant environment, you can scope discovery on vC
 
 Prepare Azure and VMware for server assessment. 
 
-1. Set up permissions for your Azure account to create Azure Active Directory (Azure AD) apps and verify on-premises VMware settings. 
-2. Set up vCenter Server accounts, in line with your planning requirements.
-3. Verify internet access, so that the Azure Migrate appliance can reach Azure URLs.
+1. Verify [VMware support requirements and limitations](migrate-support-matrix-vmware.md).
+2. Set up permissions for your Azure account to create Azure Active Directory (Azure AD) apps and verify on-premises VMware settings.
+3. Set up vCenter Server accounts, in line with your planning requirements.
+4. Verify internet access, so that the Azure Migrate appliance can reach Azure URLs.
 
 Follow the instructions in [this tutorial](tutorial-prepare-vmware.md) to configure these settings, and then come back to this article.
 
