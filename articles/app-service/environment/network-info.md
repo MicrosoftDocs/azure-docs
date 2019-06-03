@@ -25,18 +25,16 @@ ms.custom: seodec18
 - **External ASE**: Exposes the ASE-hosted apps on an internet-accessible IP address. For more information, see [Create an External ASE][MakeExternalASE].
 - **ILB ASE**: Exposes the ASE-hosted apps on an IP address inside your VNet. The internal endpoint is an internal load balancer (ILB), which is why it's called an ILB ASE. For more information, see [Create and use an ILB ASE][MakeILBASE].
 
-There are two versions of App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [Introduction to App Service Environment v1][ASEv1Intro]. ASEv1 can be deployed in a classic or Resource Manager VNet. ASEv2 can only be deployed into a Resource Manager VNet.
-
-All calls from an ASE that go to the internet leave the VNet through a VIP assigned for the ASE. The public IP of this VIP is the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there without additional configuration.
+All ASEs, External and ILB, have a public VIP that is used for inbound management traffic and as the from address when making calls from the ASE to the internet. The calls from an ASE that go to the internet leave the VNet through the VIP assigned for the ASE. The public IP of this VIP is the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there without additional configuration.
 
 ![External ASE][1] 
 
 If you have an External ASE, the public VIP is also the endpoint that your ASE apps resolve to for:
 
-* HTTP/S. 
-* FTP/S. 
-* Web deployment.
-* Remote debugging.
+* HTTP/S 
+* FTP/S
+* Web deployment
+* Remote debugging
 
 ![ILB ASE][2]
 
@@ -66,7 +64,7 @@ The ASE inbound access dependencies are:
 
 The inbound management traffic provides command and control of the ASE in addition to system monitoring. The source addresses for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from all IPs on ports 454 and 455. If you block access from those addresses, your ASE will become unhealthy and then become suspended.
 
-Within the ASE subnet there are many ports used for internal component communication and they can change.  This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
+Within the ASE subnet there are many ports used for internal component communication and they can change. This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
 
 For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE then you need to take into account the normal app access ports.  If you are using app assigned addresses you need to open it to all ports.  When an address is assigned to a specific app, then the load balancer will use ports that are not known of in advance to send HTTP and HTTPS traffic to the ASE.
 
@@ -83,7 +81,7 @@ The ASE communicates out to internet accessible addresses on the following ports
 | Port | Uses |
 |-----|------|
 | 123 | NTP |
-| 80/443 | CRL, Azure services |
+| 80/443 | CRL, Windows updates, Linux dependencies, Azure services |
 | 1233 | Azure SQL | 
 | 12000 | Monitoring |
 
@@ -111,9 +109,7 @@ In addition to the ASE functional dependencies, there are a few extra items rela
 -   Process Explorer
 -   Console
 
-When you use an ILB ASE, the SCM site isn't internet accessible from outside the VNet. When your app is hosted on an ILB ASE, some capabilities will not work from the portal.  
-
-Many of those capabilities that depend upon the SCM site are also available directly in the Kudu console. You can connect to it directly rather than by using the portal. 
+When you use an ILB ASE, the SCM site isn't accessible from outside the VNet. Some capabilities will not work from the app portal because they require access to the SCM site of an app. You can connect to the SCM site directly instead of using the portal. 
 
 If your ILB ASE is the domain name *contoso.appserviceenvironnment.net* and your app name is *testapp*, the app is reached at *testapp.contoso.appserviceenvironment.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.appserviceenvironment.net*.
 
