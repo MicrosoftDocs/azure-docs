@@ -12,7 +12,7 @@ ms.devlang: javascript
 
 Next, create a Node.js application that can be deployed to the Cloud. This tutorial uses an application generator to quickly scaffold out the application from a terminal.
 
-> **Tip:** If you have already completed the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md), you can skip ahead to [Deploy the Website](/tutorials/app-service-extension/deploy-app.md).
+> **Tip:** If you have already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy the Website](./tutorial-javascript-vscode-deploy-app.md).
 
 ## Install the Express generator
 

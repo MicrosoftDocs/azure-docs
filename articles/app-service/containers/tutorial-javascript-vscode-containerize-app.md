@@ -12,7 +12,7 @@ ms.devlang: javascript
 
 Next, use the Docker extension to add the necessary files to create an image for your app, build the image, and push it to a registry.
 
-> **Tip:** If you don't already have an app for this quickstart, follow the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md).
+> **Tip:** If you don't already have an app for this quickstart, follow the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## Add Docker files
 
@@ -22,7 +22,7 @@ Open the **Command Palette** (CTRL + SHIFT + P) and type `add docker files to wo
 
 This action will add a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
 
-> **Tip**: VS Code has great support for Docker files. See the [Working with Docker](/docs/azure/docker.md) topic to learn about rich language features like smart suggestions, completions, and error detection.
+> **Tip**: VS Code has great support for Docker files. See the [Working with Docker](https://code.visualstudio.com/docs/azure/docker) topic to learn about rich language features like smart suggestions, completions, and error detection.
 
 ## Build a Docker image
 
