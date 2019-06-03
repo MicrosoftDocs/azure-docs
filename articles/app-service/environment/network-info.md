@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -40,18 +40,7 @@ If you have an External ASE, the public VIP is also the endpoint that your ASE a
 
 ![ILB ASE][2]
 
-If you have an ILB ASE, the address of the ILB is the endpoint for HTTP/S, FTP/S, web deployment, and remote debugging.
-
-The normal app access ports are:
-
-| Use | From | To |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | User configurable |  80, 443 |
-|  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
-|  Visual Studio remote debugging  |  User configurable |  4020, 4022, 4024 |
-|  Web Deploy service | User configurable | 8172 |
-
-This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
+If you have an ILB ASE, the address of the ILB address is the endpoint for HTTP/S, FTP/S, web deployment, and remote debugging.
 
 ## ASE subnet size ##
 
@@ -89,15 +78,22 @@ The TCP traffic that comes in on ports 454 and 455 must go back out from the sam
 
 For outbound access, an ASE depends on multiple external systems. Many of those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. 
 
+The ASE communicates out to internet accessible addresses on the following ports:
+
+| Port | Uses |
+|-----|------|
+| 123 | NTP |
+| 80/443 | CRL, Azure services |
+| 1233 | Azure SQL | 
+| 12000 | Monitoring |
+
 The complete list of outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
 
 ### Customer DNS ###
 
-If the VNet is configured with a customer-defined DNS server, the tenant workloads use it. The ASE still needs to communicate with Azure DNS for management purposes. 
+If the VNet is configured with a customer-defined DNS server, the tenant workloads use it. The ASE uses Azure DNS for management purposes. If the VNet is configured with a customer selected DNS server, the DNS server must be reachable from the subnet that contains the ASE.
 
-If the VNet is configured with a customer DNS on the other side of a VPN, the DNS server must be reachable from the subnet that contains the ASE.
-
-To test resolution from your web app you can use the console command *nameresolver*. Go to the debug window in your scm site for your app or go to the app in the portal and select console. From the shell prompt you can issue the command *nameresolver* along with the address you wish to look up. The result you get back is the same as what your app would get while making the same lookup. If you use nslookup you will do a lookup using Azure DNS instead.
+To test DNS resolution from your web app, you can use the console command *nameresolver*. Go to the debug window in your scm site for your app or go to the app in the portal and select console. From the shell prompt you can issue the command *nameresolver* along with the DNS name you wish to look up. The result you get back is the same as what your app would get while making the same lookup. If you use nslookup you will do a lookup using Azure DNS instead.
 
 If you change the DNS setting of the VNet that your ASE is in, you will need to reboot your ASE. To avoid rebooting your ASE, it is highly recommended that you configure your DNS settings for your VNet before you create your ASE.  
 
@@ -117,17 +113,9 @@ In addition to the ASE functional dependencies, there are a few extra items rela
 
 When you use an ILB ASE, the SCM site isn't internet accessible from outside the VNet. When your app is hosted on an ILB ASE, some capabilities will not work from the portal.  
 
-Many of those capabilities that depend upon the SCM site are also available directly in the Kudu console. You can connect to it directly rather than by using the portal. If your app is hosted in an ILB ASE, use your publishing credentials to sign in. The URL to access the SCM site of an app hosted in an ILB ASE has the following format: 
+Many of those capabilities that depend upon the SCM site are also available directly in the Kudu console. You can connect to it directly rather than by using the portal. 
 
-```
-<appname>.scm.<domain name the ILB ASE was created with> 
-```
-
-If your ILB ASE is the domain name *contoso.net* and your app name is *testapp*, the app is reached at *testapp.contoso.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.net*.
-
-## Functions and Web jobs ##
-
-Both Functions and Web jobs depend on the SCM site but are supported for use in the portal, even if your apps are in an ILB ASE, so long as your browser can reach the SCM site.  If you are using a self-signed certificate with your ILB ASE, you will need to enable your browser to trust that certificate.  For IE and Microsoft Edge that means the certificate has to be in the computer trust store.  If you are using Chrome then that means you accepted the certificate in the browser earlier by presumably hitting the scm site directly.  The best solution is to use a commercial certificate that is in the browser chain of trust.  
+If your ILB ASE is the domain name *contoso.appserviceenvironnment.net* and your app name is *testapp*, the app is reached at *testapp.contoso.appserviceenvironment.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.appserviceenvironment.net*.
 
 ## ASE IP addresses ##
 
@@ -138,7 +126,7 @@ An ASE has a few IP addresses to be aware of. They are:
 - **ILB IP address**: If you use an ILB ASE.
 - **App-assigned IP-based SSL addresses**: Only possible with an External ASE and when IP-based SSL is configured.
 
-All these IP addresses are easily visible in an ASEv2 in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
+All these IP addresses are visible in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
 
    > [!NOTE]
    > These IP addresses will not change so long as your ASE stays up and running.  If your ASE becomes suspended and restored, the addresses used by your ASE will change. The normal cause for an ASE to become suspended is if you block inbound management access or block access to an ASE dependency. 
@@ -159,13 +147,33 @@ In an ASE, you don't have access to the VMs used to host the ASE itself. They're
 
 NSGs can be configured through the Azure portal or via PowerShell. The information here shows the Azure portal. You create and manage NSGs in the portal as a top-level resource under **Networking**.
 
-When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. The VNet address range is _192.168.250.0/23_, and the subnet that the ASE is in is _192.168.251.128/25_.
+The required entries in an NSG, for an ASE to function, are to allow traffic:
 
-The first two inbound requirements for the ASE to function are shown at the top of the list in this example. They enable ASE management and allow the ASE to communicate with itself. The other entries are all tenant configurable and can govern network access to the ASE-hosted applications. 
+**Inbound**
+* from the IP service tag AppServiceManagement on ports 454,455
+* from the load balancer on port 16001
+* from the ASE subnet to the ASE subnet on all ports
+
+**Outbound**
+* to all IPs on ports 80, 443
+* to the IP service tag AzureSQL on ports 1433
+* to all IPs on port 12000
+* to the ASE subnet on all ports
+
+This does not include the ports that your apps would require for successful use. The normal app access ports are:
+
+| Use | From | To |
+|----------|---------|-------------|
+|  HTTP/HTTPS  | User configurable |  80, 443 |
+|  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
+|  Visual Studio remote debugging  |  User configurable |  4020, 4022, 4024 |
+|  Web Deploy service | User configurable | 8172 |
+
+When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. The VNet address range is _192.168.250.0/23_, and the subnet that the ASE is in is _192.168.251.128/25_.
 
 ![Inbound security rules][4]
 
-A default rule enables the IPs in the VNet to talk to the ASE subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the ASE. To see the default rules, select **Default rules** next to the **Add** icon. If you put a deny everything else rule after the NSG rules shown, you prevent traffic between the VIP and the ASE. To prevent traffic coming from inside the VNet, add your own rule to allow inbound. Use a source equal to AzureLoadBalancer with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the ASE subnet, you don't need to be specific in the destination.
+A default rule enables the IPs in the VNet to talk to the ASE subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the ASE. To see the default rules, select **Default rules** next to the **Add** icon. If you put a deny everything else rule before the default rules, you prevent traffic between the VIP and the ASE. To prevent traffic coming from inside the VNet, add your own rule to allow inbound. Use a source equal to AzureLoadBalancer with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the ASE subnet, you don't need to be specific in the destination.
 
 If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
 
