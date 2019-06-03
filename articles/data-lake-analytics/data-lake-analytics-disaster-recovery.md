@@ -29,9 +29,9 @@ You can run a recurring U-SQL job in an ADLA account in a region that reads and 
 
 3. For structured data stored in ADLA tables and databases, create copies of the metadata artifacts such as databases, tables, table-valued functions, and assemblies.
 
-You need to periodically resync these artifacts when changes happen in production. For example, newly inserted data has to be replicated to the secondary region by copying the data and inserting into the secondary table.
+   You need to periodically resync these artifacts when changes happen in production. For example, newly inserted data has to be replicated to the secondary region by copying the data and inserting into the secondary table.
 
-These object names are scoped to the secondary account and are not globally unique, so they can have the same names as in the production account.  
+   These object names are scoped to the secondary account and are not globally unique, so they can have the same names as in the primary production account.
 
 During an outage, you need to update your scripts so the input paths point to the secondary endpoint. Then the users submit their jobs to the ADLA account in the secondary region. The output of the job will then be written to the ADLA and ADLS account in the secondary region.
 
