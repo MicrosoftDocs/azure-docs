@@ -133,6 +133,7 @@ For example, you can add a new location telemetry measurement:
 | Display Name        | Field Name    |
 | --------------------| ------------- |
 | NW Territory        | nwterritory   |
+| Asset Location      |  assetloc     |
 
 !["Create Location" form with details for location measurement](./media/howto-set-up-template/measurementsform.png)
 
@@ -141,8 +142,16 @@ After you select **Save**, the **Location** measurement appears in the list of m
 When displaying location, you can choose from the following options: latest location and location history. **Location history** is only applied over the selected time range.
 
 > [!NOTE]
-> The data type of the location measurement is longitude, latitude and the option of altitude.
-
+> The data type of the location measurement is  an object containing longitude, latitude and the option of altitude.
+> The structure will look as below:
+>
+>   ```javascript
+>   assetloc: {
+>     lon: floating point number,
+>     lat: floating point number,
+>     alt?: floating point number
+>   }
+>   ```
 
 ## Settings
 
