@@ -18,8 +18,6 @@ ms.custom: seodec18
 ---
 # Use an App Service environment #
 
-## Overview ##
-
 Azure App Service Environment is a deployment of Azure App Service into a subnet in a customer’s Azure virtual network. It consists of:
 
 - **Front ends**: The front ends are where HTTP/HTTPS terminates in an App Service environment (ASE).
