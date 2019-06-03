@@ -83,7 +83,8 @@
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
   - name: VNet Integration
-    href: web-sites-integrate-with-vnet.md  - name: Hybrid connections
+    href: web-sites-integrate-with-vnet.md  
+  - name: Hybrid connections
     href: app-service-hybrid-connections.md
   - name: Traffic Manager integration
     href: web-sites-traffic-manager.md
