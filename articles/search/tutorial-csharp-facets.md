@@ -1,6 +1,6 @@
 ---
 title: Tutorial on using facets to improve the efficiency of an Azure Search
-description: This tutorial builds on the paging Azure Search tutorial, to add a search of the facets of a given database. Searching on facets is designed to be done once when a page is loaded, rather than on each key event, so can improve the efficiency of a search app by avoiding repeated search calls.
+description: This tutorial builds on the "Create your first app in Azure Search" tutorial, and the paging tutorial, to add facet searches. Learn that facets are used in autocompletion, and only need to be retrieved once when a page is loaded, rather than on each key event.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Use facets to improve the efficiency of an Azure Search
 
-Facet searches greatly reduce the number of calls to a server for type-ahead or other suggestions, because they should be carried out only once for each page load. The results stay relevant for the duration of the page. Facets can be considered to be attributes of the data (such as a pool, wifi, and free parking in our hotels data) and a facet search collects all the attributes up when the page is loaded. The UI presents them to the user whenever the user's typing matches the start of a facet. For example, type "po" and the word "pool" will appear as an option, but type "oo" and the word "pool" will not appear.
+Learn how to improve network efficiency by implementing a facet search. Learn that facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. Learn that facets are attributes of the data (such as a pool, wifi, free parking, view, and so on, in our hotels data), and stay relevant for the lifespan of a page.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

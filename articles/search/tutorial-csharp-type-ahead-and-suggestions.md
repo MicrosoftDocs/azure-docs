@@ -1,6 +1,6 @@
 ---
 title: Tutorial on autocompletion and suggestions in an Azure Search
-description: This tutorial builds on the Create your first app in Azure Search tutorial and the paging tutorial, to add autocompletion and suggestions.
+description: This tutorial builds on the "Create your first app in Azure Search" tutorial, and the paging tutorial, to add autocompletion and suggestions. The goal is a richer user experience.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Add autocompletion and suggestions to an Azure Search
 
-Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available.
+Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

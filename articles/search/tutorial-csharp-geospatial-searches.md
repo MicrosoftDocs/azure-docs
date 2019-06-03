@@ -1,6 +1,6 @@
 ---
 title: Tutorial on geospatial queries in Azure Search
-description: This tutorial builds on the Create your first app in Azure Search tutorial and the paging tutorial, to add geospatial searches (searches based on the distance a location is away from a given latitude and longitude).
+description: This tutorial builds on the "Create your first app in Azure Search" tutorial, and the paging tutorial, to add geospatial filters. Geospatial filters limit results to those within a specified radius of a given latitude and longitude. Learn how to order results based on a number of criteria, including geographical distance.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -11,11 +11,11 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Add geospatial filters to an Azure Search
 
-Learn how to implement a geospatial filter, searching both on text and on a geographical area defined by a latitude, longitude, and a radius from that point. If a geographical location of every piece of data (hotels, in our example) is known, then valuable searches for your users can be carried out trying to locate suitable results.
+Learn how to implement a geospatial filter, limiting search results to a geographical area defined by a point given in latitude and longitude, and a radius in kilometers. Using the hotel data, learn how to order the display of results based on distance away from the given point. Learn also that other criteria, such as hotel rating, can be included in how results are ordered.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Search based on text then filter on a given latitude, longitude and radius
+> * Search based on text, then filter on a given latitude, longitude and radius
 > * Order results based on specified criteria, including distance from a specified point
 
 ## Prerequisites
