@@ -3,7 +3,7 @@ title: Azure Services in FedRAMP and DoD SRG Audit Scope
 description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, or 5) audit scope a given service has reached.
 author: davib
 ms.author: davib 
-ms.date: 5/13/2019
+ms.date: 5/17/2019
 ms.topic: article
 ms.service: security
 ms.reviewer: rochiou
@@ -149,7 +149,7 @@ ms.reviewer: rochiou
 | App Service: Mobile Apps | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | App Service: Web Apps | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Application Gateway | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Automation | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** | :heavy_check_mark: |
+| Automation | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | Azure Active Directory (Free and Basic) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Active Directory (Premium P1 + P2) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Advisor | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
@@ -167,7 +167,7 @@ ms.reviewer: rochiou
 | Azure Migrate | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | Azure Monitor | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Policy | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
-| Azure Resource Manager | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Resource Manager | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** | :heavy_check_mark: |
 | Azure Security Center | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | Azure Service Health |  |  |  |  |
 | Azure Service Manager (RDFE) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
