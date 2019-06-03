@@ -1,10 +1,10 @@
 ---
 title: How to schedule indexers - Azure Search
-description: Configure Azure Search indexer field mappings to account for differences in field names and data representations.
+description: Schedule Azure Search indexers to index content periodically or at specific times.
 
-ms.date: 05/02/2019
-author: RobDixon22 
-manager: cgronlun
+ms.date: 05/31/2019
+author: RobDixon22
+manager: HeidiSteen
 ms.author: RobDixon22
 services: search
 ms.service: search
