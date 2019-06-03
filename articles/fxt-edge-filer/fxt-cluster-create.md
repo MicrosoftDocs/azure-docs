@@ -90,7 +90,7 @@ You can connect to any of the installed FXT nodes and use its OS software to set
 
 If you have not already done so, power on at least one of the FXT nodes for your cluster, and make sure it has a network connection and an IP address. You must set a new root password to activate the node, so follow the steps in [Set hardware passwords](fxt-node-password.md) if you have not already done so.
 
-To check the network connection, make sure that the node’s network link LEDs are illuminated (and, if necessary, the indicators on the network switch to which it is attached). Indicator LEDs are described in [Monitor FXT Edge Server hardware status](fxt-monitor.md).
+To check the network connection, make sure that the node’s network link LEDs are illuminated (and, if necessary, the indicators on the network switch to which it is attached). Indicator LEDs are described in [Monitor FXT Edge Filer hardware status](fxt-monitor.md).
 
 When the node boots, it will request an IP address. If it is connected to a DHCP server, it accepts the IP address provided by DHCP. (This IP address is temporary. It will change when you create the cluster.)
 

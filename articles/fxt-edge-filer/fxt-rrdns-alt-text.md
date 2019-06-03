@@ -1,5 +1,5 @@
 ---
-title: Azure FXT Edge Server DNS configuration alt text
+title: Azure FXT Edge Filer DNS configuration alt text
 description: Text description of image fxt-rrdns-diagram.png
 author: ekpgh
 ms.service: fxt-edge-filer

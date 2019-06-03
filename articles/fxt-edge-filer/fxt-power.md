@@ -46,7 +46,7 @@ After an Edge Filer node is in use as part of a cluster, you should use the clus
 > [!NOTE] 
 > To avoid possible data loss or corruption, always use the Control Panel software to shut down an Azure FXT Edge Filer. Do not use the physical power button for shutdown unless you are instructed to do so by Microsoft Customer Service and Support. (In an electrical emergency, disconnect power cords or use your data center's electricity disconnect mechanism.)
 
-Follow these instructions to safely power off an FXT Edge Server node:
+Follow these instructions to safely power off an FXT Edge Filer node:
 
 1. Sign in to the cluster Control Panel. (Directions in [Open the Settings pages](fxt-cluster-config-overview.md#open-the-settings-pages))
 1. Click the **Settings** tab, then load the **Cluster** > **FXT Nodes** page. 
