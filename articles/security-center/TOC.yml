@@ -77,7 +77,7 @@
       href: security-center-customize-os-security-config.md
     - name: Tenant-wide visibility
       href: security-center-management-groups.md
-  - name: Implement security recommendations
+  - name: Understanding security recommendations
     href: security-center-recommendations.md
     items:
     - name: Strengthen security posture
