@@ -1,13 +1,13 @@
 ---
-title: Approve just-in-time access for Azure Managed Applications
+title: Configure and approve just-in-time access for Azure Managed Applications
 description: Describes how consumers of Azure Managed Applications approve requests for just-in-time access to a managed application.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 06/03/2019
 ms.author: evanhi
 ---
-# Approve just-in-time access for Azure Managed Applications
+# Configure and approve just-in-time access for Azure Managed Applications
 
 As a consumer of a managed application, you might not be comfortable giving the publisher permanent access to the managed resource group. To give you greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access, which is currently in preview. It enables you to approve when and for how long the publisher has access to the resource group. The publisher can make required updates during that time, but when that time is over, the publisher's access expires.
 
@@ -38,7 +38,7 @@ This article focuses on the actions consumers take to enable JIT access and appr
 
    ![Configure access](./media/approve-just-in-time-access/configure-jit-access.png)
 
-   You can only enable JIT access during deployment. If you select **No**, you can't enable it later.
+   You can only enable JIT access during deployment. If you select **No**, the publisher gets permanent access to the managed resource group. You can't enable JIT access later.
 
 1. To change the default approval settings, select **Customize JIT Configuration**.
 
@@ -74,7 +74,7 @@ To change the settings for a deployed managed application:
 
 ## Approve requests
 
-When the publisher requests access, you're notified of the request. You can approve JIT access requests either directly through the managed application, or across all managed applications through the Azure AD Privileged Identity Management service.
+When the publisher requests access, you're notified of the request. You can approve JIT access requests either directly through the managed application, or across all managed applications through the Azure AD Privileged Identity Management service. To use just-in-time access, you must have a [Azure Active Directory P2 license](../active-directory/privileged-identity-management/subscription-requirements.md).
 
 To approve requests through the managed application:
 

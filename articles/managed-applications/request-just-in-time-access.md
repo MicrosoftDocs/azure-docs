@@ -1,13 +1,13 @@
 ---
-title: Request just-in-time access for Azure Managed Applications
+title: Enable and request just-in-time access for Azure Managed Applications
 description: Describes how publishers of Azure Managed Applications request just-in-time access to a managed application.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 06/03/2019
 ms.author: evanhi
 ---
-# Request just-in-time access for Azure Managed Applications
+# Enable and request just-in-time access for Azure Managed Applications
 
 Consumers of your managed application may be reluctant to grant you permanent access to the managed resource group. As a publisher of a manager application, you might prefer that consumers know exactly when you need to access the managed resources. To give consumers greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access, which is currently in preview.
 
@@ -40,7 +40,7 @@ In "steps":
     "name": "jitConfiguration",
     "label": "JIT Configuration",
     "subLabel": {
-        "preValidation": "Configure JIT settings for you application",
+        "preValidation": "Configure JIT settings for your application",
         "postValidation": "Done"
     },
     "bladeTitle": "JIT Configuration",

@@ -46,7 +46,7 @@ For information about publishing a managed application to the Marketplace, see [
 
 ## Resource groups for managed applications
 
-Typically, the resources for a managed application are in two resource groups. The consumer manages one resource group, and the publisher manages the other resource group. When defining the managed application, the publisher specifies the levels of access. The published can request either a permanent role assignment, or [just-in-time access](request-just-in-time-access.md) for an assignment that is constrained to a time period.
+Typically, the resources for a managed application are in two resource groups. The consumer manages one resource group, and the publisher manages the other resource group. When defining the managed application, the publisher specifies the levels of access. The publisher can request either a permanent role assignment, or [just-in-time access](request-just-in-time-access.md) for an assignment that is constrained to a time period.
 
 Restricting access for [data operations](../role-based-access-control/role-definitions.md) is currently not supported for all data providers in Azure.
 
