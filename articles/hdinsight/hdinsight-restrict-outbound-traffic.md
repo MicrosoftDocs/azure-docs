@@ -54,9 +54,9 @@ On the **Add application rule collection** screen, complete the following steps:
     1. A rule to allow Windows login activity:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
         1. Enter `https:443` under **Protocol:Port** and `login.windows.net` under **Target FQDNS**.
-    1. If your cluster is backed by WASB and you are not using the service endpoints above, then add a rule for WASB:
+    1. If your cluster is backed by WASB, then add a rule for WASB:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Enter `http` or [https] depending on if you are using wasb:// or wasbs:// under **Protocol:Port** and the storage account url under **Target FQDNS**. The format will be similar to <storage_account_name.blob.core.windows.net>.
+        1. Enter `http:80,https:443` under **Protocol:Port** and the storage account url under **Target FQDNS**. The format will be similar to <storage_account_name.blob.core.windows.net>.
 1. Click **Add**.
 
 ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
