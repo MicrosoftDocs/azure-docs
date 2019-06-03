@@ -131,7 +131,7 @@ The sample application needs to authenticate access to your storage account. To 
 
 ### Configure your storage connection string
 
-After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
+After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
 
 #### Windows
 
@@ -197,7 +197,7 @@ After you add the environment variable, run `source .bash_profile` from your con
 ---
  -->
 
-## Key concepts
+## Object model
 
 Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
@@ -209,7 +209,7 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
 
-## Usage examples
+## Code examples
 
 You'll learn how to:
 
