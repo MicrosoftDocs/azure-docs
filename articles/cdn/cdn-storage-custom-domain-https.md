@@ -41,7 +41,7 @@ Azure CDN ignores any restrictions added to the SAS token. For example, all SAS 
 If you create multiple SAS URLs for the same blob endpoint, consider enabling query string caching. Doing so ensures that each URL is treated as a unique entity. For more information, see [Controlling Azure CDN caching behavior with query strings](cdn-query-string.md).
 
 ## HTTP-to-HTTPS redirection
-You can elect to redirect HTTP traffic to HTTPS by creating a [URL Redirect rule](cdn-rules-engine-reference-features.md#url-redirect) with the [Azure CDN rules engine](cdn-rules-engine.md). This option requires an **Azure CDN Premium from Verizon** profile. 
+You can elect to redirect HTTP traffic to HTTPS by creating a [URL Redirect rule](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) with the [Azure CDN rules engine](cdn-verizon-premium-rules-engine.md). This option requires an **Azure CDN Premium from Verizon** profile.
 
 ![URL redirect rule](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 
