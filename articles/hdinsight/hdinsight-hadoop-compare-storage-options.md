@@ -131,7 +131,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
 Through HDInsight you can also access data in Azure Storage. The syntax is as follows:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Consider the following principles when using an Azure Storage account with HDInsight clusters:
 
