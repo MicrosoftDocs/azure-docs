@@ -38,18 +38,6 @@ Currently, the following Media Services [Streaming Endpoints](https://docs.micro
 |Egress|Egress|Total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
 |SuccessE2ELatency|Success end to end Latency| Time duration from when Streaming Endpoint received request and when last byte of the response was sent.|
 
-### Scenarios
-
-Some qeuestions that can be addressed with Media Services metrics are:
-
-•	How do I monitor my Standard Streaming Endpoint to know when I have exceeded the limits?
-•	How do I know if I have enough Premium Streaming Endpoint scale units? 
-•	How can I set an alert to know when to scale up my Streaming Endpoints?
-•	How can I see the breakdown of requests failing and what is causing the failure?
-•	How can I see how many HLS or DASH requests are being pulled from the packager?
-
-### Example
-
 For example, to get "Egress" metrics with CLI, you would run the following `az monitor metrics` CLI command:
 
 ```cli
@@ -84,16 +72,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-### Scenarios
-
-Some things that you can examine with Key Delivery diagnostics are:
-
-* See the number of licenses delivered by DRM type
-* See the number of licenses delivered by policy 
-* See errors by DRM or policy type
-* See the number of unauthorized license requests from clients
-
-### Example
+For example:
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -109,21 +88,27 @@ Here are examples of how monitoring Media Services metrics and logs can help you
 
 ### Metrics
 
-* Monitor my Standard Streaming endpoint to know when I have exceeded the limits
-* Set an alert to know when to scale up my Streaming Endpoints
-* See the breakdown of requests failing and what is causing the failure
-* See how many HLS or DASH requests are being pulled from the packager
+Some qeuestions that can be addressed with Media Services metrics are:
+
+•	How do I monitor my Standard Streaming Endpoint to know when I have exceeded the limits?
+•	How do I know if I have enough Premium Streaming Endpoint scale units? 
+•	How can I set an alert to know when to scale up my Streaming Endpoints?
+•	How can I see the breakdown of requests failing and what is causing the failure?
+•	How can I see how many HLS or DASH requests are being pulled from the packager?
+
 
 For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
 ### Logs
 
+Some things that you can examine with Key Delivery diagnostic logs are:
+
 * See the number of licenses delivered by DRM type
-* See the number of licenses delivered by policy
+* See the number of licenses delivered by policy 
 * See errors by DRM or policy type
 * See the number of unauthorized license requests from clients
 
-[How to collect and consume log data from your Azure resources](../../azure-monitor/platform/diagnostic-logs-overview.md).
+For more information, see [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## Next steps 
 
