@@ -22,4 +22,3 @@ ms.author: diberry
 
     ![Create LUIS new HumanResources app](./media/cognitive-services-luis/tutorials-create-new-app/create-app.png)
 
-1. Select **Done**. Next, the app shows the **Intents** page with the **None** Intent.
