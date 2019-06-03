@@ -58,6 +58,10 @@ ms.author: ramkris
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the BulkExecutor library work with .NET Core applications.
 
+### <a name="1.6.0"/>1.6.0
+
+* Updated the Bulk Executor to now use the latest version of the Azure Cosmos DB .NET SDK (2.4.0)
+
 ### <a name="1.5.0"/>1.5.0
 
 * Added support for graph bulk executor to accept ttl on vertices and edges
