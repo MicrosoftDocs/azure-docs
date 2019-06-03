@@ -18,9 +18,8 @@ ms.custom: mvc
 
 The following table includes links to bash scripts for Azure Functions that use the Azure CLI.
 
-| Create | Description |
+| Create app | Description |
 |---|---|
-|<a name="create"></a>**Create app**||
 | [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates a function app in a Consumption plan.  |
 | [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in a dedicated App Service plan. |
 
