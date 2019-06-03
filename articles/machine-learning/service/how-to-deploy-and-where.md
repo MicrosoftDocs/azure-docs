@@ -112,6 +112,17 @@ The script contains two functions that load and run the model:
 
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
+#### What is model_path?
+In Azure ML, we use a function called get_model_path to retrieve the local location of your model.
+When you register a model, you give it a name which corresponds to where the model is placed, either locally or during service deployment.
+
+When you use this function, keep in mind that it is looking for this file and local path, first in the official path for Azure ML models, then locally.
+
+The below example will return a path to a file called 'sklearn_mnist_model.pkl' (which was registered with the name 'sklearn_mnist')
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
+
 #### (Optional) Automatic Swagger schema generation
 
 To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. Azure Machine Learning service then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
