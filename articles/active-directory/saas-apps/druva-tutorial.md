@@ -115,7 +115,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure Druva SSO
 
-1. In a different web browser window, log in to your Druva company site as an administrator.
+1. In a different web browser window, sign in to your Druva company site as an administrator.
 
 1. Go to **Manage \> Settings**.
 
@@ -177,11 +177,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ### Create Druva test user
 
-In order to enable Azure AD users to log in to Druva, they must be provisioned into Druva. In the case of Druva, provisioning is a manual task.
+In order to enable Azure AD users to sign in to Druva, they must be provisioned into Druva. In the case of Druva, provisioning is a manual task.
 
 **To configure user provisioning, perform the following steps:**
 
-1. Log in to your **Druva** company site as administrator.
+1. Sign in to your **Druva** company site as administrator.
 
 1. Go to **Manage \> Users**.
 
