@@ -10,7 +10,7 @@ ms.devlang: javascript
 ---
 # Deploy to Azure using Docker
 
-This tutorial walks you through containerizing an existing Node.js application using [Docker](https://www.docker.com/), pushing the app image to a Docker registry, then deploying the image to [Azure Web App for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/) directly from Visual Studio Code.
+This quickstart shows you how to containerize an existing Node.js application using [Docker](https://www.docker.com/), then use Visual Studio Code to push the app image to a Docker registry and deploy it to [Azure Web App for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/).
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ You need [Visual Studio Code](https://code.visualstudio.com/) installed along wi
 
 ## Install the Docker and Azure App Service extensions
 
-The Docker extension is used to simplify the management of local Docker images and commands as well as the deployment of a built app image to Azure.
+The Docker extension is used to simplify the management of local Docker images and commands and to deploy built app images to Azure.
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/PeterJausovec.vscode-docker">Install the Docker extension</a>
 

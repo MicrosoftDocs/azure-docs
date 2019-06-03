@@ -20,7 +20,7 @@ When prompted, choose to enable logging and restart the application. Once the ap
 
 ![Enable Logging and Restart](./media/tutorial-javascript-vscode/enable-restart.png)
 
-After a few seconds, you will see a message indicating that you are connected to the log-streaming service.
+After a few seconds, you'll see a message indicating that you're connected to the log-streaming service.
 
 ```bash
 Connecting to log-streaming service...
@@ -39,7 +39,7 @@ Refresh the page a few times in the browser to see log output.
 
 ## Congratulations!
 
-Congratulations, you've successfully completed this walkthrough!
+Congratulations, you've successfully completed this quickstart!
 
 ## Other Azure extensions
 
@@ -49,7 +49,7 @@ Next, check out the other Azure extensions.
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-* [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+* [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 Or get them all by installing the
 [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.

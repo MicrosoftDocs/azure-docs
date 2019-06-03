@@ -10,7 +10,7 @@ ms.devlang: javascript
 ---
 # Deploy to Azure using Azure Functions
 
-This tutorial walks you through creating and deploying a JavaScript Azure Functions application using the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Create a new app, add functions and deploy in a matter of minutes from Visual Studio Code.
+This tutorial walks you through creating and deploying a JavaScript Azure Functions application using the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Create a new app, add functions, and deploy in a matter of minutes from Visual Studio Code.
 
 ## Prerequisites
 

@@ -12,7 +12,7 @@ ms.devlang: javascript
 
 Next, use the Docker extension to add the necessary files to create an image for your app, build the image, and push it to a registry.
 
-> **Tip:** If you don't already have an app for this walkthrough, follow the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md).
+> **Tip:** If you don't already have an app for this quickstart, follow the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md).
 
 ## Add Docker files
 
@@ -20,27 +20,27 @@ Open the **Command Palette** (CTRL + SHIFT + P) and type `add docker files to wo
 
 > **Tip:** Be sure that the port you select matches the port your app listens on. If you used the Express generator, set this to 3000.
 
-This will add a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
+This action will add a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
 
 > **Tip**: VS Code has great support for Docker files. See the [Working with Docker](/docs/azure/docker.md) topic to learn about rich language features like smart suggestions, completions, and error detection.
 
 ## Build a Docker image
 
-The files you just added, specifically, `Dockerfile`, describe the environment for your app including the location of the source files and the command to start the app within a container.
+The `Dockerfile` file describes the environment for your app including the location of the source files and the command to start the app within a container.
 
 > **Tip:** Containers versus images: A container is an instance of an image.
 
-Open the **Command Palette** (CTRL + SHIFT + P) and run **Docker: Build Image** to build the image. Choose the `Dockerfile` that was just created then give the image a name. It's important that you specify a couple of things here, the format is as follows:
+Open the **Command Palette** (CTRL + SHIFT + P) and run **Docker: Build Image** to build the image. Choose the `Dockerfile` file then give the image a name. It's important that you specify a couple of things here. The format is as follows:
 
 `[registry or username]/[image name]:[tag]`
 
-This tutorial uses the Azure Container Registry so for my example:
+This quickstart uses the Azure Container Registry so for my example:
 
 `fiveisprime.azurecr.io/myexpressapp:latest`
 
 ![tag docker image](./media/tutorial-javascript-vscode/tag-image.png)
 
-If you are using Docker Hub, use your Docker Hub username, for example:
+If you're using Docker Hub, use your Docker Hub username, for example:
 
 `fiveisprime/myexpressapp:latest`
 

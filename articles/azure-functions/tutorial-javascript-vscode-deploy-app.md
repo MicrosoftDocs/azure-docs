@@ -12,7 +12,7 @@ ms.devlang: javascript
 
 If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/serverless?utm_source=campaign&utm_campaign=vscode-tutorial-functions-extension&mktingSource=vscode-tutorial-functions-extension) for a free account with $200 in Azure credits to try out any combination of services.
 
-Once created, log in to your Azure account - in the Activity Bar, click on the Azure logo to show the **Azure Functions** explorer. Click **Sign in to Azure...** and choose your account in the browser.
+Once created, sign in to your Azure account - in the Activity Bar, click on the Azure logo to show the **Azure Functions** explorer. Click **Sign in to Azure...** and choose your account in the browser.
 
 ![sign in to Azure](./media/tutorial-javascript-vscode/sign-in.png)
 
@@ -22,7 +22,7 @@ In the **AZURE FUNCTIONS** explorer, click the blue up arrow icon to deploy your
 
 > **Tip:** You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to function app' and running the **Azure Functions: Deploy to Function App** command.
 
-From here follow the prompts. Choose the directory that you currently have open, select your Azure subscription, and then choose **Create New Function App**.
+From here, follow the prompts. Choose the directory that you currently have open, select your Azure subscription, and then choose **Create New Function App**.
 
 1. Type a globally unique name for your Function App and press ENTER. Valid characters for a function app name are 'a-z', '0-9', and '-'.
 
@@ -42,19 +42,19 @@ The Output panel shows the Azure resources that were created in your subscriptio
 
 ## Browse the website
 
-The Output panel will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE FUNCTIONS** explorer, expand the **Functions** node to expose the HttpTriggerJS function, then right-click and choose **Copy Function Url**. Paste the URL into your browser along add the `?name=Matt` query parameter and press ENTER to see the response.
+The **Output** panel will open during deployment to indicate the status of the operation. When the operation completes, find the app you created in the **AZURE FUNCTIONS** explorer. Then, expand the **Functions** node to expose the HttpTriggerJS function, right-click it, and choose **Copy Function Url**. Paste the URL into your browser along add the `?name=Matt` query parameter and press ENTER to see the response.
 
 ![Deploy to Functions](./media/tutorial-javascript-vscode/functions-test-remote-browser.png)
 
 ## Updating the App
 
-Next, make some changes to your Function and add new Functions with other Triggers. Once you have all the source code running correctly in your local environment, click the blue up arrow **Deploy to Function App** button to deploy your changes.
+Next, make some changes to your Function and add new Functions with other Triggers. When you have the code running correctly in your local environment, click the blue up arrow **Deploy to Function App** button to deploy your changes.
 
 > **Tip:** When deploying, the entire Functions application is deploy so changes to all individual Functions will be deployed at once.
 
 ## Congratulations!
 
-Congratulations, you've successfully completed this walkthrough!
+Congratulations, you've successfully completed this quickstart!
 
 Next, check out the other Azure extensions.
 
@@ -62,7 +62,7 @@ Next, check out the other Azure extensions.
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-* [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+* [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 Or get them all by installing the
 [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.

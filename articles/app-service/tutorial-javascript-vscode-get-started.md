@@ -10,7 +10,7 @@ ms.devlang: javascript
 ---
 # Deploy to Azure using App Service
 
-This tutorial walks you through deploying a Node.js application to Azure using the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). You'll be able to deploy to Azure on Linux in a matter of minutes from Visual Studio Code.
+This tutorial walks you through deploying a Node.js application to Azure using the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). You can deploy to Azure on Linux in a matter of minutes from Visual Studio Code.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Once the extension is installed, log into your Azure account - in the Activity B
 
 ## Troubleshooting
 
-If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal using `export`.
+If you see the error **"Cannot find subscription with name [subscription ID]"**, it might be because you're behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal using `export`.
 
 ```sh
 export HTTPS_PROXY=https://username:password@proxy:8080
