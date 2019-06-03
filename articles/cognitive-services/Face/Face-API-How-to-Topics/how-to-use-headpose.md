@@ -120,7 +120,7 @@ From here, you can use the returned **Face** objects in your display. The follow
 
 You can detect head gestures like nodding and head shaking by tracking HeadPose changes in real time. You can use this feature as a custom liveness detector.
 
-In security scenarios, liveness detection is the practice of determining that a subject is a real person and not an image or video representation. This is necessary to prevent spoofing attacks, and one way to detect liveness is to prompt the subject to do specific gestures in front of a camera.
+Liveness detection is the practice of determining that a subject is a real person and not an image or video representation. A head gesture detector could serve as one way to help verify liveness, especially as opposed to an image representation of a person.
 
 > [!CAUTION]
 > To detect head gestures in real time, you'll need to call the Face API at a high rate (more than once per second). If you have a free-tier (f0) subscription, this will not be possible. If you have a paid-tier subscription, make sure you've calculated the costs of making rapid API calls for head gesture detection.
