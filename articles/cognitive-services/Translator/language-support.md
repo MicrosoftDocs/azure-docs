@@ -208,6 +208,7 @@ The following languages are available for customization to or from English using
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
 | Chinese Simplified      | `zh-Hans`          |
+|Chinese Traditional|	`zh-Hant`	|
 | Croatian      | `hr`          |
 | Czech      | `cs`          |
 | Danish      | `da`          |
