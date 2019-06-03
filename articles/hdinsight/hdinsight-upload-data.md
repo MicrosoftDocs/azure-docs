@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom:hdiseo17may2017
+ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
 ---
