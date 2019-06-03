@@ -2,23 +2,17 @@
 title: Azure CDN rules engine reference | Microsoft Docs
 description: Reference documentation for Azure CDN rules engine match conditions and features.
 services: cdn
-documentationcenter: ''
-author: Lichard
-manager: akucer
-editor: ''
+author: mdgattuso
 
-ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
+ms.date: 05/31/2019
+ms.author: magattus
 
 ---
-# Azure CDN rules engine reference
-This article lists detailed descriptions of the available match conditions and features for the Azure Content Delivery Network (CDN) [rules engine](cdn-rules-engine.md).
+# Azure CDN from Verizon Premium rules engine reference
+
+This article lists detailed descriptions of the available match conditions and features for the Azure Content Delivery Network (CDN) [rules engine](cdn-verizon-premium-rules-engine.md).
 
 The rules engine is designed to be the final authority on how specific types of requests are processed by the CDN.
 
@@ -30,7 +24,8 @@ The rules engine is designed to be the final authority on how specific types of 
 - Store custom log data.
 
 ## Terminology
-A rule is defined through the use of [**conditional expressions**](cdn-rules-engine-reference-conditional-expressions.md), [**match conditions**](cdn-rules-engine-reference-match-conditions.md), and [**features**](cdn-rules-engine-reference-features.md). These elements are highlighted in the following illustration:
+
+A rule is defined through the use of [**conditional expressions**](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md), [**match conditions**](cdn-verizon-premium-rules-engine-reference-match-conditions.md), and [**features**](cdn-verizon-premium-rules-engine-reference-features.md). These elements are highlighted in the following illustration:
 
  ![CDN match condition](./media/cdn-rules-engine-reference/cdn-rules-engine-terminology.png)
 
@@ -38,16 +33,18 @@ A rule is defined through the use of [**conditional expressions**](cdn-rules-eng
 
 The manner in which special characters are treated varies according to how a match condition or feature handles text values. A match condition or feature may interpret text in one of the following ways:
 
-1. [**Literal values**](#literal-values) 
+1. [**Literal values**](#literal-values)
 2. [**Wildcard values**](#wildcard-values)
 3. [**Regular expressions**](#regular-expressions)
 
 ### Literal values
+
 Text that is interpreted as a literal value treats all special characters, with the exception of the % symbol, as a part of the value that must be matched. In other words, a literal match condition set to `\'*'\` is only satisfied when that exact value (that is, `\'*'\`) is found.
- 
+
 A percentage symbol is used to indicate URL encoding (for example, `%20`).
 
 ### Wildcard values
+
 Text that is interpreted as a wildcard value assigns additional meaning to special characters. The following table describes how the following set of characters is interpreted:
 
 Character | Description
@@ -66,14 +63,14 @@ Special Character | Description
 ------------------|------------
 \ | A backslash escapes the character the follows it, which causes that character to be treated as a literal value instead of taking on its regular expression meaning. For example, the following syntax escapes an asterisk: `\*`
 % | The meaning of a percentage symbol depends on its usage.<br/><br/> `%{HTTPVariable}`: This syntax identifies an HTTP variable.<br/>`%{HTTPVariable%Pattern}`: This syntax uses a percentage symbol to identify an HTTP variable and as a delimiter.<br />`\%`: Escaping a percentage symbol allows it to be used as a literal value or to indicate URL encoding (for example, `\%20`).
-\* | An asterisk allows the preceding character to be matched zero or more times. 
-Space | A space character is typically treated as a literal character. 
+\* | An asterisk allows the preceding character to be matched zero or more times.
+Space | A space character is typically treated as a literal character.
 'value' | Single quotes are treated as literal characters. A set of single quotes does not have special meaning.
 
-
 ## Next steps
-* [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md)
-* [Rules engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
-* [Rules engine features](cdn-rules-engine-reference-features.md)
-* [Override HTTP behavior using the rules engine](cdn-rules-engine.md)
-* [Azure CDN overview](cdn-overview.md)
+
+- [Rules engine match conditions](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Rules engine conditional expressions](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [Rules engine features](cdn-verizon-premium-rules-engine-reference-features.md)
+- [Override HTTP behavior using the rules engine](cdn-verizon-premium-rules-engine.md)
+- [Azure CDN overview](cdn-overview.md)

@@ -52,6 +52,8 @@
   - name: Data ingestion overview
     displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
     href: ingest-data-overview.md
+  - name: Data visualization overview
+    href: viz-overview.md
 - name: How-to guides
   items:
   - name: Get Started
@@ -86,6 +88,8 @@
       href: sisense.md
     - name: Grafana
       href: grafana.md
+    - name: ODBC connector
+      href: connect-odbc.md
   - name: Manage
     items:
     - name: Manage database permissions
@@ -114,8 +118,6 @@
       href: kqlmagic.md
     - name: Copy data using Azure Data Factory
       href: data-factory-load-data.md 
-    - name: Connect with ODBC
-      href: connect-odbc.md
   - name: Troubleshoot
     items:
     - name: Creating a cluster
