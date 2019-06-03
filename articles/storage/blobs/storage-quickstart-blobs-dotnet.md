@@ -133,11 +133,39 @@ The sample application needs to authenticate access to your storage account. To 
 
 After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
 
+#### Windows
+
+```cmd
+setx storageconnectionstring "<yourconnectionstring>"
+```
+
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+
+#### Linux
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+
+#### macOS
+
+Edit your .bash_profile, and add the environment variable:
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+
+<!--
 | OS | Command | Notes |
 |----|---------|-------|
 | Windows | `setx storageconnectionstring "<yourconnectionstring>"` | After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. |
 | Linux | `export storageconnectionstring=<yourconnectionstring>` | After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective. |
 | macOS | `export storageconnectionstring=<yourconnectionstring>` | Edit your .bash_profile to add the environment variable. After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective. |
+ -->
 
 <!--
 # [Windows](#tab/windows)
