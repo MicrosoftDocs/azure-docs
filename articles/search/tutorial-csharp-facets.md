@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Use facets to improve the efficiency of an Azure Search
 
-Learn how to implement an efficient search for facets, greatly reducing the number of calls to a server for type-ahead or other suggestions. A facet search is designed to be carried out just once for each page load and that the results stay active for the duration of the page. A facet can be considered to be an attribute of the data (such as a pool or free parking in our hotels data) and a facet search collects all these attributes up when the page is loaded and presents them to the user whenever their typing matches.
+Facet searches greatly reduce the number of calls to a server for type-ahead or other suggestions, because they should be carried out only once for each page load. The results stay relevant for the duration of the page. Facets can be considered to be attributes of the data (such as a pool, wifi, and free parking in our hotels data) and a facet search collects all the attributes up when the page is loaded. The UI presents them to the user whenever the user's typing matches the start of a facet. For example, type "po" and the word "pool" will appear as an option, but type "oo" and the word "pool" will not appear.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Image
 
 We will use the numbered paging app you might have completed in the second tutorial as a basis for this sample.
 
-To implement facets, we do not need to change any of the models (the data classes). We just need to add some script to the view and an action to the controller.
+To implement facets, we do not need to change any of the models (the data classes). We do need to add some script to the view and an action to the controller.
 
 ### Start with the numbered paging Azure Search app
 
@@ -147,7 +147,7 @@ The autocomplete function called in the script above is not something we have to
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 ```
 
-2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. This avoids clashing references to jquery.
+2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. By removing this line we avoid ambiguous references to jquery.
 
 ```cs
  <environment include="Development">
@@ -196,7 +196,7 @@ Now we can use the predefined autocomplete jquery functions.
 Notice that we are requesting up to 100 facets from the **Tags** fields and up to 20 from the **Category** fields. The **count** entries are optional, if no count is set the default is 10.
 
 > [!NOTE]
-> It is possible to set one or more of the following parameters for each field in a facet search: **count**, **sort**, **interval** and **values**. Refer to [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation) for more details.
+> It is possible to set one or more of the following parameters for each field in a facet search: **count**, **sort**, **interval**, and **values**. Refer to [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation) for more details.
 
 2. If you get syntax errors with the **List&lt;string&gt;** declarations, make sure to add this **using** statement to the top of the file.
 
@@ -236,7 +236,7 @@ Facet searches are best used when:
 * The maximum counts allow most facets to be included. In our code, we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. The maximums set must work well with the size of the data set. If too many potential facets are being cut, then perhaps the search is not as helpful as it should be.
 
 > [!NOTE]
-> Although facet searches are designed to be called once per page load, they can of course be called much more often, it just depends on your JavaScript. Equally true is that autocompletion/suggestion searches can be carried out less often than once per keystroke. Again this is determined by your JavaScript, not Azure Search. However, facet search is designed to be called only once per page as facets are constructed by Azure Search from the searched documents with this in mind. It is good practice to consider facet searches as a slightly less flexible but more network-efficient form of user-assistance.
+> Although facet searches are designed to be called once per page load, they can of course be called much more often, it depends on your JavaScript. Equally true is that autocompletion/suggestion searches can be carried out less often than once per keystroke. Again this is determined by your JavaScript, not Azure Search. However, facet search is designed to be called only once per page as facets are constructed by Azure Search from the searched documents with this in mind. It is good practice to consider facet searches as a slightly less flexible but more network-efficient form of user-assistance.
 
 
 ## Takeaways
