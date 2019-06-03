@@ -74,7 +74,7 @@ The disk encryption preview for the virtual machine scale set requires self-regi
 
 ## Create a new cluster and enable disk encryption
 
-Use the following commands to create a cluster and enable disk encryption by using a Azure Resource Manager template and a self-signed certificate.
+Use the following commands to create a cluster and enable disk encryption by using an Azure Resource Manager template and a self-signed certificate.
 
 ### Sign in to Azure 
 Sign in with the following commands:
