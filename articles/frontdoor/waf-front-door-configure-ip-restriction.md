@@ -9,23 +9,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/21/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
 
 ---
-# Configure an IP restriction rule with a web application firewall for Azure Front Door Service (preview)
- This article shows you how to configure IP restriction rules in the web application firewall (WAF) for Azure Front Door Service. You'll use Azure PowerShell, the Azure CLI, or the Azure Resource Manager template to configure these rules.
+# Configure an IP restriction rule with web application firewall for Azure Front Door
+ This article shows you how to configure IP restriction rules in Azure web application firewall (WAF) for Front Door by using Azure CLI, Azure PowerShell, or Azure Resource Manager template.
 
 An IP address–based access control rule is a custom WAF rule that lets you control access to your web applications. It does this by specifying a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) format.
 
 By default, your web application is accessible from the internet. If you want to limit access to clients from a list of known IP addresses or IP address ranges, you must create two IP matching rules. The first IP matching rule contains the list of IP addresses as matching values and sets the action to **Allow**. The second one, with lower priority, blocks all other IP addresses by using the **ALL** operator and setting the action to **Block**. After an IP restriction rule is applied, requests that originate from addresses outside this allowed list receive a 403 Forbidden response.  
 
-> [!IMPORTANT]
 > The WAF IP restriction feature for Azure Front Door Service is currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Configure a WAF policy by using the Azure CLI
+## Configure WAF policy with the Azure CLI
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your CLI environment and create an Azure Front Door Service profile.

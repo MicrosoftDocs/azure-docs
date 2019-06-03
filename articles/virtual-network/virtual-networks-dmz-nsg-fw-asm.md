@@ -3,7 +3,7 @@ title: Perimeter network example – Build a perimeter network to protect applic
 description: Build a perimeter network with a firewall and Network Security Groups (NSGs)
 services: virtual-network
 documentationcenter: na
-author: tracsman
+author: cherylmc
 manager: rossort
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: jonor;sivae
+ms.author: cherylmc
 
 ---
 # Example 2: Build a perimeter network to protect applications with a firewall and NSGs

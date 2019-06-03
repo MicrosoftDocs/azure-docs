@@ -3,14 +3,14 @@ title: Translator Text API V3.0 Reference
 titlesuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Text API V3.0.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
+ms.author: v-pawal
 ---
 
 # Translator Text API v3.0
@@ -140,7 +140,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400036| The target language ("To" field) is missing or invalid.|
 | 400042| One of the options specified ("Options" field) is not valid.|
 | 400043| The client trace ID (ClientTraceId field or X-ClientTranceId header) is missing or invalid.|
-| 400050| The input text is too long.|
+| 400050| The input text is too long. View [request limits](../request-limits.md).|
 | 400064| The "translation" parameter is missing or invalid.|
 | 400070| The number of target scripts (ToScript parameter) does not match the number of target languages (To parameter).|
 | 400071| The value is not valid for TextType.|
@@ -148,14 +148,15 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400073| The script parameter is not valid.|
 | 400074| The body of the request is not valid JSON.|
 | 400075| The language pair and category combination is not valid.|
-| 400077| The maximum request size has been exceeded.|
+| 400077| The maximum request size has been exceeded. View [request limits](../request-limits.md).|
 | 400079| The custom system requested for translation between from and to language does not exist.|
 | 401000| The request is not authorized because credentials are missing or invalid.|
 | 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Please use a subscription to Translator Text API."|
 | 403000| The operation is not allowed.|
 | 403001| The operation is not allowed because the subscription has exceeded its free quota.|
 | 405000| The request method is not supported for the requested resource.|
-| 408001| The custom translation system requested is not yet available. Please retry in a few minutes.|
+| 408001| The translation system requested is being prepared. Please retry in a few minutes.|
+| 408002| Request timed out waiting on incoming stream. The client did not produce a request within the time that the server was prepared to wait. The client may repeat the request without modifications at any later time.|
 | 415000| The Content-Type header is missing or invalid.|
 | 429000, 429001, 429002| The server rejected the request because the client has exceeded request limits.|
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
