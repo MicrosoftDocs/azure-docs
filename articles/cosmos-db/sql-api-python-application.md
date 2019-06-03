@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 02/23/2017
+ms.date: 12/23/2018
 ms.author: sngun
 ---
 
