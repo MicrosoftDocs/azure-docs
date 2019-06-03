@@ -116,7 +116,7 @@ The FXT Edge Filer cluster can automatically upload support data about your clus
 
 Follow these steps to set up support uploads.
 
-1. Navigate to the **Cluster** > **Support** settings page. Accept the privacy policy. [ xxx update screenshot? xxx ]
+1. Navigate to the **Cluster** > **Support** settings page. Accept the privacy policy. <!--  xxx update screenshot? xxx  -->
 
    ![Screenshot showing Control Panel and pop-up window with Confirm button to accept the privacy policy](media/fxt-cluster-config/fxt-privacy-policy.png)
 
@@ -124,7 +124,7 @@ Follow these steps to set up support uploads.
 1. Click the **Revalidate upload information** button.
 1. Set the cluster's support name in **Unique Cluster Name** - make sure it uniquely identifies your cluster to support staff.
 1. Check the boxes for **Statistics Monitoring**, **General Information Upload**, and **Crash Information Upload**.
-1. Click **Submit**.  [ xxx update screenshots? xxx ]
+1. Click **Submit**.  <!-- xxx update screenshots? xxx  -->
 
    ![Screenshot containing completed customer info section of support settings page](media/fxt-cluster-config/fxt-support-info.png)
 
