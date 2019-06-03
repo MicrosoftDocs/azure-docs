@@ -1,19 +1,17 @@
 ---
-title: Analyze and process JSON documents with Apache Hive - Azure HDInsight
-description: Learn how to use JSON documents and analyze them by using Apache Hive in Azure HDInsight
+title: Analyze and process JSON documents with Apache Hive in Azure HDInsight
+description: Learn how to use JSON documents and analyze them by using Apache Hive in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: hrasheed
 ---
 
 # Process and analyze JSON documents by using Apache Hive in Azure HDInsight
 
-Learn how to process and analyze JavaScript Object Notation (JSON) files by using Apache Hive in Azure HDInsight. This tutorial uses the following JSON document:
+Learn how to process and analyze JavaScript Object Notation (JSON) files by using Apache Hive in Azure HDInsight. This article uses the following JSON document:
 
 ```json
 {
@@ -52,7 +50,7 @@ Learn how to process and analyze JavaScript Object Notation (JSON) files by usin
 }
 ```
 
-The file can be found at **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
+The file can be found at `wasb://processjson@hditutorialdata.blob.core.windows.net/`. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
 
 In this tutorial, you use the Apache Hive console. For instructions on how to open the Hive console, see [Use Apache Ambari Hive View with Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
@@ -78,7 +76,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-The raw JSON file is located at **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. The **StudentsRaw** Hive table points to the raw JSON document that is not flattened.
+The raw JSON file is located at `wasb://processjson@hditutorialdata.blob.core.windows.net/`. The **StudentsRaw** Hive table points to the raw JSON document that is not flattened.
 
 The **StudentsOneLine** Hive table stores the data in the HDInsight default file system under the **/json/students/** path.
 
