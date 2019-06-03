@@ -35,7 +35,7 @@ To deploy Data Box Edge, refer to the following tutorials in the prescribed sequ
 | 2. |**[Install Data Box Edge](data-box-edge-deploy-install.md)**|Unpack, rack, and cable the Data Box Edge physical device.  |
 | 3. |**[Connect, set up, and activate Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
 | 4. |**[Transfer data with Data Box Edge](data-box-edge-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
-| 5. |**[Transform data with Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure Edge modules on the device to transform the data as it moves to Azure. |
+| 5. |**[Transform data with Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure compute modules on the device to transform the data as it moves to Azure. |
 
 You can now begin to set up the Azure portal.
 
@@ -61,7 +61,7 @@ Before you begin, make sure that:
 Before you deploy a physical device, make sure that:
 
 - You've reviewed the safety information that was included in the shipment package.
-- You have a 1 U slot available in a standard 19” rack in your datacenter for rack mounting the device. 
+- You have a 1U slot available in a standard 19” rack in your datacenter for rack mounting the device.
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to a physical device.
