@@ -6,13 +6,13 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/03/2019
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to an Azure virtual machine running Windows that doesn't have a public IP address by using Azure Bastion.
 
 ---
 
-# Connect to a Windows virtual machine using Azure Bastion (preview)
+# Connect to a Windows virtual machine using Azure Bastion (Preview)
 
 This article shows you how to securely and seamlessly RDP to your Windows VMs in an Azure virtual network using Azure Bastion. You can connect to a VM directly from the Azure portal. When using Azure Bastion, VMs don't require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md).
 

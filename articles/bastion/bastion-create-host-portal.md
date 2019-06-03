@@ -6,13 +6,13 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/03/2019
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 
 ---
 
-# Create an Azure Bastion host (preview)
+# Create an Azure Bastion host (Preview)
 
 This article shows you how to create an Azure Bastion host. Once you provision the Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all your VMs in the same virtual network. This deployment is per virtual network, not per subscription/account or virtual machine.
 
