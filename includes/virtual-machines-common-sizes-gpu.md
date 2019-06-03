@@ -105,7 +105,7 @@ NDv2-series virtual machine is a new addition to the GPU family designed for the
 
 | Size              | vCPU | GPU              | Memory  | NICs (Max) | Max. disk size           | Max. data disks (1023 GB each) | Max network bandwidth | 
 |-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
-| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32                             | 24,000 Mbps           |
+| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32                             | 24000 Mbps           |
 
 ## ND-series
 

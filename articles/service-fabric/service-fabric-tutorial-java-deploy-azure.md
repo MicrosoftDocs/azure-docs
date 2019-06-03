@@ -56,7 +56,7 @@ The following steps create the necessary resources required to deploy your appli
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
 
-2. Log in to your Azure account
+2. Sign in to your Azure account
 
     ```bash
     az login

@@ -23,10 +23,6 @@ To learn about event domains, see [Understand event domains for managing Event G
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## Install preview feature
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## Create an Event Domain
 
 To manage large sets of topics, create an event domain.
@@ -34,10 +30,6 @@ To manage large sets of topics, create an event domain.
 For Azure CLI, use:
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -47,10 +39,6 @@ az eventgrid domain create \
 For PowerShell, use:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
@@ -199,6 +187,23 @@ Get-AzureRmEventGridDomainKey `
 ```
 
 And then use your favorite method of making an HTTP POST to publish your events to your Event Grid domain.
+
+## Search lists of topics or subscriptions
+
+In order to make searching and managing of large numbers of topics or subscriptions, Event Grid's APIs support list an pagination.
+
+### Using CLI
+
+To use it make sure you’re using the Azure CLI Event Grid extension version 0.4.1 or newer.
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid topic list \
+    --odata-query "contains(name, 'my-test-filter')"
+```
 
 ## Next steps
 
