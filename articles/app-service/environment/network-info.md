@@ -25,7 +25,7 @@ ms.custom: seodec18
 - **External ASE**: Exposes the ASE-hosted apps on an internet-accessible IP address. For more information, see [Create an External ASE][MakeExternalASE].
 - **ILB ASE**: Exposes the ASE-hosted apps on an IP address inside your VNet. The internal endpoint is an internal load balancer (ILB), which is why it's called an ILB ASE. For more information, see [Create and use an ILB ASE][MakeILBASE].
 
-All ASEs, External and ILB, have a public VIP that is used for inbound management traffic and as the from address when making calls from the ASE to the internet. The calls from an ASE that go to the internet leave the VNet through the VIP assigned for the ASE. The public IP of this VIP is the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there without additional configuration.
+All ASEs, External, and ILB, have a public VIP that is used for inbound management traffic and as the from address when making calls from the ASE to the internet. The calls from an ASE that go to the internet leave the VNet through the VIP assigned for the ASE. The public IP of this VIP is the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there without additional configuration.
 
 ![External ASE][1] 
 
@@ -42,12 +42,12 @@ If you have an ILB ASE, the address of the ILB address is the endpoint for HTTP/
 
 ## ASE subnet size ##
 
-The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you create an app in that ASE. As you scale out your ASE, infrastructure roles are added every multiple of 15 and 20 of your App Service plan instances.
+The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are five addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE, then it will use 13 addresses before you create an app in that ASE. As you scale out your ASE, infrastructure roles are added every multiple of 15 and 20 of your App Service plan instances.
 
    > [!NOTE]
    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/24` with 256 addresses.
 
-When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. Only after your apps are migrated are the original VMs removed. This means that if you had an ASE with 100 ASP instances there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
+When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. The original VMs removed only after the workloads have been migrated. If you had an ASE with 100 ASP instances, there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
 
 ## ASE dependencies ##
 
@@ -64,11 +64,11 @@ The ASE inbound access dependencies are:
 
 The inbound management traffic provides command and control of the ASE in addition to system monitoring. The source addresses for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from all IPs on ports 454 and 455. If you block access from those addresses, your ASE will become unhealthy and then become suspended.
 
-Within the ASE subnet there are many ports used for internal component communication and they can change. This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
+Within the ASE subnet, there are many ports used for internal component communication and they can change. This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
 
-For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE then you need to take into account the normal app access ports.  If you are using app assigned addresses you need to open it to all ports.  When an address is assigned to a specific app, then the load balancer will use ports that are not known of in advance to send HTTP and HTTPS traffic to the ASE.
+For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE, then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE, then you need to take into account the normal app access ports.  If you are using app assigned addresses, you need to open it to all ports.  When an address is assigned to a specific app, then the load balancer will use ports that are not known of in advance to send HTTP and HTTPS traffic to the ASE.
 
-If you are using app assigned IP addresses you need to allow traffic from the IPs assigned to your apps to the ASE subnet.
+If you are using app assigned IP addresses, you need to allow traffic from the IPs assigned to your apps to the ASE subnet.
 
 The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP or you will have an asymmetric routing problem. 
 
@@ -89,9 +89,9 @@ The complete list of outbound dependencies are listed in the document that descr
 
 ### Customer DNS ###
 
-If the VNet is configured with a customer-defined DNS server, the tenant workloads use it. The ASE uses Azure DNS for management purposes. If the VNet is configured with a customer selected DNS server, the DNS server must be reachable from the subnet that contains the ASE.
+If the VNet is configured with a customer-defined DNS server, the tenant workloads use it. The ASE uses Azure DNS for management purposes. If the VNet is configured with a customer-selected DNS server, the DNS server must be reachable from the subnet that contains the ASE.
 
-To test DNS resolution from your web app, you can use the console command *nameresolver*. Go to the debug window in your scm site for your app or go to the app in the portal and select console. From the shell prompt you can issue the command *nameresolver* along with the DNS name you wish to look up. The result you get back is the same as what your app would get while making the same lookup. If you use nslookup you will do a lookup using Azure DNS instead.
+To test DNS resolution from your web app, you can use the console command *nameresolver*. Go to the debug window in your scm site for your app or go to the app in the portal and select console. From the shell prompt you can issue the command *nameresolver* along with the DNS name you wish to look up. The result you get back is the same as what your app would get while making the same lookup. If you use nslookup, you will do a lookup using Azure DNS instead.
 
 If you change the DNS setting of the VNet that your ASE is in, you will need to reboot your ASE. To avoid rebooting your ASE, it is highly recommended that you configure your DNS settings for your VNet before you create your ASE.  
 
@@ -119,7 +119,7 @@ An ASE has a few IP addresses to be aware of. They are:
 
 - **Public inbound IP address**: Used for app traffic in an External ASE, and management traffic in both an External ASE and an ILB ASE.
 - **Outbound public IP**: Used as the "from" IP for outbound connections from the ASE that leave the VNet, which aren't routed down a VPN.
-- **ILB IP address**: If you use an ILB ASE.
+- **ILB IP address**: The ILB IP address only exists in an ILB ASE.
 - **App-assigned IP-based SSL addresses**: Only possible with an External ASE and when IP-based SSL is configured.
 
 All these IP addresses are visible in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
@@ -181,7 +181,7 @@ After your NSGs are defined, assign them to the subnet that your ASE is on. If y
 
 ## Routes ##
 
-Forced tunneling is when you set routes in your VNet so the outbound traffic doesn't go directly to the internet but somewhere else like an ExpressRoute gateway or a virtual appliance.  If you need to configure your ASE in such a manner then read the document on [Configuring your App Service Environment with Forced Tunneling][forcedtunnel].  This document will tell you the options available to work with ExpressRoute and forced tunneling.
+Forced tunneling is when you set routes in your VNet so the outbound traffic doesn't go directly to the internet but somewhere else like an ExpressRoute gateway or a virtual appliance.  If you need to configure your ASE in such a manner, then read the document on [Configuring your App Service Environment with Forced Tunneling][forcedtunnel].  This document will tell you the options available to work with ExpressRoute and forced tunneling.
 
 When you create an ASE in the portal we also create a set of route tables on the subnet that is created with the ASE.  Those routes simply say to send outbound traffic directly to the internet.  
 To create the same routes manually, follow these steps:
@@ -206,9 +206,9 @@ To create the same routes manually, follow these steps:
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
-When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints with a forced tunneled ASE, the Azure SQL and Azure Storage management traffic isn't forced tunneled. 
+When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints on any Azure service, with a forced tunneled ASE, the traffic to those services will not be forced tunneled. 
 
-When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another. Azure Storage does not behave the same as Azure SQL. When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
+When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another. No other Azure service behaves like Azure SQL with respect to Service Endpoints. When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
 
 ![Service Endpoints][8]
 
