@@ -7,15 +7,11 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/02/2019
 ms.author: brjohnst
 
 ---
 # How to use Azure Search from a .NET Application
-
-> [!Important]
-> This content is still under construction. Version 9.0 of the Azure Search .NET SDK is available on NuGet. We are working on updating this migration guide to explain how to upgrade to the new version. Stay tuned.
->
 
 This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
 
@@ -35,21 +31,21 @@ The various client libraries define classes like `Index`, `Field`, and `Document
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-The current version of the Azure Search .NET SDK is now generally available. If you would like to provide feedback for us to incorporate in the next version, see our [feedback page](https://feedback.azure.com/forums/263029-azure-search/).
+If you would like to provide feedback for a future update of the SDK, see our [feedback page](https://feedback.azure.com/forums/263029-azure-search/).
 
-The .NET SDK supports version `2017-11-11` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version now includes support for synonyms, as well as incremental improvements to indexers. 
+The .NET SDK supports version `2019-05-06` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version includes support for [complex types](https://docs.microsoft.com/azure/search/search-howto-complex-data-types), [cognitive search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](https://docs.microsoft.com/azure/search/search-howto-index-json-blobs) when indexing Azure Blobs. 
 
 This SDK does not support [Management Operations](https://docs.microsoft.com/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 
 ## Upgrading to the latest version of the SDK
-If you're already using an older version of the Azure Search .NET SDK and you'd like to upgrade to the new generally available version, [this article](search-dotnet-sdk-migration-version-5.md) explains how.
+If you're already using an older version of the Azure Search .NET SDK and you'd like to upgrade to the latest generally available version, [this article](search-dotnet-sdk-migration-version-9.md) explains how.
 
 ## Requirements for the SDK
 1. Visual Studio 2017 or later.
 2. Your own Azure Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Create a service in the portal](search-create-service-portal.md) will help you through these steps.
 3. Download the Azure Search .NET SDK [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Search) by using "Manage NuGet Packages" in Visual Studio. Just search for the package name `Microsoft.Azure.Search` on NuGet.org (or one of the other package names above if you only need a subset of the functionality).
 
-The Azure Search .NET SDK supports applications targeting the .NET Framework 4.5.2 and higher, as well as .NET Core.
+The Azure Search .NET SDK supports applications targeting the .NET Framework 4.5.2 and higher, as well as .NET Core 2.0 and higher.
 
 ## Core scenarios
 There are several things you'll need to do in your search application. In this tutorial, we'll cover these core scenarios:
@@ -168,33 +164,50 @@ This time we use a query key since we do not need write access to the index. You
 
 If you run this application with a valid service name and API keys, the output should look like this example:
 
-	Deleting index...
-	
-	Creating index...
-	
-	Uploading documents...
-	
-	Waiting for documents to be indexed...
-	
-	Search the entire index for the term 'budget' and return only the hotelName field:
-	
-	Name: Roach Motel
-	
-	Apply a filter to the index to find hotels cheaper than $150 per night, and return the hotelId and description:
-	
-	ID: 2   Description: Cheapest hotel in town
-	ID: 3   Description: Close to town hall and the river
-	
-	Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
-	
-	Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-	Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
-	
-	Search the entire index for the term 'motel':
-	
-	ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-	
-	Complete.  Press any key to end application...
+Deleting index...
+
+Creating index...
+
+Uploading documents...
+
+Waiting for documents to be indexed...
+
+Search the entire index for the term 'motel' and return only the HotelName field:
+
+Name: Secret Point Motel
+
+Name: Twin Dome Motel
+
+
+Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
+
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
+
+HotelId: 2
+Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
+
+
+Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+
+Name: Triple Landscape Hotel
+Last renovated on: 9/20/2015 12:00:00 AM +00:00
+
+Name: Twin Dome Motel
+Last renovated on: 2/18/1979 12:00:00 AM +00:00
+
+
+Search the entire index for the term 'hotel':
+
+HotelId: 3
+Name: Triple Landscape Hotel
+...
+
+HotelId: 2
+Name: Twin Dome Motel
+...
+
+Complete.  Press any key to end application... 
 
 The full source code of the application is provided at the end of this article.
 
