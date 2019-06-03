@@ -1,5 +1,5 @@
 ---
-title: Deploy the website
+title: Azure App Service with Visual Studio Code - deploy your app
 description: Node.js Deployment to Azure App Services with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -18,7 +18,8 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
 ![Deploy to Web App](./media/tutorial-javascript-vscode/deploy.png)
 
-> **Tip:** You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
+> [!TIP]
+> You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
 
 1. Choose **Create New Web App**.
 
@@ -28,7 +29,7 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
 4. Choose your **Node.js version**, LTS is recommended.
 
-  The notification channel shows the Azure resources that are being created for your app.
+    The notification channel shows the Azure resources that are being created for your app.
 
 5. Choose the directory that you currently have open, `myExpressApp`.
 
@@ -40,7 +41,8 @@ Once the deployment starts, you're prompted to update your workspace so that all
 
 ![Configured deployment](./media/tutorial-javascript-vscode/save-configuration.png)
 
-> **Tip:** Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
+> [!TIP]
+> Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
 
 ## Browse the website
 
@@ -54,7 +56,7 @@ Are you seeing the error **"You do not have permission to view this directory or
 
 You can deploy changes to this app by using the same process and choosing the existing app rather than creating a new one.
 
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [My site is on Azure](./tutorial-javascript-vscode-tail-logs.md)

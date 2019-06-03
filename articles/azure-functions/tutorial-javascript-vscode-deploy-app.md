@@ -1,5 +1,5 @@
 ---
-title: Deploy the website
+title: Azure App Service on Linux with Visual Studio Code - deploy your app
 description: Try Azure Functions for free with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -20,7 +20,8 @@ In the **AZURE FUNCTIONS** explorer, click the blue up arrow icon to deploy your
 
 ![Deploy to Functions](./media/tutorial-javascript-vscode/function-app-publish-project.png)
 
-> **Tip:** You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to function app' and running the **Azure Functions: Deploy to Function App** command.
+> [!TIP]
+> You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to function app' and running the **Azure Functions: Deploy to Function App** command.
 
 From here, follow the prompts. Choose the directory that you currently have open, select your Azure subscription, and then choose **Create New Function App**.
 
@@ -36,7 +37,8 @@ Function app creation starts after you choose your Storage account.
 
 The Output panel shows the Azure resources that were created in your subscription.
 
-> **Tip:** A storage account is not required for HTTP trigger functions, other function triggers (e.g. Storage) do, however, require a storage account.
+> [!TIP]
+> A storage account is not required for HTTP trigger functions, other function triggers (e.g. Storage) do, however, require a storage account.
 
 ![Deploy to Functions](./media/tutorial-javascript-vscode/function-create-output.png)
 
@@ -50,13 +52,12 @@ The **Output** panel will open during deployment to indicate the status of the o
 
 Next, make some changes to your Function and add new Functions with other Triggers. When you have the code running correctly in your local environment, click the blue up arrow **Deploy to Function App** button to deploy your changes.
 
-> **Tip:** When deploying, the entire Functions application is deploy so changes to all individual Functions will be deployed at once.
+> [!TIP]
+> When deploying, the entire Functions application is deploy so changes to all individual Functions will be deployed at once.
 
-## Congratulations!
+## Next steps
 
-Congratulations, you've successfully completed this quickstart!
-
-Next, check out the other Azure extensions.
+Congratulations, you've successfully completed this quickstart! Be sure to check out the other Azure extensions:
 
 * [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
@@ -64,10 +65,10 @@ Next, check out the other Azure extensions.
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-Or get them all by installing the
+You can get them all by installing the
 [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.
 
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I'm done!](./functions-monitoring.md)

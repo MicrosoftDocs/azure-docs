@@ -1,5 +1,5 @@
 ---
-title: Run and test your app locally
+title: Azure App Service on Linux with Visual Studio Code - run you app
 description: Try Azure Functions for free with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -24,9 +24,9 @@ Now that your Function is running locally, make some changes and set a breakpoin
 
 ![Functions Debugging](./media/tutorial-javascript-vscode/function-debugging.png)
 
-Next, set up your Azure account and publish the Function App from the extension.
+## Next steps
 
-----
+Next, you'll set up your Azure account and publish the Function App from the extension.
 
 > [!div class="nextstepaction"]
 > [I ran the Function App](./tutorial-javascript-vscode-deploy-app.md)

@@ -1,5 +1,5 @@
 ---
-title: Getting started with Docker images
+title: Azure App Service on Linux with Visual Studio Code - get started
 description: Node.js Deployment to Azure App Services with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -43,11 +43,11 @@ In VS Code, you should see your Azure email address in the Status Bar and your s
 Verify that you have Docker installed and running.
 
 ```bash
-$ docker --version
+docker --version
 Docker Version 17.12.0-ce, build c97c6d6
 ```
 
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I've installed the Docker and Azure App Service extensions](./tutorial-javascript-vscode-create-registry.md)

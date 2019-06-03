@@ -1,5 +1,5 @@
 ---
-title: Viewing the application logs
+title: Azure App Service with Visual Studio Code - view logs
 description: Node.js Deployment to Azure App Services with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -54,11 +54,7 @@ Next, check out the other Azure extensions.
 Or get them all by installing the
 [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.
 
-## Learn more at docs.microsoft.com
-
-The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azure-node-2.0.0) developer center on [docs.microsoft.com](https://docs.microsoft.com) has a number of great articles on how to build and deploy Node.js based functions and applications to Azure.
-
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I'm done!](./app-service-web-tutorial-nodejs-mongodb-app.md)

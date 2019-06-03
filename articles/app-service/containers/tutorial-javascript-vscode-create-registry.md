@@ -1,5 +1,5 @@
 ---
-title: Container registries
+title: Azure App Service on Linux with Visual Studio Code - create a registry
 description: Node.js Deployment to Azure App Services with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -31,7 +31,7 @@ Once the Registry is created, click **Access Keys** from the left menu and **Ena
 With the admin user account enabled, log into your registry from the Docker CLI using the following command.
 
 ```bash
-$ docker login <registryname>.azurecr.io  # Copy from "Login Server"
+docker login <registryname>.azurecr.io  # Copy from "Login Server"
 Username:   # Copy from "Username"
 Password:   # Copy from "Password"
 Login Succeeded
@@ -47,7 +47,7 @@ Ensure that the registry endpoint that you just setup is visible under **Registr
 
 ![Registries](./media/tutorial-javascript-vscode/registries.png)
 
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I've created a registry](./tutorial-javascript-vscode-containerize-app.md)

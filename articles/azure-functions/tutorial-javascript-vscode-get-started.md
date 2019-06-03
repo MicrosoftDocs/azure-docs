@@ -1,5 +1,5 @@
 ---
-title: Azure Functions with Visual Studio Code
+title: Azure Functions with Visual Studio Code - get started
 description: Try Azure Functions for free with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -64,7 +64,7 @@ Verify that you have the Azure Functions tools installed by opening a terminal (
                 %
 ```
 
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I've installed the Azure Functions extension](./tutorial-javascript-vscode-create-app.md)

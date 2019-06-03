@@ -1,5 +1,5 @@
 ---
-title: Create the application
+title: Azure Functions with Visual Studio Code - create an app
 description: Try Azure Functions for free with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -30,11 +30,11 @@ Upon completion, a new directory is created within your Function app named `Http
 
 ![Completed Project](./media/tutorial-javascript-vscode/functions-vscode-intro.png)
 
-Next, run your app locally to verify everything is working.
+## Next steps
 
----
+Next, you'll run your app locally to verify everything is working.
 
 > [!div class="nextstepaction"]
-> [I've created the Function](./tutorial-javascript-vscode-run-app.md)
+> [I've created the Function app](./tutorial-javascript-vscode-run-app.md)
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-functions&step=create-app)

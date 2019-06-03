@@ -1,5 +1,5 @@
 ---
-title: Deploy the image
+title: Azure App Service on Linux with Visual Studio Code - deploy your container
 description: Node.js Deployment to Azure App Services with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -32,7 +32,7 @@ An **App Service Plan** defines the physical resources that will be used to host
 
 The **Output** panel will open during deployment to indicate the status of the operation. When the operation completes, find the app you created in the **AZURE APP SERVICE** explorer, right-click it, then choose **Browse Website** to open the site in your browser.
 
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [My site is on Azure](./tutorial-javascript-vscode-tail-logs.md)

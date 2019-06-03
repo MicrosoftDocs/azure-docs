@@ -1,5 +1,5 @@
 ---
-title: Azure App Services with Visual Studio Code
+title: Azure App Services with Visual Studio Code - get started
 description: Node.js Deployment to Azure App Services with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -47,7 +47,7 @@ Before we continue, ensure that you have all the prerequisites installed and con
 
 In VS Code, you should see your Azure email address in the Status Bar and your subscription in the **AZURE APP SERVICE** explorer.
 
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I've installed the Azure App Service extension](./tutorial-javascript-vscode-create-app.md)

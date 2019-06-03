@@ -1,5 +1,5 @@
 ---
-title: Create the image
+title: Azure App Service on Linux with Visual Studio Code - create a container
 description: Node.js Deployment to Azure App Services with Visual Studio Code
 author: KarlErickson
 ms.author: karler
@@ -12,23 +12,27 @@ ms.devlang: javascript
 
 Next, use the Docker extension to add the necessary files to create an image for your app, build the image, and push it to a registry.
 
-> **Tip:** If you don't already have an app for this quickstart, follow the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+> [!TIP]
+> If you don't already have an app for this quickstart, follow the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## Add Docker files
 
 Open the **Command Palette** (CTRL + SHIFT + P) and type `add docker files to workspace` to run the **Docker: Add Docker files to workspace** command. This command will create the necessary Docker files. Choose your application type - **Node.js** in this tutorial - along with the port that your application listens on.
 
-> **Tip:** Be sure that the port you select matches the port your app listens on. If you used the Express generator, set this to 3000.
+> [!TIP]
+> Be sure that the port you select matches the port your app listens on. If you used the Express generator, set this to 3000.
 
 This action will add a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
 
-> **Tip**: VS Code has great support for Docker files. See the [Working with Docker](https://code.visualstudio.com/docs/azure/docker) topic to learn about rich language features like smart suggestions, completions, and error detection.
+> [!TIP]
+> VS Code has great support for Docker files. See the [Working with Docker](https://code.visualstudio.com/docs/azure/docker) topic to learn about rich language features like smart suggestions, completions, and error detection.
 
 ## Build a Docker image
 
 The `Dockerfile` file describes the environment for your app including the location of the source files and the command to start the app within a container.
 
-> **Tip:** Containers versus images: A container is an instance of an image.
+> [!TIP]
+> Containers versus images: A container is an instance of an image.
 
 Open the **Command Palette** (CTRL + SHIFT + P) and run **Docker: Build Image** to build the image. Choose the `Dockerfile` file then give the image a name. It's important that you specify a couple of things here. The format is as follows:
 
@@ -58,7 +62,7 @@ Open the **Command Palette** (CTRL + SHIFT + P) and run **Docker: Push** and cho
 
 Next, you'll deploy your image to Azure.
 
-----
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I've created an image for my application](./tutorial-javascript-vscode-deploy-container.md)
