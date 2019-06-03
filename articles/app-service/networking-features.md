@@ -158,9 +158,9 @@ The gateway required VNet Integration feature is very useful but still does not 
 
 This feature is in preview and should not be used for production workloads. To learn more about this feature, read the docs on [App Service VNet Integration][vnetintegration].
 
-## App Service Environment (ASE)
+## App Service Environment 
 
-An ASE is a single tenant deployment of the Azure App Service that runs in your VNet. The ASE enables use cases such as:
+An App Service Environment (ASE) is a single tenant deployment of the Azure App Service that runs in your VNet. The ASE enables use cases such as:
 
 * Access resources in your VNet
 * Access resources across ExpressRoute
