@@ -21,7 +21,7 @@ You can deploy VPN and ExpressRoute gateways in Azure Availability Zones. This b
 
 You can use either PowerShell installed locally on your computer, or the Azure Cloud Shell. If you choose to install and use the PowerShell locally, this feature requires the latest version of the PowerShell module.
 
-[!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-try-it.md)]
 
 ### To use PowerShell locally
 
