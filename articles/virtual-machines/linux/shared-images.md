@@ -1,5 +1,5 @@
 ---
-title: Use shared image galleries with the Azure CLI | Microsoft Docs
+title: Create shared image galleries with the Azure CLI | Microsoft Docs
 description: In this article, you learn how to use the Azure CLI to create a shared image of a VM in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -20,15 +20,6 @@ ms.custom:
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
-# Quickstart: Setting up Azure CLI
-
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-To install and use the CLI locally, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-
 # Create a shared image gallery with the Azure CLI
 
 A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
@@ -52,16 +43,17 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 
 ## Create a VM
 
-Create a VM from the image version using [az vm create](/cli/azure/vm#az-vm-create).
+Create a VM from the latest image version using [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
    --resource-group myGalleryRG \
    --name myVM \
-   --image "/subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0" \
+   --image "/subscriptions/subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --generate-ssh-keys
 ```
-To use the latest version of an image definition, use the resource uri of the image definition, for example: "/subscriptions/subscription-ID/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
+
+You can also use a specific version by using the image version ID for the `--image` parameter. For example, to use image version *1.0.0* type: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 

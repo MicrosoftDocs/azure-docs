@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-[Azure Files](../articles/storage/files/storage-files-introduction.md) supports identity-based authentication over SMB (Server Message Block) (preview) through [Azure Active Directory (Azure AD) Domain Services](../articles/active-directory-domain-services/active-directory-ds-overview.md). Your domain-joined Windows virtual machines (VMs) can access Azure file shares using [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) credentials. 
+[Azure Files](../articles/storage/files/storage-files-introduction.md) supports identity-based authentication over SMB (Server Message Block) (preview) through [Azure Active Directory (Azure AD) Domain Services](../articles/active-directory-domain-services/overview.md). Your domain-joined Windows virtual machines (VMs) can access Azure file shares using [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) credentials. 
 
 Azure AD authenticates an identity such as a user, group, or service principal with [role-based access control (RBAC)](../articles/role-based-access-control/overview.md). You can define custom RBAC roles that encompass common sets of permissions used to access Azure Files. When you assign your custom RBAC role to an Azure AD identity, that identity is granted access to an Azure file share according to those permissions.
 

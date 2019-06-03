@@ -46,10 +46,6 @@ Use the execute data flow activity to run your ADF data flow in pipeline debug (
 
 ![Execute Data Flow](media/data-flow/activity-data-flow.png "Execute Data Flow")
 
-### Run on
-
-Choose the compute environment for this execution of your data flow. The default is the Azure Auto-Resolve Default Integration Runtime. This choice will execute the data flow on the Spark environment in the same region as your data factory. The compute type will be a job cluster, which means the compute environment will take several minutes to start-up.
-
 ### Debugging pipelines with data flows
 
 ![Debug button](media/data-flow/debugbutton.png "Debug button")
@@ -62,9 +58,14 @@ This is a required field that defines which Integration Runtime to use for your 
 
 The default setting for Data Flow executions is 8 cores of general compute with a TTL of 60 minutes.
 
+Choose the compute environment for this execution of your data flow. The default is the Azure Auto-Resolve Default Integration Runtime. This choice will execute the data flow on the Spark environment in the same region as your data factory. The compute type will be a job cluster, which means the compute environment will take several minutes to start-up.
+
 You have control over the Spark execution environment for your Data Flow activities. In the [Azure integration runtime](concepts-integration-runtime.md) are settings to set the compute type (general purpose, memory optimized, and compute optimized), number of worker cores, and time-to-live to match the execution engine with your Data Flow compute requirements. Also, setting TTL will allow you to maintain a warm cluster that is immediately available for job executions.
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
+
+> [!NOTE]
+> The Integration Runtime selection in the Data Flow activity only applies to *triggered executions* of your pipeline. Debugging your pipeline with Data Flows with Debug will execute against the 8-core default Spark cluster.
 
 ### Staging area
 

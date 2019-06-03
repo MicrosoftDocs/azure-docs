@@ -35,10 +35,9 @@ The master server must have the `azure.replication_support` parameter set to **R
 
 When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.
 
-The read replica feature uses PostgreSQL physical replication, not logical replication. Streaming replication by using replication slots is the default operation mode. When necessary, log shipping is used to catch up.
+Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent a break in replication caused by out of storage errors.
 
-> [!NOTE]
-> If you don't have a storage alert set up on your servers, we recommend that you do so. The alert informs you when a server is approaching its storage limit, which will affect the replication.
+The read replica feature uses PostgreSQL physical replication, not logical replication. Streaming replication by using replication slots is the default operation mode. When necessary, log shipping is used to catch up.
 
 Learn how to [create a read replica in the Azure portal](howto-read-replicas-portal.md).
 

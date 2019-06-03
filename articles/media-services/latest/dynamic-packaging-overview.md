@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
 
 ---
@@ -27,6 +27,9 @@ To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
 In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. 
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Common on-demand workflow
 
@@ -88,10 +91,32 @@ Dynamic Packaging supports MP4 files, which contain video encoded with [H.264](h
 
 ## Audio codecs supported by dynamic packaging
 
-Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 or E-AC3), Dolby Atmos, or [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless). Streaming of Dolby Atmos content is supported for standards like MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
+### MP4 files support
 
-> [!NOTE]
-> Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
+Dynamic Packaging supports MP4 files, which contain audio encoded with 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 or E-AC3)
+* Dolby Atmos
+   
+   Streaming of Dolby Atmos content is supported for standards like MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DTS codecs supported by DASH-CSF, DASH-CMAF, HLS-M2TS, and HLS-CMAF packaging formats are:  
+
+    * DTS Digital Surround (dtsc)
+    * DTS-HD High Resolution and DTS-HD Master Audio  (dtsh)
+    * DTS Express (dtse)
+    * DTS-HD Lossless (no core) (dtsl)
+
+### HLS support
+
+Dynamic Packaging supports HLS (version 4 or above) for Assets that have multiple audio tracks with multiple codecs and languages.
+
+### Not supported
+
+Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
 
 ## Dynamic Encryption
 
@@ -189,10 +214,7 @@ Here is an example of a Smooth Streaming manifest:
 
 ## Dynamic Manifest
 
-Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see  [filters and dynamic manifests](filters-dynamic-manifest-overview.md).
-
-> [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see  [Pre-filtering manifests with Dynamic Packager](filters-dynamic-manifest-overview.md).
 
 ## Ask questions, give feedback, get updates
 

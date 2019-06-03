@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/30/2019
+ ms.date: 05/21/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -19,6 +19,8 @@ To complete the example in this article, you must have an existing managed image
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+
+If you prefer to install and use the CLI locally, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create an image gallery 
 
@@ -55,7 +57,7 @@ Create versions of the image as needed using [az image gallery create-image-vers
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region.
+In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage.
 
 
 ```azurecli-interactive 
@@ -64,7 +66,7 @@ az sig image-version create \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1" \
+   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1=Standard_ZRS" \
    --replica-count 2 \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
@@ -72,5 +74,24 @@ az sig image-version create \
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type standard_zrs` when you create the image version.
+> You can also store all of your image version replicas in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type standard_zrs` when you create the image version.
 >
+
+## Share the gallery
+
+We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
+
+```azurecli-interactive
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
+```
+
+Use the object ID as a scope, along with an email address and [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to give a user access to the shared image gallery.
+
+```azurecli-interactive
+az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>
+```
+
+

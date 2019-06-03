@@ -4,7 +4,7 @@ description: Understand how to create, index and query spatial objects with Azur
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/01/2017
+ms.date: 05/23/2019
 ms.author: sngun
 
 ---
@@ -249,7 +249,7 @@ Here's an example of a LINQ query that finds all documents in the Azure Cosmos D
 **LINQ query for Distance**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

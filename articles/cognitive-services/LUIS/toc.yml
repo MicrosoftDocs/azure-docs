@@ -83,7 +83,7 @@
       displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
-  - name: Use bot
+  - name: Use V4 bot framework
     items:
     - name: With C# 
       href: luis-csharp-tutorial-bf-v4.md
@@ -280,6 +280,8 @@
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
+  - name: Application settings
+    href: luis-reference-application-settings.md
   - name: Prebuilt entity reference
     items:
     - name: Entities per culture
@@ -399,6 +401,8 @@
     href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Resources
   items:
+  - name: What's new
+    href: whats-new.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Language and region support
