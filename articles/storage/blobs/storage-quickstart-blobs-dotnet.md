@@ -161,44 +161,6 @@ export storageconnectionstring=<yourconnectionstring>
 
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
 
-<!--
-| OS | Command | Notes |
-|----|---------|-------|
-| Windows | `setx storageconnectionstring "<yourconnectionstring>"` | After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. |
-| Linux | `export storageconnectionstring=<yourconnectionstring>` | After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective. |
-| macOS | `export storageconnectionstring=<yourconnectionstring>` | Edit your .bash_profile to add the environment variable. After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective. |
- -->
-
-<!--
-# [Windows](#tab/windows)
-
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
-```
-
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
-
-# [Linux](#tab/linux)
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-# [macOS](#tab/macos)
-
-Edit your .bash_profile, and add the environment variable:
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-
----
- -->
-
 ## Object model
 
 Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
@@ -210,6 +172,12 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
+
+Use the following .NET classes to interact with these resources:
+
+* [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): Use this class to create a **CloudBlobContainer**.
+* [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): Use this class to perform actions with **CloudBlockBlob** objects.
+* [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): Represents blob objects which can be stored and retrieved from Azure Storage containers.
 
 ## Code examples
 
