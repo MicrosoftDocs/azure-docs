@@ -9,7 +9,7 @@ ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
 ---
-# Configure outbound network traffic restriction for Azure HDInsight clusters (Preview)
+# Configure outbound network traffic for Azure HDInsight clusters using Firewall (Preview)
 
 This article provides the steps for you to secure outbound traffic from your HDInsight cluster using Azure Firewall. The steps below assume that you are configuring an Azure Firewall for an existing cluster. If you are deploying a new cluster and behind a firewall, create your HDInsight cluster and subnet first and then follow the steps in this guide.
 
@@ -104,10 +104,9 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 Create a route table with the following entries:
 
-1. Seven addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of **Internet**:
+1. Six addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of **Internet**:
     1. Four IP addresses for all clusters in all regions
     1. Two IP addresses that are specific for the region where the cluster is created
-    1. One IP address for Azure's recursive resolver and load balancer health checking source IP address
 1. One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
 
 For example, to configure the route table for a cluster created in the US region of "Central US", use following steps:
