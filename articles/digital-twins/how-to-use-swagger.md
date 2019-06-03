@@ -115,7 +115,7 @@ To learn more about interactively testing requests protected by OAuth 2.0, see t
 
 After completing the Azure Active Directory registration:
 
-6. Click the Authorize button on your swagger page.
+6. Click the **Authorize** button on your swagger page.
 
     [![Click the Swagger authorize button](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
@@ -125,7 +125,7 @@ After completing the Azure Active Directory registration:
 
 8. You will then be redirected to the following success modal.
 
-    [![Swagger client_id field](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
+    [![Swagger redirect modal](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
 
 ## Next steps
 
