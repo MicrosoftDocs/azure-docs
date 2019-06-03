@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 06/03/2019
 ms.author: juliako
 
 ---
@@ -43,7 +43,7 @@ Currently, the following Media Services [Streaming Endpoints](https://docs.micro
 Some qeuestions that can be addressed with Media Services metrics are:
 
 •	How do I monitor my Standard Streaming Endpoint to know when I have exceeded the limits?
-•	How do I know if I have enough Premium Streaming Endpoint units? 
+•	How do I know if I have enough Premium Streaming Endpoint scale units? 
 •	How can I set an alert to know when to scale up my Streaming Endpoints?
 •	How can I see the breakdown of requests failing and what is causing the failure?
 •	How can I see how many HLS or DASH requests are being pulled from the packager?
