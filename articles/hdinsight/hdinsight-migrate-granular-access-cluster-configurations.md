@@ -85,7 +85,7 @@ If you are using version 3.20.0 or below, update to the [latest version of the A
 
 ### Azure Data Lake and Stream Analytics Tools for Visual Studio
 
-Update to version 2.3.9000.1 or later of [Azure Data Lake and Stream Analytics Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) to avoid interruptions.  For help updating, see our documentation, [Update Data Lake Tools for Visual Studio](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio).
+Update to version 2.3.9000.1 or later of [Azure Data Lake and Stream Analytics Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) to avoid interruptions.  For help with updating, see our documentation, [Update Data Lake Tools for Visual Studio](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio).
 
 ### Azure Toolkit for Eclipse
 
@@ -148,7 +148,7 @@ Update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master
 Update to [Az PowerShell version 2.0.0](https://www.powershellgallery.com/packages/Az) or later to avoid interruptions.  Minimal code modifications may be required if you are using a method affected by these changes.
 - `Grant-AzHDInsightHttpServicesAccess` and `Revoke-AzHDInsightHttpServicesAccess` are now deprecated. HTTP is now always enabled, so these cmdlets are no longer needed.
 - `Grant-AzHDInsightHttpServicesAccess` is now deprecated and has been replaced by the new `Set-AzHDInsightGatewayCredential` cmdlet.
-- `Get-AzHDInsightJobOutput` has been updated to support ganular role-based access to the storage key.
+- `Get-AzHDInsightJobOutput` has been updated to support granular role-based access to the storage key.
     - Users with HDInsight Cluster Operator, Contributor, or Owner roles will not be affected.
     - Users with only the Reader role will need to specify the `DefaultStorageAccountKey` parameter explicitly.
 
