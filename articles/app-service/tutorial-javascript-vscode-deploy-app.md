@@ -37,7 +37,7 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
   ![Configured deployment](./media/tutorial-javascript-vscode/server-build.png)
 
-Once the deployment starts, you're prompted to update your workspace so that all subsequent deploys automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
+When the deployment starts, you're prompted to update your workspace so that later deployments will automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
 
 ![Configured deployment](./media/tutorial-javascript-vscode/save-configuration.png)
 
@@ -50,7 +50,7 @@ Once the deployment completes, click **Browse Website** in the prompt to view yo
 
 ## Troubleshooting
 
-Are you seeing the error **"You do not have permission to view this directory or page."**? If so, the application probably failed to start correctly. Head to the next step and view the log output to find and fix the error. If you aren't able to fix it, contact us by clicking the **I ran into an issue** button below. We're happy to help!
+If you see the error **"You do not have permission to view this directory or page."**, then the application probably failed to start correctly. Head to the next step and view the log output to find and fix the error. If you aren't able to fix it, contact us by clicking the **I ran into an issue** button below. We're happy to help!
 
 ## Updating the website
 

@@ -38,17 +38,17 @@ Open the **Command Palette** (CTRL + SHIFT + P) and run **Docker: Build Image** 
 
 `[registry or username]/[image name]:[tag]`
 
-This quickstart uses the Azure Container Registry so for my example:
+Here's an example, using the Azure Container Registry:
 
 `fiveisprime.azurecr.io/myexpressapp:latest`
 
 ![tag docker image](./media/tutorial-javascript-vscode/tag-image.png)
 
-If you're using Docker Hub, use your Docker Hub username, for example:
+If you're using Docker Hub, use your Docker Hub username. For example:
 
 `fiveisprime/myexpressapp:latest`
 
-Once completed, the Terminal panel will open and the Docker command will be executed. This is a good way to get an understanding of the commands required to do the same steps directly from the terminal. You'll also see each step, or layer, that makes up the app environment.
+When the build finishes, the **Terminal** panel will open and the Docker command will run. Viewing the terminal is a good way to get an understanding of the commands required to do the same steps when you use the terminal directly. You'll also see each step, or layer, that makes up the app environment.
 
 Once built, the image will show up in the **DOCKER** explorer under **Images**.
 
@@ -56,7 +56,7 @@ Once built, the image will show up in the **DOCKER** explorer under **Images**.
 
 ## Push the image to a registry
 
-Open the **Command Palette** (CTRL + SHIFT + P) and run **Docker: Push** and choose the image you just built to push the image to the registry. This will also execute the Docker command in the Terminal panel to show the status of the operation. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
+Open the **Command Palette** (CTRL + SHIFT + P), run **Docker: Push**, and choose the image you built to push the image to the registry. This command will also execute the Docker command in the Terminal panel to show the status of the operation. When the command finishes, expand the **Images** node in the Docker extension explorer to see your image.
 
 ![Image in ACR](./media/tutorial-javascript-vscode/image-in-acr.png)
 
