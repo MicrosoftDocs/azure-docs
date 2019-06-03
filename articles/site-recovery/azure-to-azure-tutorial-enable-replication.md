@@ -29,7 +29,7 @@ This tutorial shows you how to set up disaster recovery for Azure VMs by replica
 
 To complete this tutorial:
 
-- Make sure that you understand the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
+- Review the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-azure-to-azure.md) before you start.
 
 ## Create a Recovery Services vault
