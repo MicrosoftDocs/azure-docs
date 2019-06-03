@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
@@ -38,6 +38,8 @@ With the unified Microsoft identity platform, you can write code once and authen
 You can use the Azure portal to register and configure your application, and use the Microsoft Graph API for programmatic application configuration.
 
 Update your application at your own pace. Applications built with ADAL libraries continue to be supported. Mixed application portfolios, that consist of applications built with ADAL and applications built with MSAL libraries, are also supported. This means that applications using the latest ADAL and the latest MSAL will deliver SSO across the portfolio, provided by the shared token cache between these libraries. Applications updated from ADAL to MSAL will maintain user sign-in state upon upgrade.
+
+> [!VIDEO https://youtu.be/y_fgJAatVhk]
 
 ## Microsoft identity platform experience
 
