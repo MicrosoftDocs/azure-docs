@@ -16415,6 +16415,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/migrate-best-practices-costs.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-best-practices-networking.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-best-practices-security-management.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/how-to-tag-v-center.md",
       "redirect_url": "how-to-create-a-group",
       "redirect_document_id": false
