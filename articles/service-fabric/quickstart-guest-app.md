@@ -23,7 +23,7 @@ This quickstart helps you deploy an existing application (Node.js in this exampl
 
 ## Prerequisites
 
-Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md). Which includes installing the Service Fabric SDK and Visual Studio 2017 or 2015.
+Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md). Which includes installing the Service Fabric SDK and Visual Studio 2019 or 2015.
 
 You also need to have an existing Node.js application for deployment. This quickstart uses a simple Node.js website that can be downloaded [here][download-sample]. Extract this file to your `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` folder after you create the project in the next step.
 
@@ -62,7 +62,7 @@ Press **OK**.
 
 Visual Studio creates the application project and the actor service project and displays them in Solution Explorer.
 
-The application project (**MyGuestApp**) does not contain any code directly. Instead, it references a set of service projects. In addition, it contains three other types of content:
+The application project (**MyGuestApp**) doesn't contain any code directly. The project references a set of service projects. Also, it contains three other types of content:
 
 * **Publish profiles**  
 Tooling preferences for different environments.
@@ -79,7 +79,7 @@ For an overview of the contents of the service project, see [Getting started wit
 
 The example Node.js app we're deploying uses port **80** and we need to tell Service Fabric that we need that port exposed.
 
-Open the **ServiceManifest.xml** file in the project. At the bottom of the manifest, there is a `<Resources> \ <Endpoints>` with an entry already defined. Modify that entry to add `Port`, `Protocol`, and `Type`. 
+Open the **ServiceManifest.xml** file in the project. At the bottom of the manifest, there's a `<Resources> \ <Endpoints>` with an entry already defined. Modify that entry to add `Port`, `Protocol`, and `Type`. 
 
 ```xml
   <Resources>
@@ -94,7 +94,7 @@ Open the **ServiceManifest.xml** file in the project. At the bottom of the manif
 
 ## Deploy to Azure
 
-If you press **F5** and run the project, it is deployed to the local cluster. However, let's deploy to Azure instead.
+If you press **F5** and run the project, it's deployed to the local cluster. However, let's deploy to Azure instead.
 
 Right-click on the project and choose **Publish...** which opens a dialog to publish to Azure.
 
@@ -104,7 +104,7 @@ Select the **PublishProfiles\Cloud.xml** target profile.
 
 If you haven't previously, choose an Azure account to deploy to. If you don't have one yet, [sign-up for one][create-account].
 
-Under **Connection Endpoint**, select the Service Fabric cluster to deploy to. If you do not have one, select **&lt;Create New Cluster...&gt;** which opens up web browser window to the Azure portal. For more information, see [create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Under **Connection Endpoint**, select the Service Fabric cluster to deploy to. If you don't have one, select **&lt;Create New Cluster...&gt;** which opens up web browser window to the Azure portal. For more information, see [create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 When you create the Service Fabric cluster, make sure to set the **Custom endpoints** setting to **80**.
 
@@ -126,11 +126,11 @@ Check the overview blade of the service address. Use the domain name from the _C
 
 ![Service fabric overview blade on the Azure portal][overview]
 
-Navigate to this address where you will see the `HELLO WORLD` response.
+Navigate to this address where you'll see the `HELLO WORLD` response.
 
 ## Delete the cluster
 
-Do not forget to delete all of the resources you've created for this quickstart, as you are charged for those resources.
+Don't forget to delete all of the resources you've created for this quickstart, as you're charged for those resources.
 
 ## Next steps
 Read more about [guest executables](service-fabric-guest-executables-introduction.md).

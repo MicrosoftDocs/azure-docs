@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/29/2019
 ---
 # Use Enterprise Security Package in HDInsight
 
