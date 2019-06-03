@@ -22,13 +22,13 @@ In this tutorial, you learn how to:
 > * Implement a basic paging system to handle large collections of search results
 > * Use temporary storage to persist data from one call to the next
 
-You will also learn how straightforward an Azure Search call is. The key statements in the code you will develop are the following:
+You will also learn how straightforward an Azure Search call is. The key statements in the code you will develop are shown in the following few lines.
 
 ```cs
 SearchParameters parameters;
 DocumentSearchResult<Hotel> results;
 
-results = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
+results = await _indexClient.Documents.SearchAsync<Hotel>("search text", parameters);
 ```
 
 This one call initiates a search of Azure data and returns the results. Simple as that. Notice that we are going to use the asynchronous versions of the search APIs right from the start. Both the synchronous and asynchronous versions of the API call work similarly, there are some differences in declaring the methods and calling the APIs but no additional lines of code are needed. For best practices in avoiding blocking threads on a server, best to get used to using the asynchronous versions.
@@ -62,7 +62,7 @@ The last page of results may contain less than a full page.
 
  ![Searching for pool](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
-Hopefully this will all run smoothly, and you have an Azure app running. Many of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
+Hopefully this project will run smoothly, and you have an Azure app running. Many of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
 
 
 ## Build the project from scratch
@@ -116,7 +116,7 @@ Models (C# classes) are used to communicate data between the client (the view), 
 
 1. Open up the **Models** folder of your project, using Solution Explorer, and you will see one default model in there: **ErrorViewModel.cs**.
 
-2. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these are classes themselves and we will need models for these too.
+2. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves and we will need models for them too.
 
 ```cs
 using System;
@@ -240,7 +240,7 @@ namespace FirstAzureSearch.Models
 }
 ```
 
-5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as _complex types_, a new and important feature of Azure Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data systems to be searched than using _simple types_ (a class containing only primitive members). We do need one more model, so go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
+5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as _complex types_, an important feature of Azure Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data systems to be searched than using _simple types_ (a class containing only primitive members). We do need one more model, so go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
 
 ```cs
 using System.Collections;
@@ -339,7 +339,7 @@ This time we have a bit more to look at than members. Note first the static clas
 
 The **SearchData** class itself contains a method to add a hotel to an **ArrayList** of hotels. This list contains hotels that have been returned from an Azure Search. 
 
-Another critical bit of data in this class is **searchText**, containing the text entered by the user. The other members provide control data such as the number of results in total and the current page that is being displayed on the client. We will revisit these when looking at the client code (the **Index** view).
+Another critical bit of data in this class is **searchText**, containing the text entered by the user. The other members provide control data such as the number of results in total and the current page that is being displayed on the client. We will revisit these fields when looking at the client code (the **Index** view).
 
 ## Create MVC views for the client
 
@@ -363,7 +363,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 }
 ```
 
-4. Following the title, let's enter some HTML styling. No need to go into this in detail, this is standard HTML.
+4. Following the title, let's enter some HTML styling. No need to go into this script in detail, it is standard HTML.
 
 ```cs
 <head>
@@ -659,7 +659,7 @@ As mentioned before a subsequent tutorial has a good look at paging. For this fi
 
 ### Note the error handling and other default views and methods
 
-Depending on which version of .NET Core you are using, a slightly different set of default views are created by default. For .NET Core 2.1 the default views are Index, About, Contact, , and Error. For .NET Core 2.2, for example, the default views are Index, Privacy, and Error. In either case, you can view these default pages when running the app and examine how they are handled in the controller.
+Depending on which version of .NET Core you are using, a slightly different set of default views are created by default. For .NET Core 2.1 the default views are Index, About, Contact, and Error. For .NET Core 2.2, for example, the default views are Index, Privacy, and Error. In either case, you can view these default pages when running the app and examine how they are handled in the controller.
 
 We will be testing the Error view later on in this tutorial.
 
@@ -756,7 +756,7 @@ The Azure Search itself is encapsulated in our **RunQueryAsync** method.
         }
 ```
 
-In this method, we first ensure our Azure configuration is initiated, then set some search parameters. The list of fields in the **Select** parameter match exactly the member names in the **hotel** class. It is possible to leave out the **Select** parameter, in which case all fields are returned. However, this is inefficient if we are only interested in a subset of the data. By specifying the fields we are interested in, only these fields will be returned.
+In this method, we first ensure our Azure configuration is initiated, then set some search parameters. The list of fields in the **Select** parameter match exactly the member names in the **hotel** class. It is possible to leave out the **Select** parameter, in which case all fields are returned. However, setting no **Select** parameters is inefficient if we are only interested in a subset of the data. By specifying the fields we are interested in, only these fields are returned.
 
 The asynchronous call to search (**results = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one and a good idea is to stop at this point using a debugger and examine the contents of **results**. You should find that it is intuitive, providing you with the data you asked for and not much else.
 
@@ -808,7 +808,7 @@ You should consider the following takeaways from this project:
 * Azure Search involves a few API calls to set up and carry out, and it is easy to interpret the results.
 * Temporary storage persists for only one call and needs to be reset to survive additional calls.
 * Asynchronous calls add a small amount of complexity to the controller but is the best practice if you intend to develop industrial quality apps. Best to start on the right footing.
-* This app performed an elementary search, defined by what is set up in **searchParameters**. This one class can be populated with many members that add sophistication to a search. All that is needed is to add these parameters to the code you have just written, so not much additional work is needed.
+* This app performed an elementary text search, defined by what is set up in **searchParameters**. However, this one class can be populated with many members that add sophistication to a search. Not much additional work is needed.
 * The Model-View-Controller architecture takes a bit of getting used to, if you are new to it, but it does cleanly define what runs on the client, what on the server, and how to cleanly communicate (with good scalability) data between the two.
 
 ## Next steps
