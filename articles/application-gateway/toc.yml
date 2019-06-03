@@ -211,6 +211,8 @@
         href: application-gateway-troubleshooting-502.md
       - name: Web application firewall (WAF)
         href: waf-tshoot.md
+  - name: Migrate from v1 to v2
+    href: migrate-v1-v2.md
 - name: Reference
   items:
   - name: CRS rules

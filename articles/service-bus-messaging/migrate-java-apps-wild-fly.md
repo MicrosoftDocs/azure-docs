@@ -1072,7 +1072,7 @@ See the following articles:
 
 - [Java Enterprise Guide for App Service on Linux](../app-service/containers/app-service-java-enterprise.md)
 - [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
-- [Deploying Generic JMS RA Adapter in JBoss/WildFly](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+- [Deploying Generic JMS RA Adapter in JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
 - [WildFly/JBoss Messaging Configuration](https://docs.jboss.org/author/display/WFLY/Messaging+configuration)
 - [JBoss/WildFly CLI Guide](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
 - [Opening an SSH connection from your development machine](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)

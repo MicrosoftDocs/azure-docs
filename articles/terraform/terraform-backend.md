@@ -74,7 +74,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 To configure Terraform to use the backend, include a *backend* configuration with a type of *azurerm* inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuration block.
 
-The following example configures a Terraform backend and creates and Azure resource group. Replace the values with values from your environment.
+The following example configures a Terraform backend and creates an Azure resource group. Replace the values with values from your environment.
 
 ```json
 terraform {

@@ -58,7 +58,7 @@ The **Devices** page enables you to:
   
 ## Configure device settings
 
-To manage your devices using the Azure portal, your devices need to be either [registered or joined](overview.md#getting-devices-under-the-control-of-azure-ad) to Azure AD. As an administrator, you can fine-tune the process of registering and joining devices by configuring the device settings. 
+To manage your devices using the Azure portal, your devices need to be either [registered or joined](overview.md#getting-devices-in-azure-ad) to Azure AD. As an administrator, you can fine-tune the process of registering and joining devices by configuring the device settings. 
 
 ![Configure device settings](./media/device-management-azure-portal/22.png)
 
