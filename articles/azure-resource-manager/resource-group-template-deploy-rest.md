@@ -1,17 +1,12 @@
 ---
 title: Deploy resources with REST API and template | Microsoft Docs
 description: Use Azure Resource Manager and Resource Manager REST API to deploy resources to Azure. The resources are defined in a Resource Manager template.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 
 ---
@@ -23,11 +18,25 @@ You can either include your template in the request body or link to a file. When
 
 ## Deployment scope
 
-You can target your deployment to either an Azure subscription or a resource group within a subscription. In most cases, you'll target deployment to a resource group. Use subscription deployments to apply policies and role assignments across the subscription. You also use subscription deployments to create a resource group and deploy resources to it. Depending on the scope of the deployment, you use different commands.
+You can target your deployment to a management group, an Azure subscription, or a resource group. In most cases, you'll target deployments to a resource group. Use management group or subscription deployments to apply policies and role assignments across the specified scope. You also use subscription deployments to create a resource group and deploy resources to it. Depending on the scope of the deployment, you use different commands.
 
-To deploy to a **resource group**, use [Deployments - Create](/rest/api/resources/deployments/createorupdate).
+To deploy to a **resource group**, use [Deployments - Create](/rest/api/resources/deployments/createorupdate). The request is sent to:
 
-To deploy to a **subscription**, use [Deployments - Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+To deploy to a **subscription**, use [Deployments - Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope). The request is sent to:
+
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+To deploy to a **management group**, use Deployments - Create At Management Group Scope. The request is sent to:
+
+```HTTP
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}
+```
 
 The examples in this article use resource group deployments. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
@@ -38,7 +47,7 @@ The examples in this article use resource group deployments. For more informatio
 1. If you don't have an existing resource group, create a resource group. Provide your subscription ID, the name of the new resource group, and location that you need for your solution. For more information, see [Create a resource group](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
    ```
 
    With a request body like:
@@ -54,13 +63,13 @@ The examples in this article use resource group deployments. For more informatio
 
 1. Validate your deployment before executing it by running the [Validate a template deployment](/rest/api/resources/deployments/validate) operation. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
 
-1. Create a deployment. Provide your subscription ID, the name of the resource group, the name of the deployment, and a link to your template. For information about the template file, see [Parameter file](#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](/rest/api/resources/deployments/createorupdate). Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that aren't in your template.
+1. To deploy a template, provide your subscription ID, the name of the resource group, the name of the deployment in the request URI. 
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   With a request body like:
+   In the request body, provide a link to your template and parameter file. Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that aren't in your template.
 
    ```json
    {
@@ -69,11 +78,11 @@ The examples in this article use resource group deployments. For more informatio
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
-      }
+      },
+      "mode": "Incremental"
     }
    }
    ```
@@ -87,11 +96,11 @@ The examples in this article use resource group deployments. For more informatio
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
       },
+      "mode": "Incremental",
       "debugSetting": {
         "detailLevel": "requestContent, responseContent"
       }
@@ -101,7 +110,7 @@ The examples in this article use resource group deployments. For more informatio
 
     You can set up your storage account to use a shared access signature (SAS) token. For more information, see [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-1. Instead of linking to files for the template and parameters, you can include them in the request body.
+1. Instead of linking to files for the template and parameters, you can include them in the request body. The following example shows the request body with the template and parameter inline:
 
    ```json
    {
@@ -164,7 +173,7 @@ The examples in this article use resource group deployments. For more informatio
    }
    ```
 
-1. Get the status of the template deployment. For more information, see [Get information about a template deployment](/rest/api/resources/deployments/get).
+1. To get the status of the template deployment, use [Deployments - Get](/rest/api/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -172,11 +181,11 @@ The examples in this article use resource group deployments. For more informatio
 
 ## Redeploy when deployment fails
 
-This feature is also known as *Rollback on error*. When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use the `onErrorDeployment` property in the request body. This functionality is useful if you have got a known good state for your infrastructure deployment and want this to be reverted to. There are a number of caveats and restrictions:
+This feature is also known as *Rollback on error*. When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use the `onErrorDeployment` property in the request body. This functionality is useful if you've got a known good state for your infrastructure deployment and want to revert to this state. There are a number of caveats and restrictions:
 
-- The redeployment is run exactly as it was run previously with the same parameters. You can not change the parameters.
+- The redeployment is run exactly as it was run previously with the same parameters. You cannot change the parameters.
 - The previous deployment is run using the [complete mode](./deployment-modes.md#complete-mode). Any resources not included in the previous deployment are deleted, and any resource configurations are set to their previous state. Make sure you fully understand the [deployment modes](./deployment-modes.md).
-- The redeployment only affects the resources, any data changes are not affected.
+- The redeployment only affects the resources, any data changes aren't affected.
 - This feature is only supported on Resource Group deployments, not subscription level deployments. For more information about subscription level deployment, see [Create resource groups and resources at the subscription level](./deploy-to-subscription.md).
 
 To use this option, your deployments must have unique names so they can be identified in the history. If you don't have unique names, the current failed deployment might overwrite the previously successful deployment in the history. You can only use this option with root level deployments. Deployments from a nested template aren't available for redeployment.
@@ -264,6 +273,5 @@ If you need to provide a sensitive value for a parameter (such as a password), a
 
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 - To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
-- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
-- For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+

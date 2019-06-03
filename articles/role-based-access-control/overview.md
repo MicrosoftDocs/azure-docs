@@ -131,6 +131,10 @@ The following are the high-level steps that RBAC uses to determine if you have a
 
 1. If a deny assignment applies, access is blocked. Otherwise access is granted.
 
+## License requirements
+
+[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
+
 ## Next steps
 
 - [Quickstart: View the access a user has to Azure resources using the Azure portal](check-access.md)
