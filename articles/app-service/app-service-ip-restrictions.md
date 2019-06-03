@@ -62,7 +62,7 @@ To restrict access to selected subnets, select a type of Virtual Network. Below 
 
 Service endpoints cannot be used to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to your app with IP access rules. 
 
-With service endpoints you can configure your app with Application Gateways or other WAF devices. You can also configure multi-tier applicaitons with secure backends. For more details on some of the possibilites read [Networking features and App Service](networking-features.md).
+With service endpoints, you can configure your app with Application Gateways or other WAF devices. You can also configure multi-tier applications with secure backends. For more details on some of the possibilities, read [Networking features and App Service](networking-features.md).
 
 ### Managing access restriction rules
 
