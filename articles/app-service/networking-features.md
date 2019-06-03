@@ -38,7 +38,7 @@ Unless otherwise stated, all of the features can be used together. You can mix t
 
 ## Use case and features
 
-For any given use case, there can be a few ways to solve the problem.  The right feature to use is sometimes due to reasons beyond just the use case itself. The following use cases suggest how to use App Service networking features by themselves, or with other Azure services, to solve specific problems. 
+For any given use case, there can be a few ways to solve the problem.  The right feature to use is sometimes due to reasons beyond just the use case itself. The following inbound use cases suggest how to use App Service networking features to solve  problems around controlling traffic going to your app. 
  
 | Inbound use cases | Feature |
 |---------------------|-------------------|
@@ -51,6 +51,8 @@ For any given use case, there can be a few ways to solve the problem.  The right
 | Protect my app with a WAF | Application Gateway + ILB ASE </br> Application Gateway with service endpoints </br> Azure Front Door with Access Restrictions |
 | Load balance traffic to my apps in different regions | Azure Front Door with Access Restrictions | 
 | Load balance traffic in the same region | Application Gateway with service endpoints | 
+
+The following outbound use cases suggest how to use App Service networking features to solve outbound access needs for your app. 
 
 | Outbound use cases | Feature |
 |---------------------|-------------------|
@@ -92,8 +94,8 @@ The Access Restrictions capability lets you filter **inbound** requests based on
 
 The Access Restrictions feature helps in scenarios where you want to restrict the IP addresses that can be used to reach your app. Among the use cases for this feature are:
 
-* restrict access to your app from a set of well-defined addresses 
-* restrict access to coming through a load-balancing service, such as Azure Front Door. If you wanted to lock down your inbound traffic to Azure Front Door, create rules to allow traffic from 147.243.0.0/16 and 2a01:111:2050::/44. 
+* Restrict access to your app from a set of well-defined addresses 
+* Restrict access to coming through a load-balancing service, such as Azure Front Door. If you wanted to lock down your inbound traffic to Azure Front Door, create rules to allow traffic from 147.243.0.0/16 and 2a01:111:2050::/44. 
 
 ![Access Restrictions with Front Door](media/networking-features/access-restrictions-afd.png)
 
@@ -105,8 +107,8 @@ Service endpoints allows you to lock down **inbound** access to your app such th
 
 ![service endpoints](media/networking-features/service-endpoints.png)
 
-* setting up an Application Gateway with your app to lock down inbound traffic to your app
-* restricting access to your app to resources in your VNet. This can include VMs, ASEs, or even other apps that use VNet Integration 
+* Setting up an Application Gateway with your app to lock down inbound traffic to your app
+* Testricting access to your app to resources in your VNet. This can include VMs, ASEs, or even other apps that use VNet Integration 
 
 ![service endpoints with application gateway](media/networking-features/service-endpoints-appgw.png)
 
@@ -122,11 +124,11 @@ The App Service Hybrid Connections feature is built on the Azure Relay Hybrid Co
 
 This feature is commonly used to:
 
-* access resources in private networks that are not connected to Azure with a VPN or ExpressRoute
-* support lift and shift of on-premises apps to App Service without needing to also move supporting databases  
-* securely provide access to a single host and port per Hybrid Connection. Most networking features open access to a network and with Hybrid Connections you only have the single host and port you can reach.
-* cover scenarios not covered by other outbound connectivity methods
-* perform development in App Service where the apps can easily leverage on-premises resources 
+* Access resources in private networks that are not connected to Azure with a VPN or ExpressRoute
+* Support lift and shift of on-premises apps to App Service without needing to also move supporting databases  
+* Securely provide access to a single host and port per Hybrid Connection. Most networking features open access to a network and with Hybrid Connections you only have the single host and port you can reach.
+* Cover scenarios not covered by other outbound connectivity methods
+* Perform development in App Service where the apps can easily leverage on-premises resources 
 
 Because the feature enables access to on-premises resources without an inbound firewall hole, it is popular with developers. The other outbound App Service networking features are very Azure Virtual Networking related. Hybrid Connections does not have a dependency on going through a VNet and can be used for a wider variety of networking needs. It is important to note that the App Service Hybrid Connections feature does not care or know what you are doing on top of it. That is to say that you can use it to access a database, a web service or an arbitrary TCP socket on a mainframe. The feature essentially tunnels TCP packets. 
 
@@ -140,9 +142,9 @@ The gateway required App Service VNet Integration feature enables your app to ma
 
 This feature solves the problem of accessing resources in other VNets and can even be used to connect through a VNet to either other VNets or even on-premises. It does not work with ExpressRoute connected VNets but does with Site-to-site VPN connected networks. It is normally inappropriate to use this feature from an app in an App Service Environment (ASE), because the ASE is already in your VNet. The use cases that this feature solves are:
 
-* accessing resources on private IPs in your Azure virtual networks 
-* accessing resources on-premises if there is a site-to-site VPN 
-* accessing resources in peered VNets 
+* Accessing resources on private IPs in your Azure virtual networks 
+* Accessing resources on-premises if there is a site-to-site VPN 
+* Accessing resources in peered VNets 
 
 When this feature is enabled, your app will use the DNS server that the destination VNet is configured with. You can read more on this feature in the documentation on [App Service VNet Integration][vnetintegrationp2s]. 
 
@@ -150,9 +152,9 @@ When this feature is enabled, your app will use the DNS server that the destinat
 
 The gateway required VNet Integration feature is very useful but still does not solve accessing resources across ExpressRoute. On top of needing to reach across ExpressRoute connections, there is a need for apps to be able to make calls to service endpoint secured services. To solve both of those additional needs, another VNet Integration capability was added. The new VNet Integration feature enables you to place the backend of your app in a subnet in a Resource Manager VNet in the same region. This feature is not available from an App Service Environment, which is already in a VNet. This feature enables:
 
-* accessing resources in Resource Manager VNets in the same region
-* accessing resources that are secured with service endpoints 
-* accessing resources that are accessible across ExpressRoute or VPN connections
+* Accessing resources in Resource Manager VNets in the same region
+* Accessing resources that are secured with service endpoints 
+* Accessing resources that are accessible across ExpressRoute or VPN connections
 
 ![VNet Integration](media/networking-features/vnet-integration.png)
 
@@ -173,22 +175,22 @@ Because the apps in an ILB ASE can be exposed on a private IP address, you can e
 
 There are some things that are not yet possible from the multi-tenant service that are from an ASE. Those include things like:
 
-* expose your apps on a private IP address
-* secure all outbound traffic with network controls that are not a part of your app 
-* host your apps in a single tenant service 
-* scale up to many more instances than are possible in the multi-tenant service 
-* load private CA client certificates for use by your apps with private CA secured endpoints 
-* force TLS 1.1 across all of the apps hosted in the system without any ability to disable at the app level 
-* provide a dedicated outbound address for all of the apps in your ASE that is not shared with any customers 
+* Expose your apps on a private IP address
+* Secure all outbound traffic with network controls that are not a part of your app 
+* Host your apps in a single tenant service 
+* Scale up to many more instances than are possible in the multi-tenant service 
+* Load private CA client certificates for use by your apps with private CA secured endpoints 
+* Force TLS 1.1 across all of the apps hosted in the system without any ability to disable at the app level 
+* Provide a dedicated outbound address for all of the apps in your ASE that is not shared with any customers 
 
 ![ASE in a VNet](media/networking-features/app-service-environment.png)
 
 The ASE provides the best story around isolated and dedicated app hosting but does come with some management challenges. Some things to consider before using an operational ASE are:
  
- * an ASE runs inside your VNet but does have dependencies outside of the VNet. Those dependencies must be allowed. Read more in [Networking considerations for an App Service Environment][networkinfo]
- * an ASE does not scale immediately like the multi-tenant service. You need to anticipate scaling needs rather than reactively scaling. 
- * an ASE does have a higher up front cost associated with it. In order to get the most out of your ASE, you should plan on putting many workloads into one ASE rather than have it used for small efforts
- * the apps in an ASE cannot restrict access to some apps in an ASE and not others.
+ * An ASE runs inside your VNet but does have dependencies outside of the VNet. Those dependencies must be allowed. Read more in [Networking considerations for an App Service Environment][networkinfo]
+ * An ASE does not scale immediately like the multi-tenant service. You need to anticipate scaling needs rather than reactively scaling. 
+ * An ASE does have a higher up front cost associated with it. In order to get the most out of your ASE, you should plan on putting many workloads into one ASE rather than have it used for small efforts
+ * The apps in an ASE cannot restrict access to some apps in an ASE and not others.
  * The ASE is in a subnet and any networking rules apply to all the traffic to and from that ASE. If you want to assign inbound traffic rules for just one app, use Access Restrictions. 
 
 ## Combining features 
@@ -199,9 +201,9 @@ The features noted for the multi-tenant service can be used together to solve mo
 
 A common request is on how to put your app in a VNet. Putting your app into a VNet means that the inbound and outbound endpoints for an app are within a VNet. The ASE provides the best solution to solve this problem but, you can get most of what is needed with in the multi-tenant service by combining features. For example, you can host intranet only applications with private inbound and outbound addresses by:
 
-* creating an Application Gateway with private inbound and outbound address
-* securing inbound traffic to your app with service endpoints 
-* use the new VNet Integration so the backend of your app is in your VNet 
+* Creating an Application Gateway with private inbound and outbound address
+* Securing inbound traffic to your app with service endpoints 
+* Use the new VNet Integration so the backend of your app is in your VNet 
 
 This deployment style would not give you a dedicated address for outbound traffic to the internet or give you the ability to lock down all outbound traffic from your app.  This deployment style would give you a much of what you would only otherwise get with an ASE. 
 
@@ -209,8 +211,8 @@ This deployment style would not give you a dedicated address for outbound traffi
 
 A multi-tier application is an application where the API backend apps can only be accessed from the front-end tier. To create a multi-tier application, you can:
 
-* use VNet Integration to connect the backend of your front-end web app with a subnet in a VNet
-* use service endpoints to secure inbound traffic to your API app to only coming from the subnet used by your front-end web app
+* Use VNet Integration to connect the backend of your front-end web app with a subnet in a VNet
+* Use service endpoints to secure inbound traffic to your API app to only coming from the subnet used by your front-end web app
 
 ![multi-tier app](media/networking-features/multi-tier-app.png)
 
