@@ -6,8 +6,9 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/03/2019
 ---
+
 # Scale HDInsight clusters
 
 HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This elasticity, allows you to shrink a cluster after hours or on weekends, and expand it during peak business demands.
@@ -52,13 +53,12 @@ To avoid having your running jobs fail during a scale down operation, you can tr
 1. Manually end the jobs.
 1. Resubmit the jobs after the scaling operation has concluded.
 
-To see a list of pending and running jobs, you can use the YARN **ResourceManager UI**, following these steps:
+To see a list of pending and running jobs, you can use the YARN **Resource Manager UI**, following these steps:
 
-1. Sign in to [Azure portal](https://portal.azure.com).
-2. From the left, navigate to **All services** > **Analytics** > **HDInsight Clusters**, and then select your cluster.
-3. From the main view, navigate to **Cluster dashboards** > **Ambari home**. Enter your cluster  credentials.
-4. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
-5. From the YARN page, select **Quick Links** and hover over the active head node, then select **ResourceManager UI**.
+1. From the [Azure portal](https://portal.azure.com/), select your cluster.  See [List and show clusters](./hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The cluster is opened in a new portal page.
+2. From the main view, navigate to **Cluster dashboards** > **Ambari home**. Enter your cluster  credentials.
+3. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
+4. From the YARN page, select **Quick Links** and hover over the active head node, then select **ResourceManager UI**.
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
