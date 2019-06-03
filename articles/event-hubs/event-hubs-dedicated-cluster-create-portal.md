@@ -42,7 +42,7 @@ To create a cluster in your resource group using the Azure portal, please comple
     1. Enter a **name for the cluster**. The system immediately checks to see if the name is available.
     2. Select the **subscription** in which you want to create the cluster.
     3. Select the **resource group** in which you want to create the cluster.
-    4. Select a **location** for the cluster. If your preferred region is grayed out, it is temporarily out of capacity and you can submit a [support request](#submit-a-support-request-for-your-dedicated-cluster) to the Event Hubs team.
+    4. Select a **location** for the cluster. If your preferred region is grayed out, it is temporarily out of capacity and you can submit a [support request](#submit-a-support-request) to the Event Hubs team.
     5. Select the **Next: Tags** button at the bottom of the page. You may have to wait a few minutes for the system to fully provision the resources.
 
         ![Create Event Hubs Cluster - Basics page](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
@@ -73,9 +73,9 @@ To create a cluster in your resource group using the Azure portal, please comple
 3. Once your namespace is created, you can [create an event hub](event-hubs-create.md#create-an-event-hub) as you would normally create one within a namespace. 
 
 
-## Change the size of your cluster
+## Submit a support request
 
-If you wish to change the size of your cluster after creation, please submit a support request by following these steps:
+If you wish to change the size of your cluster after creation or if your preferred region is not available, please submit a support request by following these steps:
 
 1. In [Azure portal](https://portal.azure.com), select **Help + support** from the left menu.
 2. Select **+ New support request** from the Support menu.
