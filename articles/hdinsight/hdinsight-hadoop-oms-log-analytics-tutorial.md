@@ -2,13 +2,11 @@
 title: Use Azure Monitor logs to monitor Azure HDInsight clusters 
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
-ms.custom: hdinsightactive 
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: hrasheed
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -45,7 +43,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you configure an existing HDInsight Hadoop cluster to use an Azure Log Analytics workspace to monitor jobs, debug logs, etc.
 
-1. From the [Azure portal](https://portal.azure.com/), select your cluster.  See [List and show clusters](./hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The cluster is opened in a new portal blade.
+1. From the [Azure portal](https://portal.azure.com/), select your cluster.  See [List and show clusters](./hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The cluster is opened in a new portal page.
 
 1. From the left, under **Monitoring**, select **Operations Management Suite**.
 
