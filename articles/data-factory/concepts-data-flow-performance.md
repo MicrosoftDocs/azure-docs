@@ -59,7 +59,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ![Sink](media/data-flow/sink4.png "Sink")
 
-* In order to avoid row-by-row processing of your data floes, set the "Batch size" in the sink settings for Azure SQL DB. This will tell ADF to process database writes in batches based on the size provided.
+* In order to avoid row-by-row processing of your data flows, set the "Batch size" in the sink settings for Azure SQL DB. This will tell ADF to process database writes in batches based on the size provided.
 
 ### Set partitioning options on your sink
 
