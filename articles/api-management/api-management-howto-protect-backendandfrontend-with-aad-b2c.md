@@ -51,41 +51,40 @@ Here is a quick overview of the steps:
 11. Build the calling application to consume the API
 12. Upload the JS SPA Sample
 13. Configure the Sample JS Client App with the new AAD B2C Client ID’s and keys 
-14. Configure the Function API to serve as a useful reminder countdown
-15. Test the Client Application
+14. Test the Client Application
 
 ## Create the AAD B2C configuration
+Open the AAD B2C blade in the portal and perfrom the following steps.
 1. Select the **Applications** tab 
-2. Click the 'Add' button and create three applications
+2. Click the 'Add' button and create three applications with sensible names 
 * The Frontend Client, 
 * The Backend Function API,
-* The API Management developer portal (unless you're running APIM in consumption mode)
+* [Optional] The API Management developer portal (unless you're running APIM in consumption mode, more on this later)
 
 3. Use placeholders for the reply urls for now, we’ll update those urls later.
 4. Now set the App ID URI, choose something unique and relevant to the service being created.
-5. Set WebApp/ Web API and Allow Implicit flow to yes
+5. Set WebApp / Web API and Allow Implicit flow to yes
 6. Record the AppID URI, name, and Application ID for later use for all three apps.
-
 7. Open the Backend API from the list of applications and select the *Keys* tab (under General) to generate an auth key
 8. Record the key somewhere safe for later use
 9. Now select the *Published Scopes* Tab (Under API Access)
 10. Create and name a scope for your Function API 
 
 > [!NOTE]
-> AAD B2C scopes are effectively permissions within your API that other applications can request access to via the API access blade from their applications, effectively you just created and assigned application permissions for your calling API.
+> AAD B2C scopes are effectively permissions within your API that other applications can request access to via the API access blade from their applications, effectively you just created application permissions for your called API.
 
 11. Open the other two applications and then look under the *API Access* tab.
 12. Grant them access to the backend API scope and the default one that was already there "login as user".
 13. Generate them a key each by selecting the *Keys* tab under 'General' to generate an auth key and record those keys somewhere safe for later.
 
-## Create a B2C "Sign-up or sign-in" policy (flow)
+## Create a B2C "Sign-up or sign-in" user flow
 1. Return to the root of the AAD B2C Blade 
-2. Then select “Sign-up or Sign-in Policies” and click ‘add’
+2. Then select “User Flows (Policies) ” and click ‘New user flow'
+3. Choose the 'Sign up and sign in' user frow type
 3. Give the policy a name and record it for later.
-4. then select 'Identity providers', then check 'User ID sign up' and click OK. 
-5. Select 'Sign-up attributes' and choose the registration options that you want your customers to enter (At a minimum, choose Email, Display Name and Country/Region), then click OK.
-6. Select 'Application Claims' and choose 'Country/Region', 'Display Name', 'User's Object ID' and 'User is new', then click OK.
-7. Click OK again to return to the main AAD B2C blade, now select the policy that you created in the list (to reopen it), then record the address of the b2clogin.com domain.
+4. Then Under 'Identity providers', then check 'User ID sign up' and click OK. 
+5. Under User Attributes and claims, click 'Show More...' and choose the registration options that you want your customers to enter and have returned in the id token (At a minimum, choose Display Name and Email Address) then click 'Create'.
+7. Select the policy that you created in the list (to reopen it), then clikc Run user flow and record the address of the b2clogin.com domain shown under 'select domain'.
 8. Click on the link at the top to open the 'well-known openid configuration endpoint', and record the authorization_endpoint and token_endpoint values.
 
 > [!NOTE]
@@ -187,7 +186,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 11. If you want to continue to interact with the functions portal, you can add your own public IP address or CIDR range here too.
 12. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses. 
 
-You'll need to add CIDR blocks of addresses to the IP restrictions panel. So if you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx/32.
+You'll need to add CIDR formatted blocks of addresses to the IP restrictions panel. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx/32.
 
 > [!NOTE]
 > Now your Function API should not be callable from anywhere other than via API management, or your address.
@@ -339,7 +338,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
         	var applicationConfig = {
            		clientID: "clientidgoeshere",
-            		authority: "https://login.microsoftonline.com/tfp/tenant/policy",
+            		authority: "https://tenant.b2clogin.com/tfp/tenant/policy",
             		b2cScopes: ["https://tenant/app/scope"],
            		webApi: 'http://functionurl',
 	    		subKey: 'apimkeygoeshere'
@@ -440,7 +439,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 ```html
 	var applicationConfig = {
 		clientID: "{aadb2c-clientid-goeshere}",
-		authority: "https://login.microsoftonline.com/tfp/{tenant}/{policy}",
+		authority: "https://{tenant}.b2clogin.com/tfp/{tenant}/{policy}",
 		b2cScopes: ["https://{tenant}/{app}/{scope}"],
 		webApi: 'http://{apim-url-for-your-function}',
 		subKey: '{apim-ocpkey}'
