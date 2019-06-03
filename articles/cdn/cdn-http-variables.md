@@ -124,9 +124,9 @@ The following table describes how to define a default value.
 
 | Condition | Syntax | Example | Description |
 | --------- | ------ | --------| ----------- |
-| Set a header to a default value when it meets any of the following conditions: <br /><br />- Missing Header <br /><br />- Header value is set to NULL.| %{Variable:=Value} | %{http_referer:=unspecified} | The Referer header will only be set to *unspecified* when it is either missing or set to NULL. No action will take place if it has been set. |
-| Set a header to a default value when it is missing. | %{Variable=Value} | %{http_referer=unspecified} | The Referer header will only be set to *unspecified* when it is missing. No action will take place if it has been set. |
-| Set the header to a default value when it does not meet any of the following conditions: <br /><br />- Missing<br /><br /> - Set to NULL. | %{Variable:+Value} | %{http_referer:+unspecified} | The Referer header will only be set to *unspecified* when a value has been assigned to it. No action will take place if it is either missing or set to NULL. |
+| Set a header to a default value when it meets any of the following conditions: <br /><br />- Missing Header <br /><br />- Header value is set to NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | The Referrer header will only be set to *unspecified* when it is either missing or set to NULL. No action will take place if it has been set. |
+| Set a header to a default value when it is missing. | %{Variable=Value} | %{http_referrer=unspecified} | The Referrer header will only be set to *unspecified* when it is missing. No action will take place if it has been set. |
+| Set the header to a default value when it does not meet any of the following conditions: <br /><br />- Missing<br /><br /> - Set to NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | The Referrer header will only be set to *unspecified* when a value has been assigned to it. No action will take place if it is either missing or set to NULL. |
 
 ## Manipulating variables
 Variables can be manipulated in the following ways:

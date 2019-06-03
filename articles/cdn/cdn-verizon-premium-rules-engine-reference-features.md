@@ -513,7 +513,7 @@ The format for specifying request and response headers is defined as follows:
 
 Header Type|Format|Examples
 -|-|-
-Request Header|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+Request Header|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
 Response Header|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Key information:

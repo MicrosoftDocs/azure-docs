@@ -147,7 +147,7 @@ The terms used in the above response header syntax are defined as follows:
 
 - MATimePeriod: Converts the max-age value (that is, MASeconds) to the approximate equivalent of a larger unit (for example, days). 
 
-- UnixTime: Indicates the cache timestamp of the requested content in Unix time (a.k.a. POSIX time or Unix epoch). The cache timestamp indicates the starting date/time from which an asset's TTL will be calculated. 
+- UnixTime: Indicates the cache timestamp of the requested content in Unix time (also known as POSIX time or Unix epoch). The cache timestamp indicates the starting date/time from which an asset's TTL will be calculated. 
 
     If the origin server does not utilize a third-party HTTP caching server or if that server does not return the Age response header, then the cache timestamp will always be the date/time when the asset was retrieved or revalidated. Otherwise, the POP servers will use the Age field to calculate the asset's TTL as follows: Retrieval/RevalidateDateTime - Age.
 
