@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: lbosq
 
 ---
