@@ -1,23 +1,23 @@
 ---
 title: 'Azure Data Explorer data visualization'
-description: 'Learn about the different ways you can visualize your data in Azure Data Explorer'
+description: 'Learn about the different ways you can visualize your Azure Data Explorer data'
 services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/3/2019
+ms.date: 06/03/2019
 ---
 
-# Data Visualization with Azure Data Explorer 
+# Data visualization with Azure Data Explorer 
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data that is used to build complex analytics solutions for vast amounts of data. Azure Data Explorer integrates with various visualization tools, so you can visualize your data and share the results across your organization. This data can be transformed into actionable insights to make an impact on your business.
 
 Data visualization and reporting is a critical step in the data analytics process. Azure Data Explorer supports many BI services so you can use the one that best fits your scenario and budget.
 
 * Azure Data Explorer visualizations:
-Using Kusto query language the [`render operator`](https://docs.microsoft.com/en-us/azure/kusto/query/renderoperator) offers various visualization types to depict query results. Query visualizations are helpful in anomaly detection and forecasting, machine learning, and more.
+Using Kusto query language the [`render operator`](/azure/kusto/query/renderoperator) offers various visualization types to depict query results. Query visualizations are helpful in anomaly detection and forecasting, machine learning, and more.
 
 * [Power BI](https://powerbi.microsoft.com):
 Azure Data Explorer provides the capability to connect to Power BI using various methods: 
@@ -28,7 +28,7 @@ Azure Data Explorer provides the capability to connect to Power BI using various
  
   * [SQL query](/azure/data-explorer/power-bi-sql-query).
 
-* [Microsoft Excel](https://products.office.com/en-us/excel):
+* [Microsoft Excel](https://products.office.com/excel):
 Azure Data Explorer provides the capability to connect to Excel using the built-in native Excel connector, or import a query from Azure Data Explorer into Excel.
 
 * [Grafana](https://grafana.com):
