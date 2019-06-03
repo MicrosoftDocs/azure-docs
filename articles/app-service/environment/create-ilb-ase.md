@@ -28,9 +28,9 @@ This article shows you how to create an ILB ASE. For an overview on the ASE, see
 
 ## Overview 
 
-You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is /<asename/>.appservicewebsites.net. Apps that are made in an ILB ASE are not put in the public DNS. 
+You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appservicewebsites.net. Apps that are made in an ILB ASE are not put in the public DNS. 
 
-Earlier versions of the ILB ASE required you to provide a domain suffix and a default certificate for HTTPS connections. That is no longer needed. When you create an ILB ASE now, the default certificate is provided by Microsoft and is trusted by the browser. You are still able to set custom domain names on apps in your ASE and certificates on those domains. 
+Earlier versions of the ILB ASE required you to provide a domain suffix and a default certificate for HTTPS connections. The domain suffix is no longer collected at ILB ASE creation and a default certificate is also no longer collected. When you create an ILB ASE now, the default certificate is provided by Microsoft and is trusted by the browser. You are still able to set custom domain names on apps in your ASE and set certificates on those custom domain names. 
 
 With an ILB ASE, you can do things such as:
 
@@ -65,7 +65,7 @@ To create an ILB ASE:
 
 6. Select Networking
 
-7. Select or create a Virtual Network. If you create a new VNet here it will be defined with an address range of 192.168.250.0/23. To create a VNet with a different address range or in a different resource group than the ASE, use the Azure Virtual Network creation portal. 
+7. Select or create a Virtual Network. If you create a new VNet here, it will be defined with an address range of 192.168.250.0/23. To create a VNet with a different address range or in a different resource group than the ASE, use the Azure Virtual Network creation portal. 
 
 8. Select or create an empty a subnet. If you want to select a subnet, it must be empty and not delegated. The subnet size cannot be changed after the ASE is created. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
@@ -91,43 +91,33 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 1. Select or create an App Service plan. 
 
-1. Select Review and Create then select **Create** when you are ready.
+1. Select **Review and Create** then select **Create** when you are ready.
 
-## Post-ILB ASE creation validation ##
+### Web jobs, Functions and the ILB ASE 
 
-An ILB ASE is slightly different than the non-ILB ASE. As already noted, you need to manage your own DNS. The IP address for your ILB is listed under **IP addresses**. This list also has the IP addresses used by the external VIP and for inbound management traffic.
+Both Functions and web jobs are supported on an ILB ASE but for the portal to work with them, you must have network access to the SCM site.  This means your browser must either be on a host that is either in or connected to the virtual network. If your ILB ASE has a domain name that does not end in *appserviceenvironment.net*, you will need to get your browser to trust the HTTPS certificate being used by your scm site.
 
-## Web jobs, Functions and the ILB ASE ##
+## DNS configuration 
 
-Both Functions and web jobs are supported on an ILB ASE but for the portal to work with them, you must have network access to the SCM site.  This means your browser must either be on a host that is either in or connected to the virtual network.  
-
-When you use Azure Functions on an ILB ASE, you might get an error message that says "We are not able to retrieve your functions right now. Please try again later." This error occurs because the Functions UI leverages the SCM site over HTTPS and the root certificate is not in the browser chain of trust. Web jobs has a similar problem. To avoid this problem you can do one of the following:
-
-- Add the certificate to your trusted certificate store. This unblocks Microsoft Edge and Internet Explorer.
-- Use Chrome and go to the SCM site first, accept the untrusted certificate and then go to the portal.
-- Use a commercial certificate that is in your browser chain of trust.  This is the best option.  
-
-## DNS configuration ##
-
-When you use an External VIP, the DNS is managed by Azure. Any app created in your ASE is automatically added to Azure DNS, which is a public DNS. In an ILB ASE, you must manage your own DNS. The domain suffix used with an ILB ASE depends on the name of the ASE. The domain suffix is */<ASE name/>.appserviceenvironment.net*. The IP address for your ILB is in the portal under **IP addresses**. 
+When you use an External VIP, the DNS is managed by Azure. Any app created in your ASE is automatically added to Azure DNS, which is a public DNS. In an ILB ASE, you must manage your own DNS. The domain suffix used with an ILB ASE depends on the name of the ASE. The domain suffix is *&lt;ASE name&gt;.appserviceenvironment.net*. The IP address for your ILB is in the portal under **IP addresses**. 
 
 To configure your DNS:
 
-- create a zone for */<ASE name/>.appserviceenvironment.net*
+- create a zone for *&lt;ASE name&gt;.appserviceenvironment.net*
 - create an A record in that zone that points * to the ILB IP address 
-- create a zone in */<ASE name/>.appserviceenvironment.net* named scm
+- create a zone in *&lt;ASE name&gt;.appserviceenvironment.net* named scm
 - create an A record in the scm zone that points to the ILB IP address
 
-## Publish with an ILB ASE ##
+## Publish with an ILB ASE
 
-For every app that's created, there are two endpoints. In an ILB ASE, you have *&lt;app name>.&lt;ILB ASE Domain>* and *&lt;app name>.scm.&lt;ILB ASE Domain>*. 
+For every app that's created, there are two endpoints. In an ILB ASE, you have *&lt;app name&gt;.&lt;ILB ASE Domain&gt;* and *&lt;app name&gt;.scm.&lt;ILB ASE Domain&gt;*. 
 
 The SCM site name takes you to the Kudu console, called the **Advanced portal**, within the Azure portal. The Kudu console lets you view environment variables, explore the disk, use a console, and much more. For more information, see [Kudu console for Azure App Service][Kudu]. 
 
 Internet-based CI systems, such as GitHub and Azure DevOps, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Azure DevOps, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from Azure DevOps git and deploy to ILB ASE. 
 If you don't want to create your own build agent, you need to use a CI system that uses a pull model, such as Dropbox.
 
-The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the domain suffix */<ASE name/>.appserviceenvironment.net*, and an app named *mytest*, use *mytest./<ASE name/>.appserviceenvironment.net* for FTP and *mytest.scm.contoso.net* for web deployment.
+The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the domain suffix *&lt;ASE name&gt;.appserviceenvironment.net*, and an app named *mytest*, use *mytest.&lt;ASE name&gt;.appserviceenvironment.net* for FTP and *mytest.scm.contoso.net* for web deployment.
 
 ## Configure an ILB ASE with a WAF device ##
 
