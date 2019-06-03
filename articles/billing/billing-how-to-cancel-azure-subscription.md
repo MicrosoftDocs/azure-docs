@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 06/03/2019
 ms.author: banders
 
 ---
@@ -38,11 +38,11 @@ If you cancel a paid Azure Support plan, you are still billed for the rest of th
 
 ## What happens after I cancel my subscription?
 
-Once you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal.
+After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final bill on your typical invoice date after the period ends.
 
-After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
+After you cancel, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
 
-If you cancel in the middle of a billing period, we send the final bill on your typical invoice date after the period ends.
+If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. For information about how to update a custom role, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
 We wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
