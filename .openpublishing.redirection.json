@@ -32445,6 +32445,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cdn/cdn-rules-engine-reference-conditional-expressions.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path": "articles/cdn/cdn-rules-engine-reference-features.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference-features",
+      "redirect_document_id": true 
+    }, 
+    {
+      "source_path": "articles/cdn/cdn-rules-engine-reference-match-conditions.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference-match-conditions",
+      "redirect_document_id": true 
+    }, 
+    {
+      "source_path": "articles/cdn/cdn-rules-engine-reference.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference",
+      "redirect_document_id": true 
+    }, 
+    {
+      "source_path": "articles/cdn/cdn-rules-engine.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine",
+      "redirect_document_id": true 
+    },  
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
       "redirect_document_id": true
