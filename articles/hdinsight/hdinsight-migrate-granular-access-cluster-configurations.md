@@ -49,7 +49,7 @@ The following entities and scenarios are affected:
 - [SDK for Python](#sdk-for-python): Users using the `get` or `update` methods from the `ConfigurationsOperations` class.
 - [SDK for Java](#sdk-for-java): Users using the `update` or `get` methods from the `ConfigurationsInner` class.
 - [SDK for Go](#sdk-for-go): Users using the `Get` or `Update` methods from the `ConfigurationsClient` struct.
-- [Az.HDInsight PowerShell](#az.hdinsight-powershell) below version 2.0.0.
+- [Az.HDInsight PowerShell](#azhdinsight-powershell) below version 2.0.0.
 See the below sections (or use the above links) to see the migration steps for your scenario.
 
 ### API
