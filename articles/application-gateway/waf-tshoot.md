@@ -4,7 +4,7 @@ description: This article provides troubleshooting information for web applicati
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/22/2019
+ms.date: 6/4/2019
 ms.author: ant
 ms.topic: conceptual
 ---
@@ -13,11 +13,11 @@ ms.topic: conceptual
 
 There are a few things you can do if requests that should pass through your web application firewall (WAF) are blocked.
 
-First, ensure you’ve looked through the [WAF overview](waf-overview.md) and the [WAF configuration](application-gateway-waf-configuration.md) documents. Also, make sure you’ve enabled [WAF monitoring](application-gateway-diagnostics.md) These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
+First, ensure you’ve read the [WAF overview](waf-overview.md) and the [WAF configuration](application-gateway-waf-configuration.md) documents. Also, make sure you’ve enabled [WAF monitoring](application-gateway-diagnostics.md) These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
 
 ## Understanding WAF logs
 
-When you have WAF logs available, you can do a few things with them.
+The purpose of WAF logs is to show every request that is matched or blocked by the WAF. It is a ledger of all evaluated requests that are matched or blocked. If you notice that the WAF blocks a request that it shouldn't (a false positive), you can do a few things. First, narrow down, and find the specific request. Look through the logs to find the specific URI, timestamp, or transaction ID of the request. When you find the  associated log entries, you can begin to act on the false positives.
 
 For example, say you have a legitimate traffic containing the string “1=1” that you want to pass through your WAF. If you try the request, the WAF blocks traffic that contains your “1=1” string in any parameter or field. This is a string often associated with a SQL injection attack. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
 
