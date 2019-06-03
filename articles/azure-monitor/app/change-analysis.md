@@ -33,13 +33,11 @@ Currently the Change Analysis tool is integrated into the **Diagnose and solve p
 
 ### Azure Resource Manager deployment changes
 
-Using [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), the Change Analysis tool provides a historical record of how the Azure resources that host your application have changed over time. For example, if a tag is added to a web app, the Change Analysis tool reflects the change. This information is available as long as the `Microsoft.ChangeAnalysis` resource provider is enabled in the Azure subscription.
+Using [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), the Change Analysis tool provides a historical record of how the Azure resources that host your application have changed over time. The Change Analysis service can detect, for example, changes in the application environment variables, IP configuration rules, managed identities, and SSL settings. So if a tag is added to a web app, the Change Analysis tool reflects the change. This information is available as long as the `Microsoft.ChangeAnalysis` resource provider is enabled in the Azure subscription.
 
 ### Changes in web app deployment and configuration
 
-The Change Analysis tool captures the deployment and configuration state of an application every 4 hours. It computes the differences and presents what has changed. The Change Analysis service can detect, for example, changes in the application environment variables, IP configuration rules, managed identities, and SSL settings. IP configuration rules, managed identities, and SSL settings are Azure Resource Manager deployment changes.
-
-Unlike Resource Manager changes, this type of change information might not be available immediately in the tool. To view the latest changes in Change Analysis, select **Scan changes now**.
+The Change Analysis tool captures the deployment and configuration state of an application every 4 hours. It computes the differences and presents what has changed. Unlike Resource Manager changes, code deployment change information might not be available immediately in the tool. To view the latest changes in Change Analysis, select **Scan changes now**.
 
 ![Screenshot of the "Scan changes now" button](./media/change-analysis/scan-changes.png)
 
