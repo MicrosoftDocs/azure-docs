@@ -41,18 +41,12 @@ When you call the `AcquireTokenInteractive` method, the user experience is typic
 2. Azure AD displays briefly the message "Taking you to your organization's page".
 3. The user is redirected to the sign-in page of the identity provider. The sign-in page is usually customized with the logo of the organization.
 
-In this scenario, supported AD FS versions in this federated scenario are AD FS v2, AD FS v3 (Windows Server 2012 R2), and AD FS v4 (AD FS 2016).
+Supported AD FS versions in this federated scenario are AD FS v2, AD FS v3 (Windows Server 2012 R2), and AD FS v4 (AD FS 2016).
 
 ### Acquiring a token using AcquireTokenByIntegratedAuthentication or AcquireTokenByUsernamePassword
-In that case, from the username, MSAL.NET goes to Azure Active Directory (userrealm endpoint) passing the username, and it gets information about the IdP to contact. It does, passing the username (and the password in the case of `AcquireTokenByUsernamePassword`) and receives a [SAML 1.1 token](reference-saml-tokens.md), which it provides to Azure Active Directory as a user assertion (similar to the [on-behalf-of flow](msal-authentication-flows.md#on-behalf-of)) to get back a JWT.
+When acquiring a token using the `AcquireTokenByIntegratedAuthentication` or `AcquireTokenByUsernamePassword` methods, MSAL.NET gets the identity provider to contact based on the username.  MSAL.NET receives a [SAML 1.1 token](reference-saml-tokens.md) after contacting the identity provider.  MSAL.NET then provides the SAML token to Azure AD as a user assertion (similar to the [on-behalf-of flow](msal-authentication-flows.md#on-behalf-of)) to get back a JWT.
 
 ## MSAL connects directly to AD FS
-In that case the authority you'll want to use to build your application is something like `https://somesite.contoso.com/adfs/`.
+MSAL.NET supports connecting to AD FS 2019, which is Open ID Connect compliant. When connecting directly to AD FS, the authority you'll want to use to build your application is similar to `https://mysite.contoso.com/adfs/`.
 
-MSAL.NET will support AD FS 2019 (PR is AD FS Compatibility with MSAL #834), which is/will be Open ID Connect compliant after a service pack is applied to Windows Server.
-
-Update the service pack is pending (ETA May)
-
-AD FS 2019 will be enabled in MSAL.NET 4.0 (May)
-
-However for MSAL.NET we have no current plans to support, a direct connection to AD FS 2016 or AD FS v2 (which are not OpenID Connect compliant). If you need to support today scenarios requiring a direct connection to AD FS 2016, please use the latest version of ADAL. When you have upgraded your on-premise system to AD FS 2019, you'll be able to use MSAL.NET
+Currently, there are no plans to support a direct connection to AD FS 2016 or AD FS v2 (which are not OpenID Connect compliant). If you need to support scenarios requiring a direct connection to AD FS 2016, please use the latest version of [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md#microsoft-supported-client-libraries). When you have upgraded your on-premise system to AD FS 2019, you'll be able to use MSAL.NET.
