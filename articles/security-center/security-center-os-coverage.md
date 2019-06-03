@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
 
 ---
@@ -125,7 +125,7 @@ For information about when recommendations are generated for each of these prote
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob storage accounts*|✔| ✔|
+|Azure Blob storage accounts|✔| ✔|
 |App services|✔| ✔|
 |Cloud Services|✔| X|
 |VNets|✔| NA|
@@ -133,7 +133,6 @@ For information about when recommendations are generated for each of these prote
 |NICs|✔| NA|
 |NSGs|✔| NA|
 |Subscription|✔ **| ✔|
-|App service|✔| NA|
 |Batch|✔| NA|
 |Service fabric|✔| NA|
 |Automation account|✔| NA|
@@ -143,14 +142,9 @@ For information about when recommendations are generated for each of these prote
 |Stream analytics|✔| NA|
 |Event hub|✔| NA|
 |Logic apps|✔| NA|
-|Subnet|✔| NA|
-|Vnet|✔| NA|
 |Storage account|✔| NA|
 |Redis|✔| NA|
-|SQL|✔| NA|
 |Data lake analytics|✔| NA|
-|Storage account|✔| NA|
-|Subscription|✔| NA|
 |Key vault|✔| NA|
 
 
