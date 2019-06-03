@@ -92,7 +92,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ### Use staging to load data in bulk via Polybase
 
-* In order to avoid row-by-row processing of your data floes, set the "Staging" option in the Sink settings so that ADF can leverage Polybase to avoid row-by-row inserts into DW. This will instruct ADF to use Polybase so that data can be loaded in bulk.
+* In order to avoid row-by-row processing of your data flows, set the "Staging" option in the Sink settings so that ADF can leverage Polybase to avoid row-by-row inserts into DW. This will instruct ADF to use Polybase so that data can be loaded in bulk.
 * When you execute your data flow activity from a pipeline, with Staging turned on, you will need to select the Blob store location of your staging data for bulk loading.
 
 ### Increase the size of your Azure SQL DW
