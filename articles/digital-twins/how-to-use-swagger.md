@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ---
@@ -113,19 +113,19 @@ To learn more about interactively testing requests protected by OAuth 2.0, see t
 
 5. Copy the ID of your Azure AD app.
 
+After completing the Azure Active Directory registration:
+
 6. Click the Authorize button on your swagger page.
 
-    ![Swagger authorize button](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+    [![Click the Swagger authorize button](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-7. Paste the application ID into the client_id field.
+7. Paste the application ID into the **client_id** field.
 
-    ![Swagger client_id field](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+    [![Swagger client_id field](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-    ![Swagger grant application permissions](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+8. You will then be redirected to the following success modal.
 
-8. You should now see the Bearer authentication token passed in the authorization header and the identity of the logged in user displayed in the result.
-
-    ![Swagger token result](../../includes/media/digital-twins-permissions/swagger-token-example.png)
+    [![Swagger client_id field](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
 
 ## Next steps
 
