@@ -21,12 +21,10 @@ ms.custom: fasttrack-new
 # Protect a SPA backend with OAuth 2.0 by using AAD B2C and API Management
 
 This scenario shows you how to configure your Azure API Management instance to protect an API. 
-We'll use the OpenID Connect protocol with AAD B2C, alongside the power of API Management to secure our Functions backend with EasyAuth.
+We will use the OpenID Connect protocol with AAD B2C, alongside API Management to secure a Functions backend using EasyAuth.
 
 ## Aims
-The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services.
-
-The basic premise is that we have an app that calls an API, signing in users via AAD B2C, the API is protected with API Management, which is validating the JWT in flight. 
+The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services. We will have an app that calls an API signing in users via AAD B2C whilst the API is protected with API Management (which is validating the JWT in flight). 
 
 For defense in depth, we then use EasyAuth to validate the token again inside the back-end API.
 
@@ -109,8 +107,9 @@ Here is a quick overview of the steps:
 7. Move to the *Authorization* and *Token* endpoint fields, and enter the values you captured from the well-known configuration xml document earlier.
 8. Scroll down and populate an *Additional body parameter* called 'resource' with the 
 Function API client ID from the AAD B2C App registration
-9. Select the Client credentials section, set the Client ID to the API Management Developer console app's application ID, and set the Client Secret to the key you recorded earlier. 
-10. Lastly, now record the redirect_uri of the auth code grant from API Management for later use.
+9. Select 'Client credentials', set the Client ID to the Developer console app's app ID.
+10. Set the Client Secret to the key you recorded earlier. 
+11. Lastly, now record the redirect_uri of the auth code grant from API Management for later use.
 
 > [!NOTE]
 > Now we have an API Management instance that knows how to get access tokens from AAD B2C to authorize requests through the developer portal for testing.
@@ -184,8 +183,11 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 8. Close the 'Authentication / Authorization' blade 
 9. Select 'Networking' and then select 'IP Restrictions'
-10. We need to lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP that is found on the API management overview page in the portal, and if you want to interact with the functions portal, you can add your public IP address or CIDR range here too.
-11. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses, but you'll need to add CIDR blocks of addresses to the IP restrictions panel, so if you need to add a single address (such as the API Management VIP), you need to add it in the format xx.xx.xx.xx/32.
+10. Next, lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP that is found on the API management overview page in the portal.
+11. If you want to continue to interact with the functions portal, you can add your own public IP address or CIDR range here too.
+12. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses. 
+
+You'll need to add CIDR blocks of addresses to the IP restrictions panel. So if you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx/32.
 
 > [!NOTE]
 > Now your Function API should not be callable from anywhere other than via API management, or your address.
@@ -227,8 +229,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 ## Set up the **CORS** policy and add the **validate-jwt** policy
 1. Switch back to the design tab and choose “All Operations”, then click the code view button to show the policy editor.
-2. In the inbound section after <base/>, paste the following xml, but edit the url to match your well known B2C endpoint for the 
-sign in and sign up policy, and edit the claim value to match the valid application ID (also known as a client ID), for the BACKEND API APPLICATION.
+2. In the inbound section after <base/> paste the following xml :-
 
 ```xml
        <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -254,6 +255,8 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
             </expose-headers>
         </cors>
 ```
+3. Edit the openid-config url to match your well known B2C endpoint for the sign in and sign up policy.
+4. Edit the claim value to match the valid application ID, also known as a client ID for the BACKEND API APPLICATION.
 
 > [!NOTE]
 > Now API management is able respond to cross origin requests to JS SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE 
