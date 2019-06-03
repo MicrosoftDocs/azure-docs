@@ -22,9 +22,9 @@ Follow these steps to set MySQL server storage auto-grow:
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Database for MySQL server.
 
-2. On the MySQL server page, under ***Settings*** heading, click **Pricing tier** to open the Pricing tier page.
+2. On the MySQL server page, under **Settings** heading, click **Pricing tier** to open the Pricing tier page.
 
-3. In the Auto-growth section, select Yes to enable storage auto-grow.
+3. In the Auto-growth section, select **Yes** to enable storage auto-grow.
 
     ![Azure Database for MySQL - Settings_Pricing_tier - Auto-growth](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
 
