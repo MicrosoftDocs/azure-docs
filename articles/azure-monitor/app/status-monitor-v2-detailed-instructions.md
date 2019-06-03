@@ -1,6 +1,6 @@
 ---
 title: Azure Status Monitor v2 detailed instructions | Microsoft Docs
-description: Detailed instructions for getting started with Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Detailed instructions for getting started with Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -13,36 +13,37 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 detailed instructions
+# Status Monitor v2: Detailed instructions
 
-This document details how to onboard to the PowerShell Gallery and download the ApplicationMonitor Module. 
-We've documented the most common parameters required to get started.
-We've also included manual instructions in the event that internet access isn't available.
+This article describes how to onboard to the PowerShell Gallery and download the ApplicationMonitor Module.
+It describes the most common parameters that you'll need to get started.
+It also includes manual instructions in case you don't have internet access.
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Instrumentation key
+## Get an instrumentation key
 
-To get started, you must have an instrumentation key. For more information, read [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
+To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
 
-## Run PowerShell as administrator with an elevated execution policy
+## Run PowerShell as Admin with an elevated execution policy
 
-**Run as Administrator**: 
-- Description: PowerShell will need Administrator level permissions to make changes to your computer.
+**Run as Admin**
 
-**The Execution Policy**:
-- Description: By default, running PowerShell scripts will be disabled. We recommend allowing RemoteSigned scripts for the Current Scope only.
+PowerShell needs Administrator-level permissions to make changes to your computer.
+
+**Execution policy**
+- Description: By default, running PowerShell scripts is disabled. We recommend allowing RemoteSigned scripts for only the Current scope.
 - Reference: [About Execution Policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) and [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
-)
-- Cmd: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`
-- Optional Parameters:
-	- `-Force` This will skip the confirmation prompt.
+).
+- Command: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`
+- Optional parameter:
+	- `-Force`. Use this parameter to skip the confirmation prompt.
 
-**Example Errors:**
+**Example errors**
 
 ```
 Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be
@@ -56,8 +57,8 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 
 ## Prerequisites for PowerShell
 
-Audit your current version PowerShell by running the command: `$PSVersionTable`.
-The command produces the following output:
+Audit your instance of PowerShell by running the `$PSVersionTable` command.
+This command produces the following output:
 
 
 ```
@@ -73,19 +74,19 @@ PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 ```
 
-These instructions were written and tested on a Windows 10 machine with the versions listed above.
+These instructions were written and tested on a computer running Windows 10 and the versions listed above.
 
 ## Prerequisites for PowerShell Gallery
 
-These steps will prepare your server to download modules from the PowerShell Gallery.
+These steps will prepare your server to download modules from PowerShell Gallery.
 
 > [!NOTE] 
-> Support for PowerShell Gallery is included on Windows 10, Windows Server 2016, and PowerShell 6. 
-> For older versions, review this document: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)
+> PowerShell Gallery is supported on Windows 10, Windows Server 2016, and PowerShell 6.
+> For information about earlier versions, see [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
 
 
-1. Run PowerShell as Administrator with an elevated execution policy.
-2. NuGet package provider 
+1. Run PowerShell as Admin with an elevated execution policy.
+2. Install NuGet package provider.
 	- Description: This provider is required to interact with NuGet-based repositories such as PowerShellGallery
 	- Reference: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6)
 	- Cmd: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`
