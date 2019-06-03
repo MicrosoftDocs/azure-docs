@@ -110,7 +110,7 @@ The following table describes circumstances under which the specified text isn't
 | Condition | Description | Example |
 | --------- | ----------- | --------|
 | Escaping % symbol | The percentage symbol can be escaped through the use of a backslash. <br />The sample value to the right will be treated as a literal value and not as an HTTP variable.| \%{host} |
-| Unknown variables | An empty string is always returned for unknown variables. | %{unknownvariable} |
+| Unknown variables | An empty string is always returned for unknown variables. | %{unknown_variable} |
 | Invalid characters or syntax | Variables that contain invalid characters or syntax are treated as literal values. <br /><br />Example #1: The specified value contains an invalid character (for example, -). <br /><br />Example #2: The specified value contains a double set of curly braces. <br /><br />Example #3: The specified value is missing a closing curly brace.<br /> | Example #1: %{resp_user-agent} <br /><br />Example #2: %{{host}} <br /><br />Example #3: %{host |
 | Missing variable name | A NULL value is always returned when a variable is not specified. | %{} |
 | Trailing characters | Characters that trail a variable are treated as literal values. <br />The sample value to the right contains a trailing curly brace that will be treated as a literal value. | %{host}} |
