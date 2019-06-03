@@ -24,7 +24,7 @@ This scenario shows you how to configure your Azure API Management instance to p
 We will use the OpenID Connect protocol with AAD B2C, alongside API Management to secure a Functions backend using EasyAuth.
 
 ## Aims
-The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services. We will have an app that calls an API signing in users via AAD B2C whilst the API is protected with API Management (which is validating the JWT in flight). 
+The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services. We will have an app that calls an API signing in users via AAD B2C while the API is protected with API Managements validate-jwt policy features.
 
 For defense in depth, we then use EasyAuth to validate the token again inside the back-end API.
 
@@ -229,7 +229,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 ## Set up the **CORS** policy and add the **validate-jwt** policy
 1. Switch back to the design tab and choose “All Operations”, then click the code view button to show the policy editor.
-2. In the inbound section after <base/> paste the following xml :-
+2. In the inbound section after <base/> paste the below xml.
 
 ```xml
        <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -331,7 +331,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
@@ -345,57 +345,80 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 	    		subKey: 'apimkeygoeshere'
           	};
 
-            	var msalConfig = {
-                	auth: {
-                    		clientId: applicationConfig.ClientID, 
-                    		authority:  applicationConfig.Authority
-                	},
-                	cache: {
-                    		cacheLocation: "localStorage",
-                    		storeAuthStateInCookie: true
-                	}
-            	};
+  var msalConfig = {
+                auth: {
+                        clientId: applicationConfig.clientID, 
+                        authority:  applicationConfig.authority,
+                        validateAuthority: false
+                },
+                cache: {
+                        cacheLocation: "localStorage",
+                        storeAuthStateInCookie: true
+                }
+            };
 
-             var clientApplication = new Msal.UserAgentApplication(msalConfig);
-             // Register a call back for redirect flow
-             // myMSALObj.handleRedirectCallback(authRedirectCallback);
-             function login() {
-               var loginRequest = {
-                 scopes: applicationConfig.b2cScopes
-               };
-               clientApplication.loginPopup(loginRequest).then(function (loginResponse) {
-                var tokenRequest = {
-                  scopes: applicationConfig.b2cScopes
+            var clientApplication = new Msal.UserAgentApplication(msalConfig);
+
+            function login() {
+                var loginRequest = {
+                    scopes: applicationConfig.b2cScopes
                 };
-                clientApplication.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
-                  updateUI();
-                }).catch(function (error) {
-                  clientApplication.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
-                    updateUI();
-                  }).catch (function (error) {
-                    logMessage("Error acquiring the popup:\n" + error);
-                  });
-                })
-              }).catch (function (error) {
-                logMessage("Error during login:\n" + error);
-              });
+                clientApplication.loginPopup(loginRequest).then(function (loginResponse) {
+                    var tokenRequest = {
+                        scopes: applicationConfig.b2cScopes
+                    };
+                    clientApplication.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
+                        document.getElementById("signinbtn").innerHTML = "Logged in as: " + clientApplication.account.name;
+                        document.getElementById("callapibtn").hidden = false
+
+
+                        }).catch(function (error) {
+                            clientApplication.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
+                                }).catch (function (error) {
+                                    console.log("Error acquiring the popup:\n" + error);
+                                });
+                        })
+                    }).catch (function (error) {
+                        console.log("Error during login:\n" + error);
+                });
             }
 
             function GetAPIData() {
-        	document.getElementById("message").innerHTML = "Hi";
-          	var tokenRequest = {
-                	scopes: applicationConfig.b2cScopes
-              	}
-              	clientApplication.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
-                	callApiWithAccessToken(tokenResponse.accessToken);
-              		}).catch(function (error) {
-                		clientApplication.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
-                  			callApiWithAccessToken(tokenResponse.accessToken);
-                		}).catch(function (error) {
-                  			logMessage("Error acquiring the access token to call the Web api:\n" + error);
-                		});
-              		})
+        	
+                var tokenRequest = {
+                    scopes: applicationConfig.b2cScopes
+                }
+                clientApplication.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
+
+                    callApiWithAccessToken(tokenResponse.accessToken);
+
+                    }).catch(function (error) {
+
+                        clientApplication.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
+
+                            callApiWithAccessToken(tokenResponse.accessToken);
+                            
+                        }).catch(function (error) {
+                            console.log("Error acquiring the access token to call the Web api:\n" + error);
+                        });
+                    })
         	}
+
+            function callApiWithAccessToken(token)
+            {
+                 console.log("calling "  + applicationConfig.webApi +  " with " + token);
+                    // Make the api call here
+                	$.ajax({
+                        type: "get",
+                        headers: [{'Authorization': 'Bearer ' + token}, {'ocp-apim-subscription-key': applicationConfig.subKey}],
+                        url: applicationConfig.webApi
+                        }
+                        ).done(function (body) {
+                        
+                        document.getElementById("message").innerHTML = "The API Said " + body;
+
+                    });
+            }
     </script>
 </body>
 </html>
@@ -414,14 +437,14 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 3. Update the auth details to match your front-end application you registered in B2C earlier, noting that the 'b2cScopes' values are for the API backend.
 4. It should look something like the below code:-  
 
-```
-var applicationConfig = {			
-clientID: 'the registered application ID of the CLIENT OR FRONTEND Application in B2C’, // This represents the app obtaining the token
-            	authority: "https://{tenant name}.b2clogin.com/tfp/{tenant URI}/{signinsignuppolicyname}", 
-            	b2cScopes: [{an array of the scopes that you configured in AAD B2C for the BACKEND API}], // These are permissions you're asking for (to be able to call in the backend API)
-	webApi: ‘{the actual address of the API when called through api management}’, // This was ‘request url’ in the developer portal
-	subKey: '{the api-m subscription key you want to call them with}' // this was the value in ‘ocp-apim-subscription-key
-        };
+javascript ```
+	var applicationConfig = {
+		clientID: "{clientidgoeshere}",
+		authority: "https://login.microsoftonline.com/tfp/{tenant}/{policy}",
+		b2cScopes: ["https://{tenant}/{app}/{scope}"],
+		webApi: 'http://{apim-url-for-your-function}',
+		subKey: '{apim-ocpkey}'
+	};
 ```
 
 ## Configure the redirect URIs for the App Registrations in B2C
