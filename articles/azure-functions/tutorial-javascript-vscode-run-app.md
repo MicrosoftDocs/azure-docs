@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: azure-functions
+ms.devlang: javascript
 ---
 # Run and test your App locally
 
@@ -29,6 +30,5 @@ Next, set up your Azure account and publish the Function App from the extension.
 
 > [!div class="nextstepaction"]
 > [I ran the Function App](./tutorial-javascript-vscode-deploy-app.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=run-app)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-functions&step=run-app)

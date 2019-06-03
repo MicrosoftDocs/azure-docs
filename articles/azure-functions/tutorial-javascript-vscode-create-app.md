@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: azure-functions
+ms.devlang: javascript
 ---
 # Create your local Function App
 
@@ -35,6 +36,5 @@ Next, run your app locally to verify everything is working.
 
 > [!div class="nextstepaction"]
 > [I've created the Function](./tutorial-javascript-vscode-run-app.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-app)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-functions&step=create-app)

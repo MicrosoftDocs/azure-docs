@@ -21,8 +21,6 @@
       href: tutorial-javascript-vscode-get-started.md
     - name: Create the application
       href: tutorial-javascript-vscode-create-app.md
-    - name: Create a Function
-      href: tutorial-javascript-vscode-create-function.md
     - name: Run and test your app locally
       href: tutorial-javascript-vscode-run-app.md
     - name: Deploy the website

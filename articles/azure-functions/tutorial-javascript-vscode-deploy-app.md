@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: azure-functions
+ms.devlang: javascript
 ---
 # Deploy your App using Azure Functions
 
@@ -70,6 +71,5 @@ Or get them all by installing the
 
 > [!div class="nextstepaction"]
 > [I'm done!](./functions-monitoring.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=deploy-app)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-functions&step=deploy-app)

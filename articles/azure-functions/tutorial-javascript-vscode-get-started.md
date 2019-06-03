@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: azure-functions
+ms.devlang: javascript
 ---
 # Deploy to Azure using Azure Functions
 
@@ -67,6 +68,5 @@ Verify that you have the Azure Functions tools installed by opening a terminal (
 
 > [!div class="nextstepaction"]
 > [I've installed the Azure Functions extension](./tutorial-javascript-vscode-create-app.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-functions&step=getting-started)
