@@ -13,6 +13,9 @@
     href: quick-backup-vm-powershell.md
   - name: Back up a VM - CLI
     href: quick-backup-vm-cli.md
+  - name: Back up a VM - Resource Manager template
+    displayName: ARM
+    href: quick-backup-vm-template.md
 - name: Tutorials
   items:
   - name: Back up Azure VMs at scale
@@ -249,6 +252,8 @@
       href: troubleshoot-azure-files.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
+    - name: System State
+      href: backup-azure-system-state-troubleshoot.md
   - name: Monitor Azure Backup workloads
     items:
     - name: Using the Azure portal
