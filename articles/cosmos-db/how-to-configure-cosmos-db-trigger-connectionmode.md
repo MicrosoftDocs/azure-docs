@@ -18,7 +18,7 @@ Our [performance tips](./performance-tips.md#networking) explain in detail the e
 
 ## Changing the Connection Mode and Protocol
 
-To change the default Connection Mode and Protocol used by the Azure Cosmos DB Trigger (and all the [Azure Cosmos DB bindings](./functions-bindings-cosmosdb-v2.md#output)), you need to locate the `host.json` file in your Azure Functions project or Azure Functions App and manually add the following [extra setting](./functions-bindings-cosmosdb-v2.md#hostjson-settings):
+To change the default Connection Mode and Protocol used by the Azure Cosmos DB Trigger (and all the [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb-v2.md#output)), you need to locate the `host.json` file in your Azure Functions project or Azure Functions App and manually add the following [extra setting](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
 
 ```js
 {
