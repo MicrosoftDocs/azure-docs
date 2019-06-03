@@ -56,7 +56,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     d. Select **Register** when you're finished.
 
-2. Select **Manifest**, and then edit the groupMembershipClaims: value as All. When you're finished with the updates, select **Save**.
+2. Select **Manifest**, and then edit the **groupMembershipClaims:** value as **All**. When you're finished with the updates, select **Save**.
 
     ![Update group membership to all](media/aad-integration/edit-manifest.png)
 
@@ -179,7 +179,7 @@ First, use the [az aks get-credentials][az-aks-get-credentials] command with the
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Next, create ClusterRoleBinding for an Azure AD account that you want to grant access to the AKS cluster. The following example gives the account full access to all namespaces in the cluster.
+Next, create ClusterRoleBinding for an Azure AD account that you want to grant access to the AKS cluster. The following example gives the account full access to all namespaces in the cluster:
 
 - If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the user principal name (UPN). Move on to the step to create the YAML manifest for ClusterRoleBinding.
 
@@ -271,7 +271,7 @@ error: You must be logged in to the server (Unauthorized)
 
 - You defined the appropriate object ID or UPN, depending on if the user account is in the same Azure AD tenant or not.
 - The user isn't a member of more than 200 groups.
-- The secret defined in the application registration for server matches the value configured by using **--aad-server-app-secret**.
+- The secret defined in the application registration for server matches the value configured by using `--aad-server-app-secret`.
 
 ## Next steps
 
