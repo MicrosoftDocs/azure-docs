@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -110,7 +110,8 @@ All your resources like VMs, disks, and websites transfer to the new owner. Howe
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 
-Unfortunately, self-serve subscription transfer isn't available for your offer. View the list of supported offers in the [Supported offers](#supported-offers) section of this article.
+Unfortunately, self-serve subscription transfer isn't available for your offer. View the list of supported offers in the [Supported offers](#supported-offers) section of this article. Additionally, we do not block subscription transfer for any countries. However, cross country transfer is not supported. To transfer your subscription cross country, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+
 
 ### Can I transfer ownership to an account in another country?
 
