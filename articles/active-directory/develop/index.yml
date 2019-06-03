@@ -14,6 +14,10 @@ landingContent:
             url: v2-overview.md
           - text: Azure Active Directory for developers (v1.0)
             url: v1-overview.md
+      - linkListType: learn
+        links:
+          - text: One Dev Minute - Microsoft identity platform
+            url: https://youtu.be/y_fgJAatVhk
   - title: Build a single-page app
     linkLists:
       - linkListType: get-started

@@ -39,8 +39,6 @@ You can use the Azure portal to register and configure your application, and use
 
 Update your application at your own pace. Applications built with ADAL libraries continue to be supported. Mixed application portfolios, that consist of applications built with ADAL and applications built with MSAL libraries, are also supported. This means that applications using the latest ADAL and the latest MSAL will deliver SSO across the portfolio, provided by the shared token cache between these libraries. Applications updated from ADAL to MSAL will maintain user sign-in state upon upgrade.
 
-> [!VIDEO https://youtu.be/y_fgJAatVhk]
-
 ## Microsoft identity platform experience
 
 The following diagram shows the Microsoft identity experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
