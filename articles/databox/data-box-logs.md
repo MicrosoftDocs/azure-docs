@@ -22,7 +22,7 @@ The following table shows a summary of the Data Box or Data Box Heavy order step
 | Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
-| Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy-to-data-box) for data copy                                                             |
+| Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy) for data copy                                                             |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
 | Data upload to Azure       | [Review *copylogs*](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                                                   |
