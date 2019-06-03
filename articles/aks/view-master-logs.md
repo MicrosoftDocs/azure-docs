@@ -28,7 +28,7 @@ Azure Monitor logs are enabled and managed in the Azure portal. To enable log co
 1. On the left-hand side, choose **Diagnostic settings**.
 1. Select your AKS cluster, such as *myAKSCluster*, then choose to **Add diagnostic setting**.
 1. Enter a name, such as *myAKSClusterLogs*, then select the option to **Send to Log Analytics**.
-    * Select an existing workspace create a new one. If you create a workspace, provide a workspace name, a resource group, and a location.
+1. Select an existing workspace or create a new one. If you create a workspace, provide a workspace name, a resource group, and a location.
 1. In the list of available logs, select the logs you wish to enable. Common logs include the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can enable additional logs, such as *kube-audit* and *cluster-autoscaler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
 1. When ready, select **Save** to enable collection of the selected logs.
 
@@ -45,7 +45,7 @@ Azure Monitor logs are enabled and managed in the Azure portal. To enable log co
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-The following example portal screenshot shows the *Diagnostics settings* window and then option to create a Log Analytics workspace:
+The following example portal screenshot shows the *Diagnostics settings* window:
 
 ![Enable Log Analytics workspace for Azure Monitor logs of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
 
