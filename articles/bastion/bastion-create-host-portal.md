@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 05/29/2019
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 
@@ -27,15 +27,15 @@ There are two ways that you can create a Bastion host resource:
 
 ## Before you begin
 
-You do not need to onboard in order to participate in the public preview. Simply use these steps to create a new Azure Bastion resource. The public preview is limited to the following Azure public regions:
+You do not need to onboard in order to participate in the public preview. Use these steps to create a new Azure Bastion resource. The public preview is limited to the following Azure public regions:
 
-[!INCLUDE [region](../../includes/bastion-regions-include.md)]
+[!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
 ## <a name="createhost"></a>Create a bastion host
 
 This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. From the home page in the [preview portal](http://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal for this preview, not the regular Azure portal.
+1. From the home page in the [ Azure portal - preview](http://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal for this preview, not the regular Azure portal.
 
 1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results.
 
@@ -56,7 +56,7 @@ This section helps you create a new Azure Bastion resource from the Azure portal
     * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
     * **Public IP address name**: The name of the public IP address resource.
     * **Public IP address SKU**: Prepopulated by default to **Standard**.
-    * **Assignment**: Prepopulated by default to Static.
+    * **Assignment**: Prepopulated by default to **Static**.
 
 1. When you have finished specifying the settings, click **Review + Create**. This validates the values. Once validation passes, you can begin the creation process.
 1. On the Create a bastion page, click **Create**.
