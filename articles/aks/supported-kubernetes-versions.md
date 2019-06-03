@@ -129,6 +129,10 @@ When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster 
 and latest patch. For example, if AKS supports *1.13.x*, *1.12.a* + *1.12.b*, *1.11.a* + *1.11.b*, *1.10.a* + *1.10b*,
 the default version for new clusters is *1.12.b*.
 
+AKS defaults to N-1 (minor.latestPatch, eg 1.12.b) to provide customers a known, stable and patched version by default.
+Versions older than N-1 can have long-standing bugs and defects that are un-patched, and new minor versions can
+introduce new defects and issues that impact the user experience and operations.
+
 ## List currently supported versions
 
 To find out what versions are currently available for your subscription and region, use the
