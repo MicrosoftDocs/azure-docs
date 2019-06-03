@@ -42,7 +42,7 @@ Serverless is price-performance optimized for single databases with intermittent
 ### Scenarios well-suited for serverless compute
 
 - Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity and lower average compute utilization over time.
-- Single databases in the provisioned compute tier that are freqently rescaled and customers who prefer to delegate compute rescaling to the service.
+- Single databases in the provisioned compute tier that are frequently rescaled and customers who prefer to delegate compute rescaling to the service.
 - New single databases without usage history where compute sizing is difficult or not possible to estimate prior to deployment in SQL Database.
 
 ### Scenarios well-suited for provisioned compute
