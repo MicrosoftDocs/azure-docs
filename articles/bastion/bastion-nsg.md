@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 06/03/2019
 ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion (preview)
