@@ -12,7 +12,7 @@ ms.date: 05/30/2019
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
-#  What is a compute target in Azure Machine Learning service?
+#  What is a compute target in Azure Machine Learning service? 
 
 A compute target lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource.
 
@@ -44,9 +44,14 @@ A managed compute resource is created and managed by Azure Machine Learning serv
 
 ### <a name="amlcompute"></a> Azure Machine Learning Compute
 
-We recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run.  Cluster management and job scheduling are done automatically.  This compute has support for both CPU and GPU resources. 
+You can use Azure Machine Learning Compute for training and for batch inferencing (Preview).  With this compute resource, you have:
 
-You can create machine learning compute instances with any of the following:
+* Single- or multi-node cluster
+* Autoscales each time you submit a run 
+* Automatic cluster management and job scheduling 
+* Support for both CPU and GPU resources
+
+You can create Azure Machine Learning Compute instances with any of the following:
 
 * The Azure portal
 * The Azure Machine Learning SDK
