@@ -1,6 +1,6 @@
 ---
 title: Mount clients on the FXT cluster 
-description: How client machines can mount the Azure FXT Edge Filer hybrid storage cache
+description: How NFS client machines can mount the Azure FXT Edge Filer hybrid storage cache
 author: ekpgh
 ms.service: 
 ms.topic: tutorial
@@ -79,7 +79,7 @@ There are three elements to the mount command:
 * local path - the path on the client 
 * mount command options - (listed in [Mount command arguments](#mount-command-arguments))
 
-### Junction and IP for the cluster path
+### Create the cluster path
 
 The cluster path is a combination of the vserver *IP address* plus the path to a *namespace junction*. The namespace junction is a virtual path that you defined when you [added the storage system](fxt-add-storage.md#create-a-junction).
 
@@ -99,13 +99,19 @@ The IP address is one of the client-facing IP addresses defined for the vserver.
 
   ![Settings > VServer > Client Facing Network configuration page with a circle around the Address Range section of the table for a particular vserver](media/fxt-mount/fxt-ip-addresses-settings.png)
 
-Combine the IP address and the namespace path to form the cluster path for the mount command. The local path depends on your client workflow. 
+Combine the IP address and the namespace path to form the cluster path for the mount command. 
 
 Example client mount command: ``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
 
-In addition to the paths, include the [Mount command arguments](#mount-command-arguments) described below when mounting each client.
+### Create the local path
 
-### Mount command arguments
+The local path for the mount command is up to you. You can set any path structure you want as part of the virtual namespace. Design a namespace and local path that is convenient for you client workflow. 
+
+For more information about the client-facing namespace, read the Cluster Configuration Guide's [namespace overview](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html).
+
+In addition to the paths, include the [mount command options](#use-recommended-mount-command-options) described below when mounting each client.
+
+### Use recommended mount command options
 
 To ensure a seamless client mount, pass these settings and arguments in your mount command: 
 
