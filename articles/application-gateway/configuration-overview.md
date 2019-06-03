@@ -70,7 +70,7 @@ For the v1 SKU, user-defined routes (UDRs) are supported on the Application Gate
 For the v2 SKU, UDRs are not supported on the Application Gateway subnet. For more information, see [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
-> UDRs will not be supported for the v2 SKU at General Availability.  If you require UDRs you should continue to deploy v1 SKU.
+> UDRs will not be supported for the v2 SKU.  If you require UDRs you should continue to deploy v1 SKU.
 
 > [!NOTE]
 > Using UDRs on the Application Gateway subnet causes the health status in the [back-end health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to appear as "Unknown." It also causes generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
