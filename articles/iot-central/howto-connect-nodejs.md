@@ -72,10 +72,9 @@ Add the following location measurement on the **Measurements** page:
 | ------------ | ----------- |
 | Location     | location    |
 
-> [!NOTE]
-> The data type of the Location measurement is a floating point number for longitude, latitude and optional altitude.
+The location measurement data type is made up of two floating point numbers for longitude and latitude, and an optional floating point number for altitude.
 
-Enter field names exactly as shown in the table into the device template. If the field names don't match the property names in the corresponding device code, the state can't be displayed in the application.
+Enter field names exactly as shown in the table into the device template. If the field names don't match the property names in the corresponding device code, the location can't be displayed in the application.
 
 ### Device properties
 
@@ -337,7 +336,7 @@ As an operator in your Azure IoT Central application, for your real device you c
 
     ![View telemetry](media/howto-connect-nodejs/viewtelemetry.png)
 
-* View the location measurements on the **Measurements** page:
+* View the location on the **Measurements** page:
 
     ![View location measurements](media/howto-connect-nodejs/viewtelemetry.png)
 
