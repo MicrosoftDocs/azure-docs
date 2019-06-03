@@ -3,7 +3,7 @@ title: Perimeter network example – Protect networks with perimeter network con
 description: Build a perimeter network (also known as a DMZ) with a firewall, user-defined routing (UDR), and network security groups (NSGs).
 services: virtual-network
 documentationcenter: na
-author: tracsman
+author: cherylmc
 manager: rossort
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: jonor;sivae
+ms.author: cherylmc
 
 ---
 # Example 3: Build a perimeter network to protect networks with a firewall, UDR, and NSGs
