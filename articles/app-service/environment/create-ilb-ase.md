@@ -197,6 +197,8 @@ When you use an External VIP, the DNS is managed by Azure. Any app created in yo
 
 If your ILB ASE domain is used for multiple things outside this ASE, you might need to manage DNS on a per-app-name basis. This method is challenging because you need to add each new app name into your DNS when you create it. For this reason, we recommend that you use a dedicated domain.
 
+If you are using an isolated VNET that does not have any DNS servers, you will need to manually edit the hosts files on any VMs in the VNET. For example, if you want to use a VM deployed into the VNET as a jumpbox, you will need to put the ILB address for both _contoso.net_ and _scm.contoso.net_.
+
 ## Publish with an ILB ASE ##
 
 For every app that's created, there are two endpoints. In an ILB ASE, you have *&lt;app name>.&lt;ILB ASE Domain>* and *&lt;app name>.scm.&lt;ILB ASE Domain>*. 
