@@ -223,27 +223,21 @@ This query can be scaled to 24 SUs.
 > 
 
 ## Achieving higher throughputs at scale
-An [*embarrassingly parallel*](./stream-analytics-parallelization#embarrassingly-parallel-jobs) job is necessary but not sufficient to sustain a higher throughput at scale. Every storage system and its corresponding stream analytics output has variations on how to achieve the best possible write throughput. As with any at-scale scenarios there are some challenges, which can be solved just by using the right configurations. Here we discuss those configurations for few common outputs and provide reproducible samples on how to sustain a given ingestion rates of 1K, 5K and 10K events per second. 
+An [*embarrassingly parallel*](#embarrassingly-parallel-jobs) job is necessary but not sufficient to sustain a higher throughput at scale. Every storage system and its corresponding stream analytics output has variations on how to achieve the best possible write throughput. As with any at-scale scenarios there are some challenges, which can be solved just by using the right configurations. Here we discuss those configurations for few common outputs and provide reproducible samples on how to sustain a given ingestion rates of 1K, 5K and 10K events per second. 
 
 The *Streaming At Scale* azure samples being discussed are located [here](https://github.com/Azure-Samples/streaming-at-scale). All stream analytics samples are using Event Hub as input, that gets fed by load simulating test clients. Each input event is a 1KB json document, that helps translate configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (for upto 1K devices):
-
 ```
 {
     "eventId": "b81d241f-5187-40b0-ab2a-940faf9757c0",
     "complexData": {
-        "moreData8": 51.3068118685458,
-        "moreData9": 44.44672606436184,
-        "moreData0": 57.739726013343247,
-        "moreData1": 52.230732688620829,
-        "moreData2": 57.497518587807189,
-        "moreData3": 81.32211656749469,
-        "moreData4": 54.412361539409427,
-        "moreData5": 75.36416309399911,
-        "moreData6": 71.53407865773488,
-        "moreData7": 45.34076957651598
+        "moreData0": 51.3068118685458,
+         .
+         .
+         .
+        "moreData22": 45.34076957651598
     },
     "value": 49.02278128887753,
-    "deviceId": "contoso://device-id-155",
+    "deviceId": "contoso://device-id-1554",
     "type": "CO2",
     "createdAt": "2019-05-16T17:16:40.000003Z"
 }
