@@ -6,13 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
 ---
 
 # Frequently asked questions about Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+The following are common questions asked about Azure Application Gateway.
 
 ## General
 
@@ -182,13 +184,18 @@ See [Order of processing rules](https://docs.microsoft.com/azure/application-gat
 
 The Host field specifies the name to send the probe to when you've configured multisite on Application Gateway. Otherwise use '127.0.0.1'. This value is different from the virtual machine host name. Its format is \<protocol\>://\<host\>:\<port\>\<path\>.
 
-### Can I whitelist Application Gateway access to only a few source IPs?
+### Can I allow Application Gateway access to only a few source IP addresses?
 
-Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### Can I use the same port for both public-facing and private-facing listeners?
 
 No.
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
 
 ## Configuration - SSL
 
@@ -307,6 +314,10 @@ For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/i
 ### Does WAF support DDoS protection?
 
 Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
 ## Diagnostics and logging
 
