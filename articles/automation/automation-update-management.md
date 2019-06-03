@@ -189,7 +189,7 @@ The following table describes the connected sources that are supported by this s
 
 A scan is performed twice per day for each managed Windows computer. Every 15 minutes, the Windows API is called to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated.
 
-A scan is performed every 3 hours for each managed Linux computer.
+A scan is performed every hour for each managed Linux computer.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 
