@@ -126,7 +126,7 @@ Finally, set up your on-premises application so that users have read access and 
 4. Select **Add permissions**.
 5. In the **API permissions** page, select **Grant admin consent for \<your directory name>**.
 
-GraphAPI#### Collect information for the PingAccess steps
+#### Collect information for the PingAccess steps
 
 You need to collect these three pieces of information (all GUIDs) to set up your application with PingAccess:
 
