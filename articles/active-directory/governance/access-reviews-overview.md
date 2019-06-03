@@ -108,7 +108,7 @@ To onboard access reviews, follow these steps.
 
 1. Follow the instructions to onboard access reviews in the current directory.
 
-## License requirements for using Azure AD access reviews
+## License requirements
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
