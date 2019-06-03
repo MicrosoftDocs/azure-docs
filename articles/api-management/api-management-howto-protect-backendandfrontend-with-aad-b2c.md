@@ -24,7 +24,7 @@ This scenario shows you how to configure your Azure API Management instance to p
 We'll use the OpenID Connect protocol with AAD B2C, alongside API Management to secure a Functions backend using EasyAuth.
 
 ## Aims
-The idea of this document is to show how API Management can be used in a simplified scenario with Functions and AAD B2C. We'll have an app calling an API signing in users via AAD B2C while the API is protected with API Managements validate-jwt policy features.
+The idea of this document is to show how API Management can be used in a simplified scenario with Functions and AAD B2C. We'll create an app calling an API, that signs in users with AAD B2C while the API is protected by API Management's validate-jwt policy features.
 
 For defense in depth, we then use EasyAuth to validate the token again inside the back-end API.
 
@@ -54,12 +54,12 @@ Here is a quick overview of the steps:
 14. Test the Client Application
 
 ## Create the AAD B2C configuration
-Open the AAD B2C blade in the portal and perfrom the following steps.
+Open the AAD B2C blade in the portal and perform the following steps.
 1. Select the **Applications** tab 
 2. Click the 'Add' button and create three applications with sensible names 
 * The Frontend Client, 
 * The Backend Function API,
-* [Optional] The API Management developer portal (unless you're running APIM in consumption mode, more on this later)
+* [Optional] The API Management developer portal (unless you're running APIM in consumption mode, more on this scenario later)
 
 3. Use placeholders for the reply urls for now, we’ll update those urls later.
 4. Now set the App ID URI, choose something unique and relevant to the service being created.
@@ -80,11 +80,11 @@ Open the AAD B2C blade in the portal and perfrom the following steps.
 ## Create a B2C "Sign-up or sign-in" user flow
 1. Return to the root of the AAD B2C Blade 
 2. Then select “User Flows (Policies) ” and click ‘New user flow'
-3. Choose the 'Sign up and sign in' user frow type
+3. Choose the 'Sign up and sign in' user flow type
 3. Give the policy a name and record it for later.
 4. Then Under 'Identity providers', then check 'User ID sign up' and click OK. 
-5. Under User Attributes and claims, click 'Show More...' and choose the registration options that you want your customers to enter and have returned in the id token (At a minimum, choose Display Name and Email Address) then click 'Create'.
-7. Select the policy that you created in the list (to reopen it), then clikc Run user flow and record the address of the b2clogin.com domain shown under 'select domain'.
+5. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Choose at least 'Display Name' and 'Email Address', then click 'Create'.
+7. Select the policy that you created in the list, click 'Run user flow' and record the address of the b2clogin.com domain shown under 'select domain'.
 8. Click on the link at the top to open the 'well-known openid configuration endpoint', and record the authorization_endpoint and token_endpoint values.
 
 > [!NOTE]
@@ -182,7 +182,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 8. Close the 'Authentication / Authorization' blade 
 9. Select 'Networking' and then select 'IP Restrictions'
-10. Next, lock down the allowed function app IPs to the API Management instance VIP that is found on the API management section of the portal in the overview section.
+10. Next, lock down the allowed function app IPs to the API Management instance VIP shown in the overview section of the API management portal blade.
 11. If you want to continue to interact with the functions portal, you can add your own public IP address or CIDR range here too.
 12. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses. 
 
