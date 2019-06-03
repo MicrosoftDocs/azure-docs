@@ -39,9 +39,9 @@ Queries can be used to search terms, identify trends, analyze patterns, and prov
 Event | search "error"
 ```
 
-This query searches the _Event_ table for records that contain the term "error" in any property.
+This query searches the _Event_ table for records that contain the term _error_ in any property.
 
-Queries can start with either a table name or a **search** command. The above example starts with the table name _Event_, which defines the scope of the query. The pipe (|) character separates commands, so the output of the first one serves as the input of the following command. You can add any number of commands to a single query.
+Queries can start with either a table name or a [search](/kusto/query/searchoperator) command. The above example starts with the table name _Event_, which retrieves all records from the Event table. The pipe (|) character separates commands, so the output of the first one serves as the input of the following command. You can add any number of commands to a single query.
 
 Another way to write that same query would be:
 
@@ -49,18 +49,18 @@ Another way to write that same query would be:
 search in (Event) "error"
 ```
 
-In this example, **search** is scoped to the _Event_ table, and all records in that table are searched for the term "error".
+In this example, **search** is scoped to the _Event_ table, and all records in that table are searched for the term _error_.
 
 ## Running a query
 Run a query by clicking the **Run** button or pressing **Shift+Enter**. Consider the following details which determine the code that will be run and the data that's returned:
 
-- Line breaks: A single break makes your query clearer. Multiple line breaks split it into separate queries.
+- Line breaks: A single break makes your query easier to read. Multiple line breaks split it into separate queries.
 - Cursor: Place your cursor somewhere inside the query to execute it. The current query is considered to be the code up until a blank line is found.
 - Time range - A time range of _last 24 hours_ is set by default. To use a different range, use the time-picker or add an explicit time range filter to your query.
 
 
 ## Understand the schema
-The schema is a collection of tables visually grouped under a logical category. Several of the categories are from monitoring solutions. The _LogManagement_ category contains common data such as Windows and Syslog events, performance data, and client heartbeats.
+The schema is a collection of tables visually grouped under a logical category. Several of the categories are from monitoring solutions. The _LogManagement_ category contains common data such as Windows and Syslog events, performance data, and agent heartbeats.
 
 ![Schema](media/get-started-portal/schema.png)
 

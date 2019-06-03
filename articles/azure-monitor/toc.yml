@@ -33,26 +33,33 @@
       href: learn/quick-collect-windows-computer.md
 - name: Tutorials
   items:
-  - name: Analyze data in log analytics
-    href: learn/tutorial-viewdata.md
-  - name: Visualize data in log analytics
-    href: learn/tutorial-logs-dashboards.md
+  - name: Logs
+    items: 
+    - name: Get started with Log Analytics
+      href: log-query/get-started-portal.md
+    - name: Get started with log queries
+      href: log-query/get-started-queries.md
+    - name: Visualize log data
+      href: learn/tutorial-logs-dashboards.md
+    - name: Alert on log data
+      href: learn/tutorial-response.md
+  - name: Application Insights
+    items:  
+    - name: Find application run-time exceptions
+      href: learn/tutorial-runtime-exceptions.md
+    - name: Find application performance issues
+      href: learn/tutorial-performance.md
+    - name: Alert on application health
+      href: learn/tutorial-alert.md
+    - name: Understand application users
+      href: learn/tutorial-users.md
+    - name: Create custom dashboards
+      href: learn/tutorial-app-dashboards.md
+    - name: Application Insights
   - name: Archive platform metric and log data 
     href: learn/tutorial-archive-data.md
-  - name: Alert on log data
-    href: learn/tutorial-response.md
   - name: Autoscale on performance and schedule
     href: learn/tutorial-autoscale-performance-schedule.md
-  - name: Find application run-time exceptions
-    href: learn/tutorial-runtime-exceptions.md
-  - name: Find application performance issues
-    href: learn/tutorial-performance.md
-  - name: Alert on application health
-    href: learn/tutorial-alert.md
-  - name: Understand application users
-    href: learn/tutorial-users.md
-  - name: Create custom dashboards
-    href: learn/tutorial-app-dashboards.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -696,18 +703,10 @@
         href: platform/metrics-troubleshoot.md
     - name: Log queries
       items:
-      - name: Overview
-        href: log-query/log-query-overview.md
-      - name: Log Analytics portal
-        href: log-query/get-started-portal.md
-      - name: Log query portals
+      - name: Overview of Log Analytics
         href: log-query/portals.md
-      - name: Query scope
-        href: log-query/scope.md
-      - name: Get started with queries
-        href: log-query/get-started-queries.md
-      - name: Functions
-        href: log-query/functions.md
+      - name: Overview of log queries
+        href: log-query/log-query-overview.md
       - name: Query language
         items:
         - name: Query language Documentation
@@ -758,6 +757,10 @@
           href: log-query/search-queries.md
         - name: Smart analytics
           href: log-query/smart-analytics.md
+      - name: Working with queries
+        items:
+        - name: Functions
+          href: log-query/functions.md
         - name: Computer groups
           href: platform/computer-groups.md
       - name: Log data
