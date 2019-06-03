@@ -87,7 +87,7 @@ The final two log entries show the request was blocked because the anomaly score
         "requestUri": "\/", 
         "ruleSetType": "", 
         "ruleSetVersion": "", 
-        "ruleId": "949110", 
+        "ruleId": "0", 
         "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Score: 8)", 
         "action": "Blocked", 
         "site": "Global", 
@@ -112,7 +112,7 @@ The final two log entries show the request was blocked because the anomaly score
         "requestUri": "\/", 
         "ruleSetType": "", 
         "ruleSetVersion": "", 
-        "ruleId": "980130", 
+        "ruleId": "0", 
         "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Inbound Score: 8 - SQLI=5,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): SQL Injection Attack: SQL Tautology Detected.", 
         "action": "Blocked", 
         "site": "Global", 
@@ -143,7 +143,11 @@ To make an informed decision about handling a false positive, it’s important t
 
 One benefit of using an exclusion list is that only a specific part of a request is being disabled. However, this means that a specific exclusion is applicable to all traffic passing through your WAF because it is a global setting. For example, this could lead to an issue if *1=1* is a valid request in the body for a certain app, but not for others. Another benefit is that you can choose between body, headers, and cookies to be excluded if a certain condition is met, as opposed to excluding the whole request.
 
-In this example, you’ll want to exclude the *request attribute name* that equals **text1**. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The *attribute* is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#finding-request-attribute-names).
+Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there is a token that gets passed when authenticating using Azure Active Directory. This token, *__RequestVerificationToken*, usually get passed in as a Request Cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or "arg". If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
+
+![Exclusions](media/waf-tshoot/exclusion-list.png)
+
+In this example, you want to exclude the **Request attribute name** that equals *text1*. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The attribute is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#finding-request-attribute-names).
 
 ![WAF exclusion lists](media/waf-tshoot/waf-config.png)
 
@@ -237,7 +241,7 @@ In this example, you can see that you have four rules with the same TransactionI
 -	        "requestUri": "\/",
 -	        "ruleSetType": "",
 -	        "ruleSetVersion": "",
--	        "ruleId": "949110",
+-	        "ruleId": "0",
 -	        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Score: 8)",
 -	        "action": "Blocked",
 -	        "site": "Global",
@@ -262,7 +266,7 @@ In this example, you can see that you have four rules with the same TransactionI
 -	        "requestUri": "\/",
 -	        "ruleSetType": "",
 -	        "ruleSetVersion": "",
--	        "ruleId": "980130",
+-	        "ruleId": "0",
 -	        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Inbound Score: 8 - SQLI=5,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): SQL Injection Attack: SQL Tautology Detected.",
 -	        "action": "Blocked",
 -	        "site": "Global",
