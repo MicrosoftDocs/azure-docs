@@ -58,18 +58,18 @@ The key here is that we have set the **id** of the search box to **azureautosugg
     </script>
 ```
 
-Note that we have connected this script to the search box via the same id. Also, a minimum of two characters is needed to trigger the search, and we call the **Suggest** action in the home controller with two query parameters: **highlights** and **fuzzy**, both set to false in this instance.
+We have connected this script to the search box via the same id. Also, a minimum of two characters is needed to trigger the search, and we call the **Suggest** action in the home controller with two query parameters: **highlights** and **fuzzy**, both set to false in this instance.
 
 ### Add references to jquery scripts to the view
 
 The autocomplete function called in the script above is not something we have to write ourselves as it is available in the jquery library. 
 
-1. To access the jquery library add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks similar to this.
+1. To access the jquery library, add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks similar to the following code.
 
 ```cs
 <head>
     <meta charset="utf-8">
-    <title>Azure search facets demo</title>
+    <title>Azure search autocomplete demo</title>
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -125,9 +125,9 @@ Now we can use the predefined autocomplete jquery functions.
         }
 ```
 
-The **Top** parameter specifies how many results to return, in this case 8 (if unspecified, the default is 5). A "suggester" has to be specified on the Azure index, which is done when the data is set up. In this case the suggester is called "sg" and simply searches the **HotelName** field - nothing else. Fuzzy matching allows "near misses" to be included in the output.
+The **Top** parameter specifies how many results to return (if unspecified, the default is 5). A _suggester_ is specified on the Azure index, which is done when the data is set up, and not by a client app such as this tutorial. In this case, the suggester is called "sg" and simply searches the **HotelName** field - nothing else. 
 
-Note too that if the **highlights** parameter is set to true (not in this first example) that bold html tags are added to the output.
+Fuzzy matching allows "near misses" to be included in the output. If the **highlights** parameter is set to true then bold HTML tags are added to the output. We will set these two parameters to true in the next section.
 
 2. You may get some syntax errors, if so add the following two **using** statements to the top of the file.
 
@@ -191,7 +191,7 @@ We can improve the appearance of the suggestions to the user a bit by setting th
  
 Image
  
-4. The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing just "mo".
+4. The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing "mo".
 
 Image
 
@@ -253,19 +253,19 @@ Notice that we are using the same *suggester* function called "sg" in the autoco
 
 There are a range of **AutocompleteMode** settings and we are using **OneTermWithContext**. Refer to [Azure Autocomplete](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) for a description of the range of options here.
 
-4. Run the app. Notice how the range of options are just single words. Try typing "re". Notice how the number of options reduces as more letters are typed.
+4. Run the app. Notice how the range of options are single words. Try typing words starting with "re". Notice how the number of options reduces as more letters are typed.
 
 Image
 
-As it stands, the suggestions script you ran earlier is probably more helpful than this autocompletion script. To make autocompletion more user-friendly it is best added to the suggestion search.
+As it stands, the suggestions script you ran earlier is probably more helpful than this autocompletion script. To make autocompletion more user-friendly, it is best added to the suggestion search.
 
 ## Combine autocompletion and suggestions in an Azure Search
 
-This is the most complex of our autocompletion/suggestion options and probably provides the best user experience. What we want is to display, inline with the text that is being typed, is the first choice for auto-completing a word. Also, we want a drop-down list of a range of suggestions.
+Combining autocompletion and suggestions is the most complex of our options and probably provides the best user experience. What we want is to display, inline with the text that is being typed, the first choice of Azure Search for autocompleting the text. Also, we want a range of suggestions as a drop-down list.
 
 There are libraries that offer this functionality - often called "inline autocompletion" or a similar name. However, we are going to natively implement this feature so you can see what is going on. We are going to start work on the controller first in this example.
 
-1. We need to add an action to the controller than returns just one autocompletion result, along with a specified number of suggestions. We will call this action **AutocompleteAndSuggest**. In the home controller, add the following action, following your other new actions.
+1. We need to add an action to the controller that returns just one autocompletion result, along with a specified number of suggestions. We will call this action **AutocompleteAndSuggest**. In the home controller, add the following action, following your other new actions.
 
 ```cs
         public async Task<ActionResult> AutocompleteAndSuggest(string term)
@@ -298,7 +298,7 @@ There are libraries that offer this functionality - often called "inline autocom
             List<string> results = new List<string>();
             if (autocompleteResult.Results.Count > 0)
             {
-                // Add just the top result for type-ahead.
+                // Add the top result for type-ahead.
                 results.Add(autocompleteResult.Results[0].Text);
             } else
             {
@@ -314,7 +314,7 @@ There are libraries that offer this functionality - often called "inline autocom
         }
 ```
 
-Note how the one autocompletion option is returned at the top of the list, followed by all the suggestions. We now need to implement a script to handle this.
+One autocompletion option is returned at the top of the **results** list, followed by all the suggestions.
 
 2. In the view, first we implement a trick so that a light gray autocompletion word is rendered right under bolder text being entered by the user. Html includes relative positioning for this purpose. Change the **TextBoxFor** statement (and its surrounding &lt;div&gt; statements) to the following, noting that a second search box identified as **underneath** is right under our normal search box, by pulling this search box 39 pixels off of its default location!
 
@@ -441,7 +441,7 @@ Notice the clever use of the **interval** function to both clear the underlying 
 Read through the comments in the script to get a fuller understanding.
 
 
-4. Finally, we need to make a minor adjustment to the HTML style **.searchBox** to make it transparent. Add the following line to this style.
+4. Finally, we need to make a minor adjustment to the HTML style **searchBox** to make it transparent. Add the following line to this style.
 
 ```cs
             background: rgba(0,0,0,0);
@@ -453,7 +453,7 @@ Image
 
 6. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 
-Of course you may decide that it is simpler to load in a library that offers this feature for you, but now you know at least one way of how to get it to work!
+Of course, you may decide that it is simpler to load in a library that offers this feature for you, but now you know at least one way of how to get it to work!
 
 ## Takeaways
 
@@ -461,10 +461,11 @@ A third tutorial completed, great work!
 
 You should consider the following takeaways from this project:
 
-* Autocompletion (also known as "type-ahead") and suggestions enable the user to just type a few keys to locate exactly what they want.
+* Autocompletion (also known as "type-ahead") and suggestions enable the user to type a few keys to locate exactly what they want.
 * Working with the UI can test your limits and patience with JavaScript/HTML/JQuery and other UI technologies.
 * Autocompletion and suggestions working together can provide a rich user experience.
-* Test autocompletion functions with both keyboard and mouse options and using the **setInterval** function can be very useful in verifying and correcting UI elements.
+* Always test autocompletion functions with both keyboard and mouse input.
+* Using the **setInterval** function can be useful in verifying and correcting UI elements.
 
 ## Next steps
 
