@@ -6,13 +6,13 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/03/2019
 ms.author: cherylmc
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
 
 ---
 
-# Copy and paste to a virtual machine: Azure Bastion (preview)
+# Copy and paste to a virtual machine: Azure Bastion (Preview)
 
 This article helps you copy and paste text to and from virtual machines when using Azure Bastion. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](bastion-create-host-portal.md). Then, connect to the VM that you want to work with using either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
 

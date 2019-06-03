@@ -6,10 +6,10 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/03/2019
 ms.author: cherylmc
 ---
-# Azure Bastion FAQ
+# Azure Bastion FAQ (Preview)
 
 This is the FAQ for Azure Bastion.
 
