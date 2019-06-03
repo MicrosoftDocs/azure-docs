@@ -74,9 +74,9 @@ Let's add assemblies to our project to serialize and deserialize objects, and to
 1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**, which opens **Reference Manager**.
    ![Add assembly references](media/add-assemblies-sample.png)
 2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right of the screen to search for these references and add them to your project:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
 > [!NOTE]
