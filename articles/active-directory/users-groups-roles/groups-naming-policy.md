@@ -1,6 +1,6 @@
 ---
 title: Enforce group naming policy on Office 365 groups - Azure Active Directory | Microsoft Docs
-description: How to set up naming policy for Office 365 groups in Azure Active Directory (preview)
+description: How to set up naming policy for Office 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -73,7 +73,7 @@ Selected administrators can be exempted from these policies, across all group wo
 - User administrator
 - Directory writers
 
-## Configure naming policy in Azure portal (preview)
+## Configure naming policy in Azure portal
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
@@ -195,7 +195,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## Remove the naming policy
 
-### Remove the naming policy using Azure portal (preview)
+### Remove the naming policy using Azure portal
 
 1. On the **Naming policy** page, select **Delete policy**.
 1. After you confirm the deletion, the naming policy is removed, including all prefix-suffix naming policy and any custom blocked words.
