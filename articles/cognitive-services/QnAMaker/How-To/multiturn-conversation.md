@@ -385,7 +385,11 @@ You have added prompts in your knowledge base and tested the flow in the test pa
 
 The [display text and display order](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
+<!--
+
 FIX - Need to go to parent, then answer column, then edit answer. 
+
+-->
 
 ## Next steps
 
