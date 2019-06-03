@@ -61,7 +61,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 
 ## How to onboard
 
-To onboard to Event Hubs Dedicated, please contact the [Event Hubs team](mailto:askeventhubs@microsoft.com). The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+The self-serve experience to [create an Event Hubs cluster](event-hubs-dedicated-cluster-create-portal.md) through the Azure Portal is now in Private Preview. To onboard to Event Hubs Dedicated, please contact the [Event Hubs team](mailto:askeventhubs@microsoft.com). The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
 
 ## FAQs
 
