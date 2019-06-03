@@ -3,7 +3,7 @@ title: Azure DMZ Example – Build a Simple DMZ with NSGs | Microsoft Docs
 description: Build a DMZ with Network Security Groups (NSG)
 services: virtual-network
 documentationcenter: na
-author: tracsman
+author: cherylmc
 manager: rossort
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
-ms.author: jonor
+ms.author: cherylmc
 
 ---
 # Example 1 – Build a simple DMZ using NSGs with classic PowerShell
