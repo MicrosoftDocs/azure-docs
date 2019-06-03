@@ -24,7 +24,7 @@ This scenario shows you how to configure your Azure API Management instance to p
 We'll use the OpenID Connect protocol with AAD B2C, alongside API Management to secure a Functions backend using EasyAuth.
 
 ## Aims
-The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services. We'll have an app calling an API signing in users via AAD B2C while the API is protected with API Managements validate-jwt policy features.
+The idea of this document is to show how API Management can be used in a simplified scenario with Functions and AAD B2C. We'll have an app calling an API signing in users via AAD B2C while the API is protected with API Managements validate-jwt policy features.
 
 For defense in depth, we then use EasyAuth to validate the token again inside the back-end API.
 
@@ -183,7 +183,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 8. Close the 'Authentication / Authorization' blade 
 9. Select 'Networking' and then select 'IP Restrictions'
-10. Next, lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP that is found on the API management overview page in the portal.
+10. Next, lock down the allowed function app IPs to the API Management instance VIP that is found on the API management section of the portal in the overview section.
 11. If you want to continue to interact with the functions portal, you can add your own public IP address or CIDR range here too.
 12. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses. 
 
