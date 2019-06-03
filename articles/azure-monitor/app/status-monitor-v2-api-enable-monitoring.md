@@ -27,15 +27,15 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 Enables codeless attach monitoring of IIS apps on a target computer.
 
 This cmdlet will modify the IIS applicationHost.config and set some registry keys.
-It will also create an applicationinsights.ikey.config, which defines the instrumentation key used by each app.
+It will also create an applicationinsights.ikey.config file, which defines the instrumentation key used by each app.
 IIS will load the RedfieldModule on startup, which will inject the Application Insights SDK into applications as the applications start.
 You need to restart IIS for your changes to take effect.
 
-After you enable monitoring, we recommend that you use [Live Metrics](live-stream.md) to quickly observe if your app is sending us telemetry.
+After you enable monitoring, we recommend that you use [Live Metrics](live-stream.md) to quickly check if your app is sending us telemetry.
 
 
 > [!NOTE] 
-> - To get started, you need to have an instrumentation key. For more information, see [create new resource](create-new-resource.md#copy-the-instrumentation-key).
+> - To get started, you need to have an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
 > - To use this cmdlet, you need to review and accept our license and privacy statement.
 
 > [!IMPORTANT] 
@@ -53,9 +53,9 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ### Example with an instrumentation key map
 In this example:
 - `MachineFilter` matches the current computer by using the `'.*'` wildcard.
-- `AppFilter='WebAppExclude'` provides a `null` instrumentation key. This app won't be instrumented.
-- `AppFilter='WebAppOne'` assigns this specific app a unique instrumentation key.
-- `AppFilter='WebAppTwo'` also assigns this specific app a unique instrumentation key.
+- `AppFilter='WebAppExclude'` provides a `null` instrumentation key. The specified app won't be instrumented.
+- `AppFilter='WebAppOne'` assigns the specified app a unique instrumentation key.
+- `AppFilter='WebAppTwo'` assigns the specified app a unique instrumentation key.
 - Finally, `AppFilter` also uses the `'.*'` wildcard to match all web apps that aren't matched by the earlier rules and assign a default instrumentation key.
 - Spaces are added for readability.
 
@@ -75,7 +75,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 **Required.** Use this parameter to supply a single instrumentation key for use by all apps on the target computer.
 
 ### -InstrumentationKeyMap
-**Required.** Use this parameter to supply multiple instrumentation keys and a mapping of the instrumentation key used by each app.
+**Required.** Use this parameter to supply multiple instrumentation keys and a mapping of the instrumentation keys used by each app.
 You can create a single installation script for several computers by setting `MachineFilter`.
 
 > [!IMPORTANT]
@@ -86,11 +86,11 @@ You can create a single installation script for several computers by setting `Ma
 
 - **MachineFilter** is a required C# regex of the computer or VM name.
 	- '.*' will match all
-	- 'ComputerName' will match only computers with that exact name.
+	- 'ComputerName' will match only computers with the exact name specified.
 - **AppFilter** is a required C# regex of the computer or VM name.
 	- '.*' will match all
-	- 'ApplicationName' will match only IIS apps with that exact name.
-- **InstrumentationKey** is required to enable monitoring of apps that match the above two filters.
+	- 'ApplicationName' will match only IIS apps with the exact name specified.
+- **InstrumentationKey** is required to enable monitoring of apps that match the preceding two filters.
 	- Leave this value null if you want to define rules to exclude monitoring.
 
 

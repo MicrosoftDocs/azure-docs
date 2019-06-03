@@ -24,8 +24,8 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 
 ## Description
 
-Disables monitoring on the target machine.
-This cmdlet will remove the edits to the IIS applicationHost.config and remove registry keys.
+Disables monitoring on the target computer.
+This cmdlet will remove edits to the IIS applicationHost.config and remove registry keys.
 
 > [!IMPORTANT] 
 > This cmdlet requires a PowerShell session with Admin permissions.
@@ -39,7 +39,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## Parameters 
 
 ### -Verbose
-**Common parameter.** Use this switch to output detailed logs.
+**Common parameter.** Use this switch to display detailed logs.
 
 ## Output
 
