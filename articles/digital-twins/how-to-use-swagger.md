@@ -37,15 +37,15 @@ The automatically generated Swagger reference material supplies a quick overview
 
 A concise summary describes the API.
 
-![Swagger top][1]
+[![Swagger top](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
 
 Management API object models are also listed.
 
-![Swagger models][2]
+[![Swagger models](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
 
 You can select each listed object model for a more detailed summary of key attributes.
 
-![Swagger model][3]
+[![Swagger model](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
 
 The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can use this resource when they build solutions on Azure Digital Twins.
 
@@ -59,7 +59,7 @@ Each listed endpoint also includes the required request information, such as the
 * Required parameter data types.
 * HTTP method to access the resource.
 
-![Swagger endpoints][4]
+[![Swagger endpoints](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
 
 To see a more detailed overview, select each resource.
 
@@ -69,11 +69,11 @@ One of the powerful functionalities Swagger provides is the ability to test an A
 
 After you select a specific endpoint, you see **Try it out**.
 
-![Swagger try][5]
+[![Swagger try](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
 
 Expand that section to bring up input fields for each required and optional parameter. Enter the correct values, and select **Execute**.
 
-![Swagger tried][6]
+[![Swagger tried](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
 
 After you execute the test, you can validate the response data.
 
@@ -81,7 +81,7 @@ After you execute the test, you can validate the response data.
 
 Each listed endpoint also includes response body data to validate your development and tests. These examples include the status codes and JSON you want to see for successful HTTP requests.
 
-![Swagger response][7]
+[![Swagger response](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
 
 The examples also include error codes to help debug or improve failing tests.
 
@@ -132,12 +132,3 @@ After completing the Azure Active Directory registration:
 - To read more about Azure Digital Twins object models and the spatial intelligence graph, read [Understand Azure Digital Twins object models](./concepts-objectmodel-spatialgraph.md).
 
 - To learn how to authenticate with your Management API, read [Authenticate with APIs](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.PNG
-[2]: media/how-to-use-swagger/swagger_management_models.PNG
-[3]: media/how-to-use-swagger/swagger_management_model.PNG
-[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
-[5]: media/how-to-use-swagger/swagger_management_try.PNG
-[6]: media/how-to-use-swagger/swagger_management_tried.PNG
-[7]: media/how-to-use-swagger/swagger_management_response.PNG
