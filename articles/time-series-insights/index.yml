@@ -35,10 +35,9 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
-    - text: Explore Azure Time Series Insights GA
+      text: Explore Azure Time Series Insights GA
       href: /azure/time-series-insights/time-series-quickstart
-    - text: Explore Azure Time Series Insights Preview
-      href: /azure/time-series-insights/time-series-insights-update-quickstart
+  - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">Explore Azure Time Series Insights Preview</a></p>
     
 - title: Step-by-Step Tutorials
   items:
