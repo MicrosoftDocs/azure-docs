@@ -19,13 +19,13 @@ When working with Azure Bastion, you can use network security groups (NSGs). For
 
 ![Architecture](./media/bastion-nsg/nsg_architecture.png)
 
-In the diagram:
+In this diagram:
 
 * The Bastion host is deployed in the virtual network.
 * The user connects to the Azure portal using any HTML5 browser.
-* Navigates to the Azure virtual machine to RDP/SSH
-* Connect Integration: Single-click RDP/SSH session inside the browser
-* No Public IP is required on the Azure VM.
+* The user selects the virtual machine to connect to.
+* With a single click, the RDP/SSH session opens in the browser.
+* No public IP is required on the Azure VM.
 
 ## <a name="nsg"></a>Network security groups
 
