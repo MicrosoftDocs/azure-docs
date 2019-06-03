@@ -47,7 +47,7 @@ Learning policy determines the specific *hyperparameters* of the model training.
 
 ### Importing and exporting Learning Policies
 
-You can import and export learning policy files from the Azure Portal. This allows you to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
+You can import and export learning policy files from the Azure portal. This allows you to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
 
 ### Learning policy settings
 
@@ -61,7 +61,7 @@ You can compare how different Learning Policies would have performed against pas
 
 ### Discovery of optimized learning policies
 
-Personalizer can create a more optimized learning lolicy when doing an [offline evaluation](how-to-offline-evaluation.md). 
+Personalizer can create a more optimized learning policy when doing an [offline evaluation](how-to-offline-evaluation.md). 
 A more optimized learning policy, which is shown to have better rewards in an offline evaluation, will yield better results when used online in Personalizer.
 
 After an optimized learning policy has been created, you can apply it directly to Personalizer so it replaces the current policy immediately, or you can save it for further evaluation and decide in the future whether to discard, save, or apply it later.
