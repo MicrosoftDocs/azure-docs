@@ -84,9 +84,9 @@ When the configured conditional access policy requires multi-factor authenticati
 
 After the user has signed in to the federated authentication service, Azure AD handles other policy requirements such as device compliance or an approved application.
 
-## License requirements for using conditional access
+## License requirements
 
-Using conditional access requires an Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## Next steps
 

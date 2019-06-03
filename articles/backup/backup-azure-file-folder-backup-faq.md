@@ -5,7 +5,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/28/2019
 ms.author: dacurwin
 ---
 
@@ -96,7 +96,7 @@ This warning can appear even though you've configured a backup policy, when the 
 The size of the cache folder determines the amount of data that you are backing up.
 - The cache folder volumes should have free space that equals at least 5-10% of the total size of backup data.
 - If the volume has less than 5% free space, either increase the volume size, or move the cache folder to a volume with enough space.
-- 
+- If you backup Windows System State, you would need an additional 30-35 GB of free space in the volume containing the cache folder
 ### How do I change the cache location for the MARS agent?
 
 

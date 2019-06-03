@@ -4,7 +4,7 @@ description: Understand the Azure Time Series Insights Preview demo environment.
 ms.service: time-series-insights 
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: anshan
 ms.topic: quickstart

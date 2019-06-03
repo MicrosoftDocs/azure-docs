@@ -17,7 +17,7 @@ ms.date: 03/13/2019
 
 An upgraded version of [Elastic Database Jobs](elastic-jobs-overview.md) is available.
 
-If you have an existing customer hosted version of [Elastic Database Jobs](sql-database-elastic-jobs-overview.md), migration cmdlets and scripts are provided for easily migrating to the latest version.
+If you have an existing customer hosted version of Elastic Database Jobs, migration cmdlets and scripts are provided for easily migrating to the latest version.
 
 
 ## Prerequisites
@@ -26,7 +26,7 @@ The upgraded version of Elastic Database jobs has a new set of PowerShell cmdlet
 
 ### Install the latest Elastic Jobs cmdlets
 
-If you don't have already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 Install the **Az.Sql** 1.1.1-preview module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with  administrative access.
 

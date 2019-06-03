@@ -130,14 +130,13 @@ Error 1816 happens when you reach the upper limit of concurrent open handles tha
 
 Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
-## Error “Access denied” when browsing to an Azure file share in the portal
+<a id="authorizationfailureportal"></a>
+## Error “Authorization failure” when browsing to an Azure file share in the portal
 
 When you browse to an Azure file share in the portal, you may receive the following error:
 
-Access denied  
-You do not have access  
-Looks like you don't have access to this content. To get access, please contact the owner.  
+Authorization failure  
+You do not have access 
 
 ### Cause 1: Your user account does not have access to the storage account
 
@@ -278,6 +277,8 @@ Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory
 ### Solution
 
 Enable AAD DS on the AAD tenant of the subscription that your storage account is deployed to. You need administrator privileges of the AAD tenant to create a managed domain. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

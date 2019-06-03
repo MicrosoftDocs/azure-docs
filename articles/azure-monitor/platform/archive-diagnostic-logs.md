@@ -11,7 +11,7 @@ ms.subservice: logs
 ---
 # Archive Azure Diagnostic Logs
 
-In this article, we show how you can use the Azure portal, PowerShell Cmdlets, CLI, or REST API to archive your [Azure diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md) in a storage account. This option is useful if you would like to retain your diagnostic logs with an optional retention policy for audit, static analysis, or backup. The storage account does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+In this article, we show how you can use the Azure portal, PowerShell Cmdlets, CLI, or REST API to archive your [Azure diagnostic logs](diagnostic-logs-overview.md) in a storage account. This option is useful if you would like to retain your diagnostic logs with an optional retention policy for audit, static analysis, or backup. The storage account does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 > [!WARNING]
 > The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -20,7 +20,7 @@ In this article, we show how you can use the Azure portal, PowerShell Cmdlets, C
 
 ## Prerequisites
 
-Before you begin, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) to which you can archive your diagnostic logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity Log and diagnostic metrics to a storage account, it may make sense to use that storage account for your diagnostic logs as well to keep all monitoring data in a central location.
+Before you begin, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) to which you can archive your diagnostic logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity log and diagnostic metrics to a storage account, it may make sense to use that storage account for your diagnostic logs as well to keep all monitoring data in a central location.
 
 > [!NOTE]
 >  You cannot currently archive data to a storage account that behind a secured virtual network.
@@ -105,7 +105,7 @@ The `--resource-group` argument is only required if `--storage-account` is not a
 
 ## Schema of diagnostic logs in the storage account
 
-Once you have set up archival, a storage container is created in the storage account as soon as an event occurs in one of the log categories you have enabled. The blobs within the container follow the same naming convention across Activity Logs and Diagnostic Logs, as illustrated here:
+Once you have set up archival, a storage container is created in the storage account as soon as an event occurs in one of the log categories you have enabled. The blobs within the container follow the same naming convention across Activity logs and Diagnostic Logs, as illustrated here:
 
 ```
 insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json

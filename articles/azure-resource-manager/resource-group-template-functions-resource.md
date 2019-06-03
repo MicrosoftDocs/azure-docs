@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/20/2019
+ms.date: 05/21/2019
 ms.author: tomfitz
 
 ---
@@ -332,7 +332,7 @@ Every resource type returns different properties for the reference function. The
 
 The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID and an API version for the resource. You can determine valid API versions for your resource in the [template reference](/azure/templates/).
 
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment.
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
 
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
 
