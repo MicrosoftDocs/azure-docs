@@ -126,7 +126,6 @@ For example, to configure the route table for a cluster created in the US region
 | 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
 | 13.67.223.215 | 13.67.223.215/32 | Internet | NA |
 | 40.86.83.253 | 40.86.83.253/32 | Internet | NA |
-| 168.63.129.16 | 168.63.129.16/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | 10.1.1.4 |
 
 Complete the route table configuration:
