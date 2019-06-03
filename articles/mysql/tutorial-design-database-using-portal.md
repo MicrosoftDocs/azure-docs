@@ -54,6 +54,9 @@ An Azure Database for MySQL server is created with a defined set of [compute and
     
    ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
+   > [!TIP]
+   > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
+
 3. Click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 
 ## Configure firewall
