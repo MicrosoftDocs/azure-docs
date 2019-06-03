@@ -24,7 +24,7 @@ This scenario shows you how to configure your Azure API Management instance to p
 We will use the OpenID Connect protocol with AAD B2C, alongside API Management to secure a Functions backend using EasyAuth.
 
 ## Aims
-The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services. We will have an app that calls an API signing in users via AAD B2C while the API is protected with API Managements validate-jwt policy features.
+The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services. We'll have an app calling an API signing in users via AAD B2C while the API is protected with API Managements validate-jwt policy features.
 
 For defense in depth, we then use EasyAuth to validate the token again inside the back-end API.
 
@@ -437,9 +437,9 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 3. Update the auth details to match your front-end application you registered in B2C earlier, noting that the 'b2cScopes' values are for the API backend.
 4. It should look something like the below code:-  
 
-javascript ```
+html ```
 	var applicationConfig = {
-		clientID: "{clientidgoeshere}",
+		clientID: "{aadb2c-clientid-goeshere}",
 		authority: "https://login.microsoftonline.com/tfp/{tenant}/{policy}",
 		b2cScopes: ["https://{tenant}/{app}/{scope}"],
 		webApi: 'http://{apim-url-for-your-function}',
