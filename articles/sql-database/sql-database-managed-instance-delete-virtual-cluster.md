@@ -17,7 +17,7 @@ ms.date: 05/07/2019
 
 This article provides guidelines on how to manually delete subnet after deleting the last Azure SQL Database managed instance residing in it.
 
-The [virtual cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) that has contained the deleted managed instance will be kept for 12 hours from the instance deletion. The virtual cluster is kept alive by design to enable faster creation of managed instances in the same subnet. During this period, the subnet associated with the virtual cluster can't be deleted.
+The [virtual cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) that has contained the deleted managed instance will be kept for 12 hours from the instance deletion. The virtual cluster is kept alive by design to enable faster creation of managed instances in the same subnet. Keeping an empty virtual cluster is free of charge. During this period, the subnet associated with the virtual cluster can't be deleted.
 
 Immediate release of the subnet used by an empty virtual cluster is possible through manual deletion of the virtual cluster. Deletion of the virtual cluster can be achieved through Azure portal or virtual clusters API.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams C# quickstart (preview) | Microsoft Docs
+title: Communicate to a device app in C# via Azure IoT Hub device streams  (preview) | Microsoft Docs
 description: In this quickstart, you will run two sample C# applications that communicate via a device stream established through IoT Hub.
 author: rezasherafat
 manager: briz
@@ -12,7 +12,7 @@ ms.date: 03/14/2019
 ms.author: rezas
 ---
 
-# Quickstart: Communicate to device applications in C# via IoT Hub device streams (preview)
+# Quickstart: Communicate to a device application in C# via IoT Hub device streams (preview)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -26,14 +26,15 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+*  The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-  - **Central US**
-  - **Central US EUAP**
+   *  **Central US**
+
+   *  **Central US EUAP**
 
 The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
 
-You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+*  Download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
 
 You can verify the current version of C# on your development machine using the following command:
 
@@ -41,17 +42,17 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+*  Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    ```
 
-Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it on both device and service side.
+* Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it on both device and service side.
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## Register a device
 
@@ -81,7 +82,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     You use this value later in the quickstart.
 
-3. You also need the _service connection string_ from your IoT hub to enable the service-side application to connect to your IoT hub and establish a device stream. The following command retrieves this value for your IoT hub:
+3. You also need the *service connection string* from your IoT hub to enable the service-side application to connect to your IoT hub and establish a device stream. The following command retrieves this value for your IoT hub:
 
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
@@ -94,6 +95,8 @@ A device must be registered with your IoT hub before it can connect. In this qui
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
 ## Communicate between device and service via device streams
+
+In this section, you run both the device-side application and the service-side application and communicate between the two.
 
 ### Run the service-side application
 
@@ -150,16 +153,17 @@ dotnet run <DeviceConnectionString>
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echoes back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
 
 Console output on the device-side:
-![alt text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Console output on the device-side")
+
+![Device-side console output](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
 
 Console output on the service-side:
-![alt text](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Console output on the service-side")
+![Console output on the service-side](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
 
-The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. This provides [these benefits](./iot-hub-device-streams-overview.md#benefits).
+The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. The benefits provided are detailed in [Device streams benefits](./iot-hub-device-streams-overview.md#benefits).
 
 ## Clean up resources
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## Next steps
 

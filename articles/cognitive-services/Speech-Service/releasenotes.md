@@ -8,12 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.5.1
+
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
+
+**Bug fixes**
+
+* Fix FromSubscription when used with Conversation Transcription.
+* Fix bug in keyword spotting for voice-first virtual assistant.
+
 
 ## Speech SDK 1.5.0: 2019-May release
 

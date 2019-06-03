@@ -121,7 +121,7 @@ To configure Azure AD single sign-on with Tableau Server, perform the following 
 
 	| Name | Source Attribute | Namespace |
 	| ---------------| --------------- | ----------- |
-	| username | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 	| | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.

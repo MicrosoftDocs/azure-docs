@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
 ---
-# Set up compute targets for model training
+# Set up compute targets for model training 
 
 With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
-You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, or Azure CLI. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
+You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
  
 In this article, you learn how to use various compute targets for model training.  The steps for all compute targets follow the same workflow:
 1. __Create__ a compute target if you don’t already have one.
@@ -25,22 +25,22 @@ In this article, you learn how to use various compute targets for model training
 
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.6.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.39.
 
 ## Compute targets for training
 
 Azure Machine Learning service has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 
-|Compute target for training| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Azure Machine Learning Pipelines |
+|Training &nbsp;targets| GPU support |Automated ML | ML pipelines | Visual interface
 |----|:----:|:----:|:----:|:----:|
-|[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Local computer](#local)| maybe | yes | &nbsp; | &nbsp; |
+|[Azure Machine Learning Compute](#amlcompute)| yes | yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
+|[Remote VM](#vm) |yes | yes & <br/>hyperparameter tuning | yes | &nbsp; |
+|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | yes | yes | &nbsp; |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | yes | &nbsp; |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | yes | &nbsp; |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | yes | &nbsp; |
 
 **All compute targets can be reused for multiple training jobs**. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.
 
@@ -372,6 +372,10 @@ You can access the compute targets that are associated with your workspace using
 
 For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
 
+## Set up compute with VS Code
+
+You can access, create and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning service.
+
 ## <a id="submit"></a>Submit training run
 
 After you create a run configuration, you use it to run your experiment.  The code pattern to submit a training run is the same for all types of compute targets:
@@ -411,8 +415,13 @@ Switch the same experiment to run in a different compute target by using a diffe
 
 Or you can:
 
-* Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md). 
+* Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
 * Submit an experiment [using the CLI extension](reference-azure-machine-learning-cli.md#experiments).
+* Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
+
+## GitHub tracking and integration
+
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
 
 ## Notebook examples
 

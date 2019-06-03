@@ -99,6 +99,12 @@ FROM AnomalyDetectionStep
 
 ```
 
+## Anomaly detection using machine learning in Azure Stream Analytics
+
+The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Anomaly-detection-using-machine-learning-in-Azure-Stream-Analytics/player]
+
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

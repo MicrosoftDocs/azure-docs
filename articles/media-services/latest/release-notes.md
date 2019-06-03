@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/29/2019
 ms.author: juliako
 ---
 
@@ -33,7 +33,21 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## May 2019
 
+### HLS v4 and above support in Dynamic packaging 
+
+Added HLS (version 4 or above) support in Dynamic Packaging for Assets that have multiple audio tracks with multiple codecs and languages.
+
+For more information, see [Dynamic Packaging](dynamic-packaging-overview.md).
+
+### Korea regional pair is open for Media Services 
+
+Media Services is now available in Korea Central and Korea South regions. 
+
+For more information, see [Clouds and regions in which Media Services v3 exists](azure-clouds-regions.md).
+
 ### Performance improvements
+
+Added updates that include Media Services performance improvements.
 
 * The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
 * [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
@@ -49,7 +63,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
-You can now specify a list of asset or account filters, which would apply to your Streaming Locator. For more information, see [Associate filters with Streaming Locator](filters-concept.md#associate-filters-with-streaming-locator).
+You can now specify a list of asset or account filters, which would apply to your Streaming Locator. For more information, see [Associate filters with Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## February 2019
 

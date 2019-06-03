@@ -227,10 +227,10 @@ You can either choose to  protect the disks or ignore the warning to make the re
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. To dismiss the warning. Go to Replicated items > VM > Click on the dismiss alert under overview section.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## Unable to see the Azure VM for selection in "enable replication"
+## Unable to see the Azure VM or Resource group  for selection in "enable replication"
 
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>
-Azure Site Recovery currently mandated that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine during the time of protection.
+Azure Site Recovery currently mandates that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine during the time of protection. As a workaround, you can Enable replication from the VM instead of the Recovery services vault. Go to Sourece VM > Properties > Disaster Recovery and Enable the replication.
 
 **Cause 2: Resource group is not part of selected subscription** <br>
 You might not be able to find the resource group at the  time of protection if it is not part of the given subscription. Make sure that the resource group belongs to the subscription which is being used.
@@ -247,7 +247,7 @@ If you don't see the VM you want to enable for replication, it might be because 
 >
 >Make sure to update the ""AzureRM.Resources"" module before using the below script.
 
-You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
+You can use [Remove stale ASR configuration script](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
 
 ## Unable to select Virtual machine for protection
  **Cause 1:  Virtual machine has some extension installed in a failed or unresponsive state** <br>

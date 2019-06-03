@@ -19,6 +19,16 @@
     href: app-service-web-get-started-dotnet-framework.md
   - name: Create Node.js app
     href: app-service-web-get-started-nodejs.md
+  - name: Create Node.js app using Visual Studio Code
+    items:
+    - name: Getting started
+      href: tutorial-javascript-vscode-get-started.md
+    - name: Create the application
+      href: tutorial-javascript-vscode-create-app.md
+    - name: Deploy the website
+      href: tutorial-javascript-vscode-deploy-app.md
+    - name: Viewing logs
+      href: tutorial-javascript-vscode-tail-logs.md
   - name: Create PHP app
     href: app-service-web-get-started-php.md
   - name: Create Java app
@@ -76,6 +86,8 @@
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
+    - name: Security attributes
+      href: app-service-security-attributes.md
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
   - name: Hybrid connections
@@ -90,11 +102,11 @@
   items:
   - name: Configure app
     items:
-    - name: Use app settings
-      href: web-sites-configure.md
+    - name: Configure common settings
+      href: configure-common.md
     - name: Configure PHP
       href: web-sites-php-configure.md
-    - name: Java developer guide
+    - name: Configure Java
       href: configure-language-java.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md

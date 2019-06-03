@@ -47,11 +47,12 @@ The tutorial assumes that you understand [basic concepts about Azure cloud servi
 
 You can run the app locally without an Azure subscription, but you'll need one to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-The tutorial instructions work with either of the following products:
+The tutorial instructions work with any of the following products:
 
 * Visual Studio 2013
 * Visual Studio 2015
 * Visual Studio 2017
+* Visual Studio 2019
 
 If you don't have one of these, Visual Studio may be installed automatically when you install the Azure SDK.
 

@@ -31,8 +31,8 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial series, yo
 > A completed version of this tutorial is available as a sample experiment.
 > From the Experiments page, go to **Add New** > **Sample 1 - Regression: Automobile Price Prediction(Basic)**
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Build-zero-code-machine-learning-models-with-Azure-Machine-Learning-service/player]
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
 ## Create a workspace
 

@@ -161,13 +161,11 @@ The following commands demonstrate how to register a trained model, and then dep
     For more information, see [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 + Deploy your model to AKS
-
     ```azurecli-interactive
-    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
-
+    
     The following is an example `inferenceconfig.json` document:
-
     ```json
     {
     "entryScript": "score.py",
@@ -180,6 +178,13 @@ The following commands demonstrate how to register a trained model, and then dep
     "baseImageRegistry": null
     }
     ```
+    The following is an example of 'deploymentconfig.json' document:
+    ```json
+    {
+    "computeType": "aks",
+    "ComputeTarget": "akscomputetarget"
+    }
+    ```
 
     For more information, see [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
 
@@ -188,4 +193,4 @@ The following commands demonstrate how to register a trained model, and then dep
 
 * [Command reference for the Machine Learning CLI extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
 
-* [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
+* [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)

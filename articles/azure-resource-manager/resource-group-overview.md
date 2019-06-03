@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 
 ---
@@ -47,13 +47,15 @@ Resource Manager provides several benefits:
 * You can apply tags to resources to logically organize all the resources in your subscription.
 * You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.
 
-## Understand management scope
+## Understand scope
 
-Azure provides four levels of management scope: [management groups](../governance/management-groups/index.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
+Azure provides four levels of scope: [management groups](../governance/management-groups/index.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
 You apply management settings at any of these levels of scope. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a [policy](../governance/policy/overview.md) to the subscription, the policy is applied to all resource groups and resources in your subscription. When you apply a policy on the resource group, that policy is applied the resource group and all its resources. However, another resource group does not have that policy assignment.
+
+You can deploy templates to management groups, subscriptions, or resource groups.
 
 ## Guidance
 
@@ -170,7 +172,21 @@ After defining your template, you're ready to deploy the resources to Azure. To 
 
 When deploying a complex service to Azure, you might need to deploy your service to multiple regions, and check its health before proceeding to the next step. Use [Azure Deployment Manager](deployment-manager-overview.md) to coordinate a staged rollout of the service. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need these precautions, the deployment operations in the preceding section are the better option.
 
-Deployment Manager is currently in private preview.
+Deployment Manager is currently in public preview.
+
+## Resiliency of Azure Resource Manager
+
+The Azure Resource Manager service is designed for resiliency and continuous availability. Resource Manager and control plane operations (requests sent to management.azure.com) in the REST API are:
+
+* Distributed across regions. Some services are regional.
+
+* Distributed across Availability Zones (as well regions) in locations that have multiple Availability Zones.
+
+* Not dependent on a single logical data center.
+
+* Never taken down for maintenance activities.
+
+This resiliency applies to services that receive requests through Resource Manager. For example, Key Vault benefits from this resiliency.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

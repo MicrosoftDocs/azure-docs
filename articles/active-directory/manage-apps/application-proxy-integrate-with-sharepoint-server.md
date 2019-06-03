@@ -3,8 +3,8 @@ title: Enable remote access to SharePoint with Azure AD Application Proxy | Micr
 description: Covers the basics about how to integrate an on-premises SharePoint server with Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -110,7 +110,7 @@ To configure the KCD, repeat the following steps for each connector machine:
 
 Now that you’ve configured KCD, you're ready to configure Azure AD Application Proxy.
 
-1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    * **Internal URL**: SharePoint Internal URL that was chosen earlier, such as **<https://SharePoint/>**.
    * **Pre-authentication Method**: Azure Active Directory
    * **Translate URL in Headers**: NO
