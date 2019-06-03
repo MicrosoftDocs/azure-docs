@@ -1,21 +1,21 @@
 ---
-title: Track and log Azure Data Box events| Microsoft Docs 
-description: Describes how to track and log events at the various stages of your Azure Data Box order.
+title: Track and log Azure Data Box, Azure Data Box Heavy events| Microsoft Docs 
+description: Describes how to track and log events at the various stages of your Azure Data Box and Azure Data Box Heavy order.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 ---
 
-# Tracking and event logging for your Azure Data Box
+# Tracking and event logging for your Azure Data Box and Azure Data Box Heavy
 
-A Data Box order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
+A Data Box or Data Box Heavy order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
-The following table shows a summary of the Data Box order steps and the tools available to track and audit the order during each step.
+The following table shows a summary of the Data Box or Data Box Heavy order steps and the tools available to track and audit the order during each step.
 
 | Data Box order stage       | Tool to track and audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
@@ -27,13 +27,13 @@ The following table shows a summary of the Data Box order steps and the tools av
 | Data upload to Azure       | [Review *copylogs*](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                                                   |
 
-This article describes in detail the various mechanisms or tools available to track and audit Data Box order.
+This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy order. The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
 
 ## Set up access control on the order
 
 You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
 
-The two Data Box roles that can be defined are:
+The two roles that can be defined for the Azure Data Box service are:
 
 - **Data Box Reader** - have read-only access to an order(s) as defined by the scope. They can only view details of an order. They can’t access any other details related to storage accounts or edit the order details such as address and so on.
 - **Data Box Contributor** - can only create an order to transfer data to a given storage account *if they already have write access to a storage account*. If they do not have access to a storage account, they can't even create a Data Box order to copy data to the account. This role does not define any Storage account related permissions nor grants access to storage accounts.  
@@ -320,7 +320,7 @@ Here is a sample of the order history log from Azure portal:
 -------------------------------
 Microsoft Data Box Order Report
 -------------------------------
-Name                                               : gus-pinto                              
+Name                                               : gus-poland                              
 StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00                       
 DeviceType                                     : DataBox                                           
 -------------------
@@ -358,11 +358,11 @@ Time(UTC)                 | Activity                       | Status          | D
 Data Box Log Links
 ------------------
 Account Name         : gusacct
-Copy Logs Path       : databoxcopylog/gus-pinto_<Device-serial-no>_CopyLog_<GUID>.xml
+Copy Logs Path       : databoxcopylog/gus-poland_<Device-serial-no>_CopyLog_<GUID>.xml
 Audit Logs Path      : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ```
 
 ## Next steps
 
-- Learn how to [Troubleshoot issues on your Data Box](data-box-troubleshoot.md).
+- Learn how to [Troubleshoot issues on your Data Box and Data Box Heavy](data-box-troubleshoot.md).
