@@ -33,13 +33,13 @@ Currently the Change Analysis tool is integrated into the **Diagnose and solve p
 
 ### Azure Resource Manager deployment changes
 
-Using [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), the Change Analysis tool provides a historical record of how the Azure resources that host your application have changed over time. For example, if a tag is added to a web app, the Change Analysis tool reflects the change. This information is available as long as the `Microsoft.ChangeAnalysis` resource provider is onboarded to the Azure subscription.
+Using [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), the Change Analysis tool provides a historical record of how the Azure resources that host your application have changed over time. For example, if a tag is added to a web app, the Change Analysis tool reflects the change. This information is available as long as the `Microsoft.ChangeAnalysis` resource provider is enabled in the Azure subscription.
 
 ### Changes in web app deployment and configuration
 
-The Change Analysis tool captures the deployment and configuration state of an application every 4 hours. It computes the differences and presents what has changed. The Change Analysis service can detect, for example, changes in the application environment variables, IP configuration rules, managed identities, and SSL settings. 
+The Change Analysis tool captures the deployment and configuration state of an application every 4 hours. It computes the differences and presents what has changed. The Change Analysis service can detect, for example, changes in the application environment variables, IP configuration rules, managed identities, and SSL settings. IP configuration rules, managed identities, and SSL settings are Azure Resource Manager deployment changes.
 
-Unlike Resource Manager change information, this type of change information might not be available immediately in the tool. To view the latest changes in Change Analysis, select **Scan changes now**.
+Unlike Resource Manager changes, this type of change information might not be available immediately in the tool. To view the latest changes in Change Analysis, select **Scan changes now**.
 
 ![Screenshot of the "Scan changes now" button](./media/change-analysis/scan-changes.png)
 
@@ -82,7 +82,7 @@ In Azure Monitor, Application Change Analysis is currently built into the self-s
 
 ### Enable the Change Analysis service at scale
 
-If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. In this case, follow these alternative onboarding instructions.
+If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. In this case, follow these alternative instructions.
 
 ### Register the Change Analysis resource provider for your subscription
 
@@ -99,20 +99,20 @@ If your subscription includes numerous web apps, enabling the service at the lev
    1. Run the following PowerShell command:
 
         ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to onboard
+        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
         Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
         Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
         ```
     
 1. Register the Change Analysis resource provider for the subscription.
 
-   - Go to **Subscriptions**, and select the subscription you want to onboard to the change service. Then select resource providers:
+   - Go to **Subscriptions**, and select the subscription you want to enable in the change service. Then select resource providers:
 
         ![Screenshot showing how to register the Change Analysis resource provider](./media/change-analysis/register-rp.png)
 
        - Select **Microsoft.ChangeAnalysis**. Then at the top of the page, select **Register**.
 
-       - After the resource provider is onboarded, you can set a hidden tag on the web app to detect changes at the level of deployment. To set a hidden tag, follow the instructions under **Unable to fetch Change Analysis information**.
+       - After the resource provider is enabled, you can set a hidden tag on the web app to detect changes at the level of deployment. To set a hidden tag, follow the instructions under **Unable to fetch Change Analysis information**.
 
    - Alternatively, you can use a PowerShell script to register the resource provider:
 
