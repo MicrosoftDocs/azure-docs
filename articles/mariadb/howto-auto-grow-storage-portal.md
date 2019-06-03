@@ -1,6 +1,6 @@
 ---
 title: Auto-grow Azure Database for MariaDB storage using Azure portal
-description: This article describes how to enable auto-grow storage for Azure Database for MariaDB using Azure portal
+description: This article describes how you can enable auto-grow storage for Azure Database for MariaDB using Azure portal
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
@@ -22,7 +22,7 @@ Follow these steps to set MariaDB server storage auto-grow:
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Database for MariaDB server.
 
-2. On the MariaDB server page, under ***Settings*** heading, click **Pricing tier** to open the Pricing tier page for the Azure Database for MariaDB.
+2. On the MariaDB server page, under ***Settings*** heading, click **Pricing tier** to open the pricing tier page.
 
 3. In the Auto-growth section, select Yes to enable storage auto-grow.
 
