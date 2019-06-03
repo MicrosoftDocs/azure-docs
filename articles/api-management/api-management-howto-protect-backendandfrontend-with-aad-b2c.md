@@ -460,14 +460,13 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > *Congratulations, you’ve configured Azure Active Directory B2C, Azure API Management, Azure Functions, Azure App Service Authorization to work in perfect harmony!*
 
 > [!NOTE]
-> Now we have a simple app with an API that has a purpose, let's test it.
+> Now we have a simple app with a simple secured API, let's test it.
 
 ## Test the Client Application
 1. Open the sample app URL that you noted down from the storage account you created earlier
 2. Click “Sign In” in the top-right-hand corner, this click will pop up your B2C sign in / up profile.
 3. Post sign in the "Logged in as" section of the screen will be populated from your JWT.
-4. Now Click "Call Web Api", and you should get a popup alert with the address of your API in it.
-5. OK that and the screen should update with  a rolling countdown to your event
+4. Now Click "Call Web Api", and you the page should update with the values sent back from your secured API.
 
 ## And we're done 
 The steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
