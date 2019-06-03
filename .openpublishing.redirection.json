@@ -21,6 +21,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/best-practices-network-security.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-asm.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-fw-asm.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/batch-ai/migrate-to-new-api.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/how-to-migrate",
       "redirect_document_id": true
@@ -16407,6 +16427,21 @@
     {
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-best-practices-costs.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-best-practices-networking.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-best-practices-security-management.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management",
       "redirect_document_id": false
     },
     {
