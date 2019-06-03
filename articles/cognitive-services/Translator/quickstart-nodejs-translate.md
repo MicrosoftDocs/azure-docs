@@ -72,7 +72,7 @@ let options = {
     url: 'translate',
     qs: {
       'api-version': '3.0',
-      'to': ['de', 'it'],
+      'to': ['de', 'it']
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
