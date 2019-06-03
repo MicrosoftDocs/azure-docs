@@ -16,8 +16,8 @@ Azure Data Lake Analytics is an on-demand analytics job service that simplifies 
 ## Disaster recovery guidance
 
 When using Azure Data Lake Analytics, it's critical for you to prepare your own disaster recovery plan. This article helps guide you to build a disaster recovery plan. There are additional resources that can help you create your own plan:
-- [Failure and disaster recovery for Azure applications](../architecture/reliability/disaster-recovery.md)
-- [Azure resiliency technical guidance](../architecture/reliability.md)
+- [Failure and disaster recovery for Azure applications](/azure/architecture/reliability/disaster-recovery)
+- [Azure resiliency technical guidance](/azure/architecture/reliability)
 
 ## Best practices and scenario guidance
 
@@ -29,7 +29,7 @@ You can run a recurring U-SQL job in an ADLA account in a region that reads and 
 
 3. For structured data stored in ADLA tables and databases, create copies of the metadata artifacts such as databases, tables, table-valued functions, and assemblies.
 
-You will need to periodically resync these artifacts when changes happen in production. For example, newly inserted data will have to be replicated to the secondary region by copying the data and inserting into the secondary table.
+You need to periodically resync these artifacts when changes happen in production. For example, newly inserted data has to be replicated to the secondary region by copying the data and inserting into the secondary table.
 
 These object names are scoped to the secondary account and are not globally unique, so they can have the same names as in the production account.  
 
