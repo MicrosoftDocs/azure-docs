@@ -38,9 +38,13 @@ ms.author: ramkris
 
 ## Release notes
 
+### <a name="2.3.0-preview2"/>2.3.0-preview2
+
+* Added support for graph bulk executor to accept ttl on vertices and edges
+
 ### <a name="2.2.0-preview2"/>2.2.0-preview2
 
-* Fixed an issue, which caused exceptions during elastic scaling of Cosmos DB when running in Gateway mode. This fix makes it functionally equivalent to 1.4.1 release.
+* Fixed an issue, which caused exceptions during elastic scaling of Azure Cosmos DB when running in Gateway mode. This fix makes it functionally equivalent to 1.4.1 release.
 
 ### <a name="2.1.0-preview2"/>2.1.0-preview2
 
@@ -54,9 +58,13 @@ ms.author: ramkris
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the BulkExecutor library work with .NET Core applications.
 
+### <a name="1.5.0"/>1.5.0
+
+* Added support for graph bulk executor to accept ttl on vertices and edges
+
 ### <a name="1.4.1"/>1.4.1
 
-* Fixed an issue, which caused exceptions during elastic scaling of Cosmos DB when running in Gateway mode.
+* Fixed an issue, which caused exceptions during elastic scaling of Azure Cosmos DB when running in Gateway mode.
 
 ### <a name="1.4.0"/>1.4.0
 
