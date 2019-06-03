@@ -30,9 +30,7 @@ By bringing your devices to Azure AD, you maximize your users' productivity thro
 In this tutorial, you learn how to configure hybrid Azure AD join for AD domain-joined computers devices in a federated environment using AD FS.
 
 > [!NOTE]
-> If your federated environment is using an identity provider other than AD FS, then you need to ensure that your identoty provider supports both WS-Fed and WS-Trust protocols:
-> **WS-Fed:** This protocol is required to join a device to Azure AD.
-> **WS-Trust:** This protocol is required to sign in to an Azure AD joined device.
+> If your federated environment is using an identity provider other than AD FS, then you need to ensure that your identity provider supports WS-Trust protocol. WS-Trust is needed to authenticate your Windows current hybrid Azure AD joined devices with Azure AD. Additionally, if you have Windows down-level devices that you need to hybrid Azure AD join, your identity provider will need to support WIAORMULTIAUTHN claim. 
 
 
 > [!div class="checklist"]
@@ -187,3 +185,6 @@ If you are experiencing issues with completing hybrid Azure AD join for domain j
 ## Next steps
 
 - For more information about managing device identities in the Azure AD portal, see [managing device identities using the Azure portal](device-management-azure-portal.md).
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
