@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create an Azure AD B2C tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure that you are using the directory that contains your subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains it. This directory is different than the one that will contain your Azure AD B2C tenant.
+2. Make sure that you are using the directory that contains your subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains it. This directory is different from the one that will contain your Azure AD B2C tenant.
 
     ![Switch to subscription directory](./media/tutorial-create-tenant/switch-directory-subscription.png)
 
