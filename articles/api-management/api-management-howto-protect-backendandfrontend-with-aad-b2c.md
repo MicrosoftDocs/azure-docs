@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 06/03/2019
 ms.author: wieastbu
-ms.custom fasttrack-new
+ms.custom: fasttrack-new
 ---
 
 # Protect a SPA backend with OAuth 2.0 by using AAD B2C and API Management
@@ -126,18 +126,17 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 
-
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
-    return (ActionResult)new OkObjectResult($"Hello World");
+    return (ActionResult)new OkObjectResult($"Hello World, time and date are {DateTime.Now.ToString()}");
 }
 
 ```
 
 > [!NOTE]
-> The c# script function code you just pasted simply logs a line to the console, and returns the text "Hello World".
+> The c# script function code you just pasted simply logs a line to the console, and returns the text "Hello World" with some dynamic data.
 
 4. Select “Integrate” from the left-hand blade, then select ‘Advanced Editor’ in the top-right-hand corner of the pane.
 5. Paste the sample code below over the existing json.
@@ -293,13 +292,110 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 2. Save the code below to a file locally on your machine as index.html and then upload the file index.html to the $web container.
 
 ```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample JS SPA</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#">Sample Code</a>
+                    <ul class="navbar-nav ml-md-auto">
+                        <li class="nav-item dropdown">
+                            <a class="btn btn-large btn-success" onClick="login()">Sign In</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h2>
+			<div id="message">Hello, world!</div>
+		    </h2>
+                    <p>
+                        <a class="btn btn-primary btn-large" onClick="GetAPIData()">Call API</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
+    <script lang="javascript">
 
+        	var applicationConfig = {
+           		clientID: "clientidgoeshere",
+            		authority: "https://login.microsoftonline.com/tfp/tenant/policy",
+            		b2cScopes: ["https://tenant/app/scope"],
+           		webApi: 'http://functionurl',
+	    		subKey: 'apimkeygoeshere'
+          	};
 
+            	var msalConfig = {
+                	auth: {
+                    		clientId: applicationConfig.ClientID, 
+                    		authority:  applicationConfig.Authority
+                	},
+                	cache: {
+                    		cacheLocation: "localStorage",
+                    		storeAuthStateInCookie: true
+                	}
+            	};
 
+             var clientApplication = new Msal.UserAgentApplication(msalConfig);
+             // Register a call back for redirect flow
+             // myMSALObj.handleRedirectCallback(authRedirectCallback);
+             function login() {
+               var loginRequest = {
+                 scopes: applicationConfig.b2cScopes
+               };
+               clientApplication.loginPopup(loginRequest).then(function (loginResponse) {
+                var tokenRequest = {
+                  scopes: applicationConfig.b2cScopes
+                };
+                clientApplication.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
+                  updateUI();
+                }).catch(function (error) {
+                  clientApplication.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
+                    updateUI();
+                  }).catch (function (error) {
+                    logMessage("Error acquiring the popup:\n" + error);
+                  });
+                })
+              }).catch (function (error) {
+                logMessage("Error during login:\n" + error);
+              });
+            }
 
-
-
-
+            function GetAPIData() {
+        	document.getElementById("message").innerHTML = "Hi";
+          	var tokenRequest = {
+                	scopes: applicationConfig.b2cScopes
+              	}
+              	clientApplication.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
+                	callApiWithAccessToken(tokenResponse.accessToken);
+              		}).catch(function (error) {
+                		clientApplication.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
+                  			callApiWithAccessToken(tokenResponse.accessToken);
+                		}).catch(function (error) {
+                  			logMessage("Error acquiring the access token to call the Web api:\n" + error);
+                		});
+              		})
+        	}
+    </script>
+</body>
+</html>
 
 ```
 
@@ -307,7 +403,7 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 
 > [!NOTE]
 > Congratulations, you just deployed a JavaScript Single Page App to Azure Storage
-> Since we haven’t configured the JS app with your keys for the api or configured the JS app with your AAD B2C details yet – the page will look a little strange when you open it, nothing will be populated yet !
+> Since we haven’t configured the JS app with your keys for the api or configured the JS app with your AAD B2C details yet – the page will not work yet if you open it.
 
 ## Configure the JS SPA for AAD B2C
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct AAD B2C application / client IDs
@@ -335,18 +431,7 @@ clientID: 'the registered application ID of the CLIENT OR FRONTEND Application i
 > API Management will pre-validate the token, rate-limit calls to the endpoint by the subscriber key, before passing through the request to the receiving Azure Function API.
 > The SPA will render the response in the browser.
 
-> *Congratulations, you’ve configured Azure Active Directory B2C, Azure API Management, Azure Functions, Azure App Service Authorization to work in perfect harmony, only one thing remains, let's make the front end do something useful!*
-
-## Configure the Function API to serve as a reminder countdown
-1. Go back to the Function Apps blade in the Azure portal.
-2. Open the Function App by selecting it from the list.
-3. Open the source code for the function HttpTriggerC# in the editor by clicking on the name of the function.
-
-```c#
-
-string json = "Hello API Management";
-
-```
+> *Congratulations, you’ve configured Azure Active Directory B2C, Azure API Management, Azure Functions, Azure App Service Authorization to work in perfect harmony!*
 
 > [!NOTE]
 > Now we have a simple app with an API that has a purpose, let's test it.
