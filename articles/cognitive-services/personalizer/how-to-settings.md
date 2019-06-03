@@ -75,7 +75,7 @@ After changing this setting, make sure to select **Save**.
 
 ## Export the Personalizer model
 
-From the Resource management's section for **Model and Policy**, review model creation and last updated date and export the current model. You can use the Azure Portal or the Personalizer APIs to export a model file for archival purposes. 
+From the Resource management's section for **Model and Policy**, review model creation and last updated date and export the current model. You can use the Azure portal or the Personalizer APIs to export a model file for archival purposes. 
 
 ![Export current Personalizer model](media/settings/export-current-personalizer-model.png)
 
