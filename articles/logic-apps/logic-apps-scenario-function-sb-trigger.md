@@ -38,7 +38,7 @@ For this scenario, you have a function running each logic app that you want to t
 
    ![Select trigger](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
-   With the Request trigger, you can optionally enter a JSON schema to use with the queue message. JSON schemas help the Logic App Designer understand the structure for the input data and makes outputs easier for you to select throughout the workflow.
+   With the Request trigger, you can optionally enter a JSON schema to use with the queue message. JSON schemas help the Logic App Designer understand the structure for the input data, and make the outputs easier for you to use in your workflow.
 
 1. To specify a schema, enter the schema in the **Request Body JSON Schema** box, for example:
 
