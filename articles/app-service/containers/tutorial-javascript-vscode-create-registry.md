@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: app-service
+ms.devlang: javascript
 ---
 # Using Container Registries
 
@@ -50,6 +51,5 @@ Ensure that the registry endpoint that you just setup is visible under **Registr
 
 > [!div class="nextstepaction"]
 > [I've created a registry](./tutorial-javascript-vscode-containerize-app.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=create-registry)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=create-registry)

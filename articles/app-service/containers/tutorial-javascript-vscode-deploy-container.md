@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: app-service
+ms.devlang: javascript
 ---
 # Deploy the image to Azure App Service
 
@@ -35,6 +36,5 @@ The Output panel will open during deployment to indicate the status of the opera
 
 > [!div class="nextstepaction"]
 > [My site is on Azure](./tutorial-javascript-vscode-tail-logs.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=deploy-app)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=deploy-app)

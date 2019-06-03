@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: app-service
+ms.devlang: javascript
 ---
 # Deploy to Azure using App Service
 
@@ -50,6 +51,5 @@ In VS Code, you should see your Azure email address in the Status Bar and your s
 
 > [!div class="nextstepaction"]
 > [I've installed the Azure App Service extension](./tutorial-javascript-vscode-create-app.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=getting-started)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)

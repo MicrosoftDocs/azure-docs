@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: app-service
+ms.devlang: javascript
 ---
 # Deploy the Website
 
@@ -57,7 +58,6 @@ You can deploy changes to this app by using the same process and choosing the ex
 
 > [!div class="nextstepaction"]
 > [My site is on Azure](./tutorial-javascript-vscode-tail-logs.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=deploy-app)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 

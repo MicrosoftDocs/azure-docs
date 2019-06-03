@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: app-service
+ms.devlang: javascript
 ---
 # Create your Node.js application
 
@@ -64,6 +65,5 @@ $ code .
 
 > [!div class="nextstepaction"]
 > [I created the Node.js application](./tutorial-javascript-vscode-deploy-app.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)

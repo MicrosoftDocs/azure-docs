@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: app-service
+ms.devlang: javascript
 ---
 # Deploy to Azure using Docker
 
@@ -50,6 +51,5 @@ Docker Version 17.12.0-ce, build c97c6d6
 
 > [!div class="nextstepaction"]
 > [I've installed the Docker and Azure App Service extensions](./tutorial-javascript-vscode-create-registry.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=getting-started)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=getting-started)

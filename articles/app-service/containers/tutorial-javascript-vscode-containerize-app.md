@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: app-service
+ms.devlang: javascript
 ---
 # Create your Node.js application image
 
@@ -61,6 +62,5 @@ Next, you'll deploy your image to Azure.
 
 > [!div class="nextstepaction"]
 > [I've created an image for my application](./tutorial-javascript-vscode-deploy-container.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=containerize-app)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=containerize-app)

@@ -6,6 +6,7 @@ ms.author: karler
 ms.date: 05/17/2019
 ms.topic: quickstart
 ms.service: app-service
+ms.devlang: javascript
 ---
 # Viewing Logs
 
@@ -60,6 +61,5 @@ The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azur
 
 > [!div class="nextstepaction"]
 > [I'm done!](./tutorial-nodejs-mongodb-app.md)
-
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=docker-extension&step=tailing-logs)
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=tailing-logs)
