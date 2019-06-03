@@ -82,7 +82,7 @@
     href: networking-features.md
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
-  - name: VNet Integration
+  - name: Virtual Network Integration
     href: web-sites-integrate-with-vnet.md  
   - name: Hybrid connections
     href: app-service-hybrid-connections.md
