@@ -4,7 +4,7 @@ description: Use the Azure portal to register a new IoT Edge device and retrieve
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 06/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,13 +13,13 @@ ms.custom: seodec18
 
 # Register a new Azure IoT Edge device from the Azure portal
 
-Before you can use your IoT devices with Azure IoT Edge, you need to register them with your IoT hub. Once you register a device, you receive a connection string that can be used to set up your device for Edge workloads.
+Before you can use your IoT devices with Azure IoT Edge, you need to register them with your IoT hub. Once you register a device, you receive a connection string that can be used to set up your device for IoT Edge workloads.
 
 This article shows how to register a new IoT Edge device using the Azure portal.
 
 ## Prerequisites
 
-An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+A free for standard [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
 
 ## Create a device
 
@@ -44,4 +44,4 @@ When you're ready to set up your device, you need the connection string that lin
 
 ## Next steps
 
-Learn how to [Deploy modules to a device with the Azure portal](how-to-deploy-modules-portal.md)
+Learn how to [Deploy modules to a device with the Azure portal](how-to-deploy-modules-portal.md).
