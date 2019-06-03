@@ -38,7 +38,7 @@ From a command prompt, navigate to the directory where you downloaded the file.
 
 To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
-To learn about a specific command, just include the name of the command (For example: `azcopy copy -h`).
+To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
 
 ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
