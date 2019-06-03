@@ -38,7 +38,7 @@ Before you begin:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in a network security group.
-* If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
+* If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2019](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 
 ## Network topology
 
@@ -83,7 +83,7 @@ Start Visual Studio as Administrator and create an ASP.NET Core service:
     </Resources>
     ```
 
-    Removing the port allows Service Fabric to specify a port dynamically from the application port range, opened through the Network Security Group in the cluster Resource Manager template, allowing traffic to flow to it from API Management.
+    Removing the port allows Service Fabric to specify a port dynamically from the application port range, opened through the Network Security Group in the Cluster Resource Manager template, allowing traffic to flow to it from API Management.
 
  6. Press F5 in Visual Studio to verify the web API is available locally.
 
