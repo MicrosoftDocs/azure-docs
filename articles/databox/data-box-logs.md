@@ -66,9 +66,9 @@ You can track your order through the Azure portal and through the shipping carri
 
 - Each sign into the Data Box is logged real time. However, this information is only available in the [Audit logs](#audit-logs) after the order is successfully completed.
 
-## View error log during data copy to Data Box
+## View error log during data copy
 
-During the data copy to Data Box, an error file is generated if there are any issues with the data being copied.
+During the data copy to Data Box or Data Box Heavy, an error file is generated if there are any issues with the data being copied.
 
 ### Error.xml file
 
@@ -143,7 +143,7 @@ Here is a sample of the *error.xml* for different errors when copying to Azure F
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-In each of the above cases, resolve the errors before you proceed to the next step. For more information on the errors received during data copy to Data Box via SMB or NFS protocols, go to [Troubleshoot Data Box issues](data-box-troubleshoot.md). For information on errors received during data copy to Data Box via REST, go to [Troubleshoot Data Box Blob storage issues](data-box-troubleshoot-rest.md).
+In each of the above cases, resolve the errors before you proceed to the next step. For more information on the errors received during data copy to Data Box via SMB or NFS protocols, go to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md). For information on errors received during data copy to Data Box via REST, go to [Troubleshoot Data Box Blob storage issues](data-box-troubleshoot-rest.md).
 
 ## Inspect BOM during prepare to ship
 
@@ -153,7 +153,7 @@ During prepare to ship, a list of files known as the Bill of Materials (BOM) or 
 - Use this file to verify against the actual sizes of the files.
 - Verify that the *crc64* corresponds to a non-zero string. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md).
 
 ### BOM or manifest file
 
@@ -249,7 +249,7 @@ After the data is erased from the Data Box disks as per the NIST SP 800-88 Revis
 
 ### Audit logs
 
-Audit logs contain information on power-on and share access on the Data Box when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+Audit logs contain information on power-on and share access on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
 
 Here is a sample of the audit log from a Data Box:
 
@@ -306,7 +306,7 @@ The authentication information fields provide detailed information about this sp
 
 ## Download order history
 
-Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to **Data Box order > Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history).
+Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to your device order and navigate to **Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history).
 
 If you scroll through the order history, you see:
 
