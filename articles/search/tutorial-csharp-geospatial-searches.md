@@ -1,6 +1,6 @@
 ---
-title: Tutorial on geospatial queries in Azure Search
-description: This tutorial builds on the "Create your first app in Azure Search" tutorial, and the paging tutorial, to add geospatial filters. Geospatial filters limit results to those within a specified radius of a given latitude and longitude. Learn how to order results based on a number of criteria, including geographical distance.
+title: Tutorial on geospatial filtering in Azure Search
+description: This tutorial builds on the "Create your first app for Azure Search" tutorial, and the paging tutorial, to add geospatial filters. Geospatial filters limit results to those within a specified radius of a given latitude and longitude. Learn how to order results based on a number of criteria, including geographical distance.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,20 +9,20 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Add geospatial filters to an Azure Search
+# C# Tutorial: Add geospatial filters to Azure Search
 
-Learn how to implement a geospatial filter, limiting search results to a geographical area defined by a point given in latitude and longitude, and a radius in kilometers. Using the hotel data, learn how to order the display of results based on distance away from the given point. Learn also that other criteria, such as hotel rating, can be included in how results are ordered.
+Learn how to implement a geospatial filter, limiting search results to a geographical area defined by a point given in latitude and longitude, and a radius in kilometers. Using the hotel data, learn how to order the display of results based on distance away from the given point. Learn also that other criteria, such as hotel rating, can be included in how results are ordered. This tutorial builds onto the paging project created in the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Search based on text, then filter on a given latitude, longitude and radius
-> * Order results based on specified criteria, including distance from a specified point
+> * Build a geospatial filter into Azure Search
+> * Add code to order results
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-Have the infinite scrolling variant of the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
+Have the infinite scrolling variant of the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
 
@@ -30,7 +30,7 @@ TBD
 
 Image
 
-## Build a geospatial filter into an Azure Search
+## Build a geospatial filter into Azure Search
 
 A geospatial search removes all data items that are outside of a specified radius of a certain point. In order to implement this, we need to accept three new inputs: latitude, longitude, and radius. Also, providing the distance back to the user with the results would seem to be an obvious requirement of our view of the results. Because of the strict ordering based on distance, using an infinite scrolling system seems to make sense for this scenario.
 
@@ -398,7 +398,7 @@ You should get some results, and check they are all within the 2000 Km radius, b
 
 The current order of results we have does not make much sense.
 
-## Add code to order Azure Search results
+## Add code to order results
 
 1. We need to make an addition to our Azure Search parameters to specify that the results should be ordered on the distance they are from the point the user has specified, so set the **OrderBy** parameter. Change the **SearchParameters** initialization (in the **Geo** action of the home controller) to the following.
 
@@ -448,8 +448,6 @@ A more realistic alternative than alphabetic ordering of display results would b
 ```
 
 ## Takeaways
-
-Great job finishing the fifth and final tutorial in this series.
 
 You should consider the following takeaways from this project:
 

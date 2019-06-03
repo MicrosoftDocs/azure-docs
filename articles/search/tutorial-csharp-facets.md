@@ -1,6 +1,6 @@
 ---
-title: Tutorial on using facets to improve the efficiency of an Azure Search
-description: This tutorial builds on the "Create your first app in Azure Search" tutorial, and the paging tutorial, to add facet searches. Learn that facets are used in autocompletion, and only need to be retrieved once when a page is loaded, rather than on each key event.
+title: Tutorial on using facets to improve the efficiency of Azure Search
+description: This tutorial builds on the "Create your first app for Azure Search" tutorial, and the paging tutorial, to add facet searches. Learn that facets are used in autocompletion, and only need to be retrieved once when a page is loaded, rather than on each key event.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,22 +9,20 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Use facets to improve the efficiency of an Azure Search
+# C# Tutorial: Use facets to improve the efficiency of Azure Search
 
-Learn how to improve network efficiency by implementing a facet search. Learn that facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. Learn that facets are attributes of the data (such as a pool, wifi, free parking, view, and so on, in our hotels data), and stay relevant for the lifespan of a page.
+Learn how to improve network efficiency by implementing a facet search. Learn that facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. Learn that facets are attributes of the data (such as a pool, wifi, free parking, view, and so on, in our hotels data), and stay relevant for the lifespan of a page. This tutorial builds onto the paging project created in the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Specify certain fields of a data set as **IsFacetable**
-> * Make the call for an Azure Search of facets
-> * Display the results of a facet call in a drop-down list
-> * Determine the conditions when a facet search makes most sense
+> * Add code for a search of facets
+> * Decide when to use a facet search
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
+Have the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
 
@@ -225,7 +223,7 @@ Image
 
 3. Type other combinations of two letters and see what appears. Notice that when you type the server is *not* being called. The facets are cached locally when the app was started and now a call is only made to the server when the user requests a search.
 
-## When to use a facet search
+## Decide when to use a facet search
 
 The clear difference between facet searches and other searches such as suggestions and autocompletion, is that the facet search is _designed_ to be only carried out once when a page is loaded, and the other searches are _designed_ to be called as characters are typed, which potentially saves many calls to the server. However, when should this search be used?
 
@@ -241,8 +239,6 @@ Facet searches are best used when:
 
 ## Takeaways
 
-Another tutorial completed, great work again!
-
 You should consider the following takeaways from this project:
 
 * Facets are an efficient way of getting a helpful user experience without the repeated server calls.
@@ -256,4 +252,4 @@ You should consider the following takeaways from this project:
 So far we have limited ourselves to text-based searches. In the next tutorial we look at providing additional numerical data in the form of latitude, longitude, and radius. And we look at ordering results (up to this point, results are ordered simply in the order that they are located in the database).
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Add geospatial filters to an Azure Search](tutorial-csharp-geospatial-searches.md)
+> [C# Tutorial: Add geospatial filters to Azure Search](tutorial-csharp-geospatial-searches.md)

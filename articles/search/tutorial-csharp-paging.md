@@ -1,6 +1,6 @@
 ---
-title: Tutorial on paging the results of an Azure Search
-description: This tutorial builds on the "Create your first app in Azure Search" tutorial with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to it's limit.
+title: Tutorial on paging the results of Azure Search
+description: This tutorial builds on the "Create your first app for Azure Search" tutorial with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to it's limit.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,14 +9,14 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Page the results of an Azure Search
+# C# Tutorial: Page the results of Azure Search
 
-Learn how to implement two different systems of paging, the first based on page numbers and the second on infinite scrolling. This tutorial builds the paging systems into the project created in the [Create your first app in Azure Search](tutorial-csharp-create-first-app.md) tutorial. Both systems of paging are popular across the internet, and selecting the right one can depend on the type of search that is being carried out, and the user experience you would like with the results.
+Learn how to implement two different systems of paging, the first based on page numbers and the second on infinite scrolling. This tutorial builds the paging systems into the project created in the [Create your first app in Azure Search](tutorial-csharp-create-first-app.md) tutorial. Both systems of paging are widely used, and selecting the right one can depend on the type of search that is being carried out, and the user experience you would like with the results.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Page results with first/previous/next/last options in addition to a range of page numbers
-> * Page results based on a vertical scroll, often called "infinite scrolling"
+> * Extend your app with numbered paging
+> * Extend your app with infinite scrolling
 
 ## Prerequisites
 
@@ -569,8 +569,6 @@ More sophisticated infinite scrolling systems might use the mouse wheel or simil
 
 ## Takeaways
 
-Good job on finishing this tutorial.
-
 You should consider the following takeaways from this project:
 
 * Numbered paging is good for searches where the order of the results is somewhat arbitrary, meaning there may well be something of interest to your users on the later pages.
@@ -585,4 +583,4 @@ You should consider the following takeaways from this project:
 The next two tutorials use numbered paging. The later tutorial on geospatial filtering uses infinite scrolling.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Add autocompletion and suggestions to an Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)
+> [C# Tutorial: Add autocompletion and suggestions to Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)

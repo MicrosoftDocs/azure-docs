@@ -1,5 +1,5 @@
 ---
-title: Tutorial on autocompletion and suggestions in an Azure Search
+title: Tutorial on autocompletion and suggestions in Azure Search
 description: This tutorial builds on the "Create your first app in Azure Search" tutorial, and the paging tutorial, to add autocompletion and suggestions. The goal is a richer user experience.
 services: search
 ms.service: search
@@ -9,29 +9,29 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Add autocompletion and suggestions to an Azure Search
+# C# Tutorial: Add autocompletion and suggestions to Azure Search
 
-Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. 
+Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. This tutorial builds onto the paging project created in the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Add a drop down list of suggestions
-> * Add a drop down list of autocompleted words
-> * Combine suggestions and autocompletion to further improve the user experience
-> * Employ a few tricks when developing UI scripts
+> * Add suggestions to Azure Search
+> * Add highlighting to the suggestions
+> * Add autocompletion to Azure Search
+> * Combine autocompletion and suggestions
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Page the results of an Azure Search](tutorial-csharp-paging.md) project up and running.
+Have the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
 
 TBD
 
 
-## Add suggestions to an Azure Search
+## Add suggestions to Azure Search
 
 Let's start with the simplest case of offering up alternatives to the user: simply a drop-down list of suggestions.
 
@@ -197,7 +197,7 @@ Image
 
 One of the questions a developer needs to answer is when is a script working "well enough" and when should its quirks be addressed. We will not be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if taking highlighting further.
 
-## Add autocompletion to an Azure Search
+## Add autocompletion to Azure Search
 
 Another variation that is slightly different from suggestions is autocompletion (sometimes called "type-ahead"). Again we will start with the simplest implementation before moving onto improving the user experience.
 
@@ -259,7 +259,7 @@ Image
 
 As it stands, the suggestions script you ran earlier is probably more helpful than this autocompletion script. To make autocompletion more user-friendly, it is best added to the suggestion search.
 
-## Combine autocompletion and suggestions in an Azure Search
+## Combine autocompletion and suggestions
 
 Combining autocompletion and suggestions is the most complex of our options and probably provides the best user experience. What we want is to display, inline with the text that is being typed, the first choice of Azure Search for autocompleting the text. Also, we want a range of suggestions as a drop-down list.
 
@@ -457,12 +457,9 @@ Of course, you may decide that it is simpler to load in a library that offers th
 
 ## Takeaways
 
-A third tutorial completed, great work!
-
 You should consider the following takeaways from this project:
 
 * Autocompletion (also known as "type-ahead") and suggestions enable the user to type a few keys to locate exactly what they want.
-* Working with the UI can test your limits and patience with JavaScript/HTML/JQuery and other UI technologies.
 * Autocompletion and suggestions working together can provide a rich user experience.
 * Always test autocompletion functions with both keyboard and mouse input.
 * Using the **setInterval** function can be useful in verifying and correcting UI elements.
@@ -472,4 +469,4 @@ You should consider the following takeaways from this project:
 One of the issues with autocompletion and suggestions is that they involve repeated calls to the server. If this results in slower than expected responses then the user experience diminishes. Facets are an interesting alternative to avoid these repeated calls, which we will look at next.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Use facets to improve the efficiency of an Azure Search](tutorial-csharp-facets.md)
+> [C# Tutorial: Use facets to improve the efficiency of Azure Search](tutorial-csharp-facets.md)
