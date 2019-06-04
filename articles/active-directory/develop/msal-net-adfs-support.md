@@ -32,12 +32,12 @@ Microsoft Authentication Library for .NET (MSAL.NET) supports two scenarios for 
 ## MSAL connects to Azure AD, which is federated with AD FS
 MSAL.NET supports connecting to Azure AD, which signs in managed-users (users managed in Azure AD) or federated users (users managed by another identity provider such as AD FS). MSAL.NET does not know about the fact that users are federated. As far as it’s concerned, it talks to Azure AD.
 
-The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (common, or organizations, or tenant).
+The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
 
 ### Acquiring a token interactively
 When you call the `AcquireTokenInteractive` method, the user experience is typically:
 
-1. The user enters their UPN (or the account or login hint, which is provided as part of the call to the `AcquireTokenAsync` method).
+1. The user enters their account ID.
 2. Azure AD displays briefly the message "Taking you to your organization's page".
 3. The user is redirected to the sign-in page of the identity provider. The sign-in page is usually customized with the logo of the organization.
 
