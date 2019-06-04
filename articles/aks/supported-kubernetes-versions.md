@@ -17,12 +17,8 @@ improvements. Patch releases are more frequent (sometimes weekly) and are only i
 minor version. These patch releases include fixes for security vulnerabilities or major bugs impacting a large number
 of customers and products running in production based on Kubernetes.
 
-A new Kubernetes minor version is made available in [aks-engine][aks-engine] on day one. Additionally AKS may issue
-preview releases of new Kubernetes versions in advance of General Availability for user testing and non-production
-usage.
-
-The AKS Service Level Objective (SLO) targets releasing the minor version for AKS clusters within 30 days, subject to
-the stability of the release.
+AKS aims to certify and release new Kubernetes versions within 30 days of an upstream release, subject to the stability
+of the release.
 
 ## Kubernetes versions
 
@@ -52,7 +48,7 @@ series, you should upgrade to *1.13.7* as soon as you are able to ensure your cl
 
 AKS supports four minor versions of Kubernetes:
 
-* The current minor version that is released upstream (N)
+* The current minor version that is released in AKS (N)
 * Three previous minor versions. Each supported minor version also supports two stable patches.
 
 This is known as "N-3" - (N (Latest release) - 3 (minor versions)).
@@ -78,8 +74,9 @@ And AKS releases 1.13.x, this means that the 1.9.x versions (all 1.9 versions) w
 
 > [!NOTE]
 > Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
-> requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by AKS
-> support policies and SLO.
+> requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the
+> [AKS support policies](https://docs.microsoft.com/en-us/azure/aks/support-policies).
+
 
 In addition to the above on minor versions, AKS supports the two latest *patch** releases of a given minor version. For
 example, given the following supported versions:
@@ -88,7 +85,7 @@ Supported Version List
 ----------------------
 1.12.1, 1.12.2, 1.11.4, 1.11.5
 
-If upstream Kubernetes released 1.12.3 and 1.11.6 and AKS releases those patch versions as GA, the oldest patch versions
+If upstream Kubernetes released 1.12.3 and 1.11.6 and AKS releases those patch versions, the oldest patch versions
 are deprecated and removed, and the supported version list becomes:
 
 Supported Version List
@@ -97,16 +94,20 @@ Supported Version List
 
 ### Communications
 
-* For new **minor** versions of Kubernetes, users are notified **60 days in advance** that a new minor version is
-  released and if they are running the oldest minor version, to upgrade to remain in support.
-* For new **patch** versions of Kubernetes, users are notified **30 days in advance** that a new patch version
-is released and to upgrade to a supported version.
+* For new **minor** versions of Kubernetes
+  * All users are notified of the new version and what version will be removed.
+  * Customers running the version **to be removed** will be notified that they have **60 days** to upgrade to a
+    supported release (e.g. minor version).
+* For new **patch** versions of Kubernetes
+  * All users are notified of the new patch version being released and to upgrade to the latest patch release.
+  * Users have **30 days** to upgrade to a newer, supported patch release. Users have **30 days** to upgrade to
+    a supported patch release before the oldest is removed.
 
-AKS defines "released" as generally availability, enabled in all SLO / Quality of Service measurements and
+AKS defines "released" as general availability, enabled in all SLO / Quality of Service measurements and
 available in all regions.
 
 > [!NOTE]
-> Customers are notified in advance of Kubernetes version releases and deprecations, when a minor version is
+> Customers are notified of Kubernetes version releases and deprecations, when a minor version is
 > deprecated/removed users are given 60 days to upgrade to a supported release. In the case of patch releases,
 > customers are given 30 days to upgrade to a supported release.
 
