@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Page the results of Azure Search
 
-Learn how to implement two different systems of paging, the first based on page numbers and the second on infinite scrolling. This tutorial builds the paging systems into the project created in the [Create your first app in Azure Search](tutorial-csharp-create-first-app.md) tutorial. Both systems of paging are widely used, and selecting the right one can depend on the type of search that is being carried out, and the user experience you would like with the results.
+Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. This tutorial builds the paging systems into the project created in the [Create your first app in Azure Search](tutorial-csharp-create-first-app.md) tutorial. Both systems of paging are widely used, and selecting the right one can depend on the type of search that is being carried out, and the user experience you would like with the results.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -35,7 +35,7 @@ The system will be flexible enough to allow the number of visible page numbers t
 The system will treat the left-most and right-most page number buttons as special, meaning they will trigger changing the range of page numbers displayed. For example, if page numbers 8, 9, 10, 11 and 12 are displayed, and the user clicks on 8, then the range of page numbers displayed changes to 6, 7, 8, 9, and 10. And there is a similar shift to the right if they selected 12.
 
 
-### Start with the first Azure Search app
+### Start with your first search app
 
 1. If you created it yourself and have the project handy, start from there. Alternatively download the first app from here.
 xxxx
@@ -162,7 +162,7 @@ xxxx
 }
 ```
 
-Note the use of an HTML table to align things neatly. However all the action comes from the **@Html.ActionLink** statements, each calling the controller with a **new** model created with different entries to the **paging** field we added earlier.
+Note the use of an HTML table to align things neatly. However all the action comes from the @Html.ActionLink statements, each calling the controller with a **new** model created with different entries to the **paging** field we added earlier.
 
 The first and last page options do not send strings such as "first" and "last", but instead send the correct page numbers.
 
@@ -229,7 +229,7 @@ The first and last page options do not send strings such as "first" and "last", 
 
 Note that the **RunQueryAsync** method shows a syntax error, because of the third parameter, which we will come to in a bit.
 
-3. The **Index(model)** action needs updated to store the **leftMostPage** temporary variable and add the left-most page parameter to the **RunQueryAsync** call.
+3. The **Index(model)** action needs updated to store the **leftMostPage** temporary variable, and to add the left-most page parameter to the **RunQueryAsync** call.
 
 ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -242,7 +242,7 @@ Note that the **RunQueryAsync** method shows a syntax error, because of the thir
                     model.searchText = "";
                 }
 
-                // Make the Azure Search call for the first page.
+                // Make the search call for the first page.
                 await RunQueryAsync(model, 0, 0);
 
                 // Ensure temporary data is stored for the next call.
@@ -359,7 +359,7 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 1. Search on some text that will give plenty of results (such as "bar" or "pool"). Can you page neatly through the results?
 
-2. Try clicking on the right-most and later left-most page numbers. Do the page numbers adjust appropriately to center the page you are on?
+2. Try clicking on the right-most, and later, left-most page numbers. Do the page numbers adjust appropriately to center the page you are on?
 
 3. Are the "first" and "last" options useful? Some popular web searches use these options, and others do not.
 
@@ -367,19 +367,19 @@ Now save off this project and let's try an alternative to this form of paging.
 
 ## Extend your app with infinite scrolling
 
-Infinite scrolling is triggered when a user scrolls to the end of the results being displayed. In this event, a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, these are appended to the current page and the scroll bar changes to show that more results are available.
+Infinite scrolling is triggered when a user scrolls a vertical scroll bar to the last of the results being displayed. In this event, a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, these are appended to the current page and the scroll bar changes to show that more results are available.
 
 The important point here is that the page being displayed is not replaced, but appended to with the new results. A user can always scroll back up to the first results of the search.
 
 To implement infinite scrolling, let's start with the project before adding any of the page number scrolling elements.
 
-### Start with the first Azure Search app
+### Start with your first search app
 
 1. If you created it yourself and have the project handy, start from there. Alternatively download the first app from here.
 
 TBD
 
-2. Run the project to make sure it works!
+2. Run the project to make sure it still works.
 
 ### Add a paging field to the model
 
@@ -394,10 +394,11 @@ This variable is a string, which holds "next" if the next page of results should
 ### Add a vertical scroll bar to the view
 
 1. Locate the section of the index.cshtml file that displays the results (it starts with the **@for (var i = 0; i &lt; Model.hotels.Count; i++)** ).
-2. Replace the entire loop with the **&lt;div&gt;** section below. The **&lt;div&gt;** section is around the area that should be scroll-able and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
+2. Replace the entire loop with the **&lt;div&gt;** section below. The **&lt;div&gt;** section is around the area that should be scrollable and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
 
 ```cs
         <div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()">
+
             <!-- Show the hotel data. All pages will have ResultsPerPage entries, except for the last page. -->
             @for (var i = 0; i < Model.hotels.Count; i++)
             {
@@ -410,7 +411,7 @@ This variable is a string, which holds "next" if the next page of results should
         </div>
 ```
 
-3. Directly underneath this, say after the &lt;/div&gt; tag, in the index.cshtml file, add the scroll function.
+3. Directly underneath this, say after the &lt;/div&gt; tag, add the scroll function.
 
 ```cs
         <script>
@@ -430,7 +431,7 @@ This variable is a string, which holds "next" if the next page of results should
         </script>
 ```
 
-Note the call in the script above that tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will return the next page of data. This data is then formatted using identical styles as the original page. If no results are returned, nothing is appended and things stay as they are.
+The **if** statement in the script above tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will return the next page of data. This data is then formatted using identical HTML styles as the original page. If no results are returned, nothing is appended and things stay as they are.
 
 4. Delete the old page handling section that begins with **@if (Model != null && Model.pageCount &gt; 1)** and ends just before the end &lt;/body&gt; tag. No need for paging buttons with our infinite page system!
 
@@ -438,7 +439,7 @@ Note the call in the script above that tests to see if the user has scrolled to 
 
 There are only three actions that need to be sent to the controller: the first running of the app, which calls **Index()**, the first search by the user, which calls **Index(model)**, and then the calls for more results via **Next(model)**.
 
-1. Open the home controller file and delete the old actions **Next** and **Prev** and the **RunQueryAsync** method from the original tutorial.
+1. Open the home controller file and delete the old actions **Next** and **Prev**, and the **RunQueryAsync** method from the original tutorial.
 
 2. Replace the **Index(model)** action with the following code. It now handles the **paging** field when it is null or set to "next" and handles the calls to Azure Search.
 
@@ -558,12 +559,12 @@ using System.Collections.Generic;
 
 Now select **Start Without Debugging** (or press the F5 key).
 
-1. Enter a term that will give plenty of results (such as "wifi") and then test the vertical scroll bar. Does it trigger a new page of results? If the scroll bar is not scroll-able and there are more than one page worth of results, then it might be that the scroll-able height is a bit too large for one page of entries. You want the display area to be slightly too small so that a scroll bar is available on the first page. In this case, consider reducing the height of the scroll-able area by a few pixels in the statement **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;** in the view file.
+1. Enter a term that will give plenty of results (such as "wifi") and then test the vertical scroll bar. Does it trigger a new page of results? 
 
 > [!Tip]
-> To ensure that a scroll bar appears on the first page, the first page of results must slightly exceed the height of the area they are being displayed in. To calculate the size three results (our setting of results per page), multiply the size of each result by three. In our example **.box1** has a height of 30 pixels, **.box2** has a height of 100 pixels and a bottom margin of 24 pixels. So each entry uses 154 pixels. Three entries will take up 3 x 154 = 462 pixels. To ensure that a vertical scroll bar appears a height to the display area must be set that is smaller than 462 pixels, even 461 works. This issue only occurs on the first page, after that a scroll bar is sure to appear.
+> To ensure that a scroll bar appears on the first page, the first page of results must slightly exceed the height of the area they are being displayed in. In our example **.box1** has a height of 30 pixels, **.box2** has a height of 100 pixels _and_ a bottom margin of 24 pixels. So each entry uses 154 pixels. Three entries will take up 3 x 154 = 462 pixels. To ensure that a vertical scroll bar appears, a height to the display area must be set that is smaller than 462 pixels, even 461 works. This issue only occurs on the first page, after that a scroll bar is sure to appear. The line to update is: **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;**.
 
-2. Scroll down all the way to the bottom of the results. Notice how all information is now on the one view page as you can scroll all the way back to the top without triggering any server calls.
+2. Scroll down all the way to the bottom of the results. Notice how all information is now on the one view page. You can scroll all the way back to the top without triggering any server calls.
 
 More sophisticated infinite scrolling systems might use the mouse wheel or similar other mechanism to trigger the loading of a new page of results. We will not be taking infinite scrolling any further in these tutorials, but it has a certain charm to it as it avoids extra mouse clicks and you might want to investigate other options further!
 

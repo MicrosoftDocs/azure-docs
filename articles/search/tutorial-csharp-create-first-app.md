@@ -23,16 +23,19 @@ In this tutorial, you learn how to:
 > * Create the MVC controller
 > * Test edge conditions and errors
 
-You will also learn how straightforward Azure Search call is. The key statements in the code you will develop are shown in the following few lines.
+You will also learn how straightforward a search call is. The key statements in the code you will develop are shown in the following few lines.
 
 ```cs
-SearchParameters parameters;
-DocumentSearchResult<Hotel> results;
+parameters = new SearchParameters()
+{
+    // Enter Hotel property names into this list, so only these values will be returned.
+    Select = new[] { "HotelName", "Description", "Tags", "Rooms" }
+};
 
-results = await _indexClient.Documents.SearchAsync<Hotel>("search text", parameters);
+DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<Hotel>("search text", parameters);
 ```
 
-This one call initiates a search of Azure data and returns the results. Simple as that. Notice that we are going to use the asynchronous versions of the search APIs right from the start. Both the synchronous and asynchronous versions of the API call work similarly, there are some differences in declaring the methods and calling the APIs but no additional lines of code are needed. For best practices in avoiding blocking threads on a server, best to get used to using the asynchronous versions.
+This one call initiates a search of Azure data and returns the results. Notice that we are using the asynchronous version of the search API. Both the synchronous and asynchronous versions of the API call work similarly, there are some differences in declaring the methods and calling the APIs, but no additional lines of code are needed. For best practices to avoid blocking threads on a server, use the asynchronous versions.
 
 ![Searching for 24-hour](./media/tutorial-csharp-create-first-app/azure-search-24-hour.png)
 
@@ -478,7 +481,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
             @Html.DisplayFor(m => m.resultCount) Results
         </p>
 
-        // Show the hotel data. All pages will have ResultsPerPage entries, except for the last page.
+        // Show the hotel data. All pages will have ResultsPerPage entries, except for the last page, which can have less.
         @for (var i = 0; i < Model.hotels.Count; i++)
         {
             // Display the hotel name.

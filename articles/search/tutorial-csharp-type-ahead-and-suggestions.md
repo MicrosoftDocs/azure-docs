@@ -129,7 +129,7 @@ The **Top** parameter specifies how many results to return (if unspecified, the 
 
 Fuzzy matching allows "near misses" to be included in the output. If the **highlights** parameter is set to true then bold HTML tags are added to the output. We will set these two parameters to true in the next section.
 
-2. You may get some syntax errors, if so add the following two **using** statements to the top of the file.
+2. You may get some syntax errors. If so, add the following two **using** statements to the top of the file.
 
 ```cs
 using System.Collections.Generic;
@@ -146,7 +146,7 @@ Notice that the letters you enter must start a word, not simply be included with
  
 Image
 
-If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in more detail.
+If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
 
 ## Add highlighting to the suggestions
 
@@ -316,7 +316,7 @@ There are libraries that offer this functionality - often called "inline autocom
 
 One autocompletion option is returned at the top of the **results** list, followed by all the suggestions.
 
-2. In the view, first we implement a trick so that a light gray autocompletion word is rendered right under bolder text being entered by the user. Html includes relative positioning for this purpose. Change the **TextBoxFor** statement (and its surrounding &lt;div&gt; statements) to the following, noting that a second search box identified as **underneath** is right under our normal search box, by pulling this search box 39 pixels off of its default location!
+2. In the view, first we implement a trick so that a light gray autocompletion word is rendered right under bolder text being entered by the user. HTML includes relative positioning for this purpose. Change the **TextBoxFor** statement (and its surrounding &lt;div&gt; statements) to the following, noting that a second search box identified as **underneath** is right under our normal search box, by pulling this search box 39 pixels off of its default location!
 
 ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -436,7 +436,7 @@ One autocompletion option is returned at the top of the **results** list, follow
     </script>
 ```
 
-Notice the clever use of the **interval** function to both clear the underlying text when it no longer matches what the user is typing, but also to set the same case (upper or lower) as the user is typing (as "pa" matches "PA", "pA", "Pa" when searching) so that the overlaid text is neat.
+Notice the clever use of the **interval** function to both clear the underlying text when it no longer matches what the user is typing, and also to set the same case (upper or lower) as the user is typing (as "pa" matches "PA", "pA", "Pa" when searching) so that the overlaid text is neat.
 
 Read through the comments in the script to get a fuller understanding.
 
@@ -461,12 +461,12 @@ You should consider the following takeaways from this project:
 
 * Autocompletion (also known as "type-ahead") and suggestions enable the user to type a few keys to locate exactly what they want.
 * Autocompletion and suggestions working together can provide a rich user experience.
-* Always test autocompletion functions with both keyboard and mouse input.
+* Always test autocompletion functions with all forms of input.
 * Using the **setInterval** function can be useful in verifying and correcting UI elements.
 
 ## Next steps
 
-One of the issues with autocompletion and suggestions is that they involve repeated calls to the server. If this results in slower than expected responses then the user experience diminishes. Facets are an interesting alternative to avoid these repeated calls, which we will look at next.
+One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If this results in slower than expected responses then the user experience diminishes. Facets are an interesting alternative to avoid these repeated calls, which we will look at next.
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Use facets to improve the efficiency of Azure Search](tutorial-csharp-facets.md)
