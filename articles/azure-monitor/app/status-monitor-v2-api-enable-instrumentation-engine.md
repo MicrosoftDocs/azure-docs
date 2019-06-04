@@ -25,7 +25,7 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 ## Description
 
 Enables the instrumentation engine by setting some registry keys.
-You must restart IIS for the changes to take effect.
+Restart IIS for the changes to take effect.
 
 The instrumentation engine can supplement data collected by the .NET SDKs.
 It collects events and messages that describe the execution of a managed process, including dependency result codes, HTTP verbs, and SQL command text.
