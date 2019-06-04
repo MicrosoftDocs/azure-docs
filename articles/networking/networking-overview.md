@@ -64,28 +64,28 @@ Describes networking services in Azure that help protect your network resources 
 |[Service endpoints](#serviceendpoints)|Extend your Virtual Network controls to lock down Azure service resources (PaaS) access|Restrict access to Azure service resources (PaaS) to only your virtual network
 |
 ### <a name="ddosprotection"></a>DDoS Protection
-Azure DDoS protection, combined with application design best practices, provide defense against DDoS attacks. The service is available in two service tiers - Basic and Standard. For more information about DDoS protection, see [DDoS Protection Overview](../virtual-network/ddos-protection-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Azure DDoS protection, combined with application design best practices, provide defense against DDoS attacks. The service is available in two service tiers - Basic and Standard. For more information about DDoS protection, see [DDoS Protection Overview](../virtual-network/ddos-protection-overview.md).
 
 ![DDoS Protection](../virtual-network/media/ddos-protection-overview/ddospic.png)
 
 ### <a name="waf"></a>Web Application Firewall
 
-Web application firewall (WAF) is a feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities. For more information about Web Application Firewall, see [WAF overview](../application-gateway/waf-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+Web application firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. For more information about Web Application Firewall, see [WAF overview](../frontdoor/waf-overview.md)
 
-![WAF overview](./media/networking-overview/WAF1.png)
+![WAF overview](../frontdoor/media/web-application-firewall-overview2.png)
 
 ### <a name="firewall"></a>Azure Firewall
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. For more information about Azure Firewall, see the [Azure Firewall documentation](../firewall/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. For more information about Azure Firewall, see the [Azure Firewall documentation](../firerwall/overview.md).
 
 ![Firewall overview](../firewall/media/overview/firewall-overview.png)
 
 ### <a name="nsg"></a>Network security groups
-You can filter network traffic to and from Azure resources in an Azure virtual network with a network security group. For more information, see [Security Overview](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+You can filter network traffic to and from Azure resources in an Azure virtual network with a network security group. For more information, see [Security Overview](../virtual-network/security-overview.md).
 
 ### <a name="serviceendpoints"></a>Service endpoints
-Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network. For more information, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network. For more information, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-![Virtual nework service endpoints](..virtual-network/media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
+![Virtual network service endpoints](../virtual-network/media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
 ## <a name="deliver"></a>Application delivery in Azure
 
@@ -101,22 +101,22 @@ Deliver applications in the Azure network using Content Delivery Network (CDN), 
 |
 
 ### <a name="cdn"></a>Content Delivery Network
-Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information about Azure CDN, see [Azure Content Delivery Network](../cdn/cdn-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information about Azure CDN, see [Azure Content Delivery Network](../cdn/cdn-overview.md)
 
 ![Azure CDN](../cdn/media/cdn-overview/cdn-overview.png)
 
-### <a name="frontdoor"></a>Front Door
-Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../frontdoor/front-door-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+### <a name="frontdoor"></a>Azure Front Door service
+Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../frontdoor/front-door-overview.md).
 
 ### <a name="trafficmanager"></a>Traffic Manager
 
-Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. For more information, see [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. For more information, see [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 
 ### <a name="loadbalancer"></a>Load Balancer
-Azure Load Balancer helps you scale your applications and create high availability for your services. Load Balancer supports inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+Azure Load Balancer helps you scale your applications and create high availability for your services. Load Balancer supports inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
 ### <a name="applicationgateway"></a>Application Gateway
-Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. It is an Application Delivery Controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your applications. For more information, see [What is Azure Application Gateway?](../application-gateway/overview.mdtoc=%2fazure%2fnetworking%2ftoc.json). 
+Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. It is an Application Delivery Controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your applications. For more information, see [What is Azure Application Gateway?](../application-gateway/overview.md). 
 
 ![Application Gateway](../application-gateway/media/application-gateway-introduction/scenario.png)
 
