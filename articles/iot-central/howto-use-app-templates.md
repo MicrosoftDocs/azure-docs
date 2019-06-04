@@ -15,7 +15,7 @@ manager: philmea
 
 This article describes how, as a solution manager, to create and use application templates.
 
-When you create an Azure IoT Central application, you choose one of the built-in sample templates. You can also create your own application templates from existing IoT Central applications. You can then use your own application templates when you create new applications.
+When you create an Azure IoT Central application, you have a choice of built-in sample templates. You can also create your own application templates from existing IoT Central applications. You can then use your own application templates when you create new applications.
 
 When you create an application template, it includes the following items from your existing application:
 
@@ -41,9 +41,9 @@ Add these items manually to any applications created from an application templat
 To create an application template from an existing IoT Central application:
 
 1. Go to the **Administration** section in your application.
-1. Select **Application template**.
-1. On the **Application template** page, enter a name and description for your template.
-1. Select **Export** to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
+1. Select **Application Template Export**.
+1. On the **Application Template Export** page, enter a name and description for your template.
+1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
 ![Create an application template](media/howto-use-app-templates/create-template.png)
 
@@ -57,11 +57,11 @@ Select your payment plan and fill out the other fields on the form. Then select 
 
 ## Manage application templates
 
-On the **Application template** page, you can delete or update the application template.
+On the **Application Template Export** page, you can delete or update the application template.
 
 If you delete an application template, you can no longer use the previously generated shareable link to create new applications.
 
-If you want to update your application template, change the template name or description on the **Application Template Export** page. Then select the **Export** button again. This action generates a new **Shareable link** and invalidates any previous **Shareable link** URL.
+To update your application template, change the template name or description on the **Application Template Export** page. Then select the **Export** button again. This action generates a new **Shareable link** and invalidates any previous **Shareable link** URL.
 
 ## Next steps
 
