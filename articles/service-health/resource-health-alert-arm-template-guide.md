@@ -441,4 +441,4 @@ Learn more about Resource Health:
 
 Create Service Health Alerts:
 -  [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
--  [Azure Activity Log event schema](../azure-monitor/platformactivity-log-schema.md)
+-  [Azure Activity Log event schema](../azure-monitor/platform/activity-log-schema.md)
