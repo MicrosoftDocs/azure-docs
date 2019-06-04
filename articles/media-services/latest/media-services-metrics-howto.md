@@ -12,29 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/03/2019
 ms.author: juliako
 
 ---
 
 # Monitor Media Services metrics 
 
-Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
+[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. All data collected by Azure Monitor fits into one of two fundamental types, metrics and logs. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. 
 
-Currently, the following Media Services [Streaming Endpoints](streaming-endpoint-concept.md) metrics are emitted by Azure:
-
-|Metric|Display name|Description|
-|---|---|---|
-|Requests|Requests|Gives details around total # of requests serviced by the Streaming Endpoint.|
-|Egress|Egress|Total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
-|SuccessE2ELatency|Success end to end Latency|Time duration from when Streaming Endpoint received request and when last byte of the response was sent.|
+For detailed description of this feature and to see why would you want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using CLI. This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
 
 ## Prerequisites
 
-* [Create a Media Services account](create-account-cli-how-to.md)
-* Review [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
+[Create a Media Services account](create-account-cli-how-to.md)
 
 ## View metrics in Azure portal
 
