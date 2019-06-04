@@ -25,7 +25,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.0.TBD
 
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
+  + Azure Machine Learning now provides first-class support for popular machine learning and data analysis framework Scikit-learn. Using `SKLearn` estimator, users can easily train and deploy Scikit-learn models. Learn how to [run hyperparameter tuning with Scikit-learn using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn).
+  [Insert new features below. Reference articles and/or doc pages]
   
   + **Preview features**
     + [Contrib features below] 
