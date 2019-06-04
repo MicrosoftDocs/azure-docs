@@ -391,7 +391,7 @@ The next task is to implement these two actions.
 
 1. If you compile and run the project, enter some text such as "bar", and coordinates such as "47" for latitude "-122" for longitude, and an excessive "2000" for the radius (so we get plenty of results).
 
-Image
+ ![Geospatial filter for "bar"](./media/tutorial-csharp-create-first-app/azure-search-geo-bar1.png)
 
 You should get some results, and check they are all within the 2000 Km radius, but are they in the logical order you would expect (nearest first)?
 
@@ -427,7 +427,7 @@ In order to calculate the distance again in the client, we have to return **Loca
 
 2. Now run the app, and search with the same parameters as you did in the last section. You should see that the results are all precisely ordered on distance. Use the infinite scroll to check all results.
 
-Image
+ ![Ordered geospatial filter for "bar"](./media/tutorial-csharp-create-first-app/azure-search-geo-bar2.png)
 
 3. Try changing the **asc** (ascending) text in the **OrderBy** string to **desc** (descending), and verify the order of distances is longest first. The ascending setting is actually the default, so there is no need to enter it explicitly.
 

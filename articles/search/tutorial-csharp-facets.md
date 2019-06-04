@@ -211,7 +211,7 @@ Now test the program.
 
 1. Try typing "fr" into the search box, which should show several results.
 
-Image
+ ![Typing "fr" reveals three facets](./media/tutorial-csharp-create-first-app/azure-search-facets-fr.png)
 
 2. Now add an "o" to make "fro" and notice the range of options is reduced to one.
 

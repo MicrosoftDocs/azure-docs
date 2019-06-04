@@ -138,13 +138,13 @@ using System.Linq;
 
 3. Run the app. Do you get a range of options when you enter "po", for example? Now try "pa".
 
-Image
+ ![Typing "po" reveals two suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
 
 Notice that the letters you enter must start a word, not simply be included within the word.
 
 4. In the code, set **UseFuzzyMatching** to true, and run the app again. Now enter "po" and notice that the search assumes you got one letter wrong!
  
-Image
+ ![Typing "pa" with fuzzy set to true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
 If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
 
@@ -189,11 +189,10 @@ We can improve the appearance of the suggestions to the user a bit by setting th
 
 3. Run the app again, and you should see your entered text bolded in the suggestions. Say, try typing "pa".
  
-Image
- 
+
 4. The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing "mo".
 
-Image
+ ![Typing "mo" with highlighting](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
 
 One of the questions a developer needs to answer is when is a script working "well enough" and when should its quirks be addressed. We will not be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if taking highlighting further.
 
@@ -255,7 +254,7 @@ There are a range of **AutocompleteMode** settings and we are using **OneTermWit
 
 4. Run the app. Notice how the range of options are single words. Try typing words starting with "re". Notice how the number of options reduces as more letters are typed.
 
-Image
+ ![Typing with basic autocompletion](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
 
 As it stands, the suggestions script you ran earlier is probably more helpful than this autocompletion script. To make autocompletion more user-friendly, it is best added to the suggestion search.
 
@@ -449,7 +448,7 @@ Read through the comments in the script to get a fuller understanding.
 
 5. Now run the app. Enter "pa" into the search box. Do you get "palace" as the autocomplete suggestion, along with two hotels that contain "pa"?
 
-Image
+![Typing with autocomplete and suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
 
 6. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 
