@@ -9,7 +9,7 @@ ms.date: 6/5/2019
 ms.author: victorh
 ---
 
-# Create and use web application firewall custom rules
+# Create and use Web Application Firewall custom rules
 
 The Azure Application Gateway web application firewall (WAF) provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
 

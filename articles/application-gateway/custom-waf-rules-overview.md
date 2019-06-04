@@ -9,7 +9,7 @@ ms.date: 6/5/2019
 ms.author: victorh
 ---
 
-# Custom rules for web application firewall
+# Custom rules for Web Application Firewall
 
 > [!IMPORTANT]
 > Azure Application Gateway WAF custom rules is currently a public preview. **Custom rules are available only for the WAF_v2 SKU**.
