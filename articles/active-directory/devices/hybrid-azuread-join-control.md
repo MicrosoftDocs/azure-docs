@@ -30,7 +30,7 @@ To do a controlled validation of hybrid Azure AD join on Windows current devices
 1. Clear the Service Connection Point (SCP) entry from Active Directory (AD) if it exists
 1. Configure client-side registry setting for SCP on your domain-joined computers using a Group Policy Object (GPO)
 1. If you are using AD FS, you must also:
-   1. Configure the client-side registry setting for SCP on you’re an AD FS server using a GPO  
+   1. Configure the client-side registry setting for SCP on your AD FS server using a GPO  
    1. Uncheck “Automatically remove unused devices” under Services > Device Registration > Properties  
 
 > [!NOTE]
