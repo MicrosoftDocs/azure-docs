@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Data Explorer with ODBC
-description: In this how-to, you learn how to set up an ODBC connection to Azure Data Explorer.
+description: In this article, you learn how to set up an Open Database Connectivity (ODBC) connection to Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -13,13 +13,13 @@ ms.date: 06/03/2019
 
 Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview)) is a widely accepted application programming interface (API) for database access. Use ODBC to connect to Azure Data Explorer from applications that don't have a dedicated connector.
 
-Behind the scenes, applications call functions in the ODBC interface, which are implemented in database-specific modules called *drivers*. Azure Data Explorer supports a subset of the SQL Server communication protocol ([MS-TDS](/azure/kusto/api/tds/)); therefore it can use the ODBC driver for SQL Server.
+Behind the scenes, applications call functions in the ODBC interface, which are implemented in database-specific modules called *drivers*. Azure Data Explorer supports a subset of the SQL Server communication protocol ([MS-TDS](/azure/kusto/api/tds/)), so it can use the ODBC driver for SQL Server.
 
 In this article, you learn how to use the SQL Server ODBC driver, so you can connect to Azure Data Explorer from any application that supports ODBC.
 
 ## Prerequisites
 
-You need the following to complete this how to:
+You need the following:
 
 * [Microsoft ODBC Driver for SQL Server version 17.2.0.1 or later](/sql/connect/odbc/download-odbc-driver-for-sql-server) for your operating system.
 

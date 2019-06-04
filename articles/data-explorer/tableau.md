@@ -1,6 +1,6 @@
 ---
-title: Use ODBC connection to Azure Data Explorer to visualize data with Tableau
-description: In this how-to, you learn how to use an ODBC connection to Azure Data Explorer connection to visualize data with Tableau.
+title: Use Open Database Connectivity (ODBC) connection to Azure Data Explorer to visualize data with Tableau
+description: In this article, you learn how to use an Open Database Connectivity (ODBC) connection to Azure Data Explorer connection to visualize data with Tableau. 
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -11,7 +11,7 @@ ms.date: 06/03/2019
 
 # Visualize data from Azure Data Explorer in Tableau
 
- [Tableau](https://www.tableau.com/) is an visual analytics platform for business intelligence. To connect to Azure Data Explorer from Tableau and bring in data from a sample cluster, use the SQL Server ODBC driver. 
+ [Tableau](https://www.tableau.com/) is a visual analytics platform for business intelligence. To connect to Azure Data Explorer from Tableau and bring in data from a sample cluster, use the SQL Server Open Database Connectivity (ODBC) driver. 
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ You need the following to complete this article:
 
 * [Connect to Azure Data Explorer with ODBC](connect-odbc.md) using the SQL Server ODBC driver, to connect to Azure Data Explorer from Tableau. 
 
-* Tableau Desktop, full or [trial](https://www.tableau.com/products/desktop/download) version.
+* Tableau Desktop, full, or [trial](https://www.tableau.com/products/desktop/download) version.
 
 * A cluster that includes the StormEvents sample data. For more information, see [Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) and [Ingest sample data into Azure Data Explorer](ingest-sample-data.md).
 
