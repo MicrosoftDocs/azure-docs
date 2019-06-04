@@ -80,9 +80,10 @@ The ASE communicates out to internet accessible addresses on the following ports
 
 | Port | Uses |
 |-----|------|
+| 53 | DNS |
 | 123 | NTP |
 | 80/443 | CRL, Windows updates, Linux dependencies, Azure services |
-| 1233 | Azure SQL | 
+| 1433 | Azure SQL | 
 | 12000 | Monitoring |
 
 The complete list of outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
@@ -151,12 +152,13 @@ The required entries in an NSG, for an ASE to function, are to allow traffic:
 * from the ASE subnet to the ASE subnet on all ports
 
 **Outbound**
+* to all IPs on port 123
 * to all IPs on ports 80, 443
 * to the IP service tag AzureSQL on ports 1433
 * to all IPs on port 12000
 * to the ASE subnet on all ports
 
-This does not include the ports that your apps would require for successful use. The normal app access ports are:
+The DNS port does not need to be added as traffic to DNS is not affected by NSG rules. These ports do not include the ports that your apps require for successful use. The normal app access ports are:
 
 | Use | From | To |
 |----------|---------|-------------|
@@ -165,7 +167,7 @@ This does not include the ports that your apps would require for successful use.
 |  Visual Studio remote debugging  |  User configurable |  4020, 4022, 4024 |
 |  Web Deploy service | User configurable | 8172 |
 
-When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. The VNet address range is _192.168.250.0/23_, and the subnet that the ASE is in is _192.168.251.128/25_.
+When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. 
 
 ![Inbound security rules][4]
 
