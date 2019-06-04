@@ -368,7 +368,7 @@ After your controller is reinstalled, redeploy your pods.
 The user accessing the Azure Dev Spaces controller must have access to read the admin *kubeconfig* on the AKS cluster. For example, this permission is available in the [built-in Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). The user accessing the Azure Dev Spaces controller must also have the *Contributor* or *Owner* RBAC role for the controller.
 
 ### Try
-More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
 To update the user's RBAC role for the controller:
 
@@ -383,3 +383,23 @@ To update the user's RBAC role for the controller:
     * For *Assign access to* select *Azure AD user, group, or service principal*.
     * For *Select* search for the user you want to give permissions.
 1. Click *Save*.
+
+## Controller create failing due to controller name length
+
+### Reason
+An Azure Dev Spaces controller's name cannot be longer than 31 characters. If your controller's name exceeds 31 characters when you enable Dev Spaces on an AKS cluster or create a controller, you will receive an error like:
+
+*Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
+
+### Try
+
+Create a controller with an alternate name:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```
+
+## Enabling Dev Spaces failing when Windows node pools are added to an AKS cluster
+
+### Reason
+Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only. At this time, you cannot enable Azure Dev Spaces on an AKS cluster with a Windows node pool.

@@ -7,9 +7,9 @@ ms.subservice: elastic-pools
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
+author: stevestein
 ms.reviewer: 
-ms.author: carlrab
+ms.author: sstein
 manager: craigg
 ms.date: 03/12/2019
 ---

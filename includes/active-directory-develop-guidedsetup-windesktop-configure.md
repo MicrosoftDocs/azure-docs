@@ -39,7 +39,9 @@ To register your application and add your application registration information t
    - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
    - Select **Register** to create the application.
 1. In the list of pages for the app, select **Authentication**.
-1. In the **Redirect URIs** section, locate the **Suggested Redirect URIs for public clients (mobile, desktop)** section, and select **"urn:ietf:wg:oauth:2.0:oob**.
+   1. In the **Redirect URIs** section, in the Redirect URIs list:
+   1. In the **TYPE** column select **Public client (mobile & desktop)**.
+   1. Enter `urn:ietf:wg:oauth:2.0:oob` in the **REDIRECT URI** column.
 1. Select **Save**.
 1. Go to Visual Studio, open the *App.xaml.cs* file, and then replace `Enter_the_Application_Id_here` with the application ID that you just registered and copied.
 

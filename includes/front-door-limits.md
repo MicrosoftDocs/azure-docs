@@ -5,12 +5,12 @@
  author: sharad4u
  ms.service: frontdoor
  ms.topic: include
- ms.date: 9/17/2018
+ ms.date: 05/09/2019
  ms.author: sharadag
  ms.custom: include file
 ---
 
-| Resource | Default limit |
+| Resource | Default/maximum limit |
 | --- | --- |
 | Azure Front Door Service resources per subscription | 100 |
 | Front-end hosts, which includes custom domains per resource | 100 |

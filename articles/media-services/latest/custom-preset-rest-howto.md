@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 03/12/2019
+ms.date: 05/14/2019
 ms.author: juliako
 
 ---
@@ -112,7 +112,7 @@ In this example, we first add an AacAudio layer for the audio encoding and two H
                     "formats": [
                         {
                             "@odata.type": "#Microsoft.Media.Mp4Format",
-                            "filenamePattern": "Video-{Basename}-{Label}{Extension}",
+                            "filenamePattern": "Video-{Basename}-{Label}-{Bitrate}{Extension}",
                             "outputFiles": []
                         },
                         {

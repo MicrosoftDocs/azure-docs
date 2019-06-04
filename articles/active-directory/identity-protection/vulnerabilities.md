@@ -27,8 +27,6 @@ The following sections provide you with an overview of the vulnerabilities repor
 
 This vulnerability helps assess the deployment of Azure Multi-Factor Authentication in your organization.
 
-To view the count for users that are not registered for MFA, click on the vulnerability and you are redirected to statistics within Identity Secure Score.
-
 Azure Multi-Factor Authentication provides a second layer of security to user authentication. It helps safeguard access to data and applications while meeting user demand for a simple sign-in process. Azure Multi-Factor Authentication provides easy to use verification options like:
 
 * Phone call

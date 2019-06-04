@@ -49,10 +49,6 @@ To run the sample, do the following steps:
             // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
             private const string subscriptionKey = "<Subscription key>";
 
-            // For printed text, change to TextRecognitionMode.Printed
-            private const TextRecognitionMode textRecognitionMode =
-                TextRecognitionMode.Handwritten;
-
             // localImagePath = @"C:\Documents\LocalImage.jpg"
             private const string localImagePath = @"<LocalImage>";
 
@@ -101,7 +97,7 @@ To run the sample, do the following steps:
                 // Start the async process to read the text
                 BatchReadFileHeaders textHeaders =
                     await computerVision.BatchReadFileAsync(
-                        imageUrl, textRecognitionMode);
+                        imageUrl);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
             }
@@ -122,7 +118,7 @@ To run the sample, do the following steps:
                     // Start the async process to recognize the text
                     BatchReadFileInStreamHeaders textHeaders =
                         await computerVision.BatchReadFileInStreamAsync(
-                            imageStream, textRecognitionMode);
+                            imageStream);
 
                     await GetTextAsync(computerVision, textHeaders.OperationLocation);
                 }
@@ -172,7 +168,6 @@ To run the sample, do the following steps:
 
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change `computerVision.Endpoint` to the Azure region associated with your subscription keys, if necessary.
-1. Optionally set `textRecognitionMode` to `TextRecognitionMode.Printed`.
 1. Replace `<LocalImage>` with the path and file name of a local image.
 1. Optionally, set `remoteImageUrl` to a different image.
 1. Run the program.

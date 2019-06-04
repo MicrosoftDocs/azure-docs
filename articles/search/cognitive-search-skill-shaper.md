@@ -25,7 +25,7 @@ The API version determines the depth of shaping you can achieve.
 | 2019-05-06-Preview version of the REST API (.NET SDK is not supported) | Complex objects, multiple levels deep, in one **Shaper** skill definition. |
 | 2019-05-06** (generally available), 2017-11-11-Preview| Complex objects, one level deep. A multi-level shape requires chaining several shaper steps together.|
 
-The preview **Shaper** skill, illustrated in [scenario 3](#nested-complex-types), adds a new optional *sourceContext* property to the input. The *source* and *sourceContext* properties are mutually exclusive. If the input is at the context of the skill, simply use *source*. If the input is at a *different* context than the skill context, use the *sourceContext*. The *sourceContext* requires you to define a nested input with the specific element being addressed as the source. 
+As provided by `api-version=2019-05-06-Preview`, the **Shaper** skill illustrated in [scenario 3](#nested-complex-types) adds a new optional *sourceContext* property to the input. The *source* and *sourceContext* properties are mutually exclusive. If the input is at the context of the skill, simply use *source*. If the input is at a *different* context than the skill context, use the *sourceContext*. The *sourceContext* requires you to define a nested input with the specific element being addressed as the source. 
 
 In the response, for all API versions, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" as shown in the examples below, but the **Shaper** skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
@@ -192,7 +192,7 @@ In this case, the **Shaper** flattens all chapter titles to create a single arra
 ## Scenario 3: input consolidation from nested contexts
 
 > [!NOTE]
-> Nested structures supported in the api-version=2019-05-06-Preview can be used in a [knowledge store](knowledge-store-concept-intro.md) or in an Azure Search index.
+> Nested structures supported in the [REST API version 2019-05-06-Preview](search-api-preview.md) can be used in a [knowledge store](knowledge-store-concept-intro.md) or in an Azure Search index.
 
 Imagine you have the title, chapters, and contents of a book and have run entity recognition and key phrases on the contents and now need to aggregate results from the different skills into a single shape with the chapter name, entities, and key phrases.
 
@@ -261,4 +261,4 @@ In this case, the **Shaper** creates a complex type. This structure exists in-me
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to use complex types](search-howto-complex-data-types.md)
 + [Knowledge store overview](knowledge-store-concept-intro.md)
-+ [How to get started with Knowledge Store](knowledge-store-howto.md)
++ [How to get started with knowledge store](knowledge-store-howto.md)

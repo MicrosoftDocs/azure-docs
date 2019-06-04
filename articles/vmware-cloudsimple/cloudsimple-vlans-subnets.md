@@ -71,4 +71,4 @@ Example:
 
 ## Next steps
 
-* [Create and manage VLANs and Subnets](https://docs.azure.cloudsimple.com/vlansubnet/)
+* [Create and manage VLANs and Subnets](https://docs.azure.cloudsimple.com/create-vlan-subnet/)

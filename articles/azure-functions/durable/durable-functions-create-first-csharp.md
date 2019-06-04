@@ -18,7 +18,7 @@ ms.author: azfuncdf
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-In this article, you learn how to use the Visual Studio 2017 tools for Azure Functions to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017.
+In this article, you learn how to use the Visual Studio 2019 tools for Azure Functions to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
 
 ![Running durable function in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -26,7 +26,7 @@ In this article, you learn how to use the Visual Studio 2017 tools for Azure Fun
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://azure.microsoft.com/downloads/). Make sure that the **Azure development** workload is also installed.
+* Install [Visual Studio 2019](https://azure.microsoft.com/downloads/). Make sure that the **Azure development** workload is also installed.
 
 * Make sure you have the [latest Azure Functions tools](../functions-develop-vs.md#check-your-tools-version).
 

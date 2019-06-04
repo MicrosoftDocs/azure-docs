@@ -7,7 +7,7 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/31/2018
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
 ---
 

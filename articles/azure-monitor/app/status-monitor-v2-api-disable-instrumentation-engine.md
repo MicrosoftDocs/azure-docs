@@ -53,3 +53,9 @@ Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W3SVC[E
 Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Environment]'
 Configuring registry for instrumentation engine...
 ```
+
+
+## Next steps
+
+ Do more with Status Monitor v2:
+ - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.

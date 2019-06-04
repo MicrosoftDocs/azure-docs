@@ -5,7 +5,7 @@
  author: HeidiSteen
  ms.service: search
  ms.topic: include
- ms.date: 04/04/2018
+ ms.date: 05/06/2019
  ms.author: heidist
  ms.custom: include file
 ---
@@ -16,7 +16,7 @@ Maximum service limits can be raised upon request. If you need more services wit
 
 | Resource            | Free<sup>1</sup> | Basic | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
-| Maximum services    |1     | 12    | 12  | 6  | 6  | 6     | 6  | 6  |
+| Maximum services    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | Maximum scale in search units (SU)<sup>2</sup> |N/A |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
 
 <sup>1</sup> Free is based on shared, not dedicated, resources. Scale-up is not supported on shared resources.

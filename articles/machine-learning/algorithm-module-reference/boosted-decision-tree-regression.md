@@ -41,7 +41,7 @@ For additional information, see these articles:
 
     This Wikipedia article on gradient boosting provides some background on boosted trees. 
   
--  [http://research.microsoft.com/apps/pubs/default.aspx?id=132652](http://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
+-  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
     Microsoft Research: From RankNet to LambdaRank to LambdaMART: An Overview. By J.C. Burges.
 

@@ -47,10 +47,10 @@ The Azure AD default for browser session persistence allows users on personal de
 
 ## Configuring authentication session controls
 
-Conditional access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about conditional access, see [What is conditional access in Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
+Conditional access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about conditional access, see [What is conditional access in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft plans to retire the configurable token lifetime feature on November 1 and replace it with the conditional access authentication session management feature.  
+> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft plans to retire the configurable token lifetime feature on October 15 and replace it with the conditional access authentication session management feature.  
 
 ### Policy 1: Sign-in frequency control
 
@@ -63,7 +63,7 @@ Conditional access is an Azure AD Premium capability and requires a premium lice
 1. Go to **Access Controls** > **Session** and click **Sign-in frequency**
 1. Enter the required value of days and hours in the first text box
 1. Select a value of **Hours** or **Days** from dropdown
-1. Save you policy
+1. Save your policy
 
 ![Conditional access policy configured for sign in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
@@ -77,7 +77,7 @@ If you have configured different Sign-in frequency for different web apps that a
 1. Choose all required conditions.
 
    > [!NOTE]
-   > Please note that this control requires to choose “All Cloud Apps” as a condition
+   > Please note that this control requires to choose “All Cloud Apps” as a condition. Browser session persistence is controlled by authentication session token. All tabs in a browser session share a single session token and therefore they all must share persistence state.
 
 1. Go to **Access Controls** > **Session** and click **Persistent browser session**
 1. Select a value from dropdown

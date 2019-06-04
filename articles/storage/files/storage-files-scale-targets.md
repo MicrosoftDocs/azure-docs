@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -29,15 +29,15 @@ The parent resource for an Azure file share is an Azure storage account. A stora
 
 ## Azure Files scale targets
 
-### Premium files scale targets
+### Premium scale targets
 
-There are three categories of limitations to consider for premium files: storage accounts, shares, and files.
+There are three categories of limitations to consider for premium file shares: storage accounts, shares, and files.
 
 For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the maximum IOPS you can get from that share is 15,000.
 
-### Premium filestorage account limits
+### Premium FileStorage account limits
 
-Premium files use a unique storage account called **filestorage (preview)**, this account has slightly different scale targets than the storage account used by standard files. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
+Premium file shares are provisioned in a special storage account called **filestorage (preview)**. This account has slightly different scale targets than the storage account used for standard file shares. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
 
 > [!IMPORTANT]
 > Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.

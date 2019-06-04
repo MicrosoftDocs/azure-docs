@@ -15,6 +15,9 @@ ms.custom: seodec18
 
 # Quickstart: Recognize speech in a UWP app by using the Speech SDK
 
+Quickstarts are also available for [speech-translation](quickstart-translate-speech-uwp.md) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
+
+If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you develop a C# Universal Windows Platform (UWP; Windows version 1709 later) application by using the Cognitive Services [Speech SDK](speech-sdk.md). The program will transcribe speech to text in real time from your device's microphone. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).

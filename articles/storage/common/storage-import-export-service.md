@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -68,9 +68,9 @@ At a high level, an import job involves the following steps:
 8. The drives are shipped using your carrier account to the return address provided in the import job.
 
 > [!NOTE]
-> For local (within data center country) shipments, please share a domestic carrier account 
+> For local (within data center country/region) shipments, please share a domestic carrier account 
 >
-> For abroad (outside data center country) shipments, please share an international carrier account
+> For abroad (outside data center country/region) shipments, please share an international carrier account
 
  ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
 
@@ -98,9 +98,9 @@ At a high level, an export job involves the following steps:
 10. The drives are shipped using your carrier account to the return address provided in the import job.
 
 > [!NOTE]
-> For local (within data center country) shipments, please share a domestic carrier account 
+> For local (within data center country/region) shipments, please share a domestic carrier account 
 >
-> For abroad (outside data center country) shipments, please share an international carrier account
+> For abroad (outside data center country/region) shipments, please share an international carrier account
   
  ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 
@@ -113,7 +113,7 @@ The Azure Import/Export service supports copying data to and from all Azure stor
 ### Supported shipping locations
 
 
-|Country  |Country  |Country  |Country  |
+|Country/Region  |Country/Region  |Country/Region  |Country/Region  |
 |---------|---------|---------|---------|
 |East US    | North Europe        | Central India        |US Gov Iowa         |
 |West US     |West Europe         | South India        | US DoD East        |
@@ -154,7 +154,7 @@ When you ship drives to Azure, you pay the shipping cost to the shipping carrier
 
 **Transaction costs**
 
-There are no transaction costs in addition to standard storage transaction costs when importing data into Azure Storage. The standard egress charges are applicable when data is exported from Blob storage. For more information on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Standard storage transaction charge](https://azure.microsoft.com/pricing/details/storage/) apply during import as well as export of data. Standard egress charges are also applicable along with storage transaction charges when data is exported from Azure Storage. For more information on egress costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

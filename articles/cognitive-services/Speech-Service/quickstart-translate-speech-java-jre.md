@@ -14,6 +14,8 @@ ms.author: erhopf
 
 # Quickstart: Translate speech with the Speech SDK for Java
 
+Quickstarts are also available for [speech-to-text](quickstart-java-jre.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md).
+
 In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It is built with the Speech SDK Maven package and the Eclipse Java IDE.
 
 For a complete list of languages available for speech translation, see [language support](language-support.md).

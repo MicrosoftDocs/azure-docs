@@ -41,7 +41,7 @@ Event | search "error"
 
 This query searches the _Event_ table for records that contain the term "error" in any property.
 
-Queries can start with either a table name or a **search** command. The above example starts with the table name _Event_, which defines the scope of the query. The pipe (|) character separates commands, so the output of the first one in the input of the following command. You can add any number of commands to a single query.
+Queries can start with either a table name or a **search** command. The above example starts with the table name _Event_, which defines the scope of the query. The pipe (|) character separates commands, so the output of the first one serves as the input of the following command. You can add any number of commands to a single query.
 
 Another way to write that same query would be:
 

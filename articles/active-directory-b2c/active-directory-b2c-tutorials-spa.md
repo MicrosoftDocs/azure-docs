@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application. 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 * Install the [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) or later
 * Install [Node.js](https://nodejs.org/en/download/)
 

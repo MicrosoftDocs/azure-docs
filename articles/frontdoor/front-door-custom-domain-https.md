@@ -79,7 +79,6 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 > [!WARNING]
 > </br> - Azure Front Door Service currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
-> </br> - Azure Front Door Service currently only supports Key Vault certificates stored under the Secrets section. Your certificate import will fail if you store it under Certificates section instead of Secrets section.
 > </br> - Azure Front Door Service currently only supports certificates uploaded with a PFX **without** a password.
 
 #### Register Azure Front Door Service

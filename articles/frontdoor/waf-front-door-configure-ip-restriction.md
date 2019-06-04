@@ -9,21 +9,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
 
 ---
-# Configure an IP restriction rule with web application firewall for Azure Front Door (Preview)
+# Configure an IP restriction rule with web application firewall for Azure Front Door
  This article shows you how to configure IP restriction rules in Azure web application firewall (WAF) for Front Door by using Azure CLI, Azure PowerShell, or Azure Resource Manager template.
 
 An IP address based access control rule is a custom WAF rule that allows you to control access to your web applications by specifying a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) form.
 
 By default, your web application is accessible from the internet. If you want to limit access to your web applications only to clients from a list of known IP addresses or IP address ranges, you need to create two IP matching rules. First IP matching rule contains the list of IP addresses as matching values and set the action to "ALLOW". The second one with lower priority, is to block all other IP addresses by using the "All" operator and set the action to "BLOCK". Once an IP restriction rule is applied, any requests originating from addresses outside this allowed list receives a 403 (Forbidden) response.  
-
-> [!IMPORTANT]
-> The WAF IP restriction feature for Azure Front Door is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Configure WAF policy with Azure CLI
 
@@ -134,28 +129,28 @@ Install-Module -Name Az.FrontDoor
 Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](quickstart-create-front-door.md)
 
 ### Define IP match condition
-Use the [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) command to define an IP match condition. 
+Use the [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) command to define an IP match condition. 
 In the below example, replace *ip-address-range-1*, *ip-address-range-2* with your own range.
 
 ```powershell
-  $IPMatchCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty IPMatch `
     -MatchValue ["ip-address-range-1", "ip-address-range-2"]
 ```
 Create an IP match all condition rule
 ```powershell
-  $IPMatchALlCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty Any
     
 ```
 
 ### Create a custom IP allow rule
-   Use the [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) command to define an action and set a priority. In the following example, requests from client IPs that match the list will be allowed. 
+   Use the [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests from client IPs that match the list will be allowed. 
 
 ```powershell
-  $IPAllowRule = New-AzFrontDoorCustomRuleObject `
+  $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPAllowRule" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchCondition `
@@ -164,7 +159,7 @@ Create an IP match all condition rule
 Create a Block all IP rule with lower priority than the previous IP allow rule.
 
 ```powershell
-  $IPBlockAll = New-AzFrontDoorCustomRuleObject `
+  $IPBlockAll = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPDenyAll" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchALlCondition `
@@ -173,10 +168,10 @@ Create a Block all IP rule with lower priority than the previous IP allow rule.
    ```
 
 ### Configure WAF policy
-Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, configure a WAF policy with the IP block rule using [New-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, configure a WAF policy with the IP block rule using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
-  $IPAllowPolicyExamplePS = New-AzFrontDoorFireWallPolicy `
+  $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
     -Name "IPRestrictionExamplePS" `
     -resourceGroupName <resource-group-name> `
     -Customrule $IPAllowRule $IPBlockAll `

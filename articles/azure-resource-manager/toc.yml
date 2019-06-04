@@ -40,6 +40,9 @@
   - name: Use safe deployment practices
     displayName: adm
     href: deployment-manager-tutorial.md
+  - name: Use health check in Deployment Manager
+    displayName: adm
+    href: deployment-manager-tutorial-health-check.md
   - name: Troubleshoot template deployment
     href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
@@ -51,7 +54,7 @@
 - name: Concepts
   items:
   - name: Template file structure
-    displayName: parameters,variables,resources,outputs
+    displayName: parameters,variables,resources,outputs,condition
     href: resource-group-authoring-templates.md
   - name: Template best practices
     href: template-best-practices.md
@@ -62,6 +65,9 @@
   - name: Deployment Manager
     displayName: adm
     href: deployment-manager-overview.md
+  - name: Deployment Manager health check
+    displayName: adm
+    href: deployment-manager-health-check.md
   - name: Deployment modes
     href: deployment-modes.md
   - name: Resource deletion
@@ -118,6 +124,8 @@
     - name: Continuous integration with Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
+  - name: Export template
+    href: export-template-portal.md
   - name: Manage
     items:
     - name: Manage resource groups
@@ -157,7 +165,7 @@
       href: grant-access-to-create-subscription.md
     - name: Authenticate across tenants
       href: authenticate-multi-tenant.md
-  - name: Audit deployments
+  - name: Audit changes
     items:
     - name: View activity logs
       href: resource-group-audit.md

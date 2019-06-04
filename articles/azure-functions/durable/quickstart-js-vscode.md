@@ -113,7 +113,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 2. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. If this is your first time using Durable Functions, the Durable Functions extension is installed and the build might take a few seconds.
 
     > [!NOTE]
-    > JavaScript Durable Functions require version **1.7.0** or greater of the **Microsoft.Azure.WebJobs.Extensions.DurableTask** extension. Verify the Durable Functions extension's version in your `extensions.csproj` file meets this requirement. If it does not, stop your function app, change the version, and press F5 to restart your function app.
+    > JavaScript Durable Functions require version **1.7.0** or greater of the **Microsoft.Azure.WebJobs.Extensions.DurableTask** extension. Run the following command from the root folder of your Azure Functions app to install the Durable Functions extension `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 

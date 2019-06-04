@@ -60,7 +60,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> If you use `==` instead of `:`, the results would include records in which the *Source* column has the exact value "error", and in this exact case. Using ':' will not include records where *Source* has values such as "error code 404" or "Error".
+> If you use `==` instead of `:`, the results would include records in which the *Source* column has the exact value "error", and in this exact case. Using ':' will include records where *Source* has values such as "error code 404" or "Error".
 
 ## Case-sensitivity
 By default, term search is case-insensitive, so searching "dns" could yield results such as "DNS", "dns", or "Dns". To make the search case-sensitive, use the `kind` option:
