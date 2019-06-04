@@ -22,19 +22,19 @@ You configure the Form Recognizer container run-time environment by using the `d
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#the-apikey-configuration-setting), [`Billing`](#the-billing-configuration-setting), and [`Eula`](#the-eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Install and run Form Recognizer containers](form-recognizer-container-howto.md#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Install and run Form Recognizer containers](form-recognizer-container-howto.md#billing).
 
-## The ApiKey configuration setting
+## ApiKey configuration setting
 
 The `ApiKey` setting specifies the Azure resource key that's used to track billing information for the container. The value for the ApiKey must be a valid key for the _Form Recognizer_ resource that's specified for `Billing` in the "Billing configuration setting" section.
 
 You can find this setting in the Azure portal, in **Form Recognizer Resource Management**, under **Keys**.
 
-## The ApplicationInsights setting
+## ApplicationInsights setting
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
-## The Billing configuration setting
+## Billing configuration setting
 
 The `Billing` setting specifies the endpoint URI of the _Form Recognizer_ resource on Azure that's used to meter billing information for the container. The value for this configuration setting must be a valid endpoint URI for a _Form Recognizer_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
@@ -44,7 +44,7 @@ You can find this setting in the Azure portal, in **Form Recognizer Overview**, 
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
-## The Eula setting
+## Eula setting
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
@@ -91,7 +91,7 @@ Replace {_argument_name_} in the following table with your own values:
 |{COMPUTER_VISION_ENDPOINT_URI}|The billing endpoint. If you're using a cloud-based Computer Vision resource, the URI value is available on the Azure portal Computer Vision API Overview page. If you're using a  *cognitive-services-recognize-text* container, use the billing endpoint URL that's passed to the container in the `docker run` command.|
 
 > [!IMPORTANT]
-> To run the container, specify the `Eula`, `Billing`, and `ApiKey` options; otherwise, the container won't start. For more information, see [Billing](#the-billing-configuration-setting).
+> To run the container, specify the `Eula`, `Billing`, and `ApiKey` options; otherwise, the container won't start. For more information, see [Billing](#billing-configuration-setting).
 
 > [!NOTE] 
 > The ApiKey value is the **Key** from the Azure Form Recognizer Resource keys page.
