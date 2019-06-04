@@ -323,7 +323,7 @@ Enable replication for VMs as follows:
 10. In **Target settings**, specify the region, subscription, and resource group in which you want to create the Azure VMs after migration. Select the Azure VNet and subnet you created. The Azure VMs will be located in this network/subnet.
 11. In **Azure Hybrid Benefit**, specify whether you have an eligible Windows Server license to take advantage of Azure Hybrid Benefit. [Learn more](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-    ![Target settings](./media/tutorial-migrate-vmware-agent/target-settings.png)
+    ![Target settings](./media/tutorial-migrate-vmware-agent/replicate.png)
 
 12. In **Compute**, specify the settings for the Azure VM after migration. Since we're not using assessment recommendations in this tutorial, specify an Azure VM size that's close to the size of the on-premises VM. In this tutorial, our resource group doesn't belong to an availability set.
 
