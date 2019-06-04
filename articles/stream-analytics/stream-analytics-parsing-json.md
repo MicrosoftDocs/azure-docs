@@ -67,7 +67,7 @@ Record data types are used to represent JSON and Avro arrays when corresponding 
 ```
 
 ## Examples
-Use dot notation (.) to access nested fields. For example, this query selects the Lat and Long coordinates under the Location property in the preceding JSON data:
+Use dot notation (.) to access nested fields. For example, this query selects the Latitude and Longitude coordinates under the Location property in the preceding JSON data:
 
 ```SQL
 SELECT
