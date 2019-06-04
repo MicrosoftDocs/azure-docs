@@ -189,7 +189,7 @@ Next, create ClusterRoleBinding for an Azure AD account that you want to grant a
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
     ```
 
-Create a file, such as *rbac-aad-user.yaml*, and then paste the following contents. On the last line, replace **userPrincipalName_or_objectId**  with the UPN or object ID depending on if the user is the same Azure AD tenant or not.
+Create a file, such as *rbac-aad-user.yaml*, and then paste the following contents. On the last line, replace **userPrincipalName_or_objectId** with the UPN or object ID. The choice depends on whether the user is the same Azure AD tenant or not.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
