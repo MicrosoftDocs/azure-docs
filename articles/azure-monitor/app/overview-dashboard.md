@@ -57,7 +57,7 @@ To navigate back to the overview experience just select:
 
 ## Troubleshooting
 
-If you select **Configure tile settings** and set a custom time range in excess of 31 days your chart will not display beyond 31 days of data, even with the default data retention of 90 days. There is currently no workaround for this behavior.
+If you select **Configure tile settings** and set a custom time range in excess of 31 days your dashboard will not display beyond 31 days of data, even with the default data retention of 90 days. There is currently no workaround for this behavior.
 
 ## Next steps
 
