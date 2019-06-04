@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Azure Blob Storage client library for .NET"
-description: In this quickstart, you learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob storage client library for .NET"
+description: In this quickstart, you learn how to use the Azure Blob storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 services: storage
 author: mhopkins-msft
 
@@ -12,9 +12,9 @@ ms.author: mhopkins
 ms.subservice: blobs
 ---
 
-# Quickstart: Azure Blob Storage client library for .NET
+# Quickstart: Azure Blob storage client library for .NET
 
-Get started with the Azure Blob Storage client library for .NET. Follow steps to install the package and try out example code for basic tasks. Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
 
 Use the Azure Blob Storage client library for .NET to:
 
@@ -37,7 +37,7 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Create the project
 
-Create a .NET Core application named **blob-quickstart**.
+First, create a .NET Core application named **blob-quickstart**.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name **blob-quickstart**. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
@@ -57,7 +57,7 @@ Create a .NET Core application named **blob-quickstart**.
 
 The expected output from the build should look something like this:
 
-   ```output
+```output
 C:\QuickStarts\blob-quickstart> dotnet build
 Microsoft (R) Build Engine version 16.0.450+ga8dc7f1d34 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
@@ -80,7 +80,7 @@ While still in the application directory, install the Azure Blob Storage client 
 dotnet add package Microsoft.Azure.Storage.Blob
 ```
 
-### Setup up the app framework
+### Set up the app framework
 
 From the project directory:
 
@@ -90,7 +90,7 @@ From the project directory:
 4. Create a **ProcessAsync** method where the main code for the example will reside
 5. Asynchronously call the **ProcessAsync** method from **Main**
 
-Your app should look like the following C# code:
+Here's the code:
 
 ```csharp
 using System;
@@ -171,7 +171,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-dotnet/blob1.png)
 
 Use the following .NET classes to interact with these resources:
 
@@ -193,7 +193,7 @@ You'll learn how to:
 
 ### Authenticate the client
 
-The code below checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
+The code below checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
 
 Add this code inside the **ProcessAsync** method:
 
@@ -229,7 +229,7 @@ All the rest of the code in this article replaces the ellipses (**...**) in the 
 
 To create the container, first create an instance of the [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) object, which points to Blob storage in your storage account. Next, create an instance of the [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) object, then create the container.
 
-In this case, the code calls the [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) method to create the container. A GUID value is appended to the container name to ensure that it is unique. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) method to create a container only if it does not already exist and avoid naming conflicts.
+In this case, the code calls the [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) method to create the container. A GUID value is appended to the container name to ensure that it is unique. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) method to create a container only if it does not already exist.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -245,7 +245,7 @@ await cloudBlobContainer.CreateAsync();
 
 ### Set permissions on a container
 
-Sets permissions on the container so that any blobs in the container are public. If a blob is public, it can be accessed anonymously by any client.
+Set permissions on the container so that any blobs in the container are public. If a blob is public, it can be accessed anonymously by any client.
 
 ```csharp
 // Set the permissions so the blobs are public.

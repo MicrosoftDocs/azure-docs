@@ -44,8 +44,7 @@ The following steps illustrate how to create a blob container within Storage Exp
 3. Right-click **Blob Containers**, and - from the context menu - select **Create Blob Container**.
 
    ![Create blob containers context menu][0]
-4. A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See
-   the [Create a container](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for information on rules and restrictions on naming blob containers.
+4. A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See [Create a container](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for information on rules and restrictions on naming blob containers.
 
    ![Create Blob Containers text box][1]
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container has been successfully created, it will be displayed under the **Blob Containers** folder for the selected storage account.
