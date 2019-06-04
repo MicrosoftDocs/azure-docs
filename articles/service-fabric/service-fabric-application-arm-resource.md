@@ -255,6 +255,17 @@ The following snippet shows the different kinds of resources that can be managed
 
 5. Deploy! 
 
+## Remove Service Fabric Resource Provider Application resource
+The following will trigger the app package to be un-provisioned from the cluster, and this will clean up the disk space used:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+Simply removing Microsoft.ServiceFabric/clusters/application from your ARM template will not unprovision the Application
+
+>[!NOTE]
+> Once the removal is complete you should not see the package version in SFX or ARM anymore. You cannot delete the application type version resource that the application is running with; ARM/SFRP will prevent this. If you try to unprovision the running package, SF runtime will prevent it.
+
+
 ## Manage an existing application via Resource Manager
 
 If your cluster is already up and some applications that you would like to manage as Resource Manager resources are already deployed on it, instead of removing the applications and redeploying them, you can use a PUT call using the same APIs to have the applications get acknowledged as Resource Manager resources. 

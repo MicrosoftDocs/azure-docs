@@ -135,9 +135,6 @@ Open a command prompt on your local computer. Run the `mstsc` command. Replace `
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-A Remote Desktop Protocol (*.rdp*) file downloads to your computer and a Remote Desktop opens.
-
 1. If prompted, select **Connect**.
 
 1. Enter the user name and password you specified when creating the VM.

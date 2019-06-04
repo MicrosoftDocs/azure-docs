@@ -30,6 +30,60 @@ The What's new release notes provide you with information about:
 
 ---
 
+## October 2018
+
+### Azure AD Logs now work with Azure Log Analytics (Public preview)
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+We're excited to announce that you can now forward your Azure AD logs to Azure Log Analytics! This top-requested feature helps give you even better access to analytics for your business, operations, and security, as well as a way to help monitor your infrastructure. For more information, see the [Azure Active Directory Activity logs in Azure Log Analytics now available](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blog.
+
+---
+
+### New Federated Apps available in Azure AD app gallery - October 2018
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In October 2018, we've added these 14 new apps with Federation support to the app gallery:
+
+[My Award Points](https://docs.microsoft.com/azure/active-directory/saas-apps/myawardpoints-tutorial), [Vibe HCM](https://docs.microsoft.com/azure/active-directory/saas-apps/vibehcm-tutorial), ambyint, [MyWorkDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/myworkdrive-tutorial), [BorrowBox](https://docs.microsoft.com/azure/active-directory/saas-apps/borrowbox-tutorial), Dialpad, [ON24 Virtual Environment](https://docs.microsoft.com/azure/active-directory/saas-apps/on24-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial), [Zscaler Three](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-three-tutorial), [Phraseanet](https://docs.microsoft.com/azure/active-directory/saas-apps/phraseanet-tutorial), [Appraisd](https://docs.microsoft.com/azure/active-directory/saas-apps/appraisd-tutorial), [Workspot Control](https://docs.microsoft.com/azure/active-directory/saas-apps/workspotcontrol-tutorial), [Shuccho Navi](https://docs.microsoft.com/azure/active-directory/saas-apps/shucchonavi-tutorial), [Glassfrog](https://docs.microsoft.com/azure/active-directory/saas-apps/glassfrog-tutorial)
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+
+---
+
+### Azure AD Domain Services Email Notifications
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+
+Azure AD Domain Services provides alerts on the Azure portal about misconfigurations or problems with your managed domain. These alerts include step-by-step guides so you can try to fix the problems without having to contact support.
+
+Starting in October, you'll be able to customize the notification settings for your managed domain so when new alerts occur, an email is sent to a designated group of people, eliminating the need to constantly check the portal for updates.
+
+For more information, see [Notification settings in Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
+
+---
+
+### Azure AD portal supports using the ForceDelete domain API to delete custom domains 
+
+**Type:** Changed feature  
+**Service category:** Directory Management  
+**Product capability:** Directory
+
+We're pleased to announce that you can now use the ForceDelete domain API to delete your custom domain names by asynchronously renaming references, like users, groups, and apps from your custom domain name (contoso.com) back to the initial default domain name (contoso.onmicrosoft.com).
+
+This change helps you to more quickly delete your custom domain names if your organization no longer uses the name, or if you need to use the domain name with another Azure AD.
+
+For more information, see [Delete a custom domain name](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name).
+
+---
+
 ## September 2018
  
 ### Updated administrator role permissions for dynamic groups
@@ -479,10 +533,10 @@ For more information about this update, see [Azure AD Connect: Version release h
 
 ---
 
-### Updates to the Terms of Use (ToU) end-user UI
+### Updates to the terms of use end-user UI
 
 **Type:** Changed feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
 We're updating the acceptance string in the TOU end-user UI.
@@ -637,25 +691,25 @@ For more information about Azure AD Password Protection, see [Eliminate bad pass
 
 ---
 
-### New "all guests" conditional access policy template created during Terms of Use (ToU) creation
+### New "all guests" conditional access policy template created during terms of use creation
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
-During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
+During the creation of your terms of use, a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
 
 For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
-### New "custom" conditional access policy template created during Terms of Use (ToU) creation
+### New "custom" conditional access policy template created during terms of use creation
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
-During the creation of your Terms of Use (ToU), a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
+During the creation of your terms of use, a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
 
 For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -722,10 +776,10 @@ If you must continue to use dedicated circuits, you'll need to talk to your Micr
 ### Microsoft Graph APIs for administrative scenarios for TOU
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Developer Experience
  
-We've added Microsoft Graph APIs for administration operation of Azure AD Terms of Use. You are able to create, update, delete the Terms of Use object.
+We've added Microsoft Graph APIs for administration operation of Azure AD terms of use. You are able to create, update, delete the terms of use object.
 
 ---
 
@@ -910,10 +964,10 @@ For more information, see:
 
 ---
  
-### Azure AD Terms of Use now has per user reporting
+### Azure AD terms of use now has per user reporting
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
  
 Administrators can now select a given ToU and see all the users that have consented to that ToU and what date/time it took place.
@@ -955,11 +1009,11 @@ For more information, see [Configuring single sign-on to applications that are n
 ### Azure AD Terms of use now generally available
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
  
 
-Azure AD Terms of Use have moved from public preview to generally available.
+Azure AD terms of use have moved from public preview to generally available.
 
 For more information, see the [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -1459,10 +1513,10 @@ For more information, see:
 
 ---
 
-### Terms of Use update to mobile experience 
+### Terms of use update to mobile experience 
 
 **Type:** Changed feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
 
 When the terms of use are displayed, you can now click **Having trouble viewing? Click here**. Clicking this link opens the terms of use natively on your device. Regardless of the font size in the document or the screen size of device, you can zoom and read the document as needed. 

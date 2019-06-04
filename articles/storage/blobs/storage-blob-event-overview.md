@@ -16,7 +16,7 @@ ms.subservice: blobs
 
 Azure Storage events allow applications to react to the creation and deletion of blobs using modern serverless architectures. It does so without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
 
-Blob storage events are reliably sent to the Event grid service which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery.
+Blob storage events are reliably sent to the Event grid service which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. To learn more, see [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 

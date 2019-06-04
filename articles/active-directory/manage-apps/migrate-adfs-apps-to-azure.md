@@ -2,8 +2,8 @@
 title: 'Move apps from AD FS to Azure AD. | Microsoft Docs'
 description: This article is intended to help organizations understand how to move applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
 ---
 

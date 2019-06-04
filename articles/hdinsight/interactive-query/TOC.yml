@@ -11,8 +11,7 @@
 - name: Quickstarts
   items:
   - name: Execute Apache Hive queries - Apache Zeppelin
-    href: ../hdinsight-connect-hive-zeppelin.md
-    maintainContext: true
+    href: ./hdinsight-connect-hive-zeppelin.md
 - name: Get started
   items:
   - name: Start with Interactive Query
@@ -206,7 +205,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Apache Ambari web UI
@@ -321,12 +320,14 @@
     maintainContext: true
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Use firewall to restrict outbound traffic
+      href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
-      maintainContext: true
   - name: Monitoring using Azure Monitor logs
     items:
     - name: Use Azure Monitor logs

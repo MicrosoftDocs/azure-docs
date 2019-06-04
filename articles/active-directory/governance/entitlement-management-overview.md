@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -68,22 +68,13 @@ Here are the types of resources you can manage access to with entitlement manage
 
 - Azure AD security groups
 - Office 365 groups
-- Azure AD enterprise applications
-- SaaS applications
-- Custom-integrated applications
-- SharePoint Online site collections
-- SharePoint Online sites
+- Azure AD enterprise applications, including SaaS application and custom-integrated applications that support federation or provisioning
+- SharePoint Online site collections and sites
 
-## Prerequisites
+You can also control access to other resources that rely upon Azure AD security groups or Office 365 groups.  For example:
 
-To use Azure AD entitlement management (Preview), you must have one of the following licenses:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
-
-For more information, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
-
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
+- You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
+- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
 
 ## What are access packages and policies?
 
@@ -112,7 +103,7 @@ The following diagram shows an example of the different elements in entitlement 
 
 When using the [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) invite experience, you must already know the email addresses of the external guest users you want to bring into your resource directory and work with. This works great when you're working on a smaller or short-term project and you already know all the participants, but this is harder to manage if you have lots of users you want to work with or if the participants change over time.  For example, you might be working with another organization and have one point of contact with that organization, but over time additional users from that organization will also need access.
 
-With entitlement management, you can define a policy that allows users from organizations you specify, that are also using Azure AD, to be able to request an access package. You can specify whether approval is required and an expiration date for the access. If approval is required, you can also designate as an approver one or more users from the external organization that you previously invited - since they are likely to know which external users from their organization need access. Once you have configured the access package, you can send a link to the access package to your contact person at the external organization. That contact can share with others users in the external organization, and they can use this link to request the access package.  Users from that organizational who have already been invited into your directory can also use that link.
+With entitlement management, you can define a policy that allows users from organizations you specify, that are also using Azure AD, to be able to request an access package. You can specify whether approval is required and an expiration date for the access. If approval is required, you can also designate as an approver one or more users from the external organization that you previously invited - since they are likely to know which external users from their organization need access. Once you have configured the access package, you can send a link to the access package to your contact person at the external organization. That contact can share with other users in the external organization, and they can use this link to request the access package.  Users from that organization who have already been invited into your directory can also use that link.
 
 When a request is approved, entitlement management will provision the user with the necessary access, which may include inviting the user if they're not already in your directory. Azure AD will automatically create a B2B account for them.  Note that an administrator may have previously limited which organizations are permitted for collaboration, by setting a [B2B allow or deny list](../b2b/allow-deny-list.md) to allow or block invites to other organizations.  If the user is not permitted by the allow or block list, then they will not be invited.
 
@@ -171,6 +162,12 @@ The following table lists the permissions for each of these roles.
 | [Add/remove resources to/from a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Add catalog owners or access package managers](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## License requirements
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
 
 ## Next steps
 

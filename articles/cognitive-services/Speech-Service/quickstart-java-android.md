@@ -17,7 +17,7 @@ ms.author: wolfma
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Speech SDK Maven Package, version 1.5.0, and Android Studio 3.3.
+The application is based on the Speech SDK Maven Package, version 1.5.1, and Android Studio 3.3.
 The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Android Studio takes a moment to prepare your new Android project. Next, configu
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.5.0`.
+The current version of the Cognitive Services Speech SDK is `1.5.1`.
 
 The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
 It is hosted in a Maven repository at https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -60,7 +60,7 @@ Set up your project to use the Speech SDK. Open the Project Structure window by 
 
    ![Screenshot of Project Structure window](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. In the window that comes up, enter the name and version of our Speech SDK for Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0`. Then select **OK**.
+1. In the window that comes up, enter the name and version of our Speech SDK for Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.5.1`. Then select **OK**.
    The Speech SDK should be added to the list of dependencies now, as shown below:
 
    ![Screenshot of Project Structure window](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
