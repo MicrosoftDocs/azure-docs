@@ -106,6 +106,8 @@
         href: howto-configure-homepage.md
       - name: Customize application UI
         href: howto-customize-ui.md
+      - name: Use application templates
+        href: howto-use-app-templates.md
       - name: Manage from the Azure portal
         href: howto-manage-iot-central-from-portal.md
       - name: Manage from Azure CLI
