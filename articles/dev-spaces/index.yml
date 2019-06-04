@@ -8,7 +8,7 @@ metadata:
   author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 04/29/2019
+  ms.date: 07/08/2019
   ms.author: zarhoads
   manager: jeconnoc
 abstract:
@@ -17,14 +17,22 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to use Azure Dev Spaces for team collaboration in AKS:'
+    text: 'Learn how to use Azure Dev Spaces in AKS:'
   - type: list
     style: icon48
     items: 
     - image: 
         src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Team Development with the Azure CLI
+      text: Develop as part of a team
       href: quickstart-team-development.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Run an application
+      href: quickstart-cli.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Run an application with a Dockerfile
+      href: quickstart-cli-dockerfile.md
   - type: paragraph
     text: 'Learn how to iteratively develop and debug directly in AKS with Azure Dev Spaces:'
   - type: list
@@ -46,3 +54,4 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
       text: Develop with Node.js
       href: quickstart-nodejs.md
+      
