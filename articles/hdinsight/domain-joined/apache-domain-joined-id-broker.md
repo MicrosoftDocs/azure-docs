@@ -6,18 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ---
 
 # HDInsight ID Broker (HIB)
 
-HDInsight ID Broker (HIB) lets federated users sign in to Hadoop components and get required Kerberos tickets without using their on-premises Active Directory or needing password hashes in Azure Active Directory. This article describes HIB, and explains how to enable and test HIB with a private build. 
+HDInsight ID Broker (HIB) lets federated users sign in to Hadoop components and get required Kerberos tickets without using their on-premises Active Directory or needing password hashes in Azure Active Directory (Azure AD). This article describes HIB, and explains how to enable and test HIB with a private build. 
 
 ## Overview
 
-Different enterprise organizations use different Azure Active Directory (Azure AD) setups. Some organizations use Azure AD only with cloud-only accounts to access cloud assets. They have the easiest path to configure Hadoop enterprise security with HDInsight.
+Different enterprise organizations use different Azure AD setups. Some organizations use Azure AD only with cloud-only accounts to access cloud assets. They have the easiest path to configure Hadoop enterprise security with HDInsight.
 
-Other organizations rely on federation to provide authentication to their end users. Organizations that use Active Directory Federation Services (AD FS) federation with Azure AD should enable NTLM password hash sync from their on-premises environment to Azure AD. Password hash sync helps with disaster recovery if the AD FS infrastructure fails, and helps protect against leaked credentials. For more information about password hash sync, see [this video](https://youtu.be/qQruArbu2Ew). Nevertheless, enterprises don't always enable on-premises password hash synchronization to Azure AD.
+Other organizations rely on federation to provide authentication to their end users. Organizations that use Active Directory Federation Services (AD FS) federation with Azure AD should enable NTLM password hash sync from their on-premises environment to Azure AD. Password hash sync helps with disaster recovery if the AD FS infrastructure fails, and helps protect against leaked credentials. For more information about password hash sync, see [this video](https://youtu.be/qQruArbu2Ew). However, enterprises don't always enable on-premises password hash synchronization to Azure AD.
 
 Apache Hadoop relies on Kerberos for authentication, and components like Apache Ranger use Kerberos tickets to validate user identity. However, cloud technologies like Azure Data Lake Storage use modern authentication protocols like OAuth. The challenge is to provide a unified authentication model that works end-to-end across these different Azure AD setups.
 
@@ -29,7 +29,7 @@ HIB consists of components running on a Windows Server VM, and cluster gateway n
 
 ## Enable HDInsight ID Broker 
 
-To allow list the HIB feature, email your subscription ID and Azure region to [omidm@microsoft.com](mailto:omidm@microsoft.com). This subscription will get a private build that won't be kept up-to-date for other HDInsight cases. Don't run any production HDInsight cluster or workloads in this subscription. Use the private build only for HIB testing.
+To whitelist the HIB feature, email your subscription ID and Azure region to [omidm@microsoft.com](mailto:omidm@microsoft.com). This subscription will get a private build that won't be kept up-to-date for other HDInsight cases. Don't run any production HDInsight cluster or workloads in this subscription. Use the private build only for HIB testing.
 
 ### Prerequisites 
 
@@ -39,13 +39,22 @@ To allow list the HIB feature, email your subscription ID and Azure region to [o
   
 - Multi-factor authentication (MFA) disabled for federated users who access the cluster
   
-  You can use [trusted IPs](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) or [conditional access](../../active-directory/conditional-access/overview.md) to disable MFA for specific users when they are accessing the HDInsight cluster virtual network (VNET) IP range only. If you're using conditional access, make sure the Active Directory service endpoint is enabled on the HDInsight VNET.
+  You can use [trusted IPs](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) or [conditional access](../../active-directory/conditional-access/overview.md) to disable MFA for specific users when they're accessing the HDInsight cluster virtual network (VNET) IP range only. If you're using conditional access, make sure the Active Directory service endpoint is enabled on the HDInsight VNET.
   
 - Connectivity from the HDInsight VNET to the AD FS server endpoint
   
-  To check connectivity, go to the unauthenticated endpoint *https:\//login.microsoftonline.com/common/userrealm/\<contoso.com>?api-version=1.0*, replacing \<contoso.com> with your federated domain name. The response should look similar to the following snippet. Pay particular attention to the **federation_protocol** and the **federation_metadata_url**. Make sure virtual machines (VMs) inside the HDInsight VNET or subnet have network access to the **federation_metadata_url**.
+  To check connectivity, go to the unauthenticated endpoint *https:\//login.microsoftonline.com/common/userrealm/\<contoso.com>?api-version=1.0*, replacing \<contoso.com> with your federated domain name. The response should be similar to the following snippet. Pay particular attention to the **federation_protocol** and the **federation_metadata_url**. Make sure virtual machines (VMs) inside the HDInsight VNET or subnet have network access to the **federation_metadata_url**.
   
-  { "ver":"1.0", "account_type":"Federated", "domain_name":"contoso.com", **"federation_protocol":"WSTrust", "federation_metadata_url":"https:\//fam.contoso.com/pf/sts_mex.ping?PartnerSpId=urn:federation:MicrosoftOnline",** "federation_active_auth_url":"https:\//fam.contoso.com/idp/sts.wst", "cloud_instance_name":"microsoftonline.com", "cloud_audience_urn":"urn:federation:MicrosoftOnline" } 
+  { 
+    "ver":"1.0", 
+    "account_type":"Federated", 
+    "domain_name":"contoso.com", 
+    **"federation_protocol":"WSTrust"**, 
+    **"federation_metadata_url":"https:\//fam.contoso.com/pf/sts_mex.ping?PartnerSpId=urn:federation:MicrosoftOnline"**, 
+    "federation_active_auth_url":"https:\//fam.contoso.com/idp/sts.wst", 
+    "cloud_instance_name":"microsoftonline.com", 
+    "cloud_audience_urn":"urn:federation:MicrosoftOnline" 
+   } 
 
 ### Deploy a VM and install the HIB service
 
