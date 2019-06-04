@@ -234,7 +234,9 @@
         - name: Single sign-on (JS)
           href: msal-js-sso.md
         - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md  
+          href: msal-js-prompt-behavior.md 
+        - name: ADFS support (.NET)
+          href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
           items:
           - name: JavaScript
