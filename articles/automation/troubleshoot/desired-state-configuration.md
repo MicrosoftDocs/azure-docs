@@ -140,6 +140,25 @@ You've used a credential in a configuration but didn’t provide proper **Config
 
 * Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. For more information, see [assets in Azure Automation DSC](../automation-dsc-compile.md#assets).
 
+### <a name="failure-processing-extension"></a>Scenario: Onboarding from dsc extension, "Failure processing extension" error
+
+#### Issue
+
+When onboarding using DSC extension, a failure occurs containing the error:
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### Cause
+
+This error typically occurs when the node is assigned a node configuration name that does not exist in the service.
+
+#### Resolution
+
+* Make sure that you're assigning the node with a node configuration name that exactly matches the name in the service.
+* You can choose to not include the node configuration name, which will result in onboarding the node but not assigning a node configuration
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
