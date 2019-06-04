@@ -1,7 +1,7 @@
 ---
 title: Azure Kinect Body Tracking SDK Setup
 description: Steps to set up body tracking SDK for Azure Kinect
-author: quentinm qm13
+author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
 ms.date: 05/31/2019
