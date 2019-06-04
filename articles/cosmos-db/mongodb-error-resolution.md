@@ -27,3 +27,9 @@ While Azure Cosmos DB's API for MongoDB is compatible with version 3.2 of the Mo
 | Wire driver version issues | - | The older versions of Mongo drivers are unable to detect the Cosmos DB account name in the connection strings. | Append *appName=@accountName@* at the end of your Cosmos DB's API for MongoDB connection string, where *accountName* is your Cosmos DB account name. |
 
 
+## Next steps
+
+- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+
