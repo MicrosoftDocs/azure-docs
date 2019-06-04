@@ -278,7 +278,7 @@ To store records into the test topic you created earlier, and then read them usi
 1. To write records to the topic, use the `kafka-console-producer.sh` utility from the SSH connection:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
+    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKAHOSTS --topic test
     ```
    
     After this command, you arrive at an empty line.
@@ -288,7 +288,7 @@ To store records into the test topic you created earlier, and then read them usi
 3. To read records from the topic, use the `kafka-console-consumer.sh` utility from the SSH connection:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKAHOSTS --topic test --from-beginning
     ```
    
     This command retrieves the records from the topic and displays them. Using `--from-beginning` tells the consumer to start from the beginning of the stream, so all records are retrieved.
