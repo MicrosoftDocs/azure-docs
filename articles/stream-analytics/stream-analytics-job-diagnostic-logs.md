@@ -40,7 +40,7 @@ Activity logs are on by default and give high-level insights into operations per
 
    ![Stream Analytics activity log operation summary](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Scroll down to the **Properties** section of the JSON, which provides details of the error that caused the failed operation. In this example, the failure was due to a runtime error from out of bound latitude values.
+4. Scroll down to the **Properties** section of the JSON, which provides details of the error that caused the failed operation. In this example, the failure was due to a runtime error from out of bound latitude values. Discrepancy in the data that is processed by a Stream Analytics job causes a data error. You can learn about different [input and output data errors and why they occur](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
    ![JSON error details](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
