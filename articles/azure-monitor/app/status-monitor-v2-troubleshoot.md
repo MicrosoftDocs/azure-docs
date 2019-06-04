@@ -1,6 +1,6 @@
 ---
 title: Azure Status Monitor v2 troubleshooting and known issues | Microsoft Docs
-description: The known issues of Status Monitor v2 and troubleshooting examples. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: The known issues of Status Monitor v2 and troubleshooting examples. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -15,28 +15,28 @@ ms.author: tilee
 ---
 # Troubleshooting Status Monitor v2
 
-When you enable monitoring, you may experience issues that prevent data collection. 
-This document lists all the known issues and troubleshooting examples.
-If you come across an issue not listed here, you may contact us [here](https://github.com/Microsoft/ApplicationInsights-Home/issues).
+When you enable monitoring, you might experience issues that prevent data collection.
+This article lists all known issues and provides troubleshooting examples.
+If you come across an issue not listed here, you can contact us [on GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Known issues
 
-### Conflicting DLLs in an application's bin directory
+### Conflicting DLLs in an app's bin directory
 
-If any of these DLLs are present in the bin directory, monitoring may fail.
+If any of these DLLs are present in the bin directory, monitoring might fail:
 
 - Microsoft.ApplicationInsights.dll
 - Microsoft.AspNet.TelemetryCorrelation.dll
 - System.Diagnostics.DiagnosticSource.dll
 
-Some of these DLLs are included in Visual Studio's default application templates, even if your application doesn't use them.
-Symptomatic behavior can be seen using troubleshooting tools:
+Some of these DLLs are included in the Visual Studio default app templates, even if your app doesn't use them.
+You can use troubleshooting tools to see symptomatic behavior:
 
 - PerfView:
 	```
@@ -49,7 +49,7 @@ Symptomatic behavior can be seen using troubleshooting tools:
 	FormattedMessage="Found 'System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' assembly, skipping attaching redfield binaries" 
 	```
 
-- iisreset + app load (NO TELEMETRY). Investigate with Sysinternals (Handle.exe and ListDLLs.exe)
+- IISReset + app load (NO TELEMETRY). Investigate with Sysinternals (Handle.exe and ListDLLs.exe)
 	```
 	.\handle64.exe -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
 	E54: File  (R-D)   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
