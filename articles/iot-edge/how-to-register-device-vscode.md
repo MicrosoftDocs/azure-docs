@@ -13,9 +13,9 @@ ms.custom: seodec18
 
 # Register a new Azure IoT Edge device from Visual Studio Code
 
-Before you can use your IoT devices with Azure IoT Edge, you need to register them with your IoT hub. Once you register a device, you receive a connection string that can be used to set up your device for Edge workloads.
+Before you can use your IoT devices with Azure IoT Edge, you need to register them with your IoT hub. Once you register a device, you receive a connection string that can be used to set up your device for IoT Edge workloads.
 
-This article shows how to register a new IoT Edge device using Visual Studio Code (VS Code). There are multiple ways to perform most operations in VS Code. This article uses the Explorer, but you can also use the Command Palette to run most of the steps.
+This article shows how to register a new IoT Edge device using Visual Studio Code (VS Code). There are multiple ways to perform most operations in VS Code. This article uses the Explorer, but you can also use the Command Palette to run the steps.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This article shows how to register a new IoT Edge device using Visual Studio Cod
 
 ## Sign in to access your IoT hub
 
-You can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. For these operations to work, you need to sign in to your Azure account and select the IoT hub that you are working on.
+You can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. For these operations to work, you need to sign in to your Azure account and select your IoT hub.
 
 1. In Visual Studio Code, open the **Explorer** view.
 
@@ -37,7 +37,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 1. Choose **Select IoT Hub**.
 
-1. If you are not signed in to your Azure account, follow the prompts to do so.
+1. If you aren't signed in to your Azure account, follow the prompts to do so.
 
 1. Select your Azure subscription.
 
