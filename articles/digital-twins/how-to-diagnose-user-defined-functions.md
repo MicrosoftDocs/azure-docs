@@ -6,7 +6,7 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/04/2019
 ms.author: stefanmsft
 ms.custom: seodec18
 ---
@@ -204,4 +204,6 @@ If you enable diagnostic settings, you might encounter these common exceptions:
 
 ## Next steps
 
-- Learn how to enable [monitoring and logs](../azure-monitor/platform/activity-logs-overview.md) in Azure Digital Twins.
+- Learn how to enable [monitoring and logs](./how-to-configure-monitoring.md) in Azure Digital Twins.
+
+- Read [Overview of Azure Activity log](../azure-monitor/platform/activity-logs-overview.md) for Azure logging options.
