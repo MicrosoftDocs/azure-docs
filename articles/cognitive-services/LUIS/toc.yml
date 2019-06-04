@@ -5,6 +5,8 @@
   items:
   - name: What is Language Understanding?
     href: what-is-luis.md
+  - name: What's new
+    href: whats-new.md    
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
@@ -197,8 +199,8 @@
     - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
-      href: luis-tutorial-speech-to-intent.md
-    - name: Use V3 bot framework
+      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+    - name: With a bot
       items:
         - name: Web app bot
           items:
@@ -400,8 +402,6 @@
     href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Resources
   items:
-  - name: What's new
-    href: whats-new.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Language and region support
