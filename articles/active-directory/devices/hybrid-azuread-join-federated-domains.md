@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
 
-In a similar way to a user, a device is another core identity you want to protect and also use it to protect your resources at any time and from any location. You can accomplish this goal by bringing and managing device identities in Azure AD using one of the following methods:
+In a similar way to a user, a device is another core identity you want to protect and use it to protect your resources at any time and from any location. You can accomplish this goal by bringing and managing device identities in Azure AD using one of the following methods:
 
 - Azure AD join
 - Hybrid Azure AD join
@@ -58,7 +58,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 - Backs up your existing Azure AD relying party trust
 - Updates the claim rules in your Azure AD trust
 
-The configuration steps in this article are based on this wizard. If you have an older version of Azure AD Connect installed, you need upgrade it to 1.1.819 or higher. If installing the latest version of Azure AD Connect is not an option for you, see [how to manually configure hybrid Azure AD join](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual).
+The configuration steps in this article are based on this wizard. If you have an older version of Azure AD Connect installed, you need upgrade it to 1.1.819 or higher. If installing the latest version of Azure AD Connect is not an option for you, see [how to manually configure hybrid Azure AD join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual).
 
 Hybrid Azure AD join requires the devices to have access to the following Microsoft resources from inside your organization's network:  
 
@@ -68,9 +68,9 @@ Hybrid Azure AD join requires the devices to have access to the following Micros
 - Your organization's STS (federated domains)
 - `https://autologon.microsoftazuread-sso.com` (If you are using or planning to use Seamless SSO)
 
-Beginning with Windows 10 1803, if the instantaneous Hybrid Azure AD join for federated environment using AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that is subsequently used to complete the device registration for Hybrid Azure AD join. Verify that Azure AD Connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OU), then these OUs need to be configured for synchronization in Azure AD connect as well. To learn more on how to syncronize computer objects using Azure AD Connect, see the article on [Configure filtering using Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering).
+Beginning with Windows 10 1803, if the instantaneous Hybrid Azure AD join for federated environment using AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that is subsequently used to complete the device registration for Hybrid Azure AD join. Verify that Azure AD Connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OU), then these OUs need to be configured for synchronization in Azure AD connect as well. To learn more on how to synchronize computer objects using Azure AD Connect, see the article on [Configure filtering using Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering).
 
-If your organization requires access to the Internet via an outbound proxy, Microsoft recommends [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/en-us/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers to do device registration with Azure AD. If you are encountering issues with configuring and managing WPAD, go to [troubleshooting automatic detection](https://docs.microsoft.com/en-us/previous-versions/tn-archive/cc302643(v=technet.10). 
+If your organization requires access to the Internet via an outbound proxy, Microsoft recommends [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers to do device registration with Azure AD. If you are encountering issues with configuring and managing WPAD, go to [troubleshooting automatic detection](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
 
 If you are not using WPAD and need to configure proxy settings on your computer, you can do so starting with Windows 10 1709, by [configuring WinHTTP settings using a group policy object (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -156,7 +156,7 @@ To register Windows down-level devices, organizations must install [Microsoft Wo
 
 You can deploy the package by using a software distribution system like [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). The package supports the standard silent installation options with the quiet parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
-The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating with Azure AD.
+The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user does a sign in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating with Azure AD.
 
 ## Verify the registration
 
