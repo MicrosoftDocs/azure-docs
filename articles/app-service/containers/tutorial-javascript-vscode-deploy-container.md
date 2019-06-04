@@ -10,7 +10,7 @@ ms.devlang: javascript
 ---
 # Deploy the image to Azure App Service
 
-Now that you have your app image built and pushed to a registry, you can deploy to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) directly from the Docker extension explorer.
+Now that you have your app image built and pushed to a registry, you can deploy to [Azure App Service](https://azure.microsoft.com/services/app-service/) directly from the Docker extension explorer.
 
 ## Deploy the image
 

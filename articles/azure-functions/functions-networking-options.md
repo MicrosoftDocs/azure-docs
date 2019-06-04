@@ -56,7 +56,7 @@ Virtual network integration gives your function app access to resources in your 
 
 You can use virtual network integration to enable access from apps to databases and web services running in your virtual network. With virtual network integration, you don't need to expose a public endpoint for applications on your VM. You can use the private, non-internet routable addresses instead.
 
-The generally available version of virtual network integration relies on a VPN gateway to connect function apps to a virtual network. It's available in functions hosted in an App Service plan. To learn how to configure this feature, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+The generally available version of virtual network integration relies on a VPN gateway to connect function apps to a virtual network. It's available in functions hosted in an App Service plan. To learn how to configure this feature, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
 
 ### Preview version of virtual network integration
 
