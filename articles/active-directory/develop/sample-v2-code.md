@@ -30,10 +30,10 @@ You can use Microsoft identity platform to:
 - Add authentication and authorization to your web applications and web APIs.
 - Require an access token to access a protected web API.
 
-This article briefly describes and provides you with links to samples for the Microsoft identity platform endpoint. These samples show you how it's done, along with code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and set up. Comments within the code are there to help you understand the critical sections.
+This article briefly describes and provides you with links to samples for the Microsoft identity platform endpoint. These samples show you how it's done, and also provide code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and setup. Comments within the code help you understand the critical sections.
 
 > [!NOTE]
-> If you are interested in v1.0 samples, see [Azure AD code samples (v1.0 endpoint)](sample-v1-code.md).
+> If you're interested in v1.0 samples, see [Azure AD code samples (v1.0 endpoint)](sample-v1-code.md).
 
 To understand the basic scenario for each sample type, see [App types for the Microsoft identity platform endpoint](v2-app-types.md).
 
@@ -41,7 +41,7 @@ You can also contribute to the samples on GitHub. To learn how, see [Microsoft A
 
 ## Single-page applications (SPA)
 
-These samples show how to write a single-page application secured with Microsoft identity platform. These samples use one of the flavors of MSAL.js:
+These samples show how to write a single-page application secured with Microsoft identity platform. These samples use one of the flavors of MSAL.js.
 
 | Platform | Description | Link |
 | -------- | --------------------- | -------- |
@@ -64,7 +64,7 @@ The following samples illustrate web applications that sign in users. Some sampl
 
 ## Desktop and mobile public client apps
 
-The following samples show public client applications (desktop/mobile applications) that access the Microsoft Graph API or your own Web API in the name of a user. All these client applications use Microsoft Authentication Libraries (MSAL).
+The following samples show public client applications (desktop or mobile applications) that access the Microsoft Graph API, or your own Web API in the name of a user. All these client applications use Microsoft Authentication Libraries (MSAL).
 
 | Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET Core 2.0 Web API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
@@ -86,7 +86,7 @@ The following samples show an application that accesses the Microsoft Graph API 
 
 ## Headless applications
 
-The following sample shows a public client application running on a device without a web browser. The app can be a command-line tool, or running on Linux/Mac, or an IoT application. The sample features an app accessing the Microsoft Graph API in the name of a user who signs-in interactively on another device (such as a mobile phone). This client application uses MicroSoft Authentication Libraries (MSAL).
+The following sample shows a public client application running on a device without a web browser. The app can be a command-line tool, an app running on Linux or Mac, or an IoT application. The sample features an app accessing the Microsoft Graph API, in the name of a user who signs-in interactively on another device (such as a mobile phone). This client application uses Microsoft Authentication Libraries (MSAL).
 
 | Client application | Platform | Flow/Grant | Calls Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
@@ -94,7 +94,7 @@ The following sample shows a public client application running on a device witho
 
 ## Web APIs
 
-The following sample shows how to protect a web API with the Microsoft identity platform endpoint. This API is exercised by a WPF application, but it can be called by any application. The web API also calls Microsoft Graph.
+The following sample shows how to protect a web API with the Microsoft identity platform endpoint. This API is exercised by a WPF application, but any application can call it. The web API also calls Microsoft Graph.
 
 | Platform | Sample |
 | -------- | ------------------- |
