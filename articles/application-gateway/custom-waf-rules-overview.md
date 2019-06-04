@@ -5,7 +5,7 @@ services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/18/2019
+ms.date: 6/5/2019
 ms.author: victorh
 ---
 
@@ -21,9 +21,13 @@ Custom rules allow you to create your own rules that are evaluated for each requ
 
 For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic. You also set the rule’s name and priority.
 
-Custom rules support using compounding logic, for example **(Condition 1 and Condition 2) or Condition 3)** to make more advanced rules that address your security needs. The example above means that if Condition 1 and Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule. 
+Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, **(Condition 1 and Condition 2) or Condition 3)**.  This example means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
 
-Different matching conditions within the same rule are always compounded using the **and** logical conjunction. An example of this could be to block traffic from a specific IP address, and only if they’re using a certain browser. If you want to **or** two different conditions, the two conditions must be in different rules. An example of this could be to block traffic from a specific IP address or block traffic if they’re using a specific browser. Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples of these, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
+Different matching conditions within the same rule are always compounded using **and**. For example, block traffic from a specific IP address, and only if they’re using a certain browser.
+
+If you want to **or** two different conditions, the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they’re using a specific browser.
+
+Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples of these, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
 ## Allowing vs. Blocking
 
@@ -148,11 +152,10 @@ List of values to match against, which can be thought of as being *OR*'ed. For e
 
 ### Action [required]
 
-- Allow – Authorizes the transaction, skipping all subsequent rules. This means that the specified request is added to the allow list and once matched, the request stops further evaluation and is sent to the backend pool. Rules that are on the allow list are not evaluated for any further custom rules or managed rules.
-- Block – Blocks the transaction based on *SecDefaultAction* (detection/prevention mode). Just like the Allow action, once the request is evaluated and added to the block list, evaluation is stopped and the reqeust is blocked. Any request after that meets the same conditions will not be evaluated and will just be blocked. 
-- Log – Lets the rule write to the log, but lets the rest of the rules execute for evaluation. Subsequent custom rules would be evaluated in order or priority, followed by the managed rules. 
+- Allow – Authorizes the transaction, skipping all subsequent rules. This means that the specified request is added to the allow list and once matched, the request stops further evaluation and is sent to the backend pool. Rules that are on the allow list aren't evaluated for any further custom rules or managed rules.
+- Block – Blocks the transaction based on *SecDefaultAction* (detection/prevention mode). Just like the Allow action, once the request is evaluated and added to the block list, evaluation is stopped and the request is blocked. Any request after that meets the same conditions will not be evaluated and will just be blocked. 
+- Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. Subsequent custom rules are evaluated in order of priority, followed by the managed rules.
 
 ## Next steps
 
 After you learn about custom rules, [create your own custom rules](create-custom-waf-rules.md).
-

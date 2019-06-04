@@ -5,7 +5,7 @@ services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/29/2019
+ms.date: 6/5/2019
 ms.author: victorh
 ---
 
@@ -175,7 +175,7 @@ Corresponding CRS rule:
 
 ## Example 3
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24. To accomplish this, you can create 2 separate match conditions, and put them both in the same rule. This will ensure that both *evilbot* in the User-Agent header *and* IP addresses from the range 192.168.5.4/24 will be blocked. 
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures  both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.4/24 are blocked.
 
 Logic: p **and** q
 
@@ -247,18 +247,18 @@ Here's the corresponding JSON:
 
 ## Example 4
 
-For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses *or*, the two conditions are in separate rules as seen below. "myrule1" and "myrule2" will both need to match to allow for traffic to be blocked. 
+For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses **or**, the two conditions are in separate rules as seen in the following example. *myrule1* and *myrule2* both need to match to block the traffic.
 
 Logic: **not** (p **and** q) = **not** p **or not** q.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RemoteAddr
- 
+
 $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RequestHeaders `
    -Selector User-Agent
- 
+
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
@@ -271,14 +271,14 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -MatchValue "chrome" `
    -Transform Lowercase `
    -NegationCondition $True
- 
+
 $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule1 `
    -Priority 100 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
    -Action Block
- 
+
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule2 `
    -Priority 100 `
@@ -333,7 +333,7 @@ And the corresponding JSON:
 
 ## Example 5
 
-You want to block custom SQLI. Since the logic being used here is *or*, and all the values are in the "RequestUri", all of the "MatchValues" can be in a comma-separated list. 
+You want to block custom SQLI. Since the logic used here is *or*, and all the values are in the "RequestUri", all of the "MatchValues" can be in a comma-separated list.
 
 Logic: p **or** q **or** r
 
@@ -384,7 +384,7 @@ Alternative Azure PowerShell:
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestUri 
+   -VariableName RequestUri
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator Contains `
