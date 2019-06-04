@@ -33,28 +33,28 @@ To whitelist the HIB feature, email your subscription ID and Azure region to [om
 
 ### Prerequisites 
 
-- A cloud-only (non-federated) user account available in Azure AD and synchronized to Azure AD Domain Services (Azure AD DS)
-  
-- Federated users' UPNs synced and available to Azure AD DS 
-  
-- Multi-factor authentication (MFA) disabled for federated users who access the cluster
-  
-  You can use [trusted IPs](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) or [conditional access](../../active-directory/conditional-access/overview.md) to disable MFA for specific users when they're accessing the HDInsight cluster virtual network (VNET) IP range only. If you're using conditional access, make sure the Active Directory service endpoint is enabled on the HDInsight VNET.
-  
-- Connectivity from the HDInsight VNET to the AD FS server endpoint
-  
-  To check connectivity, go to the unauthenticated endpoint *https:\//login.microsoftonline.com/common/userrealm/\<contoso.com>?api-version=1.0*, replacing \<contoso.com> with your federated domain name. The response should be similar to the following snippet. Pay particular attention to the **federation_protocol** and the **federation_metadata_url**. Make sure virtual machines (VMs) inside the HDInsight VNET or subnet have network access to the **federation_metadata_url**.
-  
-  { 
-    "ver":"1.0", 
-    "account_type":"Federated", 
-    "domain_name":"contoso.com", 
-    **"federation_protocol":"WSTrust"**, 
-    **"federation_metadata_url":"https:\//fam.contoso.com/pf/sts_mex.ping?PartnerSpId=urn:federation:MicrosoftOnline"**, 
-    "federation_active_auth_url":"https:\//fam.contoso.com/idp/sts.wst", 
-    "cloud_instance_name":"microsoftonline.com", 
-    "cloud_audience_urn":"urn:federation:MicrosoftOnline" 
-   } 
+-   A cloud-only (non-federated) user account available in Azure AD and synchronized to Azure AD Domain Services (Azure AD DS)
+    
+-   Federated users' UPNs synced and available to Azure AD DS 
+    
+-   Multi-factor authentication (MFA) disabled for federated users who access the cluster
+    
+    You can use [trusted IPs](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) or [conditional access](../../active-directory/conditional-access/overview.md) to disable MFA for specific users when they're accessing the HDInsight cluster virtual network (VNET) IP range only. If you're using conditional access, make sure the Active Directory service endpoint is enabled on the HDInsight VNET.
+    
+-   Connectivity from the HDInsight VNET to the AD FS server endpoint
+    
+    To check connectivity, go to the unauthenticated endpoint *https:\//login.microsoftonline.com/common/userrealm/\<contoso.com>?api-version=1.0*, replacing \<contoso.com> with your federated domain name. The response should be similar to the following snippet. Pay particular attention to the **federation_protocol** and the **federation_metadata_url**. Make sure virtual machines (VMs) inside the HDInsight VNET or subnet have network access to the **federation_metadata_url**.
+    
+    {
+      "ver":"1.0",
+      "account_type":"Federated",
+      "domain_name":"contoso.com",
+      **"federation_protocol":"WSTrust"**,
+      **"federation_metadata_url":"https:\//fam.contoso.com/pf/sts_mex.ping?PartnerSpId=urn:federation:MicrosoftOnline"**,
+      "federation_active_auth_url":"https:\//fam.contoso.com/idp/sts.wst",
+      "cloud_instance_name":"microsoftonline.com",
+      "cloud_audience_urn":"urn:federation:MicrosoftOnline" 
+    }
 
 ### Deploy a VM and install the HIB service
 
