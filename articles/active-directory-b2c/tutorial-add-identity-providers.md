@@ -2,14 +2,14 @@
 title: Tutorial - Add identity providers to your applications - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to add identity providers to your applications in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
