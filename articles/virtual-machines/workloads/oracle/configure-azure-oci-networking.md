@@ -61,6 +61,8 @@ To deploy a multi-cloud solution between OCI and Azure you must already have:
 
 * No overlapping IP addresses between your OCI and Azure networks.
 
+* Also carve out a private IP space of /29, which is non-overlapping to subnets in either your Azure virtual network or your OCI virtual cloud network. Careful planning must be done to ensure that the address space does not overlap. You will split the /29 IP space into two subnets of /30, which are used to set up the tunnel with OCI. 
+
 ## Enable network interconnection
 
 You can enable the network interconnection by using the Azure portal and the OCI console. Below are the high-level steps to enable direct interconnection. For more details, see the [Oracle documentation](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
@@ -72,11 +74,13 @@ You can enable the network interconnection by using the Azure portal and the OCI
     *  In **Peering location**, select a peering location in close proximity to the OCI region that you are connecting to.
     * In **Location**, specify an Azure region that supports cross-cloud connectivity such as *East US*.
 1. Once provisioned, view the properties of the circuit by selecting it. On the **Overview** page for your circuit, copy the **Service key** for your circuit.
+1. Create an [ExpressRoute peering](../../../expressroute/expressroute-howto-routing-portal-resource-manager.md) of type **Azure Private** and enter the primary and secondary /30 subnets. Similarly, on the OCI side, enter the primary BGP IP address space and the secondary BGP IP address space corresponding to the address space entered on the Microsoft side. 
 1. Sign in to the OCI console.
 1. Provision a [FastConnect circuit](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectprovider.htm). 
     * Add **Microsoft Azure** as your provider.
     * In **Provider Service Key**, paste the ExpressRoute service key. 
     * Select the same geographic peering location that you selected while setting up the Azure ExpressRoute circuit.
+1. Enter the primary BGP IP address space and the secondary BGP IP address space corresponding to the peering subnets entered on the Microsoft side. 
 
 After you complete these steps, the private virtual circuit is provisioned automatically between the two clouds. Provisioning can take approximately *TODO: add estimate here* minutes.
 
