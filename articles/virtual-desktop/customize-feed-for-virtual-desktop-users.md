@@ -2,7 +2,7 @@
 title: Customize feed for Windows Virtual Desktop Users with PowerShell  - Azure
 description: How to customize feed for Windows Virtual Desktop users with PowerShell cmdlets.
 services: virtual-desktop
-author: Hemanth Vemulapalli
+author: v-hevem
 
 ms.service: virtual-desktop
 ms.topic: how-to
