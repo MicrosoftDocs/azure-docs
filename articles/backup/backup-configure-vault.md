@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/04/2019
 ms.author: raynew
 ---
 
@@ -248,6 +248,14 @@ Enable network throttling as follows:
 3. Click **Close** to close the wizard. If you do this before the backup finishes, the wizard continues to run in the background.
 
 After the initial backup is completed, the **Job completed** status appears in the Backup console.
+
+## Ad hoc Backup Retention behavior
+
+| Backup Policy for Scheduled Backup | Ad hoc Backup Retention
+| -- | --
+| Daily | **Default Retention**: Equivalent to the “retention in days for daily backups.” <br/><br/> **Exception**:  If a scheduled backup due to be retained for the long-term (Weeks, Months, Years) fails, then an adhoc backup triggered right after this failed scheduled backup is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention.
+| Weekly | **Default Retention** :  1 day. <br/> Adhoc Backups taken for a data source with weekly Backup policy are deleted the very next day, even if they are the most recent Backups for the data source. <br/><br/> **Exception**: If a scheduled backup due to be retained for the long-term (Weeks, Months, Years) fails, then an ad hoc backup triggered right after this failed scheduled backup is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention.
+
 
 ## Next steps
 
