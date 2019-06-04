@@ -14,7 +14,7 @@ You need a container registry to push your app image to once the image is built.
 
 ## Using Azure Container Registry
 
-[Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) (ACR) is a private, secure, hosted registry for your images. ACR is used in this tutorial, but the steps are the same for other registry services.
+[Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR) is a private, secure, hosted registry for your images. ACR is used in this tutorial, but the steps are the same for other registry services.
 
 Create an Azure Container Registry by signing in to the [Azure portal](https://portal.azure.com) then selecting **Create a resource** > **Containers** > **Container Registry**.
 

@@ -26,7 +26,7 @@ When prompted, choose HTTP trigger, enter `HttpTriggerJS` as the name, and choos
 
 ![Choose Authentication](./media/tutorial-javascript-vscode/create-function-anonymous-auth.png)
 
-Upon completion, a new directory is created within your Function app named `HttpTriggerJS` that includes `index.js`and `functions.json` files. The `index.js` file contains the source code that responds to the HTTP request and `functions.json` contains the [binding configuration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger.
+Upon completion, a new directory is created within your Function app named `HttpTriggerJS` that includes `index.js`and `functions.json` files. The `index.js` file contains the source code that responds to the HTTP request and `functions.json` contains the [binding configuration](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger.
 
 ![Completed Project](./media/tutorial-javascript-vscode/functions-vscode-intro.png)
 
