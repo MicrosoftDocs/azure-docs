@@ -2,15 +2,13 @@
 title: 'Python Tutorial: Call Cognitive Services in an indexing pipeline - Azure Search'
 description: Step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation over JSON blobs using Jupyter Python notebooks. 
 manager: cgronlun
-author: v-lilei
+author: LisaLeib
 services: search
 ms.service: search
-ms.devlang: NA
+ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 06/04/2019
 ms.author: v-lilei
-ms.custom: seodec2018
-#Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 
 # Python Tutorial: Call Cognitive Services APIs in an Azure Search indexing pipeline
@@ -81,7 +79,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
-Keep the connection string handy. You will it in a future step.
+Keep the connection string handy. You will need it in a future step.
 
 There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).
 
@@ -97,7 +95,7 @@ Create a new Python3 notebook, and then run this script to load the libraries us
    from pprint import pprint
    ```
 
-Next, replace placeholders for your search service(YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY), and then run thise script to set up the search service endpoint.
+Next, replace placeholders for your search service(YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY), and then run this script to set up the search service endpoint.
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
