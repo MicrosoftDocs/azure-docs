@@ -106,7 +106,7 @@ The DNS server is assigned by the Azure DHCP server to the network interface wit
 3. Select **DNS servers** under **SETTINGS**.
 4. Select either:
    - **Inherit from virtual network**: Choose this option to inherit the DNS server setting defined for the virtual network the network interface is assigned to. At the virtual network level, either a custom DNS server or the Azure-provided DNS server is defined. The Azure-provided DNS server can resolve hostnames for resources assigned to the same virtual network. FQDN must be used to resolve for resources assigned to different virtual networks.
-   - **Custom**: You can configure your own DNS server to resolve names across multiple virtual networks. Enter the IP address of the server you want to use as a DNS server. The DNS server address you specify is assigned only to this network interface and overrides any DNS setting for the virtual network the network interface is assigned to.
+   - **Custom**: You can configure your own DNS server to resolve names across multiple virtual networks. Enter the IP address of the server you want to use as a DNS server. The DNS server address you specify is assigned only to this network interface and overrides any DNS setting for the virtual network the network interface is assigned to. (Note: If the VM that uses a NIC which is part of an availability set, then all the DNS servers specified for each of the VMs from all NICs that are part of the availability set will be inherited.)
 5. Select **Save**.
 
 **Commands**
