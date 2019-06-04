@@ -164,6 +164,8 @@
     items:
     - name: Map control
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Drawing tools
+      href: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
     - name: Service module
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
   - name: Resource Manager template
