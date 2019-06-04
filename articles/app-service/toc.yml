@@ -19,6 +19,16 @@
     href: app-service-web-get-started-dotnet-framework.md
   - name: Create Node.js app
     href: app-service-web-get-started-nodejs.md
+  - name: Create Node.js app using Visual Studio Code
+    items:
+    - name: Getting started
+      href: tutorial-javascript-vscode-get-started.md
+    - name: Create the application
+      href: tutorial-javascript-vscode-create-app.md
+    - name: Deploy the website
+      href: tutorial-javascript-vscode-deploy-app.md
+    - name: Viewing logs
+      href: tutorial-javascript-vscode-tail-logs.md
   - name: Create PHP app
     href: app-service-web-get-started-php.md
   - name: Create Java app
