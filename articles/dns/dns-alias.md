@@ -64,7 +64,7 @@ For example, if your static website is named www.contoso.com, your users can acc
 As described previously, CNAME records are not supported at the zone apex. So, you can’t use a CNAME record to point contoso.com to your CDN endpoint. Instead, you can use an alias record to point the zone apex to a CDN endpoint directly.
 
 > [!NOTE]
-> Pointing zone apex to CDN endpoints for Azure CDN from Akamai is currently not supported.
+> Pointing a zone apex to CDN endpoints for Azure CDN from Akamai is currently not supported.
 
 ## Next steps
 
