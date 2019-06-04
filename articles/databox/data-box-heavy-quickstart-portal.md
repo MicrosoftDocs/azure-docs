@@ -27,17 +27,17 @@ Complete the following configuration prerequisites for the installation site, Da
 Before you begin, make sure that:
 
 - The device can fit through all your entryways. Device dimensions are: width: 26” length: 48” height: 28”.
-- To install on a floor other than the ground floor, you need access for the device via an elevator or a ramp.
-- The device weighs approximately ~500 lbs. and comes on wheels. Make sure you have two people to handle the device.
-- Make sure that you have a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint.
+- You have access for the device via an elevator or a ramp if you plan to install on a floor other than the ground floor.
+- You have two people to handle the device. The device weighs approximately ~500 lbs. and comes on wheels.
+- You have a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint.
 
 ### For service
 
 Before you begin, make sure that:
 
 - You have your Microsoft Azure storage account with access credentials.
-- Make sure that the subscription you use for Data Box service is [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-- Make sure that you have owner or contributor access to the subscription to create a Data Box Heavy order.
+- The subscription you use for Data Box service is [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+- You have owner or contributor access to the subscription to create a Data Box Heavy order.
 
 ### For device
 
@@ -84,7 +84,7 @@ When you receive the Data Box Heavy, do the following steps to cable the device 
 2. Use the Twinax QSFP+ copper cable to connect at least one 40 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. If using a 10-Gbps switch, use a Twinax SFP+ copper cable with a QSFP+ to SFP+ adapter (the QSA adapter) to connect the 40-Gbps network interface for data.
 3. Cable the device as shown below.  
 
-    ![Data Box Heavy cabled](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![Data Box Heavy cabled](media/data-box-heavy-quickstart-portal/data-box-heavy-ports-cabled.png)  
 
 ## Configure first node
 
