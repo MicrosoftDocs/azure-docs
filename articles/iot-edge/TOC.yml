@@ -43,7 +43,7 @@
     items: 
     - name: Filter data with Azure Functions
       href: tutorial-deploy-function.md
-    - name: Find averages with ASA
+    - name: Find averages with Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Score data with Azure Machine Learning service
       href: tutorial-deploy-machine-learning.md
