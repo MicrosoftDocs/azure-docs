@@ -35,7 +35,7 @@ After you enable monitoring, we recommend that you use [Live Metrics](live-strea
 
 
 > [!NOTE] 
-> - To get started, must have an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
+> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 > [!IMPORTANT] 
