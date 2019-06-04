@@ -288,6 +288,9 @@
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
+        - name: Common errors and solutions
+          href: mongodb-error-resolution.md
+          displayName: custom commands
     - name: Gremlin API
       displayName: graph, graph database
       items: 

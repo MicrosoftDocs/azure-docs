@@ -10,13 +10,13 @@ ms.author: roaror
 
 ---
 
-# Custom errors and how to resolve them
+# Common errors and how to resolve them
 
 Azure Cosmos DB implements the wire protocols of common NoSQL databases, including MongoDB. By providing a native implementation of the wire protocols directly and efficiently inside Cosmos DB, it allows existing client SDKs, drivers, and tools of the NoSQL databases to interact with Cosmos DB transparently. Cosmos DB does not use any source code of the databases for providing wire-compatible APIs for any of the NoSQL databases. Any MongoDB client driver that understands the wire protocol versions should be able to natively connect to Cosmos DB. 
 
 While Azure Cosmos DB's API for MongoDB is compatible with version 3.2 of the MongoDB's wire protocol (and features or query operators added in version 3.4 of the wire protocol are currently available as a preview feature), there are some custom error codes that apply to point users to Cosmos DB specific errors. These, along with their respective solutions are discussed below.
 
-## Custom errors and solutions
+## Common errors and solutions
 
 | Error               | Code  | Description  | Solution  |
 |---------------------|-------|--------------|-----------|
