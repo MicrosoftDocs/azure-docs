@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/03/2019
-ms.author: monhaber
+ms.date: 06/04/2019
+ms.author: v-mohabe
 
 ---
 # Managing security recommendations in Azure Security Center
@@ -40,7 +40,7 @@ Current policy recommendations center around system updates, baseline rules, ant
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile under **Overview** lets you know the total number of recommendations identified by Security Center.
 
-![Security center overview](./media/security-center-recommendations/overview.png)
+![Security center overview](./media/security-center-recommendations/asc-overview.png)
 
 To see the details of each recommendation, select the **Recommendations tile** under **Overview**. The **Recommendations** list opens.
 
