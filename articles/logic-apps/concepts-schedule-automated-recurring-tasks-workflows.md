@@ -77,7 +77,7 @@ Suppose the current date and time is September 8, 2017 at 1:00 PM. You specify t
 | 2017-09-**07**T14:00:00Z <br>(2017-09-**07** at 2:00 PM) | 2017-09-**08**T13:00:00Z <br>(2017-09-**08** at 1:00 PM) | Every 2 days | {none} |
 |||||
 
-For the Recurrence trigger, the Logic Apps engine calculates run times based on the start time, discards past run times, uses the next future start time for the first run, and calculates future runs based on the the last run time.
+For the Recurrence trigger, the Logic Apps engine calculates run times based on the start time, discards past run times, uses the next future start time for the first run, and calculates future runs based on the last run time.
 
 Here's how this recurrence looks:
 
