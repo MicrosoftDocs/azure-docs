@@ -10,7 +10,7 @@ ms.devlang: javascript
 ---
 # Deploy your App using Azure Functions
 
-If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/serverless?utm_source=campaign&utm_campaign=vscode-tutorial-functions-extension&mktingSource=vscode-tutorial-functions-extension) for a free account with $200 in Azure credits to try out any combination of services.
+If you don't have an Azure account, [sign up today](https://azure.microsoft.com/free/serverless?utm_source=campaign&utm_campaign=vscode-tutorial-functions-extension&mktingSource=vscode-tutorial-functions-extension) for a free account with $200 in Azure credits to try out any combination of services.
 
 Once created, sign in to your Azure account - in the Activity Bar, click on the Azure logo to show the **Azure Functions** explorer. Click **Sign in to Azure...** and choose your account in the browser.
 
@@ -29,7 +29,7 @@ From here, follow the prompts. Choose the directory that you currently have open
 
 2. Choose **Create New Resource Group**, type a Resource Group name, like 'myResourceGroup' and press ENTER.
 
-3. Choose a location in a [region](https://azure.microsoft.com/en-us/regions/) near you or near other services you may need to access.
+3. Choose a location in a [region](https://azure.microsoft.com/regions/) near you or near other services you may need to access.
 
 4. Choose **Create New Storage Account**, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
