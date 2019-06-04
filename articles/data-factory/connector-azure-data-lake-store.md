@@ -16,7 +16,7 @@ ms.author: jingwang
 
 ---
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-azure-datalake-connector.md)
 > * [Current version](connector-azure-data-lake-store.md)
 
