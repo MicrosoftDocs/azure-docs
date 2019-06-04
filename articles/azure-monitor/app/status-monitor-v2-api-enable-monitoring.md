@@ -95,8 +95,7 @@ You can create a single installation script for several computers by setting `Ma
 
 
 ### -EnableInstrumentationEngine
-**Optional.** Use this switch to enable the instrumentation engine to collect events and messages about what's happening during the execution of a managed process,
-including dependency result codes, HTTP verbs, and SQL command text.
+**Optional.** Use this switch to enable the instrumentation engine to collect events and messages about what's happening during the execution of a managed process. These events and messages include dependency result codes, HTTP verbs, and SQL command text.
 
 The instrumentation engine adds overhead and is off by default.
 
