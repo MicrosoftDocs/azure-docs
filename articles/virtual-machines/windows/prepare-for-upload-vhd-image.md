@@ -1,6 +1,6 @@
 ---
 title: Prepare a Windows VHD to upload to Azure | Microsoft Docs
-description: How to prepare a Windows VHD or VHDX before uploading to Azure
+description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
@@ -20,31 +20,33 @@ ms.author: genli
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
 
-Before you upload a Windows virtual machines (VM) from on-premises to Microsoft Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs in VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 VM from the VHDX file system to VHD and from a dynamically expanding disk to fixed-sized. But you can't change a VM's generation. For more information, see [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) and [Generation 2 VMs on Azure](generation-2.md).
+Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in VHD file format and that have a fixed-size disk. The maximum size allowed for the VHD is 1,023 GB. 
 
-For more information about the support policy for Azure VM, see [Microsoft server software support for Microsoft Azure VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+In a generation 1 VM, you can convert a VHDX file system to VHD. You can also convert a dynamically expanding disk to a fixed-size disk. But you can't change a VM's generation. For more information, see [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) and [Azure support for generation 2 VMs (preview)](generation-2.md).
+
+For more information about the support policy for Azure VMs, see [Microsoft server software support for Azure VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 > [!Note]
-> The instructions in this article apply to the 64-bit version of Windows Server 2008 R2 and later Windows server operating system. For information about running 32-bit version of operating system in Azure, see [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
+> The instructions in this article apply to the 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 
-## Convert the virtual disk to VHD and fixed size disk 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you run the virtual disk conversion process and make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
+## Convert the virtual disk to a fixed size and to VHD 
+If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you convert the virtual disk. Make sure the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
 
-After you convert the disk, create a VM that uses the converted disk. Start and sign in to the VM to finish preparing the VM for upload.
+After you convert the disk, create a VM that uses the converted disk. Start and sign in to the VM to finish preparing the VM for uploading.
 
-### Convert disk using Hyper-V Manager
-1. Open Hyper-V Manager and select your local computer on the left. In the menu above the computer list, click **Action** > **Edit Disk**.
-2. On the **Locate Virtual Hard Disk** screen, locate and select your virtual disk.
-3. On the **Choose Action** screen, and then select **Convert** and **Next**.
-4. If you need to convert from VHDX, select **VHD** and then click **Next**.
-5. If you need to convert from a dynamically expanding disk, select **Fixed size** and then click **Next**.
+### Use the Hyper-V manager to convert the disk 
+1. Open the Hyper-V manager and select your local computer on the left. In the menu above the computer list, select **Action** > **Edit Disk**.
+2. On the **Locate Virtual Hard Disk** page, locate and select your virtual disk.
+3. On the **Choose Action** page, select **Convert** > **Next**.
+4. If you need to convert from VHDX, select **VHD** > **Next**.
+5. If you need to convert from a dynamically expanding disk, select **Fixed size** and then select **Next**.
 6. Locate and select a path to save the new VHD file to.
-7. Click **Finish**.
+7. Select **Finish**.
 
 >[!NOTE]
 >The commands in this article must be run on an elevated PowerShell session.
 
-### Convert disk by using PowerShell
+### Use PowerShell to convert the disk 
 You can convert a virtual disk by using the [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) command in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
 
 The following example command converts from VHDX to VHD, and from a dynamically expanding disk to fixed-size:
@@ -133,7 +135,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 Make sure that the following settings are configured correctly for remote desktop connection:
 
 >[!Note] 
->You may receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; -value &lt;value&gt;** in these steps. The error message can be safely ignored. It means only that the domain is not pushing that configuration through a Group Policy object.
+>You might receive an error message when you run the **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; -value &lt;value&gt;** in these steps. The error message can be safely ignored. It means only that the domain is not pushing that configuration through a Group Policy object.
 >
 >
 
@@ -238,6 +240,7 @@ Make sure that the following settings are configured correctly for remote deskto
     |                                      | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Standard Profile\Windows Firewall | Allow ICMP exceptions                   |
 
 ## Verify VM is healthy, secure, and accessible with RDP 
+
 1. To make sure the disk is healthy and consistent, run a check disk operation at the next VM restart:
 
     ```PowerShell
@@ -332,8 +335,8 @@ Make sure that the following settings are configured correctly for remote deskto
 
 12. Uninstall any other third-party software and driver that is related to physical components or any other virtualization technology.
 
-### Install Windows Updates
-The ideal configuration is to **have the patch level of the machine at the latest**. If this is not possible, make sure that the following updates are installed:
+### Install Windows updates
+The ideal configuration is to *have the patch level of the machine at the latest*. If this is not possible, make sure that the following updates are installed:
 
 | Component               | Binary         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607 Windows Server 2016 Version 1607 | Windows 10 Version 1703    | Windows 10 1709 Windows Server 2016 Version 1709 | Windows 10 1803 Windows Server 2016 Version 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
@@ -373,7 +376,7 @@ The ideal configuration is to **have the patch level of the machine at the lates
 |                         | CVE-2018-0886  | KB4103718               | KB4103730                | KB4103725       | KB4103723                                               | KB4103731                  | KB4103727                                       | KB4103721                                       |
 |                         |                | KB4103712          | KB4103726          | KB4103715|                                                         |                            |                                                 |                                                 |
        
-### When to use sysprep <a id="step23"></a>    
+### Determine when to use sysprep <a id="step23"></a>    
 
 Sysprep is a process that you could run into a windows installation that will reset the installation of the system and will provide an “out of the box experience” by removing all personal data and resetting several components. You typically do this if you want to create a template from which you can deploy several other VMs that have a specific configuration. This is called a **generalized image**.
 
@@ -388,21 +391,21 @@ If you want to create a generalized image, you need to run sysprep. For more inf
 
 Not every role or application that’s installed on a Windows-based computer supports this generalization. So before you run this procedure, refer to the following article to make sure that the role of that computer is supported by sysprep. For more information, [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
-### Steps to generalize a VHD
+### Generalize a VHD
 
 >[!NOTE]
 > After you run sysprep.exe as specified  in the following steps, turn off the VM, and do not turn it back on until you create an image from it in Azure.
 
 1. Sign in to the Windows VM.
-2. Run **Command Prompt** as an administrator. 
-3. Change the directory to: **%windir%\system32\sysprep**, and then run **sysprep.exe**.
-3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
+1. Run **Command Prompt** as an administrator. 
+1. Change the directory to: **%windir%\system32\sysprep**, and then run **sysprep.exe**.
+1. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
 
     ![System Preparation Tool](media/prepare-for-upload-vhd-image/syspre.png)
-4. In **Shutdown Options**, select **Shutdown**.
-5. Click **OK**.
-6. When Sysprep completes, shut down the VM. Do not use **Restart** to shut down the VM.
-7. Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md).
+1. In **Shutdown Options**, select **Shutdown**.
+1. Select **OK**.
+1. When Sysprep completes, shut down the VM. Do not use **Restart** to shut down the VM.
+1. Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md).
 
 
 >[!NOTE]

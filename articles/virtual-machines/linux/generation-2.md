@@ -17,12 +17,12 @@ ms.date: 05/23/2019
 ms.author: lahugh
 ---
 
-# Support for generation 2 VMs (preview) in Azure
+# Support for generation 2 VMs (preview) on Azure
 
 > [!IMPORTANT]
-> Azure support for generation 2 VMs is currently in preview.
+> Azure support for generation 2 VMs is currently in preview. 
 > This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Support for generation 2 virtual machines (VMs) is now available in preview in Azure. You can't change a virtual machine's generation after you've created it, so review the considerations on this page before you choose a generation. 
 
@@ -32,7 +32,7 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 
 ## Generation 2 VM sizes
 
-Generation 1 VMs are supported by all VM sizes in Azure. In preview, Azure now offers generation 2 support for the following selected VM series:
+Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers preview generation 2 support for the following selected VM series:
 
 * [Dsv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) and [Dsv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Esv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
@@ -70,7 +70,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 |---------|--------------|--------------|
 | Boot             | PCAT                      | UEFI                               |
 | Disk controllers | IDE                       | SCSI                               |
-| VM sizes         | Available on all VM sizes | Premium storage for supported VMs only |
+| VM sizes         | Available on all VM sizes | Premium storage supported VMs only |
 
 ### Generation 1 vs. generation 2 capabilities
 
@@ -130,7 +130,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
   You might see a warning for OS disks larger than 2 TB. The warning doesn't apply to generation 2 VMs. However, OS disk sizes larger than 4 TB are *not recommended.*
 
 * **Do generation 2 VMs support accelerated networking?**  
-    Yes, generation 2 VMs support [accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
+    Yes. For more information, see [Create a VM with accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Is VHDX supported on generation 2?**  
     No, generation 2 VMs support only VHD.
