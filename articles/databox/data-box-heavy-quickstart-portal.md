@@ -28,7 +28,7 @@ Before you begin, make sure that:
 
 - The device can fit through all your entryways. Device dimensions are: width: 26” length: 48” height: 28”.
 - To install on a floor other than the ground floor, you need access for the device via an elevator or a ramp.
-- The device weighs approximately ~500 lbs. and comes on wheels. Make sure you have 2 poeple to handle the device.
+- The device weighs approximately ~500 lbs. and comes on wheels. Make sure you have two people to handle the device.
 - Make sure that you have a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint.
 
 ### For service
@@ -47,9 +47,9 @@ Before you begin, make sure that:
 - You have a host computer connected to the datacenter network. Data Box Heavy will copy the data from this computer. Your host computer must run a [supported operating system](data-box-heavy-system-requirements.md).
 - You have a laptop with RJ-45 cable to connect to the local UI and configure the device. Use the laptop to configure each node of the device once.
 - Your datacenter has high-speed network and you have at least one 10 GbE connection.
-- You need one 40 Gbps or 10 Gbps cable per device node. Choose cables that are compatible with the Mellanox MCX314A-BCCT network interface:
-    - For the 40 Gbps cable, device end of the cable needs to be QSFP+.
-    - For the 10 Gbps cable, you need an SFP+ cable that plugs into a 10 G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
+- You need one 40-Gbps cable or 10-Gbps cable per device node. Choose cables that are compatible with the Mellanox MCX314A-BCCT network interface:
+    - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
+    - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 - The power cables are included in a tray at the back of the device.
 
 ## Sign in to Azure
@@ -81,7 +81,7 @@ When you receive the Data Box Heavy, do the following steps to cable the device 
 ## Cable first node for network
 
 1. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device.
-2. Use the Twinax QSFP+ copper cable to connect at least one 40 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. If using a 10-Gbps switch, use a Twinax SFP+ copper cable with a QSFP+ to SFP+ adapter (the QSA adapter) to connect the 40 Gbps network interface for data.
+2. Use the Twinax QSFP+ copper cable to connect at least one 40 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. If using a 10-Gbps switch, use a Twinax SFP+ copper cable with a QSFP+ to SFP+ adapter (the QSA adapter) to connect the 40-Gbps network interface for data.
 3. Cable the device as shown below.  
 
     ![Data Box Heavy cabled](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
@@ -115,15 +115,15 @@ The time to complete this operation depends upon your data size and the speed of
 The time to complete this operation depends upon your data size.
 
 1. After the data copy is complete without any errors, go to **Prepare to ship** page in the local web UI and start the ship preparation.
-2. After the **Prepare to ship** has completed successfully completed on both the nodes, turn off the device from the local web UI.
+2. After the **Prepare to ship** has completed successfully on both the nodes, turn off the device from the local web UI.
 
 ## Ship to Azure
 
 This operation takes about 15-20 minutes to complete.
 
-1. Remove the cables and return those to the tray at the back of the device.
+1. Remove the cables and return them to the tray at the back of the device.
 2. Schedule a pickup with your regional carrier.
-3. Reach out to [Data Box Operations](DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
+3. Reach out to [Data Box Operations](mailto:DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
 4. The return shipping label should be visible on the front clear panel of the device.
 
 ## Verify data
