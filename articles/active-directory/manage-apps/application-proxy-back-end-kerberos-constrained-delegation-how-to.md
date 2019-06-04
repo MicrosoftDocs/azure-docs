@@ -3,8 +3,8 @@ title: Troubleshoot Kerberos constrained delegation configurations for Applicati
 description: Troubleshoot Kerberos Constrained Delegation configurations for Application Proxy
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 
 ms.collection: M365-identity-device-management
@@ -179,4 +179,4 @@ If you still can't make progress, Microsoft support can assist you. Create a sup
 - Multi-hop authentication is commonly used in scenarios where an application is tiered, with a back end and front end, where both require authentication, such as SQL Server Reporting Services. To configure the multihop scenario, see the support article [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## Next steps
-[Configure KCD on a managed domain](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[Configure KCD on a managed domain](../../active-directory-domain-services/deploy-kcd.md).

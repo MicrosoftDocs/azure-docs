@@ -91,7 +91,7 @@ The secret object has the following properties.
 | Property | Type | Optional | Description | Default value |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | No | The identifier of the secret. | None |
-| `akv` | string | Yes | The Azure Key Vault (AKV) Secret URL. | None |
+| `keyvault` | string | Yes | The Azure Key Vault Secret URL. | None |
 | `clientID` | string | Yes | The client ID of the user-assigned managed identity for Azure resources. | None |
 
 ### network

@@ -60,6 +60,9 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
     ![The "Pricing tier" pane](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
+    > [!TIP]
+    > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
+
 5. Select **Review + create** to review your selections. Select **Create** to provision the server. This operation may take a few minutes.
 
 6. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this server on your Azure portal dashboard as a shortcut to the server's **Overview** page. Selecting **Go to resource** opens the server's **Overview** page.

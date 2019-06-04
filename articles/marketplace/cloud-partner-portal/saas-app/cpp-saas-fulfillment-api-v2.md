@@ -1,6 +1,6 @@
 ---
 title: SaaS Fulfillment API V2 | Azure Marketplace 
-description: Explains how to create a SaaS offer on the Azure Marketplace using the associated fulfillment V2 APIs.
+description: Explains how to create a SaaS offer on the AppSource and Azure Marketplace using the associated fulfillment V2 APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
@@ -11,8 +11,13 @@ ms.author: pabutler
 
 # SaaS Fulfillment APIs Version 2 
 
-This article details the API that enables independent software vendors (ISVs) to integrate their SaaS applications with the Azure Marketplace. This API enables ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller) and field-led.  This API is a requirement for listing transactable SaaS offers on the Azure Marketplace.
+This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
 
+> [!IMPORTANT] 
+> SaaS offer functionality has been migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
+> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
+> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
+> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
 
 ## Managing the SaaS subscription lifecycle
 
@@ -100,7 +105,6 @@ The resolve endpoint enables the publisher to resolve a marketplace token to a p
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
 |  x-ms-requestid    |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers.  |
 |  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
@@ -114,11 +118,11 @@ Resolves the opaque token to a SaaS subscription.<br>
 ```json
 Response body:
 {
-    "subscriptionId": "<guid>",  
+    "id": "<guid>",  
     "subscriptionName": "Contoso Cloud Solution",
     "offerId": "offer1",
     "planId": "silver",
-    "quantity": "20" 
+    "quantity": "20" // This will not be returned if the "quantity" = 1
 }
 ```
 
@@ -348,6 +352,7 @@ Internal Server Error<br>
 
 |                    |                   |
 |  ---------------   |  ---------------  |
+|  Content-Type      | `application/json`  |
 |  ApiVersion        |  Version of the operation to use for this request  |
 | subscriptionId     | Unique identifier of the SaaS subscription that's obtained after resolving the token using the Resolve API  |
 
@@ -779,26 +784,35 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
 }
 ```
 
 Where action can be one of these: 
-- `Subscribe`  (When the resource has been activated)
-- `Unsubscribe` (When the resource has been deleted)
-- `ChangePlan` (When the change plan operation has completed)
-- `ChangeQuantity` (When the change quantity operation has completed)
-- `Suspend` (When the resource has been suspended)
-- `Reinstate` (When resource has been reinstated after suspension)
+- `Subscribe`, (When the resource has been activated)
+- `Unsubscribe`, (When the resource has been deleted)
+- `ChangePlan`, (When the change plan operation has completed)
+- `ChangeQuantity`, (When the change quantity operation has completed),
+- `Suspend`, (When resource has been suspended)
+- `Reinstate`, (When resource has been reinstated after suspension)
 
+Where status can be one of these: <br>
+        - NotStarted, <br>
+        - InProgress, <br>
+        - Succeeded, <br>
+        - Failed, <br>
+        - Conflict <br>
+
+Actionable statuses are Succeeded and Failed in a webhook notification. An operation's lifecycle is from NotStarted to a terminal state like Succeeded/Failed/Conflict. If you receive Not started or in progress, please continue to request the status via GET operation API until the operation reaches a terminal state before taking any action. 
 
 ## Mock API
 

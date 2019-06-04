@@ -61,6 +61,13 @@ You can read more about the different installation options and parameters in the
 
 2. Run PowerShell as an administrator.
 
+   >[!NOTE]
+   >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime (which is not used for Linux containers) and the IoT Edge runtime. The command defaults to Windows containers, so declare Linux as the desired container operating system. 
 
    ```powershell

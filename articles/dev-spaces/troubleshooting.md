@@ -368,7 +368,7 @@ After your controller is reinstalled, redeploy your pods.
 The user accessing the Azure Dev Spaces controller must have access to read the admin *kubeconfig* on the AKS cluster. For example, this permission is available in the [built-in Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). The user accessing the Azure Dev Spaces controller must also have the *Contributor* or *Owner* RBAC role for the controller.
 
 ### Try
-More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
 To update the user's RBAC role for the controller:
 
@@ -398,3 +398,8 @@ Create a controller with an alternate name:
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## Enabling Dev Spaces failing when Windows node pools are added to an AKS cluster
+
+### Reason
+Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only. At this time, you cannot enable Azure Dev Spaces on an AKS cluster with a Windows node pool.

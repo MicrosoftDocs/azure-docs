@@ -126,6 +126,7 @@ The steps above use the following helper functions:
 ```Python
 def convert_to_opencv(image):
     # RGB -> BGR conversion is performed as well.
+    image = image.convert('RGB')
     r,g,b = np.array(image).T
     opencv_image = np.array([b,g,r]).transpose()
     return opencv_image
