@@ -15,7 +15,7 @@ ms.date: 05/09/2019
 ms.author: bwren
 ---
 
-# Get started with Azure Monitor log queries
+# Get started with log queries in Azure Monitor
 
 
 > [!NOTE]
@@ -33,6 +33,8 @@ In this tutorial you will learn to write Azure Monitor log queries. It will teac
 - Define and use custom fields
 - Aggregate and group results
 
+For a tutorial on Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](get-started-portal.md).
+For more details on log queries in Azure Monitor, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 
 ## Writing a new query
 Queries can start with either a table name or the *search* command. You should start with a table name, since it defines a clear scope for the query and improves both query performance and relevance of the results.

@@ -10,7 +10,7 @@ ms.date: 08/20/2018
 ms.author: bwren
 ---
 
-# Get started with Azure Monitor Log Analytics
+# Get started with Log Analytics in Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -24,6 +24,8 @@ In this tutorial you will learn how to use Azure Monitor Log Analytics in the Az
 - Save and load queries
 - Export and share queries
 
+For a tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
+For more details on Log Analytics, see [Overview of Log Analytics in Azure Monitor](portals.md).
 
 ## Meet Log Analytics
 Log Analytics is a web tool used to write and execute Azure Monitor log queries. Open it by selecting **Logs** in the Azure Monitor menu. It starts with a new blank query.
