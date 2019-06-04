@@ -1311,6 +1311,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/sql-api-python-application.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/powershell-samples.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
       "redirect_document_id": true

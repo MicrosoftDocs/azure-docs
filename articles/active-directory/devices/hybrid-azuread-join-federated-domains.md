@@ -13,13 +13,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 
-#Customer intent: As an IT admin, I want to setup hybrid Azure AD joined devices for federated domains so that I can automatically bring AD domain-joined devices under control
+#Customer intent: As an IT admin, I want to setup hybrid Azure AD joined devices for federated domains so that I can automatically create and manage device identities in Azure AD for my AD domain-joined computers
 
 ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
 
-In a similar way to a user, a device is becoming another identity you want to protect and also use to protect your resources at any time and location. You can accomplish this goal by bringing your devices' identities to Azure AD using one of the following methods:
+In a similar way to a user, a device is another core identity you want to protect and use it to protect your resources at any time and from any location. You can accomplish this goal by bringing and managing device identities in Azure AD using one of the following methods:
 
 - Azure AD join
 - Hybrid Azure AD join
@@ -27,7 +27,11 @@ In a similar way to a user, a device is becoming another identity you want to pr
 
 By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [conditional access](../active-directory-conditional-access-azure-portal.md).
 
-In this tutorial, you learn how to configure hybrid Azure AD join for devices that federated using ADFS.
+In this tutorial, you learn how to configure hybrid Azure AD join for AD domain-joined computers devices in a federated environment using AD FS.
+
+> [!NOTE]
+> If your federated environment is using an identity provider other than AD FS, then you need to ensure that your identity provider supports WS-Trust protocol. WS-Trust is needed to authenticate your Windows current hybrid Azure AD joined devices with Azure AD. Additionally, if you have Windows down-level devices that you need to hybrid Azure AD join, your identity provider will need to support WIAORMULTIAUTHN claim. 
+
 
 > [!div class="checklist"]
 > * Configure hybrid Azure AD join
@@ -39,9 +43,9 @@ In this tutorial, you learn how to configure hybrid Azure AD join for devices th
 
 This tutorial assumes that you are familiar with:
 
-- [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
+- [Introduction to device identity management in Azure Active Directory](../device-management-introduction.md)
 - [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
-- [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
+- [How to do controlled validation of hybrid Azure AD join](hybrid-azuread-join-control.md)
 
 To configure the scenario in this tutorial, you need:
 
@@ -54,7 +58,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 - Backs up your existing Azure AD relying party trust
 - Updates the claim rules in your Azure AD trust
 
-The configuration steps in this article are based on this wizard. If you have an older version of Azure AD Connect installed, you need upgrade it to 1.1.819 or higher. If installing the latest version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md).
+The configuration steps in this article are based on this wizard. If you have an older version of Azure AD Connect installed, you need upgrade it to 1.1.819 or higher. If installing the latest version of Azure AD Connect is not an option for you, see [how to manually configure hybrid Azure AD join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual).
 
 Hybrid Azure AD join requires the devices to have access to the following Microsoft resources from inside your organization's network:  
 
@@ -64,9 +68,14 @@ Hybrid Azure AD join requires the devices to have access to the following Micros
 - Your organization's STS (federated domains)
 - `https://autologon.microsoftazuread-sso.com` (If you are using or planning to use Seamless SSO)
 
-Beginning with Windows 10 1803, if the instantaneous Hybrid Azure AD join for federated domain like AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that is subsequently used to complete the device registration for Hybrid Azure AD join.
+Beginning with Windows 10 1803, if the instantaneous Hybrid Azure AD join for federated environment using AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that is subsequently used to complete the device registration for Hybrid Azure AD join. Verify that Azure AD Connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OU), then these OUs need to be configured for synchronization in Azure AD connect as well. To learn more on how to synchronize computer objects using Azure AD Connect, see the article on [Configure filtering using Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering).
 
-If your organization requires access to the internet via an outbound proxy, starting with Windows 10 1709, you can [configure proxy settings on your computer using a group policy object (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). If your computer is running a version earlier than Windows 10 1709, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to do device registration with Azure AD.
+If your organization requires access to the Internet via an outbound proxy, Microsoft recommends [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers to do device registration with Azure AD. If you are encountering issues with configuring and managing WPAD, go to [troubleshooting automatic detection](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+
+If you are not using WPAD and need to configure proxy settings on your computer, you can do so starting with Windows 10 1709, by [configuring WinHTTP settings using a group policy object (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+
+> [!NOTE]
+> If you configure proxy settings on your computer using WinHTTP settings, then any computers that are unable to connect to the configured proxy will fail to connect to the internet.
 
 If your organization requires access to the Internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration using machine context, it is necessary to configure outbound proxy authentication using machine context. Follow up with your outbound proxy provider on the configuration requirements.
 
@@ -128,19 +137,8 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
 If some of your domain-joined devices are Windows down-level devices, you need to:
 
-- Update device settings
 - Configure the local intranet settings for device registration
-- Control Windows down-level devices
-
-### Update device settings
-
-To register Windows down-level devices, you need to make sure that the device settings to allow users to register devices in Azure AD are set. In the Azure portal, you can find this setting  under:
-
-`Home > [Name of your tenant] > Devices - Device settings`
-
-The following policy must be set to **All**: **Users may register their devices with Azure AD**
-
-![Register devices](./media/hybrid-azuread-join-federated-domains/23.png)
+- install Microsoft Workplace Join for Windows down-level computers
 
 ### Configure the local intranet settings for device registration
 
@@ -152,9 +150,13 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
 
-### Control Windows down-level devices
+### install Microsoft Workplace Join for Windows down-level computers
 
-To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, see the section [Controlled validation of hybrid Azure AD join on Windows down-level devices](hybrid-azuread-join-control.md#controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices).
+To register Windows down-level devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) available on the Microsoft Download Center.
+
+You can deploy the package by using a software distribution system like [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). The package supports the standard silent installation options with the quiet parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
+
+The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user does a sign in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating with Azure AD.
 
 ## Verify the registration
 
@@ -182,9 +184,7 @@ If you are experiencing issues with completing hybrid Azure AD join for domain j
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
-> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
+- For more information about managing device identities in the Azure AD portal, see [managing device identities using the Azure portal](device-management-azure-portal.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
