@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
-    `https://login.druva.com/api/commonlogin/samlconsume`
+    `https://login.druva.com/login`
 
 1. Druva application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
