@@ -321,7 +321,7 @@ Notice how the script gets data and saves models:
 
 ### Create an estimator
 
-An estimator object is used to submit the run. Create your estimator by running the following code to define these items:
+An [SKLearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) object is used to submit the run. Create your estimator by running the following code to define these items:
 
 * The name of the estimator object, `est`.
 * The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
@@ -339,7 +339,7 @@ script_params = {
     '--regularization': 0.5
 }
 
-est = Estimator(source_directory=script_folder,
+est = SKLearn(source_directory=script_folder,
                 script_params=script_params,
                 compute_target=compute_target,
                 entry_script='train.py')
