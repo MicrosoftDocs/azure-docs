@@ -128,7 +128,7 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
    ![The Azure Explorer link](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
 
-3. In the **Azure Sign In** dialog box, choose **Device Login**, and then click **Sign in**.
+3. In the **Azure Sign In** dialog box, choose **Device Login**, and then select **Sign in**.
 
     ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
@@ -177,7 +177,7 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
         |User Name| Enter cluster user name, default is admin.|
         |Password| Enter password for user name.|
     
-        ![link hdinsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![link Hdinsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy Service**  
   
@@ -191,7 +191,7 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
         |User Name| Enter cluster user name, default is admin.|
         |Password| Enter password for user name.|
 
-        ![link livy cluster dialog](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
+        ![link Livy cluster dialog](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
 
 1. You can see your linked cluster from the **HDInsight** node.
 
@@ -347,20 +347,18 @@ It is convenient for you to foresee the script result by sending some code to th
 
    ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
-## Reader Only Role
-
-Users with cluster Reader only role can no longer submit job to the HDInsight cluster nor view the Hive database. If you know Ambari credentials, you can follow instruction below to manually link the cluster. Otherwise, you need to contact the cluster administrator to upgrade your role to [HDInsight Cluster Operator](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure Portal](https://ms.portal.azure.com/#home).
-
+## Reader-only role
+When users submit job to a cluster with reader-only role permission, Ambari credentials is required.
 
 ### Link cluster from context menu
 
-1. Sign in with reader only role account.
+1. Sign in with reader-only role account.
        
-2. From **Azure Explorer**, expand **HDInsight** to view HDInsight clusters that are in your subscription. The clusters marked **"Role:Reader"** only have reader only role permission.
+2. From **Azure Explorer**, expand **HDInsight** to view HDInsight clusters that are in your subscription. The clusters marked **"Role:Reader"** only have reader-only role permission.
 
     ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
 
-3. Right click the cluster with reader only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and Password.
+3. Right click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and Password.
 
   
     ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
@@ -384,13 +382,13 @@ Users with cluster Reader only role can no longer submit job to the HDInsight cl
 
 1. Create an HDInsight Configuration. Then select **Remotely Run in Cluster**.
    
-2. Select a cluster which has reader only role permission for **Spark clusters(Linux only)**. Warning message shows out. You can Click **Link this cluster** to link cluster.
+2. Select a cluster which has reader-only role permission for **Spark clusters(Linux only)**. Warning message shows out. You can Click **Link this cluster** to link cluster.
    
    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/create-config-1.png)
    
 ### View Storage Accounts
 
-* For clusters with reader only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up. You can click **Open Azure Storage Explorer** to open Storage Explorer.
+* For clusters with reader-only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up. You can click **Open Azure Storage Explorer** to open Storage Explorer.
      
    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-14.png)
 
