@@ -1,5 +1,5 @@
 ---
-title: What is device identity management in Azure Active Directory? | Microsoft Docs
+title: What is device identity in Azure Active Directory? | Microsoft Docs
 description: Learn how device identity management can help you to manage devices that are accessing resources in your environment.
 services: active-directory
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.reviewer: jairoc
 
 ms.collection: M365-identity-device-management
 ---
-# What is device identity management in Azure Active Directory?
+# What is a device identity?
 
 In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices - including Bring Your Own Device (BYOD), IT professionals are faced with two opposing goals:
 

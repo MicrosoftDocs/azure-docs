@@ -22,9 +22,9 @@ ms.reviewer: jairoc
 
 ms.collection: M365-identity-device-management
 ---
-# How to manage devices using the Azure portal
+# How to manage device identity using the Azure portal
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance.
 
 This article:
 
