@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/04/2019
 ms.author: diberry
 ---
 
@@ -16,7 +16,7 @@ ms.author: diberry
 
 Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
 
-Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions add questions but don't change or remove existing questions.
+Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
 
 ## What is active learning?
 
@@ -57,9 +57,9 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not impact active learning.
 
-1. To turn active learning on, click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top right corner.  
+1. To turn active learning on, click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top-right corner.  
 
-    ![Turn on active learning's suggested question alternatives from the Service settings page. Select your user name in the top right menu, then select Service Settings.](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Turn on active learning's suggested question alternatives from the Service settings page. Select your user name in the top-right menu, then select Service Settings.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. Find the QnA Maker service then toggle **Active Learning**. 
@@ -232,248 +232,127 @@ Your bot framework code needs to call the Train API, if the user's query should 
 
 In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these activities have been programmed. 
 
-### Using C#
+### Architectural flow for using GenerateAnswer and Train APIs from a bot
 
-The [DialogHelper.cs](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/csharp_dotnetcore/Helpers/DialogHelper.cs) file contains the **DialogHelper** class's constructor, which chains together the methods to:
-
-* Get the answer from the knowledge base.
-* Filter out low scores.
-* Send back to the QnA Maker Train API.
+* Get the answer from the knowledge base with GenerateAnswer.
+* Using your own custom business logic, filter out low scores.
+* Send information back to QnA Maker with the Train API.
 * Display the answer to the user.
 
 ```csharp
 QnAMakerActiveLearningDialog = new WaterfallDialog(ActiveLearningDialogName)
     .AddStep(CallGenerateAnswer)
-    .AddStep(FilterLowVariationScoreList)
+    .AddStep(CustomBusinessLogicToFilterOutLowScores)
     .AddStep(CallTrain)
     .AddStep(DisplayQnAResult);
 ```
 
-The **CallTrain** method above calls into the [ActiveLearningHelper.cs](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/csharp_dotnetcore/Helpers/ActiveLearningHelper.cs) file, which contains the **ActiveLearningHelper** class, which determines which queries to send back to the Train API then sends those queries:
+### Example C# code for Train API with Bot Framework 4.x
+
+The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) is available on GitHub.
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Bot.Builder.AI.QnA;
-using Newtonsoft.Json;
-
-namespace QnAMakerActiveLearningBot.Helpers
+public class FeedbackRecords
 {
-    public static class ActiveLearningHelper
+    // <summary>
+    /// List of feedback records
+    /// </summary>
+    [JsonProperty("feedbackRecords")]
+    public FeedbackRecord[] Records { get; set; }
+}
+
+/// <summary>
+/// Active learning feedback record
+/// </summary>
+public class FeedbackRecord
+{
+    /// <summary>
+    /// User id
+    /// </summary>
+    public string UserId { get; set; }
+
+    /// <summary>
+    /// User question
+    /// </summary>
+    public string UserQuestion { get; set; }
+
+    /// <summary>
+    /// QnA Id
+    /// </summary>
+    public int QnaId { get; set; }
+}
+
+/// <summary>
+/// Method to call REST-based QnAMaker Train API for Active Learning
+/// </summary>
+/// <param name="host">Endpoint host of the runtime</param>
+/// <param name="FeedbackRecords">Feedback records train API</param>
+/// <param name="kbId">Knowledgebase Id</param>
+/// <param name="key">Endpoint key</param>
+/// <param name="cancellationToken"> Cancellation token</param>
+public async static void CallTrain(string host, FeedbackRecords feedbackRecords, string kbId, string key, CancellationToken cancellationToken)
+{
+    var uri = host + "/knowledgebases/" + kbId + "/train/";
+
+    using (var client = new HttpClient())
     {
-        /// <summary>
-        /// Minimum Score For Low Score Variation
-        /// </summary>
-        private const double MinimumScoreForLowScoreVariation = 20.0;
-
-        /// <summary>
-        /// Previous Low Score Variation Multiplier
-        /// </summary>
-        private const double PreviousLowScoreVariationMultiplier = 1.4;
-
-        /// <summary>
-        /// Max Low Score Variation Multiplier
-        /// </summary>
-        private const double MaxLowScoreVariationMultiplier = 2.0;
-
-
-        /// <summary>
-        /// Maximum Score For Low Score Variation
-        /// </summary>
-        private const double MaximumScoreForLowScoreVariation = 95.0;
-
-        /// <summary>
-        /// Returns list of qnaSearch results which have low score variation
-        /// </summary>
-        /// <param name="qnaSearchResults">List of QnaSearch results</param>
-        /// <returns>List of filtered qnaSearch results</returns>
-        public static List<QueryResult> GetLowScoreVariation(List<QueryResult> qnaSearchResults)
+        using (var request = new HttpRequestMessage())
         {
-            var filteredQnaSearchResult = new List<QueryResult>();
+            request.Method = HttpMethod.Post;
+            request.RequestUri = new Uri(uri);
+            request.Content = new StringContent(JsonConvert.SerializeObject(feedbackRecords), Encoding.UTF8, "application/json");
+            request.Headers.Add("Authorization", "EndpointKey " + key);
 
-            if (qnaSearchResults == null || qnaSearchResults.Count == 0)
-            {
-                return filteredQnaSearchResult;
-            }
+            var response = await client.SendAsync(request, cancellationToken);
+            await response.Content.ReadAsStringAsync();
+        }
+    }
+}
+```
 
-            if (qnaSearchResults.Count == 1)
-            {
-                return qnaSearchResults;
-            }
+### Example Node.js code for Train API with Bot Framework 4.x 
 
-            var topAnswerScore = qnaSearchResults[0].Score * 100;
-            var prevScore = topAnswerScore;
+The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) is available on GitHub.
 
-            if ((topAnswerScore > MinimumScoreForLowScoreVariation) && (topAnswerScore < MaximumScoreForLowScoreVariation))
-            {
-                filteredQnaSearchResult.Add(qnaSearchResults[0]);
+```javascript
+async callTrain(stepContext){
 
-                for (var i = 1; i < qnaSearchResults.Count; i++)
-                {
-                    if (IncludeForClustering(prevScore, qnaSearchResults[i].Score * 100, PreviousLowScoreVariationMultiplier) && IncludeForClustering(topAnswerScore, qnaSearchResults[i].Score * 100, MaxLowScoreVariationMultiplier))
+    var trainResponses = stepContext.values[this.qnaData];
+    var currentQuery = stepContext.values[this.currentQuery];
+
+    if(trainResponses.length > 1){
+        var reply = stepContext.context.activity.text;
+        var qnaResults = trainResponses.filter(r => r.questions[0] == reply);
+
+        if(qnaResults.length > 0){
+
+            stepContext.values[this.qnaData] = qnaResults;
+
+            var feedbackRecords = {
+                FeedbackRecords:[
                     {
-                        prevScore = qnaSearchResults[i].Score * 100;
-                        filteredQnaSearchResult.Add(qnaSearchResults[i]);
+                        UserId:stepContext.context.activity.id,
+                        UserQuestion: currentQuery,
+                        QnaId: qnaResults[0].id
                     }
-                }
-            }
+                ]
+            };
+
+            // Call Active Learning Train API
+            this.activeLearningHelper.callTrain(this.qnaMaker.endpoint.host, feedbackRecords, this.qnaMaker.endpoint.knowledgeBaseId, this.qnaMaker.endpoint.endpointKey);
             
-            return filteredQnaSearchResult;
+            return await stepContext.next(qnaResults);
         }
+        else{
 
-        private static bool IncludeForClustering(double prevScore, double currentScore, double multiplier)
-        {
-            return (prevScore - currentScore) < (multiplier * Math.Sqrt(prevScore));
-        }
-
-        /// <summary>
-        /// Method to call QnAMaker Train API for Active Learning
-        /// </summary>
-        /// <param name="host">Endpoint host of the runtime</param>
-        /// <param name="FeedbackRecords">Feedback records train API</param>
-        /// <param name="kbId">Knowledgebase Id</param>
-        /// <param name="key">Endpoint key</param>
-        /// <param name="cancellationToken"> Cancellation token</param>
-        public async static void CallTrain(string host, FeedbackRecords feedbackRecords, string kbId, string key, CancellationToken cancellationToken)
-        {
-            var uri = host + "/knowledgebases/" + kbId + "/train/";
-
-            using (var client = new HttpClient())
-            {
-                using (var request = new HttpRequestMessage())
-                {
-                    request.Method = HttpMethod.Post;
-                    request.RequestUri = new Uri(uri);
-                    request.Content = new StringContent(JsonConvert.SerializeObject(feedbackRecords), Encoding.UTF8, "application/json");
-                    request.Headers.Add("Authorization", "EndpointKey " + key);
-
-                    var response = await client.SendAsync(request, cancellationToken);
-                    await response.Content.ReadAsStringAsync();
-                }
-            }
+            return await stepContext.endDialog();
         }
     }
+
+    return await stepContext.next(stepContext.result);
 }
 ```
 
-### Using Node.js
-
-The [dialogHelper.js](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js) file contains the **DialogHelper** class's constructor, which chains together the methods to:
-
-* Get the answer from the knowledge base.
-* Filter out low scores.
-* Send back to the QnA Maker Train API.
-* Display the answer to the user.
-
-```javascript
-this.qnaMakerActiveLearningDialog
-    .addStep(this.callGenerateAnswer.bind(this))
-    .addStep(this.filterLowVariationScoreList.bind(this))
-    .addStep(this.callTrain.bind(this))
-    .addStep(this.displayQnAResult.bind(this));
-```
-
-The **callTrain** method above calls into the [activeLearningHelper.js](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/activeLearningHelper.js)  file which contains the **ActiveLearningHelper** class, which determines which queries to send back to the Train API then sends those queries:
-
-```javascript
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-const https = require('https');
-
-// Minimum Score For Low Score Variation
-const MinimumScoreForLowScoreVariation = 20;
-
-// Previous Low Score Variation Multiplier
-const PreviousLowScoreVariationMultiplier = 1.4;
-
-// Max Low Score Variation Multiplier
-const MaxLowScoreVariationMultiplier = 2.0;
-
-// Maximum Score For Low Score Variation
-const MaximumScoreForLowScoreVariation = 95.0;
-
-class ActiveLearningHelper{
-    
-    /**
-    * Returns list of qnaSearch results which have low score variation.
-    * @param {QnAMakerResult[]} qnaSearchResults A list of results returned from the QnA getAnswer call.
-    */
-    getLowScoreVariation(qnaSearchResults){
-        
-        if (qnaSearchResults == null || qnaSearchResults.length == 0){
-            return [];
-        }
-
-        if(qnaSearchResults.length == 1){
-            return qnaSearchResults;
-        }
-
-        var filteredQnaSearchResult = [];
-        var topAnswerScore = qnaSearchResults[0].score * 100;
-        var prevScore = topAnswerScore;
-
-        if((topAnswerScore > MinimumScoreForLowScoreVariation) && (topAnswerScore < MaximumScoreForLowScoreVariation)){
-            filteredQnaSearchResult.push(qnaSearchResults[0]);
-
-            for(var i = 1; i < qnaSearchResults.length; i++){
-                if (this.includeForClustering(prevScore, qnaSearchResults[i].score * 100, PreviousLowScoreVariationMultiplier) && this.includeForClustering(topAnswerScore, qnaSearchResults[i].score * 100, MaxLowScoreVariationMultiplier)){
-                    prevScore = qnaSearchResults[i].score * 100;
-                    filteredQnaSearchResult.push(qnaSearchResults[i]);
-                }
-            }
-        }
-
-        return filteredQnaSearchResult;
-    }
-
-
-    includeForClustering(prevScore, currentScore, multiplier)
-    {
-        return (prevScore - currentScore) < (multiplier * Math.sqrt(prevScore));
-    }
-
-    /**
-     * Method to call QnAMaker Train API for Active Learning
-     * @param {string} host Endpoint host of the runtime
-     * @param {FeedbackRecords[]} feedbackRecords Body of the train API
-     * @param {string} kbId Knowledgebase Id
-     * @param {string} key Endpoint key
-     */
-    async callTrain(host, feedbackRecords, kbId, key){
-
-        var data = JSON.stringify(feedbackRecords);
-        
-        const headers = {
-            "Content-Type": "application/json",
-            "Content-Length": data.length,
-            "Authorization": "EndpointKey " + key
-        };
-
-        var options = {
-            hostname:  host.split('/')[2],
-            path: "/qnamaker/knowledgebases/" + kbId + "/train/",
-            port: 443,
-            method: "POST",
-            headers: headers,
-        }
-
-        var req = https.request( options, (res) =>{
-            res.statusCode;
-        });
-        
-        req.write(data);
-        req.end();
-    }
-}
-
-module.exports.ActiveLearningHelper = ActiveLearningHelper;
-```
 
 ## Next steps
  
