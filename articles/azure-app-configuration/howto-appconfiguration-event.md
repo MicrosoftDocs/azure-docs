@@ -141,5 +141,5 @@ az group delete --name <resource_group_name>
 
 Now that you know how to create topics and event subscriptions, learn more about key-value events and what Event Grid can help you do:
 
-- [Reacting to Key-Value Events](key-value-event-overview.md)
+- [Reacting to Key-Value Events](concept-appconfiguration-event.md)
 - [About Event Grid](../event-grid/overview.md)

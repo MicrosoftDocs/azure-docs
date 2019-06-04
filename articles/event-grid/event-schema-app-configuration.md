@@ -92,4 +92,4 @@ The data object has the following properties:
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* For an introduction to working with Azure App Configuration events, see [Route Azure App Configuration events - Azure CLI](../azure-app-configuration/quickstart-key-value-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* For an introduction to working with Azure App Configuration events, see [Route Azure App Configuration events - Azure CLI](../azure-app-configuration/howto-appconfiguration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

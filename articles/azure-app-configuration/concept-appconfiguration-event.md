@@ -19,7 +19,7 @@ Azure App Configuration events are sent to the Azure Event Grid which provides r
 
 Common app configuration event scenarios include refreshing application configuration, triggering deployments, or any configuration-oriented workflow. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
-Take a look at [Route Azure App Configuration events to a custom web endpoint - CLI](./quickstart-key-value-event.md) for a quick example. 
+Take a look at [Route Azure App Configuration events to a custom web endpoint - CLI](./howto-appconfiguration-event.md) for a quick example. 
 
 ![Event Grid Model](./media/event-grid-functional-model.png)
 
@@ -83,4 +83,4 @@ Applications that handle app configuration events should follow a few recommende
 Learn more about Event Grid and give Azure App Configuration events a try:
 
 - [About Event Grid](../event-grid/overview.md)
-- [Route Azure App Configuration events to a custom web endpoint](./quickstart-key-value-event.md)
+- [Route Azure App Configuration events to a custom web endpoint](./howto-appconfiguration-event.md)
