@@ -38,6 +38,7 @@ Before you can associate or add your subscription, you must perform the followin
     - Users that have been assigned roles using RBAC will lose their access
     - Service Administrator and Co-Administrators will lose access
     - If you have any key vaults, they'll be inaccessible and you'll have to fix them after association
+    - If you have any managed identities for resources such as Virtual Machines or Logic Apps, you'll have to re-enable or recreate them after the association
     - If you have a registered Azure Stack, you'll have to re-register it after association
 
 1. Sign in using an account that:
@@ -72,7 +73,9 @@ After you associate a subscription to a different directory, there might be addi
 
 1. If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
+2. If you were using system-assigned Managed Identities for resources, you must re-enable these. If you were using user-assigned Managed Identities, you must re-create these. After re-enabling or recreating the Managed Identities, you must re-establish the permissions assigned to those identities. For more information see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
+
+3. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

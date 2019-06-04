@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 05/29/2019
 ms.author: juliako
 ---
 
@@ -39,9 +39,9 @@ Added HLS (version 4 or above) support in Dynamic Packaging for Assets that have
 
 For more information, see [Dynamic Packaging](dynamic-packaging-overview.md).
 
-### Media Services availability in Korea Central Region
+### Korea regional pair is open for Media Services 
 
-Media Services is now available in Korea Central region. 
+Media Services is now available in Korea Central and Korea South regions. 
 
 For more information, see [Clouds and regions in which Media Services v3 exists](azure-clouds-regions.md).
 

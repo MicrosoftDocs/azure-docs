@@ -5,6 +5,8 @@
   items:
   - name: What is Language Understanding?
     href: what-is-luis.md
+  - name: What's new
+    href: whats-new.md    
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
@@ -83,7 +85,7 @@
       displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
-  - name: Use bot
+  - name: Use V4 bot framework
     items:
     - name: With C# 
       href: luis-csharp-tutorial-bf-v4.md
@@ -197,7 +199,8 @@
     - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
-      href: luis-tutorial-speech-to-intent.md
+      maintainContext: true
+      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
     - name: With a bot
       items:
         - name: Web app bot
@@ -279,6 +282,8 @@
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
+  - name: Application settings
+    href: luis-reference-application-settings.md
   - name: Prebuilt entity reference
     items:
     - name: Entities per culture
