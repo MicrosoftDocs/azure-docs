@@ -34,7 +34,7 @@ Image
 
 We will use the numbered paging app you might have completed in the second tutorial as a basis for this sample.
 
-To implement facets, we do not need to change any of the models (the data classes). We do need to add some script to the view and an action to the controller.
+To implement facets, we do not need to change any of the models (the data classes). We do need to add some script to the view, and an action to the controller.
 
 ### Start with the numbered paging Azure Search app
 
@@ -133,7 +133,7 @@ Notice that the script calls the **Facets** action in the home controller, witho
 
 The autocomplete function called in the script above is not something we have to write ourselves as it is available in the jquery library. 
 
-1. To access the jquery library, add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks similar to this code.
+1. To access the jquery library, add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks similar to the following code.
 
 ```cs
 <head>
@@ -196,18 +196,12 @@ Notice that we are requesting up to 100 facets from the **Tags** fields and up t
 > [!NOTE]
 > It is possible to set one or more of the following parameters for each field in a facet search: **count**, **sort**, **interval**, and **values**. Refer to [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation) for more details.
 
-2. If you get syntax errors with the **List&lt;string&gt;** declarations, make sure to add this **using** statement to the top of the file.
+2. If you get syntax errors with the **List&lt;string&gt;** declarations, or **Select** calls, make sure to add the following **using** statements to the top of the file.
 
 ```cs
 using System.Collections.Generic;
-```
-
-3. If you get syntax errors with the **Select** calls, to create lists of results, add this **using** statement.
-
-```cs
 using System.Linq;
 ```
-
 
 Note how we need two lists, that are then combined into one, because we asked for two fields to be searched (**Tags** and **Category**). If we had asked for three fields to be searched, we would have to combine three lists into one, and so on.
 
@@ -221,7 +215,7 @@ Image
 
 2. Now add an "o" to make "fro" and notice the range of options is reduced to one.
 
-3. Type other combinations of two letters and see what appears. Notice that when you type the server is *not* being called. The facets are cached locally when the app was started and now a call is only made to the server when the user requests a search.
+3. Type other combinations of two letters and see what appears. Notice that when you type the server is *not* being called. The facets are cached locally when the app is started, and now a call is only made to the server when the user requests a search.
 
 ## Decide when to use a facet search
 
@@ -230,7 +224,7 @@ The clear difference between facet searches and other searches such as suggestio
 Facet searches are best used when:
 * The performance of other searches that call the server each keystroke is an issue.
 * The facets returned provide the user with a list of options of reasonable length when they type in a few characters.
-* The facets returned provide a quick way to access most or ideally all of the data available.
+* The facets returned provide a quick way to access most, or ideally all, of the data available.
 * The maximum counts allow most facets to be included. In our code, we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. The maximums set must work well with the size of the data set. If too many potential facets are being cut, then perhaps the search is not as helpful as it should be.
 
 > [!NOTE]
