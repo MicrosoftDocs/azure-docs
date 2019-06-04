@@ -80,6 +80,8 @@ When you receive the Data Box Heavy, do the following steps to cable the device 
 
 ## Cable first node for network
 
+This step takes about 10-15 minutes to complete.
+
 1. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device.
 2. Use the Twinax QSFP+ copper cable to connect at least one 40 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. If using a 10-Gbps switch, use a Twinax SFP+ copper cable with a QSFP+ to SFP+ adapter (the QSA adapter) to connect the 40-Gbps network interface for data.
 3. Cable the device as shown below.  
@@ -96,6 +98,8 @@ This step takes about 5-7 minutes to complete.
 4. By default, the network settings for the interfaces (excluding the MGMT) are configured as DHCP. If needed, you can configure these interfaces as static and provide an IP address.
 
 ## Cable and configure the second node
+
+This step takes about 15-20 minutes to complete.
 
 Follow the steps used for the first node to cable and configure the second node on the device.  
 
