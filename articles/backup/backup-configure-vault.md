@@ -66,7 +66,7 @@ If your machine has limited internet access, ensure that firewall settings on th
 
 A Recovery Services vault stores all the backups and recovery points you create over time, and contains the backup policy applied to backed up machines. Create a vault as follows:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 2. In search, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png)
@@ -160,7 +160,7 @@ Download the MARS agent for installation on machines you want to back up.
     - Save the encryption passphrase in a secure location.
     - If you lose or forget the passphrase, Microsoft can't help recover the backup data. Save the file in a secure location. You need it to restore a backup.
 
-7. click **Finish**. The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
+7. Click **Finish**. The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
 ## Create a backup policy
 
@@ -249,7 +249,7 @@ Enable network throttling as follows:
 
 After the initial backup is completed, the **Job completed** status appears in the Backup console.
 
-## Ad hoc Backup Retention behavior
+## Ad hoc backup policy retention behavior
 
 | Backup Policy for Scheduled Backup | Ad hoc Backup Retention
 | -- | --
