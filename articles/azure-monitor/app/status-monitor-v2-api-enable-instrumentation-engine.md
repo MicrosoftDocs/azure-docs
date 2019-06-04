@@ -28,7 +28,7 @@ Enables the instrumentation engine by setting some registry keys.
 Restart IIS for the changes to take effect.
 
 The instrumentation engine can supplement data collected by the .NET SDKs.
-It collects events and messages that describe the execution of a managed process, including dependency result codes, HTTP verbs, and SQL command text.
+It collects events and messages that describe the execution of a managed process. These events and messages include dependency result codes, HTTP verbs, and SQL command text.
 
 Enable the instrumentation engine if:
 - You've already enabled monitoring with the Enable cmdlet but didn't enable the instrumentation engine.
