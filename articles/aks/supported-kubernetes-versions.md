@@ -78,8 +78,8 @@ And AKS releases 1.13.x, this means that the 1.9.x versions (all 1.9 versions) w
 
 > [!NOTE]
 > Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
-> requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the AKS
-> SLO.
+> requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by AKS
+> support policies and SLO.
 
 In addition to the above on minor versions, AKS supports the two latest *patch** releases of a given minor version. For
 example, given the following supported versions:
@@ -102,7 +102,7 @@ Supported Version List
 * For new **patch** versions of Kubernetes, users are notified **30 days in advance** that a new patch version
 is released and to upgrade to a supported version.
 
-AKS defines "released" as Generally Availability, enabled in all SLO / Quality of Service measurements and
+AKS defines "released" as generally availability, enabled in all SLO / Quality of Service measurements and
 available in all regions.
 
 > [!NOTE]
@@ -130,8 +130,6 @@ and latest patch. For example, if AKS supports *1.13.x*, *1.12.a* + *1.12.b*, *1
 the default version for new clusters is *1.12.b*.
 
 AKS defaults to N-1 (minor.latestPatch, eg 1.12.b) to provide customers a known, stable and patched version by default.
-Versions older than N-1 can have long-standing bugs and defects that are un-patched, and new minor versions can
-introduce new defects and issues that impact the user experience and operations.
 
 ## List currently supported versions
 
@@ -162,21 +160,21 @@ KubernetesVersion    Upgrades
 
 **What happens when a customer upgrades a Kubernetes cluster with a minor version that is not supported?**
 
-If you are on the *n-4* version, you are out of the SLO. If your upgrade from version n-4 to n-3 succeeds, then you are
-back in the SLO. For example:
+If you are on the *n-4* version, you are outside of support and will be asked to upgrade. If your upgrade from version
+n-4 to n-3 succeeds, you are now within our support policies. For example:
 
 - If the supported AKS versions are *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c* + *1.11d*, and *1.10.e* + *1.10f* and you
-  are on *1.9.g* or *1.9.h*, you are out of the SLO.
-- If the upgrade from *1.9.g* or *1.9.h* to *1.10.e* or *1.10.f* succeeds, you are back in the SLO.
+  are on *1.9.g* or *1.9.h*, you are oare outside of support.
+- If the upgrade from *1.9.g* or *1.9.h* to *1.10.e* or *1.10.f* succeeds, you are back in the within our support policies.
 
 Upgrades to versions older than *n-4* are not supported. In such cases, we recommend customers create new AKS clusters
 and redeploy their workloads.
 
-**What does 'Out of SLO' mean**
+**What does 'Out of Support' mean**
 
-'Outside of SLO (Service Level Objective)' means that the version you are running is outside of the supported versions
-list, and you will be asked to upgrade the cluster to a supported version when requesting support. Additionally, AKS
-does not make any runtime or other guarantees for clusters outside of the supported versions list.
+'Outside of Support' means that the version you are running is outside of the supported versions list, and you will be
+asked to upgrade the cluster to a supported version when requesting support. Additionally, AKS does not make any
+runtime or other guarantees for clusters outside of the supported versions list.
 
 **What happens when a customer scales a Kubernetes cluster with a minor version that is not supported?**
 
@@ -184,8 +182,8 @@ For minor versions not supported by AKS, scaling in or out continues to work wit
 
 **Can a customer stay on a Kubernetes version forever?**
 
-Yes. However, if the cluster is not on one of the versions supported by AKS, the cluster is out of the AKS SLO. Azure
-does not automatically upgrade your cluster or delete it.
+Yes. However, if the cluster is not on one of the versions supported by AKS, the cluster is out of the AKS support
+policies. Azure does not automatically upgrade your cluster or delete it.
 
 **What version does the master support if the agent cluster is not in one of the supported AKS versions?**
 
