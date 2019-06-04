@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: tulasim
 ---
 
@@ -81,6 +81,7 @@ The JSON body has several settings:
 |`scoreThreshold`|optional|integer|Only answers with confidence score above this threshold will be returned. The default value is 0.|
 |`isTest`|optional|boolean|If set to true, returns results from `testkb` Search index instead of published index.|
 |`strictFilters`|optional|string|If specified, tells QnA Maker to return only answers that have the specified metadata. Use `none` to indicate response should have no metadata filters. |
+|`RankerType`|optional|string|If specified as `QuestionOnly`, tells QnA Maker to search questions only. If not specified, QnA Maker searches questions and answers.
 
 An example JSON body looks like:
 
@@ -196,6 +197,21 @@ The response to the GenerateAnswer contains the corresponding metadata informati
             ]
         }
     ]
+}
+```
+
+## Match questions only, by text
+
+By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
+
+You can search through the published kb, using `isTest=false`, or in the test kb using `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
 }
 ```
 
