@@ -146,12 +146,11 @@ Update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master
 
 ### Az.HDInsight PowerShell
 Update to [Az PowerShell version 2.0.0](https://www.powershellgallery.com/packages/Az) or later to avoid interruptions.  Minimal code modifications may be required if you are using a method affected by these changes.
-- `Grant-AzHDInsightHttpServicesAccess` and `Revoke-AzHDInsightHttpServicesAccess` are now deprecated. HTTP is now always enabled, so these cmdlets are no longer needed.
 - `Grant-AzHDInsightHttpServicesAccess` is now deprecated and has been replaced by the new `Set-AzHDInsightGatewayCredential` cmdlet.
 - `Get-AzHDInsightJobOutput` has been updated to support granular role-based access to the storage key.
     - Users with HDInsight Cluster Operator, Contributor, or Owner roles will not be affected.
     - Users with only the Reader role will need to specify the `DefaultStorageAccountKey` parameter explicitly.
-
+- `Revoke-AzHDInsightHttpServicesAccess` is now deprecated. HTTP is now always enabled, so this cmdlet is no longer needed.
  See the [az.HDInsight migration guide](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) for more details.
 
 ## Add the HDInsight Cluster Operator role assignment to a user
