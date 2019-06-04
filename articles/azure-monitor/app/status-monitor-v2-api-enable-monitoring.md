@@ -29,14 +29,14 @@ Enables codeless attach monitoring of IIS apps on a target computer.
 This cmdlet will modify the IIS applicationHost.config and set some registry keys.
 It will also create an applicationinsights.ikey.config file, which defines the instrumentation key used by each app.
 IIS will load the RedfieldModule on startup, which will inject the Application Insights SDK into applications as the applications start.
-You must restart IIS for your changes to take effect.
+Restart IIS for your changes to take effect.
 
 After you enable monitoring, we recommend that you use [Live Metrics](live-stream.md) to quickly check if your app is sending us telemetry.
 
 
 > [!NOTE] 
 > - To get started, must have an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
-> - To use this cmdlet, you must review and accept our license and privacy statement.
+> - This cmdlet requires that you review and accept our license and privacy statement.
 
 > [!IMPORTANT] 
 > This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy).
