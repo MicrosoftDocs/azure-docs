@@ -1311,6 +1311,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/sql-api-python-application.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/powershell-samples.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
       "redirect_document_id": true
@@ -31372,6 +31377,11 @@
     {
       "source_path": "articles/azure-maps/search-categories.md",
       "redirect_url": "/azure/azure-maps/supported-search-categories",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-speech-to-intent.md",
+      "redirect_url": "/azure/cognitive-services//speech-service/how-to-recognize-intents-from-speech-csharp",
       "redirect_document_id": true
     },
     {

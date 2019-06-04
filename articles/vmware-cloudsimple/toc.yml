@@ -55,11 +55,11 @@
   - name: Tutorials
     items:
     - name: Enable resource provider
-      href: https://docs.azure.cloudsimple.com/enable-cloudsimple-service/
+      href: enable-cloudsimple-service.md
     - name: Create the CloudSimple Service
-      href: https://docs.azure.cloudsimple.com/create-cloudsimple-service/ 
+      href: create-cloudsimple-service.md 
     - name: Access the CloudSimple portal
-      href: https://docs.azure.cloudsimple.com/access-cloudsimple-portal/
+      href: access-cloudsimple-portal.md
     - name: Manage nodes
       items:
       - name: Purchase nodes
