@@ -86,6 +86,14 @@ To stop protection for a database:
 
 6. Select **Stop backup**.
 
+>
+> [!NOTE]
+Refer the below FAQ for more information on delete data option: <br/>
+* [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+* [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>
+
 
 ## Resume protection for a SQL database
 

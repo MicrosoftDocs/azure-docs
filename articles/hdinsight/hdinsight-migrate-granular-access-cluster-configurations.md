@@ -6,7 +6,7 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 06/03/2019
 ---
     
 # Migrate to granular role-based access for cluster configurations
@@ -41,13 +41,15 @@ The following entities and scenarios are affected:
 - [API](#api): Users using the `/configurations` or `/configurations/{configurationName}` endpoints.
 - [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) version 1.1.1 or below.
 - [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) version 3.20.0 or below.
+- [Azure Data Lake and Stream Analytics Tools for Visual Studio](#azure-data-lake-and-stream-analytics-tools-for-visual-studio) below version 2.3.9000.1.
+- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) version 3.15.0 or below.
 - [SDK for .NET](#sdk-for-net)
     - [versions 1.x or 2.x](#versions-1x-and-2x): Users using the `GetClusterConfigurations`, `GetConnectivitySettings`, `ConfigureHttpSettings`, `EnableHttp` or `DisableHttp` methods from the ConfigurationsOperationsExtensions class.
     - [versions 3.x and up](#versions-3x-and-up): Users using the `Get`, `Update`, `EnableHttp`, or `DisableHttp` methods from the `ConfigurationsOperationsExtensions` class.
 - [SDK for Python](#sdk-for-python): Users using the `get` or `update` methods from the `ConfigurationsOperations` class.
 - [SDK for Java](#sdk-for-java): Users using the `update` or `get` methods from the `ConfigurationsInner` class.
 - [SDK for Go](#sdk-for-go): Users using the `Get` or `Update` methods from the `ConfigurationsClient` struct.
-
+- [Az.HDInsight PowerShell](#azhdinsight-powershell) below version 2.0.0.
 See the below sections (or use the above links) to see the migration steps for your scenario.
 
 ### API
@@ -80,6 +82,14 @@ If you are using version 1.1.1 or below, update to the [latest version of Azure 
 ### Azure Toolkit for IntelliJ
 
 If you are using version 3.20.0 or below, update to the [latest version of the Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) to avoid interruptions.
+
+### Azure Data Lake and Stream Analytics Tools for Visual Studio
+
+Update to version 2.3.9000.1 or later of [Azure Data Lake and Stream Analytics Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) to avoid interruptions.  For help with updating, see our documentation, [Update Data Lake Tools for Visual Studio](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio).
+
+### Azure Toolkit for Eclipse
+
+If you are using version 3.15.0 or below, update to the [latest version of the Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse) to avoid interruptions.
 
 ### SDK for .NET
 
@@ -133,6 +143,16 @@ Update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master
     - To retrieve all configurations, including sensitive parameters, use [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) going forward.  Note that users with the 'Reader' role will not be able to use this method. This allows for granular control over which users can access sensitive information for a cluster. 
     - To retrieve just HTTP gateway credentials, use [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings).
 - [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) is now deprecated and has been replaced by [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings).
+
+### Az.HDInsight PowerShell
+Update to [Az PowerShell version 2.0.0](https://www.powershellgallery.com/packages/Az) or later to avoid interruptions.  Minimal code modifications may be required if you are using a method affected by these changes.
+- `Grant-AzHDInsightHttpServicesAccess` and `Revoke-AzHDInsightHttpServicesAccess` are now deprecated. HTTP is now always enabled, so these cmdlets are no longer needed.
+- `Grant-AzHDInsightHttpServicesAccess` is now deprecated and has been replaced by the new `Set-AzHDInsightGatewayCredential` cmdlet.
+- `Get-AzHDInsightJobOutput` has been updated to support granular role-based access to the storage key.
+    - Users with HDInsight Cluster Operator, Contributor, or Owner roles will not be affected.
+    - Users with only the Reader role will need to specify the `DefaultStorageAccountKey` parameter explicitly.
+
+ See the [az.HDInsight migration guide](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) for more details.
 
 ## Add the HDInsight Cluster Operator role assignment to a user
 
