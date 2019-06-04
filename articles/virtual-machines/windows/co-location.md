@@ -26,5 +26,5 @@ One of the largest contributors to latency between VMs is simply distance.
 
 ## Next steps
 
-Create a [proximity placement group](proximity-placement-groups.md)for your VMs.
+Create a [proximity placement group](proximity-placement-groups.md) for your VMs.
 
