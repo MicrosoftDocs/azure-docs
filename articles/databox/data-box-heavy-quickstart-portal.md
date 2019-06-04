@@ -134,7 +134,7 @@ This operation takes about 15-20 minutes to complete.
 
 The time to complete this operation depends upon your data size.
 
-1. When the Data Box Heavy device is connected to the Azure datacenter network, the data upload to Azure starts automatically.
+1. When the Data Box Heavy device is connected to the Azure datacenter network, the data  automatically uploads to Azure.
 2. Data Box service notifies you that the data copy is complete via the Azure portal.
 
     1. Check error logs for any failures and take appropriate actions.
