@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/03/2019
 ms.author: juliako
 
 ---
@@ -21,18 +21,13 @@ ms.author: juliako
 
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. All data collected by Azure Monitor fits into one of two fundamental types, metrics and logs. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. 
 
-Currently, you can get the following diagnostic logs:
-
-|Name|Description|
-|---|---|
-|Key delivery service request|Logs that show the key delivery service request information. For more information, see [schemas](media-services-diagnostic-logs-schema.md).|
+For detailed description of this feature and to see why would you want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
 This article shows you how to rout data to the storage account and then view the data. 
 
 ## Prerequisites
 
-* [Create a Media Services account](create-account-cli-how-to.md)
-* Review [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
+[Create a Media Services account](create-account-cli-how-to.md)
 
 ## Route data to the storage account using CLI
 
