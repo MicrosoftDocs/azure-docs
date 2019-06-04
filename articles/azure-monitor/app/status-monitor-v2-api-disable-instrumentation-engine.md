@@ -24,7 +24,7 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 
 ## Description
 Disables the instrumentation engine by removing some registry keys.
-You must restart IIS for the changes to take effect.
+Restart IIS for the changes to take effect.
 
 > [!IMPORTANT] 
 > This cmdlet requires a PowerShell session with Admin permissions.
