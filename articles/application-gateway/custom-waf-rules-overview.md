@@ -78,7 +78,7 @@ The `$BlockRule` Powershell above would map to the following custom rule in ARM:
     ], 
 ```
 
-For example custom rules, see [Create and use custom web application firewall rules](create-custom-waf-rules.md).
+This custom rule contains a name, priority, an action, and the array of matching conditions that must be met for the action to take place. For further explanation of these fields, see below. For example custom rules, see [Create and use custom web application firewall rules](create-custom-waf-rules.md). 
 
 ## Fields for custom rules
 
