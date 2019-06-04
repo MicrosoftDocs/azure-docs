@@ -33,7 +33,7 @@ Minimum vSphere/vSAN subnets CIDR range prefix: **/24**
 Maximum vSphere/vSAN subnets CIDR range prefix: **/21**
 
 > [!CAUTION]
-> IP addresses in vSphere/vSAN CIDR range is reserved for use by Private Cloud infrastructure.  Do not use the IP address in this range on any virtual machine.
+> IP addresses in the vSphere/vSAN CIDR range are reserved for use by Private Cloud infrastructure. Don't use an IP address in this range on any virtual machine.
 
 
 ### vSphere/vSAN subnets CIDR range limits
