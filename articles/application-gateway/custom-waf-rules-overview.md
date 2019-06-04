@@ -23,7 +23,7 @@ For example, you can block all requests from an IP address in the range 192.168.
 
 Custom rules support using compounding logic, for example **(Condition 1 and Condition 2) or Condition 3)** to make more advanced rules that address your security needs. The example above means that if Condition 1 and Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule. 
 
-Different matching conditions within the same rule are always compounded using the **and** logical conjunction. An example of this could be to block traffic from a specific IP address, and only if they’re using a certain browser. If you want to **or** two different conditions, the two conditions must be in different rules. An example of this could be to block traffic from a specific IP address or block traffic if they’re using a specific browser. Regular expressions are also supported in custom rules, just like in the CRS rulesets. 
+Different matching conditions within the same rule are always compounded using the **and** logical conjunction. An example of this could be to block traffic from a specific IP address, and only if they’re using a certain browser. If you want to **or** two different conditions, the two conditions must be in different rules. An example of this could be to block traffic from a specific IP address or block traffic if they’re using a specific browser. Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples of these, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
 ## Allowing vs. Blocking
 
