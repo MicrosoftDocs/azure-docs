@@ -32,11 +32,11 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Solution scope
 
-This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2017**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead. 
+This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2019**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead. 
 
 Use the following table to understand your options for developing and deploying C modules to Windows devices: 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
+| C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64 develop** | ![Develop C# modules for WinAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![Develop C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 debug** |   | ![Debug C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
@@ -48,8 +48,11 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A [Windows device running Azure IoT Edge](quickstart.md).
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017), version 15.7 or higher, configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extension.
+* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
 * [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
+
+> [!TIP]
+> If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
 
 ## Create a module project
 
@@ -57,21 +60,22 @@ The following steps create an IoT Edge module project  by using Visual Studio an
 
 ### Create a new project
 
-The Azure IoT Tools extension provides project templates for all supported IoT Edge module languages in Visual Studio 2017. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
+The Azure IoT Edge Tools provides project templates for all supported IoT Edge module languages in Visual Studio. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
 
-1. Run Visual Studio as an administrator.
+1. Launch Visual Studio 2019 and select **Create New Project**.
 
-2. Select **File** > **New** > **Project**. 
-
-3. In the new project window, select the **Azure IoT** project type and choose the **Azure IoT Edge** project. Rename the project and solution to something descriptive like **CSharpTutorialApp**. Select **OK** to create the project. 
+2. In the new project window, search **IoT Edge** project and choose the **Azure IoT Edge (Windows amd64)** project. Click **Next**. 
 
    ![Create a new Azure IoT Edge project](./media/tutorial-csharp-module-windows/new-project.png)
+
+3. In the configure your new project window, rename the project and solution to something descriptive like **CSharpTutorialApp**. Click **Create** to create the project. 
+
+   ![Configure a new Azure IoT Edge project](./media/tutorial-csharp-module-windows/configure-project.png)
 
 4. In the IoT Edge application and module window, configure your project with the following values: 
 
    | Field | Value |
    | ----- | ----- |
-   | Application platform | Uncheck **Linux Amd64**, and check **WindowsAmd64**. |
    | Select a template | Select **C# Module**. | 
    | Module project name | Name your module **CSharpModule**. | 
    | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/csharpmodule. |

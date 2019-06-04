@@ -210,13 +210,15 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
+        - name: Security attributes
+          href: cosmos-db-security-attributes.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-    - name: Limits
+    - name: Resource limits
       href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
@@ -598,8 +600,10 @@
       items:
       - name: Performance tips
         items:
+        - name: Get query execution metrics
+          href: profile-sql-api-query.md 
         - name: Tune query performance
-          href: sql-api-query-metrics.md 
+          href: sql-api-query-metrics.md    
         - name: Performance tips for .NET SDK
           href: performance-tips.md
         - name: Performance tips for Java SDK

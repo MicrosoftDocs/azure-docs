@@ -11,18 +11,19 @@ ms.date: 05/30/2019
 
 # Create a new SaaS offer
 
-To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Offers** tab selected. 
+To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
-![Commercial Marketplace dashboard on Partner Center](./media/commercial-marketplace-offers.png)
+![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
 Select the + **Create a new…** button, then select the **Software as a Service** menu item. 
 
 If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
 
-![Create offer window on Partner Center](./media/new-offer.png)
+![Create offer window on Partner Center](./media/new-offer-click.png)
 
+The **New offer** dialog box is displayed. 
 
-The **New offer** dialog box is displayed. ![New offer dialog box](./media/new-offer-popup.png)
+![New offer dialog box](./media/new-offer-popup.png)
 
 
 ## Offer ID and name

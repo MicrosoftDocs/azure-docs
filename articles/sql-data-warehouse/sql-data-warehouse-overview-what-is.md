@@ -1,23 +1,24 @@
 ---
 title: What is Azure SQL Data Warehouse? | Microsoft Docs
-description: Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.
+description: Enterprise-class distributed database that can process petabyte volumes of relational and non-relational data. It's the industry's first cloud data warehouse with the ability to grow, shrink, and pause in seconds.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: nicw
+ms.date: 05/30/2019
+ms.author: martinle
 ms.reviewer: igorstan
+mscustom: sqlfreshmay19 
 ---
 
 # What is Azure SQL Data Warehouse?
 
-SQL Data Warehouse is a cloud-based Enterprise Data Warehouse (EDW) that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.  
-
+SQL Data Warehouse is a cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.  
 
 ## Key component of big data solution
+
 SQL Data Warehouse is a key component of an end-to-end big data solution in the Cloud.
 
 ![Data warehouse solution](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
@@ -28,25 +29,27 @@ SQL Data Warehouse stores data into relational tables with columnar storage. Thi
 
 The analysis results can go to worldwide reporting databases or applications. Business analysts can then gain insights to make well-informed business decisions.
 
-
 ## Next steps
-Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
 
-* [Customer success stories]
-* [Blogs]
-* [Feature requests]
-* [Videos]
-* [Customer Advisory Team blogs]
-* [Create support ticket]
-* [MSDN forum]
-* [Stack Overflow forum]
-* [Twitter]
+- Explore [Azure SQL Data Warehouse architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- Quickly [create a SQL Data Warehouse][create a SQL Data Warehouse]
+- [Load sample data][load sample data].
+- Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+
+Or look at some of these other SQL Data Warehouse Resources.  
+* Search [Blogs]
+* Submit a [Feature requests]
+* Search [Customer Advisory Team blogs]
+* [Create a support ticket]
+* Search [MSDN forum]
+* Search [Stack Overflow forum]
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
@@ -58,7 +61,6 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse

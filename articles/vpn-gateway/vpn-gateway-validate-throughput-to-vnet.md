@@ -2,19 +2,12 @@
 title: 'Validate VPN throughput to a Microsoft Azure Virtual Network | Microsoft Docs'
 description: The purpose of this document is to help a user validate the network throughput from their on-premises resources to an Azure virtual machine.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
 
-ms.assetid:
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
 
 ---
@@ -22,7 +15,7 @@ ms.author: radwiv;chadmat;genli
 
 A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.
 
-This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine (VM). It also provides troubleshooting guidance.
+This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine (VM). It also provides troubleshooting guidance. 
 
 >[!NOTE]
 >This article is intended to help diagnose and fix common issues. If you're unable to solve the issue by using the following information, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -123,7 +116,7 @@ You may experience slow file coping when using Windows Explorer or dragging and 
 - Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](../storage/common/storage-e2e-troubleshooting.md).
 
 ## On-premises device external facing interface
-If the on-premises VPN device Internet-facing IP address is included in the [local network](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definition in Azure, you may experience inability to bring up the VPN, sporadic disconnects, or performance issues.
+If the on-premises VPN device Internet-facing IP address is included in the [local network](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) address space definition in Azure, you may experience inability to bring up the VPN, sporadic disconnects, or performance issues.
 
 ## Checking latency
 Use tracert to trace to Microsoft Azure Edge device to determine if there are any delays exceeding 100 ms between hops.
