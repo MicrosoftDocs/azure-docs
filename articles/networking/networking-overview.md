@@ -72,10 +72,10 @@ Azure DDoS protection, combined with application design best practices, provide 
 
 Web application firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. For more information about Web Application Firewall, see [WAF overview](../frontdoor/waf-overview.md)
 
-![WAF overview](../frontdoor/media/web-application-firewall-overview2.png)
+![WAF overview](../frontdoor/media/waf-overview/web-application-firewall-overview2.png)
 
 ### <a name="firewall"></a>Azure Firewall
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. For more information about Azure Firewall, see the [Azure Firewall documentation](../firerwall/overview.md).
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. For more information about Azure Firewall, see the [Azure Firewall documentation](../firewall/overview.md).
 
 ![Firewall overview](../firewall/media/overview/firewall-overview.png)
 
