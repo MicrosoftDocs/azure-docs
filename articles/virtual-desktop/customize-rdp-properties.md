@@ -13,7 +13,7 @@ ms.author: v-hevem
 
 Customizing a host pool's RDP properties such as the multi-monitor experience, audio redirection etc., allows you to deliver an optimal experience for your users based on their needs. This can be accomplished in Windows Virtual Desktop using the **-customRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
 
-Refer to [Remote Desktop RDP file settings](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files) for a full list of supported properties and their default values.
+Refer to [Remote Desktop RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) for a full list of supported properties and their default values.
 
 First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 
@@ -38,7 +38,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 
 ## Reset all custom RDP Properties
 
-You can reset individual custom RDP properties by following the instructions in [Add or edit a single custom RDP property](#add-or-edit-a-single-custom-rdp-property) to set the value back to its default. Or, you can reset all custom RDP properties for a host pool by running the following PowerShell cmdlet:
+You can reset individual custom RDP properties to default by following the instructions in [Add or edit a single custom RDP property](#add-or-edit-a-single-custom-rdp-property) or, you can reset all custom RDP properties for a host pool by running the following PowerShell cmdlet:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
