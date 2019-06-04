@@ -25,9 +25,6 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 
 * A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
 
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 * A client with Azure PowerShell.
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
