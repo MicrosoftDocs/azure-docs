@@ -17,7 +17,7 @@ ms.date: 06/03/2019
 
 You need the following to complete this article:
 
-* [Connect to Azure Data Explorer with ODBC](/azure/data-explorer/connect-odbc) using the SQL Server ODBC driver, to connect to Azure Data Explorer from Tableau. 
+* [Connect to Azure Data Explorer with ODBC](connect-odbc.md) using the SQL Server ODBC driver, to connect to Azure Data Explorer from Tableau. 
 
 * Tableau Desktop, full or [trial](https://www.tableau.com/products/desktop/download) version.
 

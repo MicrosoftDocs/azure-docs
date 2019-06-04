@@ -15,7 +15,7 @@ Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview)) is a wide
 
 Behind the scenes, applications call functions in the ODBC interface, which are implemented in database-specific modules called *drivers*. Azure Data Explorer supports a subset of the SQL Server communication protocol ([MS-TDS](/azure/kusto/api/tds/)); therefore it can use the ODBC driver for SQL Server.
 
-In this article, you learn how to use the SQL Server ODBC driver, so you can connect to Azure Data Explorer from any application that supports ODBC. You can then [connect to Azure Data Explorer from Tableau](), and bring in data from a sample cluster to analyze further.
+In this article, you learn how to use the SQL Server ODBC driver, so you can connect to Azure Data Explorer from any application that supports ODBC.
 
 ## Prerequisites
 
@@ -61,4 +61,4 @@ Follow these steps to configure an ODBC data source using the ODBC driver for SQ
 
 ## Next steps
 
-* [Connect to Azure Data Explorer from Tableau](visualize-power-bi.md)
+* [Connect to Azure Data Explorer from Tableau](tableau.md)
