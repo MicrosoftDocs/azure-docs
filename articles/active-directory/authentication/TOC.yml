@@ -43,8 +43,6 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: What version is right?
-      href: concept-mfa-whichversion.md
     - name: License your users
       href: concept-mfa-licensing.md
     - name: Manage an Auth Provider

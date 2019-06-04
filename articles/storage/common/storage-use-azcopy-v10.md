@@ -36,11 +36,11 @@ First, download the AzCopy V10 executable file to any folder on your computer. F
 
 From a command prompt, navigate to the directory where you downloaded the file.
 
-To view a list of AzCopy commands, type `azCopy`, and then press the ENTER key.
+To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
-To learn more about a specific command, type `azCopy` followed by the name of the command.
+To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
 
-For example, to learn about the `copy` command, type `azcopy copy`, and then press the ENTER key.
+![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
 
