@@ -132,7 +132,7 @@ You may need to wait up to five minutes before the event appears in the storage 
 }
 ```
 
-### Widevine encrypted key delivery log
+#### Widevine encrypted key delivery log
 
 ```json
 {
