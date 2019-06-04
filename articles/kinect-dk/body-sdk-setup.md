@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect Body Tracking SDK Setup
-description: Steps to setup body tracking SDK
+description: Steps to set up body tracking SDK for Azure Kinect
 author: quentinm qm13
 ms.author: quentinm
 ms.prod: kinect-dk
@@ -18,14 +18,14 @@ This page will guide you through getting body tracking running on our Azure Kine
 - Windows 10 PC
   - Core i5 or better
 - NVIDIA GPU
-  - GTX 1070 or better
-  - RTX graphics cards are supported now!
+  - GEFORCE GTX 1070 or better
+  - GEFORCE RTX 2070 or better
 
 ## Install software
 
 ### [CUDA 10.1](https://developer.nvidia.com/cuda-downloads)
 
-Please follow the the on-screen prompts to install the CUDA 10.1 and all their patches.
+Follow the on-screen prompts to install CUDA 10.1 and all patches.
 
 >[!NOTE]
 > If installing with the "Express" installation options fails, please select "Custom" installation option and click "Next".
@@ -35,41 +35,33 @@ Please follow the the on-screen prompts to install the CUDA 10.1 and all their p
 
 ### [cuDNN v7.5.x for CUDA 10.1](https://developer.nvidia.com/rdp/cudnn-download)
 
-You will need to log-in your NVIDIA account to download the cudnn64_7.dll. Remember to add the dll path to the "Environment Variables - Path":
-1. Launch "Control Pannel" -> Select "System and Security" -> Select "System" -> Select "Advanced system settings"
+Sign in to NVIDIA Developer site with your Developer Program membership and download the cudnn64_7.dll. Ensure the dll path is added to the "Environment Variables - Path":
+1. Launch "Control Panel" -> Select "System and Security" -> Select "System" -> Select "Advanced system settings"
 
     ![Setup system path 1](./media/quickstarts/install_system_path_1.png)
 
-2. Select "Environment Variables" -> Double click the "Path" variable under "System variables" block -> Make sure the path that contains your cudnn64_7.dll is there.
+2. Select "Environment Variables" -> Double-click the "Path" variable under "System variables" block -> Make sure the path that contains your cudnn64_7.dll is there.
 
     ![Setup system path 2](./media/quickstarts/install_system_path_2.png)
 
 ### [Install the latest NVIDIA Driver](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
-An older version of NVIDIA graphics driver will be installed with the CUDA 10.1. But in order for it to work correctly, you will need to install the latest NVIDIA driver for your graphics card. 
+CUDA 10.1 installs an older version of the NVIDIA graphics driver. Download and install the latest NVIDIA driver for your graphics card.
 
-## Setup hardware
+## Set-up hardware
 
-*   A working Azure Kinect device
-    -   Update sensor firmware:
-        The minimum firmware version is FW 1.5.926614. Please refer to sensor SDK documentation for how to upgrade your firmware.
+### [Set-up Azure Kinect DK](set-up-azure-kinect-dk.md)
 
-    -   Verify your Azure Kinect is working (Optional):
-        * Download the [K4A SDK v1.0.0](https://review.docs.microsoft.com/en-us/azurekinect/download-sdk?branch=master) 
-        * Find the k4aviewer.exe at [Path To your installed Azure Kinect SDK]\tools\k4aviewer.exe. Run the tool to verify whether the Azure Kinect device can produce depth and 
-        IR results correctly. 
+Launch `k4aviewer.exe` to check that your Azure Kinect DK is set up correctly.
 
 ## Verify body tracking
 
-The body tracking SDK can be verified by running the body tracking simple 3d viewer sample: \
-The simple 3d viewer that consumes K4ABT SDK can be found at examples\bin\simple-3d-viewer.exe. All the required binaries and the model files are already in the folder. 
-Once you setup your machine to meet the prerequisites, you can simply double click the k4abt_simple_3d_viewer.exe to run the simple 3d viewer.
+Launch `k4abt_simple-3d-viewer.exe` sample to check that the Body Tracking SDK is set up correctly. The single 3d viewer sample uses the Sensor SDK and Body Tracking SDK to visualize body tracking. A pre-complied binary for the sample is located in the `examples/bin` folder.
 
-If everything is set up properly, you will see the 3d point cloud and the tracked bodies in a pop-up window.
+If everything is set up correctly, a window is displayed with a 3D point cloud and tracked bodies.
 
 >[!NOTE]
-> The first time an Azure Kinect Body Tracking application is launched on a machine it may take several minutes to load as CUDA is initialized. 
-> Subsequent launches on the same machine will be faster. 
+> The first time an Azure Kinect Body Tracking application is launched on a machine it may take several minutes to load as CUDA is initialized. Subsequent launches on the same machine will be faster.
 
 ![Simple 3D Viewer](./media/quickstarts/samples_simple3dviewer.png)
 
