@@ -1,5 +1,5 @@
 ---
-title: Analyze log data in Azure Monitor | Microsoft Docs
+title: Overview of log queries in Azure Monitor | Microsoft Docs
 description: You require a log query to retrieve log data from Azure Monitor.  This article describes how new log queries are used in Azure Monitor and provides concepts that you need to understand before creating one.
 services: log-analytics
 author: bwren
