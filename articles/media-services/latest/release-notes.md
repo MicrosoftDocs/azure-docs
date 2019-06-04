@@ -33,7 +33,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## May 2019
 
-### Azure Monitor for Media Services diagnostic logs and metrics
+### Azure Monitor support for Media Services diagnostic logs and metrics
 
 You can now monitor the following telemetry data emmited by Media Services:
 
