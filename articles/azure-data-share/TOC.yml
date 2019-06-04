@@ -8,9 +8,9 @@
   expanded: true
   items:
     - name: Share data with your Azure customers & partners
-        href: tutorial-shareyourdata.md
+      href: tutorial-shareyourdata.md
     - name: Subscribe to an Azure Data Share
-        href: tutorial-subscribetodatashare.md
+      href: tutorial-subscribetodatashare.md
 - name: Concepts
   items:
   - name: Share Subscription
@@ -24,41 +24,22 @@
   - name: Synchronization
     href: concept-synchronization.md
 - name: Resources
-
   items:
-
   - name: Blog
-
     href: https://azure.microsoft.com/blog/tag/azure-data-share
-
   - name: Forums
-
     items:
-
     - name: Stack Overflow
-
       href: https://stackoverflow.com/questions/tagged/azure-data-share
-
     - name: Microsoft Tech Community
-
       href: https://techcommunity.microsoft.com/
-
     - name: MSDN forum
-
       href: https://social.msdn.microsoft.com/Forums
-
   - name: Product feedback
-
     href: https://aka.ms/adefeedback
-
   - name: Pricing
-
     href: https://azure.microsoft.com/pricing
-
   - name: Cost Estimator
-
     href: https://aka.ms/adecostestimator
-
   - name: Service updates
-
     href: https://azure.microsoft.com/updates/?product=data-share
