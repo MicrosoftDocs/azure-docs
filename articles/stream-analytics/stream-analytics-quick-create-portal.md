@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/31/2019
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
@@ -89,7 +89,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    |Resource group   |   asaquickstart-resourcegroup  |   Select the same resource group as your IoT Hub. |
    |Location  |  \<Select the region that is closest to your users\> | Select geographic location where you can host your Stream Analytics job. Use the location that's closest to your users for better performance and to reduce the data transfer cost. |
    |Streaming units  | 1  |   Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, refer to [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.   |
-   |Hosting environment  |  Cloud  |   Stream Analytics jobs can be deployed to cloud or edge. Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT edge device. |
+   |Hosting environment  |  Cloud  |   Stream Analytics jobs can be deployed to cloud or edge. Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT Edge device. |
 
    ![Create job](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
