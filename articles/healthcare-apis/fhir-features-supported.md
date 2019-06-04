@@ -19,7 +19,7 @@ Current version: `3.0.1`
 
 ## REST API
 
-| API                            | Supported | Comment |
+| API                            | v3 Supported | Comment |
 |--------------------------------|-----------|---------|
 | read                           | Yes       |         |
 | vread                          | Yes       |         |
