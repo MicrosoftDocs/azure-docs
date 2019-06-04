@@ -22,7 +22,7 @@ You configure the Form Recognizer container run-time environment by using the `d
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Install and run Form Recognizer containers](form-recognizer-container-howto.md#billing).
+> The [`ApiKey`](#the-apikey-configuration-setting), [`Billing`](#the-billing-configuration-setting), and [`Eula`](#the-eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Install and run Form Recognizer containers](form-recognizer-container-howto.md#billing).
 
 ## The ApiKey configuration setting
 
