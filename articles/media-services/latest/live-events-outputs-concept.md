@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/03/2019
 ms.author: juliako
 
 ---
@@ -81,6 +81,8 @@ You can either use non-vanity URLs or vanity URLs.
 * Vanity URL
 
     Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to re-configure their encoders when they start the Live Event. They want a predictive ingest URL, which does not change over time.
+    
+    You specify the `vanityUrl` value at creation time and this property cannot be updated later.
 
 > [!NOTE] 
 > For an ingest URL to be predictive, you need to use "vanity" mode and pass your own access token (to avoid a random token in the URL).
