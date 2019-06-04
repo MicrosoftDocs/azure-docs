@@ -201,8 +201,8 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 |ZooKeeper: recommended VM sizes||A4 v2||A2 v2|||A2M v2|
 |||A8 v2||A4 v2|||D3 v2|
 |||A2m v2||A8 v2|||E8 v3|
-|Edge: default VM size||||||D4 v2||
-|Edge: recommended VM size||||||D4 v2||
+|ML Services: default VM size||||||D4 v2||
+|ML Services: recommended VM size||||||D4 v2||
 |||||||D12 v2||
 |||||||D13 v2||
 |||||||D14 v2||
@@ -221,8 +221,8 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
   | Worker: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: default VM size | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper: recommended VM sizes | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
-  | Edge: default VM sizes | | | | | |D4 |
-  | Edge: recommended VM sizes | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
+  | ML Services: default VM sizes | | | | | |D4 |
+  | ML Services: recommended VM sizes | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - Head is known as *Nimbus* for the Storm cluster type.
