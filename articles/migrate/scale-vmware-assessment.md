@@ -12,7 +12,7 @@ ms.author: raynew
 # Assess large numbers of VMware VMs for migration to Azure
 
 
-This article describes how to assess large numbers (> 1000) of on-premises VMware VMs for migration to Azure, using the [Azure Migrate](migrate-services-overview.md) service.
+This article describes how to assess large numbers (1000-35,000) of on-premises VMware VMs for migration to Azure, using the [Azure Migrate](migrate-services-overview.md) service.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 When planning for assessment of large number of VMware VMs, there are a couple of things to think about:
 
-- **Plan Azure Migrate projects**: You need to figure out how many Azure Migrate projects you need. You create Azure Migrate projects in the Azure portal. Within projects you interact with Azure Migrate, and third-party, assessment and migration tools. 
+- **Plan Azure Migrate projects**: You can create a single Azure Migrate project in the Azure portal. 
 - **Plan appliances**: Azure Migrate uses an on-premises Azure Migrate appliance, deployed as a VMware VM, to continually discover VMs. The appliance monitors environment changes such as adding VMs, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances you need to deploy.
 - **Plan accounts for discovery**: The Azure Migrate appliance uses an account with access to vCenter Server in order to discover VMs for assessment and migration. If you're discovering more than 10,000 VMs, plan to set up multiple accounts.
 
@@ -80,7 +80,7 @@ Follow the instructions in [this tutorial](tutorial-prepare-vmware.md) to config
 
 In accordance with your planning requirements, do the following:
 
-1. Create one more more Azure Migrate projects.
+1. Create an Azure Migrate project.
 2. Set up one or more Azure Migrate appliances, and create assessments.
 3. Review the assessments in preparation for migration planning.
 
