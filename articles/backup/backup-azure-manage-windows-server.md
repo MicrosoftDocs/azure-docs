@@ -150,7 +150,7 @@ Choose the alert severity (Critical or Warning) used to generate email. Currentl
 
 ## Manage Backup items
 
-A Recovery Services vault holds many types of backup data. For a complete list of backup types, see [Which applications and workloads can be backed up](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
+A Recovery Services vault holds many types of backup data. For a complete list of backup types, see [Which applications and workloads can be backed up](backup-overview.md#what-can-i-backup-up). To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
 
 ![Backup items tile](./media/backup-azure-manage-windows-server/backup-items.png)
 
