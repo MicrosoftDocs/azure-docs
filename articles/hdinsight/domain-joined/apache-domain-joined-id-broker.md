@@ -46,6 +46,7 @@ To whitelist the HIB feature, email your subscription ID and Azure region to [om
   To check connectivity, go to the unauthenticated endpoint *https:\//login.microsoftonline.com/common/userrealm/\<contoso.com>?api-version=1.0*, replacing \<contoso.com> with your federated domain name. The response should be similar to the following snippet. Pay particular attention to the **federation_protocol** and the **federation_metadata_url**. Make sure virtual machines (VMs) inside the HDInsight VNET or subnet have network access to the **federation_metadata_url**.
   
   {
+
     "ver":"1.0",
 
     "account_type":"Federated",
