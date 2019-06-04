@@ -175,7 +175,7 @@ Corresponding CRS rule:
 
 ## Example 3
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24. To accomplish this, you can create 2 separate match conditions, and put them both in the same rule. This will ensure that both *evilbot* in the User-Agent header *and* IP addresses from the range 192.168.5.4/24 will be blocked. 
 
 Logic: p **and** q
 
@@ -247,7 +247,7 @@ Here's the corresponding JSON:
 
 ## Example 4
 
-For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses *or*, the two conditions are in separate rules.
+For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses *or*, the two conditions are in separate rules as seen below. "myrule1" and "myrule2" will both need to match to allow for traffic to be blocked. 
 
 Logic: **not** (p **and** q) = **not** p **or not** q.
 
@@ -333,7 +333,7 @@ And the corresponding JSON:
 
 ## Example 5
 
-You want to block custom SQLI.
+You want to block custom SQLI. Since the logic being used here is *or*, and all the values are in the "RequestUri", all of the "MatchValues" can be in a comma-separated list. 
 
 Logic: p **or** q **or** r
 
