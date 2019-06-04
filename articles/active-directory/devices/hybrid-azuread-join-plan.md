@@ -146,8 +146,8 @@ The table below provides details on support for these on-premises AD UPNs in Win
 | Type of on-premises AD UPN | Domain type | Windows 10 version | Description |
 | ----- | ----- | ----- | ----- |
 | Routable | Federated | From 1703 release | Generally available |
-| Routable | Managed | From 1709 release | Currently in private preview. Azure AD SSPR is not supported |
 | Non-routable | Federated | From 1803 release | Generally available |
+| Routable | Managed | Not supported | |
 | Non-routable | Managed | Not supported | |
 
 ## Next steps
