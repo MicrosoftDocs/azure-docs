@@ -32,11 +32,11 @@ Metrics are collected at regular intervals whether or not the value changes. The
 
 Currently, the following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are emitted by Azure:
 
-|Name|Description|
-|---|---|
-|Requests|Gives details around total # of requests serviced by the Streaming Endpoint.|
-|Egress|Total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
-|Success end to end Latency| Gives information about end to end latency of successful requests.|
+|Metric|Display name|Description|
+|---|---|---|
+|Requests|Requests|Gives details around total # of requests serviced by the Streaming Endpoint.|
+|Egress|Egress|Total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
+|SuccessE2ELatency|Success end to end Latency| Gives information about end to end latency of successful requests.|
 
 For example, to get "Egress" metrics with CLI, you would run the following `az monitor metrics` CLI command:
 

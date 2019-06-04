@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 6/1/2019
 ms.author: victorh
 ---
 
@@ -50,6 +50,8 @@ Compute unit guidance:
 > Each instance can currently support approximately 10 capacity units.
 > The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF incoming request size. We recommend you perform application tests to determine request rate per compute unit. Both capacity unit and compute unit will be made available as a metric before billing starts.
 
+The following table shows example prices and are for illustration purposes only.
+
 **Pricing in US East**:
 
 |              SKU Name                             | Fixed price ($/hr)  | Capacity Unit price ($/CU-hr)   |
@@ -87,8 +89,6 @@ Fixed price = 744(hours) * $0.36 = $267.84
 Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 capacity unit for throughput) * $0.0144 = 744 * 8 * 0.0144 = $85.71
 
 Total price = $267.84 + $85.71 = $353.55
-
-The [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
 
 ## Scaling Application Gateway and WAF v2
 
@@ -133,12 +133,15 @@ The following table compares the features available with each SKU.
 |User Defined Route (UDR) on Application Gateway subnet|Not supported|
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
-|Billing|Billing scheduled to start on June 1, 2019.|
+|Billing|Billing scheduled to start on July 1, 2019.|
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Netwatcher integration|Not supported.|
 |Azure Support Center integration|Not yet available.
 
+## Migrate from v1 to v2
+
+An Azure PowerShell script is available in the PowerShell gallery to help you migrate from your v1 Application Gateway/WAF to the v2 Autoscaling SKU. This script helps you copy the configuration from your v1 gateway. Traffic migration is still your responsibility. For more details, see [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
 ## Next steps
 
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)

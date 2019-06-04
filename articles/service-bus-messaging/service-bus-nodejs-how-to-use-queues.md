@@ -24,7 +24,7 @@ ms.author: aschhab
 
 In this tutorial, you learn how to create Node.js applications to send messages to and receive messages from a Service Bus queue using the [azure-sb](https://www.npmjs.com/package/azure-sb) package. The samples are written in JavaScript and use the Node.js [Azure module](https://www.npmjs.com/package/azure) which internally uses the `azure-sb` package.
 
-The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). To learn more about the new package, see [How to use Service Bus queues with Node.js and @azure/service-bus package](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
+The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). To learn more about the new package, see [How to use Service Bus queues with Node.js and @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -183,6 +183,9 @@ message within the queue and make it available to be received again, either by t
 There's also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
 
 In the event that the application crashes after processing the message but before the `deleteMessage` method is called, then the message will be redelivered to the application when it restarts. This approach is often called *At Least Once Processing*, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario can't tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. It's often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 To learn more about queues, see the following resources.

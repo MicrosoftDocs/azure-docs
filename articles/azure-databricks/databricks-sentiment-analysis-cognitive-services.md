@@ -303,12 +303,18 @@ In the **AnalyzeTweetsFromEventHub** notebook, paste the following code, and rep
 import org.apache.spark.eventhubs._
 
 // Build connection string with the above information
-val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-  .setEventHubName("<EVENT HUB NAME>")
-  .build
+val namespaceName = "<EVENT HUBS NAMESPACE>"
+val eventHubName = "<EVENT HUB NAME>"
+val sasKeyName = "<POLICY NAME>"
+val sasKey = "<POLICY KEY>"
+val connectionString = ConnectionStringBuilder()
+            .setNamespaceName(namespaceName)
+            .setEventHubName(eventHubName)
+            .setSasKeyName(sasKeyName)
+            .setSasKey(sasKey)
 
 val customEventhubParameters =
-  EventHubsConf(connectionString)
+  EventHubsConf(connectionString.toString())
   .setMaxEventsPerTrigger(5)
 
 val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()

@@ -106,19 +106,25 @@ you can reuse that policy for different scenarios by using different values.
 
 A parameter has the following properties that are used in the policy definition:
 
-- **name**: The name of your parameter. Used by the `parameters` deployment function within the policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
+- **name**: The name of your parameter. Used by the `parameters` deployment function within the
+  policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
 - `type`: Determines if the parameter is a **string** or an **array**.
-- `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly information:
-  - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
+- `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
+  information:
+  - `description`: The explanation of what the parameter is used for. Can be used to provide
+    examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
-  - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
+  - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides
+    a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
     during policy assignment. This property is useful in case you wish to assign permissions outside
     the assignment scope. There is one role assignment per role definition in the policy (or per
     role definition in all of the policies in the initiative). The parameter value must be a valid
     resource or scope.
-- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
-- `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
+  Required when updating an existing policy definition that is assigned.
+- `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
+  assignment.
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter
@@ -186,7 +192,9 @@ children within the hierarchy of the definition location to target for assignmen
 If the definition location is a:
 
 - **Subscription** - Only resources within that subscription can be assigned the policy.
-- **Management group** - Only resources within child management groups and child subscriptions can be assigned the policy. If you plan to apply the policy definition to several subscriptions, the location must be a management group that contains those subscriptions.
+- **Management group** - Only resources within child management groups and child subscriptions can
+  be assigned the policy. If you plan to apply the policy definition to several subscriptions, the
+  location must be a management group that contains those subscriptions.
 
 ## Display name and description
 
@@ -221,9 +229,9 @@ Supported logical operators are:
 - `"allOf": [{condition or operator},{condition or operator}]`
 - `"anyOf": [{condition or operator},{condition or operator}]`
 
-The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the
-logical **And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the
-logical **Or** operation) requires one or more conditions to be true.
+The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the logical
+**And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the logical
+**Or** operation) requires one or more conditions to be true.
 
 You can nest logical operators. The following example shows a **not** operation that is nested
 within an **allOf** operation.
@@ -286,27 +294,30 @@ The following fields are supported:
 
 - `name`
 - `fullName`
-  - Returns the full name of the resource. The full name of a resource is the resource name prepended by any parent resource names (for example "myServer/myDatabase").
+  - Returns the full name of the resource. The full name of a resource is the resource name
+    prepended by any parent resource names (for example "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
   - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
 - `identity.type`
-  - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
+  - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
+    enabled on the resource.
 - `tags`
 - `tags['<tagName>']`
   - This bracket syntax supports tag names that have punctuation such as a hyphen, period, or space.
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
   - Examples: `tags['Acct.CostCenter']` where **Acct.CostCenter** is the name of the tag.
 - `tags['''<tagName>''']`
-  - This bracket syntax supports tag names that have apostrophes in it by escaping with double apostrophes.
+  - This bracket syntax supports tag names that have apostrophes in it by escaping with double
+    apostrophes.
   - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
   - Example: `tags['''My.Apostrophe.Tag''']` where **'\<tagName\>'** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of declaring a tags field.
-> However, the preferred expressions are those listed above.
+> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
+> declaring a tags field. However, the preferred expressions are those listed above.
 
 #### Use tags with parameters
 

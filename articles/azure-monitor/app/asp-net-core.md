@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
 ---
 
@@ -90,17 +90,22 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
     ```
 
     Alternately, the instrumentation key can also be specified in either of the following environment variables.
+
     APPINSIGHTS_INSTRUMENTATIONKEY
+
     ApplicationInsights:InstrumentationKey
 
     Example:
+
     `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
+    `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
+
     `APPINSIGHTS_INSTRUMENTATIONKEY` is typically used to specify instrumentation key for applications deployed to Azure Web Apps.
-    
+
     > [!NOTE]
     > An instrumentation key specified in code wins over environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
-    
+
 ## Run your application
 
  Run your application, and make requests to it. Telemetry should now start flowing to Application Insights. The following telemetry is automatically collected by the Application Insights SDK.
@@ -118,6 +123,7 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
 ### Performance Counters
 
 Support for [Performance Counters](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) in ASP.NET Core is limited to the following
+
    * SDK version 2.4.1 and above collects performance counters if the application is running in Azure Web App (Windows)
    * SDK version 2.7.0-beta3 and above collects performance counters if the application is running in Windows, and targeting `NETSTANDARD2.0` or higher.
    * For applications targeting the .NET Framework, performance counters are supported in all versions of SDK.
@@ -368,6 +374,11 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## Open-source SDK
 [Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates).
+
+## Video
+
+- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
+- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync) from scratch.
 
 ## Next steps
 * [Explore User Flows](../../azure-monitor/app/usage-flows.md) to understand how users navigate through your app.
