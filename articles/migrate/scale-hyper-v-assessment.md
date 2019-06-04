@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 When planning for assessment of large number of Hyper-V VMs, there are a couple of things to think about:
 
-- **Plan Azure Migrate projects**: You need to figure out how many Azure Migrate projects you need. You create Azure Migrate projects in the Azure portal. Within projects you interact with Azure Migrate, and third-party, assessment and migration tools. 
+- **Plan Azure Migrate projects**: You can create a single Azure Migrate project in the Azure portal.
 - **Plan appliances**: Azure Migrate uses an on-premises Azure Migrate appliance, deployed as a Hyper-V VM, to continually discover VMs. The appliance monitors environment changes such as adding VMs, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances you need to deploy.
 
 
@@ -65,7 +65,7 @@ Follow the instructions in [this tutorial](tutorial-prepare-hyper-v.md) to confi
 
 In accordance with your planning requirements, set up the following:
 
-1. Create one more more Azure Migrate projects.
+1. Create an Azure Migrate project.
 2. Set up one or more Azure Migrate appliances, and create assessments.
 3. Review the assessments in preparation for migration planning.
 

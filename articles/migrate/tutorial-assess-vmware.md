@@ -11,9 +11,9 @@ ms.author: raynew
 
 # Assess VMware VMs for migration
 
-As you move on-premises resources to the cloud, [Azure Migrate](migrate-overview.md) helps you to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises VMware VMs before migrating them to Azure.
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises VMware VMs before migration. 
 
-This tutorial is the second in a series that shows you how to assess and migrate VMware VMs to Azure using Azure Migrate server assessment and migration. You should complete the [first tutorial](tutorial-prepare-vmware.md) before you begin this one.
+This tutorial is the second in a series that shows you how to assess and migrate VMware VMs to Azure using [Azure Migrate](migrate-services-overview.md) server assessment and migration. You should complete the [first tutorial](tutorial-prepare-vmware.md) before you begin this one.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -41,8 +41,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up an Azure Migrate project
 
+Set up a new Azure Migrate project as follows.
+
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. In the search results, select **Azure Migrate**.
+2. Under **Services**, select **Azure Migrate**.
 
     ![Set up Azure Migrate](./media/tutorial-assess-vmware/azure-migrate.png)
 

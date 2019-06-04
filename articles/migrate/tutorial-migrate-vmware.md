@@ -11,12 +11,17 @@ ms.custom: mvc
 
 # Migrate VMware VMs to Azure
 
-This article describes how to migrate on-premises VMware VMs using Azure Migrate Server Migration. Azure Migrate offers both an agentless method, and an agent-based method for VMware migration. This article describes the agentless method.
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to migrate on-premises VMware VMs using Azure Migrate Server Migration.
+
+For VMware VM migration, Azure Migrate offers both an agentless method, and an agent-based method for VMware migration. This article describes the agentless method.
 
 - [Learn about](server-migrate-overview.md) the available methods.
 - Learn how agentless migration works.
-- Review this article if you want to use the agent-based method.
+- Use this article if you want to use the agent-based method.
 
+
+
+This tutorial is the second in a series that shows you how to assess and migrate VMware VMs to Azure. You should complete the [first](tutorial-prepare-vmware.md) and [second](tutorial-assess-vmware.md) tutorials before you begin this one.
 In this article, you:
 
 > [!div class="checklist"]
@@ -27,13 +32,15 @@ In this article, you:
 > * Run a test migration to make sure everything's working as expected.
 > * Run a full VM migration.
 
-## Before you start
+## Prerequisites
 
 Before you begin this tutorial, you should:
 
-- [Review the limitations](server-migrate-overview.md#agentless-migration-limitations) for agentless migration.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+1. [Review the limitations](server-migrate-overview.md#agentless-migration-limitations) for agentless migration.
+2. [Set up Azure and VMware](tutorial-prepare-vmware.md) by following the [first tutorial] in the series.
+3. [Deploy an Azure Migrate appliance and start continuous on-premises discovery](tutorial-assess-vmware.md), by following the[second tutorial] in the series.
+    - The second tutorial includes instructions on running an assessment. We recommend you try out an assessment, but you don't have to run an assessment before you try a migration.
+4. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 
 ## Prepare VMs for migration
