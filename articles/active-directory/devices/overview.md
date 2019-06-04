@@ -32,10 +32,6 @@ Through devices in Azure AD, your users are getting access to your corporate ass
 
 Device management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.
 
-This article explains how device identity management in Azure Active Directory works.
-
-> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
-
 ## Getting devices in Azure AD
 
 To get a device in Azure AD, you have two options:
