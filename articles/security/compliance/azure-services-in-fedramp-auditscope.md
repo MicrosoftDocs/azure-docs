@@ -50,7 +50,6 @@ This article provides a detailed list of in-scope cloud services across Azure an
 | [Azure Database Migration Service](https://azure.microsoft.com/en-us/services/database-migration/) |  |  |  | :heavy_check_mark: |
 | [Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) ** |  |  |  |  |
 | [Azure DDoS Protection](https://azure.microsoft.com/en-us/services/ddos-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| Azure Data Movement  |  |  |  | :heavy_check_mark: |
 | [Azure DevOps (formerly VSTS)](https://azure.microsoft.com/en-us/services/devops/) | |  |  | :heavy_check_mark: |
 | [Azure DevTest Labs](https://azure.microsoft.com/en-us/services/devtest-lab/) |  |  |  | :heavy_check_mark: |
 | [Azure DNS](https://azure.microsoft.com/en-us/services/dns/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -65,7 +64,6 @@ This article provides a detailed list of in-scope cloud services across Azure an
 | [Azure Policy](https://azure.microsoft.com/en-us/services/azure-policy/) |  |  |  | :heavy_check_mark: |
 | [Azure Resource Manager](https://azure.microsoft.com/en-us/features/resource-manager/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Search](https://azure.microsoft.com/en-us/services/search/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| Azure Service Health |  |  |  |  |
 | [Azure Service Manager (RDFE)](https://docs.microsoft.com/en-us/previous-versions/azure/ee460799(v=azure.100)) | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Azure Site Recovery](https://azure.microsoft.com/en-us/services/site-recovery/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Backup](https://azure.microsoft.com/en-us/services/backup/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -155,7 +153,6 @@ This article provides a detailed list of in-scope cloud services across Azure an
 | [Azure Active Directory (Premium P1 + P2)](https://azure.microsoft.com/en-us/services/active-directory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Advisor](https://azure.microsoft.com/en-us/services/advisor/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure Analysis Services](https://azure.microsoft.com/en-us/services/analysis-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Batch AI](https://azure.microsoft.com/en-us/pricing/details/batch-ai/) |  |  |  |  |
 | [Azure Cosmos DB](https://azure.microsoft.com/en-us/services/cosmos-db/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure DB for MySQL](https://azure.microsoft.com/en-us/services/mysql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure DB for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -163,14 +160,13 @@ This article provides a detailed list of in-scope cloud services across Azure an
 | [Azure DNS](https://azure.microsoft.com/en-us/services/dns/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure File Sync](https://azure.microsoft.com/en-us/services/storage/files/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Information Protection](https://azure.microsoft.com/en-us/services/information-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** | :heavy_check_mark: |
+| [Azure Information Protection](https://azure.microsoft.com/en-us/services/information-protection/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Azure Lab Services](https://azure.microsoft.com/en-us/services/lab-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Migrate](https://azure.microsoft.com/en-us/services/azure-migrate/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Policy](https://azure.microsoft.com/en-us/services/azure-policy/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Azure Resource Manager](https://azure.microsoft.com/en-us/features/resource-manager/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** | :heavy_check_mark: |
 | [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
-| Azure Service Health |  |  |  |  |
 | [Azure Service Manager (RDFE)](https://docs.microsoft.com/en-us/previous-versions/azure/ee460799(v=azure.100)) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Site Recovery](https://azure.microsoft.com/en-us/services/site-recovery/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Backup](https://azure.microsoft.com/en-us/services/backup/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
