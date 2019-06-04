@@ -61,7 +61,7 @@ Hybrid Azure AD join supports a broad range of Windows devices. Because the conf
 - Windows Server 2016
 - Windows Server 2019
 
-For devices running the Windows desktop operating system, supported version are listed in this article [Windows 10 release information](https://docs.microsoft.com/en-us/windows/release-information/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows 10.
+For devices running the Windows desktop operating system, supported version are listed in this article [Windows 10 release information](https://docs.microsoft.com/windows/release-information/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows 10.
 
 ### Windows down-level devices
 
@@ -109,7 +109,7 @@ Hybrid Azure AD join works with both, managed and federated environments.
 
 ### Managed environment
 
-A managed environment can be deployed either through [Password Hash Sync (PHS)](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-phs) or [Pass Through Authentication (PTA)](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta) with [Seamless Single Sign On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso).
+A managed environment can be deployed either through [Password Hash Sync (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) or [Pass Through Authentication (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) with [Seamless Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
 
 These scenarios don't require you to configure a federation server for authentication.
 
