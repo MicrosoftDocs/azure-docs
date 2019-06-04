@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
 
 ---
@@ -110,10 +110,10 @@ Dynamic Packaging supports MP4 files, which contain audio encoded with
     * DTS Express (dtse)
     * DTS-HD Lossless (no core) (dtsl)
 
-### HLS support
+### Multi audio tracks
 
-Dynamic Packaging supports HLS (version 4 or above) for Assets that have multiple audio tracks with multiple codecs and languages.
-
+When streaming Assets that have multiple audio tracks with multiple codecs and languages, Dynamic Packaging supports multi audio tracks for the HLS output (version 4 or above).
+ 
 ### Not supported
 
 Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
