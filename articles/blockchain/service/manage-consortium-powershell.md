@@ -77,7 +77,7 @@ Find the other values in the Azure portal:
 
 ## Manage the network and smart contracts
 
-Use the network and smart contract cmdlets to establish a connection to the blockchain endpoint's smart contracts responsible for consortium management."
+Use the network and smart contract cmdlets to establish a connection to the blockchain endpoint's smart contracts responsible for consortium management.
 
 ### Import-ConsortiumManagementContracts
 
