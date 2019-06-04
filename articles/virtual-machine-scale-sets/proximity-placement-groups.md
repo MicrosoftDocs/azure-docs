@@ -67,13 +67,13 @@ New-AzVmss `
 You can see the instance in the placement group using [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup).
 
 ```azurepowershell-interactive
-Get-AzProximityPlacementGroup `
+  Get-AzProximityPlacementGroup `
    -ResourceId $ppg.Id | Format-Table `
    -Wrap `
-   -Property VirtualMachines 
+   -Property VirtualMachineScaleSets
 ```
 
 
 ## Next steps
 
-You can also use the [Azure CLI](../linux/proximity-placement-groups.md) to create proximity placement groups.
+You can also use the [Azure CLI](../virtual-machines/linux/proximity-placement-groups.md) to create proximity placement groups.
