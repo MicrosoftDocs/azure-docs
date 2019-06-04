@@ -60,6 +60,14 @@ New-AzVm `
   -ProximityPlacementGroup $ppg.Id
 ```
 
+You can see the VM in the placement group using [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup).
+
+```azurepowershell-interactive
+Get-AzProximityPlacementGroup `
+   -ResourceId $ppg.Id | Format-Table `
+   -Wrap `
+   -Property VirtualMachines 
+```
 
 
 ## Next steps
