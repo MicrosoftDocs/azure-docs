@@ -68,7 +68,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## Analyze the response
 
-The following response shows the various insights from the API. It contains potential profanity, personally identifiable information, classification (preview), and the auto-corrected version.
+The following response shows the various insights from the API. It contains potential profanity, personal data, classification (preview), and the auto-corrected version.
 
 > [!NOTE]
 > The machine-assisted 'Classification' feature is in preview and supports English only.
