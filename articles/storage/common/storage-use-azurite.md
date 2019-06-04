@@ -1,6 +1,6 @@
 ---
-title: Use the Azurite storage emulator for development and testing | Microsoft Docs
-description: The Azurite storage emulator provides a free local environment for testing your Azure Storage applications. Learn how requests are authorized, how to connect to the emulator from your application, and how to use the command-line tool.
+title: Use the Azurite storage emulator for development and testing (preview)
+description: The Azurite storage emulator (preview) provides a free local environment for testing your Azure Storage applications. Learn how requests are authorized, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
 author: mhopkins-msft
 
@@ -11,9 +11,9 @@ ms.author: mhopkins
 ms.subservice: common
 ---
 
-# Use the Azurite storage emulator for development and testing
+# Use the Azurite storage emulator for development and testing (preview)
 
-The Azurite emulator provides a local storage environment for development and testing purposes. Using Azurite, you can test your application against storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure Storage account in the cloud.
+The Azurite emulator (preview) provides a local storage environment for development and testing purposes. Using Azurite, you can test your application against storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure Storage account in the cloud.
 
 Azurite is an open source Azure Storage API compatible emulator. Based on Node.js, Azurite provides cross platform experiences for developers wanting to easily try Azure Storage in a local environment. Azurite simulates most of the commands supported by Azure Storage with minimal dependencies.
 
@@ -170,11 +170,15 @@ Azurite v3 provides support for a General Storage Account v2 and associated feat
 
 Typically, you can pass following connection strings to SDKs or tools (like Azure CLI2.0 or Storage Explorer). Using the blob service as an example, the full connection string is:
 
-`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;`
+```http
+DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
+```
 
 Or if the SDK or tools support following short connection string:
 
-`UseDevelopmentStorage=true;`
+```http
+UseDevelopmentStorage=true;
+```
 
 ### Storage Explorer
 
