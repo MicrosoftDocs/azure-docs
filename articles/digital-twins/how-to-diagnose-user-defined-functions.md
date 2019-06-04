@@ -20,21 +20,19 @@ This article summarizes how to diagnose and debug user-defined functions. Then, 
 
 ## Debug issues
 
-Knowing how to diagnose any issues that arise within your Azure Digital Twins instance aids you to effectively identify the issue, the cause of the problem, and a solution.
+Knowing how to diagnose issues within your Azure Digital Twins instance will aid you effectively identify issues, find the cause of problems, and find appropriate solutions.
 
-### Enable log analytics for your instance
+A variety of logging, analytics, and diagnostic tools are provided to that end.
 
-Logs and metrics for your Azure Digital Twins instance are displayed in Azure Monitor. This documentation assumes you have created an [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) workspace through the [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), through [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), or through [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+### Enable logging for your instance
 
-> [!NOTE]
-> You may experience a 5 minute delay when sending events to Azure Monitor logs for the first time.
+Azure Digital Twins supports robust logging, monitoring, and analytics. Solutions developers can use Azure Monitor logs, diagnostic logs, activity logging, and other services to support the complex monitoring needs of an IoT app. Logging options can be combined to query or display records across several services and to provide granular logging coverage for many services.
 
-To configure monitoring and logging for Azure Digital Twins resources, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
+* For logging configuration specific to Azure Digital Twins, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
+* Consult the the [Azure Monitor](../azure-monitor/overview) overview to learn about powerful log settings enabled through Azure Monitor.
+* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure Portal, Azure CLI, or PowerShell.
 
-Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure Portal, Azure CLI, or PowerShell.
-
->[!IMPORTANT]
-> Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
+Once configured, you'll be able to select all log categories, metrics, and use powerful Azure Monitor log analytics workspaces to support your debugging efforts.
 
 ### Trace sensor telemetry
 
@@ -42,7 +40,7 @@ To trace sensor telemetry, verify that diagnostic settings are enabled for your 
 
 To match a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent. To do so, set the `x-ms-client-request-id` property to a GUID.
 
-After sending telemetry, open up log analytics to query for logs using the set Correlation ID:
+After sending telemetry, open log analytics to query for logs using the set Correlation ID:
 
 ```Kusto
 AzureDiagnostics
