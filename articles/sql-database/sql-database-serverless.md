@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/20/2019
+ms.date: 06/03/2019
 ---
 # SQL Database serverless (preview)
 
 ## Serverless compute tier
 
-SQL Database serverless (preview) is a compute tier that bills for the amount of compute used by a single database on a per second basis. Serverless is price-performance optimized for single databases with intermittent, unpredictable usage patterns that can afford some delay in compute warm-up after idle usage periods.
+SQL Database serverless (preview) is a single database compute tier that autoscales compute and bills for the amount of compute used per second. 
 
 A database in the serverless compute tier is parameterized by the compute range it can use and an autopause delay.
 
@@ -25,7 +25,7 @@ A database in the serverless compute tier is parameterized by the compute range 
 
 ### Performance
 
-- `MinVcore` and `MaxVcore` are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
+- The number of minimum vCores and maximum vCores are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
 - The autopause delay is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
 
 ### Pricing
@@ -37,19 +37,19 @@ Billing for compute is based on the amount of vCores used and memory used per se
 
 ## Scenarios
 
-Serverless is price-performance optimized for single databases with intermittent, unpredictable usage patterns that can afford some delay in compute warm-up after idle usage periods. In contrast, the provisioned compute tier is price-performance optimized for single or pooled databases with higher average usage that cannot afford any delay in compute warm-up.
+Serverless is price-performance optimized for single databases with intermittent, unpredictable usage patterns that can afford some delay in compute warm-up after idle usage periods. In contrast, the provisioned compute tier is price-performance optimized for single databases or multiple databases in elastic pools with higher average usage that cannot afford any delay in compute warm-up.
 
 ### Scenarios well-suited for serverless compute
 
-- Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity can benefit from price savings based on billing per second for the amount of compute used.
-- Single databases with resource demand that is difficult to predict and customers who prefer to delegate compute sizing to the service.
-- Single databases in the provisioned compute tier that frequently change performance levels.
+- Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity and lower average compute utilization over time.
+- Single databases in the provisioned compute tier that are frequently rescaled and customers who prefer to delegate compute rescaling to the service.
+- New single databases without usage history where compute sizing is difficult or not possible to estimate prior to deployment in SQL Database.
 
 ### Scenarios well-suited for provisioned compute
 
-- Single databases with more regular and more substantial compute utilization over time.
+- Single databases with more regular, predictable usage patterns and higher average compute utilization over time.
 - Databases that cannot tolerate performance trade-offs resulting from more frequent memory trimming or delay in autoresuming from a paused state.
-- Multiple databases with intermittent, unpredictable usage patterns that can be consolidated into a single server and use elastic pools for better price optimization.
+- Multiple databases with intermittent, unpredictable usage patterns that can be consolidated into elastic pools for better price-performance optimization.
 
 ## Comparison with provisioned compute tier
 
@@ -57,7 +57,7 @@ The following table summarizes distinctions between the serverless compute tier 
 
 | | **Serverless compute** | **Provisioned compute** |
 |:---|:---|:---|
-|**Typical usage scenario**| Databases with intermittent, unpredictable usage interspersed with inactive periods. |	Databases or elastic pools with more regular usage.|
+|**Database usage pattern**| Intermittent, unpredictable usage with lower average compute utilization over time. |	More regular usage patterns with higher average compute utilization over time, or multiple databases using elastic pools.|
 | **Performance management effort** |Lower|Higher|
 |**Compute scaling**|Automatic|Manual|
 |**Compute responsiveness**|Lower after inactive periods|Immediate|
@@ -71,7 +71,7 @@ SQL Database serverless is currently only supported in the General Purpose tier 
 
 ### Scaling responsiveness
 
-In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the `maxVcores` value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
+In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the max vCores value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
 
 ### Memory management
 
@@ -84,7 +84,7 @@ Unlike provisioned compute databases, memory from the SQL cache is reclaimed fro
 - Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
 - When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
 - When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
-- The cache size is never reduced below the minimum memory as defined by minimum vCores, which can be configured.
+- The cache size is never reduced below the min memory limit as defined by min vCores which can be configured.
 
 In both serverless and provisioned compute databases, cache entries may be evicted if all available memory is used.
 
@@ -96,30 +96,30 @@ The SQL cache grows as data is fetched from disk in the same way and with the sa
 
 ### Autopause
 
-Autopause is triggered if all of the following conditions are true for the duration of the autopause delay:
+Autopausing is triggered if all of the following conditions are true for the duration of the autopause delay:
 
 - Number sessions = 0
-- CPU = 0 (for user workload running in the user pool)
+- CPU = 0 for user workload running in the user pool
 
-An option is provided to disable autopause if desired.
+An option is provided to disable autopausing if desired.
 
 ### Autoresume
 
-Autoresume is triggered if any of the following conditions are true at any time:
+Autoresuming is triggered if any of the following conditions are true at any time:
 
 |Feature|Autoresume trigger|
 |---|---|
 |Authentication and authorization|Login|
-|Threat detection|Enabling/disabling threat detection settings at the database or server level<br>Modifying threat detection settings at the database or server level|
+|Threat detection|Enabling/disabling threat detection settings at the database or server level.<br>Modifying threat detection settings at the database or server level.|
 |Data discovery and classification|Adding, modifying, deleting, or viewing sensitivity labels|
-|Auditing|Viewing auditing records.<br>Updating or viewing auditing policy|
+|Auditing|Viewing auditing records.<br>Updating or viewing auditing policy.|
 |Data masking|Adding, modifying, deleting, or viewing data masking rules|
 |Transparent data encryption|View state or status of transparent data encryption|
 |Query (performance) data store|Modifying or viewing query store settings; automatic tuning|
 |Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
-|Database copying|Create database as copy<br>Export to a BACPAC file|
+|Database copying|Create database as copy.<br>Export to a BACPAC file.|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
-|Modifying certain database metadata|Adding new database tags<br>Changing max vCores, min vCores, autopause delay|
+|Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
 |SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
 
 ### Connectivity
@@ -143,7 +143,7 @@ The following features do not support autopausing and autoresuming. That is, if 
 
 Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps:
 
-1. Specify the service objective name. The service objective prescribes the service tier, hardware generation, and maximum vCores. The following table shows the service objective options:
+1. Specify the service objective name. The service objective prescribes the service tier, hardware generation, and max vCores. The following table shows the service objective options:
 
    |Service objective name|Service tier|Hardware generation|Max vCores|
    |---|---|---|---|
@@ -151,11 +151,11 @@ Creating a new database or moving an existing database into a serverless compute
    |GP_S_Gen5_2|General Purpose|Gen5|2|
    |GP_S_Gen5_4|General Purpose|Gen5|4|
 
-2. Optionally, specify the minimum vCores and autopause delay to change their default values. The following table shows the available values for these parameters.
+2. Optionally, specify the min vCores and autopause delay to change their default values. The following table shows the available values for these parameters.
 
    |Parameter|Value choices|Default value|
    |---|---|---|---|
-   |Minimum vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
+   |Min vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
    |Autopause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
 
 > [!NOTE]
@@ -181,7 +181,7 @@ New-AzSqlDatabase `
   -ComputeGeneration Gen5 `
   -MinVcore 0.5 `
   -MaxVcore 2 `
-  -AutoPauseDelay 720
+  -AutoPauseDelayInMinutes 720
 ```
 
 ### Move provisioned compute database into serverless compute tier
@@ -198,7 +198,7 @@ Set-AzSqlDatabase
   -ComputeGeneration Gen5 `
   -MinVcore 1 `
   -MaxVcore 4 `
-  -AutoPauseDelay 1440
+  -AutoPauseDelayInMinutes 1440
 ```
 
 ### Move serverless database into provisioned compute tier
@@ -209,15 +209,15 @@ A serverless database can be moved into a provisioned compute tier in the same w
 
 ### Maximum vCores
 
-Modifying the maximum vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore` argument.
+Modifying the max vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore` argument.
 
 ### Minimum vCores
 
-Modifying the minimum vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MinVcore` argument.
+Modifying the min vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MinVcore` argument.
 
 ### Autopause delay
 
-Modifying the autopause delay is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `AutoPauseDelay` argument.
+Modifying the autopause delay is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `AutoPauseDelayInMinutes` argument.
 
 ## Monitoring
 
@@ -273,7 +273,7 @@ For resource limits, see [Serverless compute tier](sql-database-vCore-resource-l
 The amount of compute billed is the maximum of CPU used and memory used each second. If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed. In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.
 
 - **Resource billed**: CPU and memory
-- **Amount billed ($)**: vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3) 
+- **Amount billed**: vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3) 
 - **Billing frequency**: Per second
 
 The vCore unit price in the cost per vCore per second. Refer to the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) for specific unit prices in a given region.
@@ -286,25 +286,25 @@ The amount of compute billed is exposed by the following metric:
 
 This quantity is calculated each second and aggregated over 1 minute.
 
-Consider a serverless database configured with 1 min vCore and 4 max vCores.  This corresponds to around 3 GB min memory and 12-GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24-hour period and otherwise inactive.    
+Consider a serverless database configured with 1 min vCore and 4 max vCores.  This corresponds to around 3 GB min memory and 12-GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24-hour period and otherwise inactive.    
 
-In this case, the database is billed for compute and storage during the first 8 hours.  Even though the database is inactive starting after the second hour, it is still billed for compute in the subsequent 6 hours based on the minimum compute provisioned while the database is online.  Only storage is billed during the remainder of the 24-hour period while the database is paused.
+In this case, the database is billed for compute and storage during the first 8 hours.  Even though the database is inactive starting after the second hour, it is still billed for compute in the subsequent 6 hours based on the minimum compute provisioned while the database is online.  Only storage is billed during the remainder of the 24-hour period while the database is paused.
 
 More precisely, the compute bill in this example is calculated as follows:
 
 |Time Interval|vCores used each second|GB used each second|Compute dimension billed|vCore seconds billed over time interval|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores used|4 vCores * 3600 seconds = 14400 vCore seconds|
-|1:00-2:00|1|12|Memory used|12 Gb * 1/3 * 3600 seconds = 14400 vCore seconds|
-|2:00-8:00|0|0|Min memory provisioned|3 Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
+|1:00-2:00|1|12|Memory used|12 GB * 1/3 * 3600 seconds = 14400 vCore seconds|
+|2:00-8:00|0|0|Min memory provisioned|3 GB * 1/3 * 21600 seconds = 21600 vCore seconds|
 |8:00-24:00|0|0|No compute billed while paused|0 vCore seconds|
 |Total vCore seconds billed over 24 hours||||50400 vCore seconds|
 
-Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
+Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
 
 ## Available regions
 
-The serverless compute tier is available in all regions except the following regions: Australia Central, China East, China North, France South, Germany Central, Germany Northeast, India West, Korea South, South Africa West, UK North, UK South, UK West, and West Central US.
+The serverless compute tier is available worldwide except the following regions: Australia Central, China East, China North, France South, Germany Central, Germany Northeast, India West, Korea South, South Africa West, UK North, UK South, UK West, and West Central US.
 
 ## Next steps
 
