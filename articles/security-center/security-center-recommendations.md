@@ -1,5 +1,5 @@
 ---
-title: Understanding security recommendations in Azure Security Center  | Microsoft Docs
+title: Security recommendations in Azure Security Center  | Microsoft Docs
 description: This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.date: 06/04/2019
 ms.author: v-mohabe
 
 ---
-# Managing security recommendations in Azure Security Center
-This document walks you through how to use recommendations in Azure Security Center to help you protect your Azure resources.
+# Security recommendations
+This topic explains how to view and understand the recommendations in Azure Security Center to help you protect your Azure resources.
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This document is not a step-by-step guide.

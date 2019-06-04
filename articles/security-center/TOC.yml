@@ -77,9 +77,10 @@
       href: security-center-customize-os-security-config.md
     - name: Tenant-wide visibility
       href: security-center-management-groups.md
-  - name: Understanding security recommendations
-    href: security-center-recommendations.md
+  - name: Implement security recommendations
     items:
+    - name: What are security recommendations
+      href: security-center-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
     - name: Protect your machines and apps
