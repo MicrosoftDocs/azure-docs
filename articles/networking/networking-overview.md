@@ -41,7 +41,8 @@ Azure Virtual Network enables many types of Azure resources, such as Azure Virtu
 ### <a name="expressroute"></a>ExpressRoute
 ExpressRoute provides private connectivity to Microsoft with predictable performance and enterprise-grade resiliency and with SLA for availability. ExpressRoute has a large and growing partner ecosystem. For more information about ExpressRoute, see the [ExpressRoute documentation](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
-![ExpressRoute overview](./media/networking-overview/expressroute-connection-overview.png)
+
+![ExpressRoute connection overview](../expressroute/media/expressroute-introduction/expressroute-connection-overview.png)
 
 ### <a name="vpngateway"></a>VPN Gateway
 A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. For more information, see the [VPN Gateway documentation](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json).
@@ -65,7 +66,7 @@ Describes networking services in Azure that help protect your network resources 
 ### <a name="ddosprotection"></a>DDoS Protection
 Azure DDoS protection, combined with application design best practices, provide defense against DDoS attacks. The service is available in two service tiers - Basic and Standard. For more information about DDoS protection, see [DDoS Protection Overview](../virtual-network/ddos-protection-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
-![DDoS Protection](./media/networking-overview/ddos-protection.png)
+![DDoS Protection](../virtual-network/media/ddos-protection-overview/ddospic.png)
 
 ### <a name="waf"></a>Web Application Firewall
 
@@ -76,7 +77,7 @@ Web application firewall (WAF) is a feature of Application Gateway that provides
 ### <a name="firewall"></a>Azure Firewall
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. For more information about Azure Firewall, see the [Azure Firewall documentation](../firewall/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
-![Firewall overview](./media/networking-overview/firewall-overview.png)
+![Firewall overview](../firewall/media/overview/firewall-overview.png)
 
 ### <a name="nsg"></a>Network security groups
 You can filter network traffic to and from Azure resources in an Azure virtual network with a network security group. For more information, see [Security Overview](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
@@ -84,7 +85,7 @@ You can filter network traffic to and from Azure resources in an Azure virtual n
 ### <a name="serviceendpoints"></a>Service endpoints
 Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network. For more information, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
-![Virtual nework service endpoints](./media/networking-overview/virtual-network-service-endpoints.png)
+![Virtual nework service endpoints](..virtual-network/media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
 ## <a name="deliver"></a>Application delivery in Azure
 
@@ -117,7 +118,7 @@ Azure Load Balancer helps you scale your applications and create high availabili
 ### <a name="applicationgateway"></a>Application Gateway
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. It is an Application Delivery Controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your applications. For more information, see [What is Azure Application Gateway?](../application-gateway/overview.mdtoc=%2fazure%2fnetworking%2ftoc.json). 
 
-![Application Gateway](./media/networking-overview/application-gateway.png)
+![Application Gateway](../application-gateway/media/application-gateway-introduction/scenario.png)
 
 ## <a name="monitor"></a>Network monitoring services
 Monitor your network resources in Azure using Network Watcher, ExpressRoute Monitor, Azure Monitor, Virtual Network TAP.
