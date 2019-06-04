@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure Data Lake Storage Gen1 by using Data Factory | Microsoft Docs
+title: Copy data to or from Azure Data Lake Storage Gen1 using Data Factory | Microsoft Docs
 description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, by using Data Factory.
 services: data-factory
 author: linda33wj
@@ -15,7 +15,7 @@ ms.date: 05/13/2019
 ms.author: jingwang
 
 ---
-# Copy data to or from Azure Data Lake Storage Gen1 by using Azure Data Factory
+# Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version 1](v1/data-factory-azure-datalake-connector.md)
 > * [Current version](connector-azure-data-lake-store.md)
@@ -31,10 +31,10 @@ This Azure Data Lake Storage Gen1 connector is supported for the following activ
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 
-Specifically, this connector supports:
+Specifically, with this connector you can:
 
-- Copying files by using one of the following methods of authentication: service principal or managed identities for Azure resources.
-- Copying files as is or parsing or generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- Copy files by using one of the following methods of authentication: service principal or managed identities for Azure resources.
+- Copy files as is or parse or generate files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
 > If you copy data by using the self-hosted integration runtime, configure the corporate firewall to allow outbound traffic to `<ADLS account name>.azuredatalakestore.net` and `login.microsoftonline.com/<tenant>/oauth2/token` on port 443. The latter is the Azure Security Token Service that the integration runtime needs to communicate with to get the access token.
@@ -42,7 +42,7 @@ Specifically, this connector supports:
 ## Get started
 
 > [!TIP]
-> For a walkthrough of how to use the Azure Data Lake Store connector, see [Load data into Azure Data Lake Store](load-azure-data-lake-store.md).
+> For a walk-through of how to use the Azure Data Lake Store connector, see [Load data into Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
