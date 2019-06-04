@@ -2,7 +2,7 @@
 title: Azure Kinect DK record external synchronized units
 description: Using Azure Kinect recorder with external synchronized units
 author: joylital
-ms.author: joylital
+ms.author: jawirth, joylital
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
@@ -23,18 +23,20 @@ This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-d
 - Master device must stream RGB camera to enable synchronization.
 - All units must use the same camera configuration (framerate and resolution).
 - All units must run the same device firmware ([update firmware](azure-kinect-dk-update-device-firmware.md) instructions).
-- subordinate devices must start first and the master device must start last.
+- All subordinate devices must be started before the master device.
+- The same exposure value should be set on all devices.
 - Each subordinate's *Delay off master* setting is relative to the master device.
 
 ## Record when each unit has a host PC
 
-In the example below, each device has its own dedicated host PC. It's recommended you connect devices to dedicated PCs.
+In the example below, each device has its own dedicated host PC.
+It's recommended you connect devices to dedicated PCs to prevent issues with USB bandwidth and CPU/GPU usage.
 
 ### Subordinate-1
 
 1. Set up recorder for the first unit
 
-      `k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub1.mkv`
+      `k4arecorder.exe --external-sync sub -e -8 -r 5 -l 10 sub1.mkv`
 
 2. Device starts waiting
 
@@ -49,7 +51,7 @@ In the example below, each device has its own dedicated host PC. It's recommende
  
 1. Set up recorder for the second unit
 
-    `k4arecorder.exe --external-sync subordinate -r 5 -l 10 sub2.mkv`
+    `k4arecorder.exe --external-sync sub -e -8 -r 5 -l 10 sub2.mkv`
  
 2. Device starts waiting
 
@@ -64,7 +66,7 @@ In the example below, each device has its own dedicated host PC. It's recommende
 
 1. Start recording on master
 
-    `>k4arecorder.exe --external-sync master -r 5 -l 10 master.mkv`
+    `>k4arecorder.exe --external-sync master -e -8 -r 5 -l 10 master.mkv`
 
 2. Wait until recording finished
 
@@ -82,7 +84,7 @@ Always start subordinate devices first and the master last.
 
 1. Start recorder on subordinate
 
-    `>k4arecorder.exe --device 1 --external-sync subordinate --imu OFF -r 5 -l 5 output-2.mkv`
+    `>k4arecorder.exe --device 1 --external-sync subordinate --imu OFF -e -8 -r 5 -l 5 output-2.mkv`
 
 2. The device goes into waiting state
 
@@ -90,7 +92,7 @@ Always start subordinate devices first and the master last.
 
 1. Start master device
 
-    `>k4arecorder.exe --device 0 --external-sync master --imu OFF -r 5 -l 5 output-1.mkv`
+    `>k4arecorder.exe --device 0 --external-sync master --imu OFF -e -8 -r 5 -l 5 output-1.mkv`
 
 2. Wait recording to finish
 
@@ -100,7 +102,7 @@ You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play bac
 
 ## Tips
 
-- Use manual exposure (for example, by setting using viewer before recording). RGB camera auto-exposure may impact time-synchronization and some lost depth frames if exposure is too long.
+- Use manual exposure for recording synchronized cameras. RGB camera auto-exposure may impact time-synchronization.
 - Restarting subordinate device will cause synchronization to be lost.
 - Some [camera modes](hardware-specification.md#depth-camera-supported-operating-modes) support 15 fps max. We recommended that you don't mix modes/frame rates between devices
 - Connecting multiple units to single PC can easily saturate USB bandwidth, consider using separate host PC per device. Pay attention to CPU/GPU compute as well.

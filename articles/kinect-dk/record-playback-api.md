@@ -2,7 +2,7 @@
 title: Azure Kinect Record and playback API
 description: Using record and playback API
 author: xthexder
-ms.author: xthexder
+ms.author: jawirth
 ms.prod: kinect-depth_track_enabled
 ms.date: 06/27/2019
 ms.topic: overview
@@ -108,8 +108,8 @@ stored in recording tags, which can be accessed using the [`k4a_playback_get_tag
 
 ```C
 // Print the serial number of the device used to record
-size_t serial_number_size = 0;
 char serial_number[256];
+size_t serial_number_size = 256;
 k4a_buffer_result_t buffer_result = k4a_playback_get_tag(playback_handle, "K4A_DEVICE_SERIAL_NUMBER", &serial_number, &serial_number_size);
 if (buffer_result == K4A_BUFFER_RESULT_SUCCEEDED)
 {
@@ -133,20 +133,24 @@ the [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sens
 
 If a tag doesn't exist, it's assumed to have the default value.
 
-| Tag Name                     | Default Value      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) Field | Notes                                          |
-|------------------------------|--------------------|--------------------------------------|--------------------------------------------------------------------------------------|
-| `K4A_COLOR_MODE`             | "OFF"              | `color_format` / `color_resolution`  | Possible values: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P", and so on            |
-| `K4A_DEPTH_MODE`             | "OFF"              | `depth_mode` / `depth_track_enabled` | Possible values: "OFF, "NFOV_UNBINNED", "PASSIVE_IR", and so on                      |
-| `K4A_IR_MODE`                | "OFF"              | `depth_mode` / `ir_track_enabled`    | Possible values: "OFF", "ACTIVE", "PASSIVE"                                          |
-| `K4A_IMU_MODE`               | "OFF"              | `imu_track_enabled`                  | Possible values: "ON", "OFF"                                                         |
-| `K4A_CALIBRATION_FILE`       | "calibration.json" | N/A                                  | See [`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f)        |
-| `K4A_DEPTH_DELAY_NS`         | "0"                | `depth_delay_off_color_usec`         | Value in nanoseconds                                                                 |
-| `K4A_WIRED_SYNC_MODE`        | "STANDALONE"       | `wired_sync_mode`                    | Possible values: "STANDALONE", "MASTER", "SUBORDINATE"                               |
-| `K4A_SUBORDINATE_DELAY_NS`   | "0"                | `subordinate_delay_off_master_usec`  | Value in nanoseconds                                                                 |
-| `K4A_COLOR_FIRMWARE_VERSION` | ""                 | N/A                                  | Device color firmware version, for example "1.x.xx"                                  |
-| `K4A_DEPTH_FIRMWARE_VERSION` | ""                 | N/A                                  | Device depth firmware version, for example "1.x.xx"                                  |
-| `K4A_DEVICE_SERIAL_NUMBER`   | ""                 | N/A                                  | Recording device serial number                                                       |
-| `K4A_START_OFFSET_NS`        | "0"                | `start_timestamp_offset_usec`        | See [Timestamp Synchronization](record-playback-api.md#timestamp-synchronization) below.                    |
+| Tag Name                     | Default Value      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) Field | Notes     |
+|------------------------------|--------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `K4A_COLOR_MODE`             | "OFF"              | `color_format` / `color_resolution`  | Possible values: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P", and so on                                      |
+| `K4A_DEPTH_MODE`             | "OFF"              | `depth_mode` / `depth_track_enabled` | Possible values: "OFF, "NFOV_UNBINNED", "PASSIVE_IR", and so on                                                |
+| `K4A_IR_MODE`                | "OFF"              | `depth_mode` / `ir_track_enabled`    | Possible values: "OFF", "ACTIVE", "PASSIVE"                                                                    |
+| `K4A_IMU_MODE`               | "OFF"              | `imu_track_enabled`                  | Possible values: "ON", "OFF"                                                                                   |
+| `K4A_CALIBRATION_FILE`       | "calibration.json" | N/A                                  | See [`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
+| `K4A_DEPTH_DELAY_NS`         | "0"                | `depth_delay_off_color_usec`         | Value stored in nanoseconds, API provides microseconds.                                                        |
+| `K4A_WIRED_SYNC_MODE`        | "STANDALONE"       | `wired_sync_mode`                    | Possible values: "STANDALONE", "MASTER", "SUBORDINATE"                                                         |
+| `K4A_SUBORDINATE_DELAY_NS`   | "0"                | `subordinate_delay_off_master_usec`  | Value stored in nanoseconds, API provides microseconds.                                                        |
+| `K4A_COLOR_FIRMWARE_VERSION` | ""                 | N/A                                  | Device color firmware version, for example "1.x.xx"                                                            |
+| `K4A_DEPTH_FIRMWARE_VERSION` | ""                 | N/A                                  | Device depth firmware version, for example "1.x.xx"                                                            |
+| `K4A_DEVICE_SERIAL_NUMBER`   | ""                 | N/A                                  | Recording device serial number                                                                                 |
+| `K4A_START_OFFSET_NS`        | "0"                | `start_timestamp_offset_usec`        | See [Timestamp Synchronization](record-playback-api.md#timestamp-synchronization) below.                       |
+| `K4A_COLOR_TRACK`            | None               | N/A                                  | See [Recording File Format - Identifying tracks](sdk-record-format.md#identifying-tracks).                     |
+| `K4A_DEPTH_TRACK`            | None               | N/A                                  | See [Recording File Format - Identifying tracks](sdk-record-format.md#identifying-tracks).                     |
+| `K4A_IR_TRACK`               | None               | N/A                                  | See [Recording File Format - Identifying tracks](sdk-record-format.md#identifying-tracks).                     |
+| `K4A_IMU_TRACK`              | None               | N/A                                  | See [Recording File Format - Identifying tracks](sdk-record-format.md#identifying-tracks).                     |
 
 ## Timestamp synchronization
 
@@ -154,6 +158,6 @@ The Matroska format requires that recordings must start with a timestamp of zero
 
 To preserve the original timestamps from the devices between recording and playback, the file stores an offset to apply to the timestamps.
 
-The `K4A_START_OFFSET_NS` tag is used to specify a timestamp offset so that files can be re synchronized after recording. This timestamp offset can be added to each timestamp in the file to reconstruct the original device timestamps.
+The `K4A_START_OFFSET_NS` tag is used to specify a timestamp offset so that files can be resynchronized after recording. This timestamp offset can be added to each timestamp in the file to reconstruct the original device timestamps.
 
 The start offset is also available in the [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) struct.
