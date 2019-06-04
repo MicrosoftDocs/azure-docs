@@ -38,7 +38,7 @@ Enable the instrumentation engine if:
 > This cmdlet requires a PowerShell session with Admin permissions.
 
 > [!NOTE] 
-> - To use this cmdlet, you must review and accept our license and privacy statement.
+> - This cmdlet requires that you review and accept our license and privacy statement.
 > - The instrumentation engine adds additional overhead and is off by default.
 
 ## Examples
