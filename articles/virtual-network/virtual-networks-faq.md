@@ -179,17 +179,18 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ## Azure services that connect to VNets
 
 ### Can I use Azure App Service Web Apps with a VNet?
-Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). If you have a point-to-site connection configured for your VNet, all Web Apps can securely connect and access resources in the VNet. For more information, see the following articles:
+Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment), connect the backend of your apps to your VNets with VNet Integration, and lock down inbound traffic to your app with service endpoints. For more information, see the following articles:
 
+* [App Service networking features](../app-service/networking-features.md)
 * [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [App Service access restrictions](../app-service/app-service-ip-restrictions.md)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
 Yes. You can (optionally) deploy Cloud Services role instances within VNets. To do so, you specify the VNet name and the role/subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.
 
-### Can I connect a Virtual Machine Scale Set (VMSS) to a VNet?
-Yes. You must connect a VMSS to a VNet.
+### Can I connect a virtual machine scale set to a VNet?
+Yes. You must connect a virtual machine scale set to a VNet.
 
 ### Is there a complete list of Azure services that can I deploy resources from into a VNet?
 Yes, For details, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md).
@@ -218,7 +219,7 @@ Yes. For details, see [Azure Network Security Overview](../security/security-net
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
-Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/virtual-network) and [classic (Service Management)](https://go.microsoft.com/fwlink/?LinkId=296833) deployment models.
+Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/virtual-network) and [classic](https://go.microsoft.com/fwlink/?LinkId=296833) deployment models.
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
@@ -238,7 +239,7 @@ Yes. Global VNet peering enables you to peer VNets in different regions. Global 
 If the two virtual networks are in different region (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
 The following resources use Basic Load Balancers which means you cannot communicate to them across Global VNet Peering:
 - VMs behind Basic Load Balancers
-- VM Scale Sets with Basic Load Balancers 
+- Virtual machine scale sets with Basic Load Balancers 
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
@@ -246,7 +247,7 @@ The following resources use Basic Load Balancers which means you cannot communic
 - API Management
 - Active Directory Domain Service (ADDS)
 - Logic Apps
-- HD Insight
+- HDInsight
 -	Azure Batch
 - AKS
 - App Service Environment
@@ -284,7 +285,7 @@ No. Transitive peering is not supported. You must peer VNetA and VNetC for this 
 No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limited by the VM or the compute resource.
 
 ### How can I troubleshoot VNet Peering issues?
-Here is a [troubleshooter guide] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) you can try.
+Here is a [troubleshooter guide](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) you can try.
 
 ## Virtual network TAP
 

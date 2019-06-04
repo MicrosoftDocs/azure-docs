@@ -5,6 +5,8 @@
   items:
   - name: What is Language Understanding?
     href: what-is-luis.md
+  - name: What's new
+    href: whats-new.md    
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
@@ -400,8 +402,6 @@
     href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Resources
   items:
-  - name: What's new
-    href: whats-new.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Language and region support
