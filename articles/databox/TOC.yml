@@ -125,6 +125,10 @@
       items:
       - name: What is Data Box Heavy?
         href: data-box-heavy-overview.md
+    - name: Quickstarts
+      items:
+      - name: Set up - Azure portal
+        href: data-box-heavy-quickstart-portal.md
     - name: Tutorials
       items:
       - name: 1 - Order
