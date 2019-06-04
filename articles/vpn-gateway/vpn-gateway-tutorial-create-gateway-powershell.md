@@ -30,7 +30,7 @@ The following diagram shows the virtual network and the VPN gateway created as p
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-try-it.md)]
+[!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## Common network parameter values
 

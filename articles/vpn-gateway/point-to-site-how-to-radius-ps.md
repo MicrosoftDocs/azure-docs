@@ -58,7 +58,7 @@ Apart from Active Directory, a RADIUS server can also integrate with other exter
 
 Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-try-it-about.md)]
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Example values
 
