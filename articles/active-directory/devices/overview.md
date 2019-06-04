@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/04/2019
 ms.author: joflore
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 #Customer intent: As an IT admin, I want to learn how to bring and manage device identities in Azure AD, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
 
 ms.collection: M365-identity-device-management
@@ -30,7 +30,7 @@ In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables 
 
 Through devices in Azure AD, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to manage these devices identities. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.
 
-Device management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.
+Device identity management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.
 
 ## Getting devices in Azure AD
 
@@ -148,7 +148,7 @@ As a rule of a thumb, you should use:
 
 ## Next steps
 
-- To get an overview of how to manage device identities in the Azure portal, see [Managing devices identities using the Azure portal](device-management-azure-portal.md).
+- To get an overview of how to manage device identities in the Azure portal, see [Managing device identities using the Azure portal](device-management-azure-portal.md).
 - To set up:
    - Azure Active Directory registered Windows 10 devices, see [How to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
    - Azure Active Directory joined devices, see [How to plan your Azure Active Directory join implementation](azureadjoin-plan.md).
