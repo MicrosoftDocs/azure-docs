@@ -74,7 +74,11 @@
       - name: Configure SAML token encryption (Preview)
         href: howto-saml-token-encryption.md
     - name: Single sign-on
-      href: what-is-single-sign-on.md
+      items: 
+      - name: What is single sign-on
+        href: what-is-single-sign-on.md
+      - name: Planning a single sign-on deployment
+        href: plan-sso-deployment.md
     - name: End-user portals
       href: end-user-experiences.md
   - name: How-to guides
