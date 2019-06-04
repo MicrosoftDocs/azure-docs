@@ -139,9 +139,12 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
-    You may also set the page size using the available Azure Cosmos DB SDKs.  For example:
+    You may also set the page size using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) property in FeedOptions allows you to set the maximum number of items to be returned in the enmuration operation. When `maxItemCount` is set to -1, the SDK automatically finds the most optimal value depending on the document size. For example:
 
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+    
+    When a query is executed, the resulting data is sent within a TCP packet. If you specify too low value for `maxItemCount`, the number of trips required to send the data within the TCP packet are high, which impacts the performance. So if you are not sure what value to set for `maxItemCount` property, it's best to set it to -1 and let the SDK choose the default value. 
+
 10. **Increase number of threads/tasks**
 
     See [Increase number of threads/tasks](#increase-threads) in the Networking section.
