@@ -10,7 +10,7 @@ ms.date: 5/29/2019
 # Auto grow storage using the Azure portal in Azure Database for PostgreSQL - Single Server
 This article describes how you can configure an Azure Database for PostgreSQL server storage to grow without impacting the workload.
 
-When a server reaches the allocated storage limit, the server is marked as read-only. However, if you enable storage auto grow, the server storage increases to accommodate the growing data. For servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified [here](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage) apply.
+When a server reaches the allocated storage limit, the server is marked as read-only. However, if you enable storage auto grow, the server storage increases to accommodate the growing data. For servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified [here](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage) apply.
 
 ## Prerequisites
 To complete this how-to guide, you need:
@@ -32,7 +32,7 @@ Follow these steps to set PostgreSQL server storage auto grow:
 
 5. A notification will confirm that auto grow was successfully enabled.
 
-    ![Azure Database for PostgreSQL - auto-growth success](./media/howto-auto-grow-storage-portal/5-auto-grow-success.png)
+    ![Azure Database for PostgreSQL - auto-growth success](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
 
 ## Next steps
 
