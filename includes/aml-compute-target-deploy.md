@@ -18,4 +18,4 @@ ms.date: 05/30/2019
 | [Azure Container Instances (ACI)](../articles/machine-learning/service/how-to-deploy-and-where.md#aci) | Testing or dev | &nbsp;  | &nbsp; | Good for low scale, CPU-based workloads requiring <48GB RAM |
 | [Azure Machine Learning Compute](../articles/machine-learning/service/how-to-run-batch-predictions.md) | (Preview) Batch inference | yes | &nbsp;  | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
 | [Azure IoT Edge](../articles/machine-learning/service/how-to-deploy-and-where.md#iotedge) | (Preview) IoT module |  &nbsp; | &nbsp; | Deploy & serve ML models on IoT devices. |
-| Azure Databox Edge   | via IoT Edge |  &nbsp; | yes | Deploy & serve ML models on IoT devices. |
+| [Azure Databox Edge](../articles/databox-online/data-box-edge-overview.md)   | via IoT Edge |  &nbsp; | yes | Deploy & serve ML models on IoT devices. |
