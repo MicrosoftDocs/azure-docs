@@ -88,7 +88,7 @@ Here are examples of how monitoring Media Services metrics and logs can help you
 
 ### Metrics
 
-Some qeuestions that can be addressed with Media Services metrics are:
+Some questions that can be addressed with Media Services metrics are:
 
 * How do I monitor my Standard Streaming Endpoint to know when I have exceeded the limits?
 * How do I know if I have enough Premium Streaming Endpoint scale units? 
