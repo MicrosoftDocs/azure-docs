@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Create your first app for Azure Search
 
-Learn how to create a web interface to query and present search results from an index using Azure Search. In this tutorial, you’ll start with an existing, hosted index so that you can focus on building a search page. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
+Learn how to create a web interface to query and present search results from an index using Azure Search. This tutorial starts with an existing, hosted index so that you can focus on building a search page. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -35,7 +35,7 @@ parameters = new SearchParameters()
 DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<Hotel>("search text", parameters);
 ```
 
-This one call initiates a search of Azure data and returns the results. Notice that we are using the asynchronous version of the search API. Both the synchronous and asynchronous versions of the API call work similarly, there are some differences in declaring the methods and calling the APIs, but no additional lines of code are needed. For best practices to avoid blocking threads on a server, use the asynchronous versions.
+This one call initiates a search of Azure data and returns the results. 
 
 ![Searching for 24-hour](./media/tutorial-csharp-create-first-app/azure-search-24-hour.png)
 
@@ -761,6 +761,9 @@ In this method, we first ensure our Azure configuration is initiated, then set s
 
 The asynchronous call to search (**results = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one and a good idea is to stop at this point using a debugger and examine the contents of **results**. You should find that it is intuitive, providing you with the data you asked for and not much else.
 
+> [!NOTE]
+> This set of tutorials all use the asynchronous version of the API calls, to avoid blocking threads on the server. Both the synchronous and asynchronous versions of the API calls work similarly, there are some minor differences in declaring the methods and making the calls, but no additional lines of code are needed. It is best practice to avoid the synchronous calls, and use the asynchronous versions throughout your work with Azure Search.
+
 Now for the moment of truth.
 
 ### Test the app
@@ -804,11 +807,10 @@ It is important to verify that our error handling features work as they should, 
 
 You should consider the following takeaways from this project:
 
-* Azure Search enables a few API calls to set up and carry out a cloud search, and it is easy to interpret the results.
+* An Azure Search call is concise, and it is easy to interpret the results.
 * Temporary storage persists for only one call and needs to be reset to survive additional calls.
 * Asynchronous calls add a small amount of complexity to the controller but is the best practice if you intend to develop industrial quality apps.
 * This app performed a straightforward text search, defined by what is set up in **searchParameters**. However, this one class can be populated with many members that add sophistication to a search. Not much additional work is needed.
-* The Model-View-Controller architecture takes a bit of getting used to, if you are new to it, but it does clearly define what runs on the client, what runs on the server, and how to cleanly communicate (with good scalability) data between the two.
 
 ## Next steps
 

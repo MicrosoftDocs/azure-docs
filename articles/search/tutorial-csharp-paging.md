@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Page the results of Azure Search
 
-Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. This tutorial builds the paging systems into the project created in the [Create your first app in Azure Search](tutorial-csharp-create-first-app.md) tutorial. Both systems of paging are widely used, and selecting the right one can depend on the type of search that is being carried out, and the user experience you would like with the results.
+Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. Both systems of paging are widely used, and selecting the right one depends on the user experience you would like with the results. This tutorial builds the paging systems into the project created in the [Create your first app in Azure Search](tutorial-csharp-create-first-app.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -46,7 +46,7 @@ xxxx
 
 1. Open the SearchData.cs model file.
 
-2. First add some global variables. **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted when the left-most or right-most page number is selected. Typically this latter number might be around half of **MaxPageRange**.
+2. First add some global variables (following **ResultsPerPage**). **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted when the left-most or right-most page number is selected. Typically this latter number might be around half of **MaxPageRange**.
 
 ```cs
         public static int MaxPageRange
@@ -81,7 +81,7 @@ xxxx
 
 ### Add a table of paging options to the view
 
-1. Replace the paging options (starting with **@if (Model != null && Model.pageCount &gt; 1)** and ending with **}** before the final &lt;/body&gt; tag) with the following code. This new code presents a table of paging options: first, previous, 1, 2, 3, 4, 5, next, last.
+1. Delete the existing paging options (starting with **@if (Model != null && Model.pageCount &gt; 1)** and ending with **}** before the final &lt;/body&gt; tag), and replace it with the following code. This new code presents a table of paging options: first, previous, 1, 2, 3, 4, 5, next, last.
 
 ```cs
 @if (Model != null && Model.pageCount > 1)
@@ -359,6 +359,8 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 1. Search on some text that will give plenty of results (such as "bar" or "pool"). Can you page neatly through the results?
 
+![Numbered paging through "pool" results](./media/tutorial-csharp-create-first-app/azure-search-numbered-paging.png)
+
 2. Try clicking on the right-most, and later, left-most page numbers. Do the page numbers adjust appropriately to center the page you are on?
 
 3. Are the "first" and "last" options useful? Some popular web searches use these options, and others do not.
@@ -394,7 +396,7 @@ This variable is a string, which holds "next" if the next page of results should
 ### Add a vertical scroll bar to the view
 
 1. Locate the section of the index.cshtml file that displays the results (it starts with the **@for (var i = 0; i &lt; Model.hotels.Count; i++)** ).
-2. Replace the entire loop with the **&lt;div&gt;** section below. The **&lt;div&gt;** section is around the area that should be scrollable and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
+2. Replace the loop with the **&lt;div&gt;** section below. The **&lt;div&gt;** section is around the area that should be scrollable and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
 
 ```cs
         <div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()">
@@ -559,7 +561,9 @@ using System.Collections.Generic;
 
 Now select **Start Without Debugging** (or press the F5 key).
 
-1. Enter a term that will give plenty of results (such as "wifi") and then test the vertical scroll bar. Does it trigger a new page of results? 
+1. Enter a term that will give plenty of results (such as "pool") and then test the vertical scroll bar. Does it trigger a new page of results?
+
+![Infinite scrolling through "pool" results](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
 > [!Tip]
 > To ensure that a scroll bar appears on the first page, the first page of results must slightly exceed the height of the area they are being displayed in. In our example **.box1** has a height of 30 pixels, **.box2** has a height of 100 pixels _and_ a bottom margin of 24 pixels. So each entry uses 154 pixels. Three entries will take up 3 x 154 = 462 pixels. To ensure that a vertical scroll bar appears, a height to the display area must be set that is smaller than 462 pixels, even 461 works. This issue only occurs on the first page, after that a scroll bar is sure to appear. The line to update is: **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;**.
@@ -574,7 +578,7 @@ You should consider the following takeaways from this project:
 
 * Numbered paging is good for searches where the order of the results is somewhat arbitrary, meaning there may well be something of interest to your users on the later pages.
 * Infinite scrolling is good when the order of results is particularly important. For example, if the results are ordered on the distance from the center of a destination city.
-* Numbered paging allows for some better navigation, for example, a user can remember that an interesting result was on page 6, whereas no such easy navigation exists in infinite scrolling.
+* Numbered paging allows for some better navigation. For example, a user can remember that an interesting result was on page 6, whereas no such easy reference exists in infinite scrolling.
 * Infinite scrolling has an easy appeal, scrolling up and down with no fussy page numbers to click on.
 * A key feature of infinite scrolling is that you are appending to an existing page, not replacing that page. This keeps it efficient.
 
