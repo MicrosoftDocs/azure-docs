@@ -21,7 +21,7 @@ Custom rules allow you to create your own rules that are evaluated for each requ
 
 For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic. You also set the rule’s name and priority.
 
-Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, **(Condition 1 and Condition 2) or Condition 3)**.  This example means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
+Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, (Condition 1 **and** Condition 2) **or** Condition 3).  This example means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
 
 Different matching conditions within the same rule are always compounded using **and**. For example, block traffic from a specific IP address, and only if they’re using a certain browser.
 
@@ -51,7 +51,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-The `$BlockRule` Powershell above would map to the following custom rule in ARM:
+The previous `$BlockRule` maps to the following custom rule in ARM:
 
 ```json
 "customRules": [
@@ -82,7 +82,7 @@ The `$BlockRule` Powershell above would map to the following custom rule in ARM:
     ], 
 ```
 
-This custom rule contains a name, priority, an action, and the array of matching conditions that must be met for the action to take place. For further explanation of these fields, see below. For example custom rules, see [Create and use custom web application firewall rules](create-custom-waf-rules.md). 
+This custom rule contains a name, priority, an action, and the array of matching conditions that must be met for the action to take place. For further explanation of these fields, see the following field descriptions. For example custom rules, see [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
 ## Fields for custom rules
 

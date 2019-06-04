@@ -124,7 +124,7 @@ And the corresponding JSON:
 
 You want to block all requests from IP addresses in the range 198.168.5.4/24.
 
-In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to *100*.
+In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 100.
 
 Logic: p
 
@@ -333,7 +333,7 @@ And the corresponding JSON:
 
 ## Example 5
 
-You want to block custom SQLI. Since the logic used here is *or*, and all the values are in the "RequestUri", all of the "MatchValues" can be in a comma-separated list.
+You want to block custom SQLI. Since the logic used here is **or**, and all the values are in the *RequestUri*, all of the *MatchValues* can be in a comma-separated list.
 
 Logic: p **or** q **or** r
 
