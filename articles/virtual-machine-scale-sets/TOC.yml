@@ -72,9 +72,9 @@
     maintainContext: true
     items:
     - name: Availability
-      href: ../virtual-machines/windows/availability.md
+      href: availability.md
     - name: Co-location
-      href: ../virtual-machines/windows/co-location.md
+      href: co-location.md
     - name: Network performance
       href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Manage fault domains in scale sets
@@ -250,6 +250,8 @@
         href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Create a proximity placement group
+      href: proximity-placement-groups.md  
     - name: Vertical scaling in a scale set
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
     - name: Using DSC and scale sets
