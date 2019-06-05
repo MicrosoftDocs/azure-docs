@@ -95,7 +95,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Ireland | Ireland* |   
 | Italy   | <p>Agrigento, Alessandria, Ancona, Bari,  Bologna - Bologne, Cagliari - Sardinia, Campobasso, Catania e Messina, Cosenza, Crema, Cremona, Crotone, Cuneo,  Firenze - Florence, Foggia, Genova - Genoa, Iglesias, La Spezia, Lecce, Matera, Milano - Milan, Napoli - Naples, Padova, Palermo, Parma, Perugia, Pescara, Pisa, Potenza, Roma - Rome, Siena e Grosseto, Siracusa - Syracuse, Taranto, Torino - Turin, Trento, Trieste, Udine, Venezia - Venice, </p> |
 | Latvia | Rīga |
-| Lithunia | Druskininkai, Kauno, Klaipėda, Panevėžys, Vilnius |
+| Lithuania | Druskininkai, Kauno, Klaipėda, Panevėžys, Vilnius |
 | Luxembourg | Luxembourg* |
 | Moldova | Chisinau |
 | Montenegro | Podgorica |
