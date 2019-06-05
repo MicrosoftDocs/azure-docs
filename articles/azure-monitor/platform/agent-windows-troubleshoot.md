@@ -35,7 +35,7 @@ If none of these steps work for you, the following support channels are also ava
 
 If the agent is communicating through a proxy server or firewall, there may be restrictions in place preventing communication from the source computer and the Azure Monitor service. If communications is blocked, misconfiguration, registration with a workspace may fail while attempting to install the agent, configure the agent post-setup to report to an additional workspace, or agent communication fails after successful registration. This section describes the methods to troubleshoot this type of issue with the Windows agent. 
 
-Double check that the firewall or proxy is configured to allow the following ports and URLs described in the following table.
+Double check that the firewall or proxy is configured to allow the following ports and URLs described in the following table. Also confirm that HTTP inspection is not enabled for web traffic, as this can prevent a secure TLS channel between the agent and Azure Monitor.  
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
@@ -46,9 +46,11 @@ Double check that the firewall or proxy is configured to allow the following por
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
-There are two ways you can verify if the agent is successfully communicating with Azure Monitor.
+There are several ways you can verify if the agent is successfully communicating with Azure Monitor.
 
-1. Run the following query to confirm the agent is sending a heartbeat to the workspace it is configured to report to. Replace <ComputerName> with the actual name of the machine.
+1. Enable the [Azure Log Analytics Agent Health assessment](../insights/solution-agenthealth.md). From the Agent Health dashboard, view the **Count of unresponsive agents** column to quickly see if the agent is listed.  
+
+2. Run the following query to confirm the agent is sending a heartbeat to the workspace it is configured to report to. Replace <ComputerName> with the actual name of the machine.
 
     ```
     Heartbeat 
@@ -58,7 +60,9 @@ There are two ways you can verify if the agent is successfully communicating wit
 
     If the computer is successfully communicating with the service, the query should return a result. If the query did not return a result, first verify the agent is configured to report to the correct workspace. If it is configured correctly, proceed to step 2 and search the Windows Event Log to identify if the agent is logging what issue might be preventing it from communicating with Azure Monitor.
 
-2. Filter the *Operations Manager* event log by **Event sources** - *Health Service Modules*, *HealthService*, and *Service Connector* and filter by **Event Level** *Warning* and *Error* to confirm if it has written events from the following table. If they are, review the resolution steps included for each possible event.
+2. Another method to identify a connectivity issue is by running the **TestCloudConnectivity** tool. This is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. From an elevated command prompt, navigate to the folder and run the tool. The tool returns the results and highlights where the test failed (for example, if it was related to a particular port/URL that was blocked).
+
+3. Filter the *Operations Manager* event log by **Event sources** - *Health Service Modules*, *HealthService*, and *Service Connector* and filter by **Event Level** *Warning* and *Error* to confirm if it has written events from the following table. If they are, review the resolution steps included for each possible event.
 
     |Event ID |Source |Description |Resolution |
     |---------|-------|------------|-----------|
@@ -72,12 +76,14 @@ There are two ways you can verify if the agent is successfully communicating wit
 
 ## Data collection issues
 
-After the agent is installed and reports to its configured workspace or workspaces, it may stop collecting or forwarding performance, logs, or other data to the service depending on what is enabled and targeting the computer. It is necessary to determine if:
+After the agent is installed and reports to its configured workspace or workspaces, it may stop receiving configuration, collecting or forwarding performance, logs, or other data to the service depending on what is enabled and targeting the computer. It is necessary to determine if:
 
 - Is it a particular data type or all data that is not available in the workspace?
-- How many computers are affected?  Is it a single or multiple computers reporting to the workspace?
-- Was this working and did it stop at a particular time of day?  
-- Is the query properly constructed where 
+- Is the data type specified by a solution or specified as part of the workspace data collection configuration?
+- How many computers are affected? Is it a single or multiple computers reporting to the workspace?
+- Was this working and did it stop at a particular time of day, or has it never been collected? 
+- Is the query you are using to search syntactically correct? 
+- Has the agent ever received its configuration from Azure Monitor?
 
 The first step in troubleshooting is to determine if the computer is sending a heartbeat event.
 
@@ -87,6 +93,6 @@ Heartbeat
     | summarize arg_max(TimeGenerated, * ) by Computer
 ```
 
-If the query returns results, then we need to determine if it a particular data type 
+If the query returns results, then we need to determine if it a particular data type restart the HealthService to 
 
 ## 
