@@ -91,34 +91,35 @@ You can either use non-vanity URLs or vanity URLs.
 
 The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).<br/>
 The *access token* below is what you need to specify for fixed URL. It is also 128 bit hex number.
+The *stream name* below indicates the stream name for a specific connection.
 
 #### Non-vanity URL
 
 ##### RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/{stream name}`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/{stream name}`
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/{stream name}`
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/{stream name}`
 
 ##### Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams({stream name})`
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams({stream name})`
 
 #### Vanity URL
 
 ##### RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/{stream name}`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/{stream name}`
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/{stream name}`
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/{stream name}`
 
 ##### Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams({stream name})`
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams({stream name})`
 
 ## Live Event preview URL
 
