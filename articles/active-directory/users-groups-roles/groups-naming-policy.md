@@ -78,7 +78,7 @@ Selected administrators can be exempted from these policies, across all group wo
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
-    ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy-preview.png)
+    ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)
 
 ### View or edit the prefix-suffix naming policy
 
@@ -91,7 +91,7 @@ Selected administrators can be exempted from these policies, across all group wo
 
 1. On the **Naming policy** page, select **Blocked words**.
 
-    ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords-preview.png)
+    ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords.png)
 
 1. View or edit the current list of custom blocked words by selecting **Download**.
 1. Upload the new list of custom blocked words by selecting the file icon.
