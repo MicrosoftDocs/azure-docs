@@ -31,6 +31,32 @@ ms.collection: M365-identity-device-management
 
 By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the scenarios where access packages are required.  Typically it is users within departments who have identified the need for collaboration. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights. This article describes the roles that you can assign to delegate various tasks in entitlement management.
 
+## Delegate example for departmental adoption
+
+To understand how you might delegate tasks in entitlement management it helps to consider an example. Suppose your organization has the following five users:
+
+| User | Department | Notes |
+| --- | --- | --- |
+| Alice | IT | Global administrator |
+| Bob | Research | Bob is also owner of a Research group |
+| Carole | Research |  |
+| Dave | Marketing |  |
+| Elisa | Marketing | Elisa is also owner of a Marketing application |
+
+Both the Research and Marketing departments want to use entitlement management for their users. But Alice is not yet ready for other departments to use entitlement management yet.
+
+1. Alice creates a new Azure AD security group for catalog creators, and adds Bob, Carol, Dave and Elisa as members of that group.
+
+1. Alice uses the entitlement management settings to add that group to the catalog creators role.
+
+1. Carol creates a catalog for **Research**, and adds Bob as a co-owner of that **Research** catalog.  Bob adds the Research group he owns to the catalog as a resource, so that it can be used in an access package for research collaboration.
+
+1. Dave creates a catalog for **Marketing**, and adds Elisa as a co-owner of that **Marketing** catalog.  Elisa adds the Marketing app she owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
+
+Now the Research and Marketing departments can utilize entitlement management. Bob, Carol, Dave, and Elisa can create and manage access packages in their catalogs.
+
+![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
+
 ## Entitlement management roles
 
 Entitlement management has the following roles that are specific to entitlement management.
@@ -118,32 +144,6 @@ If you want to delegate management of a catalog or access packages in the catalo
 1. Click **Add owners** or **Add access package managers** to select the members for these roles.
 
 1. Click **Select** to add these members.
-
-## Delegate example for departmental adoption
-
-To understand how you might delegate tasks in entitlement management it helps to consider an example. Suppose your organization has the following five users:
-
-| User | Department | Notes |
-| --- | --- | --- |
-| Alice | IT | Global administrator |
-| Bob | Research | Bob is also owner of a Research group |
-| Carole | Research |  |
-| Dave | Marketing |  |
-| Elisa | Marketing | Elisa is also owner of a Marketing application |
-
-Both the Research and Marketing departments want to use entitlement management for their users. But Alice is not yet ready for other departments to use entitlement management yet.
-
-1. Alice creates a new Azure AD security group for catalog creators, and adds Bob, Carol, Dave and Elisa as members of that group.
-
-1. Alice uses the entitlement management settings to add that group to the catalog creators role.
-
-1. Carol creates a catalog for **Research**, and adds Bob as a co-owner of that **Research** catalog.  Bob adds the Research group he owns to the catalog as a resource, so that it can be used in an access package for research collaboration.
-
-1. Dave creates a catalog for **Marketing**, and adds Elisa as a co-owner of that **Marketing** catalog.  Elisa adds the Marketing app she owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
-
-Now the Research and Marketing departments can utilize entitlement management. Bob, Carol, Dave, and Elisa can create and manage access packages in their catalogs.
-
-![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
 
 ## Next steps
 
