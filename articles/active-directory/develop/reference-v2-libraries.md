@@ -3,7 +3,7 @@ title: Microsoft identity platform authentication libraries | Microsoft Docs
 description: Compatible client libraries and server middleware libraries, along with related library, source, and sample links, for the Microsoft identity platform endpoint.
 services: active-directory
 documentationcenter: ''
-author: negoe
+author: negoef
 manager: CelesteDG
 editor: ''
 
@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 The [Microsoft identity platform endpoint](active-directory-v2-compare.md) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. The Microsoft Authentication Library (MSAL) is designed to work with the Microsoft identity platform endpoint. You can also use open-source libraries that support OAuth 2.0 and OpenID Connect 1.0.
 
-We recommend you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology. Such libraries include [the one that Microsoft follows][Microsoft-SDL]. If you hand code for the protocols, you should follow a methodology such as Microsoft SDL. Pay close attention to the security considerations in the standards specifications for each protocol.
+We recommend that you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology. Such libraries include [the one that Microsoft follows][Microsoft-SDL]. If you hand code for the protocols, you should follow a methodology such as Microsoft SDL. Pay close attention to the security considerations in the standards specifications for each protocol.
 
 > [!NOTE]
 > Are you looking for the Azure Active Directory Authentication Library (ADAL)? Checkout the [ADAL library guide](active-directory-authentication-libraries.md).
@@ -48,7 +48,7 @@ For a list of libraries that work with the Microsoft identity platform endpoint,
 
 ## Microsoft-supported client libraries
 
-Use client authentication libraries to acquire a token for calling a protected Web API.
+Use client authentication libraries to acquire a token for calling a protected web API.
 
 | Platform | Library | Download | Source code | Sample | Reference | Conceptual doc | Roadmap |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -63,7 +63,7 @@ Use client authentication libraries to acquire a token for calling a protected W
 
 ## Microsoft-supported server middleware libraries
 
-Use middleware libraries to protect Web applications and Web APIs. Web apps or Web APIs written with ASP.NET or ASP.NET Core use the middleware libraries.
+Use middleware libraries to help protect web applications and web APIs. Web apps or web APIs written with ASP.NET or ASP.NET Core use the middleware libraries.
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
@@ -84,11 +84,11 @@ Use middleware libraries to protect Web applications and Web APIs. Web apps or W
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth-oauth2: 1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | ![iOS](media/sample-v2-code/logo_iOS.png) ![Android](media/sample-v2-code/logo_Android.png) | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth) | [Version 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-Because you can use the Microsoft identity platform endpoint for any standards-compliant library, it’s important that you know where to go for support.
+For any standards-compliant library, you can use the Microsoft identity platform endpoint. It’s important to know where to go for support:
 
 * For issues and new feature requests in library code, contact the library owner.
 * For issues and new feature requests in the service-side protocol implementation, contact Microsoft.
-* [File a feature request](https://feedback.azure.com/forums/169401-azure-active-directory) for additional features you would like to see in the protocol.
+* [File a feature request](https://feedback.azure.com/forums/169401-azure-active-directory) for additional features you want to see in the protocol.
 * [Create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) if you find an issue where the Microsoft identity platform endpoint isn't compliant with OAuth 2.0 or OpenID Connect 1.0.
 
 ## Related content
