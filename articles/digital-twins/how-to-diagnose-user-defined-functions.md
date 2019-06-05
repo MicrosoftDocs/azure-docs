@@ -6,21 +6,21 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
 ---
 
 # How to debug user-defined functions in Azure Digital Twins
 
-This article summarizes how to diagnose and debug user-defined functions. Then, it identifies some of the most common scenarios found when debugging them.
+This article summarizes how to diagnose and debug user-defined functions in Azure Digital Twins. Then, it identifies some of the most common scenarios found when debugging them.
 
 >[!TIP]
 > Read [How to configure monitoring and logging](./how-to-configure-monitoring.md) to learn more about setting up debugging tools in Azure Digital Twins using Activity Logs, Diagnostic Logs, and Azure Monitor.
 
 ## Debug issues
 
-Knowing how to diagnose issues within your Azure Digital Twins instance allows you to effectively identify issues, the cause of problems, and appropriate solutions for them.
+Knowing how to diagnose issues within Azure Digital Twins allows you to effectively analyze issues, identify the causes of problems, and provide appropriate solutions for them.
 
 A variety of logging, analytics, and diagnostic tools are provided to that end.
 
