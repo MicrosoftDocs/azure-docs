@@ -60,7 +60,6 @@ The following steps show you how to run the Remote Monitoring microservices in V
 1. In VS Code, open the **azure-iot-pcs-remote-monitoring-dotnet** folder.
 1. Create a new folder called **.vscode** in the **azure-iot-pcs-remote-monitoring-dotnet** folder.
 1. Copy the files **launch.json** and **tasks.json** from services\scripts\local\launch\idesettings\vscode to the **.vscode** folder you just created.
-1. Copy the files **launch.json** and **tasks.json** from scripts\local\launch\idesettings\vscode\. Create a new folder **azure-iot-pcs-remote-monitoring-dotnet\.vscode** and paste the files there.
 1. Open the **Debug panel** in VS Code and run the **Run All microservices** configuration. This configuration runs the device simulation microservice in Docker and runs the other microservices in the debugger.
 
 The output from running **Run All microsoervices** in the Debug Console looks like the following:
