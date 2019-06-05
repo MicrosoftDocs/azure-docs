@@ -28,7 +28,7 @@ Organizations often have hundreds of applications that users depend on to get th
 ## What types of applications can I integrate with Azure AD?
 There are four main types of applications that you can add to your **Enterprise applications** and manage with Azure AD:
 
--   **Azure AD Gallery applications** – Azure AD has a gallery that contains thousands of applications that have been pre-integrated for single sign-on with Azure AD. Some of the applications your organization uses are probably in the gallery. [Learn about planning your app integration](plan-an-application-integration.md), or get detailed integration steps for individual apps in the [SaaS application tutorials](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/). 
+-   **Azure AD Gallery applications** – Azure AD has a gallery that contains thousands of applications that have been pre-integrated for single sign-on with Azure AD. Some of the applications your organization uses are probably in the gallery. [Learn about planning your app integration](plan-an-application-integration.md), or get detailed integration steps for individual apps in the [SaaS application tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/). 
 
 -   **On-premises applications with Application Proxy** – With Azure AD Application Proxy, you can integrate your on-premises web apps with Azure AD to support single sign-on. Then end users can access your on-premises web apps in the same way they access Office 365 and other SaaS apps. [Learn why to use Application Proxy and how it works](what-is-application-proxy.md).
 
