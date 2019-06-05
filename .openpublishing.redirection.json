@@ -21,6 +21,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/best-practices-network-security.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-asm.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-fw-asm.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/batch-ai/migrate-to-new-api.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/how-to-migrate",
       "redirect_document_id": true
@@ -1289,6 +1309,11 @@
       "source_path": "articles/cosmos-db/multi-master-conflict-resolution.md",
       "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-python-application.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-python",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/powershell-samples.md",
@@ -4889,7 +4914,7 @@
       "source_path": "articles/azure-functions/functions-bindings-external-file.md",
       "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-functions/functions-create-vnet-old.md",
       "redirect_url": "/azure/azure-functions/functions-create-vnet",
@@ -11046,11 +11071,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md",
-      "redirect_url": "/azure/event-hubs/event-hubs-dedicated-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
@@ -13769,12 +13789,12 @@
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-portal.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-powershell.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
@@ -15381,6 +15401,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
+      "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
       "redirect_url": "/azure/backup/backup-azure-backup-faq",
       "redirect_document_id": false
@@ -16412,6 +16437,21 @@
     {
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-best-practices-costs.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-best-practices-networking.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-best-practices-security-management.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management",
       "redirect_document_id": false
     },
     {
@@ -17982,6 +18022,11 @@
     {
       "source_path": "articles/active-directory/active-directory-b2b-how-it-works.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/concept-mfa-whichversion.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-mfa-howitworks",
       "redirect_document_id": false
     },
     {
@@ -26440,6 +26485,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/gtm-promote-your-business.md",
+      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/become-publisher.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
       "redirect_document_id": true
@@ -27685,7 +27735,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-data-warehouse/release-notes.md", 
+      "source_path": "articles/sql-data-warehouse/release-notes.md",
       "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
     },
@@ -30835,6 +30885,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-sample-walkthrough.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-gateway-deployment.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-features",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
       "redirect_url": "/azure/iot-accelerators/quickstart-predictive-maintenance-deploy",
       "redirect_document_id": false
@@ -31337,6 +31397,11 @@
     {
       "source_path": "articles/azure-maps/search-categories.md",
       "redirect_url": "/azure/azure-maps/supported-search-categories",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-speech-to-intent.md",
+      "redirect_url": "/azure/cognitive-services//speech-service/how-to-recognize-intents-from-speech-csharp",
       "redirect_document_id": true
     },
     {
@@ -32414,6 +32479,31 @@
       "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cdn/cdn-rules-engine-reference-conditional-expressions.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path": "articles/cdn/cdn-rules-engine-reference-features.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference-features",
+      "redirect_document_id": true 
+    }, 
+    {
+      "source_path": "articles/cdn/cdn-rules-engine-reference-match-conditions.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference-match-conditions",
+      "redirect_document_id": true 
+    }, 
+    {
+      "source_path": "articles/cdn/cdn-rules-engine-reference.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine-reference",
+      "redirect_document_id": true 
+    }, 
+    {
+      "source_path": "articles/cdn/cdn-rules-engine.md",
+      "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine",
+      "redirect_document_id": true 
+    },  
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
@@ -36472,7 +36562,7 @@
       "source_path": "articles/cognitive-services/personalizer/personalizer-container-howto.md",
       "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-reference-prebuilt-keyphrase",
@@ -37334,8 +37424,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/FAQs.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/sdk-and-samples.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Sign-up.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/overview",
       "redirect_document_id": false
     },
     {
@@ -37401,6 +37501,11 @@
     {
       "source_path": "articles/cognitive-services/Custom-Vision-Service/rest-api-tutorial.md",
       "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/glossary-of-terms.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
       "redirect_document_id": false
     },
     {
@@ -39559,9 +39664,69 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-detect.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-dictionary.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-languages.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-sentences.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-translate.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-ruby-transliterate.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-detect.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-dictionary.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-languages.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-sentences.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-translate.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/quickstart-php-transliterate.md",
+      "redirect_url": "https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-upgrade-backup-to-recovery-services.md",
       "redirect_url": "/azure/backup/backup-create-rs-vault",
       "redirect_document_id": true
-    }   
+    }
   ]
 }

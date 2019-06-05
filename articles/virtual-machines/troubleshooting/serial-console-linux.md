@@ -43,7 +43,7 @@ For Serial Console documentation for Windows, see [Serial Console for Windows](.
 
 - For settings specific to Linux distributions, see [Serial console Linux distribution availability](#serial-console-linux-distribution-availability).
 
-- Your VM or virtual machine scale set instance must be configured for serial output on `ttys0`. This is the default for Azure images, but you will want to double check this on custom images. Details [below](#Custom-Linux-images).
+- Your VM or virtual machine scale set instance must be configured for serial output on `ttys0`. This is the default for Azure images, but you will want to double check this on custom images. Details [below](#custom-linux-images).
 
 
 ## Get started with the Serial Console
