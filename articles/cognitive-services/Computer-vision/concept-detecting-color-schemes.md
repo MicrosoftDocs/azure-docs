@@ -26,7 +26,7 @@ Computer Vision also returns a boolean value indicating whether an image is in b
 
 The following example illustrates the JSON response returned by Computer Vision when detecting the color scheme of the example image. In this case, the example image is not a black and white image, but the dominant foreground and background colors are black, and the dominant colors for the image as a whole are black and white.
 
-![Outdoor Mountain](./Images/mountain_vista.png)
+![Outdoor Mountain at sunset, with a person's silhouette](./Images/mountain_vista.png)
 
 ```json
 {

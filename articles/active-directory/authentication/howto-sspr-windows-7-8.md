@@ -58,6 +58,8 @@ You must register for SSPR before you will be able to use the "Forgot password" 
 
 Using the Microsoft Authenticator app for notifications and codes to reset your password does not work in this initial release. Users must have alternate methods registered that meet the requirements of your policy.
 
+If more than one 3rd party credential provider is enabled on your machine, users will see more than one user profile on the logon screen.
+
 ## Troubleshooting
 
 Events will be logged both on the machine and in Azure AD.

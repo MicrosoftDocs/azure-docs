@@ -24,9 +24,9 @@ Check out coverage for [**Render**](render-coverage.md).
 
 | Symbol             | Meaning                                |
 |--------------------|----------------------------------------|
-| ✓                  | Country provided with detailed data.   |
-| Ø                  | Country provided with simplified data. |
-| Country is missing | Country data is not provided.          |
+| ✓                  | Country/region provided with detailed data.   |
+| Ø                  | Country/region provided with simplified data. |
+| Country is missing | Country/region data is not provided.          |
 
 <br>  
 
@@ -45,7 +45,7 @@ The following table provides coverage information for Azure Maps routing.
 | Burkina Faso                   |        ✓       |                       |             |
 | Burundi                        |        ✓       |                       |             |
 | Cameroon                       |        ✓       |                       |             |
-| Cape Verde                     |        ✓       |                       |             |
+| Cabo Verde                     |        ✓       |                       |             |
 | Congo- Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo- Kinshasa                |        ✓       |                       |             |
 | côte d’ivoire                  |        ✓       |                       |             |
@@ -73,7 +73,6 @@ The following table provides coverage information for Azure Maps routing.
 | Togo                           |        ✓       |                       |             |
 | Tunisia                        |        ✓       |                       |             |
 | Uganda                         |        ✓       |                       |             |
-| Western Sahara                 |        ✓       |                       |             |
 | Zambia                         |        ✓       |                       |             |
 | Zimbabwe                       |        ✓       |                       |             |
 
@@ -133,12 +132,12 @@ The following table provides coverage information for Azure Maps routing.
 | Cambodia                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| Hong Kong                      |        ✓       |         ✓            |             |
+| Hong Kong SAR                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
 | Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| Macau                          |        ✓       |         ✓            |             |
+| Macao SAR                      |        ✓       |         ✓            |             |
 | Malaysia                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | New Zealand                    |        ✓       |         ✓            |     ✓       | 
@@ -187,7 +186,7 @@ The following table provides coverage information for Azure Maps routing.
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Lithuania                      |        ✓       |         ✓            |     ✓      | 
 | Luxembourg                     |        ✓       |         ✓            |     ✓      | 
-| Macedonia                      |        ✓       |                      |             |
+| North Macedonia                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldova                        |        ✓       |                      |             |
 | Monaco                         |        ✓       |         ✓            |             |
@@ -196,14 +195,14 @@ The following table provides coverage information for Azure Maps routing.
 | +Aruba                         |        ✓       |                      |             | 
 | +Caribbean Netherlands         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| +Saint Maarten                  |        ✓       |                      |             |
+| +Sint Maarten                  |        ✓       |                      |             |
 | Norway                         |        ✓       |         ✓            |     ✓      | 
 | Poland                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Russian Federation             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Saint Maarten                  |        ✓       |                      |             |
+| +Sint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovakia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |
@@ -217,9 +216,9 @@ The following table provides coverage information for Azure Maps routing.
 | +Bermuda                       |        ✓       |                      |             |
 | +British Virgin Islands        |        ✓       |                      |             |
 | +Cayman Islands                |        ✓       |                      |             |
-| +Gibraltar                      |        ✓       |         ✓            |             | 
+| +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| +Turks & Caicos islands        |        ✓       |                      |             |
+| +Turks and Caicos Islands      |        ✓       |                      |             |
 | Vatican City                   |        ✓       |         ✓            |             |
 | Isle of Man                    |        ✓       |                      |             |
 

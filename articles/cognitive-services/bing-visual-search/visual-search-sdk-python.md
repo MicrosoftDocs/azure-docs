@@ -3,7 +3,7 @@ title: "Quickstart: Bing Visual Search SDK, Python"
 titleSuffix: Azure Cognitive Services
 description: Setup for Visual search SDK Python console application.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services

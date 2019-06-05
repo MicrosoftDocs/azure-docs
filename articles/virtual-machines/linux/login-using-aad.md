@@ -79,7 +79,7 @@ It takes a few minutes to create the VM and supporting resources.
 
 ## Install the Azure AD login VM extension
 
-To log in to a Linux VM with Azure AD credentials, install the Azure Active Directory log in VM extension. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to install the *AADLoginForLinux* extension on the VM named *myVM* in the *myResourceGroup* resource group:
+To log in to a Linux VM with Azure AD credentials, install the Azure Active Directory login VM extension. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to install the *AADLoginForLinux* extension on the VM named *myVM* in the *myResourceGroup* resource group:
 
 ```azurecli-interactive
 az vm extension set \

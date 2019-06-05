@@ -48,7 +48,7 @@ TmaxSoft OpenFrame is a popular mainframe rehosting solution used in lift-and-sh
 To get started:
 
 - [Get started with TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Download the ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
+- [Download the ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
 
 ## IBM zD&T 12.0
 

@@ -160,6 +160,11 @@ To view previous run histories in Visual Studio or the Azure portal:
 Find your logic app, open the app's shortcut menu. 
 Select **Open run history**.
 
+  > [!NOTE]
+  > For Visual Studio 2019, Cloud Explorer can open 
+  > the Logic App Designer in the Azure portal, but can't 
+  > yet open the embedded Logic App Designer or run history.
+
 * In the Azure portal, find your logic app. 
 On your logic app's menu, choose **Overview**. 
 

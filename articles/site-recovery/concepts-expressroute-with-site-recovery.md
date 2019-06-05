@@ -6,7 +6,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/8/2019
+ms.date: 4/18/2019
 ms.author: mayg
 
 ---
@@ -34,6 +34,16 @@ Learn more about and compare ExpressRoute routing domains [here](../expressroute
 Azure Site Recovery enables disaster recovery and migration to Azure for on-premises [Hyper-V virtual machines](hyper-v-azure-architecture.md), [VMware virtual machines](vmware-azure-architecture.md), and [physical servers](physical-azure-architecture.md). For all on-premises to Azure scenarios, replication data is sent to and stored in an Azure Storage account. During replication, you don't pay any virtual machine charges. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines.
 
 Site Recovery replicates data to an Azure Storage account over a public endpoint. To use ExpressRoute for Site Recovery replication, you can utilize [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (deprecated for new creations) or [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft peering is the recommended routing domain for replication. Ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) are also met for replication. After virtual machines or servers fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Replication is not supported over private peering.
+
+In case you use proxy at on-premises and wish to use ExpressRoute for replication traffic, you need to configure the Proxy bypass list on the Configuration Server and Process Servers. Follow the steps below:
+
+- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user context.
+- Open Internet Explorer in system user context by running the following command line
+    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+- Add proxy settings in IE
+- In the bypass list, add the Azure storage URL *.blob.core.windows.net
+
+This will ensure that only replication traffic flows through ExpressRoute while the communication can go through proxy.
 
 The combined scenario is represented in the following diagram:
 ![On-premises-to-Azure with ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)

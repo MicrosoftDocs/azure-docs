@@ -25,7 +25,7 @@ Your organization's credit includes your monetary commitment. The monetary commi
 
 ## Invoices for most customers
 
-This section doesn't apply to Azure customers in Australia, Japan, or Singapore. If you are in one of those countries, see [Invoices for other customers](#invoices-for-other-customers).
+This section doesn't apply to Azure customers in Australia, Japan, or Singapore. If you are in one of those countries/regions, see [Invoices for other customers](#invoices-for-other-customers).
 
 You receive an Azure invoice when one of the following occurs during your billing cycle:
 

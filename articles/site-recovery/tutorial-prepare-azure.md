@@ -6,7 +6,7 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 ## Before you start
 
 - Review the architecture for [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md), and [physical server](physical-azure-architecture.md) disaster recovery.
-- Read common questions for [VMware](vmware-azure-common-questions.md) and Hyper-V(hyper-v-azure-common-questions.md)
+- Read common questions for [VMware](vmware-azure-common-questions.md) and [Hyper-V](hyper-v-azure-common-questions.md)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. Then sign in to the [Azure portal](https://portal.azure.com).
 

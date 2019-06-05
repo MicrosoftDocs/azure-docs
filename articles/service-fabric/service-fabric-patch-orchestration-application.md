@@ -20,13 +20,6 @@ ms.author: brkhande
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-> [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
-> * [Linux](service-fabric-patch-orchestration-application-linux.md)
->
->
-
-
 > 
 > [!IMPORTANT]
 > Application version 1.2.* is going out of support on 30 April 2019. Please upgrade to the latest version.
@@ -145,9 +138,7 @@ Automatic Windows Updates might lead to availability loss because multiple clust
 
 ## Download the app package
 
-Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
-
-Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+To download application package, please visit GitHub release [page](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) of Patch Orchestration Application.
 
 ## Configure the app
 
@@ -209,13 +200,15 @@ The patch orchestration app exposes REST APIs to display the historical results 
       {
         "OperationResult": 0,
         "NodeName": "_stg1vm_1",
-        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "OperationTime": "2019-05-13T08:44:56.4836889Z",
+        "OperationStartTime": "2019-05-13T08:44:33.5285601Z",
         "UpdateDetails": [
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
             "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
-            "ResultCode": 0
+            "ResultCode": 0,
+            "HResult": 0
           }
         ],
         "OperationType": 1,
@@ -238,10 +231,13 @@ ResultCode | Same as OperationResult | This field indicates result of installati
 OperationType | 1 - Installation<br> 0 - Search and Download.| Installation is the only OperationType that would be shown in the results by default.
 WindowsUpdateQuery | Default is "IsInstalled=0" |Windows update query that was used to search for updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | true - reboot was required<br> false - reboot was not required | Indicates if reboot was required to complete installation of updates.
+OperationStartTime | DateTime | Indicates the time at which operation(Download/Installation) started.
+OperationTime | DateTime | Indicates the time at which operation(Download/Installation) completed.
+HResult | 0 - Successful<br> other - failure| Indicates the reason of failure of the windows update with updateID "7392acaf-6a85-427c-8a8d-058c25beb0d6".
 
 If no update is scheduled yet, the result JSON is empty.
 
-Log in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
+Sign in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
 http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
 The REST endpoint for the Coordinator Service has a dynamic port. To check the exact URL, refer to the Service Fabric Explorer. For example, the results are available at
@@ -262,11 +258,63 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ## Diagnostics/health events
 
+The following section talks about how to debug/diagnose issues with patch updates through Patch Orchestration Application on Service Fabric clusters.
+
+> [!NOTE]
+> You should have v1.4.0 version of POA installed to get many of the below called out self diagnostic improvements.
+
+The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) to install updates on the nodes. Each task is then prepared by CoordinatorService according to task approval policy. The prepared tasks are finally approved by Repair Manager which will not approve any task if cluster is in unhealthy state. Lets go step by step to understand how updates proceed on a node.
+
+1. NodeAgentNTService, running on every node, looks for available Windows Update at the scheduled time. If updates are available, it goes ahead and downloads them on the node.
+2. Once the updates are downloaded, NodeAgentNTService, creates corresponding repair task for the node with the name POS___<unique_id>. One can view these repair tasks using cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) or in SFX in the node details section. Once the repair task is created, quickly moves to [Claimed state](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+3. The Coordinator service, periodically looks for repair tasks in claimed state and goes ahead and updates them to Preparing state based on the TaskApprovalPolicy. If the TaskApprovalPolicy is configured to be NodeWise, a repair task corresponding to a node is prepared only if there is no other repair task currently in Preparing/Approved/Executing/Restoring state. Similarly, in case of UpgradeWise TaskApprovalPolicy, it is ensured at any point there are tasks in the above states only for nodes which belong to the same upgrade domain. Once a repair task is moved to Preparing state, the corresponding Service Fabric node is [disabled](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) with intent as "Restart".
+
+   POA(v1.4.0 and above) posts events with property "ClusterPatchingStatus" on CoordinaterService to display the nodes which are being patched. Below image shows that updates are getting installed on _poanode_0:
+
+    [![Image of Cluster patching status](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+
+4. Once the node is disabled, the repair task is moved to Executing state. Note, a repair task stuck in preparing state, after because a node is stuck in disabling state can result in blocking new repair task and hence halt patching of cluster.
+5. Once repair task is in executing state, the patch installation on that node begins. Here on, once the patch is installed, the node may or may not be restarted depending on the patch. Post that the repair task is moved to restoring state, which enables back the node again and then it is marked as completed.
+
+   In v1.4.0 and above versions of the application, status of the update can be found by looking at the health events on NodeAgentService with property "WUOperationStatus-[NodeName]". The highlighted sections in the images below show the status of windows update on node 'poanode_0' and 'poanode_2':
+
+   [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+
+   [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+
+   One can also get the details using powershell, by connecting to the cluster and fetching the state of the repair task using [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted once the task moves to Executing state.
+
+   ``` powershell
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
+
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k.ExecutorData
+    {"ExecutorSubState":2,"ExecutorTimeoutInMinutes":90,"RestartRequestedTime":"0001-01-01T00:00:00"}
+    ```
+
+   If there is still more to be found then, sign in to specific VM/VMs to find more about the issue using Windows event logs. The above mentioned repair task can only have these executor sub-states:
+
+      ExecutorSubState | Detail
+    -- | -- 
+      None=1 |  Implies that there wasn't an ongoing operation on the node. Possible state transitions.
+      DownloadCompleted=2 | Implies download operation has completed with success, partial failure, or failure.
+      InstallationApproved=3 | Implies download operation was completed earlier and Repair Manager has approved the installation.
+      InstallationInProgress=4 | Corresponds to state of execution of the repair task.
+      InstallationCompleted=5 | Implies installation completed with success, partial success, or failure.
+      RestartRequested=6 | Implies patch installation completed and there is a pending restart action on the node.
+      RestartNotNeeded=7 |  Implies that restart was not needed after completion of patch installation.
+      RestartCompleted=8 | Implies that restart completed successfully.
+      OperationCompleted=9 | Windows update operation completed successfully.
+      OperationAborted=10 | Implies that windows update operation is aborted.
+
+6. In v1.4.0 and above of the application, when update attempt on a node completes, an event with property "WUOperationStatus-[NodeName]" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
+
+     [![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+
 ### Diagnostic logs
 
 Patch orchestration app logs are collected as part of Service Fabric runtime logs.
 
-In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider IDs to log events via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider IDs to log events via [event source](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -276,12 +324,6 @@ In case you want to capture logs via diagnostic tool/pipeline of your choice. Pa
 ### Health reports
 
 The patch orchestration app also publishes health reports against the Coordinator Service or the Node Agent Service in the following cases:
-
-#### A Windows Update operation failed
-
-If a Windows Update operation fails on a node, a health report is generated against the Node Agent Service. Details of the health report contain the problematic node name.
-
-After patching is successfully completed on the problematic node, the report is automatically cleared.
 
 #### The Node Agent NTService is down
 
@@ -315,7 +357,7 @@ Q. **What can I do if my cluster is unhealthy and I need to do an urgent operati
 
 A. The patch orchestration app does not install updates while the cluster is unhealthy. Try to bring your cluster to a healthy state to unblock the patch orchestration app workflow.
 
-Q. **Should i set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster?**
+Q. **Should I set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster?**
 
 A. 'UpgradeDomainWise' makes the overall cluster patching faster by patching all the nodes belonging to an upgrade domain in parallel. This means that nodes belonging to an entire upgrade domain would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
 
@@ -349,6 +391,18 @@ A. Some product updates would only appear in their respective update/patch histo
 Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster)?**
 
 A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
+
+Q. **How do I patch cluster nodes on Linux?**
+
+A. See [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) for orchestrating updates on linux.
+
+Q.**Why is update cycle taking so long?**
+
+A. Query for the result json, then, go through the entry of the update cycle for all nodes and then, you can try to find out the time taken by update installation on every node using OperationStartTime and OperationTime(OperationCompletionTime). If there was large time window in which no update was going on, it could be because the cluster was in error state and because of that repair manager did not approve any other POA repair tasks. If update installation took long on any node, then, it could be possible that node was not updated from long time and a lot of updates were pending installation, which took time. There could also be a case in which patching on a node is blocked due to node being stuck in disabling state which usually happens because disabling the node might lead to quorum/data loss situations.
+
+Q. **Why is it required to disable the node when POA is patching it?**
+
+A. Patch orchestration application disables the node with 'restart' intent which stops/reallocates all the Service fabric services running on the node. This is done to ensure that applications do not end up using a mix of new and old dlls, so it is not recommended to patch a node without disabling it.
 
 ## Disclaimers
 
@@ -390,6 +444,9 @@ An administrator must intervene and determine why the application or cluster bec
 
 ## Release Notes
 
+>[!NOTE]
+> Starting from version 1.4.0, release notes and releases can be found on GitHub release [page](https://github.com/microsoft/Service-Fabric-POA/releases/).
+
 ### Version 1.1.0
 - Public release
 
@@ -416,7 +473,7 @@ An administrator must intervene and determine why the application or cluster bec
 
 - Setting InstallWindowsOSOnlyUpdates to false now installs all the available updates.
 - Changed the logic of disabling automatic updates. This fixes a bug where Automatic updates were not getting disabled on Server 2016 and above.
-- Parameterized placement constraint for both the microservices of POA for advanced usecases.
+- Parameterized placement constraint for both the microservices of POA for advanced use cases.
 
 ### Version 1.3.1
 - Fixing regression where POA 1.3.0 won't work on Windows Server 2012 R2 or lower due to failure in disabling automatic updates. 
@@ -424,4 +481,4 @@ An administrator must intervene and determine why the application or cluster bec
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
 
 ### Version 1.3.2
-- Fixing an issue which effected the patching life-cyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 
+- Fixing an issue which effected the patching lifecycle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 

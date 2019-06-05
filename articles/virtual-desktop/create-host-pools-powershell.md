@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
 ---
 # Create a host pool with PowerShell
@@ -21,12 +21,6 @@ Run the following cmdlet to sign in to the Windows Virtual Desktop environment
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
-```
-
-After that, run the following cmdlet to set the context to your tenant group. If you don't have the name of the tenant group, your tenant is most likely in the “Default Tenant Group,” so you can skip this cmdlet.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Next, run this cmdlet to create a new host pool in your Windows Virtual Desktop tenant:
@@ -80,6 +74,9 @@ To successfully domain-join, do the following things on each virtual machine:
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
+    >[!NOTE]
+    > If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 ## Register the virtual machines to the Windows Virtual Desktop Preview host pool
 
 Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
@@ -95,20 +92,9 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
    - Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
    - Run the installer.
-4. Install or activate the Windows Virtual Desktop side-by-side stack. The steps will be different depending on which OS version the virtual machine uses.
-   - If your virtual machine's OS is Windows Server 2016:
-     - Download the [Windows Virtual Desktop side-by-side stack](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
-     - Run the installer.
-   - If your virtual machine's OS is Windows 10 1809 or later or Windows Server 2019 or later:
-     - Download the [script](https://go.microsoft.com/fwlink/?linkid=2084268) to activate the side-by-side stack.
-     - Right-click the downloaded script, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the script.
-     - From the **Start** menu, search for Windows PowerShell ISE, right-click it, then select **Run as administrator**.
-     - Select **File**, then **Open…**, and then find the PowerShell script from the downloaded files and open it.
-     - Select the green play button to run the script.
 
 >[!IMPORTANT]
->To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## Next steps
 
