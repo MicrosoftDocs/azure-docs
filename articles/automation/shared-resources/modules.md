@@ -48,7 +48,7 @@ You can also import modules from the PowerShell Gallery directly from your Autom
 
 ## Delete modules
 
-If you have issues with a module or you need to roll back to a previous version of a module you can delete it from your Automation Account. You can not delete the original version of the [default modules](#default-modules) that are imported when you create an Automation Account. If the module you want to delete is a newer version of one of the [default modules](#default-modules) installed with your Automation Account, it will roll-back to the version that was installed with your Automation Account. Otherwise, any module you delete from your Automation Account will be removed.
+If you have issues with a module or you need to roll back to a previous version of a module, you can delete it from your Automation Account. You can not delete the original version of the [default modules](#default-modules) that are imported when you create an Automation Account. If the module you want to delete is a newer version of one of the [default modules](#default-modules) installed, it will roll-back to the version that was installed with your Automation Account. Otherwise, any module you delete from your Automation Account will be removed.
 
 ### Azure portal
 
@@ -223,7 +223,7 @@ We recommend you consider the following when you author a PowerShell module for 
 
 ## Default modules
 
-The following table lists the modules that are imported by default when an Automation Account is created. These modules can be updated but can not be removed from your Automation Account.
+The following table lists the modules that are imported by default when an Automation Account is created. The modules listed below can have newer versions of them imported, but the original version can not be removed from your Automation Account even if you delete a newer version of them.
 
 |Module name|Version|
 |---|---|
