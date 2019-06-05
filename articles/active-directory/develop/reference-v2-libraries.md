@@ -3,7 +3,7 @@ title: Microsoft identity platform authentication libraries | Microsoft Docs
 description: Compatible client libraries and server middleware libraries, along with related library, source, and sample links, for the Microsoft identity platform endpoint.
 services: active-directory
 documentationcenter: ''
-author: negoef
+author: negoe
 manager: CelesteDG
 editor: ''
 
