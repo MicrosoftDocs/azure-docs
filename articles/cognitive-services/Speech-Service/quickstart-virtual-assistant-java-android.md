@@ -41,7 +41,7 @@ In this article, you will create a Java application for Android using the [Cogni
 
 We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!".
 
-To get started quickly, replace the contents of `activity_main.xml` with the following.
+Next, replace the contents of the `activity_main.xml` with the following code:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
