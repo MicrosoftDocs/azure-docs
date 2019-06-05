@@ -151,9 +151,9 @@ TBD
     Run ID: cda was successful after 2m56s
     ```
 
-For more information on building images with an Azure Container Registry, see [Build and run a container image using Azure Container Registry Tasks](~/azure/container-registry/container-registry-quickstart-task-cli.md)
+For more information on building images with an Azure Container Registry, see [Build and run a container image using Azure Container Registry Tasks](/docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli.md)
 
-For more information on uploading existing images to an Azure Container Registry, see [Push your first image to a private Docker container registry](~/azure/container-registry/container-registry-get-started-docker-cli.md).
+For more information on uploading existing images to an Azure Container Registry, see [Push your first image to a private Docker container registry](/azure/container-registry/container-registry-get-started-docker-cli.md).
 
 ## Use the custom base image
 
