@@ -17,19 +17,19 @@ ms.author: magoedte
 
 # Understand the health of your Azure virtual machines
 
-Azure includes multiple services that individually perform a specific role or task in the monitoring space, but haven't provided an in-depth health perspective of the operating system hosted on Azure virtual machines (VMs). While you could monitor for different conditions by using Azure Monitor, it wasn't designed to model and represent health of core components or overall health of the VM.
+Azure includes individual services that perform specific roles or tasks in the monitoring space, but it doesn't provide in-depth health perspectives of operating systems hosted on Azure virtual machines (VMs). Although you can use Azure Monitor for different conditions, it's not designed to model and represent the health of core components or the overall health of VMs.
 
-With Azure Monitor for VMs health feature, it proactively monitors the availability and performance of the Windows or Linux guest OS with a model that represent key components and their relationships, criteria that specifies how to measure the health of those components, and alert you when an unhealthy condition is detected.  
+The Azure Monitor for VMs health feature proactively monitors the availability and performance of the Windows or Linux guest OS. It uses a model that represent key components and their relationships, criteria that specifies how to measure the health of those components, and alerts you when it detects an unhealthy condition.  
 
-Viewing the overall health state of the Azure VM and underlying operating system can be observed from two perspectives with Azure Monitor for VMs health, directly from the VM or across all VMs in a resource group from Azure Monitor.
+The overall health state of an Azure VM and the underlying operating system can be observed from two perspectives by using the Azure Monitor for VMs health feature: directly from a VM, or across all VMs in a resource group from Azure Monitor.
 
-This article will help you understand how to quickly assess, investigate, and resolve health issues detected.
+This article will help you understand how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VMs health feature.
 
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
 
 ## Monitoring configuration details
 
-This section outlines the default health criteria defined to monitor Azure Windows and Linux VMs. All health criteria are pre-configured to alert when the unhealthy condition is met. 
+This section outlines the default health criteria defined to monitor Azure Windows and Linux VMs. All health criteria are pre-configured to alert when an unhealthy condition is met.
 
 ### Windows VMs
 
