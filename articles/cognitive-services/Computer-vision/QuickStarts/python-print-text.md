@@ -66,26 +66,30 @@ vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0
 
 ocr_url = vision_base_url + "ocr"
 
-# Set image_url to the URL of an image that you want to analyze.
-image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
-    "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
+# to easily swith between two different options (local and cloud) we create this variable
+isLocal = True
 
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+# set request parameters
 params  = {'language': 'unk', 'detectOrientation': 'true'}
-data    = {'url': image_url}
-response = requests.post(ocr_url, headers=headers, params=params, json=data)
-"""
-If you want to analyze an image that is stored locally replace the above code snippet with the following
-image_path = "C:/Users/ajakupov/Pictures/logoblog.png"
-# Read the image into a byte array
-image_data = open(image_path, "rb").read()
-
-headers = {'Ocp-Apim-Subscription-Key': subscription_key,
+# option to be defined by a developer
+if isLocal:
+  image_path = "<path-to-local-image-file>"
+  # Read the image into a byte array
+  image_data = open(image_path, "rb").read()
+  # Set Content-Type to octet-stream
+  headers = {'Ocp-Apim-Subscription-Key': subscription_key,
            'Content-Type': 'application/octet-stream'}
-params  = {'language': 'unk', 'detectOrientation': 'true'}
 
-response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
-"""
+  response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
+else:
+  # Set image_url to the URL of an image that you want to analyze.
+  image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
+      "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
+
+  headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+  data    = {'url': image_url}
+  response = requests.post(ocr_url, headers=headers, params=params, json=data)
+
 response.raise_for_status()
 
 
