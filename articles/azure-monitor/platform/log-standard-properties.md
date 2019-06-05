@@ -133,7 +133,7 @@ union withsource = tt *
 
 To see the size of billable events ingested per subscription, use the following query:
 
-```
+```Kusto
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
@@ -142,7 +142,7 @@ union withsource=table *
 
 To see the size of billable events ingested per resource group, use the following query:
 
-```
+```Kusto
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
