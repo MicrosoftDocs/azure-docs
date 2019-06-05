@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 06/05/2019
 ms.author: Kumud
 ---
 
@@ -26,7 +26,7 @@ This article provides a quick tour of these capabilities, and it offers ways to 
 
 ## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
 
-Azure Load Balancer provides new multi-dimensional metrics via the new Azure Metrics (preview) in the Azure portal, and it helps you get real-time diagnostic insights into your load balancer resources. 
+Azure Load Balancer provides new multi-dimensional metrics via the new Azure Metrics in the Azure portal, and it helps you get real-time diagnostic insights into your load balancer resources. 
 
 The various Standard Load Balancer configurations provide the following metrics:
 
@@ -50,7 +50,7 @@ To view the metrics for your Standard Load Balancer resources:
 2. Set the appropriate aggregation type.
 3. Optionally, configure the required filtering and grouping.
 
-    ![Metrics preview for Standard Load Balancer](./media/load-balancer-standard-diagnostics/LBMetrics1a.png)
+    ![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/LBMetrics1a.png)
 
     *Figure: Data Path Availability metric for Standard Load Balancer*
 
@@ -99,10 +99,6 @@ The health probe status metric describes the health of your application deployme
 To get the health probe status for your Standard Load Balancer resources:
 1. Select the **Health Probe Status** metric with **Avg** aggregation type. 
 2. Apply a filter on the required Frontend IP address or port (or both).
-
-![Health Probe Status](./media/load-balancer-standard-diagnostics/health-probe-status.png)
-
-*Figure: Health Probe Status*
 
 Health probes fail for the following reasons:
 - You configure a health probe to a port that is not listening or not responding or is using the wrong protocol. If your service is using direct server return (DSR, or floating IP) rules, make sure that the service is listening on the IP address of the NIC's IP configuration and not just on the loopback that's configured with the front-end IP address.
@@ -166,7 +162,7 @@ You can take it a step further and use VIP availability metrics to gain insight 
 
 The chart displays the following information:
 - The infrastructure hosting your VMs was unavailable and at 0 percent at the beginning of the chart. Later, the infrastructure was healthy and the VMs were reachable, and more than one VM was placed in the back end. This information is indicated by the blue trace for data path availability (VIP availability), which was later at 100 percent. 
-- The health probe status (DIP availability), indicated by the purple trace, is at 0 percent at the beginning of the chart. The circled area in green highlights where the status (DIP availability) became healthy, and at which point the customer's deployment was able to accept new flows.
+- The health probe status (DIP availability), indicated by the purple trace, is at 0 percent at the beginning of the chart. The circled area in green highlights where the health probe status (DIP availability) became healthy, and at which point the customer's deployment was able to accept new flows.
 
 The chart allows customers to troubleshoot the deployment on their own without having to guess or ask support whether other issues are occurring. The service was unavailable because health probes were failing due to either a misconfiguration or a failed application.
 
