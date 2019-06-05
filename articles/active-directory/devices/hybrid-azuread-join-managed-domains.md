@@ -64,7 +64,7 @@ Hybrid Azure AD join requires the devices to have access to the following Micros
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (If you are using or planning to use Seamless SSO)
 
-If your organization requires access to the Internet via an outbound proxy, Microsoft recommends [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers to do device registration with Azure AD. If you are encountering issues with configuring and managing WPAD, go to [troubleshooting automatic detection](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+If your organization requires access to the Internet via an outbound proxy, Microsoft recommends [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers to do device registration with Azure AD. If you are encountering issues with configuring and managing WPAD, go to [troubleshooting automatic detection](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 If you are not using WPAD and need to configure proxy settings on your computer, you can do so starting with Windows 10 1709, by [configuring WinHTTP settings using a group policy object (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -143,7 +143,7 @@ Additionally, you need to enable **Allow updates to status bar via script** in t
 
 To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using [Password Hash Sync (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) or [Pass Through Authentication (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature).
 
-### install Microsoft Workplace Join for Windows down-level computers
+### Install Microsoft Workplace Join for Windows down-level computers
 
 To register Windows down-level devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) available on the Microsoft Download Center.
 
@@ -157,7 +157,7 @@ To verify the device registration state in your Azure tenant, you can use the **
 
 When using the **Get-MSolDevice** cmdlet to check the service details:
 
-- An object with the **device id** that matches the id on the Windows client must exist.
+- An object with the **device ID** that matches the ID on the Windows client must exist.
 - The value for **DeviceTrustType** must be **Domain Joined**. This is equivalent to the **Hybrid Azure AD joined** state on the Devices page in the Azure AD portal.
 - The value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed** for devices that are used in conditional access.
 
