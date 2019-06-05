@@ -71,7 +71,7 @@ Push notifications are supported for [iOS](notification-hubs-ios-apple-push-noti
 
 Notification Hubs is primarily designed to send notifications to mobile apps. It does not provide email or text message capabilities. However, third-party platforms that provide these capabilities can be integrated with Notification Hubs to send native push notifications by using [Mobile Apps].
 
-Notification Hubs also does not provide an in-browser push notification delivery service out of the box. Customers can implement this feature using SignalR on top of the supported server-side platforms. If you want to send notifications to browser apps in the Chrome sandbox, see the [Chrome Apps tutorial].
+Notification Hubs also does not provide an in-browser push notification delivery service out of the box. Customers can implement this feature using SignalR on top of the supported server-side platforms. 
 
 ### How are Mobile Apps and Azure Notification Hubs related and when do I use them?
 
@@ -206,7 +206,6 @@ You can also programmatically access metrics. For more information, see the foll
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs Getting Started tutorials]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome Apps tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Backend Registration guidance 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
