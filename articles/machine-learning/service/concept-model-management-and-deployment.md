@@ -20,7 +20,7 @@ In this article, learn about how to use Azure Machine Learning service to manage
 * Integration with Azure Pipelines. Define continuous integration and deployment workflows for your models.
 * A model registry that maintains multiple versions of your trained models.
 * Model validation. Automatically validate your trained models and select the optimal configuration for deploying them into production.
-* Deploy your models as a web service in the cloud, locally, or to IoT edge devices.
+* Deploy your models as a web service in the cloud, locally, or to IoT Edge devices.
 * Monitor your deployed model's performance, so you can drive improvements in the next version of the model.
 
 To hear more on the concepts behind MLOps and how they apply to the Azure Machine Learning service, watch the following video.
