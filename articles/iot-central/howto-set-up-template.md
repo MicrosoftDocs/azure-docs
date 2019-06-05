@@ -63,7 +63,7 @@ To add a new telemetry measurement, select **+ New Measurement**, choose **Telem
 
 > [!NOTE]
 > The field names in the device template must match the property names in the corresponding device code in order for the telemetry measurement to be displayed in the application when a real device is connected. Do the same when you configure settings, device properties, and commands as you continue to define the device template in the following sections.
-
+.png
 For example, you can add a new temperature telemetry measurement:
 
 | Display Name        | Field Name    |  Units    | Min   |Max|
@@ -234,7 +234,7 @@ For example, you can add a new **Echo** command by selecting the **Commands** ta
 | --------------| -----------|---------------- | --------- |
 | Echo Command  | echo       |  30             | text      |
 
-!["Configure Command" form with details for echo](./media/howto-set-up-template/commandsecho.png)
+!["Configure Command" form with details for echo](./media/howto-set-up-template/commandsecho1.png)
 
 After you select **Save**, the **Echo** command appears as a tile and is ready to be used from the **Device Explorer** when your real device connects. The field names of your command must match the property names in the corresponding device code in order for commands to be run successfully.
 
@@ -250,7 +250,7 @@ The dashboard is where an operator can go to see information about a device. As 
 
 For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties by selecting the **Dashboard** tab and the tile from the Library:
 
-!["Configure Device Details" form with details for settings and properties](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+!["Configure Device Details" form with details for settings and properties](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Now when an operator views the dashboard in the **Device Explorer**, they can see the tile.
 

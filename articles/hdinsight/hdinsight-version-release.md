@@ -85,7 +85,7 @@ There is no supported upgrade path from previous versions of HDInsight to HDInsi
 
 ## Limitations
 
-* HDInsight 4.0 does not support MapReduce. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 does not support MapReduce for Apache Hive. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 does not support Apache Storm. 
 * Hive View is no longer available in HDInsight 4.0. 
 * Shell interpreter in Apache Zeppelin is not supported in Spark and Interactive Query clusters.

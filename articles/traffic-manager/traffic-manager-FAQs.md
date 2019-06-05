@@ -317,7 +317,7 @@ Yes. Traffic Manager supports probing over HTTPS. Configure **HTTPS** as the pro
 Traffic manager cannot provide any certificate validation, including:
 
 * Server-side certificates are not validated
-* SNI server-side certificates are not supported
+* SNI server-side certificates are not validated
 * Client certificates are not supported
 
 ### Do I use an IP address or a DNS name when adding an endpoint?

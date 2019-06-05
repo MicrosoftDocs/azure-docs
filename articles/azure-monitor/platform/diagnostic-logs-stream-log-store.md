@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
 ---
@@ -118,7 +118,7 @@ Azure Data Factory, due to a very detailed set of logs, is a resource that is kn
 - *User parameters defined against any activity in your pipeline*: there will be a new column created for every uniquely-named user parameter against any activity. 
 - *Activity inputs and outputs*: these vary activity-to-activity and generate a large amount of columns due to their verbose nature. 
  
-As with the broader workaround proposals below, it is recommended to isolate ADF logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces. We expect to have curated logs for Azure Data Factory available by mid-April 2019.
+As with the broader workaround proposals below, it is recommended to isolate ADF logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces. We expect to have curated logs for Azure Data Factory available soon.
  
 #### Workarounds
 Short term, until the 500-column limit is redefined, it is recommended to separate verbose data types into separate workspaces to reduce the possibility of hitting the limit.

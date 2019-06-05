@@ -6,7 +6,7 @@
 - name: Azure Media Services Video Indexer
   href: video-indexer/
 - name: Azure Media Player
-  href: http://amp.azure.net/libs/amp/latest/docs/index.html
+  href: https://amp.azure.net/libs/amp/latest/docs/index.html
 - name: Resources
   items:
   - name: Azure Roadmap

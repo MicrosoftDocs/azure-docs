@@ -22,7 +22,7 @@ The Project Acoustics suite of plugins is an acoustics system that calculates so
 
 You can download the [Project Acoustics Unity plugin](https://www.microsoft.com/download/details.aspx?id=57346) or the [Project Acoustics Unreal plugin](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## Does Project Acoustics support <x> platform?
+## Does Project Acoustics support &lt;x&gt; platform?
 
 Project Acoustics platform support evolves based on customer needs. Please contact us on the [Project Acoustics forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) to inquire about support for additional platforms.
 

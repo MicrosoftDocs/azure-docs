@@ -14,7 +14,7 @@ ms.author: alkohli
 
     ![Data Box dashboard](media/data-box-add-device-ip/data-box-connect-via-rest-2.png)
 
-3. Go to **Connect and copy** and click **Rest (Preview)**.
+3. Go to **Connect and copy** and click **Rest**.
 
     ![Data Box dashboard](media/data-box-add-device-ip/data-box-connect-via-rest-3.png)
 

@@ -1,12 +1,13 @@
 ---
 title: Microsoft Azure Data Box Gateway use cases | Microsoft Docs
-description: Describes the use cases for Azure Data Box Gateway, a virtual appliance storage solution that enables you to transfer data into Azure
+description: Describes the use cases for Azure Data Box Gateway, a virtual appliance storage solution that lets you transfer data to Azure
 services: databox
 author: alkohli
 
 ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.date: 03/2/2019
+ms.date: 03/02/2019
 ms.author: alkohli
 ---
 

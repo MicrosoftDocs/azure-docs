@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Copy data to your Microsoft Azure Data Box device via the data copy service | Microsoft Docs'
+title: Tutorial to copy data to Azure Data Box device via data copy service | Microsoft Docs
 description: In this tutorial, you learn how to copy data to your Azure Data Box device via the data copy service
 services: databox
 author: alkohli

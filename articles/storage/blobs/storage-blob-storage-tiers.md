@@ -3,10 +3,12 @@ title: Hot, cool, and archive access tiers for blobs - Azure Storage
 description: Hot, cool, and archive access tiers for Azure storage accounts.
 services: storage
 author: mhopkins-msft
+
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: mhopkins
+ms.reviewer: clausjor
 ms.subservice: blobs
 ---
 
@@ -95,7 +97,7 @@ Blobs in all three access tiers can coexist within the same account. Any blob th
 
 ### Blob lifecycle management
 
-Blob Storage lifecycle management (Preview) offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md) to learn more.  
+Blob Storage lifecycle management offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md) to learn more.  
 
 ### Blob-level tiering billing
 

@@ -50,11 +50,11 @@ $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationId -Subscription $SubscriptionName -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Find the lab
-$dtLab = Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $LabName
+$dtLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $LabName
 
 # Get the VMs
 $dtlAllVms = New-Object System.Collections.ArrayList
-$AllVMs = Get-AzureRmResource -ResourceId "$($dtLab.ResourceId)/virtualmachines" -ApiVersion 2016-05-15
+$AllVMs = Get-AzResource -ResourceId "$($dtLab.ResourceId)/virtualmachines" -ApiVersion 2016-05-15
 
 # Get the StartupOrder tag, if missing set to be run last (10)
 ForEach ($vm in $AllVMs) {
@@ -77,13 +77,13 @@ $profilePath = Join-Path $env:Temp "profile.json"
 If (Test-Path $profilePath){
     Remove-Item $profilePath
 }
-Save-AzureRmContext -Path $profilePath
+Save-AzContext -Path $profilePath
 
 # Job to start VMs asynch
 $startVMBlock = {
     Param($devTestLab,$vmToStart,$profilePath)
-    Import-AzureRmContext -Path ($profilePath)
-    Invoke-AzureRmResourceAction `
+    Import-AzContext -Path ($profilePath)
+    Invoke-AzResourceAction `
         -ResourceId "$($devTestLab.ResourceId)/virtualmachines/$vmToStart" `
         -Action Start `
         -Force
@@ -99,7 +99,7 @@ While ($current -le 10) {
     $tobeStarted = $dtlAllVms | Where-Object { $_.Values -eq $current}
     if ($tobeStarted.Count -eq 1) {
         # Run sync – jobs not necessary for a single VM
-        $returnStatus = Invoke-AzureRmResourceAction `
+        $returnStatus = Invoke-AzResourceAction `
                 -ResourceId "$($dtLab.ResourceId)/virtualmachines/$($tobeStarted.Keys)" `
                 -Action Start `
                 -Force

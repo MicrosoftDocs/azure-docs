@@ -92,9 +92,9 @@ Manage most Data settings the  in the **Advanced settings** menu for the workspa
 | Custom Logs                  | **Advanced settings** menu for the workspace. |
 | Syslog                       | **Advanced settings** menu for the workspace. |
 | Application Insights         | This solution has been deprecated now that Log Analytics and Application Insights share the same data engine.  |
-| Windows File Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
-| Windows Registry Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
-| Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/automation-change-tracking.md) for details. |
+| Windows File Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md) for details. |
+| Windows Registry Tracking        | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md) for details. |
+| Linux File Tracking          | **Change Tracking** menu in Azure Automation. See [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md) for details. |
 
 ### Solutions
 Manage Solutions in the **Solutions** menu for the workspace. 

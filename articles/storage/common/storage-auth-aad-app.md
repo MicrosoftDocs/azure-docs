@@ -33,7 +33,7 @@ The first step in using Azure AD to authorize access to storage resources is reg
 
 When you register your application, you supply information about your application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) section in [Integrating applications with Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. The value does not need to be a real endpoint.
+To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/quickstart-register-app.md) section in [Integrating applications with Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. The value does not need to be a real endpoint.
 
 ![Screenshot showing how to register your storage application with Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -188,5 +188,5 @@ For more information about authorizing Azure Storage operations from REST, see [
 ## Next steps
 
 - To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
-- To learn about using managed identities for Azure resources with Azure Storage, see [Authenticate access to blobs and queues with Azure managed identities for Azure Resources](storage-auth-aad-msi.md).
-- To learn how to sign in to Azure CLI and PowerShell with an Azure AD identity, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell](storage-auth-aad-script.md).
+- To learn about using managed identities for Azure resources with Azure Storage, see [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md).
+- To learn how to run Azure CLI and PowerShell commands with Azure AD credentials, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](storage-auth-aad-script.md).

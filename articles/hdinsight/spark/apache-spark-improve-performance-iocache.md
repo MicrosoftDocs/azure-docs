@@ -1,7 +1,6 @@
 ---
 title: Improve performance of Apache Spark workloads using Azure HDInsight IO Cache (Preview)
 description: Learn about Azure HDInsight IO Cache and how to use it to improve Apache Spark performance.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed

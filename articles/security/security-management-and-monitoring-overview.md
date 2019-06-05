@@ -1,10 +1,10 @@
 ---
-title: Azure security management and monitoring overview | Microsoft Docs
+title: Management and monitoring security features - Microsoft Azure | Microsoft Docs
 description: This article provides an overview of the security features and services that Azure provides to aid in the management and monitoring of Azure cloud services and virtual machines.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
 
 ---
 # Azure security management and monitoring overview
+This article provides an overview of the security features and services that Azure provides to aid in the management and monitoring of Azure cloud services and virtual machines.
 
-Azure provides security mechanisms to aid in the management and monitoring of Azure cloud services and virtual machines (VMs). This article provides an overview of these core security features and services. Links are provided to articles that give details of each so you can learn more.
+## Shared responsibility
 
 The security of your Microsoft cloud services is a partnership and a shared responsibility between you and Microsoft. Microsoft is responsible for the Azure platform and the physical security of its datacenters (by using security protections such as locked badge-entry doors, fences, and guards). Azure provides strong levels of cloud security at the software layer that meets the security, privacy, and compliance needs of its customers.
 
@@ -60,7 +61,7 @@ Learn more:
 
 ## Multi-Factor Authentication
 
-Azure Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method. It adds a critical second layer of security to user sign-ins and transactions. 
+Azure Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method. It adds a critical second layer of security to user sign-ins and transactions.
 
 Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options (phone call, text message, or mobile app notification or verification code) and third-party OATH tokens.
 
@@ -76,7 +77,7 @@ You can use Azure ExpressRoute to extend your on-premises networks into the Micr
 
 * An any-to-any (IP VPN) network.
 * A point-to-point Ethernet network.
-* A virtual cross-connection through a connectivity provider at a co-location facility. 
+* A virtual cross-connection through a connectivity provider at a co-location facility.
 
 ExpressRoute connections don't go over the public internet. They can offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the internet.
 
@@ -95,7 +96,7 @@ Learn more:
 
 ## Privileged Identity Management
 
-Sometimes users need to carry out privileged operations in Azure resources or other SaaS applications. This often means organizations give them permanent privileged access in Azure Active Directory (Azure AD). 
+Sometimes users need to carry out privileged operations in Azure resources or other SaaS applications. This often means organizations give them permanent privileged access in Azure Active Directory (Azure AD).
 
 This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their privileged access. Additionally, if a user account with privileged access is compromised, that one breach can affect an organization's overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk by lowering the exposure time of privileges and increasing visibility into usage.  
 
@@ -146,4 +147,3 @@ Intelligent Security Graph provides real-time threat protection in Microsoft pro
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

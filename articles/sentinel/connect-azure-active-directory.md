@@ -4,7 +4,7 @@ description: Learn how to connect Azure Active Directory data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a

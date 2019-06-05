@@ -1,20 +1,12 @@
 ---
-title: Create a Microsoft Developer account | Microsoft Docs
+title: Create a Microsoft Developer account | Azure Marketplace
 description: Requirements and steps for creating a Microsoft Developer account.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
@@ -121,7 +113,7 @@ following important note before you proceed.
    ![Select country/region](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Sell-from" Countries: In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved "sell-from" countries shown in the dropdown list. This restriction is for payout and taxation reasons. For more information, see the Marketplace participation policies.
+    >"Sell-from" Countries/Regions: In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved "sell-from" countries/regions shown in the dropdown list. This restriction is for payout and taxation reasons. For more information, see the Marketplace participation policies.
 
 5. Select **Company** as your "Account Type" and then select **Next**.
 

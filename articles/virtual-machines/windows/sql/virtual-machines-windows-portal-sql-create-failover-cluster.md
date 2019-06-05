@@ -395,7 +395,7 @@ To create the load balancer:
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.
-   - **Port**: Set to an available TCP port. This port requires an open firewall port. Use the [same port](#ports) you set for the health probe at the firewall.
+   - **Port**: Set to the port you created in the firewall for the health probe in [this step](#ports). In this article, the example uses TCP port `59999`.
    - **Interval**: 5 Seconds.
    - **Unhealthy threshold**: 2 consecutive failures.
 

@@ -137,9 +137,10 @@ The pilot can run before or in parallel to project planning and preparation. The
       2. In order to avoid GUI time outs between one-premise deployed SAP GUI interfaces and SAP application layers deployed in Azure, check whether the following parameters are set in the default.pfl or the instance profile:
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. If you use a Windows Failover Cluster configuration, make sure that the time to react on non-responsive nodes is set correctly for Azure. The Microsoft article [Tuning Failover Cluster Network Thresholds](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) lists parameters and how those impact failover sensitivities. Of the parameters listed these two parameters should be set with the values:
-         1.   SameSubNetDelay = 2
+      3. If you use a Windows Failover Cluster configuration, make sure that the time to react on non-responsive nodes is set correctly for Azure. The Microsoft article [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) lists parameters and how those impact failover sensitivities. Assuming the cluster nodes are in the same subnet, the following parameters should be changed:
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. Test your high availability and disaster recovery procedures
    1. Simulate failover situations by shutting down VMs (Windows guest OS) or putting operating systems in panic mode (Linux guest OS) in order to figure out whether your failover configurations work as designed. 
    2. Measure your times it takes to execute a failover. If the times take too long, consider:

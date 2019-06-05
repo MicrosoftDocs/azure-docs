@@ -38,7 +38,7 @@ This tutorial works with the development environment, web project, and App Servi
 
 The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
-The tutorial assumes you're using Visual Studio 2017. 
+The tutorial assumes you're using Visual Studio 2019. 
 
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 

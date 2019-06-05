@@ -3,8 +3,8 @@ title: Perform network intrusion detection with Azure Network Watcher and open s
 description: This article describes how to use Azure Network Watcher and open source tools to perform network intrusion detection
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor:
 
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Perform network intrusion detection with Network Watcher and open source tools
@@ -251,7 +251,7 @@ You can also create your own visualizations and dashboards tailored towards metr
 
 The sample dashboard provides several visualizations of the Suricata alert logs:
 
-1. Alerts by GeoIP – a map showing the distribution of alerts by their country of origin based on geographic location (determined by IP)
+1. Alerts by GeoIP – a map showing the distribution of alerts by their country/region of origin based on geographic location (determined by IP)
 
     ![geo ip][3]
 

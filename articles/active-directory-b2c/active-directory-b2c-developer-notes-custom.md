@@ -2,14 +2,14 @@
 title: Developer notes for custom policies - Azure Active Directory B2C | Microsoft Docs
 description: Notes for developers on configuring and maintaining Azure AD B2C with custom policies.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

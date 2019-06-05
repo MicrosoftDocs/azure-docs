@@ -3,8 +3,8 @@ title: Customizing Azure AD Attribute Mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: mimart
 ms.custom: H1Hack27Feb2017
 
 ms.collection: M365-identity-device-management
 ---
 # Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory
-Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
+Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
 There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
 
@@ -81,7 +81,7 @@ Along with this property, attribute-mappings also support the following attribut
 
 ## Editing group attribute-mappings
 
-A selected number of applications, such as ServiceNow, Box, and Google Apps, support the ability to provision Group objects and User objects. Group objects can contain group properties such as display names and email aliases, along with group members.
+A selected number of applications, such as ServiceNow, Box, and G Suite, support the ability to provision Group objects and User objects. Group objects can contain group properties such as display names and email aliases, along with group members.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 
@@ -146,6 +146,8 @@ Selecting this option will effectively force a resynchronization of all users wh
 * Updating attribute-mappings has an impact on the performance of a synchronization cycle. An update to the attribute-mapping configuration requires all managed objects to be reevaluated. 
 
 * A recommended best practice is to keep the number of consecutive changes to your attribute-mappings at a minimum.
+
+* Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## Next steps

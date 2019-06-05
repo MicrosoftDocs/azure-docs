@@ -21,13 +21,13 @@ The following languages are supported for speech translation. If both languages 
 | Speech language    |
 |:----------- |
 | Arabic (Modern Standard)      |
+| Brazilian Portuguese     |
 | Chinese (Mandarin)      |
 | English      |
 | French      |
 | German      |
 | Italian      |
 | Japanese      |
-| Portuguese (Brazilian)     |
 | Russian      |
 | Spanish      |
 

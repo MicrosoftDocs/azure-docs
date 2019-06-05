@@ -18,12 +18,12 @@ ms.author: diberry
 This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
 
 This quickstart calls QnA Maker APIs:
-* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - this API doesn't require any information in the body of the request.
+* [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - this API doesn't require any information in the body of the request.
 
 ## Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
-* This sample uses the Apache [HTTP client](http://hc.apache.org/httpcomponents-client-ga/) from HTTP Components. You need to add the following Apache HTTP client libraries to your project: 
+* This sample uses the Apache [HTTP client](https://hc.apache.org/httpcomponents-client-ga/) from HTTP Components. You need to add the following Apache HTTP client libraries to your project: 
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
@@ -100,4 +100,4 @@ Build and run the program from the command line. It will automatically send the 
 After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer).  
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

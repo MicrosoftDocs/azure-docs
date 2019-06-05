@@ -1,25 +1,23 @@
 ---
-title: Create Azure SaaS application offer | Microsoft Docs
+title: Create Azure SaaS application offer | Azure Marketplace
 description: How to create a SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/16/2019
 ms.author: pbutlerm
 ---
 
 # Create a new SaaS application offer
 
 This article describes how to create and publish a SaaS application (app) offer entry for the Azure Marketplace.
+
+> [!IMPORTANT] 
+> SaaS offer functionality is being migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
+> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
+> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
+> For more information, see [Create a new SaaS offer](../../partner-center-portal/create-new-saas-offer.md).
 
 ## Offer process
 

@@ -4,7 +4,7 @@ description: This article describes different options available to read and acce
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/21/2019
 ms.author: rimman
 
 ---

@@ -34,9 +34,9 @@ The following table lists the limits that apply to IoT Hub resources.
 | Maximum delivery count for cloud-to-device <br/> messages |100 |
 | Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message |100 |
 | Maximum TTL for feedback messages in <br/> response to a cloud-to-device message |2 days |
-| Maximum size of device twin <br/> (tags, reported properties, and desired properties) | 8 KB |
+| [Maximum size of device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (tags, reported properties, and desired properties) | 8 KB |
 | Maximum size of device twin string value | 4 KB |
-| Maximum depth of object in device twin | 5 |
+| [Maximum depth of object in device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
 | Maximum size of direct method payload | 128 KB |
 | Job history maximum retention | 30 days |
 | Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 (for S1) |
@@ -45,10 +45,8 @@ The following table lists the limits that apply to IoT Hub resources.
 | Maximum number of concurrently connected device streams | 50 (for S1, S2, S3, and F1 only) |
 | Maximum device stream data transfer | 300 MB per day (for S1, S2, S3, and F1 only) |
 
-
 > [!NOTE]
 > If you need more than 50 paid IoT hubs in an Azure subscription, contact Microsoft Support.
-
 
 > [!NOTE]
 > Currently, the maximum number of devices you can connect to a single IoT hub is 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).

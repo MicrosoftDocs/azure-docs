@@ -21,10 +21,10 @@ ms.custom: include file
 ## Setting up your web server or project
 
 > Prefer to download this sample's project instead?
-> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) for a local web server, such as Node
+> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) to run with a local web server, such as Node
 >
 > or
-> - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+> - (Optional) [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip) to run with IIS server
 >
 > And then  skip to the [Configuration step](#register-your-application) to configure the code sample before executing it.
 
@@ -60,8 +60,7 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.js"></script>
-       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
    </head>
    <body>
        <h2>Welcome to MSAL.js Quickstart</h2><br/>
@@ -74,3 +73,6 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
    </body>
    </html>
    ```
+
+   > [!TIP]
+   > You can replace the version of MSAL.js in above script with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).

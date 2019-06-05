@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/25/2019
 ms.author: alkohli
 ---
 # Manage an Azure Data Box Edge device via Windows PowerShell
@@ -19,7 +19,6 @@ This article focuses on the tasks you do using the PowerShell interface.
 This article includes the following procedures:
 
 - Connect to the PowerShell interface
-- Start a support session
 - Create a support package
 - Upload certificate
 - Reset the device
@@ -54,7 +53,6 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## View device information
-
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -85,6 +83,9 @@ If the compute role is configured on your device, you can also get the compute l
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## Exit the remote session
+
+To exit the remote PowerShell session, close the PowerShell window.
 
 ## Next steps
 

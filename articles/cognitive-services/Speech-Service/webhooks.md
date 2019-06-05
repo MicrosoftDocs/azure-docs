@@ -34,6 +34,9 @@ Next, let's create a webhook.
 
 Let's create a webhook for an offline transcription. The scenario: a user has a long running audio file that they would like to transcribe asynchronously with the Batch Transcription API. 
 
+To create a web hook
+POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+
 Configuration parameters for the request are provided as JSON:
 
 ```json
@@ -133,6 +136,50 @@ Sends a POST request to the registered URL if an entity for the subscribed event
 ### Run a test
 
 A quick test can be done using the website https://bin.webhookrelay.com. From there, you can obtain call back URLs to pass as parameter to the HTTP POST for creating a webhook described earlier in the document.
+
+Click on 'Create Bucket' and follow the on-screen instructions to obtain a hook. Then use the information provided in this page to register the hook with the Speech service. The payload of a relay message -in response to the completion of a transcription- looks as follows:
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+The message contains the recording URL and models used to transcribe that recording.
 
 ## Next steps
 

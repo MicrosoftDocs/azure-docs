@@ -12,13 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 06/04/2019
 ms.author: juliako
 
 ---
 # Live Events and Live Outputs
 
-Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article. <br/>The list of sections is listed on the right of the page.
+Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article.
+
+> [!TIP]
+> For customers migrating from Media Services v2 APIs, the **Live Event** entity replaces **Channel** in v2 and **Live Output** replaces **Program**.
+
 
 ## Live Events
 
@@ -71,15 +75,17 @@ Once the Live Event is created, you can get ingest URLs that you will provide to
 
 You can either use non-vanity URLs or vanity URLs. 
 
+> [!NOTE] 
+> For an ingest URL to be predictive, set the "vanity" mode.
+
 * Non-vanity URL
 
     Non-vanity URL is the default mode in AMS v3. You potentially get the Live Event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the Live Event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL is not a problem.
 * Vanity URL
 
     Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to re-configure their encoders when they start the Live Event. They want a predictive ingest URL, which does not change over time.
-
-> [!NOTE] 
-> For an ingest URL to be predictive, you need to use "vanity" mode and pass your own access token (to avoid a random token in the URL).
+    
+    To specify this mode, you set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (to avoid a random token in the URL). Set `LiveEventInput.accessToken` to a a unique identifier at creation time. Once the mode is set it cannot be updated.
 
 ### Live ingest URL naming rules
 
@@ -139,6 +145,10 @@ The **Live Output** object is like a tape recorder that will catch and record th
 If you have published the **Live Output**'s **Asset** using a **Streaming Locator**, the **Live Event** (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first.
 
 For more information, see [Using a cloud DVR](live-event-cloud-dvr.md).
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
