@@ -83,7 +83,7 @@ Active learning is off by default. Turn it on to see suggested questions.
 
     [![Use the Filter by suggestions toggle to view only the active learning's suggested question alternatives.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1.	Each question section with suggestions shows the new questions with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
+1. Each question section with suggestions shows the new questions with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
 
     [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
@@ -96,7 +96,7 @@ Active learning is off by default. Turn it on to see suggested questions.
     When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
 
 
-<a name="#score-proximity-between-knowledge-base-questions">
+<a name="#score-proximity-between-knowledge-base-questions"></a>
 
 ### Architectural flow for using GenerateAnswer and Train APIs from a bot
 
