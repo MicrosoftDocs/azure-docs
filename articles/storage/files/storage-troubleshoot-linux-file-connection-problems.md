@@ -142,11 +142,11 @@ Verify virtual network and firewall rules are configured properly on the storage
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
 
-### Cause
+### Cause 1: Caching
 
-One possible cause of slow performance is disabled caching.
+One possible cause of slow performance is disabled caching. Caching can be an overhead if it is not in use but, if you are using the cache, then it can be helpful. Be aware if you are using the cache before disabling it.
 
-### Solution
+### Solution for cause 1
 
 To check whether caching is disabled, look for the **cache=** entry. 
 
@@ -163,6 +163,14 @@ You can also check whether the correct options are being used by running the  **
 ```
 
 If the **cache=strict** or **serverino** option is not present, unmount and mount Azure Files again by running the mount command from the [documentation](../storage-how-to-use-files-linux.md). Then, recheck that the **/etc/fstab** entry has the correct options.
+
+### Cause 2: Throttling
+
+It is possible you are experiencing throttling and your requests are being sent to a queue.
+
+### Solution for cause 2
+
+Ensure your app is within the [Azure Files scale targets](storage-files-scale-targets.md#azure-files-scale-targets).
 
 <a id="timestampslost"></a>
 ## Time stamps were lost in copying files from Windows to Linux
