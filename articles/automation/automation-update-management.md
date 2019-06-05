@@ -73,9 +73,6 @@ The following table shows a list of supported operating systems:
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents must have access to an update repository.         |
 
-> [!NOTE]
-> Azure virtual machine scale sets can be managed with Update Management. Update Management works on the instances themselves and not the base image. You'll need to schedule the updates in an incremental way, as to not update all VM instances at once.
-
 ### Unsupported client types
 
 The following table lists operating systems that aren't supported:
