@@ -86,7 +86,7 @@ One easy way to workaround this situation, is to apply a `LeaseCollectionPrefix/
 
 ### Binding can only be done with IReadOnlyList<Document> or JArray
 
-This error happens if your Azure Functions project (or any referenced project) contains a manual NuGet reference to the Azure Cosmos DB SDK with a different version that the one provided by the [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+This error happens if your Azure Functions project (or any referenced project) contains a manual NuGet reference to the Azure Cosmos DB SDK with a different version than the one provided by the [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
 
 To workaround this situation, remove the manual NuGet reference that was added and let the Azure Cosmos DB SDK reference resolve through the Azure Functions Cosmos DB Extension package.
 
