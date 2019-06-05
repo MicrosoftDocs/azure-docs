@@ -48,7 +48,7 @@ For firewall information required for Azure Government, see [Azure Government ma
 
 There are several ways you can verify if the agent is successfully communicating with Azure Monitor.
 
-1. Enable the [Azure Log Analytics Agent Health assessment](../insights/solution-agenthealth.md). From the Agent Health dashboard, view the **Count of unresponsive agents** column to quickly see if the agent is listed.  
+1. Enable the [Azure Log Analytics Agent Health assessment](../insights/solution-agenthealth.md) in the workspace. From the Agent Health dashboard, view the **Count of unresponsive agents** column to quickly see if the agent is listed.  
 
 2. Run the following query to confirm the agent is sending a heartbeat to the workspace it is configured to report to. Replace <ComputerName> with the actual name of the machine.
 
