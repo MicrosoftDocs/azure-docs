@@ -14,8 +14,8 @@ ms.author:
 ---
 # Visualize a deep learning model trained with Custom Vision AP
 
-Azure Custom Vision API offers an awesome possibility to train your own classifier using only several images, due to the transfer learning, that allows us to build upon the features and concept that were learned during the training of the base model. In other words we cut off the final dense layer that is responsible for predicting the class labels of the original base model and replace it by a new dense layer that will predict the class labels of our new task at hand. However, one may be interested in what is happening inside. So let us satisfy our curiosity and have a look on internal structure of your exported model.
-This article provides information and sample code to help you visualize a pre-trained model generated with Azure Custom Vision api to get a brief overview of input/output nodes of the model. After it's created, you can navigate your model, analyse all the nodes and input weights. You may use this example as a template for your future projects.
+Azure Custom Vision API offers an awesome possibility to train your own classifier using only several images, due to the transfer learning, that allows us to build upon the features and concept that were learned during the training of the base model, in other words cut off the final dense layer that is responsible for predicting the class labels of the original base model and replace it by a new dense layer that will predict the class labels of our new task at hand. However, one may be interested in what is happening inside. And as Albert Einstein once said: I have no special talent, I am only passionately curious.  So let us satisfy our curiosity and have a look on internal structure of your exported model.
+This article provides information and sample code to help you visualize a pre-trained model generated with Azure Custom Vision api to get a brief overview of input/output nodes of the model. After it's created, you can navigate your model, analyse all the nodes and input weights. Use this example as a template for your future projects.
 
 ## Prerequisites
 
@@ -25,11 +25,9 @@ This article provides information and sample code to help you visualize a pre-tr
 ## Why visualize your model?
 
 According to the information provided on Custom Vision welcome page (https://www.customvision.ai/) : 
->Easily customize your own state-of-the-art computer vision models for your unique use case. Just upload a few labeled images and let Custom Vision Service do the hard work. With just one click, you can export trained models to be run on device or as Docker containers. 
-
-However, what if we wanted to go beyond the scope of simple usage and dive a little bit deeper, say inspect the model? Fortunately there is a way to do that using TensorBoard. According to the official information (https://www.tensorflow.org/tensorboard/r1/summaries)
->The computations you'll use TensorFlow for - like training a massive deep neural network - can be complex and confusing. To make it easier to understand, debug, and optimize TensorFlow programs, we've included a suite of visualization tools called TensorBoard. You can use TensorBoard to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it.
-So, the idea is quite simple:
+>Easily customize your own state-of-the-art computer vision models for your unique use case. Just upload a few labeled images and let Custom Vision Service do the hard work. With just one click, you can export trained models to be run on device or as Docker containers. However, what if we wanted to go beyond the scope of simple usage and dive a little bit deeper, say inspect the model?Fortunately there is a way to do that using TensorBoard. 
+The computations you'll use TensorFlow for - like training a massive deep neural network - can be complex and confusing. To make it easier to understand, debug, and optimize TensorFlow programs, we've included a suite of visualization tools called TensorBoard. You can use TensorBoard to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it.
+So, the idea is quite simple
 1. Train your image classifier (Important : use Compact model to able to export it to your machine)
 2. Generate tensor flow model
 3. Use TensorBoard 
@@ -97,7 +95,6 @@ with tf.Session() as sess:
 What is crucial to understand is the fact that we used File Writer object. Quote from TensorBoard’s page:
 >The FileWriter class provides a mechanism to create an event file in a given directory and add summaries and events to it. The class updates the file contents asynchronously. This allows a training program to call methods to add data to the file directly from the training loop, without slowing down training.
 >When constructed with a tf.Session parameter, a FileWriter instead forms a compatibility layer over new graph-based summaries (tf.contrib.summary) to facilitate the use of new summary writing with pre-existing code that expects a FileWriter instance.
-
 So we have obtained our graph info using `sess.graph` and serialized it with the help of `FileWriter` and saved it to the newly created ‘log’ directory.  
 And here we go, the most important part of our manipulation, graph visualization. If you have installed tensor flow using pip then tensor board is already installed on your machine. If not just run 
 ```
@@ -114,11 +111,9 @@ If everything is alright you will see the following message.
 TensorBoard 1.11.0 at http://<computer_name>:6006 (Press CTRL+C to quit)
 ```
 Right now you should open your browser and go to localhost:6006
-
 ![alt text](https://static.wixstatic.com/media/749f52_1c77f3d50ed04de2bd8a5121d85a7feb~mv2.png/v1/fill/w_937,h_886,al_c,q_90/749f52_1c77f3d50ed04de2bd8a5121d85a7feb~mv2.webp)
-
 Voilà! We have our graph visualized. It’s now up to you to navigate and analyze all the nodes of your model. You can even download your graph to png to share it with your teammates. 
 
 ## Next steps
 
-Now you have seen how to visualize your model created with Custom Vision Service. This sample just exports a graph to png but often you may need to analyse it directly via browser to have a better understanding of your deep learning model.
+Now you have seen how to visualize your model created with Custom Vision Service. This sample just exports a graph in png but often you may need to analyse it directly via browser.
