@@ -1,6 +1,6 @@
 ---
 title: 'Azure Data Explorer proxy for cross-product queries'
-description: 'In this topic, you learn to create a an Azure Data Explorer proxy for cross product queries with Application Insights and Log Analytics in Azure Monitor'
+description: 'In this topic, create an Azure Data Explorer proxy for cross product queries with Application Insights and Log Analytics in Azure Monitor'
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.date: 06/05/2019
 
 # Azure Data Explorer proxy for cross product queries (Preview)
 
-The Azure Data Explorer proxy enables you to perform cross product queries between Azure Data Explorer, [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/platform/data-platform-logs) in the [Azure Monitor](/azure/azure-monitor/) service. The Azure Data Explorer proxy allows you to define a Azure Monitor logs and Application Insights cluster as a virtual cluster. You can then query the cluster using Azure Data Explorer tools and connect to it as a virtual cluster in a cross cluster query. The article depicts how to connect to the proxy, add a proxy cluster to ADX Web UI Explorer, and run queries again your AI/LA clusters from the Azure Data Explorer proxy. 
+The Azure Data Explorer proxy enables you to perform cross product queries between Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs) in the [Azure Monitor](/azure/azure-monitor/) service. The Azure Data Explorer proxy allows you to define an Azure Monitor logs and Application Insights cluster as a virtual cluster. You can then query the cluster using Azure Data Explorer tools and connect to it as a virtual cluster in a cross cluster query. The article depicts how to connect to the proxy, add a proxy cluster to Azure Data Explorer Web UI Explorer, and run queries again your AI and LA clusters from the Azure Data Explorer proxy. 
 
 The Azure Data Explorer proxy flow is depicted below: 
 
@@ -40,7 +40,7 @@ The Azure Data Explorer proxy flow is depicted below:
 
     ![Add cluster](media/adx-proxy/add-cluster.png)
 
-    If you add a connection to more than one proxy cluster, give each a different name. Otherwise they will all have the same name in the left pane.
+    If you add a connection to more than one proxy cluster, give each a different name. Otherwise they'll all have the same name in the left pane.
 
 1. After the connection is established, your LA or AI cluster will appear in the left pane with your native ADX cluster. 
 
@@ -48,7 +48,11 @@ The Azure Data Explorer proxy flow is depicted below:
 
 ## Run queries
 
-You can use Kusto Explorer, ADX web Explorer, Jupyter Kqlmagic, or REST API to query the proxy clusters.
+You can use Kusto Explorer, ADX web Explorer, Jupyter Kqlmagic, or REST API to query the proxy clusters. 
+
+> [!NOTE]
+> * Database names in Azure Data Explorer are case-sensitive. 
+> * In cross cluster queries, make sure that the [naming of apps and workspaces](#naming-of-application-insights-apps-and-log-analytics-workspaces) is correct.
 
 ### Query against the native Azure Data Explorer cluster 
 
@@ -62,7 +66,7 @@ StormEvents | take 10 // Demonstrate query through the native ADX cluster
 
 ### Query against your LA or AI cluster
 
-When you run queries against your LA or AL cluster (such as on *Perf* table), verify that your LA or AI cluster is selected in the left pane. Database names in Azure Data Explorer are case sensitive. In cross cluster queries, make sure that the [naming of apps and workspaces](#naming-of-application-insights-apps-and-log-analytics-workspaces) is correct.
+When you run queries on your LA or AL cluster, verify that your LA or AI cluster is selected in the left pane. 
 
 ```kusto
 Perf | take 10 // Demonstrate query through the proxy on the LA workspace
@@ -97,7 +101,7 @@ Using the [`join` operator](/azure/kusto/query/joinoperator) may require a hint 
 
 ## Additional syntax examples
 
-The following syntax options can be used when calling the Application Insights (AI) or Log Analytics (LA) clusters:
+The following syntax options are available when calling the Application Insights (AI) or Log Analytics (LA) clusters:
 
 |Syntax Description  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
@@ -109,9 +113,10 @@ The following syntax options can be used when calling the Application Insights (
 
 ### Naming of Application Insights apps and Log Analytics workspaces
 
-> When Application Insights apps or Log Analytics workspaces names:
-> * Contain a special characters in their name, URL encoding replaces the special characters in the proxy cluster name. 
-> * Include characters that don't meet [KQL identifier naming rules](/azure/kusto/query/schema-entities/entity-names), they will be replaced by the dash character **-**.
+Application Insights apps or Log Analytics workspaces names:
+
+* If names contain special characters, they are replaced by URL encoding in the proxy cluster name. 
+* If names include characters that don't meet [KQL identifier naming rules](/azure/kusto/query/schema-entities/entity-names), they'll be replaced by the dash character **-**.
 
 ## Next steps
 
