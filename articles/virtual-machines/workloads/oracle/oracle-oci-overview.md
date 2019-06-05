@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: 
 ---
@@ -69,7 +69,5 @@ Identity is one of the core pillars of the partnership between Microsoft and Ora
 Currently, this integration allows you to manage in one central location, which is Azure Active Directory. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
-
-See the quickstarts to set up an Oracle app in Azure and establish network connectivity and integrate identities with Oracle OCI.
 
 For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation.
