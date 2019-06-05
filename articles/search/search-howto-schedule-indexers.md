@@ -109,7 +109,3 @@ The .NET SDK lets you control indexer operations using the [SearchServiceClient]
 You can run an indexer on demand at any time using one of the [Run](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync), or [RunWithHttpMessagesAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) methods.
 
 For more information about creating, updating, and running indexers, see [IIindexersOperations](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).
-
-
-## Help us make Azure Search better
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
