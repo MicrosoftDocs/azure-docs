@@ -5,8 +5,8 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/27/2019
+ms.topic: conceptual
+ms.date: 06/04/2019
 
 # Customer intent: As a data analyst, I want to understand how to visualize my Azure Data Explorer data in Excel.
 ---
