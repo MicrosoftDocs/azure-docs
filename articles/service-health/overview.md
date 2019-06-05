@@ -1,5 +1,5 @@
 ---
-title: What is Azure Serivce Health?
+title: What is Azure Service Health?
 description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
 author: stephbaron
 ms.author: stbaron
@@ -8,9 +8,9 @@ ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
 ---
-# What is Azure Serivce Health?
+# What is Azure Service Health?
 
-Azure offers a suite of experiences to keep you informed about the health of your cloud resources including current and upcoming issues such as service impacting events, planned maintenance, and other changes that may affect your availability.
+Azure offers a suite of experiences to keep you informed about the health of your cloud resources. This information includes current and upcoming issues such as service impacting events, planned maintenance, and other changes that may affect your availability.
 
 Azure Service Health is a combination of three separate smaller services.
 
