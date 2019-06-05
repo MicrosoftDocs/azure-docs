@@ -96,11 +96,11 @@ The following options apply specifically to wait statistics.
 
 | **Parameter** | **Description** | **Default** | **Range** |
 |---|---|---|---|
-| query_store_wait_sampling_capture_mode | Allows turning ON / OFF the wait-stats. | NONE | NONE, ALL |
+| query_store_wait_sampling_capture_mode | Allows turning ON / OFF the wait statistics. | NONE | NONE, ALL |
 | query_store_wait_sampling_frequency | Alters frequency of wait-sampling in seconds. 5 to 300 seconds. Default is currently 30. | 30 | 5-300 |
 
 > [!NOTE]
-> Currently **query_store_capture_mode** supersedes this configuration, meaning both **query_store_capture_mode** and **query_store_wait_sampling_capture_mode** have to be enabled to ALL for wait-stats to work. If **query_store_capture_mode** is turned off, then wait statistics is turned off as well since wait statistics utilizes the performance_schema enabled, and the query_text captured by query store.
+> Currently **query_store_capture_mode** supersedes this configuration, meaning both **query_store_capture_mode** and **query_store_wait_sampling_capture_mode** have to be enabled to ALL for wait statistics to work. If **query_store_capture_mode** is turned off, then wait statistics is turned off as well since wait statistics utilizes the performance_schema enabled, and the query_text captured by query store.
 
 Use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md) to get or set a different value for a parameter.
 
