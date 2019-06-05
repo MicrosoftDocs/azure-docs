@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) project up and running.
+Have the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) project up and running. This can either be your own version, or install it from TBD-First-app
 
 ## Extend your app with numbered paging
 

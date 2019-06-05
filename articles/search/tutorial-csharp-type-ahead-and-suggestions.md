@@ -24,12 +24,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running.
-
-## Install and run the project from GitHub
-
-TBD
-
+Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This can either be your own version, or install it from TBD-Paging-Numbers
 
 ## Add suggestions to Azure Search
 
@@ -448,7 +443,7 @@ Read through the comments in the script to get a fuller understanding.
 
 5. Now run the app. Enter "pa" into the search box. Do you get "palace" as the autocomplete suggestion, along with two hotels that contain "pa"?
 
-![Typing with autocomplete and suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
+![Typing with inline autocomplete and suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
 
 6. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 

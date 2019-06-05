@@ -46,22 +46,22 @@ To complete this tutorial, you need to:
 
 ### Install and run the project from GitHub
 
-1. Locate the sample app at the following location TBD.
+1. Locate the sample app at TBD-First-app.
 1. Select **Clone or download** and make your private local copy of the project.
 1. Using Visual Studio open the solution and select **Start without debugging** (or press F5).
 1. Type in some words (for example "wifi", "view", "bar", "parking") and page through the results!
 
- ![Searching for wifi](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
+ ![Searching for "wifi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
 
 Note how no paging options are displayed if there is less than one page worth of results.
 
- ![Searching for town](./media/tutorial-csharp-create-first-app/azure-search-town.png)
+ ![Searching for "town"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
 
 The last page of results may contain less than a full page.
 
- ![Searching for pool](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
+ ![Searching for "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
-Hopefully this project will run smoothly, and you have Azure app running. Many of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
+Hopefully this project will run smoothly, and you have Azure app running. Many of the essential components for more sophisticated searches are included in this one app, so it is a good idea to go through it, and recreate it step by step.
 
 To create this project from scratch, and hence help reinforce the components of Azure Search in your mind, go through the following steps.
 
@@ -760,13 +760,13 @@ Now, let's check the app runs correctly.
 
 2. Enter text such as "beach" (or any text that comes to mind) and click the search icon. You should get some results.
 
- ![Searching for beach](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
+ ![Searching for "beach"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
 3. Test the next and previous page buttons. Check that when they are not relevant, they are grayed out.
 
 4. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search.
  
- ![Searching for five star](./media/tutorial-csharp-create-first-app/azure-search-five-star.png)
+ ![Searching for "five star"](./media/tutorial-csharp-create-first-app/azure-search-five-star.png)
 
 5. Try entering "hot" as search text. It does _not_ return entries with the word "hotel" in them. Our search is only locating whole words.
 
@@ -803,6 +803,6 @@ In order to provide the best user experience using Azure Search, we need to add 
 These next steps are addressed in a series of tutorials. Let's start with paging.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md)
+> [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md)
 
 

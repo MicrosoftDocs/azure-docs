@@ -22,13 +22,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the infinite scrolling variant of the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running.
-
-## Install and run the project from GitHub
-
-TBD
-
-Image
+Have the infinite scrolling variant of the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This can either be your own version, or install it from TBD-Paging-Infinite
 
 ## Build a geospatial filter into Azure Search
 
