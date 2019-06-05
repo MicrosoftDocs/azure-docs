@@ -81,9 +81,7 @@ Type `wmic` to enter the interactive interface. Then type the below to view the 
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled.  If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. 
-
-When a hyper-threaded VM is created, Azure allocates 2 threads per core - these are called vCPUs. When hyper-threading is disabled, Azure removes a thread and surfaces up single threaded cores (physical cores). The ratio of vCPU to CPU is 2:1, so once hyper-threading is disabled, the CPU count in the VM will appear to have decreased by half. For example, a D8_v3 VM is a hyper-threaded VM running on 8 vCPUs (2 threads per core x 4 cores).  When hyper-threading is disabled, CPUs will drop to 4 physical cores with 1 thread per core. 
+If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled.  If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
 
 
 **Step 2**: In parallel to Step 1, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
@@ -143,15 +141,20 @@ NUMA node(s):          1
 
 ```
 
-If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**.
+If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
 
-When a hyper-threaded VM is created, Azure allocates 2 threads per core - these are called vCPUs. When hyper-threading is disabled, Azure removes a thread and surfaces up single threaded cores (physical cores). The ratio of vCPU to CPU is 2:1, so once hyper-threading is disabled, the CPU count in the VM will appear to have decreased by half. For example, a D8_v3 VM is a hyper-threaded VM running on 8 vCPUs (2 threads per core x 4 cores).  When hyper-threading is disabled, CPUs will drop to 4 physical cores with 1 thread per core.  
+
 
 **Step 2**: To mitigate against any of the below speculative execution side-channel vulnerabilities, refer to your operating system provider’s documentation:   
  
 - [Redhat and CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### Core count
+
+When a hyper-threaded VM is created, Azure allocates 2 threads per core - these are called vCPUs. When hyper-threading is disabled, Azure removes a thread and surfaces up single threaded cores (physical cores). The ratio of vCPU to CPU is 2:1, so once hyper-threading is disabled, the CPU count in the VM will appear to have decreased by half. For example, a D8_v3 VM is a hyper-threaded VM running on 8 vCPUs (2 threads per core x 4 cores).  When hyper-threading is disabled, CPUs will drop to 4 physical cores with 1 thread per core. 
 
 ## Next steps
 
