@@ -39,7 +39,7 @@ After you enable monitoring, we recommend that you use [Live Metrics](live-strea
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 > [!IMPORTANT] 
-> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy).
+> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
 ## Examples
 

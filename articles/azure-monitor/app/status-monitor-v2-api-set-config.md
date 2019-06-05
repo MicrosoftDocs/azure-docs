@@ -25,7 +25,7 @@ This document describes a cmdlet that's a member of the [Az.ApplicationMonitor P
 ## Description
 
 Sets the config file without repeating a full reinstallation.
-You need to restart IIS for the changes to take effect.
+Restart IIS for your changes to take effect.
 
 > [!IMPORTANT] 
 > This cmdlet requires a PowerShell session with Admin permissions.

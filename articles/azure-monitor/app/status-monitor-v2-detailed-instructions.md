@@ -122,7 +122,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 	- You can confirm this change and audit all PSRepositories by running the `Get-PSRepository` command.
 
 4. Install the newest version of PowerShellGet.
-	- Description: This module contains the tooling used to get other modules from PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version you have installed, run the `Get-Command -Module PowerShellGet` command.
+	- Description: This module contains the tooling used to get other modules from PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version is installed, run the `Get-Command -Module PowerShellGet` command.
 	- Reference: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
 	- Command: `Install-Module -Name PowerShellGet`.
 	- Optional parameters:
@@ -159,7 +159,7 @@ These steps will download the Az.ApplicationMonitor module from PowerShell Galle
 
 If for any reason you can't connect to the PowerShell module, you can manually download and install the Az.ApplicationMonitor module.
 
-### Manually download the latest .nupkg file
+### Manually download the latest nupkg file
 
 1. Go to https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 2. Select the latest version in the **Version History** table.
@@ -170,9 +170,9 @@ Install the manually downloaded PowerShell module into a PowerShell directory so
 For more information, see [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
 
-#### Unzip .nupkg as a .zip by using Expand-Archive (v1.0.1.0)
+#### Unzip nupkg as a .zip by using Expand-Archive (v1.0.1.0)
 
-- Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip .nupkg files. Rename the file with the .zip extension.
+- Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip nupkg files. Rename the file with the .zip extension.
 - Reference: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
 - Command:
 
@@ -184,9 +184,9 @@ For more information, see [Installing a PowerShell Module](https://docs.microsof
 	Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 	```
 
-#### Unzip .nupkg by using Expand-Archive (v1.1.0.0)
+#### Unzip nupkg by using Expand-Archive (v1.1.0.0)
 
-- Description: Use a current version of Expand-Archive to unzip .nupkg files without changing the extension.
+- Description: Use a current version of Expand-Archive to unzip nupkg files without changing the extension.
 - Reference: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) and [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - Command:
 
@@ -196,7 +196,7 @@ For more information, see [Installing a PowerShell Module](https://docs.microsof
 	Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
 	```
 
-### Option 2: Unzip and import .nupkg manually
+### Option 2: Unzip and import nupkg manually
 Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
 For more information, see [Installing a PowerShell Module](https://docs.mircrosoft.com/powershell/developer/module/installing-a-powershell-module).
 
