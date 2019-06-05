@@ -1,5 +1,5 @@
 ---
-title: Azure custom web application firewall (WAF) rules 
+title: Azure Web Application Firewall (WAF) custom rules 
 description: This article provides an overview of web application firewall (WAF) custom rules in Azure Application Gateway.
 services: application-gateway
 ms.topic: article
@@ -32,7 +32,7 @@ If you want to **or** two different conditions, the two conditions must be in di
 
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples of these, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
-## Allowing vs. Blocking
+## Allowing vs. blocking
 
 Allowing and blocking traffic is simple with custom rules. For example, you can block all traffic coming from a range of IP addresses. You can make another rule to allow traffic if the request comes from a specific browser.
 
@@ -54,7 +54,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-The previous `$BlockRule` maps to the following custom rule in ARM:
+The previous `$BlockRule` maps to the following custom rule in Azure Resource Manager:
 
 ```json
 "customRules": [

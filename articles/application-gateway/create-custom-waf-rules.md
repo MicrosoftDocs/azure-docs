@@ -1,6 +1,6 @@
 ---
-title: Create and use Azure web application firewall (WAF) custom rules
-description: This article provides information on how to create web application firewall (WAF) custom rules in Azure Application Gateway.
+title: Create and use Azure Web Application Firewall (WAF) custom rules
+description: This article provides information on how to create Web Application Firewall (WAF) custom rules in Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
