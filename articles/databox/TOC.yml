@@ -125,6 +125,10 @@
       items:
       - name: What is Data Box Heavy?
         href: data-box-heavy-overview.md
+    - name: Quickstarts
+      items:
+      - name: Set up - Azure portal
+        href: data-box-heavy-quickstart-portal.md
     - name: Tutorials
       items:
       - name: 1 - Order
@@ -157,8 +161,12 @@
         href: data-box-disk-contact-microsoft-support.md 
       - name: Migrate
         items:
+        - name: To SharePoint Online
+          href: data-box-heavy-migrate-spo.md
         - name: To Azure File Sync
           href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+        - name: From HDFS store
+          href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
   - name: Resources
     items:
     - name: Data Box product

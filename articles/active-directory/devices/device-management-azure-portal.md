@@ -22,9 +22,9 @@ ms.reviewer: jairoc
 
 ms.collection: M365-identity-device-management
 ---
-# How to manage device identity using the Azure portal
+# Manage device identity using the Azure portal
 
-With device identity management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
+With device identity management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance.
 
 This article:
 
@@ -115,7 +115,7 @@ This section provides you with information about common device identity manageme
 
 ### Manage an Intune device
 
-If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. 
+If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**.
 
 ![Manage an Intune device](./media/device-management-azure-portal/31.png)
 
@@ -134,7 +134,7 @@ To enable / disable a device, you have two options:
 **Remarks:**
 
 - You need to be a global administrator or cloud device administrator in Azure AD to enable / disable a device. 
-- Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials. 
+- Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials.
 
 ### Delete an Azure AD device
 
@@ -152,7 +152,7 @@ To delete a device, you have two options:
 
 - You need to be a global administrator or an Intune administrator in Azure AD to delete a device.
 - Deleting a device:
-   - Prevents a device from accessing your Azure AD resources. 
+   - Prevents a device from accessing your Azure AD resources.
    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
    - Represents a non-recoverable activity and is not recommended unless it is required.
 
@@ -174,9 +174,9 @@ To view or copy the BitLocker keys, you need to be either the owner of the devic
 
 - Global Administrator
 - Helpdesk Administrator
-- Security Administrators
-- Security Readers
-- Intune Service Administrators
+- Security Administrator
+- Security Reader
+- Intune Service Administrator
 
 > [!NOTE]
 > Hybrid Azure AD Joined Windows 10 devices do not have an owner. So, if you are looking for a device by owner and didn't find it, search by the device ID.
