@@ -26,28 +26,14 @@ The networking services in Azure provide a variety of networking capabilities th
 ## <a name="connect"></a>Connectivity services
 This section describes services that provide connectivity between Azure resources (Virtual Network), connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure.
 
-|Service|Why use?|Scenario|
+|Service|Why use?|Scenarios|
 |---|---|---|
-|[Virtual network](#virtualnetwork)|||
-|[ExpressRoute](#expressroute)|||
-|[VPN Gateway](#vpngateway)||
-|[Virtual WAN](#virtualwan)|||
-|[Service endpoints](#serviceendpoints)|||
-|
-
-### <a name="virtualnetwork"></a>Virtual network
-Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. For more information, see the [Virtual Network documentation](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-
-### <a name="expressroute"></a>ExpressRoute
-ExpressRoute provides private connectivity to Microsoft with predictable performance and enterprise-grade resiliency and with SLA for availability. ExpressRoute has a large and growing partner ecosystem. For more information about ExpressRoute, see the [ExpressRoute documentation](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json).
-
-
-![ExpressRoute connection overview](../expressroute/media/expressroute-introduction/expressroute-connection-overview.png)
-
-### <a name="vpngateway"></a>VPN Gateway
-A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. For more information, see the [VPN Gateway documentation](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json).
-
-### <a name="virtualwan"></a>Virtual WAN
+|[Virtual network](../virtual-network/virtual-networks-overview.md)|Enables Azure resources to securely communicate with each other, the internet, and on-premises networks.|[Filter network traffic](../virtual-network/tutorial-filter-network-traffic.md), [route network traffic](../virtual-network/tutorial-create-route-table-portal.md), [restrict network access to resources](../virtual-network/tutorial-restrict-network-access-to-resources
+.md), [connect virtual networks](../virtual-network/tutorial-connect-virtual-networks-portal.md).|
+|[ExpressRoute](../expressroute/expressroute-introduction.md)|Extends your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.||
+|[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)|Sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.|[Site-to-site-connections](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [VNet-to-VNet connections](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [Point-to-site connections](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).|
+|[Virtual WAN](../virtual-wan/virtual-wan-about.md)|Optimizes and automates branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to.|[Site-to-site connections](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute connections](../virtual-wan/virtual-wan-expressroute-portal.md) [Point-to-site connections](../virtual-wan/virtual-wan-point-to-site-portal.md) |
+|[Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)|Enables you to limit network access to some Azure service resources to a virtual network subne|[Restrict network access to PaaS resources](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
 
 
 ## <a name="protect"></a>Application protection services
