@@ -398,7 +398,7 @@ Not every role or application that's installed on a Windows-based computer suppo
 ### Generalize a VHD
 
 >[!NOTE]
-> After you run sysprep.exe in the following steps, turn off the VM. Don't turn it back on until you create an image from it in Azure.
+> After you run `sysprep.exe` in the following steps, turn off the VM. Don't turn it back on until you create an image from it in Azure.
 
 1. Sign in to the Windows VM.
 1. Run **Command Prompt** as an administrator. 
@@ -414,14 +414,14 @@ Now the VHD is ready to be uploaded. For more information about how to create a 
 
 
 >[!NOTE]
-> A custom unattend.xml file is not supported. Although we do support the additionalUnattendContent property, that provides only limited support for adding [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) options into the unattend.xml file that the Azure provisioning agent uses. You can use, for example, [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) to add FirstLogonCommands and LogonCommands. For more information, see [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> A custom *unattend.xml* file is not supported. Although we do support the `additionalUnattendContent` property, that provides only limited support for adding [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) options into the *unattend.xml* file that the Azure provisioning agent uses. You can use, for example, [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) to add FirstLogonCommands and LogonCommands. For more information, see [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## Complete the recommended configurations
 The following settings don't affect VHD uploading. However, we strongly recommend that you configured them.
 
 * Install the [Azure Virtual Machine Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs. You'll need the extensions, for example, to reset passwords or configure RDP. For more information, see [Azure Virtual Machine Agent overview](../extensions/agent-windows.md).
-* After you create the VM in Azure, we recommend that you put the page file on the *Temporal drive volume* to improve performance. You can set up the file placement as follows:
+* After you create the VM in Azure, we recommend that you put the page file on the *temporal drive volume* to improve performance. You can set up the file placement as follows:
 
    ```PowerShell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
