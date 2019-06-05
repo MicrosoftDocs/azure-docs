@@ -29,7 +29,7 @@ Run Oracle databases on Azure infrastructure using Linux images available in the
 
 * Oracle Database 12.1, 12.2, and 18.3 Standard Edition 
 
-You can choose to bring other Oracle database images as well as custom images.
+You can also choose to base a solution on a custom image you create from scratch in Azure or upload a custom image from your on-premises environment.
 
 Optionally configure with multiple attached disks and improve database performance by installing Oracle Automated Storage Management (ASM).
 
@@ -64,7 +64,7 @@ Use Terraform templates to set up Azure infrastructure and install Oracle applic
 * JD Edwards EnterpriseOne
 * PeopleSoft
 * Oracle Retail applications
-* Hyperion
+* Oracle Hyperion Financial Management
 
 Also deploy custom applications in Azure that connect with OCI and other Azure services.
 
@@ -75,7 +75,7 @@ Use Oracle Database Cloud Services (Autonomous Database, RAC, Exadata, DBaaS, Si
 
 ## Licensing
 
-Deployment of Oracle applications in Azure is based on a "bring your own license" model. It's assumed you are properly licensed to use Oracle software and that you have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.htm).
+Deployment of Oracle applications in Azure is based on a "bring your own license" model. It's assumed you are properly licensed to use Oracle software and that you have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
 
 ## Next steps
 
