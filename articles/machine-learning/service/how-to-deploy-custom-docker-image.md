@@ -1,4 +1,20 @@
+---
+title: How to deploy a model using a custom Docker image 
+titleSuffix: Azure Machine Learning service
+description: 'Learn how to use a custom Docker image when deploying your Azure Machine Learning service models. When deploying a trained model, a Docker image is created to host the image, web server, and other components needed to run the service. While Azure Machine Learning service provides a default image for you, you can also use your own image.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+ms.author: jordane
+author: jpe316
+ms.reviewer: larryfr
+ms.date: 06/05/2019
+---
+
 # Deploy a model using a custom Docker image
+
+Learn how to use a custom Docker image when deploying trained models with the Azure Machine Learning service.
 
 When you deploy a trained model to a web service or IoT Edge device, a Docker image is created. This image contains the model, conda environment, and assets needed to use the model. It also contains a web server to handle incoming requests when deployed as a web service, and components needed to work with Azure IoT Hub.
 
@@ -7,7 +23,7 @@ Azure Machine Learning service provides a default Docker image so you don't have
 > [!IMPORTANT]
 > When deploying a model, you cannot override core components such as the web server or IoT Edge components. The components used provide a known working environment that is tested and supported by Microsoft.
 
-Microsoft also provides several base images that use the ONNX Runtime. These are useful when deploying ONNX models.
+Microsoft also provides several base images that use the ONNX Runtime. These images are useful when deploying ONNX models.
 
 ## Prerequisites
 
@@ -53,11 +69,13 @@ RUN conda install python=3.6
 
 ## Get container registry address
 
-__If you've already trained or deployed models__ using the Azure Machine Learning service, a container registry was created for your workspace. If you have not trained or deployed a model, use the steps in the [Train image classification models](tutorial-train-models-with-aml.md) tutorial. By walking through the tutorial, a container registry is created for your workspace.
+The steps in this document assume that you are using an Azure Container Registry. A container registry is created when you train or deploy a model in your Azure Machine Learning service workspace, or you can use a container registry that you have manually created.
 
-For information on what is different when using a different Azure Container Registry than the one in your workgroup, see the [tbd]() section.
+The difference between the container registry for your workspace and a manually created one is that Azure Machine Learning service can automatically authenticate to the one for the workspace. For a separate container registry, you may need to enable admin access and provide the user name and password in your Python code.
 
-To find the name of this container registry, use the following steps:
+### Use the container registry in your workspace
+
+If you've already trained or deployed models using the Azure Machine Learning service, a container registry was created for your workspace. To find the name of this container registry, use the following steps:
 
 1. Open a new shell or command-prompt and use the following command to authenticate to your Azure subscription:
 
@@ -73,13 +91,17 @@ To find the name of this container registry, use the following steps:
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
 
-    The information returned is similar to the following:
+    The information returned is similar to the following text:
 
     ```text
     /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ContainerRegistry/registries/<registry_name>
     ```
 
     Save the `<registry_name>` value. It will be used in later steps.
+
+#### Use a container registry outside your workspace
+
+TBD
 
 ## Build a custom image
 
@@ -117,23 +139,44 @@ To find the name of this container registry, use the following steps:
     az acr login --name <registry_name>
     ```
 
-3. To upload the Dockerfile, and build it, use the following command:
+3. To upload the Dockerfile, and build it, use the following command. Replace `<registry_name>` with the one retrieved earlier:
 
     ```
-    az acr build --image custom/myimage:v1 --registry <registry_name> --file Dockerfile .
+    az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
-    During the build process, information is streamed to back to you
+    During the build process, information is streamed to back to the command line. If the build is successful, you receive a message similar to the following text:
 
-## Use a custom base image
+    ```text
+    Run ID: cda was successful after 2m56s
+    ```
 
-To use a custom image, set the `base_image` property of the inference configuration to the address of the image. The following example demonstrates how to use an image from both a public and private Azure Container Registry:
+For more information on building images with an Azure Container Registry, see [Build and run a container image using Azure Container Registry Tasks](~/azure/container-registry/container-registry-quickstart-task-cli.md)
+
+For more information on uploading existing images to an Azure Container Registry, see [Push your first image to a private Docker container registry](~/azure/container-registry/container-registry-get-started-docker-cli.md).
+
+## Use the custom base image
+
+### From the Azure Machine Learning SDK
+
+To use a custom image, set the `base_image` property of the [inference configuration object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) to the address of the image. The following example demonstrates how to use an image from the __container registry for your workspace__. Replace `<registry_name>` with the one retrieved earlier for your workspace:
+
+```python
+# use an image from the registry in your workspace without authentication
+inference_config.base_image = "<registry_name>/myimage:v1"
+```
+
+You can use the same approach to use an image in a __public container registry__. The following exmaple uses a default image provided by Microsoft:
 
 ```python
 # use an image available in public Container Registry without authentication
 inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+```
 
-# or, use an image available in a private Container Registry
+To use an image from a __private container registry__ that is not in your workspace, you must specify the address of the repository and a user name and password:
+
+```python
+# Use an image available in a private Container Registry
 inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
 inference_config.base_image_registry.address = "myregistry.azurecr.io"
 inference_config.base_image_registry.username = "username"
@@ -147,16 +190,15 @@ The following image URIs are for images provided by Microsoft, and can be used w
 * `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
 * `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
 
-To use these images, set the `base_image` to the URI from the list above. Set `base_image_registry.address` to `mcr.microsoft.com`.
+To use these images, set the `base_image` to the URI from the list above.
 
 > [!IMPORTANT]
 > Microsoft images that use CUDA or TensorRT must be used on Microsoft Azure Services only.
 
-For more information on uploading your own images to an Azure Container Registry, see [Push your first image to a private Docker container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-If your model is trained on Azure Machine Learning Compute, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
+> [!TIP]
+>__If your model is trained on Azure Machine Learning Compute__, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
+>
+> ```python
+> # Use an image built during training with SDK 1.0.22 or greater
+> image_config.base_image = run.properties["AzureML.DerivedImageName"]
+> ```
