@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/16/2019
+ms.date: 5/17/2019
 ms.author: tomfitz
 ---
 
@@ -843,7 +843,7 @@ To get the same data as a file of comma-separated values, download [move-support
 ## Microsoft.WindowsIoT
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| deviceservices | Yes | Yes |
+| deviceservices | No | No |
 
 ## Microsoft.WindowsVirtualDesktop
 | Resource type | Resource group | Subscription |

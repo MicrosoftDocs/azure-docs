@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: mimart
-ms.reviewer: asmalser
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---

@@ -45,7 +45,7 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
    |Subscription|Yes|Must exist in the same [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address to.|
    |Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
    |Name|Yes|The name must be unique within the resource group you select.|
-   |Region|Yes|Must exist in the same [region](https://azure.microsoft.com/regions)as the public IP addresses you'll assign addresses from the range. Prefix is currently is preview in West Central US, West US, West US 2, Central US, North Europe, West Europe, and Southeast Asia.|
+   |Region|Yes|Must exist in the same [region](https://azure.microsoft.com/regions)as the public IP addresses you'll assign addresses from the range.|
    |Prefix size|Yes| The size of the prefix you need. A /28 or 16 IP addresses is the default.
 
 **Commands**
@@ -68,6 +68,13 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
    |Name|Yes|The name of the public IP address must be unique within the resource group you select.|
    |Idle timeout (minutes)|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
    |DNS name label|No|Must be unique within the Azure region you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet such as *location.cloudapp.azure.com* (where location is the location you select) to the name you provide, to create the fully qualified DNS name.For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+
+Alternatively you may use the CLI and PS commands below with the --public-ip-prefix (CLI) and -PublicIpPrefix (PS) parameters, to create a Public IP address resource. 
+
+|Tool|Command|
+|---|---|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
 
 ## View or delete a prefix
 

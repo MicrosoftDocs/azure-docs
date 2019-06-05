@@ -31,7 +31,7 @@ See [Quickstart: Register an application with the Microsoft identity platform](q
 The Microsoft identity platform endpoint can issue two types of tokens: v1.0 tokens and v2.0 tokens. You can learn more about these tokens in [Access tokens](access-tokens.md). The accepted token version depends on the **Supported account types** you chose when you created your application:
 
 - If the value of **Supported account types** is **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**, the accepted token version will be v2.0.
-- Otherwise, the accepted token version will be v2.0.
+- Otherwise, the accepted token version will be v1.0.
 
 Once you've created the application, you can change the accepted token version by following these steps:
 

@@ -2,14 +2,14 @@
 title: Resources for migrating apps to Azure Active Directory | Microsoft Docs
 description: Resources to help you migrate application access and authentication to Azure Active Directory (Azure AD). 
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: baselden
 
 ms.collection: M365-identity-device-management

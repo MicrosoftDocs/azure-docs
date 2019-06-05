@@ -4,7 +4,7 @@ description: Learn about the Azure Cosmos DB Spark connector that enables you to
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/21/2019
 ms.author: ramkris
 
 ---

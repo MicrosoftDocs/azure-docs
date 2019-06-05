@@ -6,7 +6,7 @@ author: sauryadas
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/20/2019
 ms.author: saudas
 ---
 
@@ -23,11 +23,11 @@ AKS supports four minor versions of Kubernetes:
 - The current minor version that is released upstream (n)
 - Three previous minor versions. Each supported minor version also supports two stable patches.
 
-For example, if AKS introduces *1.12.x* today, support is also provided for *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f* (where the lettered patch releases are two latest stable builds).
+For example, if AKS introduces *1.13.x* today, support is also provided for *1.12.a* + *1.12.b*, *1.11.c* + *1.11d*, *1.10.e* + *1.10f* (where the lettered patch releases are two latest stable builds).
 
-When a new minor version is introduced, the oldest minor version and patch releases supported are retired. 30 days before the release of the new minor version and upcoming version retirement, an announcement is made through the [Azure update channels][azure-update-channel]. In the example above where *1.12.x* is released, the retired versions are *1.8.g* + *1.8.h*.
+When a new minor version is introduced, the oldest minor version and patch releases supported are retired. 30 days before the release of the new minor version and upcoming version retirement, an announcement is made through the [Azure update channels][azure-update-channel]. In the example above where *1.13.x* is released, the retired versions are *1.9.g* + *1.9.h*.
 
-When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster is always set to the n-1 minor version and latest patch. For example, if AKS supports *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f*, the default version for new clusters is *1.11.b*.
+When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster is always set to the n-1 minor version and latest patch. For example, if AKS supports *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c* + *1.11d*, *1.10.e* + *1.10f*, the default version for new clusters is *1.11.b*.
 
 ## List currently supported versions
 
@@ -37,19 +37,18 @@ To find out what versions are currently available for your subscription and regi
 az aks get-versions --location eastus --output table
 ```
 
-The output is similar to the following example, which shows that Kubernetes version *1.12.5* is the most recent version available:
+The output is similar to the following example, which shows that Kubernetes version *1.13.5* is the most recent version available:
 
 ```
 KubernetesVersion    Upgrades
--------------------  -----------------------
-1.12.5               None available
-1.12.4               1.12.5
-1.11.7               1.12.4, 1.12.5
-1.11.6               1.11.7, 1.12.4, 1.12.5
-1.10.12              1.11.6, 1.11.7
-1.10.9               1.10.12, 1.11.6, 1.11.7
-1.9.11               1.10.9, 1.10.12
-1.9.10               1.9.11, 1.10.9, 1.10.12
+-------------------  ------------------------
+1.13.5               None available
+1.12.7               1.13.5
+1.12.6               1.12.7, 1.13.5
+1.11.9               1.12.6, 1.12.7
+1.11.8               1.11.9, 1.12.6, 1.12.7
+1.10.13              1.11.8, 1.11.9
+1.10.12              1.10.13, 1.11.8, 1.11.9
 ```
 
 ## FAQ
@@ -58,8 +57,8 @@ KubernetesVersion    Upgrades
 
 If you are on the *n-4* version, you are out of the SLO. If your upgrade from version n-4 to n-3 succeeds, then you are back in the SLO. For example:
 
-- If the supported AKS versions are *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, and *1.9.e* + *1.9f* and you are on *1.8.g* or *1.8.h*, you are out of the SLO.
-- If the upgrade from *1.8.g* or *1.8.h* to *1.9.e* or *1.9.f* succeeds, you are back in the SLO.
+- If the supported AKS versions are *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c* + *1.11d*, and *1.10.e* + *1.10f* and you are on *1.9.g* or *1.9.h*, you are out of the SLO.
+- If the upgrade from *1.9.g* or *1.9.h* to *1.10.e* or *1.10.f* succeeds, you are back in the SLO.
 
 Upgrades to versions older than *n-4* are not supported. In such cases, we recommend customers create new AKS clusters and redeploy their workloads.
 

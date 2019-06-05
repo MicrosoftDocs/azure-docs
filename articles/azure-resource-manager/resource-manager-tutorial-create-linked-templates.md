@@ -85,7 +85,7 @@ The linked template creates a storage account. The linked template can be used a
 2. Make the following changes:
 
     * Remove all the parameters other than **location**.
-    * Add a parameter called **storageAccountName**. 
+    * Add a parameter called **storageAccountName**.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -95,7 +95,7 @@ The linked template creates a storage account. The linked template can be used a
         },
         ```
         The storage account name and location are passed from the main template to the linked template as parameters.
-        
+
     * Remove the **variables** element, and all the variable definitions.
     * Remove all the resources other than the storage account. You remove a total of four resources.
     * Update the value of the **name** element of the storage account resource to:
@@ -105,7 +105,7 @@ The linked template creates a storage account. The linked template can be used a
         ```
 
     * Update the **outputs** element, so it looks like:
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -268,7 +268,7 @@ The main template is called azuredeploy.json.
     Pay attention to these details:
 
     * A `Microsoft.Resources/deployments` resource in the main template is used to link to another template.
-    * The `deployments` resource has a name called `linkedTemplate`. This name is used for [configuring dependency](#configure-dependency).  
+    * The `deployments` resource has a name called `linkedTemplate`. This name is used for [configuring dependency](#configure-dependency).
     * You can only use [Incremental](./deployment-modes.md) deployment mode when calling linked templates.
     * `templateLink/uri` contains the linked template URI. Update the value to the URI you get when you upload the linked template (the one with a SAS token).
     * Use `parameters` to pass values from the main template to the linked template.
@@ -301,7 +301,7 @@ Because the storage account is defined in the linked template now, you must upda
 
     ![Azure Resource Manager linked templates configure dependency](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate* is the name of the deployments resource.  
+    *linkedTemplate* is the name of the deployments resource.
 3. Update **properties/diagnosticsProfile/bootDiagnostics/storageUri** as shown in the previous screenshot.
 4. Save the revised template.
 
@@ -330,4 +330,4 @@ To improve the project, make the following additional changes to the completed p
 In this tutorial, you modularized a template into a main template and a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see:
 
 > [!div class="nextstepaction"]
-> [Deploy virtual machine extensions](./deployment-manager-tutorial.md)
+> [Deploy virtual machine extensions](./resource-manager-tutorial-deploy-vm-extensions.md)

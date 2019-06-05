@@ -66,7 +66,7 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
 | Public IP addresses - static | 1,000 for Basic. |Contact support. |
 | Public IP addresses - static | 200 for Standard.|Contact support. |
-| Public IP prefix size (preview) | /28 | Contact support. |
+| Public IP prefix size | /28 | Contact support. |
 
 #### <a name="load-balancer"></a>Load balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).

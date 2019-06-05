@@ -4,7 +4,7 @@ description: Learn how to create a container in Azure Cosmos DB with large parti
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ---
 
@@ -50,6 +50,8 @@ The Large partition keys are supported with the following minimum versions of SD
 |Java sync     |   2.4.0      |
 |Java Async   |  2.5.0        |
 | REST API | version higher than `2017-05-03` by using the `x-ms-version` request header.|
+
+Currently, you cannot use containers with large partition key within in Power BI and Azure Logic Apps. You can use containers without a large partition key from these applications. 
  
 ## Next steps
 

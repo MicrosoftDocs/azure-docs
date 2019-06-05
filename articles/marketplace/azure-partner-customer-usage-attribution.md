@@ -203,7 +203,7 @@ After you add the GUID to your template or in the user agent, and register the G
 
 After you modify your template and run a test deployment, use the following PowerShell script to retrieve the resources that you deployed and tagged.
 
-You can use the script to verify that the GUID is successfully added to your Resource Manager template. The script doesn't apply to Resource Manager API deployment.
+You can use the script to verify that the GUID is successfully added to your Resource Manager template. The script doesn't apply to Resource Manager API or Terraform deployments.
 
 Sign in to Azure. Select the subscription with the deployment that you want to verify before you run the script. Run the script within the subscription context of the deployment.
 

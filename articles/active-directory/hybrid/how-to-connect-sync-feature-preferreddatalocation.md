@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Connect sync: Configure preferred data location for Multi-Geo capabilities in Office 365 | Microsoft Docs'
+title: 'Azure AD Connect: Configure preferred data location for Office 365 resources'
 description: Describes how to put your Office 365 user resources close to the user with Azure Active Directory Connect sync.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 
