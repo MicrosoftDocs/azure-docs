@@ -41,8 +41,7 @@ If you're new to logic apps, review
 
 ## Limits
 
-* SFTP-SSH actions can read or write files that are *1 GB or smaller* 
-by managing data as *15 MB pieces*, not 1 GB pieces.
+* SFTP-SSH actions can read or write files that are *1 GB or smaller* but only *15 MB* at a time, not 1 GB. The Copy File action supports only 15 MB files and does not support [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 * For files *larger than 1 GB*, actions can use 
 [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 

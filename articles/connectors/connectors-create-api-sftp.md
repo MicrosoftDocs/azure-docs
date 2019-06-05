@@ -1,5 +1,5 @@
 ---
-title: Connect to SFTP account - Azure Logic Apps | Microsoft Docs
+title: Connect to SFTP account - Azure Logic Apps
 description: Automate tasks and processes that monitor, create, manage, send, and receive files for an SFTP server through SSH by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -40,20 +40,11 @@ If you're new to logic apps, review
 
 ## Limits
 
-* SFTP actions can read or write files that are *50 MB or smaller* unless you use 
-[message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md), 
-which let you exceed this limit. Currently, SFTP triggers don't support chunking.
+* SFTP actions can read or write files that are *50 MB or smaller*.
 
-* For files *up to 1 GB*, use the 
-[SFTP-SSH connector](../connectors/connectors-sftp-ssh.md).
+* For files *up to 1 GB*, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md).
 
-* For files *larger than 1 GB*, use the SFTP-SSH connector plus 
-[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
-
-For other differences between the SFTP 
-connector and the SFTP-SSH connector, review 
-[Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) 
-in the SFTP-SSH article.
+For other differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
 
 ## Prerequisites
 
