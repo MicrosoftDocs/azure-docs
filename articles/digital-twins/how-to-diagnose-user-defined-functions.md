@@ -20,7 +20,7 @@ This article summarizes how to diagnose and debug user-defined functions. Then, 
 
 ## Debug issues
 
-Knowing how to diagnose issues within your Azure Digital Twins instance will aid you effectively identify issues, find the cause of problems, and find appropriate solutions.
+Knowing how to diagnose issues within your Azure Digital Twins instance allows you to effectively identify issues, the cause of problems, and appropriate solutions for them.
 
 A variety of logging, analytics, and diagnostic tools are provided to that end.
 
