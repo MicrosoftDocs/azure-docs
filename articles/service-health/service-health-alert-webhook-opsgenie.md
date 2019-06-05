@@ -1,16 +1,15 @@
 ---
-title: Send service health alerts with OpsGenie using webhooks
+title: Send Azure service health alerts with OpsGenie using webhooks
 description: Get personalized notifications about service health events to your OpsGenie instance.
 author: stephbaron
 ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.topic: article
-ms.date: 05/10/2019
-
-
+ms.date: 06/10/2019
 ---
-# Send service health alerts with OpsGenie using webhooks
+   
+# Send Azure service health alerts with OpsGenie using webhooks
 
 This article shows you how to set up Azure service health alerts with OpsGenie using a webhook. By using [OpsGenie](https://www.opsgenie.com/)'s Azure Service Health Integration, you can forward Azure Service Health alerts to OpsGenie. OpsGenie can determine the right people to notify based on on-call schedules, using email, text messages (SMS), phone calls, iOS & Android push notifications, and escalating alerts until the alert is acknowledged or closed.
 

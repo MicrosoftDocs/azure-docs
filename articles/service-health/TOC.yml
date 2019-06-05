@@ -12,9 +12,9 @@
   items:
   - name: Azure status page overview
     href: azure-status-overview.md
-  - name: Service health overview
+  - name: Service Health overview
     href: service-health-overview.md
-  - name: Resource health overview
+  - name: Resource Health overview
     href: resource-health-overview.md
 - name: How To
   items:
@@ -49,5 +49,5 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Notification Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/monitor/
+    href: https://azure.microsoft.com/pricing/details/monitor/
   
