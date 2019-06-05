@@ -183,6 +183,8 @@ inference_config.base_image_registry.username = "username"
 inference_config.base_image_registry.password = "password"
 ```
 
+### Publicly available images
+
 The following image URIs are for images provided by Microsoft, and can be used without providing a user name or password value:
 
 * `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
