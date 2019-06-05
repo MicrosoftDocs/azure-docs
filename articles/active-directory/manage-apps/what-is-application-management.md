@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 10/30/2018
+ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 
@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 # Application management with Azure Active Directory
 
-Azure Active Directory (Azure AD) simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users can sign in once to securely and seamlessly access these applications, along with Office 365 and other business applications from Microsoft. You can reduce administrative costs by automating user provisioning. You can also use multi-factor authentication and conditional access policies to provide secure application access.
+Azure Active Directory (Azure AD) simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users sign in once to securely and seamlessly access these applications, along with Office 365 and other business applications from Microsoft. You can reduce administrative costs by automating user provisioning. You can also use multi-factor authentication and conditional access policies to provide secure application access.
 
 ![Apps federated via Azure AD](media/what-is-application-management/app-management-overview.png)
 
 ## Why manage applications with a cloud solution?
 
-Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset every day. With so many applications and access points, it is more critical than ever to use a cloud-based solution to manage user access to all applications.
+Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset every day. With so many applications and access points, it's more critical than ever to use a cloud-based solution to manage user access to all applications.
 
 ## What types of applications can I integrate with Azure AD?
 There are four main types of applications that you can add to your **Enterprise applications** and manage with Azure AD:
