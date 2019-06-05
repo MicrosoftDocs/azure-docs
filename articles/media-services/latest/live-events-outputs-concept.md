@@ -85,7 +85,7 @@ You can either use non-vanity URLs or vanity URLs.
 
     Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to re-configure their encoders when they start the Live Event. They want a predictive ingest URL, which does not change over time.
     
-    To specity this mode, you set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (to avoid a random token in the URL). Set `LiveEventInput.accessToken` to a a unique identifier at creation time.
+    To specify this mode, you set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (to avoid a random token in the URL). Set `LiveEventInput.accessToken` to a a unique identifier at creation time. Once the mode is set it cannot be updated.
 
 ### Live ingest URL naming rules
 
