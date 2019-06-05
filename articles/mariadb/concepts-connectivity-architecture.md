@@ -11,7 +11,7 @@ ms.date: 05/23/2019
 # Connectivity architecture in Azure Database for MariaDB
 This article explains the Azure Database for MariaDB connectivity architecture as well as how the traffic is directed to your Azure Database for MariaDB instance from clients both within and outside Azure.
 
-## Connectivity Architecture
+## Connectivity architecture
 
 Connection to your Azure Database for MariaDB is established through a gateway that is responsible for routing incoming connections to the physical location of your server in our clusters. The following diagram illustrates the traffic flow.
 
