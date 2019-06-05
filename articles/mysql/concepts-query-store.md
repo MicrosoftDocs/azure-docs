@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 06/05/2019
 ---
 # Monitor Azure Database for MySQL performance with Query Store
 
@@ -26,6 +26,7 @@ Query store can be used in a number scenarios, including the following:
 - Identifying longest running queries in the past X hours
 - Identifying top N queries that are waiting on resources
 - Understanding wait nature for a query
+- Understanding trends for resource waits and where resource contention exists
 
 ## Enabling Query Store
 
@@ -99,7 +100,7 @@ The following options apply specifically to wait statistics.
 | query_store_wait_sampling_frequency | Alters frequency of wait-sampling in seconds. 5 to 300 seconds. Default is currently 30. | 30 | 5-300 |
 
 > [!NOTE]
-> Currently **query_store_capture_mode** supersedes this configuration, meaning both **query_store_capture_mode** and **query_store_wait_sampling_capture_mode** have to be enabled to ALL for wait-stats to work. If **query_store_capture_mode** is turned off, then wait-stats turns off too. (Reason: wait-stats is utilizing the performance_schema enabled, and the query_text captured by query-store)
+> Currently **query_store_capture_mode** supersedes this configuration, meaning both **query_store_capture_mode** and **query_store_wait_sampling_capture_mode** have to be enabled to ALL for wait-stats to work. If **query_store_capture_mode** is turned off, then wait statistics is turned off as well since wait statistics utilizes the performance_schema enabled, and the query_text captured by query store.
 
 Use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md) to get or set a different value for a parameter.
 
@@ -150,9 +151,9 @@ This view returns wait events data in Query Store. There is one row for each dis
 |---|---|---|---|
 | interval_start | timestamp | NO| Start of the interval (15-minute increment)|
 | interval_end | timestamp | NO| End of the interval (15-minute increment)|
-| query_id | bigint(20) | NO| Generated unique ID on the normalized query (from query-store)|
-| query_digest_id | varchar(32) | NO| The normalized query text after removing all the literals (from query-store) |
-| query_digest_text | longtext | NO| First appearance of the actual query with literals (from query-store) |
+| query_id | bigint(20) | NO| Generated unique ID on the normalized query (from query store)|
+| query_digest_id | varchar(32) | NO| The normalized query text after removing all the literals (from query store) |
+| query_digest_text | longtext | NO| First appearance of the actual query with literals (from query store) |
 | event_type | varchar(32) | NO| Category of the wait event |
 | event_name | varchar(128) | NO| Name of the wait event |
 | count_star | bigint(20) | NO| Number of wait events sampled during the interval for the query |
@@ -160,18 +161,18 @@ This view returns wait events data in Query Store. There is one row for each dis
 
 ### Functions
 
-`Query_store.qs_reset()` returns void
-
-`qs_reset` discards all statistics gathered so far by Query Store. This function can only be executed by the server admin role.
-
-`Query_store.staging_data_reset()` returns void.
-
-`staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
+| **Name**| **Description** |
+|---|---|
+| mysql.az_purge_querystore_data(TIMESTAMP) | Purges all query store data before the given time stamp |
+| mysql.az_procedure_purge_querystore_event(TIMESTAMP) | Purges all wait event data before the given time stamp |
+| mysql.az_procedure_purge_recommendation(TIMESTAMP) | Purges recommendations whose expiration is before the given time stamp |
 
 ## Limitations and known issues
 
 - If a MySQL server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
+- The retention period for wait statistics is 24 hours.
+- Wait statistics uses sample ti capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.
 
 ## Next steps
 - Learn more about [Query Performance Insights](concepts-query-performance-insight.md)

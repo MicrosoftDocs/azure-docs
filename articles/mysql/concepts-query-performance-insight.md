@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: MySQL
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 06/05/2019
 ---
 # Query Performance Insight in Azure Database for MySQL
 
@@ -37,6 +37,8 @@ The **Long running queries** tab shows the top 5 queries by average duration p
 You can click and drag in the chart to narrow down to a specific time window. Alternatively, use the zoom in and out icons to view a smaller or larger time period respectively.
 
 Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
+
+Queries displayed in the wait statistics view are grouped by the queries that exhibit the largest waits during the specified time interval.
 
 ![Query Performance Insight waits statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
