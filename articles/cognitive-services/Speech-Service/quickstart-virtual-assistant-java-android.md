@@ -25,7 +25,7 @@ This application is built with the Speech SDK Maven package and Android Studio 3
 
 ## Prerequisites
 
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+* An Azure subscription key for the Speech Services. [Get one for free](get-started.md).
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 * [Android Studio](https://developer.android.com/studio/) v3.3 or later
  
