@@ -93,6 +93,12 @@ Heartbeat
     | summarize arg_max(TimeGenerated, * ) by Computer
 ```
 
-If the query returns results, then we need to determine if it a particular data type restart the HealthService to 
+If the query returns results, next you need to determine if it a particular data type that is not being collected and forwarded to the service. This could be caused by the agent not receiving updated configuration from the service or some other symptom preventing the agent from operating normally. Perform the following steps to further troubleshoot.
+
+1. Open an elevated command prompt on the computer and restart the agent service by typing `net stop healthservice && net start healthservice`.
+1. In the *Operations Manager* event log, search for event ID 
+
+
+ restart the HealthService to 
 
 ## 
