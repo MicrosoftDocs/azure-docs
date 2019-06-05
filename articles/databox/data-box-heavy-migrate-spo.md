@@ -33,7 +33,7 @@ This article specifically talks about how to use the Data Box Heavy to migrate y
 
 ### For SharePoint Online
 
-- Review the [Minimum requirements for the SharePoint Migration Tool (SPMT)](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+- Review the [Minimum requirements for the SharePoint Migration Tool (SPMT)](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 ## Workflow overview
 
@@ -75,12 +75,12 @@ After you receive confirmation from the Azure data team that your data copy has 
 
 For best performance and connectivity, we recommend that you create an Azure Virtual Machine (VM).
 
-1. Sign into the Azure portal, and then [Create a virtual machine](/azure/virtual-machines/windows/quick-create-portal.md).
-2. [Mount the Azure file share onto the VM](/azure/storage/files/storage-how-to-use-files-windows.md).
+1. Sign into the Azure portal, and then [Create a virtual machine](../virtual-machines/windows/quick-create-portal.md).
+2. [Mount the Azure file share onto the VM](../storage/files/storage-how-to-use-files-windows.md).
 3. [Download the SharePoint Migration tool](http://spmtreleasescus.blob.core.windows.net/install/default.htm) and install it on your Azure VM.
 4. Start the SharePoint Migration Tool. Click **Sign in** and enter your Office 365 username and password.
 5. When prompted **Where is your data?**, select **File share**. Enter the path to your Azure file share where your data is located.
-6. Follow the remaining prompts as normal, including your target location. For more information, go to [How to use the SharePoint Migration Tool](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+6. Follow the remaining prompts as normal, including your target location. For more information, go to [How to use the SharePoint Migration Tool](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 > [!IMPORTANT]
 > - The speed at which data is ingested into SharePoint Online is affected by several factors, regardless if you have your data already in Azure. Understanding these factors will help you plan and maximize the efficiency of your migration.  For more information, go to [SharePoint Online and OneDrive migration Speed](/sharepointmigration/sharepoint-online-and-onedrive-migration-speed).
