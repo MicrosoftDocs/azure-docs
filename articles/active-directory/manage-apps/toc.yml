@@ -81,8 +81,16 @@
         href: what-is-single-sign-on.md
       - name: Planning a single sign-on deployment
         href: plan-sso-deployment.md
+      - name: Enable single Sign-on in your multi-tenant application
+        href: isv-sso-content.md
+      - name: Choose the right SSO federation protocol
+        href: isv-choose-multi-tenant-federation.md
+      - name: Create and Azure tenant for your multi-tenant application
+        href: isv-tenant-multi-tenant-app.md
+      - name: Create and publish SSO documentation for your application
+        href: isv-create-sso-documentation.md
     - name: End-user portals
-      href: end-user-experiences.md
+        href: end-user-experiences.md
   - name: How-to guides
     items:
     - name: Add a cloud app
