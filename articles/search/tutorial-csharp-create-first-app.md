@@ -15,13 +15,11 @@ Learn how to create a web interface to query and present search results from an 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Install and run the project from GitHub
-> * Setup the development environment
-> * Initialize Azure Search
-> * Create MVC models to communicate data
-> * Create MVC views for the client
-> * Create the MVC controller
-> * Test edge conditions and errors
+> * Setup a development environment
+> * Model data structures
+> * Create a web page
+> * Define methods
+> * Test the app
 
 You will also learn how straightforward a search call is. The key statements in the code you will develop are shown in the following few lines.
 
@@ -46,7 +44,7 @@ To complete this tutorial, you need to:
 
 [Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
 
-## Install and run the project from GitHub
+### Install and run the project from GitHub
 
 1. Locate the sample app at the following location TBD.
 1. Select **Clone or download** and make your private local copy of the project.
@@ -65,12 +63,9 @@ The last page of results may contain less than a full page.
 
 Hopefully this project will run smoothly, and you have Azure app running. Many of the essential components for more sophisticated searches are included in this one app, it is a good idea to go through it and recreate it step by step.
 
-
-## Build the project from scratch
-
 To create this project from scratch, and hence help reinforce the components of Azure Search in your mind, go through the following steps.
 
-## Create the project and set up the environment
+## Set up a development environment
 
 1. In Visual Studio 2017, or later, select **New/Project** then **ASP.NET Core Web Application**. Give the project a name such as "FirstAzureSearch".
 ![Creating a cloud project](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
@@ -79,18 +74,14 @@ To create this project from scratch, and hence help reinforce the components of 
 
 ![Creating an MVC project](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
-3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There are two packages we need to install. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list. You will have to click through a few additional dialogs.
+3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There is one package we need to install. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list. You will have to click through a few additional dialogs to complete the installation.
 
 ![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
-4. Now type "MVC" into the **Browse** search box and install **Microsoft.AspNet.Mvc** when it is located.
 
-![Using NuGet to add MVC libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-mvc.png)
+### Initialize Azure Search
 
-
-## Initialize Azure Search
-
-For this sample, we are using publicly available hotel data. This data is an arbitrary collection of 60 or so fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data, you need to specify a name and key for it. 
+For this sample, we are using publicly available hotel data. This data is an arbitrary collection of 60 or so fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data, you need to specify a name and key for it.
 
 1. Open up the appsettings.json file in your project and add the following name and key. The API key shown here is not an example of a key, it is exactly the key you need to access the hotel data. Your appsettings.json file should now look like this.
 
@@ -111,7 +102,7 @@ For this sample, we are using publicly available hotel data. This data is an arb
 
 ![Copying the app settings to the output](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
 
-## Create MVC models to communicate data
+## Model data structures
 
 Models (C# classes) are used to communicate data between the client (the view), the server (the controller), and also the Azure cloud using the MVC (model, view, controller) architecture. Typically, these models will reflect the structure of the data that is being accessed. Also, we need a model to handle the view/controller communications.
 
@@ -325,12 +316,7 @@ namespace FirstAzureSearch.Models
                 description += "\nHighlights: " + tagData;
             }
 
-            // Get the sample room data and combine into one string.
-            var fullDescription = "Sample room: ";
-            fullDescription += h.Rooms[0].BedOptions;
-            fullDescription += " $" + h.Rooms[0].BaseRate;
-            fullDescription += "\n" + description;
-            return fullDescription;
+            return $"Sample room: {h.Rooms[0].BedOptions} ${h.Rooms[0].BaseRate}\n{description}";
         }
     }
 }
@@ -342,7 +328,7 @@ The **SearchData** class itself contains a method to add a hotel to an **ArrayLi
 
 Another critical bit of data in this class is **searchText**, containing the text entered by the user. The other members provide control data such as the number of results in total and the current page that is being displayed on the client. We will revisit these fields when looking at the client code (the **Index** view).
 
-## Create MVC views for the client
+## Create a web page
 
 The project you created will by default create a number of client views. The exact views depend on the version of Core .NET you are using (we use 2.1 in this sample). They are all in the **Views** folder of the project. You will only need to modify the **Index** view (in the **Views/Home** folder).
 
@@ -543,7 +529,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 
 That completes our view. We are making good progress. The models and views are completed, only the controller is left to tie everything together.
 
-## Create the MVC controller
+## Define methods
 
 We need to add to the contents of the one controller (**Home Controller**) which is created by default. 
 

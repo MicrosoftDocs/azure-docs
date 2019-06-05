@@ -96,15 +96,10 @@ We'll need to add more code to the controller, but let's update the models and v
         }
 ```
 
-4. In the **GetFullHotelDescription** method, change the setting of **fullDescription** so that the distance will be displayed to the user.
+4. In the **GetFullHotelDescription** method, change the returned string so that the distance will be displayed to the user.
 
 ```cs
-            var fullDescription = "Distance: " + h.DistanceInKilometers.ToString("0.#") + " Km.";
-            fullDescription += " Sample room: ";
-            fullDescription += h.Rooms[0].BedOptions;
-            fullDescription += " $" + h.Rooms[0].BaseRate;
-            fullDescription += "\n" + description;
-            return fullDescription;
+           return $"Distance: {h.DistanceInKilometers.ToString("0.#")} Km    Sample room: {h.Rooms[0].BedOptions} ${h.Rooms[0].BaseRate}\n{description}";
 ```
 
 5. Finally, add some public properties for the latitude, longitude, and radius values to the **SearchData** class, perhaps after the **paging** field. These will be used to communicate the user's input from the view to the controller.
