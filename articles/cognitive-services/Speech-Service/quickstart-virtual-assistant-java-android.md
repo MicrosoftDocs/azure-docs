@@ -102,7 +102,7 @@ The text and graphical representation of your UI should now look like this:
 
 ## Add sample code
 
-1. Open the source file `MainActivity.java`. Replace all the code in this file with the following.
+1. Open `MainActivity.java`, and replace the contents with the following code:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
