@@ -73,6 +73,8 @@
       href: waf-overview.md
     - name: WAF configuration
       href: application-gateway-waf-configuration.md
+    - name: Custom rules
+      href: custom-waf-rules-overview.md
   - name: Health monitoring
     items: 
     - name: Health probe
@@ -141,6 +143,12 @@
       href: application-gateway-customize-waf-rules-powershell.md
     - name: Azure CLI
       href: application-gateway-customize-waf-rules-cli.md
+  - name:   WAF custom rules
+    items:
+    - name: Custom rule examples
+      href: create-custom-waf-rules.md
+    - name: Configure WAF with custom rules
+      href: configure-waf-custom-rules.md 
   - name: Route by URL
     items:
     - name: Azure PowerShell
