@@ -15401,6 +15401,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
+      "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
       "redirect_url": "/azure/backup/backup-azure-backup-faq",
       "redirect_document_id": false
@@ -26480,6 +26485,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/gtm-promote-your-business.md",
+      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/become-publisher.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
       "redirect_document_id": true
@@ -37404,8 +37414,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/FAQs.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/sdk-and-samples.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Sign-up.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/overview",
       "redirect_document_id": false
     },
     {
@@ -37471,6 +37491,11 @@
     {
       "source_path": "articles/cognitive-services/Custom-Vision-Service/rest-api-tutorial.md",
       "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/glossary-of-terms.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
       "redirect_document_id": false
     },
     {
