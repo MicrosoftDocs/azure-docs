@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Tutorial: Configure the new cluster (Overview)
 
-After following the steps in [Create the Azure FXT Edge Filer cluster](fxt-cluster-create.md), your FXT Edge Filer cluster exists, but it has only one node, no client-facing IP addresses, and no back-end storage. 
+After following the steps in [Create the Azure FXT Edge Filer cluster](fxt-cluster-create.md), your cluster exists, but it has only one node, no client-facing IP addresses, and no back-end storage. 
 
 This tutorial explains the configuration needed to go from a newly created cluster to a cache system that is ready to handle your workflow. 
 
@@ -112,7 +112,7 @@ On the **Settings** tab, the left sidebar shows a menu of configuration pages. T
 
 ## Enable support
 
-The FXT Edge Filer cluster can automatically upload support data about your cluster. These uploads let staff provide the best possible customer service.
+The Azure FXT Edge Filer cluster can automatically upload support data about your cluster. These uploads let staff provide the best possible customer service.
 
 Follow these steps to set up support uploads.
 

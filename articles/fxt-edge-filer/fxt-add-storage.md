@@ -24,9 +24,9 @@ In this tutorial you will learn:
 
 ## About back-end storage
 
-The FXT Edge Filer cluster uses a *core filer* definition to link a back-end storage system to the FXT cluster.
+The Azure FXT Edge Filer cluster uses a *core filer* definition to link a back-end storage system to the FXT cluster.
 
-FXT Edge Filer is compatible with several popular NAS hardware systems, and can use empty containers from Azure Blob or other cloud storage. 
+Azure FXT Edge Filer is compatible with several popular NAS hardware systems, and can use empty containers from Azure Blob or other cloud storage. 
 
 Cloud storage containers must be empty when added so that the FXT operating system can completely manage all of the data on the cloud storage volume. You can move your existing data to the cloud container after adding the container to the cluster as a core filer.
 
@@ -86,7 +86,7 @@ The core filer in this screenshot is missing a vserver. You must link the core f
 
 ## Configure the namespace
 
-The FXT Edge Filer cluster creates a virtual filesystem called the *cluster namespace* that simplifies client access to data stored on diverse back-end systems. Because clients request files using a virtual path, storage systems can be added or replaced without having to change the client workflow. 
+The Azure FXT Edge Filer cluster creates a virtual filesystem called the *cluster namespace* that simplifies client access to data stored on diverse back-end systems. Because clients request files using a virtual path, storage systems can be added or replaced without having to change the client workflow. 
 
 The cluster namespace also lets you present cloud and NAS storage systems in a similar file structure. 
 

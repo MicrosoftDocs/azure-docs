@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Azure FXT Edge Filer specifications
 
-This article explains the hardware specifications for Azure FXT Edge Filer hardware nodes. In practice, three or more Edge Filer nodes are configured together to provide the clustered cache system.
+This article explains the hardware specifications for Azure FXT Edge Filer hardware nodes. In practice, three or more nodes are configured together to provide the clustered cache system.
 
 ## Hardware specifications
 
@@ -85,7 +85,7 @@ This section gives power ratings and measurements for the Azure FXT Edge Filer.
 
 ### Power and thermal measurements 
 
-FXT Edge Filer nodes use variable speed fans, so power depends on temperature and load. Maximum fan speeds can be reached at certain combinations of high load and elevated ambient temperatures. 
+Azure FXT Edge Filer nodes use variable speed fans, so power depends on temperature and load. Maximum fan speeds can be reached at certain combinations of high load and elevated ambient temperatures. 
 
 These charts give power consumption and thermal output measurements for commonly used voltage-frequency combinations. 
 

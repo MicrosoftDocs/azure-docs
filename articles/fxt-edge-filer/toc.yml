@@ -31,7 +31,7 @@
   items: 
   - name: Hardware specifications 
     href: fxt-specs.md
-  - name: Monitor the FXT Edge Filer hardware
+  - name: Monitor the Azure FXT Edge Filer hardware
     href: fxt-monitor.md
   - name: Additional documentation
     href: fxt-additional-doc.md

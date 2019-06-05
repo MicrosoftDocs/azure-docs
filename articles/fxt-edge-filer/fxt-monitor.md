@@ -8,7 +8,7 @@ ms.date: 05/20/2019
 ms.author: v-erkell
 ---
 
-# Monitor FXT Edge Filer hardware status
+# Monitor Azure FXT Edge Filer hardware status
 
 The Azure FXT Edge Filer hybrid storage cache system has multiple status lights built in to the chassis to help administrators understand how the hardware is functioning.
 
@@ -18,7 +18,7 @@ To monitor cache operations at a higher level, use the software Control Panel's 
 
 ## Hardware status LEDs
 
-This section explains the various status lights built in to the FXT Edge Filer hardware.
+This section explains the various status lights built in to the Azure FXT Edge Filer hardware.
 
 ### Hard drive status LEDs
 

@@ -10,9 +10,9 @@ ms.author: v-erkell
 
 # Tutorial: Create the Azure FXT Edge Filer cluster
 
-After you install and initialize the FXT Edge Filer hardware nodes for your cache, use the FXT cluster software to create the cache cluster. 
+After you install and initialize the Azure FXT Edge Filer hardware nodes for your cache, use the FXT cluster software to create the cache cluster. 
 
-This tutorial walks you through the steps configure your Edge Filer nodes as a cluster. 
+This tutorial walks you through the steps configure your Azure FXT Edge Filer nodes as a cluster. 
 
 In this tutorial, you will learn: 
 
@@ -20,7 +20,7 @@ In this tutorial, you will learn:
 > * What information is needed before starting to create the cluster
 > * The difference between the cluster's management network, the cluster network, and the client-facing network
 > * How to connect to a cluster node 
-> * How to create an initial cluster using one FXT Edge Filer node
+> * How to create an initial cluster using one Azure FXT Edge Filer node
 
 This procedure takes between 15 and 45 minutes, depending on how much research you need to do to identify IP addresses and network resources.
 
@@ -28,13 +28,13 @@ This procedure takes between 15 and 45 minutes, depending on how much research y
 
 Complete these prerequisites before starting this tutorial:
 
-* Install at least three FXT Edge Filer hardware systems in your data center 
+* Install at least three Azure FXT Edge Filer hardware systems in your data center 
 * Connect appropriate power and network cables to the system  
-* Power on at least one FXT Edge Filer node and [set its root password](fxt-node-password.md)
+* Power on at least one Azure FXT Edge Filer node and [set its root password](fxt-node-password.md)
 
 ## Gather information for the cluster 
 
-You need the following information to create the FXT Edge Filer cluster:
+You need the following information to create the Azure FXT Edge Filer cluster:
 
 * Cluster name
 
@@ -58,7 +58,7 @@ You can configure these network infrastructure items after you create the cluste
 
 ### IP address distribution
 
-The FXT Edge Filer hybrid storage cache cluster uses IP addresses in three categories:
+The Azure FXT Edge Filer hybrid storage cache cluster uses IP addresses in three categories:
 
 * Management IP: A single IP address for cluster management
 
@@ -70,7 +70,7 @@ The FXT Edge Filer hybrid storage cache cluster uses IP addresses in three categ
 
   The cluster network is used for communication among cluster nodes and to retrieve files from the backend storage (core filers).
 
-  **Best practice:** Allocate one IP address per physical port used for cluster communication on each FXT Edge Filer node. The cluster automatically assigns the addresses in the specified range to individual nodes.
+  **Best practice:** Allocate one IP address per physical port used for cluster communication on each Azure FXT Edge Filer node. The cluster automatically assigns the addresses in the specified range to individual nodes.
 
 * Client-facing network: The range of IP addresses that clients use to request and write files
 
@@ -80,7 +80,7 @@ The FXT Edge Filer hybrid storage cache cluster uses IP addresses in three categ
 
   The cluster distributes client-facing IP addresses across its constituent nodes as evenly as possible.
 
-  For simplicity, many administrators configure a single DNS name with round-robin DNS (RRDNS) configuration to make it easier to distribute client requests across the address range. This setup also enables all clients to use the same mount command to access the cluster. Read [Configure DNS](fxt-configure-network.md#configure-dns-for-the-fxt-edge-filer-cluster) for more information.
+  For simplicity, many administrators configure a single DNS name with round-robin DNS (RRDNS) configuration to make it easier to distribute client requests across the address range. This setup also enables all clients to use the same mount command to access the cluster. Read [Configure DNS](fxt-configure-network.md#configure-dns-for-load-balancing) for more information.
 
 The management IP address and a range of cluster network addresses must be specified to create a new cluster. Client-facing addresses are specified after cluster creation.
 
@@ -90,7 +90,7 @@ You can connect to any of the installed FXT nodes and use its OS software to set
 
 If you have not already done so, power on at least one of the FXT nodes for your cluster, and make sure it has a network connection and an IP address. You must set a new root password to activate the node, so follow the steps in [Set hardware passwords](fxt-node-password.md) if you have not already done so.
 
-To check the network connection, make sure that the node’s network link LEDs are illuminated (and, if necessary, the indicators on the network switch to which it is attached). Indicator LEDs are described in [Monitor FXT Edge Filer hardware status](fxt-monitor.md).
+To check the network connection, make sure that the node’s network link LEDs are illuminated (and, if necessary, the indicators on the network switch to which it is attached). Indicator LEDs are described in [Monitor Azure FXT Edge Filer hardware status](fxt-monitor.md).
 
 When the node boots, it will request an IP address. If it is connected to a DHCP server, it accepts the IP address provided by DHCP. (This IP address is temporary. It will change when you create the cluster.)
 
@@ -98,7 +98,7 @@ If it is not connected to a DHCP server or does not receive a response, the node
 
 ### Find the IP address
 
-Connect to the FXT Edge Filer node to find its IP address. You can use a serial cable, direct connection to the USB and VGA ports, or connect through a KVM switch. (For port connection details see [Set initial passwords](fxt-node-password.md).)
+Connect to the Azure FXT Edge Filer node to find its IP address. You can use a serial cable, direct connection to the USB and VGA ports, or connect through a KVM switch. (For port connection details see [Set initial passwords](fxt-node-password.md).)
 
 After you connect, sign in with the username `root` and the password that you set when you booted the node for the first time.  
 
@@ -110,9 +110,11 @@ For example, the command `ifconfig | grep -B5 inet` searches for ports with inte
 
 Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for IPMI ports, not regular network ports.  
 
-## Load the cluster configuration wizard in a web browser
+## Load the cluster configuration wizard
 
-Enter the IP address for the node in a web browser. If the browser gives a message about the site being untrusted, proceed to the site anyway. (Individual FXT Edge Filer nodes do not have CA-provided security certificates.)
+Use the browser-based cluster configuration tool to create the cluster. 
+
+Enter the IP address for the node in a web browser. If the browser gives a message about the site being untrusted, proceed to the site anyway. (Individual Azure FXT Edge Filer nodes do not have CA-provided security certificates.)
 
 ![Control panel sign-in page in browser window](media/fxt-cluster-create/unconfigured-node-gui.png)
 
@@ -122,7 +124,7 @@ Leave the **Username** and **Password** fields blank. Click **Login** to load th
 
 ## Create the cluster
 
-The cluster configuration tool guides you through a set of screens to create the FXT Edge Filer cluster. Make sure you have the [required information](#gather-information-for-the-cluster) ready before starting. 
+The cluster configuration tool guides you through a set of screens to create the Azure FXT Edge Filer cluster. Make sure you have the [required information](#gather-information-for-the-cluster) ready before starting. 
 
 ### Creation options
 
@@ -245,7 +247,7 @@ Below the **Cluster** section there are fields for specifying DNS and NTP server
 
   DNS is recommended for all clusters, and required if you want to use SMB, AD, or Kerberos. 
   
-  For optimal performance, configure the cluster’s DNS server for round-robin load balancing as described in [Configure DNS for the FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-the-fxt-edge-filer-cluster).
+  For optimal performance, configure the cluster’s DNS server for round-robin load balancing as described in [Configure DNS for the Azure FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-load-balancing).
 
 * **DNS domain** - Enter the network domain name the cluster will use.
 
@@ -255,7 +257,7 @@ Below the **Cluster** section there are fields for specifying DNS and NTP server
 
 * **Link aggregation** - Link aggregation allows you to customize how the ethernet ports on the cluster FXT nodes handle various types of traffic. To learn more, read [Link Aggregation](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_general_setup.html#link-aggregation) in the Cluster Configuration Guide.
 
-## Create the cluster
+## Click Create Cluster
 
 After supplying all the required settings in the form, click the **Create Cluster** button.
 

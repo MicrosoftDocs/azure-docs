@@ -1,6 +1,6 @@
 ---
 title: Initialize hardware - Microsoft Azure FXT Edge Filer
-description: How to set an initial password on the Edge Filer nodes 
+description: How to set an initial password on Azure FXT Edge Filer nodes 
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
@@ -33,7 +33,7 @@ This tutorial takes approximately 15 minutes to complete.
 
 Before starting this tutorial, complete these steps: 
 
-* [Install](fxt-install.md) each FXT Edge Filer node in an equipment rack, and attach [power cables](fxt-power.md) and [network](fxt-network.md) access as described in the earlier tutorials. 
+* [Install](fxt-install.md) each Azure FXT Edge Filer node in an equipment rack, and attach [power cables](fxt-power.md) and [network](fxt-network.md) access as described in the earlier tutorials. 
 * Find a USB-connected keyboard and a VGA-connected monitor that you can attach to the hardware nodes. (The node's serial port is inactive before you set the password.)
 
 ## Connect a keyboard and monitor to the node
@@ -48,17 +48,17 @@ Use this reference diagram to locate the ports on the back of the chassis.
 > [!NOTE]
 > The serial port is inactive until after the password is set. 
 
-![diagram of back of FXT Edge Filer with serial, VGA, and USB ports labeled](media/fxt-back-serial-vga-usb.png)
+![diagram of back of Azure FXT Edge Filer with serial, VGA, and USB ports labeled](media/fxt-back-serial-vga-usb.png)
 
 You can use a KVM switch if you want to connect more than one node to the same peripherals. 
 
 Power on the node by pressing the power button on the front. 
 
-![diagram of front of FXT Edge Filer - round power button is labeled near the top right](media/fxt-front-annotated.png)
+![diagram of front of Azure FXT Edge Filer - round power button is labeled near the top right](media/fxt-front-annotated.png)
 
 ## Set initial passwords 
 
-The FXT Edge Filer node will print various messages to the monitor while booting. After a few moments, it shows an initial setup screen like this:
+The Azure FXT Edge Filer node will print various messages to the monitor while booting. After a few moments, it shows an initial setup screen like this:
 
 ```
 ------------------------------------------------------
@@ -73,7 +73,7 @@ Enter new password:
 
 The password you enter is used for two things: 
 
-* It is the temporary root password for this FXT Edge Filer node. 
+* It is the temporary root password for this Azure FXT Edge Filer node. 
 
   This password will change when you create a cluster using this node, or when you add this node to the cluster. The cluster management password (associated with the user ``admin``) is also the root password for all nodes in a cluster.
 

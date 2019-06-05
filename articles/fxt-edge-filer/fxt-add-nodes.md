@@ -22,7 +22,7 @@ In this tutorial, you will learn:
 
 The steps in this tutorial take approximately 45 minutes to complete.
 
-## 1. Load the Cluster Nodes configuration page
+## 1. Load the Cluster Nodes page
 
 Open the cluster's Control Panel in a web browser, and sign in as an administrator. (Detailed instructions are in the overview article, under [Open the Settings pages](fxt-cluster-config-overview.md#open-the-settings-pages).)
 
@@ -32,7 +32,7 @@ The Control Panel shows the **Dashboard** tab when it opens.
 
 This image shows the dashboard of a newly created cluster, with a single node.
 
-## 2. Open the FXT Nodes page and locate the node to add
+## 2. Locate the node to add
 
 To add nodes, click the **Settings** tab and choose the **FXT Nodes** page in the **Cluster** section.
 
@@ -68,7 +68,7 @@ All of the nodes in a cluster must use the same version of the OS, but you donâ€
 
 To learn more about the options on this page, read [**Cluster** > **FXT Nodes**](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) in the *Cluster Configuration Guide*.
 
-## 3. Click the node's "Allow to Join" button 
+## 3. Click the "Allow to Join" button 
 
 Click the **Allow To Join*** button in the **Actions** column for the node that you want to add.
 

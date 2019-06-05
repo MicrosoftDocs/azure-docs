@@ -34,7 +34,7 @@ To learn more about network settings for the cluster, read [Configuring network 
 
 * Configure round-robin DNS for the client-facing network (optional)
 
-  Load balance cluster traffic by configuring the DNS system as described in [Configure DNS for the FXT Edge Filer cluster](#configure-dns-for-the-fxt-edge-filer-cluster).
+  Load balance cluster traffic by configuring the DNS system as described in [Configure DNS for the FXT Edge Filer cluster](#configure-dns-for-load-balancing).
 
 * Verify NTP settings
 
@@ -76,7 +76,7 @@ To encrypt cluster management communication, use the **Cluster** > **General Set
 > [!Note] 
 > Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](fxt-add-storage.md#add-a-core-filer) section above shows an example; read the Cluster Configuration Guide [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details. 
 
-## Configure DNS for the FXT Edge Filer cluster
+## Configure DNS for load balancing
 
 This section explains the basics of configuring a round-robin DNS (RRDNS) system to distribute client load among all client-facing IP addresses in your FXT Edge Filer cluster. 
 
@@ -101,7 +101,7 @@ For optimal performance, configure your DNS server to handle client-facing clust
 A cluster vserver is shown on the left, and IP addresses appear in the center and on the right. Configure each client access point with A records and pointers as illustrated.
 
 ![Cluster round-robin DNS diagram - detailed alt text link follows image](media/fxt-rrdns-diagram.png) 
-[detailed text description](fxt-rrdns-alt-text.md)
+[detailed text description](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)
 

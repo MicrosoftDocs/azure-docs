@@ -1,8 +1,8 @@
 ---
-title: Mount clients on the FXT cluster 
+title: Mount clients on the Microsoft Azure FXT Edge Filer cluster 
 description: How NFS client machines can mount the Azure FXT Edge Filer hybrid storage cache
 author: ekpgh
-ms.service: 
+ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: v-erkell
@@ -19,12 +19,11 @@ This tutorial teaches:
 > * How to construct a mount path from a client-facing IP address and namespace junction
 > * Which arguments to use in a mount command
 
-This tutorial takes approximately 45 minutes to complete. 
+This tutorial takes approximately 45 minutes to complete.
 
+## Steps to mount the cluster
 
-## Steps to mount the cluster 
-
-Follow these steps to connect client machines to your FXT Edge Filer cluster.
+Follow these steps to connect client machines to your Azure FXT Edge Filer cluster.
 
 1. Decide how to load-balance client traffic among your cluster nodes. Read [Balance client load](#balance-client-load), below, for details. 
 1. Identify the cluster IP address and junction path to mount.
@@ -35,15 +34,15 @@ Follow these steps to connect client machines to your FXT Edge Filer cluster.
 
 To help balance client requests among all the nodes in the cluster, you should mount clients to the full range of client-facing IP addresses. There are several ways to automate this task.
 
-To learn about round-robin DNS load balancing for the cluster, read [Configure DNS for the FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-the-fxt-edge-filer-cluster). To use this method you must maintain a DNS server, which is not explained in these articles. 
+To learn about round-robin DNS load balancing for the cluster, read [Configure DNS for the FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-load-balancing). To use this method you must maintain a DNS server, which is not explained in these articles. 
 
 A simpler method for small installations is to use a script to assign IP addresses throughout the range at client mount time. Read the [sample balanced client mount script](#sample-balanced-client-mounting-script) below. 
 
-Other load-balancing methods might be appropriate for large or complicated systems. Consult your Microsoft representative or open a support request for help. (Note: Azure Load Balancer is currently *not supported* with FXT Edge Filer.)
+Other load-balancing methods might be appropriate for large or complicated systems. Consult your Microsoft representative or open a support request for help. (Azure Load Balancer is currently *not supported* with Azure FXT Edge Filer.)
 
 ### Sample balanced client mounting script
 
-This code example uses client IP addresses to distribute clients to all of the Edge Filer cluster's available IP addresses.
+This code example uses client IP addresses to distribute clients to all of the Azure FXT Edge Filer cluster's available IP addresses.
 
 ```bash
 function select_vserver_address() {
@@ -120,7 +119,7 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 
 | Required settings | |
 --- | --- 
-``hard`` | Soft mounts to the Edge Filer cluster are associated with application failures and possible data loss. 
+``hard`` | Soft mounts to the Azure FXT Edge Filer cluster are associated with application failures and possible data loss. 
 ``proto=netid`` | This option supports appropriate handling of NFS network errors.
 ``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
 ``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
