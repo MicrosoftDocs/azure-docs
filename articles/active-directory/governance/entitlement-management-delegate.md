@@ -43,7 +43,7 @@ To understand how you might delegate tasks in entitlement management, it helps t
 | Dave | Marketing |  |
 | Elisa | Marketing | Elisa is also owner of a Marketing application |
 
-Both the Research and Marketing departments want to use entitlement management for their users. But Alice is not yet ready for other departments to use entitlement management yet.
+Both the Research and Marketing departments want to use entitlement management for their users. Alice is not yet ready for other departments to use entitlement management.
 
 1. Alice creates a new Azure AD security group for catalog creators, and adds Bob, Carol, Dave, and Elisa as members of that group.
 
@@ -53,7 +53,7 @@ Both the Research and Marketing departments want to use entitlement management f
 
 1. Dave creates a catalog for **Marketing**, and adds Elisa as a co-owner of that **Marketing** catalog. Elisa adds the Marketing application she owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
 
-Now the Research and Marketing departments can utilize entitlement management. Bob, Carol, Dave, and Elisa can create and manage access packages in their catalogs.
+Now the Research and Marketing departments can utilize entitlement management. Bob, Carol, Dave, and Elisa can create and manage access packages in their respective catalogs.
 
 ![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
 
@@ -67,18 +67,19 @@ Entitlement management has the following roles that are specific to entitlement 
 | Catalog owner | Edit and manage existing catalogs. Typically an IT administrator or resource owners, or a user who the catalog owner has designated. |
 | Access package manager | Edit and manage all existing access packages within a catalog. |
 
-In addition, a requestor and a designated approver of an access package also have rights, although they are not roles.
+In addition, a designated approver and a requestor of an access package also have rights, although they are not roles.
  
-* Approver: is specified in a policy and authorized to approve or deny requests to access packages, though they cannot change the access package definitions. 
-* Requestor: is authorized by a policy of an access package to request that access package.
+* Approver: Authorized by a policy to approve or deny requests to access packages, though they cannot change the access package definitions.
+* Requestor: Authorized by a policy of an access package to request that access package.
 
-The following table lists the tasks that each of these roles can perform.
+The following table lists the tasks that these roles can perform.
 
 | Task | Catalog creator | Catalog owner | Access package manager | Approver |
 | --- | :---: | :---: | :---: | :---: |
 | [Create a new catalog](entitlement-management-catalog-create.md) | :heavy_check_mark: |  |  |  |
 | [Add a resource to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | | :heavy_check_mark: | | |
-| [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
+| [Edit a catalog](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
+| [Delete a catalog](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Add a catalog owner or an access package manager to a catalog](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
 | [Create a new access package in a catalog](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
 | [Manage resource roles in an access package](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
