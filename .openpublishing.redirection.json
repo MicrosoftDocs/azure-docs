@@ -15401,6 +15401,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
+      "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
       "redirect_url": "/azure/backup/backup-azure-backup-faq",
       "redirect_document_id": false
@@ -30877,6 +30882,16 @@
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
       "redirect_url": "/azure/iot-accelerators/quickstart-connected-factory-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-sample-walkthrough.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-gateway-deployment.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-connected-factory-features",
       "redirect_document_id": false
     },
     {
