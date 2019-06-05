@@ -52,7 +52,7 @@ Premium Storage caching: Not Supported
 - SLES 12 SP2 or later
 - RHEL or CentOS version 6.7 thru 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
 - RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
-- RHEL or CentOS version 7.4 or later
+- RHEL or CentOS version 7.6 or later
 - Oracle Linux with UEK4 or later
 - Debian 9 with the backports kernel, Debian 10 or later
 - CoreOS with a 4.14 kernel or later
