@@ -160,7 +160,7 @@ These steps read settings at directory level, which apply to all Office groups i
    Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
    ```
 
-3. Read all directory settings values of a specific directory settings object, using Settings Id GUID:
+3. Read all directory settings values of a specific directory settings object, using Settings ID GUID:
    ```powershell
    (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
    ```
