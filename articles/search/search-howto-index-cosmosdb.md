@@ -279,7 +279,7 @@ This indexer runs every two hours (schedule interval is set to "PT2H"). To run a
 
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-For more information about defining indexer schedules see [How to schedule indexers for Azure Search](https://docs.microsoft.com/en-us/azure/search/search-howto-schedule-indexer).
+For more information about defining indexer schedules see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
 
 ## Use .NET
 

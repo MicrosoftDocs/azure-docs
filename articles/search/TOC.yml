@@ -179,11 +179,13 @@
         href: search-howto-index-csv-blobs.md
       - name: Index JSON blobs
         href: search-howto-index-json-blobs.md
-    - name: Field mappings
+    - name: Schedule indexers
+      href: search-howto-schedule-indexers.md
+    - name: Map fields
       href: search-indexer-field-mappings.md
     - name: Connect to SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-    - name: Troubleshooting common issues
+    - name: Troubleshoot common issues
       href: search-indexer-troubleshooting.md
   - name: Enrich with AI
     items:
