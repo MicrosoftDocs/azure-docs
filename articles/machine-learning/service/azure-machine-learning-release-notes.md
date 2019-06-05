@@ -30,7 +30,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   
   + **Preview features**
     + [Contrib features below]
-    + Integration with MLflow tracking though azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
+    + Integration with [MLflow](https://mlflow.org) tracking through azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
     + Submit Jupyter notebook as a run. [API Reference Documentation](https://docs.microsoft.com/en-us/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
 
 + **Breaking changes**
