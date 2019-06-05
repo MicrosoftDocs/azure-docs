@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 06/10/2019
 
 ---
-# Send Azur service health alerts with ServiceNow using webhooks
+# Send Azure service health alerts with ServiceNow using webhooks
 
 This article shows you how to integrate Azure service health alerts with ServiceNow using a webhook. After setting up webhook integration with your ServiceNow instance, you get alerts through your existing notification infrastructure when Azure service issues affect you. Every time an Azure Service Health alert fires, it calls a webhook through ServiceNow's Scripted REST API.
 
 ## Creating a scripted REST API in ServiceNow
+
 1.  Make sure you have signed up for and are signed into your [ServiceNow](https://www.servicenow.com/) account.
 
 1.  Navigate to the **System Web Services** section in ServiceNow and select **Scripted REST APIs**.
