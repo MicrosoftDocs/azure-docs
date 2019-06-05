@@ -5,7 +5,7 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
@@ -29,8 +29,10 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### DESCRIPTION
 
-Runs local Dns connectivity tests. In order to configure the Active Directory connector, the user must have both name resolution
-for the forest they are attempting to connect to as well as in the domain controllers associated to this forest.
+Runs local Dns connectivity tests.
+In order to configure the Active Directory connector, user must have both name resolutionthe 
+for the forest they is attempting to connect to as well as in the domain controllers
+associated to this forest.
 
 ### EXAMPLES
 
@@ -309,9 +311,9 @@ Accept wildcard characters: False
 
 #### -SkipDnsPort
 
-If user is not using DNS services provided by the AD Site / Logon DC, then they may want
+If the user is not using DNS services provided by the AD Site / Logon DC, then they may want
 to skip checking port 53.
-User must still be able to resolve _.ldap._tcp.\<forestfqdn\>
+The user must still be able to resolve _.ldap._tcp.\<forestfqdn\>
 in order for the Active Directory Connector configuration to succeed.
 
 ```yml
