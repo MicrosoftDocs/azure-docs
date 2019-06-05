@@ -31,7 +31,7 @@ However, what if we wanted to go beyond the scope of simple usage and dive a lit
 >The computations you'll use TensorFlow for - like training a massive deep neural network - can be complex and confusing. To make it easier to understand, debug, and optimize TensorFlow programs, we've included a suite of visualization tools called TensorBoard. You can use TensorBoard to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it.
 
 So, the idea is quite simple:
-1. Train your image classifier (Important : use Compact model to be able to export it to your machine)
+1. Train your image classifier (Important : use Compact model to able to export it to your machine)
 2. Generate tensor flow model
 3. Use TensorBoard 
 
