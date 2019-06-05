@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/31/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -50,8 +50,10 @@ The following table lists the tasks that each of these roles can perform.
 
 | Task | Catalog creator | Catalog owner | Access package manager | Approver |
 | --- | :---: | :---: | :---: | :---: |
-| [Create a new catalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |  |  |  |
-| Add a resource to a catalog | | :heavy_check_mark: | | |
+| [Create a new catalog](entitlement-management-catalog-create.md) | :heavy_check_mark: |  |  |  |
+| [Add a resource to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | | :heavy_check_mark: | | |
+| [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
+| [Add a catalog owner or an access package manager to a catalog](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
 | [Create a new access package in a catalog](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
 | [Manage resource roles in an access package](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Specify who can request an access package](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -63,8 +65,6 @@ The following table lists the tasks that each of these roles can perform.
 | [Hide an access package](entitlement-management-access-package-edit.md#change-the-hidden-setting) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Delete an access package](entitlement-management-access-package-edit.md#delete) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Approve an access request](entitlement-management-request-approve.md) |  |  |  | :heavy_check_mark: |
-| [Add a catalog owner or an access package manager to a catalog](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 
 ## Required roles to add resources to a catalog
 
@@ -119,23 +119,31 @@ If you want to delegate management of a catalog or access packages in the catalo
 
 1. Click **Select** to add these members.
 
-## An example of delegating entitlement management for departmental adoption
+## Delegate example for departmental adoption
 
-Suppose an organization has the following 5 users:
+To understand how you might delegate tasks in entitlement management it helps to consider an example. Suppose your organization has the following five users:
 
-- Alice, a Global administrator in the IT department.
-- Bob and Carol, users in the Research department.  Bob is also owner of a Research group.
-- Dave and Elisa, users in the Marketing department.  Elisa is also owner of a Marketing application.
+| User | Department | Notes |
+| --- | --- | --- |
+| Alice | IT | Global administrator |
+| Bob | Research | Bob is also owner of a Research group |
+| Carole | Research |  |
+| Dave | Marketing |  |
+| Elisa | Marketing | Elisa is also owner of a Marketing application |
 
 Both the Research and Marketing departments want to use entitlement management for their users. But Alice is not yet ready for other departments to use entitlement management yet.
 
 1. Alice creates a new Azure AD security group for catalog creators, and adds Bob, Carol, Dave and Elisa as members of that group.
 
-1. Alice uses the **Entitlement management** settings to add that group to the catalog creators role. 
+1. Alice uses the entitlement management settings to add that group to the catalog creators role.
 
 1. Carol creates a catalog for **Research**, and adds Bob as a co-owner of that **Research** catalog.  Bob adds the Research group he owns to the catalog as a resource, so that it can be used in an access package for research collaboration.
 
 1. Dave creates a catalog for **Marketing**, and adds Elisa as a co-owner of that **Marketing** catalog.  Elisa adds the Marketing app she owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
+
+Now the Research and Marketing departments can utilize entitlement management. Bob, Carol, Dave, and Elisa can create and manage access packages in their catalogs.
+
+![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
 
 ## Next steps
 
