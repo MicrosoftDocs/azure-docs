@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 06/05/2019
 ms.author: alkohli
 ---
 
@@ -59,15 +59,15 @@ The following steps relate to Share Point online.
 Take the following steps to copy data to your Data Box Heavy.
 
 1. [Order your Data Box Heavy](data-box-heavy-deploy-ordered.md).
-2. After you receive your Data Box Heavy, [Set up the Data Box Heavy](data-box-heavy-deploy-set-up). You'll cable and configure both the nodes on your device.
-3. [Copy data to Azure Data Box Heavy](data-box-heavy-deploy-copy-data). While copying, make sure to:
+2. After you receive your Data Box Heavy, [Set up the Data Box Heavy](data-box-heavy-deploy-set-up.md). You'll cable and configure both the nodes on your device.
+3. [Copy data to Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md). While copying, make sure to:
 
     - Use only the *AzureFile* folder in the Data Box Heavy to copy the data. This is because you want the data to end up in an Azure file share, not in block blobs or page blobs.
     - Copy files to a folder within *AzureFile* folder. A subfolder within *AzureFile* folder creates a file share. Files copied directly to *AzureFile* folder fail and are uploaded as block blobs. This is the file share that you will mount on your VM in the next step.
     - Copy data to both nodes of your Data Box Heavy.
-3. Run [Prepare to ship](data-box-heavy-deploy-picked-up#prepare-to-ship) on your device. A successful prepare to ship ensures a successful upload of files to Azure.
-4. [Return the device](data-box-heavy-deploy-picked-up#ship-data-box-heavy-back).
-5. [Verify the data upload to Azure](data-box-heavy-deploy-picked-up#verify-data-upload-to-azure).
+3. Run [Prepare to ship](data-box-heavy-deploy-picked-up.md#prepare-to-ship) on your device. A successful prepare to ship ensures a successful upload of files to Azure.
+4. [Return the device](data-box-heavy-deploy-picked-up.md#ship-data-box-heavy-back).
+5. [Verify the data upload to Azure](data-box-heavy-deploy-picked-up.md#verify-data-upload-to-azure).
 
 ## Use SPMT to migrate data
 
@@ -75,8 +75,8 @@ After you receive confirmation from the Azure data team that your data copy has 
 
 For best performance and connectivity, we recommend that you create an Azure Virtual Machine (VM).
 
-1. Sign into the Azure portal, and then [Create a virtual machine](/azure/virtual-machines/windows/quick-create-portal).
-2. [Mount the Azure file share onto the VM](/azure/storage/files/storage-how-to-use-files-windows).
+1. Sign into the Azure portal, and then [Create a virtual machine](/azure/virtual-machines/windows/quick-create-portal.md).
+2. [Mount the Azure file share onto the VM](/azure/storage/files/storage-how-to-use-files-windows.md).
 3. [Download the SharePoint Migration tool](http://spmtreleasescus.blob.core.windows.net/install/default.htm) and install it on your Azure VM.
 4. Start the SharePoint Migration Tool. Click **Sign in** and enter your Office 365 username and password.
 5. When prompted **Where is your data?**, select **File share**. Enter the path to your Azure file share where your data is located.
