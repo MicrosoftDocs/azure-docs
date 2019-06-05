@@ -1,6 +1,6 @@
 ---
-title: Tutorial on geospatial filtering in Azure Search
-description: This tutorial builds on the "Create your first app for Azure Search" tutorial, and the paging tutorial, to add geospatial filters. Geospatial filters limit results to those within a specified radius of a given latitude and longitude. Learn how to order results based on a number of criteria, including geographical distance.
+title: C# Tutorial on geospatial filters - Azure Search
+description: This tutorial builds on the "Search results pagination - Azure Search" project, to add geospatial filters. Geospatial filters limit results to those within a specified radius of a given latitude and longitude. Learn how to order results based on a number of criteria, including geographical distance, alphabetical, and rating.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,9 +9,9 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Add geospatial filters to Azure Search
+# C# Tutorial: Add geospatial filters - Azure Search
 
-Learn how to implement a geospatial filter. A geospatial filter limits search results to a geographical area defined by a point given in latitude and longitude, and a radius in kilometers. Using the hotel data, learn how to order the display of results based on distance away from the given point. Learn also that other criteria, such as hotel rating, can be included in how results are ordered. This tutorial builds onto the paging project created in the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) tutorial.
+Learn how to implement a geospatial filter. A geospatial filter limits search results to a geographical area defined by a point given in latitude and longitude, and a radius in kilometers. Using the hotel data, learn how to order the display of results based on distance away from the given point. Learn also that other criteria, such as hotel rating, can be included in how results are ordered. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the infinite scrolling variant of the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) project up and running.
+Have the infinite scrolling variant of the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
 
@@ -77,17 +77,15 @@ We'll need to add more code to the controller, but let's update the models and v
             Hotel hotel = new Hotel();
             hotel.HotelName = name;
             hotel.Description = desc;
-            hotel.Tags = new string[tags.Length];
-            for (int i = 0; i < tags.Length; i++)
-            {
-                hotel.Tags[i] = new string(tags[i]);
-            }
+            hotel.Tags = tags;
             hotel.DistanceInKilometers = distanceInKm;
 
             // Create just a single room for the hotel, containing the sample rate and room description.
-            Room room = new Room();
-            room.BaseRate = rate;
-            room.BedOptions = bedOption;
+            Room room = new Room
+            {
+                BaseRate = rate,
+                BedOptions = bedOption
+            };
 
             hotel.Rooms = new Room[1];
             hotel.Rooms[0] = room;

@@ -1,6 +1,6 @@
 ---
-title: Tutorial on paging the results of Azure Search
-description: This tutorial builds on the "Create your first app for Azure Search" tutorial with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to it's limit.
+title: C# Tutorial on search results pagination - Azure Search
+description: This tutorial builds on the "Create your first app - Azure Search" project, with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to it's lower limit.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,9 +9,9 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Page the results of Azure Search
+# C# Tutorial: Search results pagination - Azure Search
 
-Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. Both systems of paging are widely used, and selecting the right one depends on the user experience you would like with the results. This tutorial builds the paging systems into the project created in the [Create your first app in Azure Search](tutorial-csharp-create-first-app.md) tutorial.
+Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. Both systems of paging are widely used, and selecting the right one depends on the user experience you would like with the results. This tutorial builds the paging systems into the project created in the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Create your first app in Azure Search](tutorial-csharp-create-first-app.md) project up and running.
+Have the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) project up and running.
 
 ## Extend your app with numbered paging
 

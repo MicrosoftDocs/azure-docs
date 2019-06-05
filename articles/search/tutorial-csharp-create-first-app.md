@@ -1,6 +1,6 @@
 ---
-title: C# tutorial for creating your first app - Azure Search
-description: This tutorial provides a step-by-step guide to building Azure Search app. The tutorial provides both a link to a working app on GitHub and the complete process to building the app from scratch. Learn about all the essential components of Azure Search.
+title: C# tutorial to create your first app - Azure Search
+description: This tutorial provides a step-by-step guide to building your first app for Azure Search. The tutorial provides both a link to a working app on GitHub, and the complete process to build the app from scratch. Learn about the essential components of Azure Search.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,7 +9,7 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Create your first app for Azure Search
+# C# Tutorial: Create your first app - Azure Search
 
 Learn how to create a web interface to query and present search results from an index using Azure Search. This tutorial starts with an existing, hosted index so that you can focus on building a search page. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
 
@@ -280,16 +280,14 @@ namespace FirstAzureSearch.Models
             Hotel hotel = new Hotel();
             hotel.HotelName = name;
             hotel.Description = desc;
-            hotel.Tags = new string[tags.Length];
-            for (int i = 0; i < tags.Length; i++)
-            {
-                hotel.Tags[i] = new string(tags[i]);
-            }
+            hotel.Tags = tags;
 
             // Create a single room for the hotel, containing the sample rate and room description.
-            Room room = new Room();
-            room.BaseRate = rate;
-            room.BedOptions = bedOption;
+            Room room = new Room
+            {
+                BaseRate = rate,
+                BedOptions = bedOption
+            };
 
             hotel.Rooms = new Room[1];
             hotel.Rooms[0] = room;
@@ -299,21 +297,21 @@ namespace FirstAzureSearch.Models
 
         public Hotel GetHotel(int index)
         {
-            Hotel h = (Hotel)hotels[index];
-            return h;
+            return (Hotel)hotels[index];
         }
 
         public string GetFullHotelDescription(int index)
         {
             Hotel h = (Hotel)hotels[index];
 
-            // Combine the tag data into a comma-delimited string
+            // Combine the tag data into a comma-delimited string.
             string tagData = string.Join(", ", h.Tags);
             string description = h.Description;
 
+            // Add highlights only if there are any.
             if (tagData.Length > 0)
             {
-                description += "\nHighlights: " + tagData;
+                description += $"\nHighlights: {tagData}";
             }
 
             return $"Sample room: {h.Rooms[0].BedOptions} ${h.Rooms[0].BaseRate}\n{description}";

@@ -1,6 +1,6 @@
 ---
-title: Tutorial on autocompletion and suggestions in Azure Search
-description: This tutorial builds on the "Create your first app in Azure Search" tutorial, and the paging tutorial, to add autocompletion and suggestions. The goal is a richer user experience.
+title: C# Tutorial on autocompletion and suggestions - Azure Search
+description:  This tutorial builds on the "Search results pagination - Azure Search" project, to add autocompletion and suggestions. The goal is a richer user experience. Learn how to combine a drop-down list of suggestions with inline autocompletion.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,9 +9,9 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Add autocompletion and suggestions to Azure Search
+# C# Tutorial: Add autocompletion and suggestions - Azure Search
 
-Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. This tutorial builds onto the paging project created in the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) tutorial.
+Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial, we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) project up and running.
+Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
 
@@ -142,7 +142,7 @@ using System.Linq;
 
 Notice that the letters you enter must start a word, not simply be included within the word.
 
-4. In the code, set **UseFuzzyMatching** to true, and run the app again. Now enter "po" and notice that the search assumes you got one letter wrong!
+4. In the view script, set **&fuzzy** to true, and run the app again. Now enter "po". Notice that the search assumes you got one letter wrong!
  
  ![Typing "pa" with fuzzy set to true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
@@ -150,7 +150,7 @@ If you are interested, the [Lucene query syntax in Azure Search](https://docs.mi
 
 ## Add highlighting to the suggestions
 
-We can improve the appearance of the suggestions to the user a bit by setting the **highlights** parameter to true. However, first we need to add some code to the view to display the bolded text.
+We can improve the appearance of the suggestions to the user a bit, by setting the **highlights** parameter to true. However, first we need to add some code to the view to display the bolded text.
 
 1. In the view (index.cshtml), add the following script (no need to delete the **azureautosuggest** script, as we are using different ids) after the script you entered above.
 

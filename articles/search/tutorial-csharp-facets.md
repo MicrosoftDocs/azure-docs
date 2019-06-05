@@ -1,6 +1,6 @@
 ---
-title: Tutorial on using facets to improve the efficiency of Azure Search
-description: This tutorial builds on the "Create your first app for Azure Search" tutorial, and the paging tutorial, to add facet searches. Learn that facets are used in autocompletion, and only need to be retrieved once when a page is loaded, rather than on each key event.
+title: C# Tutorial on the use of facets to improve network efficiency - Azure Search
+description: This tutorial builds on the "Search results pagination - Azure Search" project, to add facet searches. Learn that facets are used in autocompletion, and only need to be retrieved once when a page is loaded, rather than on each key event.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,9 +9,9 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Use facets to improve the efficiency of Azure Search
+# C# Tutorial: Use facets to improve network efficiency - Azure Search
 
-Learn how to improve network efficiency by implementing a facet search. Learn that facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. Learn that facets are attributes of the data (such as a pool, wifi, free parking, view, and so on, in our hotels data), and stay relevant for the lifespan of a page. This tutorial builds onto the paging project created in the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) tutorial.
+Learn how to improve network efficiency by implementing a facet search. Learn that facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. Learn that facets are attributes of the data (such as a pool, wifi, free parking, view, and so on, in our hotels data), and stay relevant for the lifespan of a page. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Page the results of Azure Search](tutorial-csharp-paging.md) project up and running.
+Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running.
 
 ## Install and run the project from GitHub
 
