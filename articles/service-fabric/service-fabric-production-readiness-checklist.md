@@ -23,7 +23,7 @@ Is your application and cluster ready to take production traffic? Running and te
 
 
 ## Pre-requisites for production
-1. Azure Service Fabric best practices: [Application Design](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [Networking](./service-fabric-best-practices-networking.m), [Capacity planning and scaling](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as Code](./service-fabric-best-practices-infrastructure-as-code.md), and [Monitoring and Diagnostics](./service-fabric-best-practices-monitoring.md). 
+1. Azure Service Fabric best practices: [Application Design](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [Networking](./service-fabric-best-practices-networking.md), [Capacity planning and scaling](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as Code](./service-fabric-best-practices-infrastructure-as-code.md), and [Monitoring and Diagnostics](./service-fabric-best-practices-monitoring.md). 
 1. Implement the Reliable Actors security configuration if using the Actors programming model
 1. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services.
 1. Use a D2v2 or higher SKU for the primary node type. It is recommended to pick a SKU with at least 50 GB hard disk capacity.
