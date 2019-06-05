@@ -44,6 +44,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Enable logging of multiple plots under the same metric name.
   + Model class now properly importable from azureml.core (`from azureml.core import Model`).
   + In pipeline steps, `hash_path` parameter is now deprecated. New behavior is to hash complete source_directory, except files listed in .amlignore or .gitignore.
+  + Moved outputs directory creation and outputs directory upload out of the user process. Enabled run history SDK to run in every user process. This should resolve some synchronization issues experienced by distributed training runs.
+  + The name of the azureml log written from the user process name will now include process name (for distributed training only) and PID.
 
 
 ## 2019-05-28
