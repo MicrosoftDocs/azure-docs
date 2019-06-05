@@ -50,9 +50,9 @@ The Azure Data Explorer proxy flow is depicted below:
 
 You can use Kusto Explorer, ADX web Explorer, Jupyter Kqlmagic, or REST API to query the proxy clusters. 
 
-> [!NOTE]
+> [!TIP]
 > * Database names in Azure Data Explorer are case-sensitive. 
-> * In cross cluster queries, make sure that the [naming of apps and workspaces](#naming-of-application-insights-apps-and-log-analytics-workspaces) is correct.
+> * In cross cluster queries, make sure that the [naming of apps and workspaces](#application-insights-app-and-log-analytics-workspace-names) is correct.
 
 ### Query against the native Azure Data Explorer cluster 
 
@@ -111,9 +111,7 @@ The following syntax options are available when calling the Application Insights
 |Cluster that contains only this app/workspace (recommended)    |     (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/apps/<ai-app-name>`) or  (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/providers/microsoft.insights/components/<ai-app-name>`)  | (`https://ade.loganalytics.io/subscriptions/<subscription-id>/workspaces/<ai-app-name>`)  or   (`https://ade.loganalytics.io/subscriptions/<subscription-id>/providers/microsoft.operationalinsights/workspaces/<ai-app-name>`)   |
 |Cluster that contains only this resource group      |    (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/apps/<ai-app-name>`) or  (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/workspaces/<ai-app-name>`) or  (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<ai-app-name>`)    |
 
-### Naming of Application Insights apps and Log Analytics workspaces
-
-Application Insights apps or Log Analytics workspaces names:
+### Application Insights app and Log Analytics workspace names
 
 * If names contain special characters, they are replaced by URL encoding in the proxy cluster name. 
 * If names include characters that don't meet [KQL identifier naming rules](/azure/kusto/query/schema-entities/entity-names), they'll be replaced by the dash character **-**.
