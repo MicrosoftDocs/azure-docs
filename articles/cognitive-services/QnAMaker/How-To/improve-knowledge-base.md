@@ -22,36 +22,41 @@ Your knowledge base doesn't change automatically. In order for any change to tak
 
 QnA Maker learns new question variations with implicit and explicit feedback.
  
-* Implicit feedback – The ranker understands when a user question has multiple answers with scores that are very close and considers this as feedback. 
+* Implicit feedback – The ranker understands when a user question has multiple answers with scores that are very close and considers this as feedback. You don't need to do anything for this to happen.
 * Explicit feedback – When multiple answers with little variation in scores are returned from the knowledge base, the client application asks the user which question is the correct question. The user's explicit feedback is sent to QnA Maker with the Train API. 
 
-Either method provides the ranker with similar queries that are clustered.
+Both methods provides the ranker with similar queries that are clustered.
 
 ## How active learning works
 
-Active learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
+Active learning is triggered based on the scores of the top few answers returned by QnA Maker. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
 
-All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
+Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries. When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject. All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users.
 
-When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
+Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. There isn't an API to manage suggestions.
 
-Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. 
+## How QnA Maker's implicit feedback works
 
-## Upgrade your version to use active learning
+QnA Maker's implicit feedback uses an algorithm to determine score proximity then make active learning suggestions. The algorithm to determine proximity is not a simple calculation.
 
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
-
-## Best practices
-
-For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
-
-## Score proximity between knowledge base questions
+The ranges in the following example are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
 
 When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores decreases as well, approximately within 4%. 
 
-The algorithm to determine proximity is not a simple calculation. The ranges in the preceding examples are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
+## How you give explicit feedback with the Train API
 
-## Turn on active learning
+It is important that QnA Maker gets explicit feedback about which of the answers was the best answer. How the best answer is determined is up to you and can include:
+
+* User feedback, selecting one of the answers.
+* Business logic, such as determining an acceptable score range.  
+* A combination of both user feedback and business logic.
+
+
+## Upgrade your runtime version to use active learning
+
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
+
+## Turn on active learning to see suggestions
 
 Active learning is off by default. Turn it on to see suggested questions. 
 
@@ -68,7 +73,7 @@ Active learning is off by default. Turn it on to see suggested questions.
 
     Once **Active Learning** is enabled, the knowledge suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 
-## Add active learning suggestion to knowledge base
+## Accept an active learning suggestion in the knowledge base
 
 1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**. 
 
@@ -90,13 +95,23 @@ Active learning is off by default. Turn it on to see suggested questions.
 
     When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
 
-## Determine best choice when several questions have similar scores
 
-When a question is too close in score to other questions, the client-application developer can choose to ask for clarification.
+<a name="#score-proximity-between-knowledge-base-questions">
 
-### Use the top property in the GenerateAnswer request
+### Architectural flow for using GenerateAnswer and Train APIs from a bot
 
-When submitting a question to QnA Maker for an answer, part of the JSON body allows for returning more than one top answer:
+A bot or other client application should use the following architectural flow to use active learning:
+
+* Get the answer from the knowledge base with the GenerateAnswer API, using the `top` property to get a number of answers.
+* Determine explicit feedback:
+    * Using your own custom business logic, filter out low scores.
+    * Display list of possible answers to the user and get user's selected answer.
+* Send selected answer back to QnA Maker with the Train API.
+
+
+### Use the top property in the GenerateAnswer request to get several matching answers
+
+When submitting a question to QnA Maker for an answer, part of the JSON body allows for returning more than one top answer. The `top` property allows you to request more than 1 answer. 
 
 ```json
 {
@@ -106,7 +121,9 @@ When submitting a question to QnA Maker for an answer, part of the JSON body all
 }
 ```
 
-When the client application (such as a chat bot) receives the response, the top 3 questions are returned:
+### Use the score property along with business logic to get list of answers to show user
+
+When the client application (such as a chat bot) receives the response, the top 3 questions are returned. Use the `score` property to analyze the proximity between scores. This proximity is determined by your own business logic. 
 
 ```json
 {
@@ -144,6 +161,12 @@ When the client application (such as a chat bot) receives the response, the top 
     ]
 }
 ```
+
+## Client application follow-up when questions have similar scores
+
+Your client application displays the questions with an option for the user to select the question that most represents their intention. 
+
+Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
 
 ## Train API
 
@@ -191,38 +214,6 @@ A successful response returns a status of 204 and no JSON response body.
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 
-## Active learning is saved in the exported knowledge base
-
-When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
-
-The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base. 
-
-
-## Client application follow-up when questions have similar scores
-
-The client application displays all the questions with an option for the user to select the question that most represents their intention. 
-
-Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
-
 ## Bot framework sample code
 
 Your bot framework code needs to call the Train API, if the user's query should be used for active learning. There are two pieces of code to write:
@@ -231,21 +222,6 @@ Your bot framework code needs to call the Train API, if the user's query should 
 * Send query back to QnA Maker's Train API for active learning
 
 In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these activities have been programmed. 
-
-### Architectural flow for using GenerateAnswer and Train APIs from a bot
-
-* Get the answer from the knowledge base with GenerateAnswer.
-* Using your own custom business logic, filter out low scores.
-* Send information back to QnA Maker with the Train API.
-* Display the answer to the user.
-
-```csharp
-QnAMakerActiveLearningDialog = new WaterfallDialog(ActiveLearningDialogName)
-    .AddStep(CallGenerateAnswer)
-    .AddStep(CustomBusinessLogicToFilterOutLowScores)
-    .AddStep(CallTrain)
-    .AddStep(DisplayQnAResult);
-```
 
 ### Example C# code for Train API with Bot Framework 4.x
 
@@ -353,6 +329,34 @@ async callTrain(stepContext){
 }
 ```
 
+## Active learning is saved in the exported knowledge base
+
+When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
+
+The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base. 
+
+## Best practices
+
+For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
 
 ## Next steps
  
