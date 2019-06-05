@@ -64,9 +64,11 @@ To add an attribute in the Azure AD configuration to be sent in the Azure AD res
 
 Next time the user signs in to the application, Azure AD send the new attribute in the SAML response.
 
-## The application expects a different User Identifier value or format
+## The application doesn't identify the user
 
-The sign-in to the application is failing because the SAML response is missing attributes such as roles or because the application is expecting a different format for the EntityID attribute.
+The sign-in to the application is failing because the SAML response is missing attributes such as roles or because the application is expecting a different format or value for the EntityID attribute.
+
+If you're using [Azure AD automated user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/user-provisioning) to create, maintain, and remove users in the application. Then, verify that the user has been successfully provisioned to the SaaS application. For more information, see [No users are being provisioned to an Azure AD Gallery application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
 
 ## Add an attribute in the Azure AD application configuration:
 
