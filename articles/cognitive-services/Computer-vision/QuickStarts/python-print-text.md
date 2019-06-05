@@ -13,6 +13,7 @@ ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
+
 # Quickstart: Extract printed text (OCR) using the REST API and Python in Computer Vision
 
 In this quickstart, you extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
@@ -26,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
-- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
+- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Create and run the sample
 
@@ -34,9 +35,9 @@ To create and run the sample, do the following steps:
 
 1. Copy the following code into a text editor.
 1. Make the following changes in code where needed:
-    1. Replace the value of `subscription_key` with your subscription key.
-    1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
-    1. Optionally, replace the value of `image_url` with the URL of a different image from which you want to extract printed text.
+   1. Replace the value of `subscription_key` with your subscription key.
+   1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
+   1. Optionally, replace the value of `image_url` with the URL of a different image from which you want to extract printed text.
 1. Save the code as a file with an `.py` extension. For example, `get-printed-text.py`.
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python get-printed-text.py`.
@@ -65,15 +66,32 @@ vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0
 
 ocr_url = vision_base_url + "ocr"
 
-# Set image_url to the URL of an image that you want to analyze.
-image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
-    "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
+# to easily swith between two different options (local and cloud) we create this variable
+isLocal = True
 
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+# set request parameters
 params  = {'language': 'unk', 'detectOrientation': 'true'}
-data    = {'url': image_url}
-response = requests.post(ocr_url, headers=headers, params=params, json=data)
+# option to be defined by a developer
+if isLocal:
+  image_path = "<path-to-local-image-file>"
+  # Read the image into a byte array
+  image_data = open(image_path, "rb").read()
+  # Set Content-Type to octet-stream
+  headers = {'Ocp-Apim-Subscription-Key': subscription_key,
+           'Content-Type': 'application/octet-stream'}
+
+  response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
+else:
+  # Set image_url to the URL of an image that you want to analyze.
+  image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
+      "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
+
+  headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+  data    = {'url': image_url}
+  response = requests.post(ocr_url, headers=headers, params=params, json=data)
+
 response.raise_for_status()
+
 
 analysis = response.json()
 
@@ -207,5 +225,4 @@ A successful response is returned in JSON. The sample webpage parses and display
 
 Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
-> [!div class="nextstepaction"]
-> [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)
+> [!div class="nextstepaction"][computer vision api python tutorial](../Tutorials/PythonTutorial.md)
