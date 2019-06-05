@@ -181,12 +181,6 @@ With HDInsight Tools for Visual Studio Code, you can submit interactive Hive que
 
 First, make sure the **Python Extension Enabled** is checked in settings. 
 
-1. Press **Shift + Ctrl + P** to trigger the command palette.
-
-2. Select **HDInsight: Set Configuration**. 
-
-3. Search **python** in search box, and checked the **Hdinsight Jupyter: Python Extension Enabled**.
-
    ![pyspark interactive python extension enabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-enable.png)
 
 
