@@ -8,7 +8,7 @@ author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 07/01/2019
+ms.date: 06/20/2019
 ms.author: metan
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
@@ -25,7 +25,7 @@ In the [overview](./overview.md), you learned about what the Immersive Reader is
 > * Specify the language of the Immersive Reader interface
 > * Launch the Immersive Reader with math content
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ This API endpoint should be secured behind some form of authentication (for exam
 1. Open _views\layout.pug_, and add the following code under the `head` tag, before the `body` tag. These `script` tags load the [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) and jQuery.
 
 ```pug
-script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-0.0.1.js')
+script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js')
 script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 ```
 
@@ -111,8 +111,8 @@ extends layout
 
 block content
   h2(id='title') Geography
-  p(id='content') The study of Earth’s landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
-  button(onclick='launchImmersiveReader()') Immersive Reader
+  p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
+  div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
   script.
     function launchImmersiveReader() {
       // First, get a token using our /token endpoint

@@ -1,4 +1,5 @@
 - name: Immersive Reader Documentation
+  href: Overview.md
 - name: Overview
   items:
   - name: About Immersive Reader
@@ -6,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a web app that launches the Immersive Reader (C#)
+  - name: Using C#
     href: Quickstart.md
 - name: Tutorials
   items:
@@ -16,3 +17,11 @@
   items:
   - name: SDK Reference
     href: reference.md
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+  - name: Language support
+    href: https://aka.ms/ltlangsupport
+  - name: Regional availability
+    href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services

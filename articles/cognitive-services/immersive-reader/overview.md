@@ -8,7 +8,7 @@ author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 06/20/2019
 ms.author: metan
 #Customer intent: As a developer, I want to learn more about the Immersive Reader, which is a new offering in Cognitive Services, so that I can embed this package of content into a document to accommodate users with reading differences.
 ---

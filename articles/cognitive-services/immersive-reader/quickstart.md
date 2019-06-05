@@ -8,7 +8,7 @@ author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 06/20/2019
 ms.author: metan
 #Customer intent: As a developer, I want to quickly integrate the Immersive Reader into my web application so that I can see the Immersive Reader in action and understand the value it provides.
 ---
@@ -19,7 +19,7 @@ The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively 
 
 In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader SDK. A full working sample of this quickstart is available [here](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp).
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -104,10 +104,10 @@ Now, we'll add some sample content to this web app. Open _Views\Home\Index.cshtm
     <p>The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live.</p>
 </span>
 
-<button onclick='launchImmersiveReader()'>Immersive Reader</button>
+<div class='immersive-reader-button' data-button-style='iconAndText' onclick='launchImmersiveReader()'></div>
 
 @section scripts {
-<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-0.0.1.js'></script>
+<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js'></script>
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script type='text/javascript'>
     function getImmersiveReaderTokenAsync() {
