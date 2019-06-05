@@ -4,7 +4,7 @@ description: Azure Service Provider Management Toolkit lets service providers ma
 author: JnHs
 ms.author: jenhayes
 ms.service: service-provider-toolkit
-ms.date: 05/21/2019
+ms.date: 06/05/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -17,11 +17,14 @@ manager: carmonm
 In this article, you'll learn how to publish a managed services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management. 
 
 > [!NOTE]
-> You will need to have a valid [publisher account in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher) in order to create and publish these offers. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
+> You  need to have a valid [account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) to create and publish these offers. If you don’t have an account already, the [sign-up process](https://aka.ms/joinmarketplace) will lead you through the steps of creating an account in Partner Center and enrolling in the Commercial Marketplace program. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
 >
 > If you don't want to publish an offer to Azure Marketplace, you can onboard customers manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Delegated Resource Management](onboard-customer.md).
 
 Publishing a Managed Services offer is similar to publishing any other type of offer to Azure Marketplace. To learn about that process, see [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Manage Azure and AppSource Marketplace offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
+
+> [!IMPORTANT]
+> Each plan in a managed services offer includes a **Manifest Details** section, where you define the Azure Active Directory (Azure AD) entities in your tenant that will have access to the delegated resource groups and/or subscriptions for customers who purchase that plan. It’s important to be aware that any group (or user or service principal) that you include here will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you’ll need to publish a separate private plan that is exclusive to each customer.
 
 ## Create your offer in the Cloud Partner Portal
 
@@ -36,14 +39,14 @@ In the **Offer settings** section, provide the following:
 |Field  |Description  |
 |---------|---------|
 |**Offer ID**     | A unique identifier for your offer (within your publisher profile). This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. Keep in mind that the Offer ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can't change this value.        |
-|**Publisher ID**     | A unique identifier for your offer (within your publisher profile). This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. Keep in mind that the Offer ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can't change this value.        |
+|**Publisher ID**     | The publisher ID that will be associated with the offer. If you have more than one publisher ID, you can select the one you wish to use for this offer.       |
 |**Name**     | The name (up to 50 characters) that customers will see for your offer in Azure Marketplace and in the Azure portal. Use a recognizable brand name that customers will understand—if you're promoting this offer through your own website, be sure to use the exact same name here.        |
 
 When you've finished, select **Save**. Now you're ready to move on to the **Plans** section.
 
 ## Create plans
 
-Each offer must have one or more plans (sometimes referred to as SKUs). You might add multiple plans to support different feature sets at different prices, to support different billing models, or to customize a specific plan for a limited audience of specific customers. In Azure Marketplace, customers can view plans under the parent offer; however, plans appear as their own purchasable entity in the Azure portal.
+Each offer must have one or more plans (sometimes referred to as SKUs). You might add multiple plans to support different feature sets at different prices or to customize a specific plan for a limited audience of specific customers. Customers can view the plans that are available to them under the parent offer.
 
 In the Plans section, for each plan you want to create, select **New Plan**. Then enter a **Plan ID**. This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. The plan ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can't change this value.
 
@@ -54,10 +57,10 @@ Next, complete the following sections in the **Plan Details** section:
 |**Title**     | Friendly name for the plan for display. Maximum length of 50 characters.        |
 |**Summary**     | Succinct description of the plan for display under the title. Maximum length of 100 characters.        |
 |**Description**     | Description text that provides a more detailed explanation of the plan.         |
-|**Billing model**     | There are 2 billing models shown here, but you must choose **Bring your own license** for managed services offers. This means that you will bill your customers directly for costs related to this offer.   |
-|**Is this a private Plan?**     | Indicates whether the SKU is private or public. The default is No (public). If you leave this selection, your plan will not be restricted to specific customers; after you publish a public plan, you can't later change it to private. If you want this plan to be available only to specific customers, select Yes. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for up to 20,000 subscriptions). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
+|**Billing model**     | There are 2 billing models shown here, but you must choose **Bring your own license** for managed services offers. This means that you will bill your customers directly for costs related to this offer, and Microsoft does not charge any fees to you.   |
+|**Is this a private Plan?**     | Indicates whether the SKU is private or public. The default is **No** (public), but currently (during the limited preview period) you must choose **Yes**. Once public plans are supported, if you leave this selection, your plan will not be restricted to specific customers; after you publish a public plan, you can't later change it to private. To make this plan to be available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for up to 20,000 subscriptions). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
 
-Finally, complete the **Manifest Details** section. This creates a manifest with authorization information for managing customer resources. The info you provide here is necessary to onboard your customers for Azure Delegated Resource Management.
+Finally, complete the **Manifest Details** section. This creates a manifest with authorization information for managing customer resources. The info you provide here is necessary to onboard your customers for Azure Delegated Resource Management. As noted above, these permissions will apply to every customer who purchases the plan, so if you want to limit access to a specific customer, you'll need to publish a private plan for their exclusive use.
 
 - First, provide a **Version** for the manifest. Use the format *n.n.n* (for example, 1.2.5).
 - Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers' resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. 
@@ -102,8 +105,12 @@ Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (11
 The **Hero (815x290)** logo is optional but recommended. If you include a hero logo, follow these guidelines:
 
 - Don't include any text in the hero logo, and be sure to leave 415 pixels of empty space on the right side of the logo. This is required to leave room for text elements that will be embedded programmatically: your publisher display name, plan title, offer long summary.
-- Your hero logo's background may not be black, white, or transparent. Make sure your background color isn't too light, because the embedded text will be displayed in white. 
+- Your hero logo's background may not be black, white, or transparent. Make sure your background color isn't too light, because the embedded text will be displayed in white.
 - Once you publish your offer with a hero icon, you can't remove it (although you can update it with a different version if desired).
+
+In the **Lead Management** section, you can select the CRM system where your leads will be stored, if desired. 
+
+Finally, provide your **Privacy Policy URL** and **Terms of use** in the **Legal** section. You can also specify here whether or not to use the [Standard Contract](https://docs.microsoft.com/azure/marketplace/standard-contract) for this offer.
 
 Be sure to save your changes before moving on to the **Support** section.
 
