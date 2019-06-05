@@ -41,5 +41,5 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Partitions | 2000 per CU |
 | Consumer groups | No limit per CU, 1000 per event hub |
 | Brokered connections | 100 K included |
-| Message Retention | 90 days, 10 TB included per CU |
+| Message Retention | Up to 7 days (90 day retention coming soon), 10 TB included per CU |
 | Capture | Included |

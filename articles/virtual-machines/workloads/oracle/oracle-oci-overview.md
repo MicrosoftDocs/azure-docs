@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: 
 ---
@@ -64,12 +64,10 @@ Additionally, you can set up [security lists](https://docs.cloud.oracle.com/iaas
  
 ## Identity
 
-Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.md) (Azure AD). Azure AD is Microsoft’s cloud-based identity and access management service. It helps your employees and users sign in and access various resources. Azure AD also allows you to manage your users and their permissions.
+Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD is Microsoft’s cloud-based identity and access management service. It helps your employees and users sign in and access various resources. Azure AD also allows you to manage your users and their permissions.
 
 Currently, this integration allows you to manage in one central location, which is Azure Active Directory. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
-
-See the quickstarts to set up an Oracle app in Azure and establish network connectivity and integrate identities with Oracle OCI.
 
 For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation.
