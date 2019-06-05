@@ -358,15 +358,12 @@
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
-<<<<<<< HEAD
-        - name: Common errors and solutions
-          href: mongodb-error-resolution.md
-=======
         - name: Manage using Resource Manager templates
           href: manage-mongodb-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-mongodb.md
->>>>>>> 0527d0d8a8a4580249745b84a2272e0fa6f827dc
+        - name: Troubleshoot common issues
+          href: mongodb-troubleshooting.md
     - name: Gremlin API
       displayName: graph, graph database
       items: 
