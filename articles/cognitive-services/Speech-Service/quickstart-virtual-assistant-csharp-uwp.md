@@ -27,11 +27,11 @@ In this article, you'll develop a C# Universal Windows Platform (UWP) applicatio
 This quickstart requires:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+* An Azure subscription key for the Speech Services in the **westus2** region. Create this subscription on the [Azure Portal](https://portal.azure.com).
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
+    > Direct Line Speech (Preview) is currently only available in the **westus2** region.
 
     > [!NOTE]
     > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.

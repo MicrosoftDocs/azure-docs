@@ -16,7 +16,7 @@ ms.author: travisw
 
 A quickstart is also available for [speech-to-text](quickstart-java-android.md).
 
-In this article, you'll build a voice-first virtual assistant with Java for Android using the [Speech SDK](speech-sdk.md). This application will connect to a previously authored bot, which has been configured to use the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), send a voice request, and return a voice response activity (if configured). 
+In this article, you'll build a voice-first virtual assistant with Java for Android using the [Speech SDK](speech-sdk.md). This application will connect to a previously authored bot, which has been configured to use the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), send a voice request, and return a voice response activity (if configured).
 
 This application is built with the Speech SDK Maven package and Android Studio 3.3. The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
@@ -25,12 +25,12 @@ This application is built with the Speech SDK Maven package and Android Studio 3
 
 ## Prerequisites
 
-* An Azure subscription key for the Speech Services. [Get one for free](get-started.md).
+* An Azure subscription key for Speech Services in the **westus2** region. Create this subscription on the [Azure Portal](https://portal.azure.com).
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 * [Android Studio](https://developer.android.com/studio/) v3.3 or later
  
     > [!NOTE]
-    > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
+    > Direct Line Speech (Preview) is currently only available in the **westus2** region.
 
     > [!NOTE]
     > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
@@ -41,7 +41,7 @@ This application is built with the Speech SDK Maven package and Android Studio 3
 
 ## Create user interface
 
-We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!".
+In this section, we'll create a basic user interface (UI) for the application. Let's start by opening the main activity: `activity_main.xml`. The basic template includes a title bar with the application's name, and a `TextView` with the message "Hello world!".
 
 Next, replace the contents of the `activity_main.xml` with the following code:
 
@@ -92,7 +92,7 @@ Next, replace the contents of the `activity_main.xml` with the following code:
    </LinearLayout>
    ```
 
-This XML defines a simple interface to interact with your bot.
+This XML defines a simple UI to interact with your bot.
 
 * The `button` element initiates an interaction and invokes the `onBotButtonClicked` method when clicked.
 * The `recoText` element will display the speech-to-text results as you talk to your bot.
