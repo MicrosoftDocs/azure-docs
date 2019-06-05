@@ -90,7 +90,7 @@ You can either use non-vanity URLs or vanity URLs.
 ### Live ingest URL naming rules
 
 The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).<br/>
-The *access token* below is what you need to specify for fixed URL. It is also 128 bit hex number.
+The *access token* below is what you need to specify for fixed URL. It is also 128 bit hex number.<br/>
 The *stream name* below indicates the stream name for a specific connection.
 
 #### Non-vanity URL
