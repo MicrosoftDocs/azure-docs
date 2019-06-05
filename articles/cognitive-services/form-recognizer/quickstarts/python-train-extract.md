@@ -124,7 +124,7 @@ Note the `"modelId"` value. You'll need it for the following steps.
 Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the Python script that follows. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf). Or, replace it with multipart form data.
+1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
 1. Replace `<modelID>` with the model ID you received in the previous section.
 1. Replace `<file type>` with the file type. Supported types: pdf, image/jpeg, image/png.
 1. Replace `<subscription key>` with your subscription key.
