@@ -115,7 +115,7 @@ The following table shows the maximum backup frequency for each component.Your b
 |  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Backup frequency<br/> (to Recovery Services vault) |Three backups per day |Two backups per day |Two backups per day |One backup per day |
-| Backup frequency<br/> (to disk) |Not applicable |Every 15 minutes for SQL Server<br/><br/> Every hour for other workloads |Every 15 minutes for SQL Server<br/><br/> Every hour for other workloads< |Not applicable |
+| Backup frequency<br/> (to disk) |Not applicable |Every 15 minutes for SQL Server<br/><br/> Every hour for other workloads |Every 15 minutes for SQL Server<br/><br/> Every hour for other workloads |Not applicable |
 | Retention options |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
 | Maximum recovery points per protected instance |9999|9999|9999|9999|
 | Maximum retention period |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |
