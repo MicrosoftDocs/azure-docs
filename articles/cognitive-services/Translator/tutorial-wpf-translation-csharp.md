@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ---
 

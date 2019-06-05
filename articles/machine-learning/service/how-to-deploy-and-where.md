@@ -183,6 +183,48 @@ def run(data):
         return error
 ```
 
+#### Example script with dictionary input (Support consumption from Power BI)
+
+The following example demonstrates how to define input data as <key: value> dictionary, using Dataframe. This method is supported for consuming the deployed web service from Power BI ([learn more on how to consume the web service from Power BI](https://docs.microsoft.com/en-us/power-bi/service-machine-learning-integration)):
+
+```python
+import json
+import pickle
+import numpy as np
+import pandas as pd
+import azureml.train.automl
+from sklearn.externals import joblib
+from azureml.core.model import Model
+
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
+
+def init():
+    global model
+    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # deserialize the model file back into a sklearn model
+    model = joblib.load(model_path)
+
+input_sample = pd.DataFrame(data=[{
+              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
+              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
+              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
+            }])
+
+output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+
+@input_schema('data', PandasParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
+    try:
+        result = model.predict(data)
+        # you can return any datatype as long as it is JSON-serializable
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
 For more example scripts, see the following examples:
 
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
