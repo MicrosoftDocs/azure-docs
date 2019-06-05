@@ -152,5 +152,5 @@ As a rule of a thumb, you should use:
 - To set up:
    - Azure Active Directory registered Windows 10 devices, see [How to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
    - Azure Active Directory joined devices, see [How to plan your Azure Active Directory join implementation](azureadjoin-plan.md).
-   - Hybrid Azure AD joined devices, see [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).   
+   - Hybrid Azure AD joined devices, see [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 - To learn more about device-based conditional access, see [Configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).
