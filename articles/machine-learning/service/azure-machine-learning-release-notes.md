@@ -38,6 +38,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + [Insert fixes and improvements below. Link github issues resolved with this release]
   + RunConfiguration load and save supports specifying a full file path with full back-compat for previous behavior.
   + Added caching in ServicePrincipalAuthentication, turned off by default.
+  + Enable logging of multiple plots under the same metric name.
 
 
 
