@@ -55,12 +55,12 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | Specify the tier and capacity for an application gateway. |
 | [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) | Create an application gateway. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
-|[New-AzApplicationGatewayAutoscaleConfiguration](powershell/module/az.network/New-AzApplicationGatewayAutoscaleConfiguration)|Creates an autoscale configuration for the Application Gateway.|
-|[New-AzApplicationGatewayFirewallMatchVariable](powershell/module/az.network/New-AzApplicationGatewayFirewallMatchVariable)|Creates a match variable for firewall condition.|
-|[New-AzApplicationGatewayFirewallCondition](powershell/module/az.network/New-AzApplicationGatewayFirewallCondition)|Creates a match condition for custom rule.|
-|[New-AzApplicationGatewayFirewallCustomRule](powershell/module/az.network/New-AzApplicationGatewayFirewallCustomRule)|Creates a new custom rule for the application gateway firewall policy.|
-|[New-AzApplicationGatewayFirewallPolicy](powershell/module/az.network/New-AzApplicationGatewayFirewallPolicy)|Creates a application gateway firewall policy.|
-|[New-AzApplicationGatewayWebApplicationFirewallConfiguration](powershell/module/az.network/New-AzApplicationGatewayWebApplicationFirewallConfiguration)|Creates a WAF configuration for an application gateway.|
+|[New-AzApplicationGatewayAutoscaleConfiguration](/powershell/module/az.network/New-AzApplicationGatewayAutoscaleConfiguration)|Creates an autoscale configuration for the Application Gateway.|
+|[New-AzApplicationGatewayFirewallMatchVariable](/powershell/module/az.network/New-AzApplicationGatewayFirewallMatchVariable)|Creates a match variable for firewall condition.|
+|[New-AzApplicationGatewayFirewallCondition](/powershell/module/az.network/New-AzApplicationGatewayFirewallCondition)|Creates a match condition for custom rule.|
+|[New-AzApplicationGatewayFirewallCustomRule](/powershell/module/az.network/New-AzApplicationGatewayFirewallCustomRule)|Creates a new custom rule for the application gateway firewall policy.|
+|[New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/New-AzApplicationGatewayFirewallPolicy)|Creates a application gateway firewall policy.|
+|[New-AzApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/az.network/New-AzApplicationGatewayWebApplicationFirewallConfiguration)|Creates a WAF configuration for an application gateway.|
 
 ## Next steps
 
