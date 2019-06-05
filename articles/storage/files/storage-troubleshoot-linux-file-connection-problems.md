@@ -253,7 +253,7 @@ This reconnection problem in the Linux kernel is now fixed as part of the follow
 - [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-However, these changes might not be ported yet to all the Linux distributions. This fix and other reconnection fixes are can be found in the [Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) section of the [Use Azure Files with Linux](storage-how-to-use-files-linux.md) article. You can get this fix by upgrading to one of these recommended kernel versions.
+However, these changes might not be ported yet to all the Linux distributions. This fix and other reconnection fixes can be found in the [Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) section of the [Use Azure Files with Linux](storage-how-to-use-files-linux.md) article. You can get this fix by upgrading to one of these recommended kernel versions.
 
 ### Workaround
 
