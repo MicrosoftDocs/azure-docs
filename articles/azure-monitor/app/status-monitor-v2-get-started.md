@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Download and install the module via PowerShell Gallery
+## Download and install via PowerShell Gallery
 
 ### Install prerequisites
 Run PowerShell as Admin.
@@ -54,9 +54,9 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
 	
 		
-## Download and install the module manually (offline option)
+## Download and install manually (offline option)
 ### Download the module
-Manually download the latest version of the module from https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Manually download the latest version of the module from [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
 ### Unzip and install Status Monitor v2
 ```powershell

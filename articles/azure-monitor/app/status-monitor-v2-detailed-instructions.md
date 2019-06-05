@@ -39,7 +39,7 @@ PowerShell needs Administrator-level permissions to make changes to your compute
 - Reference: [About Execution Policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) and [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 ).
-- Command: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`
+- Command: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
 - Optional parameter:
 	- `-Force`. Bypasses the confirmation prompt.
 
@@ -86,7 +86,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 
 
 1. Run PowerShell as Admin with an elevated execution policy.
-2. Install NuGet package provider.
+2. Install the NuGet package provider.
 	- Description: You need this provider to interact with NuGet-based repositories like PowerShell Gallery.
 	- Reference: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
 	- Command: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
@@ -108,7 +108,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 	- Description: By default, PowerShell Gallery is an untrusted repository.
 	- Reference: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
 	- Command: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
-	- Optional parameters:
+	- Optional parameter:
 		- `-Proxy`. Specifies a proxy server for the request.
 
 	You'll receive this prompt if PowerShell Gallery isn't trusted:
@@ -119,7 +119,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 		'PSGallery'?
 		[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-	- You can confirm this change and audit all PSRepositories by running the `Get-PSRepository` command.
+	You can confirm this change and audit all PSRepositories by running the `Get-PSRepository` command.
 
 4. Install the newest version of PowerShellGet.
 	- Description: This module contains the tooling used to get other modules from PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version is installed, run the `Get-Command -Module PowerShellGet` command.
@@ -129,7 +129,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 		- `-Proxy`. Specifies a proxy server for the request.
 		- `-Force`. Bypasses the "already installed" warning and installs the latest version.
 
-	You'll receive this error if you're not using newest version of PowerShellGet:
+	You'll receive this error if you're not using the newest version of PowerShellGet:
 	
 		Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
 		At line:1 char:20
@@ -162,7 +162,7 @@ If for any reason you can't connect to the PowerShell module, you can manually d
 ### Manually download the latest nupkg file
 
 1. Go to https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
-2. Select the latest version in the **Version History** table.
+2. Select the latest version of the file in the **Version History** table.
 3. Under **Installation Options**, select **Manual Download**.
 
 ### Option 1: Install into a PowerShell modules directory
@@ -170,7 +170,7 @@ Install the manually downloaded PowerShell module into a PowerShell directory so
 For more information, see [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
 
-#### Unzip nupkg as a .zip by using Expand-Archive (v1.0.1.0)
+#### Unzip nupkg as a zip file by using Expand-Archive (v1.0.1.0)
 
 - Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip nupkg files. Rename the file with the .zip extension.
 - Reference: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
@@ -216,7 +216,7 @@ If you're installing the module into any other directory, manually import the mo
 
 When you monitor a computer on your private intranet, you'll need to route HTTP traffic through a proxy.
 
-The PowerShell commands to download and install the Az.ApplicationMonitor from the PowerShell Gallery support a `-Proxy` parameter.
+The PowerShell commands to download and install Az.ApplicationMonitor from the PowerShell Gallery support a `-Proxy` parameter.
 Review the preceding instructions when you write your installation scripts.
 
 The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [Application Insights FAQ: Proxy passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).

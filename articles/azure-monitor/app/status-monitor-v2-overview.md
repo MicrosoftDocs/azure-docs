@@ -17,7 +17,7 @@ ms.author: tilee
 
 Status Monitor v2 is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 It replaces [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-This module provides codeless instrumentation of .NET web apps hosted with IIS.
+The module provides codeless instrumentation of .NET web apps hosted with IIS.
 Telemetry is sent to the Azure portal, where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your app.
 
 > [!IMPORTANT]
@@ -27,11 +27,11 @@ Telemetry is sent to the Azure portal, where you can [monitor](https://docs.micr
 
 ## PowerShell Gallery
 
-The PowerShell Gallery is located at https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+The PowerShell Gallery is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 
 
 ## Instructions
-- See the [getting started instructions](status-monitor-v2-get-started.md) to get started with concise code samples.
+- See the [getting started instructions](status-monitor-v2-get-started.md) to get a start with concise code samples.
 - See the [detailed instructions](status-monitor-v2-detailed-instructions.md) for a deep dive on how to get started.
 
 ## PowerShell API reference
