@@ -13,7 +13,7 @@ ms.component: data-lake-storage-gen2
 
 # Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from a 80-TB Data Box or a 770-TB Data Box Heavy.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from an 80-TB Data Box or a 770-TB Data Box Heavy.
 
 This article helps you complete these tasks:
 
@@ -46,10 +46,10 @@ To copy the data from your on-premises HDFS store to a Data Box device, you'll s
 
 If the amount of data that you are copying is more than the capacity of a single Data Box or that of single node on Data Box Heavy, break up your data set into sizes that do fit into your devices.
 
-Follow these steps to copy data via the REST APIs of Blob/Object storage to your Data Box device. The REST API interface will make the device appear as a HDFS store to your cluster. 
+Follow these steps to copy data via the REST APIs of Blob/Object storage to your Data Box device. The REST API interface will make the device appear as an HDFS store to your cluster. 
 
 
-1. Before you copy the data via REST, identify the security and connection primitives to connect to the REST interface on the Data Box or Data Box Heavy. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your device, under **Access settings**, locate and select **REST**.
+1. Before you copy the data via REST, identify the security and connection primitives to connect to the REST interface on the Data Box or Data Box Heavy. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your device, under **Access settings**, locate, and select **REST**.
 
     !["Connect and copy" page](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -66,7 +66,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     ```
     If you are using some other mechanism for DNS, you should ensure that the Data Box endpoint can be resolved.
     
-4. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory (You can check if these files exist by using this command `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` where `<hadoop_install_dir>` is the directory where you have installed Hadoop  ) Use the full paths. 
+4. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory (You can check if these files exist by using this command `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` where `<hadoop_install_dir>` is the directory where you have installed Hadoop) Use the full paths. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
@@ -118,7 +118,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
   
 To improve the copy speed:
 - Try changing the number of mappers. (The above example uses `m` = 4 mappers.)
-- Try running mutliple `distcp` in parallel.
+- Try running multiple `distcp` in parallel.
 - Remember that large files perform better than small files.
     
 ## Ship the Data Box to Microsoft
@@ -141,7 +141,7 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 This step is needed if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you do not need to do this step.
 
-You can do this in 2 ways.
+You can do this in two ways.
 
 - Use [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). You will have to specify **Azure Blob Storage** as the source.
 
