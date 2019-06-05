@@ -80,7 +80,7 @@ You can also run an indexer on demand at any time using the Run Indexer call. Fo
 
 <a name="dotNetSdk"></a>
 
-## Schedule an indexer using the .NET SDK
+## Define a schedule using the .NET SDK
 
 You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
 
