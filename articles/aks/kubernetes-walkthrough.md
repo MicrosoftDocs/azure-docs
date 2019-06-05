@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 05/31/2019
+ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 
@@ -54,7 +54,7 @@ The following example output shows the resource group created successfully:
 }
 ```
 
-## Create AKS cluster
+## Create an AKS cluster
 
 Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.
 
@@ -236,11 +236,11 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 When the AKS cluster was created, Azure Monitor for containers was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
 
-To see current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
+To see the current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
 
 1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
 1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*.
-1. In the **Monitoring** group on the left-hand side, choose **Insights**
+1. Under **Monitoring** on the left-hand side, choose **Insights**
 1. Across the top, choose to **+ Add Filter**
 1. Select *Namespace* as the property, then choose *\<All but kube-system\>*
 1. Choose to view the **Containers**.
@@ -249,15 +249,13 @@ The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown 
 
 ![View the health of running containers in AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, click on that container and change the dropdown on the right (you may need to scroll the window to the right to it) from **View in analytics** to **View container logs**. These logs include the *stdout* and *stderr* streams from the container.
-
-Click **Run** to see the logs.  You can view a log by opening its entry in the list.
+To see logs for the `azure-vote-back` pod, choose the option to **View in analytics**, then click the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
 ![View the containers logs in AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## Delete cluster
+## Delete the cluster
 
-When you no longer need the cluster, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
