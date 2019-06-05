@@ -17,25 +17,25 @@ IoT Edge devices send HTTPS requests to communicate with IoT Hub. If your device
 
 This article walks through the following four steps to configure and then manage an IoT Edge device behind a proxy server: 
 
-1. Install the IoT Edge runtime on your device.
+1. **Install the IoT Edge runtime on your device.**
 
    The IoT Edge installation scripts pull packages and files from the internet, so your device needs to communicate through the proxy server to make those requests. For detailed steps, see the [Install the runtime through a proxy](#install-the-runtime-through-a-proxy) section of this article. For Windows devices, the installation script also provides an [Offline installation](how-to-install-iot-edge-windows.md#offline-installation) option. 
 
    This step is a one-time process performed on the IoT Edge device when you first set it up. The same connections are also required when you update the IoT Edge runtime. 
 
-2. Configure the Docker daemon and the IoT Edge daemon on your device.
+2. **Configure the Docker daemon and the IoT Edge daemon on your device.**
 
    IoT Edge uses two daemons on the device, both of which need to make web requests through the proxy server. The IoT Edge daemon is responsible for communications with IoT Hub. The Moby daemon is responsible for container management, so communicates with container registries. For detailed steps, see the [Configure the daemons](#configure-the-daemons) section of this article. 
 
    This step is a one-time process performed on the IoT Edge device when you first set it up.
 
-3. Configure the IoT Edge agent properties in the config.yaml file on your device. 
+3. **Configure the IoT Edge agent properties in the config.yaml file on your device.**
 
    The IoT Edge daemon starts the edgeAgent module initially, but then the edgeAgent module is responsible for retrieving the deployment manifest from IoT Hub and starting all the other modules. For the IoT Edge agent to make the initial connection to IoT Hub, configure the edgeAgent module environment variables manually on the device itself. After the initial connection, you can configure the edgeAgent module remotely. For detailed steps, see the [Configure the IoT Edge agent](#configure-the-iot-edge-agent) section of this article.
 
    This step is a one-time process performed on the IoT Edge device when you first set it up.
 
-4. For all future module deployments, set environment variables for any module communicating through the proxy.
+4. **For all future module deployments, set environment variables for any module communicating through the proxy.**
 
    Once your IoT Edge device is set up and connected to IoT Hub through the proxy server, you need to maintain the connection in all future module deployments. For detailed steps, see the [Configure deployment manifests](#configure-deployment-manifests) section of this article. 
 
