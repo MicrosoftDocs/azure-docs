@@ -33,7 +33,7 @@ By default, Global administrators and User administrators can create and manage 
 
 ## Delegate example for departmental adoption
 
-To understand how you might delegate tasks in entitlement management it helps to consider an example. Suppose your organization has the following five users:
+To understand how you might delegate tasks in entitlement management, it helps to consider an example. Suppose your organization has the following five users:
 
 | User | Department | Notes |
 | --- | --- | --- |
@@ -45,13 +45,13 @@ To understand how you might delegate tasks in entitlement management it helps to
 
 Both the Research and Marketing departments want to use entitlement management for their users. But Alice is not yet ready for other departments to use entitlement management yet.
 
-1. Alice creates a new Azure AD security group for catalog creators, and adds Bob, Carol, Dave and Elisa as members of that group.
+1. Alice creates a new Azure AD security group for catalog creators, and adds Bob, Carol, Dave, and Elisa as members of that group.
 
 1. Alice uses the entitlement management settings to add that group to the catalog creators role.
 
-1. Carol creates a catalog for **Research**, and adds Bob as a co-owner of that **Research** catalog.  Bob adds the Research group he owns to the catalog as a resource, so that it can be used in an access package for research collaboration.
+1. Carol creates a catalog for **Research**, and adds Bob as a co-owner of that **Research** catalog. Bob adds the Research group he owns to the catalog as a resource, so that it can be used in an access package for research collaboration.
 
-1. Dave creates a catalog for **Marketing**, and adds Elisa as a co-owner of that **Marketing** catalog.  Elisa adds the Marketing app she owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
+1. Dave creates a catalog for **Marketing**, and adds Elisa as a co-owner of that **Marketing** catalog. Elisa adds the Marketing application she owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
 
 Now the Research and Marketing departments can utilize entitlement management. Bob, Carol, Dave, and Elisa can create and manage access packages in their catalogs.
 
@@ -63,7 +63,7 @@ Entitlement management has the following roles that are specific to entitlement 
 
 | Role | Description |
 | --- | --- |
-| Catalog creator | Create and manage catalogs. Typically an IT administrator who is not a global administrator, or a resource owner for a collection of resources. The person that creates a catalog automatically becomes the catalog's first catalog owner, and can add additional catalog owners. |
+| Catalog creator | Create and manage catalogs. Typically an IT administrator who is not a Global administrator, or a resource owner for a collection of resources. The person that creates a catalog automatically becomes the catalog's first catalog owner, and can add additional catalog owners. |
 | Catalog owner | Edit and manage existing catalogs. Typically an IT administrator or resource owners, or a user who the catalog owner has designated. |
 | Access package manager | Edit and manage all existing access packages within a catalog. |
 
@@ -94,10 +94,9 @@ The following table lists the tasks that each of these roles can perform.
 
 ## Required roles to add resources to a catalog
 
-A global administrator can add or remove any group (cloud-created security groups or cloud-created Office 365 groups), application or SharePoint Online site to a catalog.
-A user administrator can add or remove any group or app in a catalog.
+A Global administrator can add or remove any group (cloud-created security groups or cloud-created Office 365 groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog.
 
-For a user who is not a global administrator or a user administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must *both* have the required Azure AD directory role and an entitlement management role of catalog owner on the catalog. The following table lists these role combinations which are allowed to add a resource. To remove resources from a catalog, you must have the same roles.
+For a user who is not a Global administrator or a User administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* the required Azure AD directory role and an entitlement management role of catalog owner. The following table lists these role combinations that are allowed to add a resource. To remove resources from a catalog, you must have the same roles.
 
 | Azure AD directory role | Entitlement management role | Can add security group | Can add Office 365 group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -111,7 +110,7 @@ For a user who is not a global administrator or a user administrator, to add gro
 | [Cloud application administrator](../users-groups-roles/directory-assign-admin-roles.md) | Catalog owner |  |  | :heavy_check_mark: |  |
 | User | Catalog owner | Only if group owner | Only if group owner | Only if app owner |  |
 
-## Add a catalog creator to entitlement management
+## Add a catalog creator
 
 If you want to delegate catalog creation, you add users to the catalog creator role.  You can add individual users, or for convenience can add a group, whose members are then able to create catalogs. Follow these steps to assign a user to the catalog creator role.
 
