@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting common errors in Azure Cosmos DB's API for Mongo DB. 
+title: Troubleshoot common errors in Azure Cosmos DB's API for Mongo DB
 description: This doc discusses the ways to troubleshoot common issues encountered in Azure Cosmos DB's API for MongoDB.
 author: roaror
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.author: roaror
 
 ---
 
-# Troubleshooting common issues in Azure Cosmos DB's API for MongoDB
+# Troubleshoot common issues in Azure Cosmos DB's API for MongoDB
 
 Azure Cosmos DB implements the wire protocols of common NoSQL databases, including MongoDB. Due to the wire protocol implementation, you can transparently interact with Azure Cosmos DB by using the existing client SDKs, drivers, and tools that work with NoSQL databases. Azure Cosmos DB does not use any source code of the databases for providing wire-compatible APIs for any of the NoSQL databases. Any MongoDB client driver that understands the wire protocol versions can connect to Azure Cosmos DB.
 
