@@ -363,7 +363,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-mongodb.md
         - name: Troubleshoot common issues
-          href: mongodb-troubleshooting.md
+          href: mongodb-troubleshoot.md
     - name: Gremlin API
       displayName: graph, graph database
       items: 
