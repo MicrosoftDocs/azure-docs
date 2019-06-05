@@ -24,7 +24,7 @@ In this tutorial you will learn how to use Azure Monitor Log Analytics in the Az
 - Save and load queries
 - Export and share queries
 
-For a tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
+For a tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).<br>
 For more details on Log Analytics, see [Overview of Log Analytics in Azure Monitor](portals.md).
 
 ## Meet Log Analytics

@@ -703,10 +703,20 @@
         href: platform/metrics-troubleshoot.md
     - name: Log queries
       items:
-      - name: Overview of Log Analytics
-        href: log-query/portals.md
-      - name: Overview of log queries
+      - name: Overview
         href: log-query/log-query-overview.md
+      - name: Get started with Log Analytics
+        href: log-query/get-started-portal.md
+      - name: Get started with log queries
+        href: log-query/get-started-queries.md
+      - name: Log Analytics scope
+        href: log-query/scope.md
+      - name: Log data
+        items:
+        - name: Log data structure
+          href: log-query/portals.md
+        - name: Standard properties
+          href: platform/log-standard-properties.md
       - name: Query language
         items:
         - name: Query language Documentation
@@ -743,22 +753,8 @@
             href: log-query/sql-cheatsheet.md
           - name: Splunk
             href: log-query/splunk-cheatsheet.md
-      - name: Examples
+      - name: Query elements
         items:
-        - name: Log query examples
-          href: log-query/examples.md
-        - name: Smart analytics
-          href: log-query/smart-analytics.md
-      - name: Guidance
-        items:
-        - name: Write efficient queries
-          href: log-query/log-query-performance.md
-        - name: Parse text data
-          href: log-query/parse-text.md
-      - name: Working with queries
-        items:
-        - name: Standard properties
-          href: platform/log-standard-properties.md
         - name: Functions
           href: log-query/functions.md
         - name: Computer groups
@@ -773,6 +769,16 @@
           href: log-query/workspace-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
+      - name: Examples and guidance
+        items:
+        - name: Log query examples
+          href: log-query/examples.md
+        - name: Smart analytics examples
+          href: log-query/smart-analytics.md
+        - name: Write efficient queries
+          href: log-query/log-query-performance.md
+        - name: Parse text data
+          href: log-query/parse-text.md
       - name: Take action from search results
         href: log-query/take-action.md
       - name: Flow connector

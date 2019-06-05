@@ -33,7 +33,7 @@ In this tutorial you will learn to write Azure Monitor log queries. It will teac
 - Define and use custom fields
 - Aggregate and group results
 
-For a tutorial on Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](get-started-portal.md).
+For a tutorial on Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](get-started-portal.md).<br>
 For more details on log queries in Azure Monitor, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 
 ## Writing a new query
