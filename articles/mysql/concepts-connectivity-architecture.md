@@ -56,9 +56,9 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | West US 2 | 13.66.226.202 | |
 ||||
 
-\* **NOTE:** *East US 2* has also a tertiary IP address of `52.167.104.0`.
+> [!NOTE]: *East US 2* has also a tertiary IP address of `52.167.104.0`.
 
 ## Next steps
 
-* [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
-* [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
+- [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
+- [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
