@@ -29,7 +29,6 @@ According to the information provided on Custom Vision welcome page (https://www
 
 However, what if we wanted to go beyond the scope of simple usage and dive a little bit deeper, say inspect the model? Fortunately there is a way to do that using TensorBoard. According to the official information (https://www.tensorflow.org/tensorboard/r1/summaries)
 >The computations you'll use TensorFlow for - like training a massive deep neural network - can be complex and confusing. To make it easier to understand, debug, and optimize TensorFlow programs, we've included a suite of visualization tools called TensorBoard. You can use TensorBoard to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it.
-
 So, the idea is quite simple:
 1. Train your image classifier (Important : use Compact model to able to export it to your machine)
 2. Generate tensor flow model
@@ -118,7 +117,7 @@ Right now you should open your browser and go to localhost:6006
 
 ![alt text](https://static.wixstatic.com/media/749f52_1c77f3d50ed04de2bd8a5121d85a7feb~mv2.png/v1/fill/w_937,h_886,al_c,q_90/749f52_1c77f3d50ed04de2bd8a5121d85a7feb~mv2.webp)
 
-Voilà! We have our graph visualized. It’s now up to you to navigate and analyze all the nodes of your model. You can even download your graph in a png format to share it with your teammates. 
+Voilà! We have our graph visualized. It’s now up to you to navigate and analyze all the nodes of your model. You can even download your graph to png to share it with your teammates. 
 
 ## Next steps
 
