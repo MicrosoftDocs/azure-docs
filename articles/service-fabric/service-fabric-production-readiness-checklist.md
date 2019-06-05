@@ -22,7 +22,7 @@ ms.author: aljo
 Is your application and cluster ready to take production traffic? Running and testing your application and your cluster doesn't necessarily mean it's ready to go into production. Keep your application and cluster running smoothly by going through the following checklist. We strongly recommend all these items to be checked off. Obviously, you can choose to use alternative solutions for a particular line item  (for example, your own diagnostics frameworks).
 
 
-## Pre-requisites for production
+## Prerequisites for production
 1. Azure Service Fabric best practices: [Application Design](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [Networking](./service-fabric-best-practices-networking.md), [Capacity planning and scaling](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as Code](./service-fabric-best-practices-infrastructure-as-code.md), and [Monitoring and Diagnostics](./service-fabric-best-practices-monitoring.md). 
 1. Implement the Reliable Actors security configuration if using the Actors programming model
 1. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services.
