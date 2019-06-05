@@ -11,7 +11,7 @@ ms.date: 05/22/2019
 # Connectivity architecture in Azure Database for MySQL
 This article explains the Azure Database for MySQL connectivity architecture as well as how the traffic is directed to your Azure Database for MySQL instance from clients both within and outside Azure.
 
-## Connectivity Architecture
+## Connectivity architecture
 Connection to your Azure Database for MySQL SQL is established through a gateway that is responsible for routing incoming connections to the physical location of your server in our clusters. The following diagram illustrates the traffic flow.
 
 ![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
