@@ -15,7 +15,7 @@ ms.custom: mvc
 
 This article shows you how to use Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) to request real-time transit data.
 
-In this article you will learn, how to:
+In this article you will learn how to:
 
 
  * Request next real-time arrivals for all lines arriving at the given stop
