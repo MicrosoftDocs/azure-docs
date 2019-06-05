@@ -71,8 +71,6 @@ For more information, see [Deploy models](how-to-deploy-and-where.md#registermod
 
 Azure Machine Learning service can use profiling to determine the ideal CPU and memory settings to use when deploying your model. Model validation happens as part of this process, using data that you supply for the profiling process.
 
-For more information, see [TBD]().
-
 ## Use models
 
 Trained machine learning models can be deployed as web services in the cloud or locally on your development environment. You can also deploy models to Azure IoT Edge devices. Deployments can use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
