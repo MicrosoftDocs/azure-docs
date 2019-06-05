@@ -13,6 +13,9 @@ keywords: kinect, record, playback, reader, matroska, mkv, streams, depth, rgb, 
 
 This article covers how you can use the `k4arecorder` command-line utility to record data streams from the sensor SDK to a file.
 
+>[!NOTE]
+>Azure Kinect recorder doesn't record audio.
+
 ## Recorder options
 
 The `k4arecorder` has various command-line arguments to specify the output file and recording modes.

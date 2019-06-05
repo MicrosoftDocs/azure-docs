@@ -3,8 +3,8 @@ title: Azure Kinect Sensor SDK
 description: Azure Kinect Sensor SDK
 author: joylital
 ms.author: joylital
-ms.prod: kinec-dkt
-ms.date: 04/24/2019
+ms.prod: kinect-dk
+ms.date: 06/10/2019
 ms.topic: overview 
 keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, camera, imu, motion, sensor, audio, microphone, matroska, sensor sdk, download
 ---

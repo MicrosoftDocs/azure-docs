@@ -4,7 +4,7 @@ description: Get mic data for Azure Kinect
 author: joylital
 ms.author: joylital
 ms.prod: kinect-dk
-ms.date: 10/26/2019
+ms.date: 06/10/2019
 ms.topic: conceptual 
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 ---

@@ -48,11 +48,11 @@ It's recommended you connect devices to dedicated PCs to prevent issues with USB
     ```
 
 ### Subordinate-2
- 
+
 1. Set up recorder for the second unit
 
     `k4arecorder.exe --external-sync sub -e -8 -r 5 -l 10 sub2.mkv`
- 
+
 2. Device starts waiting
 
     ```
