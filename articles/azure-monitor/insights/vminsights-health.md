@@ -1,5 +1,5 @@
 ---
-title: Monitor virtual machine health with Azure Monitor for VMs (preview)| Microsoft Docs
+title: Understand the health of your Azure virtual machines | Microsoft Docs
 description: This article describes how you understand the health of the virtual machine and underlying operating system with Azure Monitor for VMs.
 services: azure-monitor
 documentationcenter: ''
