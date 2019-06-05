@@ -179,17 +179,27 @@ With HDInsight Tools for Visual Studio Code, you can submit interactive Hive que
 
 ## Submit interactive PySpark queries
 
+First, make sure the **Python Extension Enabled** is checked in settings. 
+
+1. Press **Shift + Ctrl + P** to trigger the command palette.
+
+2. Select **HDInsight: Set Configuration**. 
+
+3. Search **python** in search box, and checked the **Hdinsight Jupyter: Python Extension Enabled**.
+
+   ![pyspark interactive python extension enabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-enable.png)
+
+
+And then, you can submit Pyspark queries by following the steps below.
+
 1. Reopen the folder **HDexample** created [earlier](#open-hdinsight-work-folder) if closed.  
 
 2. Create a new file **HelloWorld.py** following the [earlier](#open-hdinsight-work-folder) steps.
 
-3. You will receive a Python extension recommendation dialog if you did not install Python for the prerequisite.  Install and reload Visual Studio Code to complete the installation.
 
-    >![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
+3. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
-4. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
-
-5. Copy and paste the following code into the script file:
+4. Copy and paste the following code into the script file:
    ```python
    from operator import add
    lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
@@ -204,25 +214,40 @@ With HDInsight Tools for Visual Studio Code, you can submit interactive Hive que
         print(sortedCollection[i])
    ```
 
-6. Right-click the script editor, select **HDInsight: PySpark Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**.  
+5. Choose all the code and right-click the script editor, select **HDInsight: PySpark Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**.
 
-7. Select the cluster if you haven't specified a default cluster. The tools also allow you to submit a block of code instead of the whole script file using the context menu. After a few moments, the query results appear in a new tab.
+   ![pyspark interactive right click](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-   ![Submit Python job result](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
+6. Select the cluster if you haven't specified a default cluster. After a few moments, the **Python Interactive results** appear in a new tab. The tools also allow you to submit a block of code instead of the whole script file using the context menu. But for the first time py interactive submission, you have to choose all the code to run and submit, then you can run and submit a block of code.
+
+   ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
+
+7. Enter **%%info** and press **Shift + Enter** to view job information.
+
+   ![view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
 8. The tool also supports the **SQL Clause** query.
 
-   ![Submit Python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+   ![Pyspark Interactive view result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+
    The submission status appears on the left of the bottom status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**.  
 
 >[!NOTE]  
 >The clusters can maintain session information. The defined variable, function and corresponding values are kept in the session, so they can be referenced across multiple service calls for the same cluster. 
 
-### PySpark3 is not supported with Spark2.2/2.3
+### PySpark3 is not supported with Spark2.2/2.3 (Python Extension Disabled)
 
-PySpark3 is not supported anymore with Spark 2.2 cluster and Spark2.3 cluster, only "PySpark" is supported for Python. It is known issue that submits to spark 2.2/2.3 fail with Python3.
+When **Python Extension Enabled** is unchecked in the settings. PySpark3 is not supported anymore with Spark 2.2 cluster and Spark2.3 cluster, only "PySpark" is supported for Python. It is known issue that submits to spark 2.2/2.3 fail with Python3.
 
    ![Submit to python3 get error](./media/hdinsight-for-vscode/hdi-azure-hdinsight-py3-error.png)
+
+1. Press **Shift + Ctrl + P** to trigger the command palette, 
+
+2. Select **HDInsight: Set Configuration**. 
+
+3. Search **python** in search box, unchecked the **Hdinsight Jupyter: Python Extension Enabled**.
+
+   ![pyspark interactive python extension disabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
 
 Follow the steps to use Python2.x: 
 
@@ -233,6 +258,10 @@ Follow the steps to use Python2.x:
 3. Switch to Python 2 by clicking the **Python XXX** at the status bar then choose the target Python.
 
    ![Select python version](./media/hdinsight-for-vscode/hdi-azure-hdinsight-select-python.png)
+
+>[!NOTE]  
+> - When switch the python version, we encountered a lot of errors, so we recommend not to switch python, we can use python in the virtual environment by default (**Python Extension Enabled** is checked).
+> - When Python Extension Enabled is unchecked in the settings, pyspark interactive will use the old window, we recommend that users do not change it to false unless the new interactive window is blocked in the future by some changes (such as vscode/python update).
 
 
 ## Submit PySpark batch job
@@ -350,6 +379,36 @@ Submit a file, notice the .vscode folder is added automatically to the work fold
    ![Azure HDInsight cluster](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 
+## Preview Hive Table
+You can preview Hive Table in your cluster(s) directly through **Azure HDInsight**.
+1. [Connect](https://review.docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-75339#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+
+2. Click **Azure** icon from leftmost column.
+
+3. From the left pane, expand AZURE HDINSIGHT. The available subscriptions and clusters will be listed.
+
+4. Expand the cluster to view hive metadata database and table schema.
+
+5. Right-click on the Hive Table, e.g hivesampletable. Select **Preview**. 
+
+   ![hdinsight for vscode preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
+
+6. The **Preview Results** window will be opened.
+
+   ![hdinsight for vscode preview results window](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
+   
+- **RESULTS** panel
+
+   You can save the whole result as CSV, JSON, or Excel file to local path, or just select multiple lines.
+
+- **MESSAGES** panel
+   1. When the number of rows in the table is greater than 100 rows, the message shows: **The first 100 rows are displayed for Hive table**.
+   2. When the number of rows in the table is less than or equal to 100 rows, the message shows: **60 rows are displayed for Hive table**.
+   3. When there is no content in the table, the message shows: **0 row is displayed for Hive table**.
+
+>[!NOTE]
+>In Linux, install xclip to enable copy table data.
+>![hdinsight for vscode in linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
 ## Additional features
 
 HDInsight for Visual Studio Code supports the following features:
