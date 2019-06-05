@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 03/01/2019
+ms.date: 06/05/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
@@ -13,13 +13,13 @@ ms.component: data-lake-storage-gen2
 
 # Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You choose from a 80-TB Data Box or a 770-TB Data Box Heavy.
 
 This article helps you complete these tasks:
 
-:heavy_check_mark: Copy your data to a Data Box device.
+:heavy_check_mark: Copy your data to a Data Box or a Data Box Heavy device.
 
-:heavy_check_mark: Ship the Data Box device to Microsoft.
+:heavy_check_mark: Ship the device back to Microsoft.
 
 :heavy_check_mark: Move the data onto your Data Lake Storage Gen2 storage account.
 
@@ -35,8 +35,8 @@ You need these things to complete the migration.
 
 * An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/). 
 
-    - [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered). While ordering your Box, remember to choose a storage account that **doesn't** have hierarchical namespaces enabled on it. This is because Data Box does not yet support direct ingestion into Azure Data Lake Storage Gen2. You will need to copy into a storage account and then do a second copy into the ADLS Gen2 account. Instructions for this are given in the steps below.
-    - [Cable and connect your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) to an on-premises network.
+    - [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). While ordering your Box, remember to choose a storage account that **doesn't** have hierarchical namespaces enabled on it. This is because Data Box devices do not yet support direct ingestion into Azure Data Lake Storage Gen2. You will need to copy into a storage account and then do a second copy into the ADLS Gen2 account. Instructions for this are given in the steps below.
+    - [Cable and connect your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) to an on-premises network.
 
 If you are ready, let's start.
 
@@ -44,12 +44,12 @@ If you are ready, let's start.
 
 To copy the data from your on-premises HDFS store to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
-If the amount of data that you are copying is more than the capacity of a single Data Box, you will have to break up your data set into sizes that do fit into your Data Boxes.
+If the amount of data that you are copying is more than the capacity of a single Data Box or that of single node on Data Box Heavy, break up your data set into sizes that do fit into your devices.
 
-Follow these steps to copy data via the REST APIs of Blob/Object storage to your Data Box. The REST API interface will make the Data Box appear as a HDFS store to your cluster. 
+Follow these steps to copy data via the REST APIs of Blob/Object storage to your Data Box device. The REST API interface will make the device appear as a HDFS store to your cluster. 
 
 
-1. Before you copy the data via REST, identify the security and connection primitives to connect to the REST interface on the Data Box. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select **REST(Preview)**.
+1. Before you copy the data via REST, identify the security and connection primitives to connect to the REST interface on the Data Box or Data Box Heavy. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your device, under **Access settings**, locate and select **REST(Preview)**.
 
     !["Connect and copy" page](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -59,7 +59,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
      !["Access storage account and upload data" dialog](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Add the endpoint and the Data Box IP address to `/etc/hosts` on each node.
+3. Add the endpoint and the Data Box or Data Box Heavy node IP address to `/etc/hosts` on each node.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -125,9 +125,16 @@ To improve the copy speed:
 
 Follow these steps to prepare and ship the Data Box device to Microsoft.
 
-1. After the data copy is complete, run [Prepare to ship](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) on your Data Box. After the device preparation is complete, download the BOM files. You will use these BOM or manifest files later to verify the data uploaded to Azure. Shut down the device and remove the cables. 
-2.	Schedule a pickup with UPS to [Ship your Data Box back to Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
-3.	After Microsoft receives your device, it is connected to the network datacenter and data is uploaded to the storage account you specified (with hierarchical namespaces disabled) when you ordered the Data Box. Verify against the BOM files that all your data is uploaded to Azure. You can now move this data to a Data Lake Storage Gen2 storage account.
+1. After the data copy is complete, run: 
+    
+    - [Prepare to ship on your Data Box or Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest). 
+    - After the device preparation is complete, download the BOM files. You will use these BOM or manifest files later to verify the data uploaded to Azure. 
+    - Shut down the device and remove the cables. 
+2.	Schedule a pickup with UPS. Follow the instructions to: 
+
+    - [Ship your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) 
+    - [Ship your Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up). 
+3.	After Microsoft receives your device, it is connected to the network datacenter and data is uploaded to the storage account you specified (with hierarchical namespaces disabled) when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure. You can now move this data to a Data Lake Storage Gen2 storage account.
 
 ## Move the data onto your Data Lake Storage Gen2 storage account
 
