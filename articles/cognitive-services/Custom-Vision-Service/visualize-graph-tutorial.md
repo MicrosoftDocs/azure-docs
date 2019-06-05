@@ -14,7 +14,7 @@ ms.author:
 ---
 # Visualize a deep learning model trained with Custom Vision AP
 
-Azure Custom Vision API offers an awesome possibility to train your own classifier using only several images, due to the transfer learning, that allows us to build upon the features and concept that were learned during the training of the base model. In other words, we cut off the final dense layer that is responsible for predicting the class labels of the original base model and replace it by a new dense layer that will predict the class labels of our new task at hand. However, one may be interested in what is happening inside. So let us satisfy our curiosity and have a look on internal structure of your exported model.
+Azure Custom Vision API offers an awesome possibility to train your own classifier using only several images, due to the transfer learning, that allows us to build upon the features and concept that were learned during the training of the base model. In other words we cut off the final dense layer that is responsible for predicting the class labels of the original base model and replace it by a new dense layer that will predict the class labels of our new task at hand. However, one may be interested in what is happening inside. So let us satisfy our curiosity and have a look on internal structure of your exported model.
 This article provides information and sample code to help you visualize a pre-trained model generated with Azure Custom Vision api to get a brief overview of input/output nodes of the model. After it's created, you can navigate your model, analyse all the nodes and input weights. You may use this example as a template for your future projects.
 
 ## Prerequisites
@@ -100,7 +100,7 @@ What is crucial to understand is the fact that we used File Writer object. Quote
 >When constructed with a tf.Session parameter, a FileWriter instead forms a compatibility layer over new graph-based summaries (tf.contrib.summary) to facilitate the use of new summary writing with pre-existing code that expects a FileWriter instance.
 
 So we have obtained our graph info using `sess.graph` and serialized it with the help of `FileWriter` and saved it to the newly created ‘log’ directory.  
-If you have installed tensor flow using pip then tensor board is already installed on your machine. If still, there are some installation errors just run:
+And here we go, the most important part of our manipulation, graph visualization. If you have installed tensor flow using pip then tensor board is already installed on your machine. If not just run 
 ```
 pip install tensorboard
 ```
