@@ -55,13 +55,13 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Message Size | 1 Million Bytes | 1 Million Bytes |
 | Partitions | 40 per namespace | 2000 per CU |
 | Consumer groups | 20 per Event Hub | No limit per CU, 1000 per event hub |
-| Brokered connections | 1,000 included | 100 K included |
+| Brokered connections | 1,000 included, 5,000 max | 100 K included and max |
 | Message Retention | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |
 | Capture | Pay per hour | Included |
 
 ## How to onboard
 
-To onboard to Event Hubs Dedicated, please contact the [Event Hubs team](mailto:askeventhubs@microsoft.com). The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+The self-serve experience to [create an Event Hubs cluster](event-hubs-dedicated-cluster-create-portal.md) through the Azure Portal is now in Private Preview. To onboard to Event Hubs Dedicated, please contact the [Event Hubs team](mailto:askeventhubs@microsoft.com). The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
 
 ## FAQs
 

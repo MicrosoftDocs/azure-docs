@@ -22,9 +22,9 @@ Azure Data Lake Storage Gen2 implements an access control model that supports bo
 
 RBAC uses role assignments to effectively apply sets of permissions to *security principals*. A *security principal* is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD) that is requesting access to Azure resources.
 
-Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
+Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the container (file system) resource.
 
-To learn how to assign roles to security principals in the scope of your storage account, see [Authenticate access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn how to assign roles to security principals in the scope of your storage account, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### The impact of role assignments on file and directory level access control lists
 
@@ -73,8 +73,6 @@ Default ACLs are templates of ACLs associated with a directory that determine th
 
 Both access ACLs and default ACLs have the same structure.
 
-Both access ACLs and default ACLs have the same structure.
-
 > [!NOTE]
 > Changing the default ACL on a parent does not affect the access ACL or default ACL of child items that already exist.
 
@@ -87,6 +85,9 @@ The permissions on a file system object are **Read**, **Write**, and **Execute**
 | **Read (R)** | Can read the contents of a file | Requires **Read** and **Execute** to list the contents of the directory |
 | **Write (W)** | Can write or append to a file | Requires **Write** and **Execute** to create child items in a directory |
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a directory |
+
+> [!NOTE]
+> If you are granting permissions by using only ACLs (no RBAC), then to grant a service principal read or write access to a file, you'll need to give the service principal **Execute** permissions to the file system, and to each folder in the hierarchy of folders that lead to the file.
 
 #### Short forms for permissions
 

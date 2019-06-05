@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -44,7 +44,7 @@ In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involve
 Every app that wants to accept both personal and work or school accounts must be registered through the **App registrations** experience in the [Azure portal](https://aka.ms/appregistrations) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
 
 * An **Application ID** that uniquely identifies your app
-* A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
+* A **Redirect URI** (optional) that can be used to direct responses back to your app
 * A few other scenario-specific values.
 
 For more details, learn how to [register an app](quickstart-register-app.md).

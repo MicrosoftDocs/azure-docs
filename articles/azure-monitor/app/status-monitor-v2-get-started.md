@@ -61,7 +61,7 @@ Manually download the latest version of the Module from: https://www.powershellg
 
 ### Unzip and install Status Monitor v2
 ```powershell
-$pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.2.1-alpha.nupkg"
+$pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
 $pathToNupkg | rename-item -newname $pathToZip
 $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.ApplicationMonitor"
@@ -81,7 +81,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
 - [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems
 - [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
-- [Create dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+- [Create dashboards](../../azure-monitor/app/overview-dashboard.md)
 
  Add more telemetry:
 

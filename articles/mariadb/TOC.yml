@@ -105,6 +105,10 @@
       href: howto-server-parameters.md
     - name: Azure CLI
       href: howto-configure-server-parameters-cli.md
+  - name: Auto grow storage
+    items:
+    - name: Azure portal
+      href: howto-auto-grow-storage-portal.md
   - name: Access server logs
     items:
     - name: Azure portal
