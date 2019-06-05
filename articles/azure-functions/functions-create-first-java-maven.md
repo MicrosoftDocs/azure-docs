@@ -152,7 +152,7 @@ The deploy process to Azure Functions uses account credentials from the Azure CL
 az login
 ```
 
-Deploy your code into a new Function app using the `azure-functions:deploy` Maven target. This will perform a [Zip Deploy with Run From Package](functions-deployment-technologies.md#zip-deploy) mode enabled.
+Deploy your code into a new Function app using the `azure-functions:deploy` Maven target. This performs a [Zip Deploy with Run From Package](functions-deployment-technologies.md#zip-deploy) mode enabled.
 
 > [!NOTE]
 > When you use Visual Studio Code to deploy your Function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.

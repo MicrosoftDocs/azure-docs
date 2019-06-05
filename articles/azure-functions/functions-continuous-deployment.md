@@ -41,7 +41,7 @@ Use this procedure to configure continuous deployment for an existing function a
 
     ![Opening the deployment center](./media/functions-continuous-deployment/platform-features.png)
 
-2. On the **Deployment Center**, select **GitHub** for **Source Control**, and click **Authorize**.
+2. On the *Deployment Center*, select **GitHub** for *Source Control*, and click **Authorize**.
 
     ![Deployment center](./media/functions-continuous-deployment/github.png)
 
@@ -61,14 +61,14 @@ Use this procedure to configure continuous deployment for an existing function a
 
     ![Summary](./media/functions-continuous-deployment/summary.png)
 
-When this is complete, all code from the specified source will be deployed to your app. Any subsequent changes in the deployment source will trigger a deployment of those changes to Azure as well.
+When this is complete, all code from the specified source is deployed to your app. Any subsequent changes in the deployment source will trigger a deployment of those changes to Azure as well.
 
 ## Deployment scenarios
 
 <a name="existing"></a>
 ### Move existing functions to continuous deployment
 
-If you've already written some functions in the [Azure portal](https://portal.azure.com) and wish to download the contents of your app before switching to continuous deployment, you should navigate to the **Overview** tab of your function app, and click the **Download app content** button.
+If you've already written functions in the [Azure portal](https://portal.azure.com) and wish to download the contents of your app before switching to continuous deployment, you should navigate to the **Overview** tab of your function app, and click the **Download app content** button.
 
 ![Downloading app content](./media/functions-continuous-deployment/download.png)
 

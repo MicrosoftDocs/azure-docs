@@ -54,10 +54,10 @@ When you change any of your triggers, the Functions infrastructure needs to be a
 
 ### External Package URL
 
-__What it does:__ Allows you to reference a remote package (zip) file which contains your function app. The file is downloaded from the provided URL, and the app runs in [Run-From-Package](run-functions-from-deployment-package.md) mode.
+__What it does:__ Allows you to reference a remote package (e.g. zip) file which contains your function app. The file is downloaded from the provided URL, and the app runs in [Run-From-Package](run-functions-from-deployment-package.md) mode.
 
-__How to use it:__ Add `WEBSITE_RUN_FROM_PACKAGE` to your application settings.The value of this setting should be a URL - the location of the specific package file you want to run. You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
-If using Azure blob storage, you should use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) to give Functions access to the package.
+__How to use it:__ Add `WEBSITE_RUN_FROM_PACKAGE` to your application settings. The value of this setting should be a URL - the location of the specific package file you want to run. You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+If using Azure blob storage, you should use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) to give Functions access to the package. Anytime the application restarts it will fetch a copy of the content, which means that your reference must be valid for the lifetime of the application.
 
 __When to use it:__ This is the only deployment method supported for Azure Functions running on Linux in the Consumption plan (Preview). When updating the package file a function app is referencing, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed.
 
@@ -65,9 +65,9 @@ __When to use it:__ This is the only deployment method supported for Azure Funct
 
 __What it does:__ Lets you to push a zip file containing your function app to Azure. Optionally, you can also specify to have your app start in [Run-From-Package](run-functions-from-deployment-package.md) mode.
 
-__How to use it:__ Use your favorite client tool - [VS Code](functions-create-first-function-vs-code#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a zip file to your function app, follow the instructions [here](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+__How to use it:__ Deploy using your favorite client tool - [VS Code](functions-create-first-function-vs-code#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a zip file to your function app, follow the instructions found at [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-Additionally, when deploying through zip deploy, users can specify to run their app from in [Run-From-Package](run-functions-from-deployment-package.md) mode by setting the `WEBSITE_RUN_FROM_PACKAGE` application setting value as `1`. This option is suggested and will yield faster loading times for your applications. This is done by default for the above client tools.
+Additionally, when deploying through zip deploy, users can specify to run their app from in [Run-From-Package](run-functions-from-deployment-package.md) mode by setting the `WEBSITE_RUN_FROM_PACKAGE` application setting value as `1`. This option is suggested and yields faster loading times for your applications. This is done by default for the above client tools.
 
 __When to use it:__ This is the recommended deployment technology for Azure Functions running on Windows, and Azure Functions running on Linux in the Dedicated plan.
 
@@ -78,11 +78,11 @@ __What it does:__ Specify a container image which Azure Functions will pull and 
 __How to use it:__ Create a Linux function app in the Dedicated plan, and specify which container image to run from. You can do this in two ways:
 
 * Create a Linux function app on an App Service plan in the Azure portal. Select **Docker Image** for **Publish**, and configure the container, providing the location where the image is hosted.
-* Create a Linux function app on an App Service plan through the Azure CLI. Learn more about this [here](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
+* Create a Linux function app on an App Service plan through the Azure CLI. Learn how by reviewing [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
 
 To deploy to an existing app using a custom container, use the [`func deploy`](functions-run-local.md#publish) command of the [Azure Functions Core Tools](functions-run-local.md).
 
-__When to use it:__ Use this option when you need more control over the Linux environment in which your function app runs. This deployment mechanism is only available for Functions running on Linux in an App Service plan.
+__When to use it:__ Use this option when you need more control over the Linux environment where your function app runs. This deployment mechanism is only available for Functions running on Linux in an App Service plan.
 
 ### Web Deploy (MSDeploy)
 
@@ -90,7 +90,7 @@ __What it does:__ Packages and deploys your Windows applications to any IIS serv
 
 __How to use it:__ Use the [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md), and don't tick the `Run from package file (recommended)` check box.
 
-Alternatively, call the MSDeploy.exe directly after downloading [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
+Alternatively, call `MSDeploy.exe` directly after downloading [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
 
 __When to use it:__ This deployment technology is supported and has no issues, but the preferred mechanism is now [Zip Deploy with Run From Package enabled](#zip-deploy). To learn more, visit the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
 
@@ -106,7 +106,7 @@ __When to use it:__ Using source control is the best practice for teams collabor
 
 __What it does:__ Lets you push code from your local machine to Azure Functions using Git.
 
-__How to use it:__ Follow the instructions [here](../app-service/deploy-local-git.md).
+__How to use it:__ Follow the instructions at [Local Git Deployment to Azure App Service](../app-service/deploy-local-git.md).
 
 __When to use it:__ In general, other deployment methods are recommended. When publishing from local git, you must [manually sync triggers](#trigger-syncing).
 

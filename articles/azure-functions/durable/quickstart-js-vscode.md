@@ -46,13 +46,13 @@ To complete this tutorial:
 
 ## Creating your functions
 
-We'll now create the three functions you need to get started with Durable Functions: an HTTP starter, an orchestrator, and an activity function.
+We'll now create the three functions you need to get started with Durable Functions: an HTTP starter, an orchestrator, and an activity function. The HTTP starter will initiate your entire solution, and the orchestrator will dispatch work to various activity functions.
 
-### HTTP Starter
+### HTTP starter
 
 First, create an HTTP triggered function that starts a durable function orchestration.
 
-1. From **Azure: Functions**, choose the Create Function icon.
+1. From *Azure: Functions*, choose the **Create Function** icon.
 
     ![Create a function](./media/quickstart-js-vscode/create-function.png)
 
@@ -60,7 +60,7 @@ First, create an HTTP triggered function that starts a durable function orchestr
 
     ![Choose the HTTP starter template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Leave the default name as `DurableFunctionsHttpStart` and press Enter, then select **Anonymous** authentication.
+3. Leave the default name as `DurableFunctionsHttpStart` and press ****Enter**, then select **Anonymous** authentication.
 
     ![Choose anonymous authentication](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
@@ -70,7 +70,7 @@ We've now created an entry-point into our Durable Function. Let's add an orchest
 
 Now, we'll create an orchestrator to coordinate activity functions.
 
-1. From **Azure: Functions**, choose the Create Function icon.
+1. From *Azure: Functions*, choose the **Create Function** icon.
 
     ![Create a function](./media/quickstart-js-vscode/create-function.png)
 
@@ -82,9 +82,9 @@ We've added an orchestrator to coordinate activity functions. Let's now add the 
 
 ### Activity
 
-Now, we'll create an activity function to actually carry out the work needed.
+Now, we'll create an activity function to actually carry out the work of the solution.
 
-1. From **Azure: Functions**, choose the Create Function icon.
+1. From *Azure: Functions*, choose the **Create Function** icon.
 
     ![Create a function](./media/quickstart-js-vscode/create-function.png)
 
@@ -96,9 +96,9 @@ We've now added all components needed to start off an orchestration and chain to
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
+Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
 
-1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of local.settings.json is set to `UseDevelopmentStorage=true`.
+1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of *local.settings.json* is set to `UseDevelopmentStorage=true`.
 
     For Storage Emulator 5.8 make sure that the **AzureWebJobsSecretStorageType** property of local.settings.json is set to `files`. On     a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage         account. You create a storage account later in this article.
 
