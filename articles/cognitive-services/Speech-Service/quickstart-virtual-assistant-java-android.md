@@ -16,7 +16,9 @@ ms.author: travisw
 
 A quickstart is also available for [speech-to-text](quickstart-java-android.md).
 
-In this article, you will create a Java application for Android using the [Cognitive Services Speech SDK](speech-sdk.md). The application will connect to a previously authored bot configured to use the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), send a voice request, and return a voice response activity (if configured). The application is built with the Speech SDK Maven package and Android Studio 3.3. The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
+In this article, you'll build a voice-first virtual assistant with Java for Android using the [Speech SDK](speech-sdk.md). This application will connect to a previously authored bot, which has been configured to use the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), send a voice request, and return a voice response activity (if configured). 
+
+This application is built with the Speech SDK Maven package and Android Studio 3.3. The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
