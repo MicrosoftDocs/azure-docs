@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 06/05/2019
 ms.author: v-adgera
 ---
 
@@ -22,7 +22,7 @@ This article describes how to configure the Postman REST client to interact with
 
 Get started on Azure Digital Twins by using a REST client tool such as [Postman](https://www.getpostman.com/) to prepare your local testing environment. The Postman client helps to quickly create complex HTTP requests. Download the desktop version of the Postman client by going to [www.getpostman.com/apps](https://www.getpostman.com/apps).
 
-[Postman](https://www.getpostman.com/) is a REST testing tool that locates key HTTP request functionalities into a useful desktop and plugin-based GUI. 
+[Postman](https://www.getpostman.com/) is a REST testing tool that locates key HTTP request functionalities into a useful desktop and plugin-based GUI.
 
 Through the Postman client, solutions developers can specify the kind of HTTP request (*POST*, *GET*, *UPDATE*, *PATCH*, and *DELETE*), API endpoint to call, and use of SSL. Postman also supports adding HTTP request headers, parameters, form-data, and bodies.
 
@@ -75,7 +75,7 @@ Next, set up and configure Postman to obtain an Azure Active Directory token. Af
 
 1. The client should now appear as:
 
-   ![Postman client example][3]
+    [![Postman client example](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Select **Request Token**.
 
@@ -93,13 +93,13 @@ After completing the previous steps, configure Postman to make an authenticated 
 
 1. Under the **Header** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
 
-   ![Content type multipart/mixed][4]
+   [![Content type multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
 1. Under the **Body** tab, add each file by assigning a **key** name, selecting `file` or `text`.
 1. Then, select each file through the **Choose File** button.
 
-   ![Postman client example][5]
+   [![Postman client example](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * The Postman client does not require that multipart chunks have a manually assigned **Content-Type** or **Content-Disposition**.
@@ -115,10 +115,3 @@ After completing the previous steps, configure Postman to make an authenticated 
 - Use multipart requests to [add blobs to Azure Digital Twins' entities](./how-to-add-blobs.md).
 
 - To learn about authenticating with the Management APIs, read [Authenticate with APIs](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/how-to-configure-postman/implicit-flow.png
-[2]: media/how-to-configure-postman/reply-url.png
-[3]: media/how-to-configure-postman/postman-oauth-token.png
-[4]: media/how-to-configure-postman/content-type.png
-[5]: media/how-to-configure-postman/form-body.png
