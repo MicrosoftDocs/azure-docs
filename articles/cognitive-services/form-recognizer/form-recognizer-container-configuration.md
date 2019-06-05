@@ -15,14 +15,14 @@ ms.author: pafarley
 
 By using Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality.
 
-You configure the Form Recognizer container run-time environment by using the `docker run` command arguments. This container has several required settings and a few optional settings. For a few examples, see the "Example docker run commands" section. The container-specific settings are the billing settings.
+You configure the Form Recognizer container run-time environment by using the `docker run` command arguments. This container has several required settings and a few optional settings. For a few examples, see the ["Example docker run commands"](#example-docker-run-commands) section. The container-specific settings are the billing settings.
 
 ## Configuration settings
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Install and run Form Recognizer containers](form-recognizer-container-howto.md#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together. You must provide valid values for all three settings; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-howto.md#billing).
 
 ## ApiKey configuration setting
 
@@ -67,7 +67,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Form Recognizer container requires an input mount and an output mount. The input mount can be read-only, and it's required for access to the data that's used for training and scoring. The output mount has to be writable, and you use it to store the models and temporary data.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the host computer's mount location might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions. For more information, see [Install and run Form Recognizer containers](form-recognizer-container-howto.md#the-host-computer).
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the mount location of the [host computer](form-recognizer-container-howto.md#the-host-computer) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
@@ -78,7 +78,7 @@ The exact syntax of the host mount location varies depending on the host operati
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands. When it's running, the container continues to run until you [stop it](form-recognizer-container-howto.md#stop-the-container).
 
-* **Line-continuation character**: The Docker commands in the following sections use a back slash (\\), as a line continuation character. Replace or remove this character, depending on your host operating system's requirements.
+* **Line-continuation character**: The Docker commands in the following sections use a back slash (\\) as a line continuation character. Replace or remove this character, depending on your host operating system's requirements.
 * **Argument order**: Don't change the order of the arguments unless you're familiar with Docker containers.
 
 Replace {_argument_name_} in the following table with your own values:
