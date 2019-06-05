@@ -56,7 +56,7 @@ On the **Add application rule collection** screen, complete the following steps:
         1. Enter `https:443` under **Protocol:Port** and `login.windows.net` under **Target FQDNS**.
     1. If your cluster is backed by WASB, then add a rule for WASB:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Enter `http:80,https:443` under **Protocol:Port** and the storage account url under **Target FQDNS**. The format will be similar to <storage_account_name.blob.core.windows.net>.
+        1. Enter `http:80,https:443` under **Protocol:Port** and the storage account url under **Target FQDNS**. The format will be similar to <storage_account_name.blob.core.windows.net>. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account.
 1. Click **Add**.
 
 ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -79,7 +79,7 @@ Create the network rules to correctly configure your HDInsight cluster.
         1. Set **Source Addresses** `*`.
         1. Enter all of the IP addresses for your domain controllers in **Destination addresses** separated by commas.
         1. Set **Destination Ports** to `*`.
-    1. If you are using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
+    1. If you are using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable in firewall logs.
         1. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.
         1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
@@ -90,7 +90,7 @@ Create the network rules to correctly configure your HDInsight cluster.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
         1. Set **Destination Ports** to `12000`.
-    1. Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet.
+    1. Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet which will bypass the firewall.
         1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
@@ -133,7 +133,7 @@ Complete the route table configuration:
 1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **HDInsight Subnet** you used for your HDInsight cluster.
 1. Click **OK**.
 
-## Edge-node application traffic
+## Edge-node or custom application traffic
 
 The above steps will allow the cluster to operate without issues. You still need to configure dependencies to accommodate your custom applications running on the edge-nodes, if applicable.
 
@@ -154,6 +154,9 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+
+## Access to the cluster
+After having the firewall setup successfully, you can use the internal endpoint (https://<clustername>-int.azurehdinsight.net) to access the Ambari from within the VNET. To use the public endpoint (https://<clustername>.azurehdinsight.net) or ssh endpoint (<clustername>-ssh.azurehdinsight.net), make sure you have the right routes in the route table and NSG rules setup to avoid the asymetric routing issue explained [here](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb).
 
 ## Configure another network virtual appliance
 
