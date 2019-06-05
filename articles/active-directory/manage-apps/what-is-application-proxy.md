@@ -69,7 +69,7 @@ With Application Proxy, Azure AD keeps track of users who need to access web app
 
 ### An overview of how App Proxy works
 
-Application Proxy is an Azure AD service you configure in the Azure portal. It enables you to publish an external public HTTP/HTTPS URL endpoint in the Azure Cloud, which connects to an internal application server URL in your organization. These on-prem web apps can be integrated with Azure AD to support single sign-on. End users can then access on-prem web apps in the same way they access Office 365 and other SaaS apps.
+Application Proxy is an Azure AD service you configure in the Azure portal. It enables you to publish an external public HTTP/HTTPS URL endpoint in the Azure Cloud, which connects to an internal application server URL in your organization. These on-premises web apps can be integrated with Azure AD to support single sign-on. End users can then access on-premises web apps in the same way they access Office 365 and other SaaS apps.
 
 Components of this feature include the Application Proxy service, which runs in the cloud, the Application Proxy connector, which is a lightweight agent that runs on an on-premises server, and Azure AD, which is the identity provider. All three components work together to provide the user with a single sign-on experience to access on-premises web applications.
 
