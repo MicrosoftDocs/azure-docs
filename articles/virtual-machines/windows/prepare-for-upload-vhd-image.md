@@ -24,27 +24,27 @@ Before you upload a Windows virtual machine (VM) from on-premises to Azure, you 
 
 In a generation 1 VM, you can convert a VHDX file system to VHD. You can also convert a dynamically expanding disk to a fixed-size disk. But you can't change a VM's generation. For more information, see [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) and [Azure support for generation 2 VMs (preview)](generation-2.md).
 
-For more information about the support policy for Azure VMs, see [Microsoft server software support for Azure VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+For information about the support policy for Azure VMs, see [Microsoft server software support for Azure VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
-> [!Note]
+> [!NOTE]
 > The instructions in this article apply to the 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 
 ## Convert the virtual disk to a fixed size and to VHD 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you convert the virtual disk. Make sure the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
+If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you convert the virtual disk. Make sure the Windows VHD works correctly on the local server. Then resolve any errors within the VM itself before you try to convert or upload it to Azure.
 
-After you convert the disk, create a VM that uses the disk. Start and sign in to the VM to finish preparing the VM for uploading.
+After you convert the disk, create a VM that uses the disk. Start and sign in to the VM to finish preparing it for uploading.
 
 ### Use Hyper-V Manager to convert the disk 
 1. Open Hyper-V Manager and select your local computer on the left. In the menu above the computer list, select **Action** > **Edit Disk**.
-2. On the **Locate Virtual Hard Disk** page, locate and select your virtual disk.
+2. On the **Locate Virtual Hard Disk** page, select your virtual disk.
 3. On the **Choose Action** page, select **Convert** > **Next**.
 4. If you need to convert from VHDX, select **VHD** > **Next**.
 5. If you need to convert from a dynamically expanding disk, select **Fixed size** > **Next**.
 6. Locate and select a path to save the new VHD file to.
 7. Select **Finish**.
 
->[!NOTE]
->Use an elevated PowerShell session to run the commands in this article.
+> [!NOTE]
+> Use an elevated PowerShell session to run the commands in this article.
 
 ### Use PowerShell to convert the disk 
 You can convert a virtual disk by using the [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) command in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
@@ -58,16 +58,16 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 In this command, replace the value for `-Path` with the path to the virtual hard disk that you want to convert. Replace the value for `-DestinationPath` with the new path and name of the converted disk.
 
 ### Convert from VMware VMDK disk format
-If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). For more information, see [How to convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
+If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), use the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) to convert it to VHD format. For more information, see [How to convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## Set Windows configurations for Azure
 
-On the VM that you plan to upload to Azure, run all commands in the following steps from an [elevated command prompt window](https://technet.microsoft.com/library/cc947813.aspx):
+On the VM that you plan to upload to Azure, run the following commands from an [elevated command prompt window](https://technet.microsoft.com/library/cc947813.aspx):
 
 1. Remove any static persistent route on the routing table:
    
    * To view the route table, run `route print` at the command prompt.
-   * Check the `Persistence Routes` sections. If there is a persistent route, use the `route delete` command to remove it.
+   * Check the `Persistence Routes` sections. If there's a persistent route, use the `route delete` command to remove it.
 2. Remove the WinHTTP proxy:
    
     ```PowerShell
@@ -75,7 +75,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
     ```
 
     If the VM needs to work with a specific proxy, add a proxy exception to the Azure IP address ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
-)) so the VM can connect to the Azure:
+)) so the VM can connect to Azure:
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"
@@ -95,7 +95,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
     exit   
     ```
 
-4. Set Coordinated Universal Time (UTC) time for Windows and the startup type of the Windows time (`w32time`) service to `Automatic`:
+4. Set Coordinated Universal Time (UTC) time for Windows. Also set the startup type of the Windows time service (`w32time`) to `Automatic`:
    
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
@@ -116,7 +116,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
     ```
 
 ## Check the Windows services
-Make sure that each of the following Windows services is set to the Windows default values. These are the minimum number of services that must be set up to make sure that the VM has connectivity. To reset the startup settings, run the following commands:
+Make sure that each of the following Windows services is set to the Windows default values. These services are the minimum that must be set up to ensure VM connectivity. To reset the startup settings, run the following commands:
    
 ```PowerShell
 Set-Service -Name bfe -StartupType Automatic
@@ -135,7 +135,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 ## Update remote-desktop registry settings
 Make sure the following settings are configured correctly for remote access:
 
->[!Note] 
+>[!NOTE] 
 >You might receive an error message when you run `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; -value &lt;value&gt;`. You can safely ignore this message. It means only that the domain isn't pushing that configuration through a Group Policy Object.
 
 1. Remote Desktop Protocol (RDP) is enabled:
@@ -192,17 +192,17 @@ Make sure the following settings are configured correctly for remote access:
     ```PowerShell
     Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash" -force
     ```
-    This code ensures that you can connect at the beginning when you deploy the VM. If you need to review this at a later stage, you can do so after the VM is deployed in Azure.
+    This code ensures that you can connect at the beginning when you deploy the VM. If you need to review this later, you can do so after the VM is deployed in Azure.
 
-9. If the VM will be part of a domain, check the following settings to make sure the former settings are not reverted. These are the policies you must check:
+9. If the VM will be part of a domain, check the following policies to make sure the former settings aren't reverted. 
     
     | Goal                                     | Policy                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP is enabled                           | Computer Configuration\Policies\Windows Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Connections         | Allow users to connect remotely by using Remote Desktop                                  |
-    | NLA group policy                         | Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Security                                                    | Require user authentication for remote access by using network-level authentication |
+    | NLA group policy                         | Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Security                                                    | Require user authentication for remote access by using NLA |
     | Keep-alive settings                      | Computer Configuration\Policies\Windows Settings\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections | Configure keep-alive connection interval                                                 |
     | Reconnect settings                       | Computer Configuration\Policies\Windows Settings\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections | Reconnect automatically                                                                   |
-    | Limit the number of connections settings | Computer Configuration\Policies\Windows Settings\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections | Limit number of connections                                                              |
+    | Limited number of connection settings | Computer Configuration\Policies\Windows Settings\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections | Limit number of connections                                                              |
 
 ## Configure Windows Firewall rules
 1. Turn on Windows Firewall on the three profiles (domain, standard, and public):
@@ -228,7 +228,7 @@ Make sure the following settings are configured correctly for remote access:
    ```PowerShell
    Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
-5. If the VM  will be part of a domain, check the following settings to make sure the former settings are not reverted. Check the following Active Directory policies:
+5. If the VM  will be part of a domain, check the following Azure AD policies to make sure the former settings aren't reverted. 
 
     | Goal                                 | Policy                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -251,7 +251,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
 
 2. Set the Boot Configuration Data (BCD) settings. 
 
-    > [!Note]
+    > [!NOTE]
     > Use an elevated PowerShell window to run these commands.
    
    ```powershell
@@ -281,7 +281,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
 
-    #Set up the guest OS to collect user mode dumps on a service crash event
+    # Set up the guest OS to collect user mode dumps on a service crash event
     $key = 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps'
     if ((Test-Path -Path $key) -eq $false) {(New-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting' -Name LocalDumps)}
     New-ItemProperty -Path $key -name DumpFolder -Type ExpandString -force -Value "c:\CrashDumps"
@@ -296,43 +296,46 @@ Make sure the VM is healthy, secure, and RDP accessible:
     ```
     If the repository is corrupted, see [WMI: Repository corruption or not](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
-5. Make sure no other application is using port 3389. This port is used for the RDP service in Azure. To see which ports are in used on the VM, run `netstat -anob`:
+5. Make sure no other application is using port 3389. This port is used for the RDP service in Azure. To see which ports are used on the VM, run `netstat -anob`:
 
     ```PowerShell
     netstat -anob
     ```
 
-6. If the Windows VHD you want to upload is a domain controller, follow these steps:
+6. To upload a Windows VHD that's a domain controller:
 
-    1. Follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
+   * Follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
 
-    1. Make sure you know the Directory Services Restore Mode (DSRM) password in case you have to start the VM in DSRM at some point. For more information, see [Set DSRM password](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
+   * Make sure you know the Directory Services Restore Mode (DSRM) password in case you have to start the VM in DSRM at some point. For more information, see [Set a DSRM password](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 
-7. Make sure you know the built-in administrator account and password. You might want to reset the current local administrator password and make sure you can use this account to sign in to Windows through the RDP connection. This access permission is controlled by the "Allow log on through Remote Desktop Services" Group Policy Object. To view this object in the Local Group Policy Editor, follow this path:
+7. Make sure you know the built-in administrator account and password. You might want to reset the current local administrator password and make sure you can use this account to sign in to Windows through the RDP connection. This access permission is controlled by the "Allow log on through Remote Desktop Services" Group Policy Object. View this object in the Local Group Policy Editor here:
 
     Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 
-8. Check the following Active Directory polices to make sure you're not blocking your RDP access through RDP or from the network:
+8. Check the following Azure AD policies to make sure you're not blocking your RDP access through RDP or from the network:
 
     - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny access to this computer from the network
 
     - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny log on through Remote Desktop Services
 
 
-9. Check the following Active Directory policy to make sure you're not removing any of the required access accounts:
+9. Check the following Azure AD policy to make sure you're not removing any of the required access accounts:
 
-   - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this compute from the network
+   - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this computer from the network
 
    The policy should list the following groups:
 
    - Administrators
+
    - Backup Operators
+
    - Everyone
+
    - Users
 
-10. Restart the VM to make sure that Windows is still healthy can be reached through the RDP connection. At this point, you might want to create a VM in your local Hyper-V to make sure the VM is starting completely. Then test to make sure you can reach it through RDP.
+10. Restart the VM to make sure that Windows is still healthy and can be reached through the RDP connection. At this point, you might want to create a VM in your local Hyper-V to make sure the VM starts completely. Then test to make sure you can reach the VM through RDP.
 
-11. Remove any extra Transport Driver Interface (TDI) filters. For example, remove software that analyzes TCP packets or extra firewalls. If you need to review this at a later stage, you can do so after the VM is deployed in Azure.
+11. Remove any extra Transport Driver Interface (TDI) filters. For example, remove software that analyzes TCP packets or extra firewalls. If you need to review this later, you can do so after the VM is deployed in Azure.
 
 12. Uninstall any other third-party software or driver that's related to physical components or any other virtualization technology.
 
@@ -379,7 +382,9 @@ Ideally, you should keep the machine updated at the *patch level*. If this isn't
        
 ### Determine when to use Sysprep <a id="step23"></a>    
 
-System Preparation Tool (Sysprep) is a process you can run in a Windows installation to reset the system's installation. Sysprep provides an “out of the box" experience by removing all personal data and resetting several components. You typically run Sysprep to create a template from which you can deploy several other VMs that have a specific configuration. The template is called a *generalized image*.
+System Preparation Tool (Sysprep) is a process you can run to reset a Windows installation. Sysprep provides an "out of the box" experience by removing all personal data and resetting several components. 
+
+You typically run Sysprep to create a template from which you can deploy several other VMs that have a specific configuration. The template is called a *generalized image*.
 
 If you want to create only one VM from one disk, you don’t have to use Sysprep. Instead, you can create the VM from a *specialized image*. For information about how to create a VM from a specialized disk, see:
 
@@ -388,7 +393,7 @@ If you want to create only one VM from one disk, you don’t have to use Sysprep
 
 If you want to create a generalized image, you need to run Sysprep. For more information, see [How to use Sysprep: An introduction](https://technet.microsoft.com/library/bb457073.aspx). 
 
-Not every role or application that’s installed on a Windows-based computer supports generalized images. So before you run this procedure, make sure Sysprep supports the role of the computer. For more information, see [Sysprep support for server roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+Not every role or application that's installed on a Windows-based computer supports generalized images. So before you run this procedure, make sure Sysprep supports the role of the computer. For more information, see [Sysprep support for server roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 ### Generalize a VHD
 
@@ -405,7 +410,7 @@ Not every role or application that’s installed on a Windows-based computer sup
 1. Select **OK**.
 1. When Sysprep finishes, shut down the VM. Don't use **Restart** to shut down the VM.
 
-Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md).
+Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VM in Azure](sa-upload-generalized.md).
 
 
 >[!NOTE]
@@ -415,15 +420,15 @@ Now the VHD is ready to be uploaded. For more information about how to create a 
 ## Complete the recommended configurations
 The following settings don't affect VHD uploading. However, we strongly recommend that you configured them.
 
-* Install the [Azure Virtual Machine Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs. You'll need them, for example, to reset passwords, configure RDP, and so on. For more information, see [Azure Virtual Machine Agent overview](../extensions/agent-windows.md).
-* After the VM is created in Azure, we recommend that you put the page file on the *Temporal drive volume* to improve performance. You can set this up as follows:
+* Install the [Azure Virtual Machine Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs. You'll need the extensions, for example, to reset passwords or configure RDP. For more information, see [Azure Virtual Machine Agent overview](../extensions/agent-windows.md).
+* After you create the VM in Azure, we recommend that you put the page file on the *Temporal drive volume* to improve performance. You can set up the file placement as follows:
 
    ```PowerShell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
    ```
-  If a data disk is attached to the VM, the temporal drive volume's drive letter is typically *D*. This designation could be different, depending on the number of available drives and your settings.
+  If a data disk is attached to the VM, the temporal drive volume's letter is typically *D*. This designation could be different, depending on your settings and the number of available drives.
 
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
-* [Troubleshoot Azure Windows virtual machine activation problems](troubleshoot-activation-problems.md)
+* [Troubleshoot Azure Windows VM activation problems](troubleshoot-activation-problems.md)
 
