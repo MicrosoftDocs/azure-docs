@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Create WAF custom  rules
 author: vhorne
 ms.service: application-gateway
 ms.topic: sample
-ms.date: 5/23/2019
+ms.date: 6/6/2019
 ms.author: victorh
 ---
 
@@ -64,6 +64,6 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional application gateway PowerShell script samples can be found in the [Azure Application Gateway documentation](../powershell-samples.md).
+- For more information about WAF custom rules, see [Custom rules for Web Application Firewall](../custom-waf-rules-overview.md)
+- For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+- Additional application gateway PowerShell script samples can be found in the [Azure Application Gateway documentation](../powershell-samples.md).
