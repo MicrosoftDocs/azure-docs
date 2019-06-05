@@ -122,12 +122,12 @@ If your subscription includes numerous web apps, enabling the service at the lev
 
         To use PowerShell to set a hidden tag on a web app, run the following command:
     
-            ```powershell
-            $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-            $tags = $webapp.Tags
-            $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-            Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-            ```
+        ```powershell
+        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
+        $tags = $webapp.Tags
+        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
+        ```
 
 > [!NOTE]
 > After you add the hidden tag, you might still need to wait up to 4 hours before you start seeing changes. Results are delayed because the Change Analysis service scans your web app only every 4 hours. The 4-hour schedule limits the scan's performance impact.
