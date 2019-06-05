@@ -27,6 +27,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **New features**
   + [Insert new features below. Reference articles and/or doc pages]
   + Azure Machine Learning now provides first-class support for popular machine learning and data analysis framework Scikit-learn. Using `SKLearn` estimator, users can easily train and deploy Scikit-learn models. Learn how to [run hyperparameter tuning with Scikit-learn using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn). 
+  + Added support for creating ModuleStep in pipelines along with Module and ModuleVersion classes to manage reusable compute units.
   
   + **Preview features**
     + [Contrib features below]
@@ -42,7 +43,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Added caching in ServicePrincipalAuthentication, turned off by default.
   + Enable logging of multiple plots under the same metric name.
   + Model class now properly importable from azureml.core (`from azureml.core import Model`).
-
+  + In pipeline steps, `hash_path` parameter is now deprecated. New behavior is to hash complete source_directory, except files listed in .amlignore or .gitignore.
 
 
 ## 2019-05-28
