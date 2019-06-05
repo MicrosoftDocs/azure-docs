@@ -120,7 +120,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
    Note, if you are familiar with the previous version of the .NET SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports multiple API models, version 3.0+ of the .NET SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. [Learn more about databases, containers, and items.](databases-containers-items.md)
 
-1. Retrieve your endpoint URL and primary key from the [Azure portal](https://portal.azure.com).
+1. Retrieve your endpoint URI and primary key from the [Azure portal](https://portal.azure.com).
 
    In the Azure portal, navigate to your Azure Cosmos DB account, and then click **Keys**.
 
