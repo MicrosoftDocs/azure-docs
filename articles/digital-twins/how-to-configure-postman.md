@@ -34,15 +34,15 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 1. Under **Required permissions**, select **Add** and enter **Azure Digital Twins** under **Add API access**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Grant Permissions > Delegated Permissions** and **Done**.
 
-    ![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+    [![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
 1. Click **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
 
-      ![Azure Active Directory implicit flow][1]
+    [![Azure Active Directory implicit flow](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
 1. Configure a **Reply URL** to `https://www.getpostman.com/oauth2/callback`.
 
-      ![Azure Active Directory Reply URL][2]
+    [![Azure Active Directory Reply URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used in the steps that follow.
 
