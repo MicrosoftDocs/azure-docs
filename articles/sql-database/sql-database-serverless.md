@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/03/2019
+ms.date: 06/04/2019
 ---
 # SQL Database serverless (preview)
 
@@ -128,14 +128,19 @@ If a serverless database is paused, then the first login will resume the databas
 
 ### Latency
 
-The latency to autopause or autoresume a serverless database is generally on the order of 1 minute.
+The latency to autopause and autoresume a serverless database is generally estimated as follows:
+
+|Operation|Estimated latency|
+|---|---|
+|Autopause|Order of 1-10 minutes|
+|Autoresume|Order of 1 minute|
 
 ### Feature support
 
 The following features do not support autopausing and autoresuming. That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
 
-- Geo-replication (active geo-replication and auto failover groups)
-- Long-term backup retention (LTR)
+- Geo-replication (active geo-replication and auto failover groups).
+- Long-term backup retention (LTR).
 - The sync database used in SQL data sync.
 
 
@@ -168,8 +173,6 @@ See [Quickstart: Create a single database in Azure SQL Database using the Azure 
 ### Create new serverless database using PowerShell
 
 The following example creates a new database in the serverless compute tier defined by service objective named GP_S_Gen5_4 with default values for the min vCores and autopause delay.
-
-Serverless requires a newer version of PowerShell than is currently in the gallery, so run `Update-Module Az.Sql` to get the latest serverless-enabled cmdlets.
 
 ```powershell
 New-AzSqlDatabase `

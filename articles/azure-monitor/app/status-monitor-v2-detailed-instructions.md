@@ -177,7 +177,7 @@ For more information, see [Installing a PowerShell Module](https://docs.microsof
 - Command:
 
 	```
-	$pathToNupkg = "C:\az.applicationmonitor.0.2.1-alpha.nupkg"
+	$pathToNupkg = "C:\az.applicationmonitor.0.3.0-alpha.nupkg"
 	$pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
 	$pathToNupkg | rename-item -newname $pathToZip
 	$pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\az.applicationmonitor"

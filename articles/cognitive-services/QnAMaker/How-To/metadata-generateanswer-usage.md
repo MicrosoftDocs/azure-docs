@@ -115,7 +115,7 @@ A successful response returns a status of 200 and a JSON response.
 |source|The name of the source from which the answer was extracted or saved in the knowledge base.|
 |metadata|The metadata associated with the answer.|
 |metadata.name|Metadata name. (string, max Length: 100, required)|
-|metadata.value: Metadata value. (string, max Length: 100, required)|
+|metadata.value|Metadata value. (string, max Length: 100, required)|
 
 
 ```json
@@ -168,7 +168,7 @@ Since results are required only for the restaurant "Paradise", you can set a fil
 }
 ```
 
-<name="keep-context"></a>
+<a name="keep-context"></a>
 
 ## Use question and answer results to keep conversation context
 

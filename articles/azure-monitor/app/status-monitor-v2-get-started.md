@@ -60,7 +60,7 @@ Manually download the latest version of the module from https://www.powershellga
 
 ### Unzip and install Status Monitor v2
 ```powershell
-$pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.2.1-alpha.nupkg"
+$pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
 $pathToNupkg | rename-item -newname $pathToZip
 $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.ApplicationMonitor"
