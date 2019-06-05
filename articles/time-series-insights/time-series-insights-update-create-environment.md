@@ -2,7 +2,7 @@
 title: 'Tutorial: Set up an Azure Time Series Insights Preview environment | Microsoft Docs'
 description: Learn how to set up your environment in Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -14,7 +14,9 @@ ms.custom: seodec18
 
 # Tutorial: Set up an Azure Time Series Insights Preview environment
 
-This tutorial guides you through the process of creating an Azure Time Series Insights Preview pay-as-you-go (PAYG) environment. In this tutorial, you learn how to:
+This tutorial guides you through the process of creating an Azure Time Series Insights Preview pay-as-you-go (PAYG) environment. 
+
+In this tutorial, you learn how to:
 
 * Create an Azure Time Series Insights Preview environment.
 * Connect the Azure Time Series Insights Preview environment to an event hub in Azure Event Hubs.
@@ -22,9 +24,9 @@ This tutorial guides you through the process of creating an Azure Time Series In
 * Perform basic analysis on the data.
 * Define a Time Series Model type and hierarchy, and associate it with your instances.
 
-# Create a device simulation
+## Create a device simulation
 
-In this section, you create three simulated devices that will send data to an IoT hub.
+In this section, you create three simulated devices that send data to an instance of Azure IoT Hub.
 
 1. Go to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). The page displays several prebuilt examples. Sign in by using your Azure account. Then, select **Device Simulation**.
 
@@ -32,58 +34,58 @@ In this section, you create three simulated devices that will send data to an Io
 
    Select **Try Now**.
 
-1. Enter the required parameters on the **Create Device Simulation solution** page:
+1. On the **Create Device Simulation solution** page, set the following parameters:
 
-   | Parameter | Description |
-   | --- | --- |
-   | **Solution name** |	Enter a unique value for creation of a new resource group. The listed Azure resources are created and assigned to the resource group. |
-   | **Subscription** |	Specify the same subscription used for creation of your Time Series Insights environment. |
-   | **Region** |	Specify the same region used for creation of your Time Series Insights environment. |
-   | **Deploy optional Azure Resources**	| Leave IoT Hub selected, because the simulated devices will use it to connect and stream data. |
+    | Parameter | Action |
+    | --- | --- |
+    | **Solution name** | Enter a unique value for a new resource group. The listed Azure resources are created and assigned to the resource group. |
+    | **Subscription** | Select the subscription that you used to create your Time Series Insights environment. |
+    | **Region** | Select the region that you used to create your Time Series Insights environment. |
+    | **Deploy optional Azure Resources** | Leave the **IoT Hub** check box selected. The simulated devices use IoT Hub to connect and stream data. |
+ 
+    Select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
 
-   Then, select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
+    [![Create Device Simulation solution page](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-   [![Create Device Simulation solution page](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
+1. In your solution accelerator dashboard, select **Launch**:
 
-1. In your solution accelerator dashboard, select the **Launch** button:
+    [![Launch the device simulation solution](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
 
-   [![Launch the device simulation solution](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+1. You're redirected to the **Microsoft Azure IoT Device Simulation** page. In the upper-right corner of the page, select **New simulation**.
 
-1. You're redirected to the **Microsoft Azure IoT Device Simulation** page. Select **+ New simulation** on the upper right of the page.
+    [![Azure IoT simulation page](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
 
-   [![Azure IoT simulation page](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+1. In the **Simulation setup** pane, set the following parameters:
 
-1. Fill out the required parameters as follows:
-
-    [![Parameters to fill out](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
-
-    |||
+    | Parameter | Action |
     | --- | --- |
     | **Name** | Enter a unique name for a simulator. |
     | **Description** | Enter a definition. |
     | **Simulation duration** | Set to **Run indefinitely**. |
-    | **Device model** | **Name**: Enter `Chiller`. </br>**Amount**: Enter `3`. |
+    | **Device model** | **Name**: Enter **Chiller**. <br />**Amount**: Enter **3**. |
     | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
 
-    Then, select **Start simulation**.
+    [![Parameters to set](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
 
-1. In the device simulation dashboard, see **Active devices** and **Messages per second**.
+    Select **Start simulation**.
+
+    In the device simulation dashboard, note the information shown for **Active devices** and **Messages per second**.
 
     [![Azure IoT simulation dashboard](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## List device simulation properties
 
-Before you create an Azure Time Series Insights environment, you need the names of your IoT hub, subscription, and resource group.
+Before you create an Azure Time Series Insights environment, you need the names of your IoT hub, your subscription, and the resource group.
 
-1. Go to the solution accelerator dashboard and sign in by using the same Azure subscription account. Find the device simulation that you created in the previous steps.
+1. Go to the solution accelerator dashboard. Sign in by using the same Azure subscription account. Find the device simulation that you created in the preceding section.
 
-1. Select your device simulator and select **Launch**. Select the **Azure Management Portal** link on the right side.
+1. Select your device simulator, and then select **Launch**. In the device simulator solution accelerator pane on the right, select the **Azure Management Portal** option.
 
     [![Simulator listings](media/v2-update-provision/device-six-listings.png)](media/v2-update-provision/device-six-listings.png#lightbox)
 
-1. Take note of the IoT hub, subscription, and resource group names.
+1. Note the names of the IoT hub, subscription, and resource group.
 
-    [![Azure portal](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
+    [![Azure portal device simulator dashboard details](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
 
 ## Create a Time Series Insights Preview PAYG environment
 
@@ -91,69 +93,67 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
 1. Sign in to the Azure portal by using your subscription account.
 
-1. Select **Create a resource**.
-
-1. Select the **Internet of Things** category, and then select **Time Series Insights**.
+1. Select **Create a resource** > **Internet of Things** > **Time Series Insights**.
 
    [![Select Internet of Things, and then select Time Series Insights](media/v2-update-provision/payg-one-azure.png)](media/v2-update-provision/payg-one-azure.png#lightbox)
 
-1. Fill in the fields on the page as follows:
+1. In the **Create Time Series Insights environment** pane, on the **Basics** tab, set the following parameters:
 
-   | | |
-   | --- | ---|
-   | **Environment name** | Choose a unique name for the Azure Time Series Insights Preview environment. |
-   | **Subscription** | Enter your subscription where you want to create the Azure Time Series Insights Preview environment. It's a best practice to use the same subscription as the rest of your IoT resources created by the device simulator. |
-   | **Resource group** | A resource group is a container for Azure resources. Choose an existing resource group, or create a new one, for the Azure Time Series Insights Preview environment resource. It's a best practice to use the same resource group as the rest of your IoT resources created by the device simulator. |
-   | **Location** | Choose a datacenter region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to keep the Azure Time Series Insights Preview environment in the same region as other IoT resources. |
-   | **Tier** |  Select **PAYG**, which stands for pay-as-you-go. This is the SKU for the Azure Time Series Insights Preview product. |
-   | **Property ID** | Enter something that uniquely identifies your time series. Note that this field is immutable and can't be changed later. For this tutorial, use `iothub-connection-device-id`. To learn more about the Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
-   | **Storage account name** | Enter a globally unique name for a new storage account to be created. |
+    | Parameter | Action |
+    | --- | ---|
+    | **Environment name** | Enter a unique name for the Azure Time Series Insights Preview environment. |
+    | **Subscription** | Enter the subscription where you want to create the Azure Time Series Insights Preview environment. A best practice is to use the same subscription as the rest of the IoT resources that are created by the device simulator. |
+    | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Preview environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
+    | **Location** | Select a datacenter region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to create your Azure Time Series Insights Preview environment in the same region as your other IoT resources. |
+    | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Preview product. |
+    | **Property ID** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box is immutable. You can't change it later. For this tutorial, enter **iothub-connection-device-id**. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
+    | **Storage account name** | Enter a globally unique name for a new storage account to create. |
+   
+   Select **Next: Event Source**.
 
-   Then, select **Next: Event Source**.
+   [![Pane for creating a Time Series Insights environment](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
 
-   [![Page for creating a Time Series Insights environment](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
+1. On the **Event Source** tab, set the following parameters:
 
-1. On the page for the event source, fill in the fields as follows:
-
-   | | |
+   | Parameter | Action |
    | --- | --- |
-   | **Create an event source?** | Enter `Yes`.|
-   | **Name** | Enter a unique value that's used to name the event source.|
+   | **Create an event source?** | Select **Yes**.|
+   | **Name** | Enter a unique value for the event source name. |
    | **Source type** | Select **IoT Hub**. |
-   | **Select a hub?** | Select **Select existing**. |
-   | **Subscription** | Select the subscription you used for the device simulator. |
+   | **Select a hub** | Choose **Select existing**. |
+   | **Subscription** | Select the subscription that you used for the device simulator. |
    | **IoT Hub name** | Select the IoT hub name you created for the device simulator. |
    | **IoT Hub access policy** | Select **iothubowner**. |
-   | **Iot Hub consumer group** | You need a unique consumer group for Azure Time Series Insights Preview. Select **New**, enter a unique name, and then select **Add**. |
-   | **Timestamp property** | This field is used to identify the timestamp property in your incoming telemetry data. For this tutorial, don't fill in the field. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to.|
+   | **Iot Hub consumer group** | Select **New**, enter a unique name, and then select **Add**. The consumer group must be a unique value in Azure Time Series Insights Preview. |
+   | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to. |
 
-   Then, select **Review + create**.
+   Select **Review + create**.
 
    [![Configure an Event Source](media/v2-update-provision/payg-five-event-source.png)](media/v2-update-provision/payg-five-event-source.png#lightbox)
 
-1. Review all fields on the review page and select **Create**.
+1. On the **Review + Create** tab review your selections, and then select **Create**.
 
-   [![Review + Create page, with Create button](media/v2-update-provision/payg-six-review.png)](media/v2-update-provision/payg-six-review.png#lightbox)
+    [![Review + Create page, with Create button](media/v2-update-provision/payg-six-review.png)](media/v2-update-provision/payg-six-review.png#lightbox)
 
-1. You can see the status of your deployment.
+    You can see the status of your deployment:
 
-   [![Notification that deployment is complete](media/v2-update-provision/payg-seven-deploy.png)](media/v2-update-provision/payg-seven-deploy.png#lightbox)
+    [![Notification that deployment is complete](media/v2-update-provision/payg-seven-deploy.png)](media/v2-update-provision/payg-seven-deploy.png#lightbox)
 
-1. You should receive access to your Azure Time Series Insights Preview environment if you own the tenant. To make sure that you have access:
+1. You have access to your Azure Time Series Insights Preview environment if you own the tenant. To make sure that you have access:
 
-   a. Search for your resource group and select your Azure Time Series Insights Preview environment:
+   1. Search for your resource group, and then select your Azure Time Series Insights Preview environment:
 
       [![Selected environment](media/v2-update-provision/payg-eight-environment.png)](media/v2-update-provision/payg-eight-environment.png#lightbox)
 
-   b. On the Azure Time Series Insights Preview page, go to **Data Access Policies**.
+   1. On the Azure Time Series Insights Preview page, select **Data Access Policies**:
 
-     [![Data access policies](media/v2-update-provision/payg-nine-data-access.png)](media/v2-update-provision/payg-nine-data-access.png#lightbox)
+      [![Data access policies](media/v2-update-provision/payg-nine-data-access.png)](media/v2-update-provision/payg-nine-data-access.png#lightbox)
 
-   c. Verify that your credentials are listed.
+   1. Verify that your credentials are listed:
 
-     [![Listed credentials](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
+      [![Listed credentials](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
-   If your credentials aren't listed, you have to give yourself permission to access the environment. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
+   If your credentials aren't listed, you must grant yourself permission to access the environment. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
 
 ## Analyze data in your environment
 
@@ -161,168 +161,168 @@ In this section, you perform basic analytics on your time series data by using t
 
 1. Go to your Azure Time Series Insights Preview explorer by selecting the URL from the resource page in the [Azure portal](https://portal.azure.com/).
 
-   [![The Time Series Insights Preview explorer URL](media/v2-update-provision/analyze-one-portal.png)](media/v2-update-provision/analyze-one-portal.png#lightbox)
+    [![The Time Series Insights Preview explorer URL](media/v2-update-provision/analyze-one-portal.png)](media/v2-update-provision/analyze-one-portal.png#lightbox)
 
 1. In the explorer, select the **Time Series Instances** node to see all the Azure Time Series Insights Preview instances in the environment.
 
-   [![List of unparented instances](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
+    [![List of unparented instances](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
 
-1. In the time series shown, select the first instance. Then, select **Show Avg pressure**.
+1. Select the first time series instance. Then, select **Show pressure**.
 
-   [![Selected instance with menu command to show average pressure](media/v2-update-provision/analyze-three-show-pressure.png)](media/v2-update-provision/analyze-three-show-pressure.png#lightbox)
+    [![Selected time series instance with menu command to show average pressure](media/v2-update-provision/analyze-three-show-pressure.png)](media/v2-update-provision/analyze-three-show-pressure.png#lightbox)
 
-   A time series chart should appear on the right. Adjust the **Interval** to `15s`.
+    A time series chart appears. Change the **Interval** to **15s**.
 
-   [![Time series chart](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
+    [![Time series chart](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
 
-1. Repeat **step 3** with the other two time series. You can then view all time series, as shown in this chart:
+1. Repeat step 3 with the other two time series instances. You can view all time series instances, as shown in this chart:
 
-   [![Chart for all time series](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
+    [![Chart for all time series](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
 
-1. Modify the time range to see time series trends over the last hour.
+1. In the **Timeframe** option box, modify the time range to see time series trends over the last hour:
 
-   a. Select the **Timeframe** option box:
-
-      [![Set the time range to an hour](media/v2-update-provision/analyze-six-time.png)](media/v2-update-provision/analyze-six-time.png#lightbox)
+    [![Set the time range to an hour](media/v2-update-provision/analyze-six-time.png)](media/v2-update-provision/analyze-six-time.png#lightbox)
 
 ## Define and apply a model
 
-In this section, you apply a model to structure your data. To complete the model, you define types, hierarchies, and instances. To learn more about data modeling, go to [Time Series Model](./time-series-insights-update-tsm.md).
+In this section, you apply a model to structure your data. To complete the model, you define types, hierarchies, and instances. To learn more about data modeling, see [Time Series Model](./time-series-insights-update-tsm.md).
 
 1. In the explorer, select the **Model** tab:
 
    [![Model tab in the explorer](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
 
-1. Select **+ Add** to add a type. On the right side, a type editor opens.
+1. Select **Add** to add a type:
 
    [![The Add button for types](media/v2-update-provision/define-two-add.png)](media/v2-update-provision/define-two-add.png#lightbox)
 
-1. Define three variables for the type: pressure, temperature, and humidity. Enter the following information:
+1. Next, you define three variables for the type: *pressure*, *temperature*, and *humidity*. In the **Add a Type** pane, set the following parameters:
 
-   | | |
-   | --- | ---|
-   | **Name** | Enter `Chiller`. |
-   | **Description** | Enter `This is a type definition of Chiller`. |
+    | Parameter | Action |
+    | --- | ---|
+    | **Name** | Enter **Chiller**. |
+    | **Description** | Enter **This is a type definition of Chiller**. |
 
-   * Define pressure with three variables:
+   * To define *pressure*, under **Variables**, set the following parameters:
 
-      | | |
-      | --- | ---|
-      | **Name** | Enter `Avg Pressure`. |
-      | **Value** | Select **pressure (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights Preview starts receiving events. |
-      | **Aggregation Operation** | Select **AVG**. |
+     | Parameter | Action |
+     | --- | ---|
+     | **Name** | Enter **Avg Pressure**. |
+     | **Value** | Select **pressure (Double)**. It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Preview starts receiving events. |
+     | **Aggregation Operation** | Select **AVG**. |
 
       [![Selections for defining pressure](media/v2-update-provision/define-three-variable.png)](media/v2-update-provision/define-three-variable.png#lightbox)
 
-      Select  **+ Add Variable** to add the next variable.
+      To add the next variable, select  **Add Variable**.
 
-   * Define temperature:
+   * Define *temperature*:
 
-      | | |
-      | --- | ---|
-      | **Name** | Enter `Avg Temperature`. |
-      | **Value** | Select **temperature (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights Preview starts receiving events. |
-      | **Aggregation Operation** | Select **AVG**.|
+     | Parameter | Action |
+     | --- | ---|
+     | **Name** | Enter **Avg Temperature**. |
+     | **Value** | Select **temperature (Double)**. It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Preview starts receiving events. |
+     | **Aggregation Operation** | Select **AVG**.|
 
       [![Selections for defining temperature](media/v2-update-provision/define-four-avg.png)](media/v2-update-provision/define-four-avg.png#lightbox)
 
-   * Define humidity:
+      To add the next variable, select  **Add Variable**.
+
+   * Define *humidity*:
 
       | | |
       | --- | ---|
-      | **Name** | Enter `Max Humidity` |
-      | **Value** | Select **humidity (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights Preview starts receiving events. |
+      | **Name** | Enter **Max Humidity** |
+      | **Value** | Select **humidity (Double)**. It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Preview starts receiving events. |
       | **Aggregation Operation** | Select **MAX**.|
 
       [![Selections for defining temperature](media/v2-update-provision/define-five-humidity.png)](media/v2-update-provision/define-five-humidity.png#lightbox)
 
-   Then, select **Create**.
+    Select **Create**.
 
-1. You can see your type added:
+    You can see the type you added:
 
-   [![Information about the added type](media/v2-update-provision/define-six-type.png)](media/v2-update-provision/define-six-type.png#lightbox)
+    [![Information about the added type](media/v2-update-provision/define-six-type.png)](media/v2-update-provision/define-six-type.png#lightbox)
 
-1. The next step is to add a hierarchy. In the **Hierarchies** section, select **+ Add**:
+1. The next step is to add a hierarchy. Under **Hierarchies**, select **Add**:
 
-   [![Hierarchies tab with Add button](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
+    [![Hierarchies tab with Add button](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
 
-1. Define the hierarchy. Fill in the fields as follows:
+1. In the **Edit Hierarchy** pane, set the following parameters:
 
-   | | |
+   | Parameter | Action |
    | --- | ---|
-   | **Name** | Enter `Location Hierarchy`. |
-   | **Level 1** | Enter `Country`. |
-   | **Level 2** | Enter `City`. |
-   | **Level 3** | Enter `Building`. |
+   | **Name** | Enter **Location Hierarchy**. |
+   | **Level 1** | Enter **Country**. |
+   | **Level 2** | Enter **City**. |
+   | **Level 3** | Enter **Building**. |
 
-   Then, select **Create**.
+   Select **Save**.
 
-   [![Hierarchy fields with Create button](media/v2-update-provision/define-eight-add-hierarchy.png)](media/v2-update-provision/define-eight-add-hierarchy.png#lightbox)
+    [![Hierarchy fields with Create button](media/v2-update-provision/define-eight-add-hierarchy.png)](media/v2-update-provision/define-eight-add-hierarchy.png#lightbox)
 
-1. You can see the hierarchy that you created:
+   You can see the hierarchy that you created:
 
-   [![Information about the hierarchy](media/v2-update-provision/define-nine-created.png)](media/v2-update-provision/define-nine-created.png#lightbox)
+    [![Information about the hierarchy](media/v2-update-provision/define-nine-created.png)](media/v2-update-provision/define-nine-created.png#lightbox)
 
-1. Select **Instances** on the left. After the instances appear, select the first instance, and then select **Edit**:
+1. Select **Instances**. Select the first instance, and then select **Edit**:
 
-   [![Selecting the Edit button for an instance](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
+    [![Selecting the Edit button for an instance](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
 
-1. On the right side, a text editor appears. Add the following information:
+1. In the **Edit instances** pane, set the following parameters:
 
-   | | |
-   | --- | --- |
-   | **Type** | Select **Chiller**. |
-   | **Description** | Enter `Instance for Chiller-01.1`. |
-   | **Hierarchies** | Select **Location Hierarchy**. |
-   | **Country** | Enter `USA`. |
-   | **City** | Enter `Seattle`. |
-   | **Building** | Enter `Space Needle`. |
+    | Parameter | Action |
+    | --- | --- |
+    | **Type** | Select **Chiller**. |
+    | **Description** | Enter **Instance for Chiller-01.1**. |
+    | **Hierarchies** | Select **Location Hierarchy**. |
+    | **Country** | Enter **USA**. |
+    | **City** | Enter **Seattle**. |
+    | **Building** | Enter **Space Needle**. |
 
-    Then, select **Save**.
+    [![Instance fields with the Save button](media/v2-update-provision/define-eleven-chiller.png)](media/v2-update-provision/define-eleven-chiller.png#lightbox)
 
-   [![Instance fields with Save button](media/v2-update-provision/define-eleven-chiller.png)](media/v2-update-provision/define-eleven-chiller.png#lightbox)
+   Select **Save**.
 
-1. Repeat the previous step for the other sensors. Use the following fields:
+1. Repeat the preceding step for the other sensors. Update the following values:
 
    * For Chiller 01.2:
 
-     | | |
+     | Parameter | Action |
      | --- | --- |
      | **Type** | Select **Chiller**. |
-     | **Description** | Enter `Instance for Chiller-01.2`. |
+     | **Description** | Enter **Instance for Chiller-01.2**. |
      | **Hierarchies** | Select **Location Hierarchy**. |
-     | **Country** | Enter `USA`. |
-     | **City** | Enter `Seattle`. |
-     | **Building** | Enter `Pacific Science Center`. |
+     | **Country** | Enter **USA**. |
+     | **City** | Enter **Seattle**. |
+     | **Building** | Enter **Pacific Science Center**. |
 
    * For Chiller 01.3:
 
-     | | |
+     | Parameter | Action |
      | --- | --- |
      | **Type** | Select **Chiller**. |
-     | **Description** | Enter `Instance for Chiller-01.3`. |
+     | **Description** | Enter **Instance for Chiller-01.3**. |
      | **Hierarchies** | Select **Location Hierarchy**. |
-     | **Country** | Enter `USA`. |
-     | **City** | Enter `New York`. |
-     | **Building** | Enter `Empire State Building`. |
+     | **Country** | Enter **USA**. |
+     | **City** | Enter **New York**. |
+     | **Building** | Enter **Empire State Building**. |
 
-1. Go to the **Analyze** tab and refresh the page. Expand all hierarchy levels to find the time series.
+1. Select the **Analyze** tab, and then refresh the page. Under **Location Hierarchy**, expand all hierarchy levels to display the time series instances:
 
    [![The Analyze tab](media/v2-update-provision/define-twelve.png)](media/v2-update-provision/define-twelve.png#lightbox)
 
-1. To explore time series over the last hour, change **Quick Times** to **Last Hour**:
+1. To explore the time series instances over the last hour, change **Quick Times** to **Last Hour**:
 
     [![The Quick Times box, with Last Hour selected](media/v2-update-provision/define-thirteen-explore.png)](media/v2-update-provision/define-thirteen-explore.png#lightbox)
 
-1. Select the time series under **Pacific Science Center** and select **Show Max Humidity**.
+1. Under **Pacific Science Center**, select the time series instance, and then select **Show Max Humidity**.
 
-    [![Selected time series with Show Max Humidity menu selection](media/v2-update-provision/define-fourteen-show-max.png)](media/v2-update-provision/define-fourteen-show-max.png#lightbox)
+    [![Selected time series instance and the Show Max Humidity menu selection](media/v2-update-provision/define-fourteen-show-max.png)](media/v2-update-provision/define-fourteen-show-max.png#lightbox)
 
-1. The time series for **Max Humidity** with an interval size of **1 minute** opens. Select a region to filter a range. Then, right-click and select **Zoom** to analyze events in the time frame:
+1. The time series for **Max Humidity** with an interval size of **1 minute** opens. To filter a range, select a region. To analyze events in the time frame, right-click the chart, and then select **Zoom**:
 
    [![Selected range with Zoom command on a shortcut menu](media/v2-update-provision/define-fifteen-filter.png)](media/v2-update-provision/define-fifteen-filter.png#lightbox)
 
-1. You can also select a region and then right-click to see event details:
+1. To see event details, select a region, and then right-click the chart:
 
    [![Detailed list of events](media/v2-update-provision/define-eighteen.png)](media/v2-update-provision/define-eighteen.png#lightbox)
 

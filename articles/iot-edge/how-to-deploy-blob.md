@@ -120,7 +120,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 #### Specify routes
 
-Routes are not supported by the blob storage module, so select **Next** to continue to the review section.
+Keep the default routes, and select **Next** to continue to the review section.
 
 #### Review deployment
 

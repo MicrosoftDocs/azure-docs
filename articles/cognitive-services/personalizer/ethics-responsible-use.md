@@ -123,17 +123,13 @@ The following are areas of design for responsible implementations of AI. Learn m
 * Archive information and assets - such as models, learning policies, and other data - that Personalizer uses to function, to be able to reproduce results.
 
 ### Transparency
-*AI Systems Should be Understandable*. With Personalizer
+*AI Systems Should be Understandable*. With Personalizer:
 
-•	Give users information about how the content was personalized. For example, you can show your users a button labeled "Why These Suggestions?" showing which top features of the user and actions played a role in the results of Personalizer.
-•	Make sure your terms of use make mention that you will use information about users and their behavior to personalize the experience.
-
-
-* *Give users information about how the content was personalized.* For example, you can show your users a button labeled `Why These Suggestions?` showing which top features of the user and actions played a role in the personalization.
-* Make sure your terms of use mention that you will use information about users to personalize the experience.
+* *Give users information about how the content was personalized.* For example, you can show your users a button labeled `Why These Suggestions?` showing which top features of the user and actions played a role in the results of Personalizer.
+* Make sure your terms of use make mention that you will use information about users and their behavior to personalize the experience.
 
 ### Fairness
-*AI Systems should treat all people fairly.
+*AI Systems should treat all people fairly*.
 
 * Don't use Personalizer for use cases where the outcomes are long-term, consequential, or involve real harm.
 * Don't use features that are not appropriate to personalize content with, or that may help propagate undesired biases. For example, anyone with similar financial circumstances should see the same personalized recommendations for financial products.

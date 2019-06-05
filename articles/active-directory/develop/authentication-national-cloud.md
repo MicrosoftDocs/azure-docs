@@ -24,19 +24,19 @@ ms.collection: M365-identity-device-management
 
 National clouds are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
 
-Including global cloud​, Azure Active Directory is deployed in the following National clouds:  
+Including the global cloud​, Azure Active Directory (Azure AD) is deployed in the following national clouds:  
 
-- Azure US Government
+- Azure Government
 - Azure Germany
 - Azure China 21Vianet
 
-National clouds are unique and different environment than Azure global. Therefore, it is important to be aware of some key differences while developing your application for these environments such as registering applications, acquiring tokens, and configuring endpoints.
+National clouds are unique and a separate environment from Azure global. It's important to be aware of key differences while developing your application for these environments. Differences include registering applications, acquiring tokens, and configuring endpoints.
 
 ## App registration endpoints
 
-There's a separate Azure portal for each one of the national clouds. To integrate applications with the Microsoft Identity Platform in a national cloud, you are required to register your application separately in each of the Azure portal specific to the environment.
+There's a separate Azure portal for each one of the national clouds. To integrate applications with the Microsoft identity platform in a national cloud, you're required to register your application separately in each Azure portal that's specific to the environment.
 
-The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to register an application for each national cloud.
+The following table lists the base URLs for the Azure AD endpoints used to register an application for each national cloud.
 
 | National cloud | Azure AD portal endpoint |
 |----------------|--------------------------|
@@ -49,33 +49,33 @@ The following table lists the base URLs for the Azure Active Directory (Azure AD
 
 All the national clouds authenticate users separately in each environment and have separate authentication endpoints.
 
-The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to acquire tokens for each national cloud.
+The following table lists the base URLs for the Azure AD endpoints used to acquire tokens for each national cloud.
 
-| National cloud | Azure AD auth endpoint |
+| National cloud | Azure AD authentication endpoint |
 |----------------|-------------------------|
 | Azure AD for US Government | `https://login.microsoftonline.us` |
 | Azure AD Germany| `https://login.microsoftonline.de` |
 | Azure AD China operated by 21Vianet | `https://login.chinacloudapi.cn` |
 | Azure AD (global service)| `https://login.microsoftonline.com` |
 
-- Requests to the Azure AD authorization or token endpoints can be formed using the appropriate region-specific base URL. For example, for Azure Germany:
+You can form requests to the Azure AD authorization or token endpoints by using the appropriate region-specific base URL. For example, for Azure Germany:
 
   - Authorization common endpoint is `https://login.microsoftonline.de/common/oauth2/authorize`.
   - Token common endpoint is `https://login.microsoftonline.de/common/oauth2/token`.
 
-- For single-tenant applications, replace common in the previous URLs with your tenant ID or name, for example, `https://login.microsoftonline.de/contoso.com`.
+For single-tenant applications, replace "common" in the previous URLs with your tenant ID or name. An example is `https://login.microsoftonline.de/contoso.com`.
 
 > [!NOTE]
-> The [Azure AD v2.0 authorization]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) and token endpoints are only available for the global service. It is not yet supported for national cloud deployments.
+> The [Azure AD v2.0 authorization]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) and token endpoints are available only for the global service. They're not supported for national cloud deployments.
 
 ## Microsoft Graph API
 
-To learn how to call the Microsoft Graph APIs in National Cloud environment go to [Microsoft Graph in national cloud](https://developer.microsoft.com/graph/docs/concepts/deployments).
+To learn how to call the Microsoft Graph APIs in a national cloud environment, go to [Microsoft Graph in national cloud deployments](https://developer.microsoft.com/graph/docs/concepts/deployments).
 
 > [!IMPORTANT]
-> Certain services and features that are in specific regions of the global service might not be available in all of the National clouds. To find out what services are available go to [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+> Certain services and features that are in specific regions of the global service might not be available in all of the national clouds. To find out what services are available, go to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
-Follow this [Microsoft Authentication Library (MSAL) tutorial](msal-national-cloud.md) to learn how to build an application using Microsoft identity platform. Specifically, this app will sign in a user, get an access token to call the Microsoft Graph API.
+To learn how to build an application by using the Microsoft identity platform, follow the [Microsoft Authentication Library (MSAL) tutorial](msal-national-cloud.md). Specifically, this app will sign in a user and get an access token to call the Microsoft Graph API.
 
 ## Next steps
 

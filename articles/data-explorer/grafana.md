@@ -203,6 +203,6 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
 ## Next steps
 
-[Write queries for Azure Data Explorer](write-queries.md)
+* [Write queries for Azure Data Explorer](write-queries.md)
 
-[Tutorial: Visualize data from Azure Data Explorer in Power BI](visualize-power-bi.md)
+* [Tutorial: Visualize data from Azure Data Explorer in Power BI](visualize-power-bi.md)

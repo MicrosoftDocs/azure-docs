@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
@@ -84,18 +84,17 @@ You will need to have a native client application registered with Microsoft usin
     - Select ***Azure Active Directory*** > ***App Registrations***.
 
 2. Create the app
-    - Select **New application registration**.
+    - Select **New registration**.
     - Enter an app name in the **Name** field.
-    - In **Application type** select **Native**.
-    - In **Redirect URI**, enter `http://localhost`.
+    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+    - In **Redirect URI**, select **Public client (mobile and desktop)** from the dropdown and enter `http://localhost`.
+    - Click **Register**.
 
 3. Configure Microsoft Graph
-    - Select **Settings > Required permissions**.
-    - Select **Add**, inside **Select an API** select ***Microsoft Graph***.
-    - Select the permission **Sign in and read user profile**, then hit **Select** to save.
-        - This permission maps to the `User.Read` scope.
-    - Optional: Inside **Required permissions > Windows Azure Active Directory**, remove the selected permission **Sign in and read user profile**. This will avoid the user consent page listing the permission twice.
-
+    - Select **API permissions**.
+    - Select **Add a permission**, inside **Select an API** select ***Microsoft Graph***.
+    - Under **Delegated permissions**, select the permission **User.Read**, then hit **Add** to save.        
+    
 4. Congrats! Your app is successfully configured. In the next section, you'll need:
     - `Application ID`
     - `Redirect URI`
