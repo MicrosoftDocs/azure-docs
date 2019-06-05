@@ -122,18 +122,15 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
 |SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
 
+Autoresuming is also triggered during service updates.
+
 ### Connectivity
 
 If a serverless database is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
 
 ### Latency
 
-The latency to autopause and autoresume a serverless database is generally estimated as follows:
-
-|Operation|Estimated latency|
-|---|---|
-|Autopause|Order of 1-10 minutes|
-|Autoresume|Order of 1 minute|
+The latency to autoresume and autopause a serverless database is generally order of 1 minute to autoresume and 1-10 minutes to autopause.
 
 ### Feature support
 
@@ -142,7 +139,6 @@ The following features do not support autopausing and autoresuming. That is, if 
 - Geo-replication (active geo-replication and auto failover groups).
 - Long-term backup retention (LTR).
 - The sync database used in SQL data sync.
-
 
 ## Onboarding into serverless compute tier
 
