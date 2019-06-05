@@ -77,7 +77,7 @@ You can enable the network interconnection by using the Azure portal and the OCI
 1. Once provisioned, view the properties of the circuit by selecting it. On the **Overview** page for your circuit, copy the **Service key** for your circuit.
 1. Create an [ExpressRoute peering](../../../expressroute/expressroute-howto-routing-portal-resource-manager.md) of type **Azure Private** and enter the primary and secondary /30 subnets. Similarly, on the OCI side, enter the primary BGP IP address space and the secondary BGP IP address space corresponding to the address space entered on the Microsoft side. 
 1. Sign in to the OCI console.
-1. Provision a [FastConnect circuit](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectprovider.htm). 
+1. Provision a [FastConnect private virtual circuit](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectprovider.htm). 
     * Add **Microsoft Azure** as your provider.
     * In **Provider Service Key**, paste the ExpressRoute service key. 
     * Select the same geographic peering location that you selected while setting up the Azure ExpressRoute circuit.
