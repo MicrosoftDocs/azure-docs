@@ -56,7 +56,7 @@ You can use Kusto Explorer, ADX web Explorer, Jupyter Kqlmagic, or REST API to q
 
 ### Query against the native Azure Data Explorer cluster 
 
-Run queries against your Azure Data Explorer cluster (such as *StormEvents* table). When running the query, verify that your native Azure Data Explorer cluster is selected in the left pane.
+Run queries on your Azure Data Explorer cluster (such as *StormEvents* table). When running the query, verify that your native Azure Data Explorer cluster is selected in the left pane.
 
 ```kusto
 StormEvents | take 10 // Demonstrate query through the native ADX cluster
@@ -76,7 +76,7 @@ Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 
 ### Query against your LA or AI cluster from the ADX proxy  
 
-When you run queries against your LA or AI cluster from the proxy (such as on *Perf* table), verify your ADX native cluster is selected in the left pane
+When you run queries on your LA or AI cluster from the proxy, verify your ADX native cluster is selected in the left pane
 
 ```kusto
 cluster(`https://ade.loganalytics.io/subscriptions/<subscription ID>/workspaces/<workspace name>`) .database(`<workspace name).Perf
@@ -87,8 +87,7 @@ cluster(`https://ade.loganalytics.io/subscriptions/<subscription ID>/workspaces/
 
 ### Cross query of LA or AI cluster and the ADX cluster from the ADX proxy 
 
-> [!IMPORTANT]
-> When you run cross cluster queries from the proxy, verify your ADX native cluster is selected in the left pane.
+When you run cross cluster queries from the proxy, verify your ADX native cluster is selected in the left pane
 
 ```kusto
 unionStormEvents, cluster(`https://ade.loganalytics.io/subscriptions/<subscription ID>/workspaces/<workspace name>`).database(<workspace name>).Perf
@@ -114,7 +113,7 @@ The following syntax options are available when calling the Application Insights
 ### Application Insights app and Log Analytics workspace names
 
 * If names contain special characters, they are replaced by URL encoding in the proxy cluster name. 
-* If names include characters that don't meet [KQL identifier naming rules](/azure/kusto/query/schema-entities/entity-names), they'll be replaced by the dash character **-**.
+* If names include characters that don't meet [KQL identifier name rules](/azure/kusto/query/schema-entities/entity-names), the are replaced by the dash character **-**.
 
 ## Next steps
 
