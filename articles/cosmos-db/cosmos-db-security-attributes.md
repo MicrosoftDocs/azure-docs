@@ -12,7 +12,7 @@ ms.date: 05/08/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes Azure Cosmos DB
+# Security attributes for Azure Cosmos DB
 
 This article documents the common security attributes built into Azure Cosmos DB.
 

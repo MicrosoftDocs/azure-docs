@@ -55,7 +55,7 @@
       items:
       - name: .NET Core console (daemon)
         href: quickstart-v2-netcore-daemon.md
-      - name: ASP.NET daemon Web app
+      - name: ASP.NET daemon web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
     items:
@@ -228,15 +228,15 @@
           - name: Initialize applications (JS)
             href: msal-js-initializing-client-applications.md
         - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md
-        - name: Test MSAL applications
-          href: msal-testing.md
+          href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
         - name: Single sign-on (JS)
           href: msal-js-sso.md
         - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md  
+          href: msal-js-prompt-behavior.md 
+        - name: ADFS support (.NET)
+          href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
           items:
           - name: JavaScript

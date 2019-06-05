@@ -48,7 +48,7 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** [Add resource roles to access package](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resource roles](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [Add a policy](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/policy.png) |
 
-### I want to allow users from my business partners (including users not yet in my directory) to request access to groups, applications, or SharePoint sites
+### I want to allow users from my business partners directory (including users not yet in my directory) to request access to groups, applications, or SharePoint sites
 
 > [!div class="mx-tableFixed"]
 > | Steps | Example |

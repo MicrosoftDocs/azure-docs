@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/29/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -68,22 +68,13 @@ Here are the types of resources you can manage access to with entitlement manage
 
 - Azure AD security groups
 - Office 365 groups
-- Azure AD enterprise applications
-- SaaS applications
-- Custom-integrated applications
-- SharePoint Online site collections
-- SharePoint Online sites
+- Azure AD enterprise applications, including SaaS application and custom-integrated applications that support federation or provisioning
+- SharePoint Online site collections and sites
 
-## Prerequisites
+You can also control access to other resources that rely upon Azure AD security groups or Office 365 groups.  For example:
 
-To use Azure AD entitlement management (Preview), you must have one of the following licenses:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
-
-For more information, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
-
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
+- You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
+- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
 
 ## What are access packages and policies?
 
@@ -136,6 +127,12 @@ To better understand entitlement management and its documentation, you should re
 | resource directory | A directory that has one or more resources to share. |
 | assigned users | An assignment of an access package to a user or group. |
 | enable | The process of making an access package available for users to request. |
+
+## License requirements
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
 
 ## Next steps
 
