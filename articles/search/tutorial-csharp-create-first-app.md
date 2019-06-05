@@ -650,7 +650,7 @@ We will be testing the Error view later on in this tutorial.
 
 ### Add the RunQueryAsync method
 
-The Azure Search itself is encapsulated in our **RunQueryAsync** method. 
+The Azure Search call is encapsulated in our **RunQueryAsync** method. 
 
 1. First add some static variables to set up the Azure service and a call to initiate them.
 
@@ -789,7 +789,7 @@ It is important to verify that our error handling features work as they should, 
 
 ## Takeaways
 
-You should consider the following takeaways from this project:
+Consider the following takeaways from this project:
 
 * An Azure Search call is concise, and it is easy to interpret the results.
 * Temporary storage persists for only one call and needs to be reset to survive additional calls.

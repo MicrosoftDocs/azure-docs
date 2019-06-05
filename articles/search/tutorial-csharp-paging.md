@@ -574,7 +574,7 @@ More sophisticated infinite scrolling systems might use the mouse wheel or simil
 
 ## Takeaways
 
-You should consider the following takeaways from this project:
+Consider the following takeaways from this project:
 
 * Numbered paging is good for searches where the order of the results is somewhat arbitrary, meaning there may well be something of interest to your users on the later pages.
 * Infinite scrolling is good when the order of results is particularly important. For example, if the results are ordered on the distance from the center of a destination city.
@@ -588,4 +588,4 @@ You should consider the following takeaways from this project:
 The next two tutorials use numbered paging. The later tutorial on geospatial filtering uses infinite scrolling.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Add autocompletion and suggestions to Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)
+> [C# Tutorial: Add autocompletion and suggestions - Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)

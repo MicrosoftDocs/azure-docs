@@ -30,13 +30,6 @@ We will use the numbered paging app you might have completed in the second tutor
 
 To implement facets, we do not need to change any of the models (the data classes). We do need to add some script to the view, and an action to the controller.
 
-### Start with the numbered paging Azure Search app
-
-1. If you created it yourself and have the project handy, start from there. Alternatively download the numbered paging app from here.
-xxxx
-
-2. Run the project to make sure it works.
-
 ### Examine the model fields marked as IsFacetable
 
 In order for a field to be located in a facet search, it must be tagged with **IsFacetable**.
@@ -132,7 +125,7 @@ The autocomplete function called in the script above is not something we have to
 ```cs
 <head>
     <meta charset="utf-8">
-    <title>Azure search facets demo</title>
+    <title>Facets demo</title>
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -227,7 +220,7 @@ Facet searches are best used when:
 
 ## Takeaways
 
-You should consider the following takeaways from this project:
+Consider the following takeaways from this project:
 
 * Facets are an efficient way of getting a helpful user experience without the repeated server calls.
 * Facets work well if a manageable (to the user) number of results are displayed when they are typing.
@@ -240,4 +233,4 @@ You should consider the following takeaways from this project:
 So far we have limited ourselves to text-based searches. In the next tutorial we look at providing additional numerical data in the form of latitude, longitude, and radius. And we look at ordering results (up to this point, results are ordered simply in the order that they are located in the database).
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Add geospatial filters to Azure Search](tutorial-csharp-geospatial-searches.md)
+> [C# Tutorial: Add geospatial filters - Azure Search](tutorial-csharp-geospatial-searches.md)

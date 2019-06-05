@@ -15,9 +15,9 @@ Learn how to implement autocompletion (type-ahead and suggestions) when a user s
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Add suggestions to Azure Search
+> * Add suggestions
 > * Add highlighting to the suggestions
-> * Add autocompletion to Azure Search
+> * Add autocompletion
 > * Combine autocompletion and suggestions
 
 ## Prerequisites
@@ -26,7 +26,7 @@ To complete this tutorial, you need to:
 
 Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This can either be your own version, or install it from TBD-Paging-Numbers
 
-## Add suggestions to Azure Search
+## Add suggestions
 
 Let's start with the simplest case of offering up alternatives to the user: simply a drop-down list of suggestions.
 
@@ -64,7 +64,7 @@ The autocomplete function called in the script above is not something we have to
 ```cs
 <head>
     <meta charset="utf-8">
-    <title>Azure search autocomplete demo</title>
+    <title>Autocomplete demo</title>
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -191,7 +191,7 @@ We can improve the appearance of the suggestions to the user a bit, by setting t
 
 One of the questions a developer needs to answer is when is a script working "well enough" and when should its quirks be addressed. We will not be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if taking highlighting further.
 
-## Add autocompletion to Azure Search
+## Add autocompletion
 
 Another variation that is slightly different from suggestions is autocompletion (sometimes called "type-ahead"). Again we will start with the simplest implementation before moving onto improving the user experience.
 
@@ -451,9 +451,9 @@ Of course, you may decide that it is simpler to load in a library that offers th
 
 ## Takeaways
 
-You should consider the following takeaways from this project:
+Consider the following takeaways from this project:
 
-* Autocompletion (also known as "type-ahead") and suggestions enable the user to type a few keys to locate exactly what they want.
+* Autocompletion (also known as "type-ahead") and suggestions can enable the user to type only a few keys to locate exactly what they want.
 * Autocompletion and suggestions working together can provide a rich user experience.
 * Always test autocompletion functions with all forms of input.
 * Using the **setInterval** function can be useful in verifying and correcting UI elements.
@@ -463,4 +463,4 @@ You should consider the following takeaways from this project:
 One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If this results in slower than expected responses then the user experience diminishes. Facets are an interesting alternative to avoid these repeated calls, which we will look at next.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Use facets to improve the efficiency of Azure Search](tutorial-csharp-facets.md)
+> [C# Tutorial: Use facets to improve network efficiency - Azure Search](tutorial-csharp-facets.md)

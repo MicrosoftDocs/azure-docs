@@ -15,7 +15,7 @@ Learn how to implement a geospatial filter. A geospatial filter limits search re
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Build a geospatial filter into Azure Search
+> * Build a geospatial filter
 > * Add code to order results
 
 ## Prerequisites
@@ -24,7 +24,7 @@ To complete this tutorial, you need to:
 
 Have the infinite scrolling variant of the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This can either be your own version, or install it from TBD-Paging-Infinite
 
-## Build a geospatial filter into Azure Search
+## Build a geospatial filter
 
 A geospatial search removes all data items that are outside of a specified radius of a certain point. In order to implement this, we need to accept three new inputs: latitude, longitude, and radius. Also, providing the distance back to the user with the results would seem to be an obvious requirement of our view of the results. Because of the strict ordering based on distance, using an infinite scrolling system seems to make sense for this scenario.
 
@@ -386,7 +386,7 @@ You should get some results, and check they are all within the 2000 Km radius, b
 
 ## Add code to order results
 
-1. We need to make an addition to our Azure Search parameters to specify that the results should be ordered on the distance they are from the point the user has specified. We need to set the **OrderBy** parameter. Change the **SearchParameters** initialization (in the **Geo** action of the home controller) to the following.
+1. We need to make an addition to our search parameters to specify that the results should be ordered on the distance they are from the point the user has specified. We need to set the **OrderBy** parameter. Change the **SearchParameters** initialization (in the **Geo** action of the home controller) to the following.
 
 ```cs
                 SearchParameters sp = new SearchParameters()
@@ -435,7 +435,7 @@ A more realistic alternative than alphabetic ordering of display results would b
 
 ## Takeaways
 
-You should consider the following takeaways from this project:
+Consider the following takeaways from this project:
 
 * Geospatial filters provide valuable context to many user searches. Location is important to most users.
 * Ordering should rarely, if ever, be left to the order of the data. Entering one or more **OrderBy** criteria is good practice.
