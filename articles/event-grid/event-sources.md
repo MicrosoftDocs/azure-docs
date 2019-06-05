@@ -70,7 +70,7 @@ For examples of Event Hubs as a handler, see [Event Hubs handler](event-handlers
 
 ## IoT Hub
 
-Subscribe to IoT Hub events to respond to device created, deleted, connected and disconnected events.
+Subscribe to IoT Hub events to respond to device created, deleted, connected, disconnected and telemetry events.
 
 |Title  |Description  |
 |---------|---------|

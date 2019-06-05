@@ -12,27 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.author: juliako
 
 ---
-# Dynamic manifests
 
-Media Services offers **Dynamic Manifests** based on pre-defined filters. Once you define filters (see [define filters](filters-concept.md)), your clients could use them to stream a specific rendition or sub-clips of your video. They would specify filter(s) in the streaming URL. Filters could be applied to adaptive bitrate streaming protocols: Apple HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming. 
+# Pre-filtering manifests with Dynamic Packager
 
-The following table shows some examples of URLs with filters:
+When delivering adaptive bitrate streaming content to devices, you often need to publish multiple versions of a manifest to target specific device capabilities or available network bandwidth. The [Dynamic Packager](dynamic-packaging-overview.md) allows you to  specify filters which can filter out specific codecs, resolutions, bitrates, and audio track combinations on-the-fly removing the need to create multiple copies. You simply need to publish a new URL with a specific set of filters configured to your target devices (iOS, Android, SmartTV, or browsers) and the network capabilities (high-bandwidth, mobile, or low-bandwidth scenarios). In this case, clients can manipulate the streaming of your content through the query string (by specifying available [Asset filters or Account filters](filters-concept.md)) and use filters to stream specific sections of a stream.
 
-|Protocol|Example|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
+Some delivery scenarios require that you make sure a customer is unable to access specific tracks. For example, you may not want to publish a manifest that contains HD tracks to a specific subscriber tier. Or, you may want to remove specific adaptive bitrate (ABR) tracks to reduce cost of delivery to a specific device that would not benefit from the additional tracks. In this case you could associate a list of pre-created filters with your [Streaming Locator](streaming-locators-concept.md) on creation. In this case, clients cannot manipulate how the content is streamed, it is defined by the **Streaming Locator**.
+
+You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device specific filters that your client specifies in the URL. This can be useful to restrict additional tracks like metadata or event streams, audio languages or descriptive audio tracks. 
+
+This ability to specify different filters on your stream, provides a powerful **Dynamic Manifest** manipulation solution to target multiple use-case scenarios for your target devices. This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you might want to use this feature.
+
 > [!NOTE]
-> Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
+> Dynamic Manifests do not change the asset and the default manifest for that asset. 
 > 
-
-This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you might want to use this feature.
 
 ## Manifests overview
 
@@ -51,6 +48,16 @@ For the REST example, see [Upload, encode, and stream files with REST](stream-fi
 You can use the [Azure Media Player demo page](https://aka.ms/amp) to monitor the bitrate of a video stream. The demo page displays diagnostics info in the **Diagnostics** tab:
 
 ![Azure Media Player diagnostics][amp_diagnostics]
+ 
+### Examples: URLs with filters in query string
+
+Filters could be applied to adaptive bitrate streaming protocols: HLS, MPEG-DASH, and Smooth Streaming. The following table shows some examples of URLs with filters:
+
+|Protocol|Example|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## Rendition filtering
 
@@ -117,10 +124,6 @@ To combine filters, you need to set the filter names to the manifest/playlist UR
 You can combine up to three filters. 
 
 For more information, see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
-
-## Associate filters with Streaming Locator
-
-See [Filters: associate with Streaming Locators](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## Considerations and limitations
 

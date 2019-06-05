@@ -170,7 +170,7 @@ The following diagram shows the training workflow.
 * Azure Machine Learning service is called with the snapshot ID for the code snapshot saved above
 * Azure Machine Learning service creates run ID (optional) & Azure Machine Learning service token, which is later used by the compute targets like Machine Learning Compute/VM to talk back to Azure Machine Learning service
 * You can choose either a managed compute (ex. Machine Learning Compute) or unmanaged compute (ex. VM) to run your training jobs. Data flow is explained for both the scenarios below:
-* (VM/HDInsight/Local – accessed using SSH creds in Key Vault in Microsoft subscription) Azure Machine Learning service runs management code on compute target that:
+* (VM/HDInsight – accessed using SSH creds in Key Vault in Microsoft subscription) Azure Machine Learning service runs management code on compute target that:
     1.	Prepares the environment (note: Docker is an option for VM/Local as well. See steps for Machine Learning Compute below to understand how running experiment on docker container works)
     2.	Downloads the code
     3.	Sets up environment variables/configs

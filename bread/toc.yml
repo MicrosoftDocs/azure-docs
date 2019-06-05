@@ -450,7 +450,7 @@
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
       - name: ML Services
         tocHref: /azure/hdinsight/r-server
-        topicHref: /azure/hdinsight/r-server-overview
+        topicHref: /azure/hdinsight/r-server/r-server-overview
       - name: Spark
         tocHref: /azure/hdinsight/spark
         topicHref: /azure/hdinsight/spark/apache-spark-overview
@@ -513,7 +513,7 @@
         items:
         - name: Algorithm and Module Reference
           tocHref: /azure/machine-learning/algorithm-module-reference
-          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference.md
+          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
       - name: Studio
         tocHref: /azure/machine-learning/studio
         topicHref: /azure/machine-learning/studio/

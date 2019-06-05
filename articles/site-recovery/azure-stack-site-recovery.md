@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ---
 # Replicate Azure Stack VMs to Azure
