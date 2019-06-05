@@ -24,7 +24,7 @@ This document describes a cmdlet that's a member of the [Az.ApplicationMonitor P
 
 ## Description
 
-Sets the config file without performing a full reinstallation.
+Sets the config file without doing a full reinstallation.
 Restart IIS for your changes to take effect.
 
 > [!IMPORTANT] 
