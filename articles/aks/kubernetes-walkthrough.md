@@ -54,7 +54,7 @@ The following example output shows the resource group created successfully:
 }
 ```
 
-## Create an AKS cluster
+## Create AKS cluster
 
 Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.
 
