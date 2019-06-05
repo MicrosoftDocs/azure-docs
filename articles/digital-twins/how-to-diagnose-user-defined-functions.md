@@ -26,7 +26,7 @@ A variety of logging, analytics, and diagnostic tools are provided to that end.
 
 ### Enable logging for your instance
 
-Azure Digital Twins supports robust logging, monitoring, and analytics. Solutions developers can use Azure Monitor logs, diagnostic logs, activity logging, and other services to support the complex monitoring needs of an IoT app. Logging options can be combined to query or display records across several services and to provide granular logging coverage for many services.
+Azure Digital Twins supports robust logging, monitoring, and analytics. Solutions developers can use Azure Monitor logs, diagnostic logs, activity logs, and other services to support the complex monitoring needs of an IoT app. Logging options can be combined to query or display records across several services and to provide granular logging coverage for many services.
 
 * For logging configuration specific to Azure Digital Twins, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 * Consult the the [Azure Monitor](../azure-monitor/overview.md) overview to learn about powerful log settings enabled through Azure Monitor.
