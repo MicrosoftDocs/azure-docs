@@ -24,7 +24,7 @@ The prerequisites for this article are: an Azure subscription, a Recovery Servic
 
 To monitor alerts, or view management data about a Recovery Services vault, open the vault.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 
 2. In the portal, click **All services**.
 
