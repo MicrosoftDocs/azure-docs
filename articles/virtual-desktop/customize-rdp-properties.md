@@ -11,9 +11,9 @@ ms.author: v-hevem
 ---
 # Customize Remote Desktop Protocol properties for a host pool
 
-Customizing a host pool's Remote Desktop Protocol (RDP) properties lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Windows Virtual Desktop using the **-customRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
+Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as the multi-monitor experience, audio redirection etc., lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Windows Virtual Desktop using the **-customRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
 
-Refer to [Remote Desktop RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) for a full list of supported properties and their default values.
+See [Remote Desktop RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) for a full list of supported properties and their default values.
 
 First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 
