@@ -13,7 +13,7 @@ ms.subservice: disks
 
 # Upload a vhd to Azure using Azure PowerShell
 
-This article explains how to upload a vhd file from your local machine to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account, and managing that storage account. Now, you no longer need to manage a storage account, or stage data in it to upload a vhd. Instead, you create an empty managed disk, and upload a vhd directly to it. This simplifies uploading on-premises VMs to Azure and enables you to upload a vhd up to 32 TiB directly into a large managed disk.
+This article explains how to upload a vhd from your local machine to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account, and managing that storage account. Now, you no longer need to manage a storage account, or stage data in it to upload a vhd. Instead, you create an empty managed disk, and upload a vhd directly to it. This simplifies uploading on-premises VMs to Azure and enables you to upload a vhd up to 32 TiB directly into a large managed disk.
 
 If you are providing a backup solution for IaaS VMs in Azure, we recommend you use direct upload to restore customer backups to managed disks. If you are uploading a VHD from a machine external to Azure, speeds with depend on your local bandwidth. If you are using an Azure VM, then your bandwidth will be the same as standard HDDs.
 
@@ -27,7 +27,7 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 
 ## Create an empty managed disk
 
-To upload your vhd to Azure, you'll need to create an empty managed disk specifically to receive an upload of a vhd.
+To upload your vhd to Azure, you'll need to create an empty managed disk that is specifically configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
 This kind of managed disk has two unique states:
 
@@ -36,7 +36,7 @@ This kind of managed disk has two unique states:
 
 While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will be true until `revoke-access` is called on the managed disk, which is required in order to attach the disk to a VM.
 
-Create an empty standard HDD for uploading by specifying the **Upload** parameter in the [New-AzDiskConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet, then call [New-AzDisk](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) to create the disk:
+Now, on your local shell, create an empty standard HDD for uploading by specifying the **Upload** parameter in the [New-AzDiskConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet. Then call [New-AzDisk](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) to create the disk:
 
 ```powershell
 $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -DiskSizeGB 1023 -Location 'West US' -CreateOption 'Upload'
@@ -46,7 +46,7 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName' -Disk $di
 
 If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra SSD is not yet supported.
 
-Now that you've created an empty managed disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
+You have now created an empty managed disk which is configured for the upload process. To upload a vhd to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
 To generate a writable SAS of your empty managed disk, use the following command:
 
@@ -68,7 +68,7 @@ This upload has the same throughput as the equivalent [standard HDD](disks-types
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas --blob-type PageBlob
 ```
 
-If your SAS expires during upload, and you haven't called `revoke-access` yet, you can get a new SAS to continue the upload using `grant-access`, again.
+If your SAS expires during the upload, and you haven't called `revoke-access` yet, you can get a new SAS to continue the upload using `grant-access`, again.
 
 After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Revoking the SAS will change the state of the managed disk and allow you to attach the disk to a VM.
 
