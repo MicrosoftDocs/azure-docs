@@ -54,7 +54,8 @@ Starting with versions released after August 2018, we are making the following c
 * New versions of AMI are not supported.  
 * Only versions that run SSL 1.x by default are supported.
 
-If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
+>[!NOTE]
+>If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x86/x64) and 7 (x64)  
