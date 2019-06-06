@@ -262,6 +262,8 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 
 ## Get support
 
+There are two support channels depending on the issues you are facing.
+
 If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
