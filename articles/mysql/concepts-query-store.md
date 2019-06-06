@@ -18,7 +18,7 @@ The Query Store feature in Azure Database for MySQL provides a way to track quer
 
 ## Common scenarios for using Query Store
 
-Query store can be used in a number scenarios, including the following:
+Query store can be used in a number of scenarios, including the following:
 
 - Detecting regressed queries
 - Determining the number of times a query was executed in a given time window
@@ -50,10 +50,10 @@ Allow up to 20 minutes for the first batch of data to persist in the mysql datab
 
 Query Store has two stores:
 
-- A runtime stats store for persisting the query execution statistics information.
-- A wait stats store for persisting wait statistics information.
+- A runtime statistics store for persisting the query execution statistics information.
+- A wait statistics store for persisting wait statistics information.
 
-To minimize space usage, the runtime execution statistics in the runtime stats store are aggregated over a fixed, configurable time window. The information in these stores is visible by querying the query store views.
+To minimize space usage, the runtime execution statistics in the runtime statistics store are aggregated over a fixed, configurable time window. The information in these stores is visible by querying the query store views.
 
 The following query returns information about queries in Query Store:
 
@@ -61,7 +61,7 @@ The following query returns information about queries in Query Store:
 SELECT * FROM mysql.query_store;
 ```
 
-Or this query for wait stats:
+Or this query for wait wait statistics:
 
 ```sql
 SELECT * FROM mysql.query_store_wait_stats;
@@ -90,14 +90,14 @@ The following options are available for configuring Query Store parameters.
 | query_store_capture_mode | Turn the query store feature ON/OFF based on the value. Note: If performance_schema is OFF, turning on query_store_capture_mode will turn on performance_schema and a subset of performance schema instruments required for this feature. | ALL | NONE, ALL |
 | query_store_capture_interval | The query store capture interval in minutes. Allows specifying the interval in which the query metrics are aggregated | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Turning ON or OFF to capture all the utility queries that is executing in the system. | NO | YES, NO |
-| query_store_retention_period_in_days | Time window in days to retain the data in the query store| 7 | 1 - 30 |
+| query_store_retention_period_in_days | Time window in days to retain the data in the query store. | 7 | 1 - 30 |
 
 The following options apply specifically to wait statistics.
 
 | **Parameter** | **Description** | **Default** | **Range** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Allows turning ON / OFF the wait statistics. | NONE | NONE, ALL |
-| query_store_wait_sampling_frequency | Alters frequency of wait-sampling in seconds. 5 to 300 seconds. Default is currently 30. | 30 | 5-300 |
+| query_store_wait_sampling_frequency | Alters frequency of wait-sampling in seconds. 5 to 300 seconds. | 30 | 5-300 |
 
 > [!NOTE]
 > Currently **query_store_capture_mode** supersedes this configuration, meaning both **query_store_capture_mode** and **query_store_wait_sampling_capture_mode** have to be enabled to ALL for wait statistics to work. If **query_store_capture_mode** is turned off, then wait statistics is turned off as well since wait statistics utilizes the performance_schema enabled, and the query_text captured by query store.
