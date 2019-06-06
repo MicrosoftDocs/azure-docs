@@ -80,7 +80,7 @@ kubectl proxy
 
 The Kubernetes UI is now available at: `http://localhost:8001/ui`.
 
-For more information, see the [Kubernetes quick start](http://kubernetes.io/docs/user-guide/quick-start/).
+For more information, see the [Kubernetes quickstart](http://kubernetes.io/docs/user-guide/quick-start/).
 
 ## Connect to a DC/OS or Swarm cluster
 
