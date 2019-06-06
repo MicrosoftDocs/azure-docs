@@ -21,16 +21,16 @@ Frequently asked questions and answers about Azure VMware Solution by CloudSimpl
 * Storage
 * VMware
 * Azure integration
-  
+ 
 ## CloudSimple service
 
 **What is Azure VMware Solution by CloudSimple?**
 
-VMware Solution by CloudSimple transforms and extends VMware workloads to private, dedicated clouds on Azure in minutes. The solution provisions, manages the infrastructure, and orchestrates workloads between on-premises and Azure. Because your apps run exactly the same on-premises and in Azure, you benefit from the elasticity and services of the cloud without the complexity of rearchitecting your apps. CloudSimple lowers your total cost of ownership with a cloud consumption model that provides on-demand provisioning, pay-as-you-grow, and capacity optimization. For features, benefits, and scenarios, see [What is Azure VMware Solution by CloudSimple?](cloudsimple-vmware-solutions-overview.md).
+Azure VMware Solution by CloudSimple transforms and extends VMware workloads to private, dedicated clouds on Azure in minutes. The solution provisions, manages the infrastructure, and orchestrates workloads between on-premises and Azure. Because your apps run exactly the same on-premises and in Azure, you benefit from the elasticity and services of the cloud without the complexity of rearchitecting your apps. CloudSimple lowers your total cost of ownership with a cloud consumption model that provides on-demand provisioning, pay-as-you-grow, and capacity optimization. For features, benefits, and scenarios, see [What is Azure VMware Solution by CloudSimple?](cloudsimple-vmware-solutions-overview.md).
 
 **What is a CloudSimple private cloud?**
 
-You provision a private, dedicated cloud that consists of a high-performance compute, storage, and networking environment deployed on Microsoft Azure infrastructure (hardware and datacenter space) in Azure locations.  The private cloud provides a native VMware platform as a service. In VMware terms, each private cloud contains exactly one instance of the vCenter Server. The vCenter Server manages multiple ESXi nodes contained in one or more vSphere clusters, along with the corresponding virtual SAN storage. A CloudSimple service can contain multiple private clouds in your Azure subscription. For more information about private clouds, see [Private cloud overview](cloudsimple-private-cloud.md).
+You provision a private, dedicated cloud that consists of a high-performance compute, storage, and networking environment deployed on Microsoft Azure infrastructure (hardware and datacenter space) in Azure locations. The private cloud provides a native VMware platform as a service. In VMware terms, each private cloud contains exactly one instance of the vCenter Server. The vCenter Server manages multiple ESXi nodes contained in one or more vSphere clusters, along with the corresponding vSAN storage. A CloudSimple service can contain multiple private clouds in your Azure subscription. For more information about private clouds, see [Private cloud overview](cloudsimple-private-cloud.md).
 
 **Where is the CloudSimple service available?**
 
@@ -38,7 +38,7 @@ CloudSimple is available in East US and West US regions.
 
 **How do I enable my subscription for CloudSimple?**
 
-Contact your Microsoft account representative at [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) to enable your subscription for the CloudSimple service. Provide your subscription ID in the email for which you want CloudSimple service enabled.  
+Contact your Microsoft account representative at [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) to enable your subscription for the CloudSimple service. Provide your subscription ID in the email for which you want CloudSimple service enabled. 
 
 **How do I access the CloudSimple portal?**
 
@@ -81,7 +81,7 @@ There's no charge for network egress. Azure standard rates apply to any egress t
 
 **What networking features are available for my private cloud?**
 
-You can provision VLANs (and their subnets) and firewall tables and assign public IP addresses and map to a virtual machine running in your private cloud. For more information, see [VLANs and subnets overview](cloudsimple-vlans-subnets.md), [Firewall tables overview](cloudsimple-firewall-tables.md), and [Public IP address overview](cloudsimple-public-ip-address.md).
+You can provision VLANs and their subnets and firewall tables. You can assign public IP addresses and map to a virtual machine that runs in your private cloud. For more information, see [VLANs and subnets overview](cloudsimple-vlans-subnets.md), [Firewall tables overview](cloudsimple-firewall-tables.md), and [Public IP address overview](cloudsimple-public-ip-address.md).
 
 **How do I set up different subnets for my applications in my private cloud?**
 
@@ -89,7 +89,7 @@ You can create VLANs on your private cloud from your CloudSimple portal. After y
 
 **What firewall settings are available for my private clouds?**
 
-You can configure rules for north-south and east-west traffic. The rules are defined in a firewall table.  The firewall table can be attached to VLANs on your private cloud. For the setup procedure, see [Set up firewall tables and rules for private clouds](https://docs.azure.cloudsimple.com/firewall).
+You can configure rules for north-south and east-west traffic. The rules are defined in a firewall table. The firewall table can be attached to VLANs on your private cloud. For the setup procedure, see [Set up firewall tables and rules for private clouds](https://docs.azure.cloudsimple.com/firewall).
 
 **Can I assign public IP addresses for VMs in my private cloud environment?**
 
@@ -101,7 +101,7 @@ In the CloudSimple portal, you can easily allocate a new public IP address and a
 
 A CloudSimple private cloud provides the following security features for securing your private cloud environment:
 
-- **Data at rest encryption:** You can encrypt data at rest that resides on the virtual SAN storage in your private cloud. A virtual SAN supports an external key management server, which can be deployed in your Azure virtual network or on-premises environment. For more information, see [Configure vSAN encryption for your CloudSimple private cloud](https://docs.azure.cloudsimple.com/vsan-encryption).
+- **Data at rest encryption:** You can encrypt data at rest that resides on vSAN storage in your private cloud. vSAN supports an external key management server, which can be deployed in your Azure virtual network or on-premises environment. For more information, see [Configure vSAN encryption for your CloudSimple private cloud](https://docs.azure.cloudsimple.com/vsan-encryption).
 - **Network security:** Control network traffic flow from and to your private cloud from the internet, on-premises, and within subnets of your private cloud by using firewall rules.
 - **Secure, private connection:** Secure, private connection between your on-premises network and your Azure subscription.
 
@@ -122,10 +122,10 @@ All CloudSimple infrastructure is continuously monitored by the CloudSimple plat
 
 **What type of storage is supported on a private cloud?**
 
-CloudSimple offers **All-flash VMware virtual SAN storage** with every private cloud. Each vSphere is created with its own virtual SAN datastore. For more information, see [Private cloud VMware components - vSAN storage](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage).
+CloudSimple offers **All-flash VMware vSAN storage** with every private cloud. Each vSphere is created with its own vSAN datastore. For more information, see [Private cloud VMware components - vSAN storage](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage).
 
 **Is encryption of data supported?**
-Yes. You can set up the virtual SAN storage on your private cloud to use a key management server (KMS), which is deployed on-premises or on Azure for encrypting of data stored on a virtual SAN.
+Yes. You can set up the vSAN storage on your private cloud to use a key management server (KMS), which is deployed on-premises or on Azure for encrypting of data stored on vSAN.
 
 **How are failed disks handled?**
 
@@ -154,7 +154,7 @@ CloudSimple doesn't perform upgrades or updates of applications installed on the
 
 **What Azure services are supported?**
 
-CloudSimple provides Azure ExpressRoute connection to your subscription on Azure. Any services that run in your subscription have network connectivity to your private cloud and can connect to your private cloud.  Examples:
+CloudSimple provides Azure ExpressRoute connection to your subscription on Azure. Any services that run in your subscription have network connectivity to your private cloud and can connect to your private cloud. Examples:
 
 - **Azure Active Directory**: Use Azure Active Directory as an identity source for your CloudSimple vCenter.
 - **Azure Storage**: Use Storage to store backups, images, and other data from your private cloud.
@@ -163,8 +163,8 @@ CloudSimple provides Azure ExpressRoute connection to your subscription on Azure
 
 **How do I map my VMware tenants to Azure?**
 
-CloudSimple provides the unique ability to manage your VMware VMs on a private cloud from the Azure portal.  A vCenter resource pool configured with the resource constraints you want can be mapped to your subscription by the global administrator.  
+CloudSimple provides the unique ability to manage your VMware VMs on a private cloud from the Azure portal. A vCenter resource pool configured with the resource constraints you want can be mapped to your subscription by the global administrator. 
 
 **What licensing benefits do I get with Azure?**
 
-With CloudSimple, you can take advantage of the Azure Hybrid Use Benefit and save up to 90 percent on licenses to preserve your investment in Microsoft licenses and lower your total cost of ownership compared to other clouds. You also get extended security updates for Windows Server 2008 and Microsoft SQL Server 2008. Keep your costs low with BYOL to the cloud for common apps such as Veeam, Zerto, and others. 
+With CloudSimple, you can take advantage of the Azure Hybrid Benefit and save up to 90 percent on licenses to preserve your investment in Microsoft licenses and lower your total cost of ownership compared to other clouds. You also get extended security updates for Windows Server 2008 and Microsoft SQL Server 2008. Keep your costs low with BYOL to the cloud for common apps like Veeam, Zerto, and others. 

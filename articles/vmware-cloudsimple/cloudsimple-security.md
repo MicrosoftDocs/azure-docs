@@ -32,7 +32,7 @@ The bare-metal hardware equipment that runs your private clouds is hosted in Azu
 
 ## Dedicated hardware
 
-As part of the CloudSimple service, all CloudSimple customers get dedicated bare-metal hosts with local attached disks that are physically isolated from other tenant hardware. An ESXi hypervisor with a virtual SAN runs on every node. The nodes are managed through customer-dedicated VMware, vCenter, and NSX. Not sharing hardware between tenants provides an additional layer of isolation and security protection.
+As part of the CloudSimple service, all CloudSimple customers get dedicated bare-metal hosts with local attached disks that are physically isolated from other tenant hardware. An ESXi hypervisor with vSAN runs on every node. The nodes are managed through customer-dedicated VMware, vCenter, and NSX. Not sharing hardware between tenants provides an additional layer of isolation and security protection.
 
 ## Data security
 
@@ -40,7 +40,7 @@ Customers keep control and ownership of their data. Data stewardship of customer
 
 ### Data protection for data at rest and data in motion within internal networks
 
-For data at rest in the private cloud environment, you can use virtual SAN encryption. Virtual SAN encryption works with VMware-certified external key management servers (KMS) in your own virtual network or on-premises. You control the data encryption keys yourself. For data in motion within the private cloud, vSphere supports encryption of data over the wire for all VMkernel traffic, which includes vMotion traffic.
+For data at rest in the private cloud environment, you can use vSAN encryption. vSAN encryption works with VMware-certified external key management servers (KMS) in your own virtual network or on-premises. You control the data encryption keys yourself. For data in motion within the private cloud, vSphere supports encryption of data over the wire for all VMkernel traffic, which includes vMotion traffic.
 
 ### Data protection for data that's required to move through public networks
 
