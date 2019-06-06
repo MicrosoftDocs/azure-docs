@@ -23,32 +23,32 @@ The networking services in Azure provide a variety of networking capabilities th
 - [**Application delivery services**](#deliver) Deliver applications in the Azure network using CDN, Front Door, Traffic Manager, Application Gateway, Load Balancer.
 - [**Network monitoring**](#monitor) – Monitor your network resources in Azure using Network Watcher, ExpressRoute Monitor, Azure Monitor, Virtual Network TAP.
 
-## <a name="connect"></a>Connectivity services
+## <a name="connect"></a>Connectivity services - *FORMAT 1*
 This section describes services that provide connectivity between Azure resources (Virtual Network), connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure.
 
 |Service|Why use?|Scenarios|
 |---|---|---|
-|[Virtual network](../virtual-network/virtual-networks-overview.md)|Enables Azure resources to securely communicate with each other, the internet, and on-premises networks.|[Filter network traffic](../virtual-network/tutorial-filter-network-traffic.md), [route network traffic](../virtual-network/tutorial-create-route-table-portal.md), [restrict network access to resources](../virtual-network/tutorial-restrict-network-access-to-resources.md), [connect virtual networks](../virtual-network/tutorial-connect-virtual-networks-portal.md).|
+|[Virtual network](../virtual-network/virtual-networks-overview.md) - *links to overview article*|Enables Azure resources to securely communicate with each other, the internet, and on-premises networks.|*links to tutorial articles*: [Filter network traffic](../virtual-network/tutorial-filter-network-traffic.md), [route network traffic](../virtual-network/tutorial-create-route-table-portal.md), [restrict network access to resources](../virtual-network/tutorial-restrict-network-access-to-resources.md), [connect virtual networks](../virtual-network/tutorial-connect-virtual-networks-portal.md).|
 |[ExpressRoute](../expressroute/expressroute-introduction.md)|Extends your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.||
 |[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)|Sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.|[Site-to-site-connections](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [VNet-to-VNet connections](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [Point-to-site connections](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).|
 |[Virtual WAN](../virtual-wan/virtual-wan-about.md)|Optimizes and automates branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to.|[Site-to-site connections](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute connections](../virtual-wan/virtual-wan-expressroute-portal.md) [Point-to-site connections](../virtual-wan/virtual-wan-point-to-site-portal.md) |
 |[Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)|Enables you to limit network access to some Azure service resources to a virtual network subne|[Restrict network access to PaaS resources](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
 
 
-## <a name="protect"></a>Application protection services
+## <a name="protect"></a>Application protection services - *FORMAT 2*
 
 Describes networking services in Azure that help protect your network resources - DDoS Protection, Web Application Firewall, Azure Firewall, network security groups, and service endpoints.
 
 
 |Service|Why use?|Scenario|
 |---|---|---|
-|[DDoS protection](#ddosprotection)|High availability for your applications with protection from excess IP traffic charges|DDOS protection tuned to your application traffic patterns|
+|[DDoS protection](#ddosprotection) - *internal link to H3 title*|High availability for your applications with protection from excess IP traffic charges|Info from Key benefits section of Overview topic* DDOS protection tuned to your application traffic patterns|
 |[Web Application Firewall](#waf)|Prevent SQL injection, stop cross site scripting, and an array of other types of attacks using cloud native approach|Centralized inbound web application protection from common exploits and vulnerabilities|
 |[Azure Firewall](#firewall)|Better central governance of all traffic flows, full devops integration using cloud native high availability with autoscale|Centralized outbound and inbound (non-HTTP/S) network and application (L3-L7) filtering|
 |[Network security groups](#nsg)|Full granular distributed end node control at VM/subnet for all network traffic flows|Distributed inbound & outbound network (L3-L4) traffic filtering on VM, Container, or subnet|
 |[Service endpoints](#serviceendpoints)|Extend your Virtual Network controls to lock down Azure service resources (PaaS) access|Restrict access to Azure service resources (PaaS) to only your virtual network
 |
-### <a name="ddosprotection"></a>DDoS Protection
+### <a name="ddosprotection"></a>DDoS Protection *short description with an illustration of the Azure service*
 Azure DDoS protection, combined with application design best practices, provide defense against DDoS attacks. The service is available in two service tiers - Basic and Standard. For more information about DDoS protection, see [DDoS Protection Overview](../virtual-network/ddos-protection-overview.md).
 
 ![DDoS Protection](../virtual-network/media/ddos-protection-overview/ddospic.png)
