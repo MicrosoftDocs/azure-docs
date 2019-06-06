@@ -145,7 +145,7 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 6. Create a line chart to show real-time temperature over time.
 
-   1. On the report creation page, on the **Visualizations** pane, click the line chart icon to add a line chart.
+   1. On the **Visualizations** pane of the report creation page, select the line chart icon to add a line chart.
 
    2. On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job.
 
