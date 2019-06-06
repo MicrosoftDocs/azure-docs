@@ -20,7 +20,7 @@ ms.author: robinsh
 
 ## What you learn
 
-You learn how to visualize real-time sensor data that your Azure IoT hub receives by using Power BI. If you want to try toe visualize the data in your IoT hub with Web Apps, please see [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+You learn how to visualize real-time sensor data that your Azure IoT hub receives by using Power BI. If you want to try toe visualize the data in your IoT hub with a web app, please see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 ## What you do
 
@@ -32,7 +32,7 @@ You learn how to visualize real-time sensor data that your Azure IoT hub receive
 
 ## What you need
 
-* Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
   
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.
@@ -174,6 +174,6 @@ Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/e
 
 You’ve successfully used Power BI to visualize real-time sensor data from your Azure IoT hub.
 
-There is an alternate way to visualize data from Azure IoT Hub. See [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+For another way to visualize data from Azure IoT Hub, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

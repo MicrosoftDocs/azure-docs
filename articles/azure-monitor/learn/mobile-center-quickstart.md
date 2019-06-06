@@ -1,11 +1,11 @@
 ---
 title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly setup a mobile app for monitoring with Application Insights and App Center
+description: Provides instructions to quickly set up a mobile app for monitoring with Application Insights and App Center
 services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
@@ -62,7 +62,7 @@ To make sure your custom events are being received, go to the **Events** tab und
 
 Once your app is sending custom events and these events are being received by App Center, you need to create an App Center-type Application Insights resource in the Azure portal:
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Create a resource** > **Management Tools** > **Application Insights**.
 
     ![Adding Application Insights resource](./media/mobile-center-quickstart/add-b.png)
@@ -82,7 +82,9 @@ If your app supports multiple platforms (iOS, Android, etc.), it's best to creat
 
 ## Export to Application Insights
 
-In your new Application Insights resource on the **Overview** page in the **Essentials** section at the top, copy the instrumentation key for this resource.
+In your new Application Insights resource on the **Overview** page. Copy the instrumentation key from your resource.
+
+   ![Analytics button in Application Insights](./media/mobile-center-quickstart/overview-01.png)
 
 In the App Center instance for your app:
 
@@ -103,7 +105,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
 
 1. **Query your custom event telemetry.** From the Application Insights **Overview** page, choose **Analytics**. 
 
-   ![Analytics button in Application Insights](./media/mobile-center-quickstart/analytics.png)
+   ![Analytics button in Application Insights](./media/mobile-center-quickstart/analytics-001.png)
 
    The Application Insights Analytics portal associated with your Application Insights resource will open. The Analytics portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
    
@@ -116,7 +118,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
    | order by dcount_user_Id desc 
    ```
 
-   ![Analytics portal](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Analytics portal](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Select the query by clicking anywhere on the query in the text editor.
    2. Then click **Go** to run the query. 
@@ -126,17 +128,17 @@ Application Insights can query, segment, filter, and analyze the custom event te
 
 2. **Segment and filter your custom event telemetry.** From the Application Insights **Overview** page, choose **Users** in the table of contents.
 
-   ![Users tool icon](./media/mobile-center-quickstart/users-icon.png)
+   ![Users tool icon](./media/mobile-center-quickstart/users-icon-001.png)
 
    The Users tool shows how many users of your app clicked certain buttons, visited certain screens, or performed any other action that you are tracking as an event with the App Center SDK. If you've been looking for a way to segment and filter your App Center events, the Users tool is a great choice.
 
-   ![Users tool](./media/mobile-center-quickstart/users.png) 
+   ![Users tool](./media/mobile-center-quickstart/users-001.png) 
 
    For example, segment your usage by geography by choosing **Country or region** in the **Split by** dropdown menu.
 
 3. **Analyze conversion, retention, and navigation patterns in your app.** From the Application Insights **Overview** page, choose **User Flows** in the table of contents.
 
-   ![User Flows tool](./media/mobile-center-quickstart/user-flows.png)
+   ![User Flows tool](./media/mobile-center-quickstart/user-flows-001.png)
 
    The User Flows tool visualizes which events users send after some starting event. It's useful for getting an overall picture of how users navigate through your app. It can also reveal places where many users are churning from your app, or repeating the same actions over and over.
 

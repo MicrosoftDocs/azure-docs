@@ -1,7 +1,7 @@
 ---
 title: Run Azure IoT Edge on Ubuntu Virtual Machines | Microsoft Docs
 description: Azure IoT Edge setup instructions on Ubuntu 16.04 Azure Marketplace Virtual Machines
-author: gregman
+author: gregman-msft
 manager: arjmands
 # this is the PM responsible
 ms.reviewer: kgremban
@@ -37,7 +37,7 @@ On first boot, the Azure IoT Edge on Ubuntu VM preinstalls the latest version of
     1.	Wait a few moments, and the screen should then provide a success message indicating the connection string was set successfully.
 
 
-## Deploy from the Azure Portal
+## Deploy from the Azure portal
 From the Azure portal, search for “Azure IoT Edge” and select **Ubuntu Server 16.04 LTS + Azure IoT Edge runtime** to begin the VM creation workflow. From there, complete steps 3 and 4 in the "Deploy from the Azure Marketplace" instructions above.
 
 ## Deploy from Azure CLI
@@ -92,6 +92,6 @@ If you want to SSH into this VM after setup, use the publicIpAddress with the co
 
 Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
 
-If you are having problems with the Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.
+If you are having problems with the IoT Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.
 
 To update an existing installation to the newest version of IoT Edge, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).

@@ -1,26 +1,21 @@
 ---
 title: Safe deployment practices across regions - Azure Deployment Manager
 description: Describes how to deploy a service over many regions with Azure Deployment Manager. It shows safe deployment practices to verify the stability of your deployment before rolling out to all regions.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ---
-# Enable safe deployment practices with Azure Deployment Manager (Private Preview)
+# Enable safe deployment practices with Azure Deployment Manager (Public preview)
 
 To deploy your service across many regions and make sure it's running as expected in each region, you can use Azure Deployment Manager to coordinate a staged rollout of the service. Just as you would for any Azure deployment, you define the resources for your service in [Resource Manager templates](resource-group-authoring-templates.md). After creating the templates, you use Deployment Manager to describe the topology for your service and how it should be rolled out.
 
 Deployment Manager is a feature of Resource Manager. It expands your capabilities during deployment. Use Deployment Manager when you have a complex service that needs to be deployed to several regions. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need the extra precautions of a staged rollout, use the standard [deployment options](resource-group-template-deploy-portal.md) for Resource Manager. Deployment Manager seamlessly integrates with all existing third-party tools that support Resource Manager deployments, such as continuous integration and continuous delivery (CI/CD) offerings. 
 
-Azure Deployment Manager is in private preview. To use Azure Deployment Manager, complete the [sign-up form](https://aka.ms/admsignup). Help up improve the feature by providing [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager is in preview. Help us improve the feature by providing [feedback](https://aka.ms/admfeedback).
 
 To use Deployment Manager, you need to create four files:
 
@@ -33,15 +28,11 @@ You deploy the topology template before deploying the rollout template.
 
 The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## Supported locations
-
-For the preview, Deployment Manager resources are supported in Central US and East US 2. When you define resources in your topology and rollout templates, such as the service units, artifact sources, and rollouts described in this article, you must specify one of those regions for the location. However, the resources that you deploy to create your service, such as the virtual machines, storage accounts, and web apps, are supported in all of their [standard locations](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## Identity and access
 
 With Deployment Manager, a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) performs the deployment actions. You create this identity before starting your deployment. It must have access to the subscription you're deploying the service to, and sufficient permission to complete the deployment. For information about the actions granted through roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-The identity must reside in one of the supported locations for Deployment Manager, and it must reside in the same location as the rollout.
+The identity must reside in the same location as the rollout.
 
 ## Topology template
 
@@ -195,7 +186,9 @@ In the rollout template, you create an artifact source for the binaries you need
 
 ### Steps
 
-You can define a step to perform either before or after your deployment operation. Currently, only the `wait` step is available. The wait step pauses the deployment before continuing. It allows you to verify that your service is running as expected before deploying the next service unit. The following example shows the general format of a wait step.
+You can define a step to perform either before or after your deployment operation. Currently, only the `wait` step and the 'healthCheck' step are available. 
+
+The wait step pauses the deployment before continuing. It allows you to verify that your service is running as expected before deploying the next service unit. The following example shows the general format of a wait step.
 
 ```json
 {
@@ -213,6 +206,8 @@ You can define a step to perform either before or after your deployment operatio
 ```
 
 The duration property uses [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). The preceding example specifies a one-minute wait.
+
+For more information about the health check step, see [Introduce health integration rollout to Azure Deployment Manager](./deployment-manager-health-check.md) and [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 For more information, see [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps).
 

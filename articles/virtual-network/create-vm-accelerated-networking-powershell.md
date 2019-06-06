@@ -226,7 +226,7 @@ If you have created a VM without Accelerated Networking, it is possible to enabl
 First stop/deallocate the VM or, if an Availability Set, all the VMs in the Set:
 
 ```azurepowershell
-Stop-AzVM -ResourceGroup "myResourceGroup" `
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
 	-Name "myVM"
 ```
 
@@ -235,18 +235,18 @@ Important, please note, if your VM was created individually, without an availabi
 Once stopped, enable Accelerated Networking on the NIC of your VM:
 
 ```azurepowershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzNetworkInterface
+$nic | Set-AzureRMNetworkInterface
 ```
 
 Restart your VM or, if in an availability set, all the VMs in the set, and confirm that Accelerated Networking is enabled:
 
 ```azurepowershell
-Start-AzVM -ResourceGroup "myResourceGroup" `
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
 	-Name "myVM"
 ```
 

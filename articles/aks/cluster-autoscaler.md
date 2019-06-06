@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
 ---
 
@@ -14,20 +14,21 @@ ms.author: iainfou
 
 To keep up with application demands in Azure Kubernetes Service (AKS), you may need to adjust the number of nodes that run your workloads. The cluster autoscaler component can watch for pods in your cluster that can't be scheduled because of resource constraints. When issues are detected, the number of nodes is increased to meet the application demand. Nodes are also regularly checked for a lack of running pods, with the number of nodes then decreased as needed. This ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.
 
-This article shows you how to enable and manage the cluster autoscaler in an AKS cluster.
+This article shows you how to enable and manage the cluster autoscaler in an AKS cluster. Cluster autoscaler should only be tested in preview on AKS clusters with a single node pool.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ## Before you begin
 
-This article requires that you are running the Azure CLI version 2.0.55 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This article requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### Install aks-preview CLI extension
 
-AKS clusters that support the cluster autoscaler must use virtual machine scale sets and run Kubernetes version *1.12.4* or later. This scale set support is in preview. To opt in and create clusters that use scale sets, first install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+AKS clusters that support the cluster autoscaler must use virtual machine scale sets and run Kubernetes version *1.12.7* or later. This scale set support is in preview. To opt in and create clusters that use scale sets, first install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -55,6 +56,13 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+
+## Limitations
+
+The following limitations apply when you create and manage AKS clusters that use the cluster autoscaler:
+
+* The HTTP application routing add-on can't be used.
+* Multiple node pools (currently in preview in AKS) can't currently be used.
 
 ## About the cluster autoscaler
 
@@ -97,7 +105,6 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \
@@ -172,7 +179,8 @@ This article showed you how to automatically scale the number of AKS nodes. You 
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[aks-github]: https://github.com/azure/aks/issues
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

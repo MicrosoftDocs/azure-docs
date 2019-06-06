@@ -1,7 +1,6 @@
 ---
 title: Optimize Spark jobs for performance - Azure HDInsight 
 description: Shows common strategies for the best performance of Spark clusters.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -55,7 +54,7 @@ When you create a new Spark cluster, you have the option to select Azure Blob St
 
 | Store Type | File System | Speed | Transient | Use Cases |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb[s]:**//url/ | **Standard** | Yes | Transient cluster |
+| Azure Blob Storage | **wasb:**//url/ | **Standard** | Yes | Transient cluster |
 | Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Faster** | Yes | Transient cluster |
 | Azure Data Lake Storage Gen 1| **adl:**//url/ | **Faster** | Yes | Transient cluster |
 | Local HDFS | **hdfs:**//url/ | **Fastest** | No | Interactive 24/7 cluster |

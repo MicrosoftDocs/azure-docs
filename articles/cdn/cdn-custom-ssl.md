@@ -87,10 +87,10 @@ To enable HTTPS on a custom domain, follow these steps:
 # [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> This option is available only with **Azure CDN Standard from Microsoft** profiles. 
+> This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Verizon** profiles. 
 >
  
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure CDN](cdn-troubleshoot-allowed-ca.md).
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure CDN](cdn-troubleshoot-allowed-ca.md).For **Azure CDN from Verizon**, any valid CA will be accepted. 
 
 ### Prepare your Azure Key vault account and certificate
  

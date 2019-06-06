@@ -2,10 +2,10 @@
 title: Azure Application Gateway configuration overview
 description: This article describes how to configure the components of Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 6/1/2019
 ms.author: absha
 
 ---
@@ -53,7 +53,7 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
 
 - Traffic from the **AzureLoadBalancer** tag must be allowed.
 
-##### Whitelist Application Gateway access to a few source IPs
+##### Allow Application Gateway access to a few source IPs
 
 For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
 
@@ -67,7 +67,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
 For the v1 SKU, user-defined routes (UDRs) are supported on the Application Gateway subnet, as long as they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. This includes learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network.
 
-For the v2 SKU, UDRs aren't supported on the Application Gateway subnet. For more information, see [Autoscaling and zone-redundancy for Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+For the v2 SKU, UDRs aren't supported on the Application Gateway subnet. For more information, see [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > Using UDRs on the Application Gateway subnet causes the health status in the [back-end health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to appear as "Unknown." It also causes generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
@@ -80,7 +80,7 @@ A public IP isn't required for an internal endpoint that's not exposed to the in
 
 Only 1 public IP address or 1 private IP address is supported. You choose the front-end IP when you create the application gateway.
 
-- For a public IP, you can create a new public IP address or use an existing public IP in the same location as the application gateway. If you create a new public IP, the IP address type that you select (static or dynamic) can't be changed later. For more information, see [static vs. dynamic public IP address](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- For a public IP, you can create a new public IP address or use an existing public IP in the same location as the application gateway. If you create a new public IP, the IP address type that you select (static or dynamic) can't be changed later. For more information, see [static vs. dynamic public IP address](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - For a private IP, you can specify a private IP address from the subnet where the application gateway is created. If you don't specify one, an arbitrary IP address is automatically selected from the subnet. For more information, see [Create an application gateway with an internal load balancer](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -224,9 +224,9 @@ Choose listener as the redirection target to redirect traffic from one listener 
 ![Application Gateway components dialog box](./media/configuration-overview/configure-redirection.png)
 
 For more information about HTTP-to-HTTPS redirection, see:
-- [HTTP-to-HTTP redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [HTTP-to-HTTP redirection by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [HTTP to HTTP redirection by using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [HTTP-to-HTTPS redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
+- [HTTP-to-HTTPS redirection by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
+- [HTTP-to-HTTPS redirection by using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
 ##### External site
 

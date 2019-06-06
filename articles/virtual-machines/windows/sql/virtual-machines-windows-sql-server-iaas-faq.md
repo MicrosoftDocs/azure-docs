@@ -51,7 +51,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I create a VHD image from a SQL Server VM?**
 
-   Yes, but there are a few considerations. If you deploy this VHD to a new VM in Azure, you do not ge the SQL Server Configuration section in the portal. You must then manage the SQL Server configuration options through PowerShell. Also, you will be charged for at the rate of the SQL VM your image was originally based on. This is true even if you remove SQL Server from the VHD before deploying. 
+   Yes, but there are a few considerations. If you deploy this VHD to a new VM in Azure, you do not get the SQL Server Configuration section in the portal. You must then manage the SQL Server configuration options through PowerShell. Also, you will be charged for at the rate of the SQL VM your image was originally based on. This is true even if you remove SQL Server from the VHD before deploying. 
 
 1. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 

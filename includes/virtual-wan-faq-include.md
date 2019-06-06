@@ -76,7 +76,7 @@ Yes. See the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/)
 
 ### How do I calculate price of a hub?
  
-You would pay for the service in the hub. For example, 10 branches or on-premises devices requiring to connect to Azure Virtual WAN would imply connecting to VPN end points in the hub. Lets say this is VPN of 1 scale unit = 500 Mbps, this is charged at $0.361/hr. Each connection is charged at $0.08/hr. For 10 connections, the total charge of service/hr would be $0.361 + $.8/hr. Data charges for traffic leaving azure apply. 
+You would pay for the service in the hub. For example, 10 branches or on-premises devices requiring to connect to Azure Virtual WAN would imply connecting to VPN end points in the hub. Lets say this is VPN of 1 scale unit = 500 Mbps, this is charged at $0.361/hr. Each connection is charged at $0.08/hr. For 10 connections, the total charge of service/hr would be $0.361 + $.8/hr. Data charges for traffic leaving Azure apply. 
 
 ### How do new partners that are not listed in your launch partner list get onboarded?
 

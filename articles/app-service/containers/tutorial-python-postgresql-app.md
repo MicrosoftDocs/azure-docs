@@ -323,7 +323,7 @@ git commit -am "configure for App Service"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### Create web app
+### Create a web app
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 

@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos DB datab
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
 
 ---
@@ -53,7 +53,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = new "your authKey from the Azure portal";
+     var authKey = "your authKey from the Azure portal";
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
@@ -81,6 +81,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
 4. **Increase number of threads/tasks**
 
     Since calls to Azure Cosmos DB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create in the order of 100s of Tasks reading or writing to Azure Cosmos DB.
+
+5. **Enable accelerated networking**
+
+   In order to reduce latency and CPU jitter, we recommend that the client virtual machines are accelerated networking enabled. See the [Create a Windows virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) articles to enable accelerated networking.
+
 
 ## SDK Usage
 1. **Install the most recent SDK**
@@ -130,13 +135,21 @@ So if you're asking "How can I improve my database performance?" consider the fo
    <a id="tune-page-size"></a>
 1. **Tune the page size for queries/read feeds for better performance**
 
-    When performing a bulk read of documents using read feed functionality (for example, ReadDocumentFeedAsync) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+   When performing a bulk read of documents using read feed functionality (for example, ReadDocumentFeedAsync) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 
-    To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
+   To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
-    You may also set the page size using the available Azure Cosmos DB SDKs.  For example:
+   > [!NOTE] 
+   > The maxItemCount property shouldn't be used just for pagination purpose. It's main usage it to improve the performance of queries by reducing the maximum number of items returned in a single page.  
 
-        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   You can also set the page size using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) property in FeedOptions allows you to set the maximum number of items to be returned in the enmuration operation. When `maxItemCount` is set to -1, the SDK automatically finds the most optimal value depending on the document size. For example:
+    
+   ```csharp
+    IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   ```
+    
+   When a query is executed, the resulting data is sent within a TCP packet. If you specify too low value for `maxItemCount`, the number of trips required to send the data within the TCP packet are high, which impacts the performance. So if you are not sure what value to set for `maxItemCount` property, it's best to set it to -1 and let the SDK choose the default value. 
+
 10. **Increase number of threads/tasks**
 
     See [Increase number of threads/tasks](#increase-threads) in the Networking section.
@@ -157,7 +170,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
  
 1. **Exclude unused paths from indexing for faster writes**
 
-    Cosmos DB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
+    Cosmos DB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a subtree) from indexing using the "*" wildcard.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

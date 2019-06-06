@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
 ---
 
@@ -22,7 +22,7 @@ Each request must include your access key and an HTTP endpoint. The endpoint spe
 Recall that Text Analytics is stateless so there are no data assets to manage. Your text is uploaded, analyzed upon receipt, and results are returned immediately to the calling application.
 
 > [!Tip]
-> For one-off calls to see how the API works, you can send POST requests from the built-in **API testing console**, available on any [API doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). There is no setup, and the only requirements are to paste an access key and the JSON documents into the request. 
+> For one-off calls to see how the API works, you can send POST requests from the built-in **API testing console**, available on any [API doc page](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). There is no setup, and the only requirements are to paste an access key and the JSON documents into the request. 
 
 ## Prerequisites
 
@@ -56,10 +56,10 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
 
    Resource endpoints are as follows (your region may vary):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Set the three request headers:
 
@@ -77,10 +77,10 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
 
 5. Paste in some JSON documents in a format that is valid for the intended analysis. For more information about a particular analysis, see the topics below:
 
-   + [Language detection](text-analytics-how-to-language-detection.md)  
-   + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
-   + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
-   + [Entity recognition (Preview)](text-analytics-how-to-entity-linking.md)  
+  + [Language detection](text-analytics-how-to-language-detection.md)  
+  + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
+  + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
+  + [Entity recognition](text-analytics-how-to-entity-linking.md)  
 
 
 6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 

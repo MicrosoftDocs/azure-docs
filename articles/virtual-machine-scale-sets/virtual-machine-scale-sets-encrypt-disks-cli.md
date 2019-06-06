@@ -8,47 +8,28 @@ manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 04/26/2019
 ms.author: cynthn
 
 ---
-# Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI (Preview)
+# Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI
 
 To protect and safeguard data at rest using industry standard encryption technology, virtual machine scale sets support Azure Disk Encryption (ADE). Encryption can be enabled for Linux and Windows virtual machine scale sets. For more information, see [Azure Disk Encryption for Linux and Windows](../security/azure-security-disk-encryption.md).
-
-> [!NOTE]
->  Azure disk encryption for virtual machine scale sets is currently in public preview, available in all Azure public regions.
 
 Azure disk encryption is supported:
 - for scale sets created with managed disks, and not supported for native (or unmanaged) disk scale sets.
 - for OS and data volumes in Windows scale sets. Disable encryption is supported for OS and Data volumes for Windows scale sets.
-- for data volumes in Linux scale sets. OS disk encryption is NOT supported in the current preview for Linux scale sets.
-
-Scale set VM reimage and upgrade operations are not supported in the current preview. The Azure disk encryption for virtual machine scale sets preview is recommended only in test environments. In the preview, do not enable disk encryption in production environments where you might need to upgrade an OS image in an encrypted scale set.
+- for data volumes in Linux scale sets. OS disk encryption is NOT supported for Linux scale sets.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
-
-## Register for disk encryption preview
-
-The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [az feature register](/cli/azure/feature). You only need to perform the following steps the first time that you use the disk encryption preview feature:
-
-```azurecli-interactive
-az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
-```
-
-It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [az feature show](/cli/azure/feature). When the `State` reports *Registered*, re-register the *Microsoft.Compute* provider with [az provider register](/cli/azure/provider):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
 
 ## Create a scale set
 
@@ -131,6 +112,30 @@ It may take a minute or two for the encryption process to start.
 
 As the scale set is upgrade policy on the scale set created in an earlier step is set to *automatic*, the VM instances automatically start the encryption process. On scale sets where the upgrade policy is to manual, start the encryption policy on the VM instances with [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
+### Enable encryption using KEK to wrap the key
+
+You can also use a Key Encryption Key for added security when encrypting the virtual machine scale set.
+
+```azurecli-interactive
+# Get the resource ID of the Key Vault
+vaultResourceId=$(az keyvault show --resource-group myResourceGroup --name $keyvault_name --query id -o tsv)
+
+# Enable encryption of the data disks in a scale set
+az vmss encryption enable \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --disk-encryption-keyvault $vaultResourceId \
+    --key-encryption-key myKEK \
+    --key-encryption-keyvault $vaultResourceId \
+    --volume-type DATA
+```
+
+> [!NOTE]
+>  The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:</br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+
 ## Check encryption progress
 
 To check on the status of disk encryption, use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
@@ -176,6 +181,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## Next steps
 
-In this article, you used the Azure CLI to encrypt a virtual machine scale set. You can also use [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) or templates for [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
-
-An end-to-end batch file example for Linux scale set data disk encryption can be found [here](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). This example creates a resource group, Linux scale set, mounts a 5-GB data disk, and encrypts the virtual machine scale set.
+- In this article, you used the Azure CLI to encrypt a virtual machine scale set. You can also use [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) or templates for [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+- If you wish to have Azure Disk Encryption applied after another extension is provisioned, you can use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md). You can use [these samples](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) to get started.
+- An end-to-end batch file example for Linux scale set data disk encryption can be found [here](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). This example creates a resource group, Linux scale set, mounts a 5-GB data disk, and encrypts the virtual machine scale set.

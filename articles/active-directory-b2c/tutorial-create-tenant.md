@@ -2,14 +2,14 @@
 title: Tutorial - Create an Azure Active Directory B2C tenant | Microsoft Docs
 description: Learn how to prepare for registering your applications by creating an Azure Active Directory B2C tenant using the Azure portal.
 services: B2C
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -30,13 +30,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create an Azure AD B2C tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure that you are using the directory that contains your subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains it. This directory is different than the one that will contain your Azure AD B2C tenant.
+2. Make sure that you are using the directory that contains your subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains it. This directory is different from the one that will contain your Azure AD B2C tenant.
 
     ![Switch to subscription directory](./media/tutorial-create-tenant/switch-directory-subscription.png)
 
 3. Choose **Create a resource** in the top-left corner of the Azure portal.
 4. Search for and select **Active Directory B2C**, and then click **Create**.
-5. Choose **Create a new Azure AD B2C Tenant**, enter an organization name and initial domain name, which is used in the tenant name, select the country (it can't be changed later), and then click **Create**.
+5. Choose **Create a new Azure AD B2C Tenant**, enter an organization name and initial domain name, which is used in the tenant name, select the country/region (it can't be changed later), and then click **Create**.
 
     ![Create a tenant](./media/tutorial-create-tenant/create-tenant.png)
 

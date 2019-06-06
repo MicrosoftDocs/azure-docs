@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/20/2019
 ---
 # Quickstart: Build a .NET web app using SQL API account in Azure Cosmos DB
 
@@ -29,8 +29,8 @@ In this quickstart, you use Data Explorer in the Azure portal to create the data
 
 ## Prerequisites
 
-Visual Studio 2017 with the Azure development workflow installed
-- You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+Visual Studio 2019 with the Azure development workflow installed
+- You can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
 An Azure subscription or free Azure Cosmos DB trial account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -56,8 +56,8 @@ You can use the Data Explorer in the Azure portal to create a database and colle
     
     |Setting|Suggested value|Description
     |---|---|---|
-    |**Database id**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.|
-    |**Collection id**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
+    |**Database ID**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.|
+    |**Collection ID**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
     |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
     |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.| 
     
@@ -188,28 +188,32 @@ This step is optional. In this quickstart, you created a database and a collecti
 * The following code creates the new collection by using the `CreateDocumentCollectionAsync` method:
 
     ```csharp
-    private static async Task CreateCollectionIfNotExistsAsync()
+    private static async Task CreateCollectionIfNotExistsAsync(string partitionkey)
     {
-        try
-        {
-           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-        }
+       try
+       {       
+        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), new RequestOptions { PartitionKey = new PartitionKey(partitionkey) });
+       }
         catch (DocumentClientException e)
         {
            if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-           {
-              await client.CreateDocumentCollectionAsync(
-              UriFactory.CreateDatabaseUri(DatabaseId),
-              new DocumentCollection
-              {
-                  Id = CollectionId
-              },
-              new RequestOptions { OfferThroughput = 400 });
-           }
-           else
-           {
-             throw;
-           }
+            {
+                await client.CreateDocumentCollectionAsync(
+                  UriFactory.CreateDatabaseUri(DatabaseId),
+                   new DocumentCollection
+                    {
+                      Id = CollectionId,
+                      PartitionKey = new PartitionKeyDefinition
+                       {
+                           Paths = new System.Collections.ObjectModel.Collection<string>(new List<string>() { partitionkey })
+                        }
+                    },
+                      new RequestOptions { OfferThroughput = 400 });
+            }
+            else
+            {
+                throw;
+            }
         }
     }
     ```

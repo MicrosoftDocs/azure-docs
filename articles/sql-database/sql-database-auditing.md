@@ -11,7 +11,7 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ---
 # Get started with SQL database auditing
 
@@ -84,6 +84,9 @@ The following section describes the configuration of auditing using the Azure po
 
 5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
 
+   > [!WARNING]
+   > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
+
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
 6. To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
@@ -102,10 +105,11 @@ The following section describes the configuration of auditing using the Azure po
 10. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
 11. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->Enabling auditing on an Azure SQL Data Warehouse, or on a server that has an Azure SQL Data Warehouse on it, **will result in the Data Warehouse being resumed**, even in the case where it was previously paused. **Please make sure to pause the Data Warehouse again after enabling auditing**.'
+> Enabling auditing on an paused Azure SQL Data Warehouse is not possible. To enable it, un-pause the Data Warehouse.
 
+> [!WARNING]
+> Enabling auditing on a server that has an Azure SQL Data Warehouse on it **will result in the Data Warehouse being resumed and re-paused again** which may incur in billing charges.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 

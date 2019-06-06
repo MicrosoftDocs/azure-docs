@@ -42,6 +42,8 @@
       href: automation-onboard-solutions-from-vm.md
     - name: Onboard from Automation account
       href: automation-onboard-solutions-from-automation-account.md
+    - name: Region mappings
+      href: how-to/region-mappings.md
   - name: Update Management
     items:
     - name: Update Management overview
@@ -59,7 +61,7 @@
   - name: Change Tracking
     items:
     - name: Change Tracking overview
-      href: automation-change-tracking.md
+      href: change-tracking.md
       displayName: wildcard, recursion, environment variables, registry
     - name: View file contents of tracked files
       href: change-tracking-file-contents.md

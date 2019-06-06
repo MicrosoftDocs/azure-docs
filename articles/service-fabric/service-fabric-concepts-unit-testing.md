@@ -32,7 +32,7 @@ Unit testing stateful services can help to uncover some common mistakes that are
 
 ## Common practices
 
-The following section advises on the most common practices for unit testing a stateful service. It also advises what a mocking layer should have to closely align to the Service Fabric orchestration and state management. Mocking libraries do exist libraries that provide this functionality. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) as of 3.3.0 or later is one such library that provides the mocking functionality recommended and follows the practices outlined below.
+The following section advises on the most common practices for unit testing a stateful service. It also advises what a mocking layer should have to closely align to the Service Fabric orchestration and state management. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) as of 3.3.0 or later is one such library that provides the mocking functionality recommended and follows the practices outlined below.
 
 ### Arrangement
 

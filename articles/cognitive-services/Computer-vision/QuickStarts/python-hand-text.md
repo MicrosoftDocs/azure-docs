@@ -22,14 +22,14 @@ In this quickstart, you extract handwritten text from an image by using Computer
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![The launch Binder button](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/try/cognitive-services/) before you begin.
 
 ## Prerequisites
 
 - You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Create and run the sample
 
@@ -73,12 +73,9 @@ text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-# Note: The request parameter changed for APIv2.
-# For APIv1, it is 'handwriting': 'true'.
-params  = {'mode': 'Handwritten'}
 data    = {'url': image_url}
 response = requests.post(
-    text_recognition_url, headers=headers, params=params, json=data)
+    text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
 
 # Extracting handwritten text requires two API calls: One call to submit the

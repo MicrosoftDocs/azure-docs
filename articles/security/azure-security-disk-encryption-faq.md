@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/05/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
 ---
 
@@ -40,31 +40,27 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 
 | Linux distribution | Version | Volume type supported for encryption|
 | --- | --- |--- |
+| Ubuntu | 18.04| OS and data disk |
 | Ubuntu | 16.04| OS and data disk |
 | Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
-| RHEL | 7.6 | OS and data disk* |
-| RHEL | 7.5 | OS and data disk* |
-| RHEL | 7.4 | OS and data disk* |
-| RHEL | 7.3 | OS and data disk* |
-| RHEL | 7.2 | OS and data disk* |
-| RHEL | 6.8 | Data disk* |
-| RHEL | 6.7 | Data disk* |
+| RHEL | 7.6 | OS and data disk (see note below) |
+| RHEL | 7.5 | OS and data disk (see note below) |
+| RHEL | 7.4 | OS and data disk (see note below) |
+| RHEL | 7.3 | OS and data disk (see note below) |
+| RHEL | 7.2 | OS and data disk (see note below) |
+| RHEL | 6.8 | Data disk (see note below) |
+| RHEL | 6.7 | Data disk (see note below) |
 | CentOS | 7.5 | OS and data disk |
 | CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
-| CentOS | 6.8 | OS and data disk |
-| CentOS | 7.1 | Data disk |
-| CentOS | 7.0 | Data disk |
-| CentOS | 6.7 | Data disk |
-| CentOS | 6.6 | Data disk |
-| CentOS | 6.5 | Data disk |
+| CentOS | 6.8 | Data disk |
 | openSUSE | 42.3 | Data disk |
 | SLES | 12-SP4 | Data disk |
 | SLES | 12-SP3 | Data disk |
 
 > [!NOTE]
-> New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
+> The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. See [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) for more information.
 
 ## How can I start using Azure Disk Encryption?
 
@@ -81,6 +77,9 @@ No, Azure Disk Encryption only encrypts mounted volumes.
 ## How do I rotate secrets or encryption keys?
 
 To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
+
+>[!WARNING]
+> - If you have previously used [Azure Disk Encryption with Azure AD app](azure-security-disk-encryption-prerequisites-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
 
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
@@ -153,11 +152,11 @@ On Linux, ADE uses the decrypt default of aes-xts-plain64 with a 256-bit volume 
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## Is XFS filesystem supported?
-XFS volumes are supported for data disk encryption only with the EncryptFormalAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+XFS volumes are supported for data disk encryption only with the EncryptFormatAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## Can I backup and restore an encrypted VM? 
 
-Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Restoring an encrypted VM to a different region is not currently supported.  
+Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Restoring an encrypted VM to a different region is not currently supported.  
 
 ## Where can I go to ask questions or provide feedback?
 

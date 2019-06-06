@@ -660,6 +660,27 @@ Here is an example that uses HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
 
+### Deploy using PowerShell
+
+The following PowerShell commands create a resource group and deploy a template that create a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
+
+```powershell
+# Register Resource Providers if they're not already registered
+Register-AzResourceProvider -ProviderNamespace "microsoft.web"
+Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
+
+# Create a resource group for the function app
+New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
+
+# Create the parameters for the file, which for this template is the function app name.
+$TemplateParams = @{"appName" = "<function-app-name>"}
+
+# Deploy the template
+New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
+```
+
+To test out this deployment, you can use a [template like this one](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) that creates a function app on Windows in a Consumption plan. Replace `<function-app-name>` with a unique name for your function app.
+
 ## Next steps
 
 Learn more about how to develop and configure Azure Functions.

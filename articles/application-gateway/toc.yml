@@ -44,7 +44,9 @@
     - name: Application Gateway components
       href: application-gateway-components.md
     - name: Configuration overview
-      href: configuration-overview.md  
+      href: configuration-overview.md
+  - name: Autoscaling v2 SKU
+    href: application-gateway-autoscaling-zone-redundant.md
   - name: Routing
     items:
     - name: Multiple site hosting
@@ -63,20 +65,22 @@
       href: ssl-overview.md
     - name: SSL policy overview
       href: application-gateway-ssl-policy-overview.md
+    - name: Using Key Vault
+      href: key-vault-certs.md
   - name: WAF
     items:
     - name: Web application firewall
       href: waf-overview.md
     - name: WAF configuration
       href: application-gateway-waf-configuration.md
+    - name: Custom rules
+      href: custom-waf-rules-overview.md
   - name: Health monitoring
     items: 
     - name: Health probe
       href: application-gateway-probe-overview.md
     - name: Diagnostics
       href: application-gateway-diagnostics.md 
-  - name: Autoscaling and zone-redundancy
-    href: application-gateway-autoscaling-zone-redundant.md
   - name: App service webapp and multi-tenant support
     href: application-gateway-web-app-overview.md
   - name: WebSocket support
@@ -107,6 +111,8 @@
         href: tutorial-ssl-powershell.md
       - name: SSL termination - Azure CLI
         href: tutorial-ssl-cli.md
+      - name: Configure Key Vault - PowerShell
+        href: configure-keyvault-ps.md
     - name: End-to-end SSL
       items:        
       - name: End-to-end SSL - Portal
@@ -137,6 +143,12 @@
       href: application-gateway-customize-waf-rules-powershell.md
     - name: Azure CLI
       href: application-gateway-customize-waf-rules-cli.md
+  - name:   WAF custom rules
+    items:
+    - name: Custom rule examples
+      href: create-custom-waf-rules.md
+    - name: Configure WAF with custom rules
+      href: configure-waf-custom-rules.md 
   - name: Route by URL
     items:
     - name: Azure PowerShell
@@ -179,6 +191,8 @@
       href: rewrite-http-headers-portal.md    
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
+    - name: Create and rewrite HTTP headers
+      href: tutorial-http-header-rewrite-powershell.md
   - name: Configure App service webapp and multi-tenant service
     items:
     - name: Portal
@@ -203,6 +217,8 @@
         href: how-to-troubleshoot-application-gateway-session-affinity-issues.md           
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
+  - name: Migrate from v1 to v2
+    href: migrate-v1-v2.md
 - name: Reference
   items:
   - name: CRS rules

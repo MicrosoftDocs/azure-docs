@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn about public and private IP addresses in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
+ms.author: kumud
 
 ---
 # IP address types and allocation methods in Azure
@@ -74,6 +75,9 @@ Standard SKU public IP addresses are:
 > [!NOTE]
 > Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](security-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
 
+> [!NOTE]
+> Only Public IP addresses with basic SKU are available when using [instance metadata service IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU is not supported.
+
 ### Allocation method
 
 Both basic and standard SKU public IP addresses support the *static* allocation method.  The resource is assigned an IP address at the time it is created and the IP address is released when the resource is deleted.
@@ -96,11 +100,14 @@ Static public IP addresses are commonly used in the following scenarios:
 >
 
 ### DNS hostname resolution
-You can specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel*.*location*.cloudapp.azure.com to the public IP address in the Azure-managed DNS servers. For instance, if you create a public IP resource with **contoso** as a *domainnamelabel* in the **West US** Azure *location*, the fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** resolves to the public IP address of the resource. You can use the FQDN to create a custom domain CNAME record pointing to the public IP address in Azure. Instead of, or in addition to, using the DNS name label with the default suffix, you can use the Azure DNS service to configure a DNS name with a custom suffix that resolves to the public IP address. For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
+You can specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel*.*location*.cloudapp.azure.com to the public IP address in the Azure-managed DNS servers. For instance, if you create a public IP resource with **contoso** as a *domainnamelabel* in the **West US** Azure *location*, the fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** resolves to the public IP address of the resource.
 
 > [!IMPORTANT]
 > Each domain name label created must be unique within its Azure location.  
 >
+
+### DNS Best Practices
+If you ever need to migrate to a different region, you cannot migrate the FQDN of your public IP Address. As a best practice, you can use the FQDN to create a custom domain CNAME record pointing to the public IP address in Azure. If you need to move to a different public IP, it will require an update to the CNAME record instead of having to manually update the FQDN to the new address. You can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record. 
 
 ### Virtual machines
 
@@ -125,7 +132,7 @@ The following table shows the specific property through which a public IP addres
 | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes |Yes |
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
-| VPN gateway |Gateway IP configuration |Yes |Yes |
+| VPN gateway |Gateway IP configuration |Yes |No |
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) |
 
 ## Private IP addresses

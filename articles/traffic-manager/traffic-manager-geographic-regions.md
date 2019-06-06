@@ -94,7 +94,7 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- ME(Montenegro)
 
-		- MK(Macedonia, FYRO)
+		- MK(North Macedonia)
 
 		- MT(Malta)
 
@@ -476,8 +476,6 @@ This article lists the countries and regions used by the **Geographic**  traffic
 		- CD(Congo (DRC))
 
 		- CF(Central African Republic)
-
-		- CG(Congo)
 
 		- CI(Côte d’Ivoire)
 

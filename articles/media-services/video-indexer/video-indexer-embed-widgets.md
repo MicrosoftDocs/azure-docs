@@ -7,8 +7,9 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/05/2019
 ms.author: juliako
 ---
 
@@ -57,6 +58,9 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
+> [!NOTE]
+> If you have issues with sharing your video URLs, try adding the ‘location’ parameter to the link. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example, `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
 ## Embedding private content
 
 You can get embed codes from embed popups (as shown in the previous section) for **Public** videos only. 
@@ -65,9 +69,9 @@ If you want to embed a **Private** video, you have to pass an access token in th
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-Use the [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API to get the Cognitive Insights widget content, or use [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) and add that as a query param to the URL, as shown above. Specify this URL as the **iframe**'s **src** value.
+Use the [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API to get the Cognitive Insights widget content, or use [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) and add that as a query param to the URL, as shown above. Specify this URL as the **iframe**'s **src** value.
 
-If you want to provide editing insights capabilities (like we have in our web application) in your embedded widget, you will have to pass an access token with editing permissions. Use [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?)  or [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with **&allowEdit=true**. 
+If you want to provide editing insights capabilities (like we have in our web application) in your embedded widget, you will have to pass an access token with editing permissions. Use [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget)  or [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with **&allowEdit=true**. 
 
 ## Widgets interaction
 

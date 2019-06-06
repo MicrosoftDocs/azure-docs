@@ -1,5 +1,5 @@
 ---
-title: Designing highly available Aaplications using read-access geo-redundant storage (RA-GRS) | Microsoft Docs
+title: Designing highly available Applications using read-access geo-redundant storage (RA-GRS) | Microsoft Docs
 description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages.
 services: storage
 author: tamram
@@ -9,8 +9,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
 ---
+
 # Designing highly available applications using RA-GRS
 
 A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use Read Access Geo-Redundant Storage (RA-GRS) to ensure that their Azure Storage applications are highly available.
@@ -48,7 +50,7 @@ The purpose of this article is to show you how to design an application that wil
 
 The proposed solution assumes that it is acceptable to return potentially stale data to the calling application. Because data in the secondary region is eventually consistent, it is possible the primary region may become inaccessible before an update to the secondary region has finished replicating.
 
-For example, suppose your customer submits an update successfully, but the primary region fails before the update is propagated to the secondary region. When the customer asks to read the data back, he receives the stale data from the secondary region instead of the updated data. When designing your application, you must decide whether this is acceptable, and if so, how you will message the customer. 
+For example, suppose your customer submits an update successfully, but the primary region fails before the update is propagated to the secondary region. When the customer asks to read the data back, they receive the stale data from the secondary region instead of the updated data. When designing your application, you must decide whether this is acceptable, and if so, how you will message the customer. 
 
 Later in this article, we show how to check the Last Sync Time for the secondary data to check whether the secondary is up-to-date.
 
@@ -142,7 +144,7 @@ Another consideration is how to handle multiple instances of an application, and
 
 You have three main options for monitoring the frequency of retries in the primary region in order to determine when to switch over to the secondary region and change the application to run in read-only mode.
 
-*   Add a handler for the [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) event on the [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
+*   Add a handler for the [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) event on the [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -153,7 +155,7 @@ You have three main options for monitoring the frequency of retries in the prima
     };
     ```
 
-*   In the [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
+*   In the [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -191,7 +193,7 @@ For the third scenario, when pinging the primary storage endpoint becomes succes
 
 RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is *eventually consistent*. This means that all the transactions in the primary region will eventually appear in the secondary region, but that there may be a lag before they appear, and that there is no guarantee the transactions arrive in the secondary region in the same order as that in which they were originally applied in the primary region. If your transactions arrive in the secondary region out of order, you *may* consider your data in the secondary region to be in an inconsistent state until the service catches up.
 
-The following table shows an example of what might happen when you update the details of an employee to make her a member of the *administrators* role. For the sake of this example, this requires you update the **employee** entity and update an **administrator role** entity with a count of the total number of administrators. Notice how the updates are applied out of order in the secondary region.
+The following table shows an example of what might happen when you update the details of an employee to make them a member of the *administrators* role. For the sake of this example, this requires you update the **employee** entity and update an **administrator role** entity with a count of the total number of administrators. Notice how the updates are applied out of order in the secondary region.
 
 | **Time** | **Transaction**                                            | **Replication**                       | **Last Sync Time** | **Result** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 

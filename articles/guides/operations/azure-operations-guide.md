@@ -141,7 +141,7 @@ For detailed documentation on Azure services, see [Azure service documentation](
 
 Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a speciﬁc datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/regions/).
 
-One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It’s optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries.
+One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It’s optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries/regions.
 
 ### Azure portal
 

@@ -198,7 +198,7 @@ SLA thresholds vary by service. For example, SQL Web Tier has an SLA of 99.9%, V
 
 For some services, there are prerequisites for the SLA to apply. For example, Virtual Machines must have two or more instances deployed in the same Availability Set.
 
-For more information, see the [Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/) documentation and the [SLA summary for Azure services](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentation.
+For more information, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) documentation and the [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/) documentation.
 
 ## Need help? Contact us.
 

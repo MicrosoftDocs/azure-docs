@@ -1,20 +1,12 @@
 ---
-title: Azure Marketplace SEO guidance | Microsoft Docs
+title: Azure Marketplace SEO guidance 
 description: Provides guidance on maximizing search engine optimization (SEO).
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Azure Marketplace SEO guidance
