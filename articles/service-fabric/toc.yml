@@ -517,6 +517,8 @@
         href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
       - name: Set up a Linux cluster on Windows
         href: service-fabric-local-linux-cluster-windows.md
+      - name: Deploy a .NET Core app to a remote Linux cluster from VS
+        href: service-fabric-how-to-publish-linux-app-vs.md
     - name: Work in a Linux/Eclipse dev environment
       items:
       - name: Get started with Eclipse plugin for Java development
