@@ -68,7 +68,9 @@ If you are using a distro or version that is not currently supported and doesn't
 >OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
 >
 
-### Package requirements
+### Agent prerequisites
+
+The following table highlights the packages required for supported Linux distros that the agent will be installed on.
 
 |Required package |Description |Minimum version |
 |-----------------|------------|----------------|
