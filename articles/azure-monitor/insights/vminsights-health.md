@@ -271,7 +271,7 @@ You can filter this view by selecting values in the dropdown menus at the top of
 |Severity |elect an alert severity, or select **All** to include alerts of all severities. | 
 |Monitor Condition |Select a monitor condition to filter alerts if they have been fired or resolved by the system if the condition is no longer active. Or, select **All** to include alerts of all conditions. |
 |Alert state |Select an alert state, **New**, **Acknowledge**, **Closed**, or **All** to include alerts of all states. |
-|Monitor service |Select a service, or select **All** to include all services. Only alerts from *VM Insights* are supported for this feature.|
+|Monitor service |Select a service, or select **All** to include all services. Only alerts from VM Insights are supported for this feature.|
 |Time range| Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. | 
 
 The **Alert detail** page is displayed when you select an alert, providing details of the alert and allowing you to change its state. To learn more about managing alerts, see [Create, view, and manage alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
