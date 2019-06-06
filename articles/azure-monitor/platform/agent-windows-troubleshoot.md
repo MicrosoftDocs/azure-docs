@@ -72,8 +72,6 @@ There are several ways you can verify if the agent is successfully communicating
     |2128 |Health Service Modules |DNS name resolution failed |The machine could not resolve the Internet address used when sending data to the service. This might be DNS resolver settings on your machine, incorrect proxy settings, or maybe a temporary DNS issue with your provider. If this happens periodically, it could be caused by a transient network-related issue.|
     |4002 |Service Connector |The service returned HTTP status code 403 in response to a query. Please check with the service administrator for the health of the service. The query will be retried later. |This error is written during the agent’s initial registration phase and you’ll see a URL similar to the following: *https://<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. An error code 403 means forbidden and can be caused by a mistyped Workspace ID or key, or the data and time is incorrect on the computer. If the time is +/- 15 minutes from current time, then onboarding fails. To correct this update the date and/or timezone of your Windows computer.|
 
-## Resource utilization issues
-
 ## Data collection issues
 
 After the agent is installed and reports to its configured workspace or workspaces, it may stop receiving configuration, collecting or forwarding performance, logs, or other data to the service depending on what is enabled and targeting the computer. It is necessary to determine if:
@@ -93,7 +91,7 @@ Heartbeat
     | summarize arg_max(TimeGenerated, * ) by Computer
 ```
 
-If the query returns results, next you need to determine if it a particular data type that is not being collected and forwarded to the service. This could be caused by the agent not receiving updated configuration from the service or some other symptom preventing the agent from operating normally. Perform the following steps to further troubleshoot.
+If the query returns results, then you need to determine if a particular data type is not getting collected and forwarded to the service. This could be caused by the agent not receiving updated configuration from the service or some other symptom preventing the agent from operating normally. Perform the following steps to further troubleshoot.
 
 1. Open an elevated command prompt on the computer and restart the agent service by typing `net stop healthservice && net start healthservice`.
 1. In the *Operations Manager* event log, search for event ID 
