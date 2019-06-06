@@ -69,7 +69,7 @@ In order to list Software as a Service (SaaS) offers with Commercial Marketplace
 
 - Your offer must be compatible with Azure clients. (Often SaaS apps are also hosted on Azure for best performance and compatibility, but this is not a requirement.) 
 - Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
-- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
 
 #### Billing infrastructure costs
 For SaaS offers, you, as the publisher, must account for Azure infrastructure usage fees, and software licensing fees as a single cost item. This cost is represented as a flat monthly fee to the customer. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. 
