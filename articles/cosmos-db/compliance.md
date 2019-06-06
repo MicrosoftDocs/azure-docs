@@ -16,7 +16,7 @@ Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct
 
 * **Azure public** cloud, which is available globally.
 
-* **Azure China** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
+* **Azure China 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
 
 * **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
 
@@ -32,15 +32,32 @@ Azure Cosmos DB is continually expanding its certification coverage. Currently, 
 
 | **Globally  applicable** | **US Government** | **Industry specific** | **Region or country specific** |
 | --- | --- | --- | --- |
-| CSA STAR Certification<br/><br/>CSA STAR Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG Level 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
+| CSA STAR Certification | DoD SRG Level 2 | HIPAA BAA | Australia IRAP Unclassified |
+| CSA STAR Attestation | FedRAMP Moderate | HITRUST | Germany C5|
+| ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI DSS | Singapore MTCS Level 3 |
+| ISO 22301:2012 | | | Spain ENS High|
+| ISO 27001:2013| | | |
+| ISO 27017:2015 | | | |
+| ISO 27018:2014 | | | |
+| ISO 9001:2015 | | | |
+| SOC 1, 2, 3 | | | |
 
 To learn more about each of these compliance offerings and how they benefit you, see [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) page.
 
 The following table lists the certifications supported by Azure Cosmos DB in Azure Government:
 
-| **Globally  applicable** | **US Government** | **Industry specific** | **Region or country specific** |
+| **Globally  applicable** | **US Government** | **Industry specific** | 
 | --- | --- | --- | --- |
-| CSA STAR Certification<br/><br/>CSA STAR Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG Level 2<br/><br/>DoD SRG Level 5<br/><br/>CJIS<br/><br/>FedRAMP High<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
+| CSA STAR Certification | CJIS| HIPAA BAA | 
+| CSA STAR Attestation| DoD SRG Level 2| HITRUST  | 
+| ISO 20000-1:2011 | DoD SRG Level 4 | PCI DSS | 
+| ISO 9001:2012 | DoD SRG Level 5 | | 
+| ISO 27001:2013 | FedRAMP High | |
+| ISO 9001:2015 | IRS 1075|  |
+| ISO 27017:2014 | NIST CSF | |
+| ISO 27018:2015 | NIST SP 800-171 | |
+| SOC 1, 2, 3 | | |
+
 
 ## Next steps
 

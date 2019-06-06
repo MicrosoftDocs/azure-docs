@@ -18,7 +18,7 @@ ms.author: aahi
 Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple JavaScript application sends an HTTP video search query to the API, and displays the response. While this application is written in JavaScript and uses Node.js, the API is a RESTful Web service compatible with most programming languages.
 The example code was written to work under PHP 5.6.
 
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) for technical details about the APIs.
+Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) for technical details about the APIs.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservic
 
 ## Running the application
 
-The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns video results from the Bing search engine.
+The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returns video results from the Bing search engine.
 
 1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment.
 2. Create a new PHP project in your favorite IDE or editor.

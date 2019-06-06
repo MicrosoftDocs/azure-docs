@@ -434,7 +434,7 @@ From your device, view the logs of the cameraCapture module to see the messages 
    iotedge logs cameraCapture
    ```
 
-From Visual Studio Code, right-click on the name of your IoT Edge device and select **Start monitoring D2C message**. 
+From Visual Studio Code, right-click on the name of your IoT Edge device and select **Start Monitoring Built-in Event Endpoint**. 
 
 The results from the Custom Vision module, which are sent as messages from the cameraCapture module, include the probability that the image is of either a hemlock or cherry tree. Since the image is hemlock, you should see the probability as 1.0. 
 

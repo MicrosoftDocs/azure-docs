@@ -49,7 +49,7 @@ Azure Monitor application change analysis is currently built into the self-servi
 
 ![Screenshot of Azure App Service overview page with red boxes around overview button and diagnose and solve problems button](./media/change-analysis/change-analysis.png)
 
-### Enable change analysis
+### Enable change analysis in Diagnose and solve problems tool
 
 1. Select **Availability and Performance**
 
@@ -73,46 +73,59 @@ Azure Monitor application change analysis is currently built into the self-servi
 
      ![Screenshot of change diff view](./media/change-analysis/change-view.png)
 
-## Troubleshooting
 
-### Cannot onboard Change Service RP to subscription
-It is possible that in the enablement blade you see messages similar to the following:
-*Unable to check resource registration status. Please try again later*.
+### Enable Change Analysis service at scale
+If you have a lot of web apps in your Subscription, enable the service at per web app level will be inefficient. Here are some alternative onboarding instructions.
 
-Following the steps below to manually onboard Change Analysis to your subscription:
+#### Registering Change Analysis resource provider for your subscription
 
-1. Navigate to Subscriptions, select the subscription you want to onboard the change service, then click Resource providers:
+1. Register Change Analysis preview feature flag
 
-    ![Screenshot for registering Change Analysis RP from Subscriptions blade](./media/change-analysis/register-rp.png)
-
-2. Select *Microsoft.ChangeAnalysis* and click *Register* on the top of the page.
-
-3. Once Resource Provider is onboarded, follow instructions from *Unable to fetch Change Analysis information* below to set hidden tag on the web app to enable deployment level change detection on the web app.
-
-### Unable to fetch Change Analysis information.
-
-This is a temporary issue with the current preview onboarding experience. The workaround consists of setting a hidden tag on your web app and then refreshing the page:
-
-   ![Screenshot of change hidden tag](./media/change-analysis/hidden-tag.png)
-
-To set the hidden tag using PowerShell:
-
-1. Open the Azure Cloud Shell:
+    Since this feature is in preview, you need to firstly register the feature flag for it to be visible to your subscription.
+    - Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
 
     ![Screenshot of change Azure Cloud Shell](./media/change-analysis/cloud-shell.png)
 
-2. Change the shell type to PowerShell:
+    - Change the shell type to PowerShell:
 
-   ![Screenshot of change Azure Cloud Shell](./media/change-analysis/choose-powershell.png)
+    ![Screenshot of change Azure Cloud Shell](./media/change-analysis/choose-powershell.png)
 
-3. Run the following command:
+    - Run the following PowerShell command:
 
-```powershell
-$webapp=Get-AzWebApp -Name <name_of_your_webapp>
-$tags = $webapp.Tags
-$tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-```
+    ``` PowerShell
+
+    Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to onboard
+    Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
+    Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
+
+    ```
+
+2. Register Change Analysis Resource Provider for the subscription
+
+    - Navigate to Subscriptions, select the subscription you want to onboard the change service, then click Resource providers:
+
+        ![Screenshot for registering Change Analysis RP from Subscriptions blade](./media/change-analysis/register-rp.png)
+
+    - Select *Microsoft.ChangeAnalysis* and click *Register* on the top of the page.
+
+    - Once Resource Provider is onboarded, follow instructions from *Unable to fetch Change Analysis information* below to set hidden tag on the web app to enable deployment level change detection on the web app.
+
+3. Alternatively to step 2 above, you can register for the Resource Provider via PowerShell script:
+
+    ```PowerShell
+    Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
+
+    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
+    ```
+
+4. To set a hidden tag on a web app using PowerShell, run the following command:
+
+    ```powershell
+    $webapp=Get-AzWebApp -Name <name_of_your_webapp>
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
+    ```
 
 > [!NOTE]
 > Once the hidden tag is added, you may still need to initially wait up to 4 hours to be able to first view changes. This is due to the 4 hour freqeuncy that the change analysis service uses to scan your web app while limiting the performance impact of the scan.
