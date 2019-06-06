@@ -231,7 +231,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 
     ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
 
-3. Right click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and Password.
+3. Right click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and password.
 
     ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
 
@@ -258,7 +258,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
    
    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
 
-3. Select a cluster which has reader-only role permission for **Cluster Name**. Warning message shows out. You can Click **Link this cluster** to link cluster.
+3. Select a cluster which has reader-only role permission for **Cluster Name**. Warning message shows out. You can click **Link this cluster** to link cluster.
    
    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-10.png)
    
@@ -273,13 +273,6 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 * For linked clusters, click **Storage Accounts** node, **Storage Access Denied** window pops up. 
      
    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
-
-   If you have filled in the Storage information when link the cluster, the Storage Accounts will be listed.
-
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
-
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-16.png)
-
 
 ## Known problems
 When link a cluster, I would suggest you to provide credential of storage.
