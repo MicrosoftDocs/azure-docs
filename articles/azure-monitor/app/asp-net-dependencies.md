@@ -107,38 +107,11 @@ In the above cases, the correct way of validating that instrumentation engine is
 
 ## Where to find dependency data
 
-* [Application Map](#application-map) visualizes dependencies between your app and neighboring components.
-* [Performance, browser, and failure blades](#performance-and-failure-blades) show server dependency data.
-* [Browsers blade](#ajax-calls) shows AJAX calls from your users' browsers.
+* [Application Map](app-map.md) visualizes dependencies between your app and neighboring components.
+* [Transaction Diagnostics](transaction-diagnostics.md) shows unified, correlated server data.
+* [Browsers blade](javascript.md#ajax-performance) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#analytics) can be used to query dependency data.
-
-## Application Map
-
-Application Map acts as a visual aid to discovering dependencies between the components of your application. It is automatically generated from the telemetry from your app. This example shows AJAX calls from the browser scripts and REST calls from the server app to two external services.
-
-![Application Map](./media/asp-net-dependencies/08.png)
-
-* **Navigate from the boxes** to relevant dependency and other charts.
-* **Pin the map** to the [dashboard](../../azure-monitor/app/overview-dashboard.md), where it will be fully functional.
-
-[Learn more](../../azure-monitor/app/app-map.md).
-
-## Performance and failure blades
-
-The performance blade shows the duration of dependency calls made by the server app. There's a summary chart and a table segmented by call.
-
-![Performance blade dependency charts](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
-
-Click through the summary charts or the table items to search raw occurrences of these calls.
-
-![Dependency call instances](./media/asp-net-dependencies/dependency-call-instance.png)
-
-**Failure counts** are shown on the **Failures** blade. A failure is any return code that is not in the range 200-399, or unknown.
-
-## AJAX Calls
-
-The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](../../azure-monitor/app/javascript.md). They are shown as Dependencies.
 
 ## <a name="diagnosis"></a> Diagnose slow requests
 

@@ -3,8 +3,8 @@ title: Set up your Azure Red Hat OpenShift development environment | Microsoft D
 description: Here are the prerequisites for working with Microsoft Azure Red Hat OpenShift.
 services: openshift
 keywords:  red hat openshift setup set up
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
@@ -61,31 +61,43 @@ To register these providers and features manually, use the following instruction
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-2. Register the Microsoft.ContainerService openshiftmanagedcluster feature:
+1. Register the Microsoft.ContainerService openshiftmanagedcluster feature:
 
     ```bash
     az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
     ```
 
-3. Register the Microsoft.Solutions provider:
+1. Register the Microsoft.Storage provider:
+
+    ```bash
+    az provider register -n Microsoft.Storage --wait
+    ```
+    
+1. Register the Microsoft.Compute provider:
+
+    ```bash
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Register the Microsoft.Solutions provider:
 
     ```bash
     az provider register -n Microsoft.Solutions --wait
     ```
 
-4. Register the Microsoft.Network provider:
+1. Register the Microsoft.Network provider:
 
     ```bash
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Register the Microsoft.KeyVault provider:
+1. Register the Microsoft.KeyVault provider:
 
     ```bash
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-6. Refresh the registration of the Microsoft.ContainerService resource provider:
+1. Refresh the registration of the Microsoft.ContainerService resource provider:
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait

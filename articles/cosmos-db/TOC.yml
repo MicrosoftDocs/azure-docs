@@ -210,13 +210,15 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
+        - name: Security attributes
+          href: cosmos-db-security-attributes.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-    - name: Limits
+    - name: Resource limits
       href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
@@ -360,6 +362,8 @@
           href: manage-mongodb-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-mongodb.md
+        - name: Troubleshoot common issues
+          href: mongodb-troubleshoot.md
     - name: Gremlin API
       displayName: graph, graph database
       items: 
@@ -531,6 +535,8 @@
       items:
       - name: Azure Cosmos DB Trigger logs
         href: how-to-configure-cosmos-db-trigger-logs.md
+        name: Azure Cosmos DB Trigger connection policy
+        href: how-to-configure-cosmos-db-trigger-connection-policy.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
@@ -598,8 +604,10 @@
       items:
       - name: Performance tips
         items:
+        - name: Get query execution metrics
+          href: profile-sql-api-query.md 
         - name: Tune query performance
-          href: sql-api-query-metrics.md 
+          href: sql-api-query-metrics.md    
         - name: Performance tips for .NET SDK
           href: performance-tips.md
         - name: Performance tips for Java SDK

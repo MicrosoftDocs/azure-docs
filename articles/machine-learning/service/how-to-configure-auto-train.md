@@ -54,6 +54,14 @@ Classification | Regression | Time Series Forecasting
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+Use the `task` parameter in the `AutoMLConfig` constructor to specify your experiment type.
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## Data source and format
 Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
@@ -116,7 +124,7 @@ Key	| Type | Mutually Exclusive with	| Description
 ---|---|---|---
 X |	Pandas Dataframe or Numpy Array	| data_train, label, columns |	All features to train with
 y |	Pandas Dataframe or Numpy Array |	label	| Label data to train with. For classification, should be an array of integers.
-X_valid	| Pandas Dataframe or Numpy Array	| data_train, label	| _Optional_ All features to validate with. If not specified, X is split between train and validate
+X_valid	| Pandas Dataframe or Numpy Array	| data_train, label	| _Optional_ Feature data that forms the validation set. If not specified, X is split between train and validate
 y_valid |	Pandas Dataframe or Numpy Array	| data_train, label	| _Optional_ The label data to validate with. If not specified, y is split between train and validate
 sample_weight |	Pandas Dataframe or Numpy Array |	data_train, label, columns|	_Optional_ A weight value for each sample. Use when you would like to assign different weights for your data points
 sample_weight_valid	| Pandas Dataframe or Numpy Array |	data_train, label, columns |	_Optional_ A weight value for each validation sample. If  not specified, sample_weight is split between train and validate
@@ -472,6 +480,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![feature importance graph](./media/how-to-configure-auto-train/feature-importance.png)
+
+For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](machine-learning-interpretability-explainability.md) article on interpretability.
 
 ## Next steps
 
