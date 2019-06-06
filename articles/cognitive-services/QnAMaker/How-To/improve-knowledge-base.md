@@ -88,7 +88,7 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 
 1. Select **Save and Train** to save the changes to the knowledge base.
 
-1. Select **Publish** to allow the changes to be available from the [GenerateAnswer API](metadata-generateanswer-usage#generateanswer-request-configuration).
+1. Select **Publish** to allow the changes to be available from the [GenerateAnswer API](metadata-generateanswer-usage.md#generateanswer-request-configuration).
 
     When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the alternate questions for you to accept or reject.
 
