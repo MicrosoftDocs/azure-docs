@@ -23,7 +23,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file to any directory on your computer. For convenience, consider adding the AzCopy directory location to your system path for ease of use.
+First, download the AzCopy V10 executable file to any directory on your computer. 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -34,7 +34,9 @@ First, download the AzCopy V10 executable file to any directory on your computer
 
 ## Run AzCopy
 
-From a command prompt, navigate to the directory where you downloaded the file.
+For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
+
+If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in Windows PowerShell command prompts.
 
 To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
