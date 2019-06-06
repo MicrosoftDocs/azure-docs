@@ -290,6 +290,22 @@ A sync group defines the sync topology for a set of files. A sync group must con
 
 If you select your sync group, you can see that you now have one **cloud endpoint**.
 
+## Grant the Hybrid File Sync Service (Microsoft.StorageSync)  permission to the Cloud Endpoint storage account
+
+Ensure Azure File Sync has access to the storage account:
+
+1. Click **Access control (IAM)** on the left-hand table of contents.
+1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
+1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
+
+    ![A screenshot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+
+If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
+
+- Click **Add**.
+- In the **Role** field, select **Reader and Data Access**.
+- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
+
 ## Add a server endpoint
 
 A server endpoint represents a specific location on a registered server. For example, a folder on a server volume. To add a server endpoint:
