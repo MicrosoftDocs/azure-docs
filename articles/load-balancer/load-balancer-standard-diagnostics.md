@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2019
+ms.date: 06/06/2019
 ms.author: Kumud
 ---
 
@@ -50,7 +50,7 @@ To view the metrics for your Standard Load Balancer resources:
 2. Set the appropriate aggregation type.
 3. Optionally, configure the required filtering and grouping.
 
-    ![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/LBMetrics1a.png)
+    ![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
     *Figure: Data Path Availability metric for Standard Load Balancer*
 
@@ -156,7 +156,7 @@ You can use health probe metrics to understand how Azure views the health of you
 
 You can take it a step further and use VIP availability metrics to gain insight into how Azure views the health of the underlying data plane that's responsible for your specific deployment. When you combine both metrics, you can isolate where the fault might be, as illustrated in this example:
 
-![Combining Data Path Availability and Health Probe Status metrics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability-2b.png)
+![Combining Data Path Availability and Health Probe Status metrics](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
 *Figure: Combining Data Path Availability and Health Probe Status metrics*
 
