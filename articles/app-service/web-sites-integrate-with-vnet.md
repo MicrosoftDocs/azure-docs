@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -62,22 +62,23 @@ There are some things that VNet Integration doesn't support including:
 
 When VNet Integration is used with VNets in the same region as your app, it requires the use of a delegated subnet with at least 32 addresses in it. The subnet cannot be used for anything else. Outbound calls made from your app will be made from the addresses in the delegated subnet. When you use this version of VNet Integration, the calls are made from addresses in your VNet. Using addresses in your VNet enables your app to:
 
-* make calls to service endpoint secured services
-* access resources across ExpressRoute connections
-* access resources in the VNet you are connected to
-* access resources across peered connections including ExpressRoute connections
+* Make calls to service endpoint secured services
+* Access resources across ExpressRoute connections
+* Access resources in the VNet you are connected to
+* Access resources across peered connections including ExpressRoute connections
 
 This feature is in preview but, it is supported for production workloads with the following limitations:
 
-* you can only reach addresses that are in the RFC 1918 range. Those are addresses in the 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 address blocks.
-* you cannot reach resources across global peering connections
-* you cannot set routes on the traffic coming from your app into your VNet
-* the feature is only available from newer App Service scale units that support PremiumV2 App Service plans.
-* the feature cannot be used by Isolated plan apps that are in an App Service Environment
-* the feature requires an unused subnet with at least 32 addresses in your Resource Manager VNet.
-* the app and the VNet must be in the same region
-* one address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.
-* you cannot delete a VNet with an integrated app. You must remove the integration first 
+* You can only reach addresses that are in the RFC 1918 range. Those are addresses in the 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 address blocks.
+* You cannot reach resources across global peering connections
+* You cannot set routes on the traffic coming from your app into your VNet
+* The feature is only available from newer App Service scale units that support PremiumV2 App Service plans.
+* The feature cannot be used by Isolated plan apps that are in an App Service Environment
+* The feature requires an unused subnet with at least 32 addresses in your Resource Manager VNet.
+* The app and the VNet must be in the same region
+* One address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.
+* You cannot delete a VNet with an integrated app. You must remove the integration first 
+* You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet. 
 
 To use the VNet Integration feature with a Resource Manager VNet in the same region:
 
@@ -105,7 +106,7 @@ Apps in the App Service are hosted on worker roles. The Basic and higher pricing
 
 When VNet Integration is enabled, your app will still make outbound calls to the internet through the same channels as normal. The outbound addresses that are listed in the app properties portal are still the addresses used by your app. What changes for your app are that calls to service endpoint secured services or RFC 1918 addresses goes into your VNet. 
 
-The feature only supports one virtual interface per worker.  One virtual interface per worker means one virtual interface per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration but if you need to connect to an additional VNet, you will need to create another App Service plan. The virtual interface used is not a resource that customers have direct access to.
+The feature only supports one virtual interface per worker.  One virtual interface per worker means one regional VNet Integration per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration but if you need an app to connect to an additional VNet, you will need to create another App Service plan. The virtual interface used is not a resource that customers have direct access to.
 
 Due to the nature of how this technology operates, the traffic that is used with VNet Integration does not show up in Network Watcher or NSG flow logs.  
 
@@ -113,17 +114,17 @@ Due to the nature of how this technology operates, the traffic that is used with
 
 The Gateway required VNet Integration feature:
 
-* can be used to connect to VNets in any region be they Resource Manager or Classic VNets
-* enables an app to connect to only 1 VNet at a time
-* enables up to five VNets to be integrated with in an App Service Plan 
-* allows the same VNet to be used by multiple apps in an App Service Plan without impacting the total number that can be used by an App Service plan.  If you have 6 apps using the same VNet in the same App Service plan, that counts as 1 VNet being used. 
-* requires a Virtual Network Gateway that is configured with Point to Site VPN
-* supports a 99.9% SLA due to the SLA on the gateway
+* Can be used to connect to VNets in any region be they Resource Manager or Classic VNets
+* Enables an app to connect to only 1 VNet at a time
+* Enables up to five VNets to be integrated with in an App Service Plan 
+* Allows the same VNet to be used by multiple apps in an App Service Plan without impacting the total number that can be used by an App Service plan.  If you have 6 apps using the same VNet in the same App Service plan, that counts as 1 VNet being used. 
+* Requires a Virtual Network Gateway that is configured with Point to Site VPN
+* Supports a 99.9% SLA due to the SLA on the gateway
 
 This feature does not support:
 
-* accessing resources across ExpressRoute 
-* accessing resources across Service Endpoints 
+* Accessing resources across ExpressRoute 
+* Accessing resources across Service Endpoints 
 
 ### Getting started
 
