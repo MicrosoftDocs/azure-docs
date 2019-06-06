@@ -160,6 +160,19 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 > [!NOTE]
 > Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. Snapshot Debugger is also not currently available in Azure Government. As soon as this functionality becomes available this article will be updated.
 
+### Enable Application Insights for ASP.NET & ASP.NET Core with Visual Studio
+
+Currently for Azure Government customers, the only way to enable Application Insights via the traditional **Add Applications Insights Telemetry** button in Visual Studio requires a small manual workaround. Customers experiencing the associated issue may see error messages like _"There is no Azure subscription associated with this account_ or  _"The selected subscription does not support Application Insights_ even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
+
+1. Switch Visual Studio to [target the Azure Government cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-vs).
+
+2. Create (or if already existing set) the User Environment variable for AzureGraphApiVersion as follows: (To create a User Environment variable go to **Control Panel** > **System** > **Advanced system settings** > **Advanced** > **Environment Variables**.)
+
+    `Variable name: AzureGraphApiVersion`
+    `Variable value: 2014-04-01`
+
+3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig) or [ASP.NET Core](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-core) depending on your project type.
+
 ### SDK endpoint modifications
 
 In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
