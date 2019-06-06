@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -46,7 +46,7 @@ The list will show all of the current restrictions that are on your app. If you 
 
 You can click on **[+] Add** to add a new access restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule.
 
-### Adding IP address rules
+## Adding IP address rules
 
 ![add an IP access restriction rule](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
@@ -54,7 +54,7 @@ When creating a rule, you must select allow/deny and also the type of rule. You 
 
 To set an IP address based rule, select a type of IPv4 or IPv6. IP Address notation must be specified in CIDR notation for both IPv4 and IPv6 addresses. To specify an exact address, you can use something like 1.2.3.4/32 where the first four octets represent your IP address and /32 is the mask. The IPv4 CIDR notation for all addresses is 0.0.0.0/0. To learn more about CIDR notation, you can read [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
-### Service endpoints
+## Service endpoints
 
 ![add a VNet access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -64,7 +64,7 @@ Service endpoints cannot be used to restrict access to apps that run in an App S
 
 With service endpoints, you can configure your app with Application Gateways or other WAF devices. You can also configure multi-tier applications with secure backends. For more details on some of the possibilities, read [Networking features and App Service](networking-features.md).
 
-### Managing access restriction rules
+## Managing access restriction rules
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
 
@@ -78,7 +78,7 @@ To delete a rule, click the **...** on your rule and then click **remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### Blocking a single IP Address ##
+## Blocking a single IP Address ##
 
 When adding your first IP Restriction rule, the service will add an explicit **deny all** rule with a priority of 2147483647. In practice, the explicit **deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
 
@@ -86,7 +86,7 @@ For the scenario where users want to explicitly block a single IP address or IP 
 
 ![block single ip address](media/app-service-ip-restrictions/block-single-address.png)
 
-### SCM site 
+## SCM site 
 
 In addition to being able to control access to your app, you can also restrict access to the scm site used by your app. The scm site is the web deploy endpoint and also the Kudu console. You can separately assign access restrictions to the scm site from the app or use the same set for both the app and the scm site. When you check the box to have the same restrictions as your app, everything is blanked out. If you uncheck the box, whatever settings you had earlier on the scm site are applied. 
 
