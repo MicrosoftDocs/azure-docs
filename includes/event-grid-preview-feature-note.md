@@ -23,7 +23,7 @@ In [CloudShell](/azure/cloud-shell/quickstart):
 
 For a local installation:
 
-1. [Install](/cli/azure/install-azure-cli) the latest version of the Azure CLI.
+1. [Install the Azure CLI](/cli/azure/install-azure-cli). Make sure that you have the latest version, by checking with `az --version`.
 1. Uninstall previous versions of the extension `az extension remove -n eventgrid`
 1. Install the `eventgrid` extension with `az extension add -n eventgrid`
 
