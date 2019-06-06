@@ -17,7 +17,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 Latest version supported: `4.0.0`
 
-Previous versions supported include: `3.0.1`
+Previous versions also currently supported include: `3.0.1`
 
 ## REST API
 
