@@ -88,14 +88,7 @@ For more information, see the reference documentation for the [Model class](http
 
 The following compute targets, or compute resources, can be used to host your web service deployment. 
 
-| Compute target | Usage | Description |
-| ----- | ----- | ----- |
-| [Local web service](#local) | Testing/debug | Good for limited testing and troubleshooting.
-| [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| [Azure Container Instances (ACI)](#aci) | Testing | Good for low scale, CPU-based workloads. |
-| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | Batch inference | Run batch inference on serverless compute. Supports normal and low-priority VMs. |
-| [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## Prepare to deploy
 
@@ -185,7 +178,7 @@ def run(data):
 
 #### Example script with dictionary input (Support consumption from Power BI)
 
-The following example demonstrates how to define input data as <key: value> dictionary, using Dataframe. This method is supported for consuming the deployed web service from Power BI ([learn more on how to consume the web service from Power BI](https://docs.microsoft.com/en-us/power-bi/service-machine-learning-integration)):
+The following example demonstrates how to define input data as <key: value> dictionary, using Dataframe. This method is supported for consuming the deployed web service from Power BI ([learn more on how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
 
 ```python
 import json
