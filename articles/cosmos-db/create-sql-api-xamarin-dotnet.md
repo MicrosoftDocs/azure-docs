@@ -179,7 +179,7 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
     }
     ```
 
-    Here a new URI is needed to uniquely identify the document to replace and is obtained by using `UriFactory.CreateDocumentUri` and passing it the database and collection names and the id of the document.
+    Here a new URI is needed to uniquely identify the document to replace and is obtained by using `UriFactory.CreateDocumentUri` and passing it the database and collection names and the ID of the document.
 
     The `DocumentClient.ReplaceDocumentAsync` replaces the document identified by the URI with the one specified as a parameter.
 
