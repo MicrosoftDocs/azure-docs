@@ -1,32 +1,34 @@
 ---
 title: Build a new Azure Kinect application
 description: This article guides the Azure Kinect DK user through the process of creating a new application.
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 05/26/2019
 ms.topic: conceptual 
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 ---
 
-# Set up your first Azure Kinect DK application
+# Quickstart: Set up your first Azure Kinect DK application
 
 Getting started with the Azure Kinect DK API? Look no further! This document will get you up and running with access to the device!
 
-First, [download](sensor-sdk-download.md), and install the Azure Kinect Sensor SDK.
+## Prerequisites
 
-Here are the functions we'll use:
+1. [Set up Azure Kinect device](set-up-azure-kinect-dk.md).
+2. [Download](sensor-sdk-download.md), and install the Azure Kinect Sensor SDK.
+3. Review the functions we'll use:
 
- * [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc)
- * [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)
- * [`k4a_device_get_serialnum()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22)
- * [`k4a_device_start_cameras()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb)
- * [`k4a_device_stop_cameras()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4fa0e0a011a7105309ad97f081a5d6b8.html#ga4fa0e0a011a7105309ad97f081a5d6b8)
- * [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
+    - [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc)
+    - [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)
+    - [`k4a_device_get_serialnum()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22)
+    - [`k4a_device_start_cameras()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb)
+    - [`k4a_device_stop_cameras()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4fa0e0a011a7105309ad97f081a5d6b8.html#ga4fa0e0a011a7105309ad97f081a5d6b8)
+    - [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
 
 ## Headers
 
-There's only one header that you'll need, and that's k4a.h! Make sure your compiler of choice is set up with the SDK's lib and include folders. You'll also need the k4a.lib and k4a.dll files linked up.
+There's only one header that you'll need, and that's k4a.h. Make sure your compiler of choice is set up with the SDK's lib and include folders. You'll also need the k4a.lib and k4a.dll files linked up.
 
 ```C
 #include <k4a/k4a.h>
