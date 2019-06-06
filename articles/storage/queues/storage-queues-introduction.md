@@ -6,7 +6,7 @@ author: mhopkins-msft
 
 ms.service: storage
 ms.topic: overview
-ms.date: 02/06/2019
+ms.date: 06/07/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
@@ -39,7 +39,7 @@ The Queue service contains the following components:
 
 * **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is seven days.
+* **Message:** A message, in any format, of up to 64 KB. Prior to version 2017-07-29, the maximum time-to-live allowed is 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, as well as -1 indicating that the message does not expire. If this parameter is omitted, the default time-to-live is 7 days.
 
 ## Next steps
 
