@@ -45,6 +45,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Enable logging of multiple plots under the same metric name.
   + Model class now properly importable from azureml.core (`from azureml.core import Model`).
   + In pipeline steps, `hash_path` parameter is now deprecated. New behavior is to hash complete source_directory, except files listed in .amlignore or .gitignore.
+  + In pipeline packages, various `get_all` and `get_all_*` methods have been deprecated in favor of `list` and `list_*`, respectively.
   + azureml.core.get_run no longer requires classes to be imported before returning the original run type.
   + Fixed an issue where some calls to WebService Update did not trigger an update.
   + Scoring timeout on AKS webservices should be between 5ms and 300000ms. Max allowed scoring_timeout_ms for scoring requests has been bumped from 1 min to 5 min.
