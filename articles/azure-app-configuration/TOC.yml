@@ -48,7 +48,7 @@
     - name: Feature management
       href: concept-feature-management.md
     - name: Event handling
-      href: concept-appconfiguration-event.md
+      href: concept-app-configuration-event.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery
@@ -60,7 +60,7 @@
     - name: Import or export configuration data
       href: howto-import-export-data.md
     - name: Route events to a custom endpoint
-      href: howto-appconfiguration-event.md
+      href: howto-app-configuration-event.md
     - name: Best practices
       href: howto-best-practices.md
 - name: Reference

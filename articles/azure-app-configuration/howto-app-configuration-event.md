@@ -1,5 +1,5 @@
 ---
-title: Tutorial for setting Azure App Configuration send events to Web Endpoint | Microsoft Docs
+title: Tutorial for setting up Azure App Configuration to send events to Web Endpoint | Microsoft Docs
 description: In this tutorial, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint.
 services: azure-app-configuration
 documentationcenter: ''
@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/30/2019
@@ -19,9 +18,9 @@ ms.custom: mvc
 #Customer intent: I want to be notified or trigger a workload when a key-value is modified.
 ---
 
-# Quickstart: Route App Configuration events to web endpoint with Azure CLI
+# Quickstart: Route Azure App Configuration events to a web endpoint with Azure CLI
 
-Azure App Configuration users can subscribe to events that are emitted whenever key-values are modified. These events can trigger webhooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-handlers). In this article you will learn how to use the Azure CLI to subscribe to Azure App Configuration events.
+Azure App Configuration users can subscribe to events that are emitted whenever key-values are modified. These events can trigger webhooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers). In this article you will learn how to use the Azure CLI to subscribe to Azure App Configuration events.
 
 Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
@@ -37,7 +36,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 If you aren't using Cloud Shell, you must first sign in using `az login`.
 
-## Create a Resource Group
+## Create a resource group
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
@@ -60,7 +59,7 @@ az appconfig create \
   --resource-group <resource_group_name>
 ```
 
-## Create a Message Endpoint
+## Create a message endpoint
 
 Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
@@ -81,7 +80,7 @@ You should see the site with no messages currently displayed.
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## Subscribe to Your App Configuration
+## Subscribe to your App Configuration
 
 You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the app configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<appconfig_name>`, use the values you created earlier.
 
@@ -101,7 +100,7 @@ View your web app again, and notice that a subscription validation event has bee
 
 ![View subscription event](./media/quickstarts/event-grid/view-subscription-event.png)
 
-## Trigger an App Configuration Event
+## Trigger an App Configuration event
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. Create a key-value using the `<appconfig_name>` from earlier.
 
@@ -141,5 +140,5 @@ az group delete --name <resource_group_name>
 
 Now that you know how to create topics and event subscriptions, learn more about key-value events and what Event Grid can help you do:
 
-- [Reacting to Key-Value Events](concept-appconfiguration-event.md)
+- [Reacting to Key-Value Events](concept-app-configuration-event.md)
 - [About Event Grid](../event-grid/overview.md)

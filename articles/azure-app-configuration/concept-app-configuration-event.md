@@ -1,5 +1,5 @@
 ---
-title: Reacting to Azure App Configuration Key-Value events | Microsoft Docs
+title: Reacting to Azure App Configuration key-value events | Microsoft Docs
 description: Use Azure Event Grid to subscribe to App Configuration events. 
 services: azure-app-configuration,event-grid 
 author: jimmyca
@@ -11,7 +11,7 @@ ms.service: azure-app-configuration
 
 ---
 
-# Reacting to Azure App Configuration Events
+# Reacting to Azure App Configuration events
 
 Azure App Configuration events enable applications to react to changes in key-values. This is done without the need for complicated code or expensive and inefficient polling services. Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
 
@@ -19,11 +19,11 @@ Azure App Configuration events are sent to the Azure Event Grid which provides r
 
 Common app configuration event scenarios include refreshing application configuration, triggering deployments, or any configuration-oriented workflow. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
-Take a look at [Route Azure App Configuration events to a custom web endpoint - CLI](./howto-appconfiguration-event.md) for a quick example. 
+Take a look at [Route Azure App Configuration events to a custom web endpoint - CLI](./howto-app-configuration-event.md) for a quick example. 
 
 ![Event Grid Model](./media/event-grid-functional-model.png)
 
-## Available App Configuration Events
+## Available Azure App Configuration events
 Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Azure App Configuration event subscriptions can include two types of events:  
 
 > |Event Name|Description|
@@ -31,7 +31,7 @@ Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscripti
 > |`Microsoft.AppConfiguration.KeyValueModified`|Fired when a key-value is created or replaced|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Fired when a key-value is deleted|
 
-## Event Schema
+## Event schema
 Azure App Configuration events contain all the information you need to respond to changes in your data. You can identify an app configuration event because the eventType property starts with "Microsoft.AppConfiguration". Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../event-grid/event-schema.md).  
 
 > |Property|Type|Description|
@@ -83,4 +83,4 @@ Applications that handle app configuration events should follow a few recommende
 Learn more about Event Grid and give Azure App Configuration events a try:
 
 - [About Event Grid](../event-grid/overview.md)
-- [Route Azure App Configuration events to a custom web endpoint](./howto-appconfiguration-event.md)
+- [Route Azure App Configuration events to a custom web endpoint](./howto-app-configuration-event.md)
