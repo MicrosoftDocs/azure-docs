@@ -233,8 +233,7 @@ In Azure Machine Learning service, you can use properties and tags to help organ
 
 ### Add properties and tags
 
-> [!NOTE]
-> Properties and tags can only be added using the SDK.
+#### Using the SDK
 
 To add searchable metadata to your runs, use the [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
 
@@ -269,18 +268,31 @@ local_script_run.tag("worth another look")
 print(local_script_run.get_tags())
 ```
 
+#### Using the CLI
+
+> [!NOTE]
+> Using the CLI, you can only add or update tags.
+
+To add or update a tag, use the following command:
+
+```azurecli-interactive
+az ml run update -r runid --add-tag quality='fantastic run'
+```
+
+For more information, see [az ml run update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+
 ### Query properties and tags
 
 You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
-### Using the SDK
+#### Using the SDK
 
 ```Python
 list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
 list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
 ```
 
-### Using the CLI
+#### Using the CLI
 
 The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show basic queries using properties and tags:
 
