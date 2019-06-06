@@ -4,30 +4,38 @@ description: Describes how to set up continuous integration in Azure Pipelines b
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/05/2019
 ms.author: tomfitz
 ---
 # Integrate Visual Studio Resource Group project with Azure Pipelines
 
-Visual Studio provides the [Azure Resource Group project](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) for creating templates and deploying them to your Azure subscription. You can integrate this project with Azure Pipelines for continuous integration and continuous deployment (CI/CD).
+Visual Studio provides the Azure Resource Group project for creating templates and deploying them to your Azure subscription. You can integrate this project with Azure Pipelines for continuous integration and continuous deployment (CI/CD).
 
-To deploy an Azure template, you perform tasks in various stages: Build, Test, Copy to Azure (also called "Staging"), and Deploy Template. There are two different ways to deploy templates to Azure DevOps Services:
+There are two ways to deploy templates to Azure Pipelines:
 
-* Add a single step to your build pipeline that runs a PowerShell script. You use the PowerShell script that's included in the Azure Resource Group deployment project (Deploy-AzureResourceGroup.ps1). The script copies artifacts and then deploys the template. This option has the advantage of providing consistency throughout the development life cycle because you use the same script.
+* Add a single step to your build pipeline that runs a PowerShell script. The script copies artifacts and then deploys the template. This option has the advantage of providing consistency throughout the development life cycle because you use the same script that is included in the Visual Studio project (Deploy-AzureResourceGroup.ps1).
 
 * Add multiple Azure DevOps Services build steps, each one performing a stage task. The second option offers a convenient alternative to the built-in script.
 
-Both procedures assume you already have a Visual Studio deployment project checked into Azure DevOps Services.
-
-## Copy artifacts to Azure
-
-Regardless of the scenario, if you have any artifacts that are needed for template deployment, you must give Azure Resource Manager access to them. These artifacts can include files such as:
+With both approaches, you need to give Azure Resource Manager access to artifacts for your project. This step is known as staging. The artifacts can include files such as:
 
 * Nested templates
 * Configuration scripts and DSC scripts
 * Application binaries
 
-When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also adds parameters for the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. When using tasks in Azure DevOps Services, you must select the appropriate tasks for your template deployment and if necessary, pass parameter values from the staging step to the template deployment.
+The PowerShell script copies the artifacts to a secure container in Azure, creates a SaS token for that container, and passes that information on to the template deployment.
+
+The DevOps tasks includes a task for copying the artifacts. You pass parameter values from the staging step to the template deployment.
+
+## Prepare your project
+
+This article assumes your Visual Studio project and Azure DevOps organization are ready for creating the pipeline. The following steps show how to make sure you are ready:
+
+* You have an Azure DevOps organization. If you don't have one, [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). If your team already has a DevOps organization, make sure you're an administrator of the Azure DevOps project that you want to use.
+
+* You have a Visual Studio project that was created from the **Azure Resource Group** starter template. For information about creating that type of project, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
+* Your Visual Studio project is [shared to a DevOps project](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
 
 ## Continuous deployment with PowerShell script
 
@@ -40,15 +48,43 @@ To call the PowerShell script in Azure Pipelines, you need to update your build 
 
 The following procedures walk you through the steps necessary to configure continuous deployment in Azure DevOps Services using a single task that runs the PowerShell script in your project. 
 
-1. Edit your Azure DevOps Services build pipeline and add an Azure PowerShell build step. Choose the build pipeline under the **Build pipelines** category and then choose the **Edit** link.
-   
-   ![Edit build pipeline][0]
+1. Add a pipeline.
+
+   ![Add new pipeline](./media/vs-resource-groups-project-devops-pipelines/new-pipeline.png)
+
+1. Select source.
+
+   ![Select code source](./media/vs-resource-groups-project-devops-pipelines/select-source.png)
+
+1. Select repository.
+
+   ![Select repository](./media/vs-resource-groups-project-devops-pipelines/select-repo.png)
+
+1. Select pipeline.
+
+   ![Select pipeline](./media/vs-resource-groups-project-devops-pipelines/select-pipeline.png)
+
+1. Select service connections.
+
+   ![Select service connections](./media/vs-resource-groups-project-devops-pipelines/select-service-connections.png)
+
+1. Add service connection.
+
+   ![Add service connection](./media/vs-resource-groups-project-devops-pipelines/add-service-connection.png)
+
+1. Provide service connection values.
+
+   ![Provide service connection values](./media/vs-resource-groups-project-devops-pipelines/provide-values-service-connection.png)
+
 2. Add a new **Azure PowerShell** build step to the build pipeline and then choose the **Add build step…** button.
    
    ![Add build step][1]
 3. Choose the **Deploy task** category, select the **Azure PowerShell** task, and then choose its **Add** button.
    
    ![Add tasks][2]
+
+1. You have a default stage. Select **Save and run**. You will change this step later.
+
 4. Choose the **Azure PowerShell** build step and then fill in its values.
    
    1. If you already have an Azure service endpoint added to Azure DevOps Services, choose the subscription in the **Azure Subscription** drop-down list box and then skip to the next section. 
