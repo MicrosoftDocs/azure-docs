@@ -1,5 +1,5 @@
 ---
-title: Manage app groups for Windows Virtual Desktop Preview  - Azure
+title: Manage app groups for Windows Virtual Desktop Preview - Azure
 description: Describes how to set up Windows Virtual Desktop Preview tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
