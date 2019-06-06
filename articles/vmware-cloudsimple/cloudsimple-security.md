@@ -54,7 +54,7 @@ If your CloudSimple service expires or is terminated, you're responsible for rem
 
 When you set up your private clouds, you choose the Azure region where they're deployed. VMware virtual machine data isn't moved from that physical datacenter unless you perform data migration or offsite data backup. You also can host workloads and store data within multiple Azure regions if appropriate for your needs.
 
-The customer data that's resident in private cloud hyper-converged nodes doesn't traverse locations without the explicit action of the tenant administrator. It's your responsibility to implement your workloads in a highly available manner.
+The customer data that's resident in private cloud hyperconverged nodes doesn't traverse locations without the explicit action of the tenant administrator. It's your responsibility to implement your workloads in a highly available manner.
 
 ### Data backups
 CloudSimple doesn't back up or archive customer data. CloudSimple does perform periodic backup of vCenter and NSX data to provide high availability of management servers. Prior to backup, all the data is encrypted at the vCenter source by using VMware APIs. The encrypted data is transported and stored in an Azure blob. Encryption keys for backups are stored in a highly secure CloudSimple managed vault that runs in the CloudSimple virtual network in Azure.

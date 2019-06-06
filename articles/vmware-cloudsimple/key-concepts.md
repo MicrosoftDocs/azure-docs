@@ -11,13 +11,13 @@ manager: dikamath
 ---
 # Key concepts for administration of Azure VMware Solution by CloudSimple
 
-Administering Azure VMware Solution by CloudSimple requires understanding the following concepts:
+Administering Azure VMware Solution by CloudSimple requires an understanding of the following concepts:
 
-* CloudSimple service (displayed as Azure VMware Solution by CloudSimple - Service)
-* CloudSimple node (displayed as Azure VMware Solution by CloudSimple - Node)
+* CloudSimple service, which is displayed as Azure VMware Solution by CloudSimple - Service
+* CloudSimple node, which is displayed as Azure VMware Solution by CloudSimple - Node
 * CloudSimple private cloud
-* Service network
-* CloudSimple virtual machine (displayed as Azure VMware Solution by CloudSimple - Virtual machine)
+* Service networking
+* CloudSimple virtual machine, which is displayed as Azure VMware Solution by CloudSimple - Virtual machine
 
 ## CloudSimple service
 
