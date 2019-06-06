@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/20/2019
+ms.date: 06/06/2019
 ---
 # Quickstart: Build a .NET web app using SQL API account in Azure Cosmos DB
 
@@ -46,33 +46,32 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 You can use the Data Explorer in the Azure portal to create a database and collection. 
 
-1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Collection**. 
+1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Container**. 
     
-    You may need to scroll right to see the **Add Collection** area.
+    You may need to scroll right to see the **Add Contaier** window.
     
     ![The Azure portal Data Explorer, Add Collection pane](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  In the **Add collection** page, enter the settings for the new collection.
+1.  In the **Add container** pane, enter the settings for the new collection.
     
     |Setting|Suggested value|Description
     |---|---|---|
-    |**Database ID**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.|
-    |**Collection ID**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
-    |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
+    |**Database ID**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
     |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.| 
+    |**Container ID**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
+    |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
+
     
     Don't add **Unique keys** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
     
-1.  Select **OK**. 
-    Data Explorer displays the new database and collection.
+1.  Select **OK**. The Data Explorer displays the new database and the container that you created.
     
-    ![The Azure portal Data Explorer, showing the new database and collection](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ## Add data to your database
 
 Add data to your new database using Data Explorer.
 
-1. In **Data Explorer**, the new database appears in the **Collections** pane. Expand the **ToDoList** database, expand the **Items** collection, select **Documents**, and then select **New Document**. 
+1. In **Data Explorer**, expand the **ToDoList** database, and expand the **Items** container. Next, select **Items**, and then select **New Item**. 
    
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
