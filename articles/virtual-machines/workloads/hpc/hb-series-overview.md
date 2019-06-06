@@ -1,5 +1,5 @@
 ---
-title: Preview of the HB-series - Azure Virtual Machines | Microsoft Docs
+title: Preview of the HB-series in Azure | Microsoft Docs
 description: Learn about the preview support for the HB-series VM size in Azure. 
 services: virtual-machines
 documentationcenter: ''
@@ -11,17 +11,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/16/2019
 ms.author: amverma
 ---
 
 # HB-Series overview
 
-This article provides recommended practices, observed patterns, and recipes to get started with High Performance Computing (HPC) workloads on Azure HC-series VMs.
+Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.
 
-## Performance and topology
-
-Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain. Physically, a HB-series is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is four cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to two channels of physical DRAM (32 GB of DRAM in HB-series servers).
+Physically, an HB-series is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is four cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to two channels of physical DRAM (32 GB of DRAM in HB-series servers).
 
 To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domain 0 (the first CCX). We then assign pNUMA domains 1-15 (the remaining CCX units) for the VM. The VM will see:
 
@@ -33,9 +31,11 @@ Process pinning will work on HB-series VMs because we expose the underlying sili
 
 See more on [AMD EPYC architecture](https://bit.ly/2Epv3kC) and [multi-chip architectures](https://bit.ly/2GpQIMb) on LinkedIn. For more detailed information, see the [HPC Tuning Guide for AMD EPYC Processors](https://bit.ly/2T3AWZ9).
 
-See the [HC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VM size article for detailed specifications.
+Topology of EPYC 2P Server
 
-The following diagram represents the segregation of cores reserved for Azure Hypervisor and for the HB-series VM.
+![Topology of EPYC 2P Server](./media/hb-series-overview/dual-socket.png)
+
+Segregation of cores reserved for Azure Hypervisor and HB-series VM
 
 ![Segregation of cores reserved for Azure Hypervisor and HB-series VM](./media/hb-series-overview/segregation-cores.png)
 
@@ -65,6 +65,6 @@ The following diagram represents the segregation of cores reserved for Azure Hyp
 
 ## Next steps
 
-* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
+* Learn more about HPC VM sizes for [Linux](../linux/sizes-hpc.md) and [Windows](../windows/sizes-hpc.md) in Azure.
 
 * Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

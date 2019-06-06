@@ -1,5 +1,5 @@
 ---
-title: Preview of the HC-series - Azure Virtual Machines | Microsoft Docs
+title: Preview of the HC-series in Azure | Microsoft Docs
 description: Learn about the preview support for the HC-series VM size in Azure. 
 services: virtual-machines
 documentationcenter: ''
@@ -11,15 +11,11 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/07/2019
 ms.author: amverma
 ---
 
 # HC-Series overview
-
-This article provides recommended practices, observed patterns, and recipes to get started with High Performance Computing (HPC) workloads on Azure HC-series VMs.
-
-## Performance and topology
 
 Maximizing HPC application performance on Intel Xeon Scalable Processors requires a thoughtful approach to process placement on this new architecture. Here, we outline our implementation of it on Azure HC-series VMs for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain. Similarly, we will use the term “pCore” to refer to physical CPU cores, and “vCore” to refer to virtualized CPU cores.
 
@@ -31,13 +27,13 @@ The above topology carries over to the HC-series hypervisor configuration as wel
 
 The VM has no knowledge that pCores 0-1 and 24-25 weren't given to it. Thus, it exposes each vNUMA as if it natively had 22 cores.
 
-Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh network for communication within and external to the CPU socket. We strongly recommend process pinning for optimal performance and consistency. Process pinning will work on HC-series VMs because the underlying silicon is exposed as-is to the guest VM.
+Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh network for communication within and external to the CPU socket. We strongly recommend process pinning for optimal performance and consistency. Process pinning will work on HC-series VMs because the underlying silicon is exposed as-is to the guest VM. More on Intel Xeon SP architecture at: https://bit.ly/2RCYkiE
 
-For more detailed information, see the [Intel Xeon SP architecture](https://bit.ly/2T3AWZ9) overview.
+Topology of Intel Xeon SP Server
 
-See the [HC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VM size article for detailed specifications.
+![Topology of Intel Xeon SP Server](./media/hc-series-overview/xeon-topology.png)
 
-The following diagram represents the segregation of cores reserved for Azure Hypervisor and for the HC-series VM.
+Segregation of cores reserved for Azure Hypervisor and HC-series VMs
 
 ![Segregation of cores reserved for Azure Hypervisor and HC-series VM](./media/hc-series-overview/segregation-cores.png)
 
@@ -66,7 +62,7 @@ The following diagram represents the segregation of cores reserved for Azure Hyp
 | Azure Batch Support         | Yes                         |
 
 ## Next steps
+* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc) in Azure.
 
-* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
-
+https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc
 * Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

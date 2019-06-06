@@ -1,9 +1,9 @@
 ---
-title: Known issues for HB and HC-series VMs - Azure Virtual Machines | Microsoft Docs
-description: Learn about known issues with HB and HC-series VMs in Azure. 
+title: Known issues for HB-series VM sizes in Azure | Microsoft Docs
+description: Learn about known issues with HB-series VM sizes in Azure. 
 services: virtual-machines
 documentationcenter: ''
-author: githubname
+author: vermagit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -11,17 +11,21 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/15/2019
-ms.author: msalias
+ms.date: 05/07/2019
+ms.author: amverma
 ---
 
 # Known issues with HB and HC-series VM sizes
 
-This article describes known issues with SR-IOV enabled HB and HC-series VMs.
+<Intro>
+
+## Platform MPI
+
+Platform MPI may not automatically know which PKEY to use for InfiniBand. See Slide 8, Step 1 to discover the necessary PKEY.
 
 ## DRAM on HB-series
 
-HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM.
+HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM. An upcoming update will address this issue.
 
 ## Accelerated Networking
 
@@ -85,4 +89,4 @@ You can ignore this warning. This is due to a known limitation of the Azure hype
 
 ## Next steps
 
-Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
