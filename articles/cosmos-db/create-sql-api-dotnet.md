@@ -48,7 +48,7 @@ You can use the Data Explorer in the Azure portal to create a database and colle
 
 1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Container**. 
     
-    You may need to scroll right to see the **Add Contaier** window.
+    You may need to scroll right to see the **Add Container** window.
     
     ![The Azure portal Data Explorer, Add Collection pane](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
