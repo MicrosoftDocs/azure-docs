@@ -21,7 +21,7 @@ Azure includes individual services for specific roles or tasks in the monitoring
 
 The Azure Monitor for VM's health feature proactively monitors the availability and performance of the Windows or Linux guest OS. It uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and alerts you when it detects an unhealthy condition.
 
-The overall health state of an Azure VM and the underlying operating system can be observed from two perspectives by using the Azure Monitor for VM's health feature: directly from a VM, or across all VMs in a resource group from Azure Monitor.
+The health of an Azure VM and the underlying operating system can be observed from two perspectives by using the Azure Monitor for VM's health feature. These perspectives are directly from a VM, or across all VMs in a resource group from Azure Monitor.
 
 This article will help you understand how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VM's health feature.
 
@@ -33,46 +33,46 @@ This section outlines the default health criteria to monitor Azure Windows and L
 
 ### Windows VMs
 
-- Available Megabytes of Memory
-- Average Disk Seconds Per Write (Logical Disk)
-- Average Disk Seconds Per Write (Disk)
-- Average Logical Disk Seconds Per Read
-- Average Logical Disk Seconds Per Transfer
-- Average Disk Seconds Per Read
-- Average Disk Seconds Per Transfer
-- Current Disk Queue Length (Logical Disk)
-- Current Disk Queue Length (Disk)
-- Disk Percent Idle Time
+- Available megabytes of memory
+- Average disk seconds per write (logical disk)
+- Average disk seconds per write (disk)
+- Average logical disk seconds per read
+- Average logical disk seconds per transfer
+- Average disk seconds per read
+- Average disk seconds per transfer
+- Current disk queue length (logical disk)
+- Current disk queue length (disk)
+- Disk percent idle time
 - File system error or corruption
-- Logical Disk Free Space (%) Low
-- Logical Disk Free Space (MB) Low
-- Logical Disk Percent Idle Time
-- Memory Pages Per Second
-- Percent Bandwidth Used Read
-- Percent Bandwidth Used Total
-- Percent Bandwidth Used Write
-- Percentage of Committed Memory in Use
-- Disk Percent Idle Time
-- DHCP Client Service Health
-- DNS Client Service Health
-- RPC Service Health
-- Server Service Health
-- Total CPU Utilization Percentage
-- Windows Event Log Service Health
-- Windows Firewall Service Health
-- Windows Remote Management Service Health
+- Logical disk free space (%) low
+- Logical disk free space (MB) low
+- Logical disk percent idle time
+- Memory pages per second
+- Percent bandwidth used read
+- Percent bandwidth used total
+- Percent bandwidth used write
+- Percentage of committed memory in use
+- Disk percent idle time
+- DHCP client service health
+- DNS client service health
+- RPC service health
+- Server service health
+- Total CPU utilization percentage
+- Windows event log service health
+- Windows firewall service health
+- Windows remote management service health
 
 ### Linux VMs
-- Disk Avg. Disk sec/Transfer 
-- Disk Avg. Disk sec/Read 
-- Disk Avg. Disk sec/Write 
-- Disk Health
-- Logical Disk Free Space
-- Logical Disk % Free Space
-- Logical Disk % Free Inodes
-- Network Adapter Health
-- Total Percent Processor Time
-- Operating System Available Megabytes of Memory
+- Disk avg. disk sec/transfer
+- Disk avg. disk sec/read
+- Disk avg. disk sec/write
+- Disk health
+- Logical disk free space
+- Logical disk % free space
+- Logical disk % free inodes
+- Network adapter health
+- Total percent processor time
+- Operating system available megabytes of memory
 
 ## Sign in to the Azure portal
 
@@ -80,15 +80,15 @@ To sign in, go to the [Azure portal](https://portal.azure.com).
 
 ## Introduction to Azure Monitor for VM's health feature
 
-Before you use the health feature for a single VM or group of VMs, it's important that you understand how the information is presented and what the visualizations represent.
+Before you use the health feature for a single VM or group of VMs, it's important to understand how the information is presented and what the visualizations represent.
 
 ### View health directly from a VM
 
-To view the health of an Azure VM, select **Insights (preview)** from the left pane of the VM. On the VM insights page, the **Health** tab is open by default and shows the health view of the VM.
+To view the health of an Azure VM, select **Insights (preview)** from the left pane of the VM. In the VM insights page, the **Health** tab is open by default and shows the health view of the VM.
 
 ![Azure Monitor for VM's health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-On the **Health** tab, under the section **Guest VM health**, the table shows the health state of your VM and the total number of VM health alerts raised by an unhealthy component.
+In the **Health** tab under **Guest VM health**, the table shows the health state of your VM and the total number of VM health alerts raised by an unhealthy component.
 
 For more information, see [Alerts](#alerts).
 
@@ -96,14 +96,14 @@ The health states defined for a VM are described in the following table:
 
 |Icon |Health state |Meaning |
 |-----|-------------|---------------|
-| |Healthy |The VM is within the defined health conditions. This state indicates there are no issues detected for the VM and it's functioning as required. With a parent rollup monitor, health rolls up and reflects the best-case or worst-case state of the child.|
-| |Critical |The state is not within the defined health condition, indicating that one or more critical issues were detected, which need to be addressed in order to restore normal functionality. With a parent rollup monitor, the health state rolls up and reflects the best-case or worst-case state of the child.|
-| |Warning |The state is between two thresholds for the defined health condition, where one indicates a warning state and the other indicates a critical state (three health state thresholds can be configured), or when a non-critical issue is detected which can cause critical problems if not resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect a warning state. If there's a child in a critical state and another child in a warning state, the parent rollup will show the health state as critical.|
+| |Healthy |The VM is within the defined health conditions. This state indicates there are no issues detected and the VM is functioning normally. With a parent rollup monitor, health rolls up and reflects the best-case or worst-case state of the child.|
+| |Critical |The state is not within the defined health condition, indicating that one or more critical issues were detected. These issues to be addressed in order to restore normal functionality. With a parent rollup monitor, the health state rolls up and reflects the best-case or worst-case state of the child.|
+| |Warning |The state is between two thresholds for the defined health condition, where one indicates a warning state and the other indicates a critical state (three health state thresholds can be configured), or when a non-critical issue is detected that can cause critical problems if it isn't resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect a warning state. If there's a child in a critical state and another child in a warning state, the parent rollup will show the health state as critical.|
 | |Unknown |The state can't be computed for several reasons. See the following section for additional details and possible solutions. |
 
 An Unknown health state can be caused by the following issues:
 
-- The aAgent has been reconfigured and no longer reports to the workspace specified when Azure Monitor for VMs was enabled. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- The agent has been reconfigured and no longer reports to the workspace specified when Azure Monitor for VMs was enabled. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - The VM has been deleted.
 - The workspace associated with Azure Monitor for VMs was deleted. You can recover the workspace if you have Premier support benefits. Go to [Premier](https://premier.microsoft.com/) and open a support request.
 - The solution dependencies were deleted. To re-enable the ServiceMap and InfrastructureInsights in your Log Analytics workspace, reinstall these solutions by using the [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Or, use the Configure Workspace option found in the Get Started tab.
