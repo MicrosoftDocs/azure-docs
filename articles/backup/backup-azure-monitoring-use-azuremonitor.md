@@ -7,7 +7,7 @@ manager: shivamg
 keywords: Log Analytics; Azure Backup; Alerts; Diagnostic Settings; Action groups
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 ---
@@ -41,7 +41,7 @@ You can select an LA workspace from another subscription as the target. *By sele
 
 ### Deploying solution to Log Analytics workspace
 
-Once the data is inside LA workspace, [deploy a github template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) onto LA to visualize the data. Make sure you give the same resource group, workspace name, and workspace location to properly identify the workspace and then install this template on it.
+Once the data is inside LA workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) onto LA to visualize the data. Make sure you give the same resource group, workspace name, and workspace location to properly identify the workspace and then install this template on it.
 
 ### View Azure Backup data using Log Analytics (LA)
 
@@ -237,13 +237,13 @@ Apply the filters shown in the following picture to verify whether you are recei
 
 ![Activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-You can click the “JSON” segment to get more details and view it by copy-pasting it onto a text editor. It should display the vault details and the item that triggered the activity log that is, the backup item.
+Click on the operation name it will display the operation and relevant details.
 
-Then click “Add activity log alert” to generate alerts for all such logs.
+![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-You can click on "Add Activity log alert" shown above and it will open the alert creation screen that is similar to alert creation screen [as described above](#create-alerts-using-log-analytics).
+Click **New alert rule** to open the **Create rule** screen, here you can create alert using steps described in this [article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-Here the resource is the RS vault itself and hence you need to repeat the same action for all the vaults in which you want notification via activity logs. The condition will not have any threshold, period, frequency since this is an event-based alert. As soon as the relevant activity log is generated, the alert is fired.
+Here the resource is the Recovery Service vault itself and hence you need to repeat the same action for all the vaults in which you want notification via activity logs. The condition will not have any threshold, period, frequency since this is an event-based alert. As soon as the relevant activity log is generated, the alert is fired.
 
 ## Recommendation
 
