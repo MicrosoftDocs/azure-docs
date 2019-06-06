@@ -156,7 +156,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
 
 1. In the NuGet **Browse** box, type *DocumentDB*.
 
-1. From the results, install the **Microsoft.Azure.DocumentDB** library if not already installed. This installs the [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package and all dependencies.
+1. From the results, install the **2.2.3 version** of **Microsoft.Azure.DocumentDB** library if not already installed. This installs the [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package and all dependencies.
    
    If the NuGet Package Manager displays a message that some packages are missing from the solution, select **Restore** to install them from internal sources. 
 
