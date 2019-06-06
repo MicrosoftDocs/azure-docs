@@ -101,7 +101,7 @@ Add data to your new database using Data Explorer.
 
 To see how easy it is to work with your Azure Cosmos DB data programmatically, clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
 
-You could also create the database and collection by using the .NET sample code. To learn more, see [Review the .NET code](#review-the-net-code).
+You could also create the database and the container by using the .NET sample code. To learn more, see [Review the .NET code](#review-the-net-code).
 
 ### Clone the sample app
 
@@ -141,7 +141,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
       `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
        
-1. Make sure the database and collection values in the *web.config* match the names you created earlier. 
+1. Make sure the database and collection (also called container) values in the *web.config* match the names you created earlier. 
 
    ```csharp
    <add key="database" value="ToDoList"/>
@@ -170,7 +170,7 @@ You can go back to Data Explorer in the Azure portal to see, query, modify, and 
 
 ## Review the .NET code
 
-This step is optional. In this quickstart, you created a database and a collection in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the collection by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
+This step is optional. In this quickstart, you created a database and a container in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the container by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
 
 * This code initializes the `DocumentClient`: 
 
@@ -223,7 +223,7 @@ This step is optional. In this quickstart, you created a database and a collecti
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and collection using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Azure Cosmos DB account. 
+In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and container using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
