@@ -32,7 +32,7 @@ Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/ne
 $securePassword = ConvertTo-SecureString 'AZUREuserPA$$W0RD' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
-New-AzVM -Name MyWinVm -Credential $cred -ResourceGroupName MyResourceGroup -Image win2016datacenter -Size Standard_D2S_V
+New-AzVM -Name MyWinVm -Credential $cred -ResourceGroupName MyResourceGroup -Image win2016datacenter -Size Standard_D2S_V3
 ```
 
 It will take a few minutes for your VM to be deployed. 
@@ -93,3 +93,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## Next steps
 
+In this quickstart, you created a virtual machine, created a Key Vault that was enable for encryption keys, and encrypted the VM.  Advance to the next article to learn more about Azure Disk Encryption prerequisites for IaaS VMs.
+
+> [!div class="nextstepaction"]
+> [Azure Disk Encryption Prerequisites](azure-security-disk-encryption-prerequisites.md)
