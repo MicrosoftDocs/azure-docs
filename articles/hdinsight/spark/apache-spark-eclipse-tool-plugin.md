@@ -260,7 +260,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 
 3. Select a cluster which has reader-only role permission for **Cluster Name**. Warning message shows out. You can click **Link this cluster** to link cluster.
    
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-10.png)
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
    
 ### View Storage Accounts
 
