@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect support
-description: Azure kinect different support options and resources
+description: Azure Kinect different support options and resources
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -30,12 +30,12 @@ There are multiple ways to get an assisted support for Azure Kinect.
 Azure subscribers can create and manage support requests in the Azure portal. One-on-one development support for Body Tracking, Sensor SDK, Speech device SDK, or Azure Cognitive Services is available for Azure subscribers with an `Azure Support Plan` associated with their subscription.
 
   - Have an `Azure Support Plan` associated with your Azure subscription? [Sign in to Azure portal](https://ms.portal.azure.com/) to submit an incident.
-  - Need an Azure Subscription? [Azure subscription options](https://azure.microsoft.com/en-us/pricing/purchase-options/) will provide more information about different options.
+  - Need an Azure Subscription? [Azure subscription options](https://azure.microsoft.com/pricing/purchase-options/) will provide more information about different options.
   - Need a Support plan? [Select support plan](https://azure.microsoft.com/support/plans/)
 
-### Azure Kinect on-premise or other cloud services
+### Azure Kinect on-premises or other cloud services
 
-For technical support using Sensor SDK and Body Tracking SDK on-premise, open a ticket for professional support on [Microsoft support portal](https://support.microsoft.com/supportforbusiness/productselection?sapId=c49ea5bb-2b09-8612-be35-d55159732667).
+For technical support using Sensor SDK and Body Tracking SDK on-premises, open a ticket for professional support on [Microsoft support portal](https://support.microsoft.com/supportforbusiness/productselection?sapId=c49ea5bb-2b09-8612-be35-d55159732667).
 
 ### Azure Kinect DK device
 
