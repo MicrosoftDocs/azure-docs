@@ -29,7 +29,7 @@ Although customers deploy these managed applications in their subscriptions, the
 
 For IT teams, managed applications enable you to offer pre-approved solutions to users in the organization. You know these solutions are compliant with organizational standards.
 
-Managed Applications currently don't support [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+Managed Applications support [managed identities for Azure resources](./publish-managed-identity.md).
 
 ## Types of managed applications
 

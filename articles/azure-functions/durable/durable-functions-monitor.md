@@ -84,7 +84,7 @@ Multiple orchestrator instances can run simultaneously by sending multiple **Mon
 
 ## Strongly-typed data transfer (.NET only)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:
+The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]

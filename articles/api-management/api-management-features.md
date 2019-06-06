@@ -30,15 +30,14 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Built-in cache                                                                               | No                            | Yes            | Yes            | Yes            | Yes            |
 | Built-in analytics                                                                           | No                            | Yes            | Yes            | Yes            | Yes            |
 | [SSL settings](api-management-howto-manage-protocols-ciphers.md)                             | No                            | Yes            | Yes            | Yes            | Yes            |
-| [External cache](https://aka.ms/apimbyoc)                                                    | Yes                           | No<sup>3</sup> | No<sup>3</sup> | No<sup>3</sup> | No<sup>3</sup> |
-| [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | No<sup>4</sup>                | Yes            | Yes            | Yes            | Yes            |
+| [External cache](https://aka.ms/apimbyoc)                                                    | Yes                           | Yes            | Yes            | Yes            | Yes            |
+| [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | No<sup>3</sup>                | Yes            | Yes            | Yes            | Yes            |
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No                            | Yes            | Yes            | Yes            | Yes            |
 | [Management over Git](api-management-configuration-repository-git.md)                        | No                            | Yes            | Yes            | Yes            | Yes            |
 | Direct management API                                                                        | No                            | Yes            | Yes            | Yes            | Yes            |
-| Azure Monitor logs and metrics                                                               | No<sup>5</sup>                | Yes            | Yes            | Yes            | Yes            |
+| Azure Monitor logs and metrics                                                               | No<sup>4</sup>                | Yes            | Yes            | Yes            | Yes            |
 
-<sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user signin on the developer portal.<br/>
+<sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
-<sup>3</sup> External cache support for this tier is coming soon.<br/>
-<sup>4</sup> Client certificate authentication will be added to the Consumption tier prior to its General Availability.<br/>
-<sup>5</sup> Full Azure Monitor support will be added to the Consumption tier.
+<sup>3</sup> Client certificate authentication will be added to the Consumption tier prior to its General Availability.<br/>
+<sup>4</sup> Full Azure Monitor support will be added to the Consumption tier.

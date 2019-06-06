@@ -101,7 +101,7 @@ Each tenant database is a 50 DTU *standalone* database.
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - To learn about multi-tenant SaaS applications, see [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md).

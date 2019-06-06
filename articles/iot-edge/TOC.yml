@@ -60,7 +60,7 @@
     items:
     - name: Understand Azure IoT Edge modules
       href: iot-edge-modules.md
-    - name: Edge agent and hub properties
+    - name: IoT Edge agent and hub properties
       href: module-edgeagent-edgehub.md
   - name: Development
     items:
@@ -94,7 +94,7 @@
     href: iot-edge-glossary.md
 - name: How-to guides
   items:
-  - name: Register an Edge device
+  - name: Register an IoT Edge device
     items:
     - name: Azure portal
       href: how-to-register-device-portal.md
@@ -146,7 +146,7 @@
       href: how-to-deploy-monitor.md
     - name: Azure CLI
       href: how-to-deploy-monitor-cli.md
-  - name: Use Edge devices as gateways
+  - name: Use IoT Edge devices as gateways
     items:
     - name: Configure a transparent gateway
       href: how-to-create-transparent-gateway.md
@@ -160,6 +160,8 @@
     items:
     - name: Azure Blob Storage on IoT Edge
       href: how-to-store-data-blob.md
+    - name: Deploy blob storage modules
+      href: how-to-deploy-blob.md
   - name: Manage with DevOps tools
     items:
     - name: Azure DevOps Projects
@@ -190,7 +192,7 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: Azure IoT Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge

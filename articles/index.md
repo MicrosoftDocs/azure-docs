@@ -660,6 +660,12 @@ featureFlags:
                                     <h3>Azure Stack</h3>
                                     <ul>
                                         <li>
+                                            <a href="/azure-stack">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-stack/">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack Operator</p>
@@ -669,6 +675,11 @@ featureFlags:
                                             <a href="/azure/azure-stack/user">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack User</p>
+                                            </a>
+                                        </li>                                        <li>
+                                            <a href="/azure-stack/asdk/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack Development Kit (ASDK)</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5970,6 +5981,25 @@ featureFlags:
                         <a href="#stack">Azure Stack</a>
                         <ul id="stack" class="cardsA">
                             <li>
+                                <a href="/azure-stack">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack</h3>
+                                                    <p>Extend Azure services and capabilities on-premises, to build and deploy hybrid cloud and edge applications across cloud boundaries</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-stack/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -5981,7 +6011,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Stack Operator</h3>
-                                                    <p>Deliver Azure services from your own datacenter with this new hybrid cloud platform</p>
+                                                    <p>Learn how to manage the Azure Stack integrated systems infrastructure and how to offer services</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6000,6 +6030,23 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Azure Stack User</h3>
                                                 <p>Use services and build applications for Azure Stack</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-stack/asdk/">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure Stack Development Kit (ASDK)</h3>
+                                                <p>A non-production environment for evaluation and testing</p>
                                             </div>
                                         </div>
                                     </div>

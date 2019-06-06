@@ -412,6 +412,8 @@
     displayName: FAQ, import
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS
   - name: UserVoice

@@ -150,7 +150,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
   <tr>
     <td>429</td>
-    <td>The caller is sending too many requests.</td>
+    <td>The server rejected the request because the client has exceeded request limits.</td>
   </tr>
   <tr>
     <td>500</td>

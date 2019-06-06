@@ -3,7 +3,7 @@ title: Use dependency injection in .NET Azure Functions
 description: Learn how to use dependency injection for registering and using services in .NET functions
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, functions, serverless architecture
 
@@ -11,7 +11,7 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
-ms.author: jehollan
+ms.author: jehollan, glenga, cshoe
 ---
 # Use dependency injection in .NET Azure Functions
 
@@ -19,13 +19,14 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 
 Azure Functions builds on top of the ASP.NET Core Dependency Injection features.  You should understand services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using them in functions.
 
-## Installing dependency injection packages
+## Prerequisites
 
-In order to use the dependency injection features, you will need to include the NuGet package that exposes those APIs.
+Before you can use dependency injection, you must install the [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) NuGet package. You can install this package by running the following command from the package console:
 
 ```powershell
 Install-Package Microsoft.Azure.Functions.Extensions
 ```
+You must also be using version 1.0.28 of the [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/), or a later version.
 
 ## Registering services
 

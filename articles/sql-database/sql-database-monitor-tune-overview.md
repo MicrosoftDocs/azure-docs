@@ -19,7 +19,13 @@ Azure SQL Database is an automatically managed and flexible data service where y
 
 ## Monitoring database performance
 
-Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Azure SQL Database enables you to identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to improve performance of your workload. You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance.
+Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. You need to monitor the following resorces:
+ - **CPU usage** - you need to check are you reaching 100% of CPU usage in a longer period of time. This might indicate that you might need to upgrade you database or instance or identify and tune the queries that are using most of the compute power.
+ - **Wait statistics** - you need to check what why your queries are waiting for some resources. Queriesmig wait for data to be fetched or saved to the database files, waiting because some resource limit is reached, etc.
+ - **IO usage** - you need to check are you reaching the IO limits of the underlying storage.
+ - **Memory usage** - the amount of memory available for your database or instance is proportional to the number of vCores, and you need to check is it enough for yur workload. Page life expectancy is one of the parameter that can indicate are your pages quickly removed from the memory.
+
+Azure SQL Database enables you to identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to improve performance of your workload. You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance.
 
 You have the following options for monitoring and troubleshooting database performance:
 

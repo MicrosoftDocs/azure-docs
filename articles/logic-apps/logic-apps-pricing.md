@@ -9,7 +9,7 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/22/2019
 ---
 
 # Pricing model for Azure Logic Apps
@@ -140,8 +140,7 @@ instances might take some time before they completely stop.
 
 ## Integration accounts
 
-Consumption pricing applies to 
-[integration accounts](logic-apps-enterprise-integration-create-integration-account.md) 
+Consumption pricing applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) 
 where you can explore, develop, and test the 
 [B2B and EDI](logic-apps-enterprise-integration-b2b.md) 
 and [XML processing](logic-apps-enterprise-integration-xml.md) 
@@ -152,17 +151,15 @@ Each integration account can store up to specific
 which include trading partners, agreements, maps, schemas, 
 assemblies, certificates, batch configurations, and so on.
 
-Azure Logic Apps also offers Basic and Standard integration 
-accounts with supported Logic Apps SLA. Here are ways you 
-can choose whether to use a Basic or Standard integration account:
+Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and has limits on throughput and usage.
 
-* Use Basic integration accounts when you just want message 
-handling or act as a small business partner that has a 
-trading partner relationship with a larger business entity.
+To choose between a Free, Basic, or Standard integration account:
 
-* Use Standard integration accounts when you have more complex 
-B2B relationships and want to increase the number of entities 
-you can manage.
+* **Free**: For when you want to try exploratory scenarios, not production scenarios.
+
+* **Basic**: For when you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity.
+
+* **Standard**: For when you have more complex B2B relationships and increased numbers of entities that you must manage.
 
 For specific pricing information, see 
 [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).

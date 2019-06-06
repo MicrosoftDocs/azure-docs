@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Protecting your machines and applications in Azure Security Center

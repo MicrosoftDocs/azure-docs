@@ -7,8 +7,8 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
 manager: craigg
 ms.date: 12/18/2018

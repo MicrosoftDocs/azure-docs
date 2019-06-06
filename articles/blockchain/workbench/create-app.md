@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -267,7 +267,7 @@ Add the state variables to your contract in your `HelloBlockchain.sol` smart con
 
 ### Constructor
 
-The constructor defines input parameters for a new smart contract instance of a workflow. The constructor is declared as a function with the same name as the contract. Required parameters for the constructor are defined as constructor parameters in the configuration file. The number, order, and type of parameters must match in both files.
+The constructor defines input parameters for a new smart contract instance of a workflow. Required parameters for the constructor are defined as constructor parameters in the configuration file. The number, order, and type of parameters must match in both files.
 
 In the constructor function, write any business logic you want to perform prior to creating the contract. For example, initialize the state variables with starting values.
 

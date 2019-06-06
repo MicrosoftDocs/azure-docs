@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/05/2018
+ ms.date: 05/22/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-|**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> SSTP Connections** | **P2S<br> IKEv2 Connections** | **Aggregate<br>Throughput Benchmark** | **BGP** |
+|**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> SSTP Connections** | **P2S<br> IKEv2/OpenVPN Connections** | **Aggregate<br>Throughput Benchmark** | **BGP** |
 |---       | ---        | ---       | ---            | ---       | --- |
 |**Basic** | Max. 10    | Max. 128  | Not Supported  | 100 Mbps  | Not Supported|
 |**VpnGw1**| Max. 30*   | Max. 128  | Max. 250       | 650 Mbps  | Supported |

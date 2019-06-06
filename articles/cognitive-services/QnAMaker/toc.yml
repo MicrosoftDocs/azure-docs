@@ -145,7 +145,7 @@
 - name: Reference
   items:
   - name: REST API Reference
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff 
+    href: https://go.microsoft.com/fwlink/?linkid=2092179 
   - name: FAQ
     href: faqs.md
   - name: Limits
@@ -185,6 +185,8 @@
   items:
   - name: Regional Availability
     href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits

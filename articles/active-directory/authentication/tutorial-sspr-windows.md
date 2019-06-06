@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure AD password reset from the login screen
 
-In this tutorial, you enable users to reset their passwords from the Windows 10 login screen. With the new Windows 10 April 2018 Update, users with **Azure AD joined** or **hybrid Azure AD joined** devices can use a “Reset password” link on their login screen. When users click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with.
+In this tutorial, you enable users to reset their passwords from the Windows 10 login screen. With the new Windows 10 April 2018 Update, users with **Azure AD joined** or **hybrid Azure AD joined** devices can use a “Reset password” link on their login screen. When users click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with. If a user is locked out this process does not unlock accounts in on-premises Active Directory.
 
 > [!div class="checklist"]
 > * Configure Reset password link using Intune

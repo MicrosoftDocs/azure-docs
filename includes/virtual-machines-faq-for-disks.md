@@ -136,19 +136,9 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 GPT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
 
-## Uploading to a managed disk
+**What disk types support snapshots?**
 
-**Can I upload data to an existing managed disk?**
-
-No, upload can only be used during the creation of a new empty disk with the **ReadyToUpload** state.
-
-**Can I attach a disk to a VM while it is in an upload state?**
-
-No.
-
-**Can I take a snapshot of a manged disk in an upload state?**
-
-No.
+Premium SSD, standard SSD, and standard SSD support snapshots, without any size limit. So you can snapshot large disks (up to 32 TiB). Ultra SSDs do not support snapshots.
 
 ## Standard SSD disks
 
@@ -348,7 +338,7 @@ Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB will be added soon.
+The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB is not yet available.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 

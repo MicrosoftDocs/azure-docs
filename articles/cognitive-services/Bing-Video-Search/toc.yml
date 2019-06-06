@@ -102,3 +102,5 @@
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
   - name: Analytics for Bing Video Search API
     href: bing-video-stats.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

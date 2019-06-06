@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ---
-# Protect new resources with Azure Blueprints resource locks
+# Tutorial: Protect new resources with Azure Blueprints resource locks
 
 Azure Blueprints [resource locks](../concepts/resource-locking.md) make it possible to protect newly
 deployed resources from being tampered with, even by an account with the _Owner_ role. This

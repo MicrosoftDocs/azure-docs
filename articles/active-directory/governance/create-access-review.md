@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -25,8 +25,11 @@ This article describes how to create one or more access reviews for group member
 
 ## Prerequisites
 
+- Azure AD Premium P2
 - [Access reviews enabled](access-reviews-overview.md)
 - Global administrator or User administrator
+
+For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## Create one or more access reviews
 
@@ -72,9 +75,13 @@ This article describes how to create one or more access reviews for group member
 
     ![Create an access review - Reviewers](./media/create-access-review/reviewers.png)
 
-1. In the **Programs** section, select the program you want to use. You can simplify how to track and collect access reviews for different purposes by organizing them into programs. **Default Program** is always present, or you can create a different program. For example, you can choose to have one program for each compliance initiative or business goal.
+1. In the **Programs** section, select the program you want to use. **Default Program** is always present.
 
     ![Create an access review - Programs](./media/create-access-review/programs.png)
+
+    You can simplify how to track and collect access reviews for different purposes by organizing them into programs. Each access review can be linked to a program. Then when you prepare reports for an auditor, you can focus on the access reviews in scope for a particular initiative. Programs and access review results are visible to users in the Global administrator, User administrator, Security administrator, or Security reader role.
+
+    To see a list of programs, go to the access reviews page and select **Programs**. If you're in a Global administrator or User administrator role, you can create additional programs. For example, you can choose to have one program for each compliance initiative or business goal. If you no longer need a program and it doesn't have any controls linked to it, you can delete it.
 
 ### Upon completion settings
 
@@ -105,6 +112,8 @@ This article describes how to create one or more access reviews for group member
 
 1. Set **Reminders** to **Enable** to have Azure AD send reminders of access reviews in progress to reviewers who have not completed their review.
 
+    By default, Azure AD automatically sends a reminder halfway to the end date to reviewers who haven't yet responded.
+
 ## Start the access review
 
 Once you have specified the settings for an access review, click **Start**. The access review will appear in your list with an indicator of its status.
@@ -113,19 +122,7 @@ Once you have specified the settings for an access review, click **Start**. The 
 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 
-If some of the reviewers are guests, guests are notified via email only if they've already accepted their invitation.
-
-## Manage the access review
-
-You can track the progress as the reviewers complete their reviews on the **Overview** page of the access review. No access rights are changed in the directory until [the review is completed](complete-access-review.md).
-
-![Access reviews progress](./media/create-access-review/overview-progress.png)
-
-If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of groups or applications](complete-access-review.md) to see and apply the results.  
-
-To manage a series of access reviews, navigate to the access review, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly.
-
-Based on your selections in **Upon completion settings**, auto-apply will be executed after the review's end date or when you manually stop the review. The status of the review will change from **Completed** through intermediate states such as **Applying** and finally to state **Applied**. You should expect to see denied users, if any, being removed from the group membership or application assignment in a few minutes.
+If you have assigned guests as reviewers and they have not accepted the invite, they will not receive an email from access reviews because they must first accept the invite prior to reviewing.
 
 ## Create reviews via APIs
 

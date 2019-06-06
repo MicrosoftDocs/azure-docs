@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 05/24/2019
 ms.author: assafi
 ---
 
@@ -116,8 +116,7 @@ In the `Main` function of your project, call the sample method that you want to 
         var credentials = new ApiKeyServiceClientCredentials(SubscriptionKey);
         var client = new TextAnalyticsClient(credentials)
         {
-            //Replace 'westus' with the correct region for your Text Analytics subscription.
-            Endpoint = "https://westus.api.cognitive.microsoft.com"
+            Endpoint = Endpoint
         };
 
         // Change the console encoding to display non-ASCII characters.

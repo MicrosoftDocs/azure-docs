@@ -28,36 +28,8 @@
       href: migrate-best-practices-networking.md
     - name: Best practices for costing and sizing after migration
       href: migrate-best-practices-costs.md
-  - name: Contoso migration series
-    items:
-    - name: 1. Contoso-Migration overview
-      href: contoso-migration-overview.md
-    - name: 2. Contoso-Deploy an Azure infrastructure
-      href: contoso-migration-infrastructure.md
-    - name: 3. Contoso-Assess on-premises resources for migration to Azure
-      href: contoso-migration-assessment.md
-    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Database Managed Instance
-      href: contoso-migration-rehost-vm-sql-managed-instance.md
-    - name: 5. Contoso-Rehost an app on Azure VMs
-      href: contoso-migration-rehost-vm.md
-    - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
-      href: contoso-migration-rehost-vm-sql-ag.md
-    - name: 7. Contoso-Rehost a Linux app on Azure VMs
-      href: contoso-migration-rehost-linux-vm.md
-    - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
-      href: contoso-migration-rehost-linux-vm-mysql.md
-    - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
-      href: contoso-migration-refactor-web-app-sql.md
-    - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
-      href: contoso-migration-refactor-linux-app-service-mysql.md
-    - name: 11. Contoso-Migrate TFS to Azure DevOps Services
-      href: contoso-migration-tfs-vsts.md
-    - name: 12. Contoso-Rearchitect an app on Azure Containers and Azure SQL Database
-      href: contoso-migration-rearchitect-container-sql.md
-    - name: 13. Contoso-Rebuild an app in Azure
-      href: contoso-migration-rebuild.md
-    - name: 14. Contoso-Scale a migration
-      href: contoso-migration-scale.md
+  - name: Migration examples-Contoso series
+    href: contoso-migration-overview.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines

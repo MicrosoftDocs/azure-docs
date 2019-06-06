@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: pafarley
 ---
 # Configure Form Recognizer containers
@@ -55,6 +55,10 @@ This setting can be found in the following place:
 ## Fluentd settings
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## Http proxy credentials settings
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
 

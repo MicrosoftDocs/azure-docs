@@ -38,8 +38,8 @@ To copy data from Office 365 into Azure, you need to complete the following prer
 - Your Office 365 tenant admin must complete on-boarding actions as described [here](https://docs.microsoft.com/graph/data-connect-get-started).
 - Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Make note of the following values, which you will use to define the linked service for Office 365:
-    - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-    - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 - Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner). 
     - The user identity must be in the Office 365 organization you are getting data from and must not be a Guest user.
 

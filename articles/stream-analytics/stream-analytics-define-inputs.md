@@ -126,6 +126,8 @@ Stream Analytics currently does not support deserializing AVRO messages generate
 > Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 > 
 
+Uploading a very large number of blobs at once might cause Stream Analytics to skip reading few blobs in rare cases. It is recommended to upload blobs at least 2 seconds apart to Blob storage. If this option is not feasible, you can use Event Hubs to stream large volumes of events. 
+
 ### Configure Blob storage as a stream input 
 
 The following table explains each property in the **New input** page in the Azure portal when you configure Blob storage as a stream input.

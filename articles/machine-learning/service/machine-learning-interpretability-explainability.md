@@ -1,7 +1,7 @@
 ---
 title: Model interpretability
 titleSuffix: Azure Machine Learning service
-description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inferencing to understand how your model makes predictions.
+description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
 services: machine-learning
 ms.service: machine-learning
@@ -18,13 +18,13 @@ ms.date: 04/29/2019
 In this article, you will learn how to explain why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK.
 
 Using the classes and methods in this package, you can get:
-+ Interpretability on real-world datasets at scale, during training time and inferencing. 
++ Interpretability on real-world datasets at scale, during training and inference. 
 + Interactive visualizations to aid you in the discovery of patterns in data and explanations at training time
 + Feature importance values: both raw and engineered features
 
 During the training phase of the development cycle, model designers and evaluators can use to explain the output of a model to stakeholders to build trust.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
 
-During the inferencing phase, data scientists can use interpretability to explain predictions to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
+Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. During this phase, data scientists can explain the resulting predictions to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
 
 Using these offering, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.
 
@@ -283,7 +283,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## Interpretability in inferencing
+## Interpretability in inference
 
 The explainer can be deployed along with the original model and can be used at scoring time to provide the local explanation information. The process of deploying a scoring explainer is similar to deploying a model and includes the following steps:
 

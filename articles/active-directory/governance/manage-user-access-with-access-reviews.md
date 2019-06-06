@@ -23,14 +23,13 @@ ms.collection: M365-identity-device-management
 With Azure Active Directory (Azure AD), you can easily ensure that users have appropriate access. You can ask the users themselves or a decision maker to participate in an access review and recertify (or attest) to users' access. The reviewers can give their input on each user's need for continued access based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access from users who no longer need it.
 
 > [!NOTE]
-> If you want to review only guest users' access and not review all types of users' access, see [Manage guest user access with access reviews](manage-guest-access-with-access-reviews.md). If you want to review users' membership in administrative roles such as global administrator, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md). 
->
->
+> If you want to review only guest users' access and not review all types of users' access, see [Manage guest user access with access reviews](manage-guest-access-with-access-reviews.md). If you want to review users' membership in administrative roles such as global administrator, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## Prerequisites 
+## Prerequisites
 
+- Azure AD Premium P2
 
-Access reviews are available with the Premium P2 edition of Azure AD, which is included in Microsoft Enterprise Mobility + Security, E5. For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md). Each user who interacts with this feature, including to create a review, fill out a review or confirm their access, requires a license. 
+For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## Create and perform an access review
 

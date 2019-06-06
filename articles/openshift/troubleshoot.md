@@ -19,10 +19,6 @@ This article details some common issues encountered while creating or managing M
 If creating an Azure Red Hat OpenShift cluster using the `az` CLI command fails, retrying the create will continue to fail.
 Use `az openshift delete` to delete the failed cluster, then create an entirely new cluster.
 
-## Untrusted Azure Red Hat OpenShift server certificate
-
-The OpenShift console uses a self-signed certificate. When prompted in your browser, bypass the warning and accept the "untrusted" certificate.
-
 ## Hidden Azure Red Hat OpenShift cluster resource group
 
 Currently, the `Microsoft.ContainerService/openShiftManagedClusters` resource that's automatically created by the Azure CLI (`az openshift create` command) is hidden in the Azure portal. In the **Resource group** view, check **Show hidden types** to view the resource group.

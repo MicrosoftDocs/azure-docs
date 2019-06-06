@@ -259,6 +259,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 In this tutorial, you learned how to implement feature flags in your ASP.NET Core application by utilizing the `Microsoft.FeatureManagement` libraries. See the following resources for more information on feature management support in ASP.NET Core and App Configuration.
 
-* [ASP.NET Core feature flag sample code]()
-* [Microsoft.FeatureManagement documentation]()
+* [ASP.NET Core feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
+* [Microsoft.FeatureManagement documentation](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
 * [Manage feature flags](./manage-feature-flags.md)

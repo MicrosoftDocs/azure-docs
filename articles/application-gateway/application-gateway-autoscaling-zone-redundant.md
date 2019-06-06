@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/22/2019
 ms.author: victorh
 ---
 
@@ -57,7 +57,7 @@ Compute unit guidance:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-The [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
+For more pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/). Billing is scheduled to start on July 1, 2019.
 
 **Example 1**
 
@@ -88,14 +88,12 @@ Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/s
 
 Total price = $267.84 + $85.71 = $353.55
 
-The [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
-
 ## Scaling Application Gateway and WAF v2
 
 Application Gateway and WAF can be configured to scale in two modes:
 
 - **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring to run gateways at peak provisioned capacity for anticipated maximum traffic load. Customers must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 do not fall below the minimum instance count specified, even in the absence of traffic. You'll be billed for this minimum capacity even in the absence of any traffic. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You'll continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 20 if not specified.
-- **Manual** - You can alternatively choose Manual mode where the gateway won't autoscale. In this mode, if there is more traffic than what Application Gateway or WAF is capable of handling, it could result in traffic loss. With manual mode, specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
+- **Manual** - You can alternatively choose Manual mode where the gateway won't autoscale. In this mode, if there is more traffic than what Application Gateway or WAF can handle, it could result in traffic loss. With manual mode, specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
 
 ## Feature comparison between v1 SKU and v2 SKU
 
@@ -133,7 +131,7 @@ The following table compares the features available with each SKU.
 |User Defined Route (UDR) on Application Gateway subnet|Not supported|
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
-|Billing|Billing scheduled to start on June 1, 2019.|
+|Billing|Billing scheduled to start on July 1, 2019.|
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Netwatcher integration|Not supported.|

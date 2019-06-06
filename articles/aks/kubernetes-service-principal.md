@@ -22,6 +22,8 @@ This article shows how to create and use a service principal for your AKS cluste
 
 To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. If you don't have the necessary permissions, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or pre-create a service principal for you to use with the AKS cluster.
 
+If you are using a service principal from a different Azure AD tenant, there are additional considerations around the permissions available when you deploy the cluster. You may not have the appropriate permissions to read and write directory information. For more information, see [What are the default user permissions in Azure Active Directory?][azure-ad-permissions]
+
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Automatically create and use a service principal
@@ -156,3 +158,4 @@ For information on how to update the credentials, see [Update or rotate the cred
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
 [update-credentials]: update-credentials.md
+[azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

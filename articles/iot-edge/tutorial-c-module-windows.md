@@ -327,7 +327,7 @@ You can use the IoT Edge Tools extension to view messages as they arrive at your
 
 1. In the Visual Studio cloud explorer, select the name of your IoT Edge device. 
 
-2. In the **Actions** list, select **Start Monitoring D2C Message**. 
+2. In the **Actions** list, select **Start Monitoring Built-in Event Endpoint**. 
 
 3. View the messages arriving at your IoT Hub. It may take a while for the messages to arrive, because the IoT Edge device has to receive its new deployment and start all the modules. Then, the changes we made to the CModule code wait until the machine temperature reaches 25 degrees before sending messages. It also adds the message type **Alert** to any messages that reach that temperature threshold. 
 

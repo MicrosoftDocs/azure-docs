@@ -54,7 +54,6 @@ Fix:
 * Check that you provided sign-in credentials for the right Azure account.
 * In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
 * [Add Application Insights to your existing project](../../azure-monitor/app/asp-net.md): In Solution Explorer, right click your project and choose "Add Application Insights."
-* If it still isn't working, follow the [manual procedure](../../azure-monitor/app/windows-services.md) to add a resource in the portal and then add the SDK to your project.
 
 ## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
