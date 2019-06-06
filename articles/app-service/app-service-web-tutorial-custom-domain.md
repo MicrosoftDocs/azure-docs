@@ -218,7 +218,7 @@ Back in the app's **Custom domains** page in the Azure portal, add the fully qua
 
 Select the **+** icon next to **Add custom domain**.
 
-![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Type the fully qualified domain name that you configured the A record for, such as `contoso.com`.
 
