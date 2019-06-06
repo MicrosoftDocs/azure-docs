@@ -4,7 +4,7 @@ description: Describes how to set up continuous integration in Azure Pipelines b
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
 ---
 # Integrate Visual Studio Resource Group project with Azure Pipelines
@@ -13,19 +13,9 @@ Visual Studio provides the Azure Resource Group project for creating templates a
 
 There are two ways to deploy templates to Azure Pipelines:
 
-* Add a single step to your build pipeline that runs a PowerShell script. The script copies artifacts and then deploys the template. This option has the advantage of providing consistency throughout the development life cycle because you use the same script that is included in the Visual Studio project (Deploy-AzureResourceGroup.ps1).
+* [Add task that runs an Azure PowerShell script](#use-azure-powershell-task). The script copies artifacts and then deploys the template. This option has the advantage of providing consistency throughout the development life cycle because you use the same script that is included in the Visual Studio project (Deploy-AzureResourceGroup.ps1).
 
-* Add multiple Azure DevOps Services build steps, each one performing a stage task. The second option offers a convenient alternative to the built-in script.
-
-With both approaches, you need to give Azure Resource Manager access to artifacts for your project. This step is known as staging. The artifacts can include files such as:
-
-* Nested templates
-* Configuration scripts and DSC scripts
-* Application binaries
-
-The PowerShell script copies the artifacts to a secure container in Azure, creates a SaS token for that container, and passes that information on to the template deployment.
-
-The DevOps tasks includes a task for copying the artifacts. You pass parameter values from the staging step to the template deployment.
+* [Add copy and deploy tasks](#use-copy-and-deploy-tasks). This option offers a convenient alternative to the built-in script. You configure two tasks in the pipeline. One copies the artifacts and the other deploys the template.
 
 ## Prepare your project
 
@@ -37,44 +27,60 @@ This article assumes your Visual Studio project and Azure DevOps organization ar
 
 * Your Visual Studio project is [shared to a DevOps project](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
 
-## Continuous deployment with PowerShell script
+## Stage artifacts
+
+With both approaches, you need to give Azure Resource Manager access to artifacts for your project. This step is known as staging. The artifacts can include files such as:
+
+* Nested templates
+* Configuration scripts and DSC scripts
+* Application binaries
+
+The PowerShell script copies the artifacts to a secure container in Azure, creates a SaS token for that container, and passes that information on to the template deployment.
+
+The DevOps tasks includes a task for copying the artifacts. You pass parameter values from the staging step to the template deployment.
+
+## Use Azure PowerShell task
 
 To call the PowerShell script in Azure Pipelines, you need to update your build pipeline. In brief, the steps are: 
 
-1. Edit the build pipeline.
-2. Set up Azure authorization in Azure Pipelines.
-3. Add an Azure PowerShell build step that references the PowerShell script in the Azure Resource Group deployment project.
-4. Set the value of the *-ArtifactsStagingDirectory* parameter to work with a project built in Azure Pipelines.
+* Add the build pipeline.
+* Set up Azure authorization in Azure Pipelines.
+* Add an Azure PowerShell build step that references the PowerShell script in the Azure Resource Group deployment project.
+* Set the value of the *-ArtifactsStagingDirectory* parameter to work with a project built in Azure Pipelines.
 
-The following procedures walk you through the steps necessary to configure continuous deployment in Azure DevOps Services using a single task that runs the PowerShell script in your project. 
+The following procedures walk you through the steps necessary to configure continuous deployment in Azure DevOps Services using a single task that runs the PowerShell script in your project.
 
-1. Add a pipeline.
+1. If you haven't added a pipeline previously, you need to create a new pipeline. From your DevOps organization, select **Pipelines** and **New pipeline**.
 
    ![Add new pipeline](./media/vs-resource-groups-project-devops-pipelines/new-pipeline.png)
 
-1. Select source.
+1. Specify where your code is stored. The following image shows selecting **Azure Repos Git**.
 
    ![Select code source](./media/vs-resource-groups-project-devops-pipelines/select-source.png)
 
-1. Select repository.
+1. From that source, select the repository that has the code for your project.
 
    ![Select repository](./media/vs-resource-groups-project-devops-pipelines/select-repo.png)
 
-1. Select pipeline.
+1. Select the type of pipeline to create. You can select **Starter pipeline**. Later in this article, you'll replace the contents of the pipeline.
 
    ![Select pipeline](./media/vs-resource-groups-project-devops-pipelines/select-pipeline.png)
 
-1. Select service connections.
+You've set up a build pipeline for your project. Now, you need to add a service principal that is authorized to contribute to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal.
+
+1. In the lower left corner, select **Project settings**. Select **Service connections**.
 
    ![Select service connections](./media/vs-resource-groups-project-devops-pipelines/select-service-connections.png)
 
-1. Add service connection.
+1. Now, specify the type of service connection you want to create. Select **New service connection** and **Azure Resource Manager**.
 
    ![Add service connection](./media/vs-resource-groups-project-devops-pipelines/add-service-connection.png)
 
-1. Provide service connection values.
+1. Give your connection a name. For scope, select either **Subscription** or **ManagementGroup**. Select the particular subscription or management group you want to use for the new connection.
 
    ![Provide service connection values](./media/vs-resource-groups-project-devops-pipelines/provide-values-service-connection.png)
+
+You are ready to add the task that runs your script.
 
 2. Add a new **Azure PowerShell** build step to the build pipeline and then choose the **Add build step…** button.
    
@@ -112,7 +118,7 @@ The following procedures walk you through the steps necessary to configure conti
       For Azure CLI, use:
       
       `az account show`
-   8. To get a Service Principal ID, Service Principal Key, and Tenant ID, follow the procedure in [Create Active Directory application and service principal using portal](active-directory/develop/howto-create-service-principal-portal.md) or [Authenticating a service principal with Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
+   8. To get a Service Principal ID, Service Principal Key, and Tenant ID, follow the procedure in [Create Active Directory application and service principal using portal](../active-directory/develop/howto-create-service-principal-portal.md) or [Authenticating a service principal with Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Add the Service Principal ID, Service Principal Key, and Tenant ID values to the **Add Azure Subscription** dialog box and then choose the **OK** button.
       
       You now have a valid Service Principal to use to run the Azure PowerShell script.
@@ -147,7 +153,7 @@ The following procedures walk you through the steps necessary to configure conti
    
 9. After you’ve added all the required items to the Azure PowerShell build step, choose the **Queue** build button to build the project. The **Build** screen shows the output from the PowerShell script.
 
-## Continuous deployment with tasks
+## Use copy and deploy tasks
 
 The following procedures walk you through the steps necessary to configure continuous deployment in Azure DevOps Services using the built-in tasks.
 
@@ -161,7 +167,7 @@ The following procedures walk you through the steps necessary to configure conti
    
 5. Choose the **Azure File Copy** task and fill in its values.
    
-   If you already have an Azure service endpoint added to Azure DevOps Services, choose the subscription in the **Azure Subscription** drop-down list box. If you do not have a subscription, see [Option 1](#detailed-walkthrough-for-option-1) for instructions on setting one up in Azure DevOps Services.
+   If you already have an Azure service endpoint added to Azure DevOps Services, choose the subscription in the **Azure Subscription** drop-down list box. 
    
    * Source - enter **$(Build.StagingDirectory)**
    * Azure Connection Type - select **Azure Resource Manager**
@@ -194,4 +200,4 @@ The following procedures walk you through the steps necessary to configure conti
 7. After you’ve added all the required items, save the build pipeline and choose **Queue new build** at the top.
 
 ## Next steps
-Read [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md) to learn more about Azure Resource Manager and Azure resource groups.
+Read [Azure Resource Manager overview](resource-group-overview.md) to learn more about Azure Resource Manager and Azure resource groups.
