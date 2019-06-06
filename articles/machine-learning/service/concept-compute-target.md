@@ -1,7 +1,7 @@
 ---
 title: Compute targets
 titleSuffix: Azure Machine Learning service
-description: A compute target is where you run your training script or to host your service deployment. This location may be your local machine or a cloud-based compute resource.
+description: A compute target lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

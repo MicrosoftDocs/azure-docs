@@ -29,6 +29,8 @@ In this article, you learn how to use various compute targets for model training
 
 ## Compute targets for training
 
+Azure Machine Learning service has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
+
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
 
