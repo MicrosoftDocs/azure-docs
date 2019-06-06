@@ -76,9 +76,6 @@ Managed instance currently supports deployment only on the following types of su
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Subscriptions with monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
-> [!NOTE]
-> This limitation is temporary. New subscription types will be enabled in the future.
-
 ## Regional resource limitations
 
 Supported subscription types can contain a limited number of resources per region. Managed instance has two default limits per Azure region depending on a type of subscription type:
