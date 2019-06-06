@@ -36,7 +36,7 @@
       "searchScope": ["CycleCloud"],
       "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "ms.prod": "cyclecloud",
+      "ms.service": "cyclecloud",
       "ms.topic": "conceptual"
     },
     "fileMetadata": {
