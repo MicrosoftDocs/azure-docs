@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
-ms.reviewer: carlrab
+ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
 ---
