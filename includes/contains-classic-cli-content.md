@@ -14,4 +14,4 @@ ms.custom: include file
 > Azure classic deployment model.
 >
 > To install the classic CLI, see [Install the Azure classic CLI](/cli/azure/install-classic-cli)
-> and to install the current Azure CLI for ARM deployments, see [Install Azure CLI](/cli/azure/install-azure-cli).
+> and to install the current Azure CLI for Azure Resource Manager deployments, see [Install Azure CLI](/cli/azure/install-azure-cli).
