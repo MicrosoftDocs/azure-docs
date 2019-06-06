@@ -30,6 +30,7 @@ The Queue service contains the following components:
 ![Queue Concepts](./media/storage-queues-introduction/queue1.png)
 
 * **URL format:** Queues are addressable using the following URL format:
+
     `https://<storage account>.queue.core.windows.net/<queue>`
   
     The following URL addresses a queue in the diagram:  
@@ -38,7 +39,7 @@ The Queue service contains the following components:
 
 * **Storage account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) for details about storage account capacity.
 
-* **Queue:** A queue contains a set of messages. All messages must be in a queue. The queue name **must** be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Queue:** A queue contains a set of messages. The queue name **must** be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 * **Message:** A message, in any format, of up to 64 KB. Before version 2017-07-29, the maximum time-to-live allowed is seven days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
 
