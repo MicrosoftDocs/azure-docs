@@ -66,6 +66,6 @@ The architecture can also be adapted for deployment entirely on Azure with a hig
 
 ## Next steps
 
-Use [Terraform deployment templates](https://github.com/microsoft/project-ashburn) to set up Oracle apps in Azure and establish cross-cloud connectivity with OCI . 
+Use [Terraform deployment templates](https://github.com/microsoft/project-ashburn) to set up Oracle apps in Azure and establish cross-cloud connectivity with OCI. 
 
 For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation.
