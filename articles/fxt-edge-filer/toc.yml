@@ -25,7 +25,7 @@
   - name: Configure back-end storage and virtual namespace
     href: fxt-add-storage.md
 
-- name: How to
+- name: How-to guides
   items:
   - name: Configure the cluster's network settings
     href: fxt-configure-network.md

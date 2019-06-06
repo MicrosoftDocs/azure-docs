@@ -26,15 +26,21 @@ sections:
     - html: <a href="fxt-cluster-config-overview">Configure the cluster - overview and first steps</a>
     - html: <a href="fxt-add-nodes.md">Add cluster nodes</a>
     - html: <a href="ftx-add-storage.md">Configure back-end storage and virtual namespace</a>
+
+- title: How-to guides
+  items:
+  - type: list
+    style: unordered
+    items: 
     - html: <a href="fxt-configure-network.md">Configure the cluster's network settings</a>
     - html: <a href="fxt-mount-clients.md">Connect clients to the Azure FXT Edge Filer cluster</a> 
-    
-- title: Reference
+    - html: <a href="fxt-monitor">Monitor the Azure FXT Edge Filer</a>
+
+- title: Resources
   items: 
   - type: list
     style: unordered
     items: 
     - html: <a href="fxt-specs">Hardware specifications</a>
-    - html: <a href="fxt-monitor">Monitor the Azure FXT Edge Filer</a>
     - html: <a href="fxt-additional-doc">Additional documentation</a>
   
