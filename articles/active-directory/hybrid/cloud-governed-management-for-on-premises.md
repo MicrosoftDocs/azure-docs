@@ -107,7 +107,7 @@ Organizations can automate the access lifecycle process through technologies suc
 
 ## Future directions
 
-In hybrid environments, Microsoft's strategy is to enable deployments where the cloud is the control plane for identity**,** and on-premises directories and other identity systems, such as Active Directory and other on-premises applications, are the target for provisioning users with access. This strategy will continue to ensure the rights, identities, and access in those applications and workloads that rely upon them. At this end state, organizations will be able to drive end-user productivity entirely from the cloud.
+In hybrid environments, Microsoft's strategy is to enable deployments where the **cloud is the control plane for identity**, and on-premises directories and other identity systems, such as Active Directory and other on-premises applications, are the target for provisioning users with access. This strategy will continue to ensure the rights, identities, and access in those applications and workloads that rely upon them. At this end state, organizations will be able to drive end-user productivity entirely from the cloud.
 
 ![Azure AD architecture](media/cloud-governed-management-for-on-premises/image6.png)
 
