@@ -23,15 +23,15 @@ This tutorial assumes:
 
 ## Important considerations
 
-Since consent is required for the app to interact with Windows Virtual Desktop, this tool does not support Business-to-Business (B2B) scenarios. Each AAD tenant requires a separate deployment of this UI in their subscription.
+Since consent is required for the app to interact with Windows Virtual Desktop, this tool does not support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant requires a separate deployment of this UI in their subscription.
 
-This is sample tool. Microsoft will provide important security and quality updates. The source code is available in Github. Customers and partners are encouraged to customize the tool to fit their business needs.
+This management tool is a sample. Microsoft will provide important security and quality updates. The source code is available in GitHub. Customers and partners are encouraged to customize the tool to fit their business needs.
 
 ## What you need to run the Azure Resource Manager template
 
 Here's what you need before deploying the Azure Resource Manager template:
 
-- Azure Active Directory (AAD) credentials without Azure Multi-Factor Authentication (MFA) enabled
+- AAD credentials without Azure Multi-Factor Authentication (MFA) enabled
 - Permission for the AAD credentials to create resources in your Azure subscription.
 - Your Windows Virtual Desktop credentials
 
@@ -54,8 +54,8 @@ Use the following instructions to install the Azure Resource Management template
 ### Guidance for template parameters
 Below is guidance for parameters you'll enter while configuring the tool.
 
-- This is an example RD broker URL: https://rdbroker.wvd.microsoft.com/
-- This is an example resource URL: https://mrs-prod.ame.gbl/mrs-RDInfra-prod
+- Here's an example of an RD broker URL: https://rdbroker.wvd.microsoft.com/
+- Here's an example  of a resource URL: https://mrs-prod.ame.gbl/mrs-RDInfra-prod
 - Use AAD credentials with MFA disabled for Azure Login ID and password.
 - Use a unique name for the app; for example, Apr3UX.
 
