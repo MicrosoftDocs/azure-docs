@@ -70,7 +70,13 @@ notebook_run.log(name="message", value="Hello from run!")
 
 To start a run of your experiment, use the following steps:
 
-1. Attach a workspace configuration to the folder that contains your training script:
+1. From a shell or command prompt, use the Azure CLI to authenticate to your Azure subscription:
+
+    ```azurecli-interactive
+    az login
+    ```
+
+1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning service workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
@@ -130,20 +136,20 @@ print("Has it completed?",notebook_run.get_status())
 
 ### Using the CLI
 
-1. To view a list of runs for your experiment, use the following command. Replace `<experiment>` witt the name of your experiment:
+1. To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
 
     ```azurecli-interactive
-    az ml run list --experiment-name <experiment>
+    az ml run list --experiment-name experiment
     ```
 
     This command returns a JSON document that lists information about runs for this experiment.
 
     For more information, see [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
 
-2. To view information on a specific run, use the following command. Replace `<run id>` with the ID of the run:
+2. To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
 
     ```azurecli-interactive
-    az ml run show -r <run id>
+    az ml run show -r runid
     ```
 
     This command returns a JSON document that lists information about the run.
@@ -179,10 +185,10 @@ print(local_script_run.get_status())
 
 ### Using the CLI
 
-To cancel a run using the CLI, use the following command. Replace `<run id>` with the ID of the run
+To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
 
 ```azurecli-interactive
-az ml run cancel -r <run id>
+az ml run cancel -r runid
 ```
 
 For more information, see [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
@@ -280,11 +286,11 @@ The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be use
 
 ```azurecli-interactive
 # list runs where the author property = 'azureml-user'
-az ml run list --experiment-name <experiment> [?properties.author=='azureml-user']
+az ml run list --experiment-name experiment [?properties.author=='azureml-user']
 # list runs where the tag contains a key that starts with 'worth another look'
-az ml run list --experiment-name <experiment> [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
 # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
-az ml run list --experiment-name <experiment> [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
 ```
 
 For more information on querying Azure CLI results, see [Query Azure CLI command output](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)
