@@ -14,7 +14,7 @@ ms.date: 05/23/2019
 > [!NOTE]
 > Performance Recommendations is in public preview.
 
-The Performance Recommendations feature analyzes your databases to create customized suggestions for improved performance. To produce the recommendations, the analysis looks at various database characteristics including schema. Enable [Query Store](concepts-query-store.md) on your server to fully utilize the Performance Recommendations feature. After implementing any performance recommendation, you should test performance to evaluate the impact of those changes.
+The Performance Recommendations feature analyzes your databases to create customized suggestions for improved performance. To produce the recommendations, the analysis looks at various database characteristics including schema. Enable [Query Store](concepts-query-store.md) on your server to fully utilize the Performance Recommendations feature. Turning on Query Store enables performance_schema and a subset of performance schema instruments required for the feature. After implementing any performance recommendation, you should test performance to evaluate the impact of those changes.
 
 ## Permissions
 
@@ -28,7 +28,7 @@ Open **Performance Recommendations** from the **Intelligent Performance** sectio
 
 ![Performance Recommendations landing page](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Select **Analyze** and choose a database, which will begin the analysis. Depending on your workload, th analysis may take several minutes to complete. Once the analysis is done, there will be a notification in the portal. Analysis performs a deep examination of your database. We recommend you perform analysis during off-peak periods.
+Select **Analyze** and choose a database, which will begin the analysis. Depending on your workload, the analysis may take several minutes to complete. Once the analysis is done, there will be a notification in the portal. Analysis performs a deep examination of your database. We recommend you perform analysis during off-peak periods.
 
 The **Recommendations** window will show a list of recommendations if any were found.
 
