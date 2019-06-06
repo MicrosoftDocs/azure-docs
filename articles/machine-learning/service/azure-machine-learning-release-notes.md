@@ -49,6 +49,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + azureml.core.get_run no longer requires classes to be imported before returning the original run type.
   + Fixed an issue where some calls to WebService Update did not trigger an update.
   + Scoring timeout on AKS webservices should be between 5ms and 300000ms. Max allowed scoring_timeout_ms for scoring requests has been bumped from 1 min to 5 min.
+  + LocalWebservice objects now have `scoring_uri` and `swagger_uri` properties.
 
 
 ## 2019-05-28
