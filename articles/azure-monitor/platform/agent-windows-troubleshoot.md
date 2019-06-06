@@ -102,8 +102,5 @@ If the query returns results, then you need to determine if a particular data ty
 
     ![Event ID 1210 description](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
 
-3. In the *Operations Manager* event log, search for event ID *8000* from Event source *HealthService*.  This event will specify if a workflow related to  performance, event, or other data type collected is unable to forward to the service for ingestion to the workspace. 
-
- restart the HealthService to 
-
-## 
+3. If after several minutes you do not see the expected data in the query results or visualization, depending on if you are viewing the data from a solution or Insight, from the *Operations Manager* event log, search for event ID *8000* from Event source *HealthService*. This event will specify if a workflow related to  performance, event, or other data type collected is unable to forward to the service for ingestion to the workspace. 
+ 
