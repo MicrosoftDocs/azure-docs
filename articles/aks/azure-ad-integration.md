@@ -78,7 +78,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     d. Select **Application permissions**, and then select the check box next to **Directory > Directory.Read.All (Read directory data)**.
 
-        ![Set graph permissions](media/aad-integration/graph-permissions.png)
+    ![Set graph permissions](media/aad-integration/graph-permissions.png)
 
     e. Select **Add permissions** to save the updates.
 
@@ -86,7 +86,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     When permissions are successfully granted, the following notification is displayed in the portal:
 
-        ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
+   ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
 5. In the left pane of the Azure AD application, select **Expose an API**, and then select **+ Add a scope**.
     
@@ -94,13 +94,13 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     b. Make sure **State** is set to **Enabled**.
 
-        ![Expose the server app as an API for use with other services](media/aad-integration/expose-api.png)
+    ![Expose the server app as an API for use with other services](media/aad-integration/expose-api.png)
 
     c. Select **Add scope**.
 
 6. Return to the application **Overview** page and note the **Application (client) ID**. When you deploy an Azure AD-enabled AKS cluster, this value is called the server application ID.
 
-   ![Get application ID](media/aad-integration/application-id.png)
+    ![Get application ID](media/aad-integration/application-id.png)
 
 ## Create the client application
 
@@ -122,17 +122,17 @@ The second Azure AD application is used when you sign in with the Kubernetes CLI
 
     b. Select **Delegated permissions**, and then select the check box next to your Azure AD server app.
 
-        ![Configure application permissions](media/aad-integration/select-api.png)
+    ![Configure application permissions](media/aad-integration/select-api.png)
 
     c. Select **Add permissions**.
 
     d. Under **Grant consent**, select **Grant admin consent**. This button isn't available if the current account isn't a tenant admin. When permissions are granted, the following notification is displayed in the portal:
 
-        ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
+    ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
 3. In the left pane of the Azure AD application, select **Authentication**.
 
-4. Under **Default client type**, select **Yes** to Treat the client as a public client.
+    - Under **Default client type**, select **Yes** to **Treat the client as a public client**.
 
 5. In the left pane of the Azure AD application, note the application ID. When you deploy an Azure AD-enabled AKS cluster, this value is called the client application ID.
 
