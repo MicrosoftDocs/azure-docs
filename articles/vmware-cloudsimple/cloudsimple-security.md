@@ -12,11 +12,11 @@ manager: dikamath
 
 # CloudSimple security overview
 
-This article provides an overview of how security is implemented on the Azure VMware solution by CloudSimple service, infrastructure, and datacenter. You learn about data protection and security, network security, and how vulnerabilities and patches are managed.
+This article provides an overview of how security is implemented on the Azure VMware Solution by CloudSimple service, infrastructure, and datacenter. You learn about data protection and security, network security, and how vulnerabilities and patches are managed.
 
 ## Shared responsibility
 
-Azure VMware solution by CloudSimple uses a shared responsibility model for security. Trusted security in the cloud is achieved through the shared responsibilities of customers and Microsoft as a service provider. This matrix of responsibility provides higher security and eliminates single points of failure.
+Azure VMware Solution by CloudSimple uses a shared responsibility model for security. Trusted security in the cloud is achieved through the shared responsibilities of customers and Microsoft as a service provider. This matrix of responsibility provides higher security and eliminates single points of failure.
 
 ## Azure infrastructure 
 
