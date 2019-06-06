@@ -84,7 +84,7 @@ RedHat:RHEL:7.4:7.4.2019041718
 In this case, `RedHat:RHEL:7.4:7.4.2019041718` will be attached to EUS repositories by default, and `RedHat:RHEL:7-RAW:7.4.2018010506` will be attached to non-EUS repositories by default.
 
 #### For customers that don't want to use EUS images:
-If you don't want to use an image that is connected to EUS by default, deploy using an image that does notcontain a minor version number in the SKU.
+If you don't want to use an image that is connected to EUS by default, deploy using an image that does not contain a minor version number in the SKU.
 
 ##### RHEL images with EUS
 The following table will apply for RHEL images that contain a minor version in the SKU.
