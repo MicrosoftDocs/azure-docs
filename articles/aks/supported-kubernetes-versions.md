@@ -119,10 +119,10 @@ Notifications are sent via:
 
 ### Policy Exceptions
 
-AKS reserves the right to issue new versions of Kubernetes as needed and without advance notification to users
-for release that have been identified to have one or more critical production impacting bugs or security issues.
-Specific patch releases may be skipped, or rollout accelerated depending on the severity of
-the bug or security issue.
+AKS reserves the right to add or remove new/existing versions that have been identified to have one or more critical
+production impacting bugs or security issues without advance notice.
+
+Specific patch releases may be skipped, or rollout accelerated depending on the severity of the bug or security issue.
 
 ### Azure portal and CLI default versions
 
