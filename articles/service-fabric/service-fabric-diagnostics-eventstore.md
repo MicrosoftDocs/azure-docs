@@ -69,7 +69,7 @@ In [fabricSettings.json in your cluster](service-fabric-cluster-fabric-settings.
 ```
 
 ### Azure cluster version 6.5+
-If you upgrade to version 6.5 or higher, EventStore will be automatically enalbed on your cluster. To opt out, you need to update your cluster template with the following
+If your Azure cluster gets upgraded to version 6.5 or higher, EventStore will be automatically enabled on your cluster. To opt out, you need to update your cluster template with the following:
 
 * Use an API version of `2019-03-01` or newer 
 * Add the following code to your properties section in your cluster
@@ -82,7 +82,7 @@ If you upgrade to version 6.5 or higher, EventStore will be automatically enalbe
 
 ### Azure cluster version 6.4
 
-In your cluster's Azure Resource Manager template, you can turn on the EventStore service by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code, you can use PlacementConstraints to put the replicas of the EventStore service on a specific NodeType e.g. a NodeType dedicated for the system services. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
+If you are using version 6.4, you can edit your Azure Resource Manager template to turn on EventStore service. This is done by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code, you can use PlacementConstraints to put the replicas of the EventStore service on a specific NodeType e.g. a NodeType dedicated for the system services. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
 
 ```json
     "fabricSettings": [
