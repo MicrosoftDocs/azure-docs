@@ -67,6 +67,9 @@ Make sure you are making the best use of the ranking features QnA Maker supports
 ### Choosing a threshold
 The default confidence score that is used as a threshold is 50, however you can change it for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. Read more about the [confidence score](../Concepts/confidence-score.md). 
 
+### Choosing Ranker type
+By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
+
 ### Add alternate questions
 [Alternate questions](../How-To/edit-knowledge-base.md) improve the likelihood of a match with a user query. Alternate questions are useful when there are multiple ways in which the same question may be asked. This can include changes in the sentence structure and word-style.
 
@@ -105,7 +108,7 @@ QnA Maker allows users to [collaborate](../How-to/collaborate-knowledge-base.md)
 
 ## Active learning
 
-[Active learning](../How-to/improve-knowledge-base.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** then review and accept or reject those suggestions. 
+[Active learning](../How-to/improve-knowledge-base.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md)** then review and accept or reject those suggestions. 
 
 ## Next steps
 

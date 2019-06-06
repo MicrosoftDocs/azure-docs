@@ -267,7 +267,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 6. For **Endpoint Details**, select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. The form should now look similar to the following example:
 
@@ -297,11 +297,9 @@ Now that your event subscription is set up, let's test by connecting a device.
 
    ![ConnectionString for device](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### Start Raspberry Pi simulator
 
-1. Let's use the Raspberry Pi web simulator to simulate device connection.
+Let's use the Raspberry Pi web simulator to simulate device connection.
 
 [Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 

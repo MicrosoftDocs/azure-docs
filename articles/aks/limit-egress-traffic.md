@@ -67,13 +67,13 @@ In AKS, there are two sets of ports and addresses:
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
-* TCP port *9000* for the tunnel front pod to communicate with the tunnel end on the API server.
+* TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
 
 The following FQDN / application rules are required:
 
 | FQDN                      | Port      | Use      |
 |---------------------------|-----------|----------|
-| *.azmk8s.io               | HTTPS:443 | This address is the API server endpoint. |
+| *.azmk8s.io               | HTTPS:443,22,9000 | This address is the API server endpoint. |
 | aksrepos.azurecr.io       | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). |
 | *.blob.core.windows.net   | HTTPS:443 | This address is the backend store for images stored in ACR. |
 | mcr.microsoft.com         | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). |

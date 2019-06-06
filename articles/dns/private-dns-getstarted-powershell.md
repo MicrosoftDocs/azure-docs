@@ -37,7 +37,7 @@ These instructions assume you have already installed and signed in to Azure Powe
 
 <!---[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)] -->
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create the resource group
 
