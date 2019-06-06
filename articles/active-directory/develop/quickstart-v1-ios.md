@@ -97,7 +97,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
     link_with ['QuickStart']
     xcodeproj 'QuickStart'
 
-    pod 'ADALiOS'
+    pod 'ADAL'
     ```
 
 1. Load the podfile by using CocoaPods. This step creates a new XCode workspace that you load.

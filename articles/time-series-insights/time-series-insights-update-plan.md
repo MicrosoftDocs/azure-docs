@@ -14,10 +14,10 @@ ms.custom: seodec18
 
 # Plan your Azure Time Series Insights Preview environment
 
-This article describes best practices to plan and get started quickly using the Azure Time Series Insights Preview.
+This article describes best practices to plan and get started quickly by using the Azure Time Series Insights Preview.
 
 > [!NOTE]
-> See [Plan your Azure Time Series Insights GA environment](time-series-insights-environment-planning.md), for best practices to plan a general availability TSI instance.
+> For best practices to plan a general availability Time Series Insights instance, see [Plan your Azure Time Series Insights general availability environment](time-series-insights-environment-planning.md).
 
 ## Best practices for planning and preparation
 
@@ -40,29 +40,29 @@ When you provision a Time Series Insights Preview environment, you create two Az
 
 To start, you need three additional items:
 
-* A [Time Series Model](./time-series-insights-update-tsm.md).
-* An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md).
-* [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format.
+* A [Time Series Model](./time-series-insights-update-tsm.md)
+* An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
+* [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format
 
 ## Configure Time Series IDs and Timestamp properties
 
-To create a new Time Series Insights environment, select a **Time Series ID**. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.
+To create a new Time Series Insights environment, select a Time Series ID. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.
 
 > [!IMPORTANT]
 > Time Series IDs are *immutable* and *can't be changed later*. Verify each one before final selection and first use.
 
-You can select up to three (3) keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Storage and ingress](./time-series-insights-update-storage-ingress.md).
+You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Storage and ingress](./time-series-insights-update-storage-ingress.md).
 
 The Timestamp property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
 > [!TIP]
 > Verify the formatting and parsing requirements for your event sources.
 
-When left blank, the Event Enqueue Time of an event source is used as the event Timestamp. If you send historical data or batched events, customizing the Timestamp property is more helpful than the default Event Enqueue Time. For more information, read about [How to add event sources in IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+When left blank, the Event Enqueue Time of an event source is used as the event Timestamp. If you send historical data or batched events, customizing the Timestamp property is more helpful than the default Event Enqueue Time. For more information, read about how to [add event sources in Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 ## Understand the Time Series Model
 
-You can now configure your Time Series Insights environment’s Time Series Model. The new model makes it easy to find and analyze IoT data. It enables the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses **Time Series IDs**, which map to an instance that associates the unique resource with variables, known as types, and hierarchies. Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+You can now configure your Time Series Insights environment’s Time Series Model. The new model makes it easy to find and analyze IoT data. It enables the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses Time Series IDs, which map to an instance that associates the unique resource with variables, known as types, and hierarchies. Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
 
 The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Time Series Insights. To build your model, see [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md).
 
@@ -74,8 +74,8 @@ You can verify the way that you send events to Time Series Insights. Ideally, yo
 
 A good rule of thumb:
 
-* Store metadata in your Time Series Model
-* Time Series Mode, instance fields, and events include only necessary information, such as a **Time Series ID** or **Timestamp**.
+* Store metadata in your Time Series Model.
+* Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp.
 
 For more information, see [Shape events](./time-series-insights-send-events.md#json).
 
@@ -84,5 +84,4 @@ For more information, see [Shape events](./time-series-insights-send-events.md#j
 ## Next steps
 
 - Read more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Time Series Insights Preview.
-
 - Learn about [data modeling](./time-series-insights-update-tsm.md) in the Time Series Insights Preview.

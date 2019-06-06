@@ -54,7 +54,7 @@ A named location has the following components:
 - **Countries/Regions** - This option enables you to select one or more country or region to define a named location.
 - **Include unknown areas** - Some IP addresses are not mapped to a specific country or region. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
-The number of named locations you can configure is constrained by the size of the related object in Azure AD. Organizations can configure up to 90 named locations, each configured with up to 12000 IP ranges.
+The number of named locations you can configure is constrained by the size of the related object in Azure AD. Organizations can configure up to 90 named locations, each configured with up to 1200 IP ranges.
 
 Conditional access policy applies to IPv4 and IPv6 traffic. Currently named locations do not allow IPv6 ranges to be configured. This limitation causes the following situations:
 
