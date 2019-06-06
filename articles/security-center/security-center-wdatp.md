@@ -89,7 +89,7 @@ Follow the instructions in [Assign user access to the portal](https://docs.micro
 
 ## Set the firewall configuration
 
-If you have a proxy or firewall that is blocking anonymous traffic, as a Windows Defender ATP sensor is connecting from the system context, make sure that anonymous traffic is permitted. Follow the instructions in [Enable access to Windows Defender ATP service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server).
+If you have a proxy or firewall that is blocking anonymous traffic, as a Windows Defender ATP sensor is connecting from the system context, make sure that anonymous traffic is permitted. Follow the instructions in [Enable access to Windows Defender ATP service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
 ## Test the feature
 
