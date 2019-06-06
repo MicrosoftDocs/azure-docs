@@ -58,7 +58,7 @@ There are several ways you can verify if the agent is successfully communicating
     | summarize arg_max(TimeGenerated, * ) by Computer 
     ```
 
-    If the computer is successfully communicating with the service, the query should return a result. If the query did not return a result, first verify the agent is configured to report to the correct workspace. If it is configured correctly, proceed to step 2 and search the Windows Event Log to identify if the agent is logging what issue might be preventing it from communicating with Azure Monitor.
+    If the computer is successfully communicating with the service, the query should return a result. If the query did not return a result, first verify the agent is configured to report to the correct workspace. If it is configured correctly, proceed to step 3 and search the Windows Event Log to identify if the agent is logging what issue might be preventing it from communicating with Azure Monitor.
 
 2. Another method to identify a connectivity issue is by running the **TestCloudConnectivity** tool. This is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. From an elevated command prompt, navigate to the folder and run the tool. The tool returns the results and highlights where the test failed (for example, if it was related to a particular port/URL that was blocked).
 
