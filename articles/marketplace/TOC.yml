@@ -65,8 +65,8 @@
     - name: Your marketplace benefits
       href: ./gtm-your-marketplace-benefits.md
       items:
-      - name: Promote your business with Microsoft
-        href: ./gtm-promote-your-business.md
+#      - name: Promote your business with Microsoft
+#        href: ./gtm-promote-your-business.md
       - name: Preferred solutions
         href: ./preferred-solutions.md
       - name: Integrated solutions
