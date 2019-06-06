@@ -17,7 +17,9 @@ This article describes the structure of log data stored in Azure Monitor Logs fo
 ## Overview
 Data in Azure Monitor Logs is stored in either a Log Analytics workspace or an Application Insights application. Both are based on [Azure Data Explorer](/azure/data-explorer/) with data accessible with [Kusto Query Language (KQL)](/azure/kusto/query/).
 
-Data in both workspaces and applications are organized into tables, each of which has its own unique set of properties. 
+Data in both workspaces and applications are organized into tables, each of which has its own unique set of properties. Most data sources will write to their own tables a Log Analytics workspace, while Application Insights will write to a predefined set of tables in an Application Insights application. You can use a cross-resource query to combine data from multiple locations.
+
+![Tables](media/log-query-overview/queries-tables.png)
 
 ## Log Analytics workspace
 A [Log Analytics workspace](../platform/manage-access.md) is a container that stores monitoring data and configuration information. You can create one or more workspaces depending on your particular requirements. [Data Sources](../platform/data-sources.md) such as Activity Logs and Diagnostic logs from Azure resources, agents on virtual machines, and data from insights and monitoring solutions will write data to one or more workspaces that you configure as part of their onboarding. Other services such as Azure Security Center and Azure Sentinel also use a Log Analytics workspace to store their data so it can be analyzed using log queries along with monitoring data from other sources.
@@ -50,8 +52,6 @@ When you run a query, it will need to specify a [query scope](scope.md) which wi
 
 ## Cross-resource queries
 To query 
-
-![Tables](media/log-query-overview/queries-tables.png)
 
 
 

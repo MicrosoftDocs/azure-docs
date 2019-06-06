@@ -29,11 +29,21 @@ You can start Log Analytics from several places in the Azure portal. The scope o
 
 For a tutorial walkthrough of Log Analytics that introduces several of its features, see [Get started with Log Analytics in Azure Monitor](get-started-portal.md).
 
-![Log Analytics](media/portals/log-analytics.png)
 
+## What language do log queries use?
+Azure Monitor Logs is based on [Azure Data Explorer](/azure/data-explorer), and log queries are written using the same Kusto query language (KQL). Refer to the [Azure Data Explorer KQL documentation](/azure/kusto/query) for reference on different functions available.
+
+For a tutorial on log queries that introduces the language and common functions, see [Get started with log queries in Azure Monitor](get-started-queries.md).<br>
+For minor differences in the version of KQL used by Azure Monitor, see [Azure Monitor log query language differences](data-explorer-difference.md).
+
+
+## What data is available in log queries?
+All data collected in Azure Monitor Logs is available to retrieve and analyze in log queries. Different data sources will write their data to different tables, but you can include multiple tables in a single query to analyze data across multiple data sources. 
+
+See [Sources of Azure Monitor Logs](../platform/data-platform-logs.md#sources-of-azure-monitor-logs), for a list of different data sources that populate Azure Monitor Logs.
 
 ## Where are log queries used?
-In addition to Log Analytics, areas in Azure Monitor where you will use queries include the following:
+In addition to interactively working with log queries and their results in Log Analytics, areas in Azure Monitor where you will use queries include the following:
 
 - **Alert rules.** [Alert rules](../platform/alerts-overview.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Dashboards.** You can pin the results of any query into an [Azure dashboard](../learn/tutorial-logs-dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users. 
@@ -42,8 +52,9 @@ In addition to Log Analytics, areas in Azure Monitor where you will use queries 
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) to retrieve log data from Azure Monitor.  This cmdlet requires a query to determine the data to retrieve.
 - **Azure Monitor Logs API.**  The [Azure Monitor Logs API](../platform/alerts-overview.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Azure Monitor to determine the data to retrieve.
 
-## What language do log queries use?
-Azure Monitor Logs is based on [Azure Data Explorer](/azure/data-explorer), and log queries are written using the same Kusto query language (KQL). Refer to the [Azure Data Explorer KQL documentation](/azure/kusto/query) for reference, but note [Azure Monitor log query language differences](data-explorer-difference.md) for minor differences in Azure Monitor.
+
+
+but note [Azure Monitor log query language differences](data-explorer-difference.md) for minor differences in Azure Monitor.
 
 
 ## How do I write a query?
@@ -107,8 +118,6 @@ Start with the tutorials [Get started with Log Anlaytics in Azure Monitor](get-s
 
 Once you've completed the tutorials, look through the other lessons and examples in this documentation to learn more complex queries.
 
-## What data is available in log queries?
-All data collected in Azure Monitor Logs is available to retrieve and analyze in log queries. Different data sources will write their data to different tables, but you can include multiple tables in a single query to analyze data across multiple data sources. For a list of different data sources that populate Azure Monitor Logs, see [Sources of Azure Monitor Logs](../platform/data-platform-logs.md#sources-of-azure-monitor-logs). To understand how data from different sources is structured, see []().
 
 ## How is data organized in Azure Monitor Logs?
 Most data in Azure Monitor Logs is stored in a Log Analytics workspace. You can create one or more workspaces depending on your requirements.
@@ -123,7 +132,7 @@ When you build a query, you start by determining which tables have the data that
 While [Application Insights](../app/app-insights-overview.md) stores application data such as requests, exceptions, traces, and usage in Azure Monitor logs, this data is stored in a different partition than the other log data. You use the same query language to access this data but must use the [Application Insights console](../app/analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access it. You can use [cross-resources queries](../log-query/cross-workspace-query.md) to combine Application Insights data with other log data in Azure Monitor.
 
 
-![Tables](media/log-query-overview/queries-tables.png)
+
 
 
 

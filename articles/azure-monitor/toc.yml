@@ -705,18 +705,18 @@
       items:
       - name: Overview
         href: log-query/log-query-overview.md
-      - name: Log Analytics scope
-        href: log-query/scope.md
       - name: Tutorials
         items:
-        - name: Log Analytics
+        - name: Log Analytics tutorial
           href: log-query/get-started-portal.md
-        - name: Log queries
+        - name: Log queries tutorial
           href: log-query/get-started-queries.md
       - name: Log data
         items:
         - name: Log data structure
           href: log-query/logs-structure.md
+        - name: Query scope
+          href: log-query/scope.md
         - name: Standard properties
           href: platform/log-standard-properties.md
       - name: Query language
