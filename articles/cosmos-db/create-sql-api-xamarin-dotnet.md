@@ -43,7 +43,7 @@ If you are using a Mac, you can download the **free** [Visual Studio for Mac](ht
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## Add a collection
+## Add a container
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -240,7 +240,7 @@ The following steps will demonstrate how to run the app using the Visual Studio 
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and build and deploy a Xamarin app. You can now import additional data to your Azure Cosmos DB account.
+In this quickstart, you've learned how to create an Azure Cosmos account, create a container using the Data Explorer, and build and deploy a Xamarin app. You can now import additional data to your Azure Cosmos account.
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
