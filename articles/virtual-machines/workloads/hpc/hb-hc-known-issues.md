@@ -21,7 +21,7 @@ This article describes known issues with SR-IOV enabled HB and HC-series VMs.
 
 ## DRAM on HB-series
 
-HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM. An upcoming update will address this issue.
+HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM.
 
 ## Accelerated Networking
 
