@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/03/2019
+ms.date: 06/05/2019
 ---
 # SQL Database serverless (preview)
 
@@ -71,7 +71,7 @@ SQL Database serverless is currently only supported in the General Purpose tier 
 
 ### Scaling responsiveness
 
-In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the max vCores value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
+In general, serverless databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the max vCores value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. For example, if the resource demand is 4 vCores, but only 2 vCores are available, then it may take up to a few minutes to load balance before 4 vCores are provided. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
 
 ### Memory management
 
@@ -103,6 +103,14 @@ Autopausing is triggered if all of the following conditions are true for the dur
 
 An option is provided to disable autopausing if desired.
 
+The following features do not support autopausing.  That is, if any of the following features are used, then the database remains online regardless of the duration of database inactivity:
+
+- Geo-replication (active geo-replication and auto-failover groups).
+- Long-term backup retention (LTR).
+- The sync database used in SQL data sync.
+
+Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
+
 ### Autoresume
 
 Autoresuming is triggered if any of the following conditions are true at any time:
@@ -122,22 +130,15 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
 |SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
 
+Autoresuming is also triggered during the deployment of some service updates which require the database be online.
+
 ### Connectivity
 
 If a serverless database is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
 
 ### Latency
 
-The latency to autopause or autoresume a serverless database is generally on the order of 1 minute.
-
-### Feature support
-
-The following features do not support autopausing and autoresuming. That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
-
-- Geo-replication (active geo-replication and auto failover groups)
-- Long-term backup retention (LTR)
-- The sync database used in SQL data sync.
-
+The latency to autoresume and autopause a serverless database is generally order of 1 minute to autoresume and 1-10 minutes to autopause.
 
 ## Onboarding into serverless compute tier
 
@@ -168,8 +169,6 @@ See [Quickstart: Create a single database in Azure SQL Database using the Azure 
 ### Create new serverless database using PowerShell
 
 The following example creates a new database in the serverless compute tier defined by service objective named GP_S_Gen5_4 with default values for the min vCores and autopause delay.
-
-Serverless requires a newer version of PowerShell than is currently in the gallery, so run `Update-Module Az.Sql` to get the latest serverless-enabled cmdlets.
 
 ```powershell
 New-AzSqlDatabase `

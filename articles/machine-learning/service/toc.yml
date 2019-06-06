@@ -86,6 +86,9 @@
   - name: Workspace
     displayName: concept definitions architecture
     href: concept-workspace.md
+  - name: Compute target
+    displayName: concept definitions architecture
+    href: concept-compute-target.md
   - name: Visual interface
     displayName: concept
     href: ui-concept-visual-interface.md
