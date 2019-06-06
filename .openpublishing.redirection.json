@@ -141,6 +141,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/workloads/oracle/oracle-considerations.md",
+      "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
       "redirect_url": "/azure/machine-learning/studio/consume-web-services",
       "redirect_document_id": false
