@@ -13,15 +13,40 @@ ms.author: tomfitz
 
 This article shows you how to create more than one instance of a resource, variable, or property in your Azure Resource Manager template. To create multiple instances, add the `copy` object to your template.
 
-If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
+When used with a resource, the copy object has the following format:
 
-For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "<serial or parallel>",
+    "batchSize": <number-for-serial-batch>
+}
+```
+
+When used with a variable or property, the copy object has the following format:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Both uses are described in greater detail in this article. For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+
+If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
 
 ## Copy limits
 
-To specify the number of iterations, you provide a count value. Whether used with a resource, variable, or property, the count value can't exceed 800.
+To specify the number of iterations, you provide a value for the count property. The count can't exceed 800.
 
-If you deploy a template with REST API version **2019-05-10** or later, you can set the count to zero. Earlier versions of the REST API don't support zero for the count. Currently, Azure CLI or PowerShell don't support zero for the count, but that support will be added in a future release.
+The count can't be a negative number. If you deploy a template with REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of the REST API don't support zero for count. Currently, Azure CLI or PowerShell don't support zero for count, but that support will be added in a future release.
+
+The limits for the count are the same whether used with a resource, variable, or property.
 
 ## Resource iteration
 
