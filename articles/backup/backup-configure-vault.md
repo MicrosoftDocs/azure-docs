@@ -251,11 +251,14 @@ After the initial backup is completed, the **Job completed** status appears in t
 
 ## Ad hoc backup policy retention behavior
 
-| Backup Policy for Scheduled Backup | Ad hoc Backup Retention
+| Backup Schedule option | How long will the backed-up data be retained?
 | -- | --
-| Daily | **Default Retention**: Equivalent to the “retention in days for daily backups.” <br/><br/> **Exception**: If a daily scheduled backup is set for long-term retentions (Weeks, Months, Years) fails, then an ad hoc backup triggered right after this failed scheduled backup is considered for long-term retention. Otherwise, the next successful scheduled backup is considered for long-term retention.<br/><br/> **Example**: If all the (Weekly/Monthly/Yearly) retention backups are in failed state and you triggers a ad hoc backup then it will follow the Yearly retention period.
-| Weekly | **Default Retention** :  1 day. <br/> Ad hoc Backups taken for a data source with weekly Backup policy are deleted the very next day, even if they are the most recent Backups for the data source. <br/><br/> **Exception**: If a weekly scheduled backup is set for long-term retentions (Weeks, Months, Years) fails, then an ad hoc backup triggered right after this failed scheduled backup will be considered for long-term retention. Otherwise, the next successful scheduled backup is considered for long-term retention. <br/><br/> **Example**: If both the (Weekly/Monthly) retention backups are in failed state and you triggers a ad hoc backup then it will follow the Monthly retention period.
+| Schedule a backup every: *Day | **Default Retention**: Equivalent to the “retention in days for daily backups.” <br/><br/> **Exception**: If a daily scheduled backup set for long term retention (Weeks, Months, Years) fails, then an adhoc backup triggered right after this failed scheduled backup is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention.<br/><br/> **Example**: If (say) the scheduled backup taken on Thursday 8:00 am fails and the same backup was to be considered for Weekly/Monthly/Yearly retention, then the first adhoc backup triggered before the next scheduled backup (say) Friday, 8:00 am would be automatically tagged for Weekly/Monthly/Yearly retention as applicable to the Thursday 8:00 am backup.
+| Schedule a backup every: *Weekly | **Default Retention**: 1 day. <br/> Adhoc Backups taken for a data source with weekly Backup policy are deleted the very next day, even if they are the most recent Backups for the data source. <br/><br/> **Exception**: If a weekly scheduled backup set for long term retention (Weeks, Months, Years) fails, then an adhoc backup triggered right after this failed scheduled backup is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention. <br/><br/> **Example**: If (say) the scheduled backup taken on Thursday 8:00 am fails and the same backup was to be considered for Monthly/Yearly retention, then the first adhoc backup triggered before the next scheduled backup (say) Thursday, 8:00 am would be automatically tagged for Monthly/Yearly retention as applicable to the Thursday 8:00 am backup
 
+
+> [!NOTE]
+> For more information, refer step 8 of [Create a backup policy](backup-configure-vault.md#create-a-backup-policy)
 
 ## Next steps
 
