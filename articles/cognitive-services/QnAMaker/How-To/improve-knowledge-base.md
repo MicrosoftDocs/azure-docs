@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/06/2019
 ms.author: diberry
 ---
 
@@ -51,14 +51,13 @@ It is important that QnA Maker gets explicit feedback about which of the answers
 * Business logic, such as determining an acceptable score range.  
 * A combination of both user feedback and business logic.
 
-
 ## Upgrade your runtime version to use active learning
 
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
 
 ## Turn on active learning to see suggestions
 
-Active learning is off by default. Turn it on to see suggested questions. 
+Active learning is off by default. Turn it on to see suggested questions. After you turn on active learning, you need to send information from the client app to QnA Maker. For more information, see [Architectural flow for using GenerateAnswer and Train APIs from a bot](#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
 
 1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not impact active learning.
 
