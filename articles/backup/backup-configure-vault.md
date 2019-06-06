@@ -259,4 +259,4 @@ After the initial backup is completed, the **Job completed** status appears in t
 
 ## Next steps
 
-[Learn how to](backup-azure-restore-windows-server.md) restore files.
+[Learn how to restore files](backup-azure-restore-windows-server.md).
