@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 05/30/2019
 ms.author: byvinyal
 
 ---
