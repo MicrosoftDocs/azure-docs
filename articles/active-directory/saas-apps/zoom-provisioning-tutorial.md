@@ -129,14 +129,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 9. Click **Save**.
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zoom**.
-![Zoom User Mappings](media/zoom-provisioning-tutorial/zoom-user-mapping.png)
+
+	![Zoom User Mappings](media/zoom-provisioning-tutorial/zoom-user-mapping.png)
 
 11. Review the user attributes that are synchronized from Azure AD to Zoom in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zoom for update operations. Select the **Save** button to commit any changes.
- ![Zoom User Mappings](media/zoom-provisioning-tutorial/zoom-user-attributes.png)
+ 	
+	 ![Zoom User Mappings](media/zoom-provisioning-tutorial/zoom-user-attributes.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for Zoom, change the **Provisioning Status** to **On** in the **Settings** section.
+	
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
 14. Define the users and/or groups that you would like to provision to Zoom by choosing the desired values in **Scope** in the **Settings** section.
