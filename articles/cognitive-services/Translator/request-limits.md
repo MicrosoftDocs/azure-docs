@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ---
 
@@ -33,7 +33,7 @@ The following table lists array element and character limits for each operation 
 
 ## Character limits per hour
 
-Your character limit per hour is based on your Translator Text subscription tier. The hourly quota should be consumed evenly throughout the hour. If you reach or surpass these limits, or send too large of a portion of the quota in a short period of time, you'll likely receive an out of quota response. 
+Your character limit per hour is based on your Translator Text subscription tier. The hourly quota should be consumed evenly throughout the hour. If you reach or surpass these limits, or send too large of a portion of the quota in a short period of time, you'll likely receive an out of quota response.
 
 | Tier | Character limit |
 |------|-----------------|
