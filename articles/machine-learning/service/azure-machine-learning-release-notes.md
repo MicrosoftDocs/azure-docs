@@ -28,6 +28,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + [Insert new features below. Reference articles and/or doc pages]
   + Azure Machine Learning now provides first-class support for popular machine learning and data analysis framework Scikit-learn. Using `SKLearn` estimator, users can easily train and deploy Scikit-learn models. Learn how to [run hyperparameter tuning with Scikit-learn using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn). 
   + Added support for creating ModuleStep in pipelines along with Module and ModuleVersion classes to manage reusable compute units.
+  + ACI webservices now support persistent scoring_uri through updates. The scoring_uri will change from IP to FQDN. The Dns Name Label for FQDN can be configured by setting the dns_name_label on deploy_configuration. 
   
   + **Preview features**
     + [Contrib features below]
@@ -46,6 +47,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + In pipeline steps, `hash_path` parameter is now deprecated. New behavior is to hash complete source_directory, except files listed in .amlignore or .gitignore.
   + azureml.core.get_run no longer requires classes to be imported before returning the original run type.
   + Fixed an issue where some calls to WebService Update did not trigger an update.
+  + Scoring timeout on AKS webservices should be between 5ms and 300000ms. Max allowed scoring_timeout_ms for scoring requests has been bumped from 1 min to 5 min.
 
 
 ## 2019-05-28
