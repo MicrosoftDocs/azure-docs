@@ -179,12 +179,7 @@ With HDInsight Tools for Visual Studio Code, you can submit interactive Hive que
 
 ## Submit interactive PySpark queries
 
-First, make sure the **Python Extension Enabled** is checked in settings. 
-
-   ![pyspark interactive python extension enabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-enable.png)
-
-
-And then, you can submit Pyspark queries by following the steps below.
+You can submit interactive PySpark queries by following the steps below:
 
 1. Reopen the folder **HDexample** created [earlier](#open-hdinsight-work-folder) if closed.  
 
@@ -212,11 +207,11 @@ And then, you can submit Pyspark queries by following the steps below.
 
    ![pyspark interactive right click](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-6. Select the cluster if you haven't specified a default cluster. After a few moments, the **Python Interactive results** appear in a new tab. The tools also allow you to submit a block of code instead of the whole script file using the context menu. But for the first time py interactive submission, you have to choose all the code to run and submit, then you can run and submit a block of code.
+6. Select the cluster if you haven't specified a default cluster. After a few moments, the **Python Interactive results** appear in a new tab. The tools also allow you to submit a block of code instead of the whole script file using the context menu. 
 
    ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
 
-7. Enter **%%info** and press **Shift + Enter** to view job information.
+7. Enter **"%%info"**, and then press **Shift + Enter** to view job information.
 
    ![view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -226,36 +221,9 @@ And then, you can submit Pyspark queries by following the steps below.
 
    The submission status appears on the left of the bottom status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**.  
 
->[!NOTE]  
->The clusters can maintain session information. The defined variable, function and corresponding values are kept in the session, so they can be referenced across multiple service calls for the same cluster. 
-
-### PySpark3 is not supported with Spark2.2/2.3 (Python Extension Disabled)
-
-When **Python Extension Enabled** is unchecked in the settings. PySpark3 is not supported anymore with Spark 2.2 cluster and Spark2.3 cluster, only "PySpark" is supported for Python. It is known issue that submits to spark 2.2/2.3 fail with Python3.
-
-   ![Submit to python3 get error](./media/hdinsight-for-vscode/hdi-azure-hdinsight-py3-error.png)
-
-1. Press **Shift + Ctrl + P** to trigger the command palette, 
-
-2. Select **HDInsight: Set Configuration**. 
-
-3. Search **python** in search box, unchecked the **Hdinsight Jupyter: Python Extension Enabled**.
-
-   ![pyspark interactive python extension disabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
-
-Follow the steps to use Python2.x: 
-
-1. Install Python 2.7 to local computer and add it to system path.
-
-2. Restart Visual Studio Code.
-
-3. Switch to Python 2 by clicking the **Python XXX** at the status bar then choose the target Python.
-
-   ![Select python version](./media/hdinsight-for-vscode/hdi-azure-hdinsight-select-python.png)
-
->[!NOTE]  
-> - When switch the python version, we encountered a lot of errors, so we recommend not to switch python, we can use python in the virtual environment by default (**Python Extension Enabled** is checked).
-> - When Python Extension Enabled is unchecked in the settings, pyspark interactive will use the old window, we recommend that users do not change it to false unless the new interactive window is blocked in the future by some changes (such as vscode/python update).
+   > [!NOTE] 
+   > When **Python Extension Enabled** is unchecked in the settings (The default setting is checked), the submitted pyspark interaction results will use the old window.
+   > ![pyspark interactive python extension disabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
 
 
 ## Submit PySpark batch job
