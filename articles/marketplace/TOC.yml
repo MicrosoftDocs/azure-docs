@@ -8,15 +8,13 @@
   - name: Azure Marketplace and AppSource overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
-    - name: Become a publisher on the marketplace
-      href: ./become-publisher.md
-      items:
-      - name: Create a Microsoft account
-        href: ./guidelines.md
-      - name: Register in Dev Center
-        href: ./register-dev-center.md
-      - name: Azure partner customer usage attribution
-        href: ./azure-partner-customer-usage-attribution.md
+#    - name: Become a publisher on the marketplace
+#      href: ./become-publisher.md
+#      items:
+#      - name: Create a Microsoft account
+#        href: ./guidelines.md
+#      - name: Register in Dev Center
+#        href: ./register-dev-center.md
     - name: One marketplace, two storefronts
       href: ./comparing-appsource-azure-marketplace.md
     - name: Publishing options and considerations
@@ -30,6 +28,8 @@
         href: ./private-offers.md
       - name: Standard Contract
         href: ./standard-contract.md
+      - name: Azure partner customer usage attribution
+        href: ./azure-partner-customer-usage-attribution.md
     - name: Publishing guide by offer type
       href: ./publisher-guide-by-offer-type.md
       items:
@@ -65,8 +65,8 @@
     - name: Your marketplace benefits
       href: ./gtm-your-marketplace-benefits.md
       items:
-      - name: Promote your business with Microsoft
-        href: ./gtm-promote-your-business.md
+#      - name: Promote your business with Microsoft
+#        href: ./gtm-promote-your-business.md
       - name: Preferred solutions
         href: ./preferred-solutions.md
       - name: Integrated solutions
@@ -335,39 +335,6 @@
         href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
     - name: SaaS application offer
       href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
-      - name: Create SaaS application offer
-        href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
-        items:
-        - name: Offer Settings tab
-          href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
-        - name: Technical Info tab
-          href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
-        - name: Plans tab
-          href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
-        - name: Channel Info tab
-          href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
-        - name: Test Drive tab
-          href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
-        - name: Storefront Details tab
-          href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
-        - name: Contacts tab
-          href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
-      - name: Publish offer
-        href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
-      - name: Update existing offer
-        href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
-      - name: SaaS Fulfillment APIs
-        href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
-        items:
-        - name: Register SaaS application
-          href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
-        - name: SaaS API v1 (deprecated)
-          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
-        - name: SaaS API v2
-          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
     - name: Virtual machine offer
       href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
       items:
@@ -477,13 +444,28 @@
       href: ./partner-center-portal/manage-account.md
     - name: Find or create a company work account
       href: ./partner-center-portal/company-work-accounts.md
+    - name: Account Migration from CPP to Partner Center
+      href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
   - name: Create a new offer
     items:
+    - name: Offer creation checklist
+      href: ./partner-center-portal/offer-creation-checklist.md
     - name: Create a SaaS offer
       href: ./partner-center-portal/create-new-saas-offer.md
+    - name: SaaS Fulfillment APIs
+      href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+      items:
+      - name: Register a SaaS application
+        href: ./partner-center-portal/pc-saas-registration.md
+      - name: SaaS Fulfillment APIs v2
+        href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+      - name: SaaS Fulfillment APIs v1 (deprecated)
+        href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
     href: ./partner-center-portal/update-existing-offer.md
   - name: Support options
     href: ./partner-center-portal/support.md
+  - name: Partner Center Analytics
+    href: ./partner-center-portal/analytics.md

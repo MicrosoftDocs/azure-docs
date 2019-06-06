@@ -139,6 +139,7 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
   * **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
   * **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
+  * **metadata\_storage\_sas\_token** (Edm.String) - A temporary token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get right access to the blob. This sas token is not supposed to be stored for later use as it may expire.
 * Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
 
 You don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.

@@ -71,7 +71,7 @@
     - name: Python samples
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples.md
+      href: powershell-samples-sql.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
@@ -210,13 +210,15 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
+        - name: Security attributes
+          href: cosmos-db-security-attributes.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-    - name: Limits
+    - name: Resource limits
       href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
@@ -277,6 +279,8 @@
             href: cassandra-spark-table-copy-ops.md
         - name: Manage using Resource Manager templates
           href: manage-cassandra-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-cassandra.md
     - name: MongoDB API
       items: 
       - name: Introduction
@@ -356,6 +360,10 @@
           displayName: custom commands
         - name: Manage using Resource Manager templates
           href: manage-mongodb-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-mongodb.md
+        - name: Troubleshoot common issues
+          href: mongodb-troubleshoot.md
     - name: Gremlin API
       displayName: graph, graph database
       items: 
@@ -394,6 +402,8 @@
           maintainContext: true
         - name: Manage using Resource Manager templates
           href: manage-gremlin-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-gremlin.md
     - name: Table API
       items:
       - name: Introduction
@@ -446,6 +456,8 @@
           href: table-storage-design-guide.md
         - name: Manage using Resource Manager templates
           href: manage-table-with-resource-manager.md
+        - name: Manage using PowerShell
+          href: powershell-samples-table.md
       - name: Reference
         items:
           - name: .NET
@@ -590,8 +602,10 @@
       items:
       - name: Performance tips
         items:
+        - name: Get query execution metrics
+          href: profile-sql-api-query.md 
         - name: Tune query performance
-          href: sql-api-query-metrics.md 
+          href: sql-api-query-metrics.md    
         - name: Performance tips for .NET SDK
           href: performance-tips.md
         - name: Performance tips for Java SDK

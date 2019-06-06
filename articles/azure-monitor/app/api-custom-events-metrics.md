@@ -148,7 +148,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 The telemetry is available in the `customEvents` table in [Application Insights Analytics](analytics.md). Each row represents a call to `trackEvent(..)` in your app.
 
-If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvents | summarize sum(itemCount)`.
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should therefore use code such as `customEvents | summarize sum(itemCount)`.
 
 ## GetMetric
 
@@ -709,7 +709,7 @@ dependencies
 
 ## Flushing data
 
-Normally, the SDK sends data at times chosen to minimize the impact on the user. However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
+Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever buffer is full (typically 500 items). However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
 *C#*
 

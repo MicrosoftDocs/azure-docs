@@ -4,7 +4,7 @@ description: Learn how to model and partition a real-world example using the Azu
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 3/27/2019
+ms.date: 05/23/2019
 ms.author: thweiss
 ---
 
