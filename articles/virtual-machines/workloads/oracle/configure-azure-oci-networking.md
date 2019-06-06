@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2019
+ms.date: 06/05/2019
 ms.author: danlep
 ---
 
@@ -29,7 +29,7 @@ The following image shows a high-level overiew of the cross-cloud network:
 
 > [!NOTE]
 > * For some application scenarios, provisioning a separate ExpressRoute or FastConnect circuit is recommended to connect your on-premises network to Azure or OCI via a private connection. 
-> * For this implementation, standard Oracle FastConnect and [Azure ExpressRoute charges](https://azure.microsoft.com/pricing/details/expressroute/) apply. Egress traffic between clouds is offered at a fixed price, and no intermediate network provider is required. For Azure ExpressRoute, choose either the Metered or Unlimited data plan for outbound data transfers.  
+> 
 
 ## Terminology
 
@@ -38,9 +38,8 @@ Network concepts in Azure and OCI are similar, but different names might be used
 | Component	| Azure	| Oracle |
 |---|----|----|
 | Virtual network |	virtual network | virtual cloud network |
-| Virtual circuit | ExpressRoute circuit |FastConnect private virtual circuit |
+| Direct private cloud connectivity | ExpressRoute private peering |FastConnect private virtual circuit |
 | Gateway | VPN gateway	| dynamic routing gateway (DRG) |
-Routing | route tables | route tables |
 | Security rules | network security groups (NSGs) | security lists |
 
 ## Prerequisites
@@ -69,19 +68,20 @@ To deploy a multi-cloud solution between OCI and Azure you must already have:
 You can enable the network interconnection by using the Azure portal and the OCI console. Below are the high-level steps to enable direct interconnection. For more details, see the [Oracle documentation](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Provision an [Azure ExpressRoute](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) circuit. 
+1. Provision a standard-metered [Azure ExpressRoute](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) circuit. 
 
-    * In **Provider**, select **Oracle Cloud FastConnect**.
+    * In **Provider**, select **Oracle**.
     * In **Peering location**, select a peering location in close proximity to the OCI region that you are connecting to.
+    * In **Bandwidth**, we recommend selecting a value also supported by FastConnect, currently 1, 2, 5, or 10 Gbps.
     * In **Location**, specify an Azure region that supports cross-cloud connectivity such as *East US*.
 1. Once provisioned, view the properties of the circuit by selecting it. On the **Overview** page for your circuit, copy the **Service key** for your circuit.
-1. Create an [ExpressRoute peering](../../../expressroute/expressroute-howto-routing-portal-resource-manager.md) of type **Azure Private** and enter the primary and secondary /30 subnets. Similarly, on the OCI side, enter the primary BGP IP address space and the secondary BGP IP address space corresponding to the address space entered on the Microsoft side. 
 1. Sign in to the OCI console.
 1. Provision a [FastConnect private virtual circuit](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectprovider.htm). 
     * Add **Microsoft Azure** as your provider.
     * In **Provider Service Key**, paste the ExpressRoute service key. 
     * Select the same geographic peering location that you selected while setting up the Azure ExpressRoute circuit.
-1. Enter the primary BGP IP address space and the secondary BGP IP address space corresponding to the peering subnets entered on the Microsoft side. 
+    * Enter the primary BGP IP address space and the secondary BGP IP address space corresponding to the peering subnets entered on the Microsoft side. 
+1. Create an [ExpressRoute peering](../../../expressroute/expressroute-howto-routing-portal-resource-manager.md) of type **Azure Private** and enter the primary and secondary /30 subnets. Similarly, on the OCI side, enter the primary BGP IP address space and the secondary BGP IP address space corresponding to the address space entered on the Microsoft side. 
 
 After you complete these steps, within a few minutes, the private virtual circuit is provisioned automatically between the two clouds. 
 
@@ -93,6 +93,6 @@ After you complete these steps, within a few minutes, the private virtual circui
 
 ## Next steps
 
-See the [Oracle documentation](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm#set-up) for more information about creating and managing a cross-cloud connection between OCI and Azure.
+See the [Oracle documentation](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm) for more information about creating and managing a cross-cloud connection between OCI and Azure.
 
  
