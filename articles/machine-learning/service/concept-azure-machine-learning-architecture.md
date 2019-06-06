@@ -24,7 +24,7 @@ Learn about the architecture, concepts, and workflow for Azure Machine Learning 
 
 The machine learning workflow generally follows this sequence:
 
-1. Develop machine learning training scripts in **Python**.
+1. Develop machine learning training scripts in **Python** or with the visual interface.
 1. Create and configure a **compute target**.
 1. **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
 1. **Query the experiment** for logged metrics from the current and past runs. If the metrics don't indicate a desired outcome, loop back to step 1 and iterate on your scripts.
@@ -104,34 +104,7 @@ Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve f
 
 ## Compute target
 
-A compute target is the compute resource that you use to run your training script or host your service deployment. The supported compute targets are:
-
-| Compute target | Training | Deployment |
-| ---- |:----:|:----:|
-| Your local computer | ✓ | &nbsp; |
-| Azure Machine Learning compute | ✓ | &nbsp; |
-| A Linux VM in Azure</br>(such as the Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics | ✓ | &nbsp; |
-| Apache Spark for HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| Field-programmable gate array (FPGA) | &nbsp; | ✓ |
-
-Compute targets are attached to a workspace. Compute targets other than the local machine are shared by users of the workspace.
-
-### Managed and unmanaged compute targets
-
-* **Managed**: Compute targets that are created and managed by Azure Machine Learning service. These compute targets are optimized for machine learning workloads. Azure Machine Learning compute is the only managed compute target as of December 4, 2018. Additional managed compute targets may be added in the future.
-
-    You can create machine learning compute instances directly through the workspace by using the Azure portal, the Azure Machine Learning SDK, or the Azure CLI. All other compute targets must be created outside the workspace and then attached to it.
-
-* **Unmanaged**: Compute targets that are *not* managed by Azure Machine Learning service. You might need to create them outside Azure Machine Learning and then attach them to your workspace before use. Unmanaged compute targets can require additional steps for you to maintain or to improve performance for machine learning workloads.
-
-For information about selecting a compute target for training, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
-
-For information about selecting a compute target for deployment, see the [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
+A [compute target](concept-compute-target.md) lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code. 
 
 ## Training script
 
