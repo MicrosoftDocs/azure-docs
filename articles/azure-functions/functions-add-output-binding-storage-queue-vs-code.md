@@ -1,15 +1,12 @@
 ---
 title: Add an Azure Storage queue binding to your Python function 
 description: Learn how to add an Azure Storage queue output binding to your Python function using the Azure CLI and Functions Core Tools.
-services: functions 
-keywords: 
 author: ggailey777
 ms.author: glenga
 ms.date: 04/24/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: python
 manager: jeconnoc
 ---
 
@@ -39,8 +36,8 @@ In the [previous quickstart article](functions-create-first-function-vs-code.md)
 
 1. Choose the function app you created in the previous article. Select **Yes to all** to overwrite the existing local settings. 
 
-> [!IMPORTANT]  
-> Because it contains secrets, the local.settings.json file never gets published, and it should be excluded from source control.
+    > [!IMPORTANT]  
+    > Because it contains secrets, the local.settings.json file never gets published, and is excluded from source control.
 
 1. Copy the value `AzureWebJobsStorage`, which is the key for the Storage account connection string value. You use this connection to verify that the output binding works as expected.
 
@@ -54,13 +51,13 @@ You must register the Storage bindings extension before you add the Queue storag
 
 ### C\# class library
 
-With the exception of HTTP and timer triggers, Functions bindings are implemented as extension packages. Use the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI to add the Storage extension package to your project.
+With the exception of HTTP and timer triggers, Functions bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
-Now, you can add a the Storage output binding to your project.
+Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
@@ -102,7 +99,7 @@ The `bindings` array in your function.json file should now look like the followi
       "direction": "out",
       "name": "$return"
     },
-  {
+    {
       "type": "queue",
       "direction": "out",
       "name": "msg",
@@ -142,7 +139,7 @@ public static async Task<IActionResult> Run(
 
 ## Add code that uses the output binding
 
-After the binding is defined, you can use the `name` of the binding to access it as a method attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
+After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
 ### JavaScript
 

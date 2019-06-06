@@ -19,7 +19,7 @@ In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are
 
 Consider the following items related to binding extensions:
 
-- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio 2019](#local-csharp).
+- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio](#local-csharp).
 
 - HTTP and timer triggers are supported by default and don't require an extension.
 

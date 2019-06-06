@@ -33,7 +33,7 @@ To complete this quickstart:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* Install version 2.x of the [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2).
+* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2).
 
 * Install the specific requirements for your chosen language:
 
@@ -73,7 +73,7 @@ After you've verified that the function runs correctly on your local computer, i
 You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. The next article also shows you how to clean-up these new Azure resources by removing the resource group you created.
 
 > [!div class="nextstepaction"]
-> [Connect your function to an Azure Storage queue](functions-integrate-storage-output-binding-vs-code.md)
+> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

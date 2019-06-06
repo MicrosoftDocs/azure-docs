@@ -13,13 +13,24 @@ ms.author: glenga
 
 # Develop Azure Functions using Visual Studio Code
 
-The [Azure Functions extension for Visual Studio Code] lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
+The [Azure Functions extension for Visual Studio Code] lets you locally develop, test, and deploy functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
 The Azure Functions extension provides the following benefits: 
 
 * Edit, build, and run functions on your local development computer. 
 * Publish your Azure Functions project directly to Azure. 
 * Write your functions in a variety of languages while having all of the benefits of Visual Studio Code. 
+
+The extension supports the following languages supported by the Azure Functions version 2.x runtime: 
+
+* [C# compiled](functions-dotnet-class-library.md) 
+* [C# script](functions-reference-csharp.md)<sup>*</sup>
+* [JavaScript](functions-reference-node.md)
+* [Java](functions-reference-java.md)
+* [PowerShell](functions-reference-powershell.md)
+* [Python](functions-reference-python.md)
+
+In this article, examples are currently only available for JavaScript (Node.js) and C# class library functions.  
 
 This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [Create your first function using Visual Studio Code](functions-create-first-function-vs-code.md).
 
@@ -32,7 +43,7 @@ Before you install and run the [Azure Functions extension][Azure Functions exten
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* Install version 2.x of the [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2).
+* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2).
 
 * Install the specific requirements for your chosen language:
 
@@ -82,7 +93,7 @@ The project template creates a project in your chosen language, installs require
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-By default, these settings are not migrated automatically when the project is published to Azure. After publishing completes, you are given the option of publishing settings from local.settings.json to your function app in Azure.
+By default, these settings are not migrated automatically when the project is published to Azure. After publishing completes, you are given the option of publishing settings from local.settings.json to your function app in Azure. To learn more, see  .
 
 Values in **ConnectionStrings** are never published.
 
@@ -109,120 +120,103 @@ To set the storage account connection string:
 
 3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
 
+## Install binding extensions
+
+With the exception of HTTP and Timer triggers, bindings are implemented in extension packages. You must install the extension packages for the the triggers and bindings that require them. The way that you install binding extensions depends on your project language.
+
+### JavaScript
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+### C\# class library
+
+Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages you need in your project. The following example installs the Azure Storage extension, which implements bindings for Blob, Queue, and Table storage.
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+```
+
 ## Add a function to your project
 
-## Create an HTTP triggered function
+You can add a new function to an existing project by using one of the predefined Azure Functions trigger-based templates. To add a new function trigger, press F1 key to open the command palette, then search for and run the command **Azure Functions: Create Function...**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger. 
 
-1. From **Azure: Functions**, choose the Create Function icon.
+The results of this operation depend on your project language:
 
-    ![Create a function](./media/functions-create-first-function-vs-code/create-function.png)
+### JavaScript
 
-1. Select the folder with your function app project and select the **HTTP trigger** function template.
+A new folder is created in the project, which contains a new function.json file and the new JavaScript code file.
 
-    ![Choose the HTTP trigger template](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
+### C\# class library
 
-1. Type `HTTPTrigger` for the function name and press Enter, then select **Anonymous** authentication.
+A new C# class library (.cs) file is added to your project.
 
-    ![Choose anonymous authentication](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
+## Add input and output bindings
 
-    A function is created in your chosen language using the template for an HTTP-triggered function.
+You can expand you function by adding input and output bindings. The way that you do this depends on your project language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md). 
 
-    ![HTTP triggered function template in Visual Studio Code](./media/functions-create-first-function-vs-code/new-function-full.png)
+The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` app setting in local.settings.json. 
 
-You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+### JavaScript
 
-Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
+Update the function.json file to add the desired binding to the `bindings` array. The following is an example of a Queue storage binding named `msg`:
 
-<!-- old VS content 
-In pre-compiled functions, the bindings used by the function are defined by applying attributes in the code. When you use the Azure Functions Tools to create your functions from the provided templates, these attributes are applied for you. 
+```javascript
+{
+    "type": "queue",
+    "direction": "out",
+    "name": "msg",
+    "queueName": "outqueue",
+    "connection": "MyStorageConnection"
+}
+```
 
-1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function**, type a **Name** for the class, and click **Add**.
+In your function code, the `msg` binding is accessed from the `context`, as in the following example:
 
-2. Choose your trigger, set the binding properties, and click **Create**. The following example shows the settings when creating a Queue storage triggered function. 
+```javascript
+context.bindings.msg = "Name passed to the function: " req.query.name;
+```
 
-    ![Create a queue triggered function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---javascript-example) reference.
 
-    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the [local.settings.json file](functions-run-local.md#local-settings-file).
+### C\# class library
 
-3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function.
+Update the function method to add the following parameter to the `Run` method definition:
 
-    For example, the following C# class represents a basic Queue storage triggered function:
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
 
-    ```csharp
-    using System;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Host;
-    using Microsoft.Extensions.Logging;
+This code requires you to add the following `using` statement:
 
-    namespace FunctionApp1
-    {
-        public static class Function1
-        {
-            [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, ILogger log)
-            {
-                log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-            }
-        }
-    }
-    ```
-    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
-    
-You can use the above procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
 
--->
+The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You simply add one or more messages to the collection, which are sent to the queue when the function completes.
 
-## Add bindings
-
-As with triggers, input and output bindings are added to your function as binding attributes. Add bindings to a function as follows:
-
-1. Make sure you have [configured the project for local development](#configure-the-project-for-local-development).
-
-2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](./functions-bindings-register.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
-
-3. If there are app settings that the binding needs, add them to the **Values** collection in the [local setting file](functions-run-local.md#local-settings-file). These values are used when the function runs locally. When the function runs in the function app in Azure, the [function app settings](#function-app-settings) are used.
-
-4. Add the appropriate binding attribute to the method signature. In the following example, a queue message triggers the function, and the output binding creates a new queue message with the same text in a different queue.
-
-    ```csharp
-    public static class SimpleExampleWithOutput
-    {
-        [FunctionName("CopyQueueMessage")]
-        public static void Run(
-            [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-            [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
-            ILogger log)
-        {
-            log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
-            myQueueItemCopy = myQueueItem;
-        }
-    }
-    ```
-   The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---c-example) reference.
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## Testing functions
+## Running local functions
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.
+The Azure Functions extension lets you run an Azure Functions project on your local development computer. Local settings are read from the local.settings.json file.
 
-To test your function, press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You may also need to enable a firewall exception so that the tools can handle HTTP requests.
+To debug your functions, press F5. Core Tools is started and output is shown in the Terminal. With the project running, you can trigger your functions as you would when deployed to Azure. When running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
 
-With the project running, you can test your code as you would test deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When running in debug mode, breakpoints are hit in Visual Studio as expected. 
+The request URL for HTTP triggers is displayed in the output in the terminal. Function keys for HTTP triggers are not used when running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
 
-<!---
-For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
--->
-
-To learn more about using the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
+To learn more, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
 ## Publish with advanced options
 
 Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-By default, Visual Studio generates default values for the Azure resources needed by your function app. These values are based on the function app name you choose. If you want to instead have prescribe all names for the created resources, you can instead publish using advanced options.
+By default, Visual Studio generates default values for the Azure resources needed by your function app. These values are based on the function app name you choose. For an example of using defaults to publishing your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).  
 
-This section assumes that you are creating a new function app in Azure. 
+If you want to provide explicit names for the created resources, you can instead publish using advanced options.
+
+This section assumes that you are creating a new function app in Azure.
 
 > [!IMPORTANT]
 > Publishing to an existing function app overwrites the content of that app in Azure.
@@ -261,33 +255,31 @@ To give you control over the settings associated with creating Azure Functions a
 
     A notification is displayed after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
-### Get function URLs
+### Get deployed function URL
 
-<!--<<more here>>-->
+To be able to call an HTTP triggered function, you need the URL of the function when deployed to your function app. This URL includes any required [function keys](functions-bindings-http-webhook.md#authorization-keys). You can use the extension to get these URLs for your deployed functions.
 
-1. Back in the **Azure: Functions** area, expand the new function app under your subscription. Expand **Functions**, right-click **HttpTrigger**, and then choose **Copy function URL**.
+1. press F1 key to open the command palette, then search for and run the command **Azure Functions: Copy Function URL**.
 
-    ![Copy the function URL for the new HTTP trigger](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)
+1. Follow the prompts to choose your function app in Azure and then the specific HTTP trigger you want to invoke. 
+
+The function URL is copied to the clipboard, along with any required keys passed using the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
 
 ## Publish function app settings
 
 Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project.
 
-The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project.
+The easiest way to publish the required settings to your function app in Azure is to use the **Upload settings** link that is displayed after you successfully publish your project.
 
-![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+![Deployment complete upload app settings](./media/functions-develop-vs-code/upload-app-settings.png)
 
-This displays the **Application Settings** dialog for the function app, where you can add new application settings or modify existing ones.
+You can also publish settings by using the `Azure Functions: Upload Local Setting` command in the command palette. Individual settings are added to app setting in Azure by using the `Azure Functions: Add New Setting...` command. 
 
-![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+When a field in your local.settings.json already exists as an app setting, you are warned about overwriting the remote setting. This displays the **Application Settings** dialog for the function app, where you can add new application settings or modify existing ones.
 
-**Local** represents a setting value in the local.settings.json file, and **Remote** is the current setting in the function app in Azure.  Choose **Add setting** to create a new app setting. Use the **Insert value from Local** link to copy a setting value to the **Remote** field. Pending changes are written to the local settings file and the function app when you select **OK**.
+View existing app settings in the **Azure: Functions** area by expanding your subscription, your function app, and **Application Settings**.
 
-You can also manage application settings in one of these other ways:
-
-* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
-* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+![View function app setting in Visual Studio Code](./media/functions-develop-vs-code/view-app-settings.png)
 
 ## Monitoring functions
 
