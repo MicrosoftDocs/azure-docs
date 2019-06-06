@@ -40,7 +40,7 @@ In this article, you take the following steps:
 To complete this tutorial, you must have:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) with workloads for: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
+* [Visual studio 2019](https://www.visualstudio.com/vs/) with workloads for: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
 * Download the [EventHubsCaptureEventGridDemo sample project](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) to your computer.
 
 ## Deploy the infrastructure
@@ -191,7 +191,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
 
 ## Publish the Azure Functions app
 
-1. Launch Visual Studio 2017. 
+1. Launch Visual Studio.
 2. Open the **EventHubsCaptureEventGridDemo.sln** solution that you downloaded from the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) as part of the prerequisites.
 3. In Solution Explorer, right-click **FunctionEGDWDumper**, and select **Publish**.
 

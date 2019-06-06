@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 05/06/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -33,11 +33,14 @@ ExpressRoute Global Reach currently is supported in the following places.
 * Australia
 * Canada
 * France
+* Germany
 * Hong Kong SAR
 * Ireland
 * Japan
 * Korea
 * Netherlands
+* Singapore
+* Switzerland
 * United Kingdom
 * United States
 

@@ -11,7 +11,7 @@ ms.date: 04/19/2018
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: sasubram
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management

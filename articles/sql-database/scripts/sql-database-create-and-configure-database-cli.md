@@ -7,9 +7,9 @@ ms.subservice: single-database
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
+author: stevestein
 manager: craigg
-ms.author: carlrab
+ms.author: sstein
 ms.reviewer:
 manager: craigg
 ms.date: 02/08/2019

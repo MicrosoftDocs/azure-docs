@@ -32,7 +32,7 @@ There are multiple versions of OpenShift available.  Of these versions, only two
 
 ## Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. Full documentation can be [Here](https://docs.microsoft.com/azure/openshift/). 
+Microsoft Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. For more details, see the [Azure Red Hat OpenShift Service](https://docs.microsoft.com/azure/openshift/) documentation.
 
 ## OpenShift Container Platform
 

@@ -31,6 +31,8 @@
         href: accredible-tutorial.md
       - name: Achieve3000
         href: achieve3000-tutorial.md
+      - name: ACLP
+        href: aclp-tutorial.md
       - name: Adaptive Insights
         href: adaptivesuite-tutorial.md
       - name: Adobe Captivate Prime
@@ -75,6 +77,8 @@
         href: amplitude-tutorial.md
       - name: Anaplan
         href: anaplan-tutorial.md
+      - name: ANAQUA
+        href: anaqua-tutorial.md
       - name: Andfrankly
         href: andfrankly-tutorial.md
       - name: Andromeda
@@ -181,6 +185,8 @@
         href: bpmonline-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
+      - name: Braze
+        href: braze-tutorial.md
       - name: Bridge
         href: bridge-tutorial.md
       - name: Bridgeline Unbound
@@ -259,6 +265,8 @@
         href: cloudpassage-tutorial.md
       - name: Cloud Service PICCO
         href: cloud-service-picco-tutorial.md
+      - name: Cobalt
+        href: cobalt-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Comeet Recruiting Software
@@ -283,6 +291,8 @@
         href: consent2go-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
+      - name: Control
+        href: control-tutorial.md
       - name: Convene
         href: convene-tutorial.md
       - name: Convercent
@@ -319,6 +329,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: directions-microsoft-tutorial.md
+      - name: Displayr
+        href: displayr-tutorial.md
       - name: dmarcian
         href: dmarcian-tutorial.md
       - name: DocuSign
@@ -389,6 +401,8 @@
         href: evidence-tutorial.md
       - name: ExcelityGlobal
         href: excelityglobal-tutorial.md
+      - name: ExpenseIn
+        href: expensein-tutorial.md
       - name: Expensify
         href: expensify-tutorial.md
       - name: Explanation-Based Auditing System
@@ -429,10 +443,14 @@
         href: fm-systems-tutorial.md
       - name: Folloze
         href: folloze-tutorial.md
+      - name: Foodee
+        href: foodee-tutorial.md
       - name: ForeSee CX Suite
         href: foreseecxsuite-tutorial.md
       - name: Form.com
         href: formcom-tutorial.md
+      - name: Freedcamp
+        href: freedcamp-tutorial.md
       - name: FreshDesk
         href: freshdesk-tutorial.md
       - name: FreshGrade
@@ -485,6 +503,8 @@
         href: halosys-tutorial.md
       - name: HappyFox
         href: happyfox-tutorial.md
+      - name: Helper Helper
+        href: helper-helper-tutorial.md
       - name: Help Scout
         href: helpscout-tutorial.md
       - name: Heroku
@@ -607,6 +627,8 @@
         href: jive-tutorial.md
       - name: Jobbadmin
         href: jobbadmin-tutorial.md
+      - name: JOBHUB
+        href: jobhub-tutorial.md
       - name: Jobscience
         href: jobscience-tutorial.md
       - name: JobScore
@@ -717,6 +739,8 @@
         href: mercerhrs-tutorial.md
       - name: Merchlogix
         href: merchlogix-tutorial.md
+      - name: Meta4 Global HR
+        href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
       - name: Mimecast Admin Console
@@ -759,6 +783,8 @@
         href: myawardpoints-tutorial.md
       - name: myPolicies
         href: mypolicies-tutorial.md
+      - name: MyVR
+        href: myvr-tutorial.md
       - name: MyWorkDrive
         href: myworkdrive-tutorial.md
     - name: N - O
@@ -767,6 +793,8 @@
         href: n2f-expensereports-tutorial.md
       - name: Namely
         href: namely-tutorial.md
+      - name: NEOGOV
+        href: neogov-tutorial.md
       - name: Neota Logic Studio
         href: neotalogicstudio-tutorial.md
       - name: NetDocuments
@@ -817,6 +845,10 @@
         href: orgchartnow-tutorial.md
       - name: Origami
         href: origami-tutorial.md
+      - name: Otsuka Shokai
+        href: otsuka-shokai-tutorial.md
+      - name: OutSystems
+        href: outsystems-tutorial.md
       - name: OU Campus
         href: ou-campus-tutorial.md
       - name: Overdrive
@@ -911,6 +943,8 @@
         href: qprism-tutorial.md
       - name: Qualtrics
         href: qualtrics-tutorial.md
+      - name: Quantum Workplace
+        href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
         href: questetra-bpm-suite-tutorial.md
       - name: QuickHelp
@@ -921,6 +955,8 @@
         href: rackspacesso-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
+      - name: Real Links
+        href: real-links-tutorial.md
       - name: RealtimeBoard
         href: realtimeboard-tutorial.md
       - name: Recognize
@@ -1055,6 +1091,8 @@
         href: silverback-tutorial.md
       - name: SimpleNexus
         href: simplenexus-tutorial.md
+      - name: Simple Sign
+        href: simple-sign-tutorial.md
       - name: Skilljar
         href: skilljar-tutorial.md
       - name: Skillport
@@ -1123,6 +1161,8 @@
         href: sumtotalcentral-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: SurveyMonkey Enterprise
+        href: surveymonkey-enterprise-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-tutorial.md
       - name: Syncplicity
@@ -1155,6 +1195,8 @@
         href: teamseer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
+      - name: Templafy
+        href: templafy-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1235,10 +1277,12 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
-      - name: webMethods Integration Cloud
+      - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
+      - name: Whatfix
+        href: whatfix-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
@@ -1342,6 +1386,8 @@
         href: cisco-spark-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
+      - name: Comeet Recruiting Software
+        href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur
         href: concur-provisioning-tutorial.md
       - name: Cornerstone OnDemand
@@ -1350,6 +1396,8 @@
         href: docusign-provisioning-tutorial.md
       - name: Dropbox for Business
         href: dropboxforbusiness-provisioning-tutorial.md
+      - name: Dynamic Signal
+        href: dynamic-signal-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1358,6 +1406,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
+      - name: Keeper Password Manager & Digital Vault
+        href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator

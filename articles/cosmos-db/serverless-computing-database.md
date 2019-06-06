@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB and Azure Functions can be used together 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 05/28/2019
 ms.author: sngun
 ---
 
@@ -102,11 +102,11 @@ In all of these use cases, because the function has decoupled the app itself, yo
 
 ## Tooling
 
-Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2017.
+Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2019.
 
 * In the Azure Functions portal, you can create an Azure Cosmos DB trigger. For quickstart instructions, see [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc).
 * In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger to an existing Azure Function app in the same resource group.
-* In Visual Studio 2017, you can create an Azure Cosmos DB trigger using the [Azure Functions Tools for Visual Studio 2017](../azure-functions/functions-develop-vs.md):
+* In Visual Studio 2019, you can create an Azure Cosmos DB trigger using the [Azure Functions Tools](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 

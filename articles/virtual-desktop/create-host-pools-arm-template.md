@@ -55,12 +55,6 @@ To assign users to the desktop application group, open a PowerShell window and r
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Next, set the context to the tenant group specified in the Azure Resource Manager template with this cmdlet:
-
-```powershell
-Set-RdsContext -TenantGroupName <Tenant Group name>
-```
-
 After that, add users to the desktop application group with this cmdlet:
 
 ```powershell

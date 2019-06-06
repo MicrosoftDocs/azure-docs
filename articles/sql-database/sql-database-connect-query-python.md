@@ -7,8 +7,8 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: python
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
 manager: craigg
 ms.date: 03/25/2019

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: abshamsft
+ms.author: absha
 ---
 
 # ExpressRoute Monitor

@@ -36,9 +36,9 @@ This section shows you how to trigger a mobile notification in the Flow mobile a
 
     ![Create a new Microsoft Flow action](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. You will see a list of workflows tha you have access to and are attached to this IoT Central rule. Click **Explore templates** or **New > Create from template** and you can choose from any of the templates available. 
+1. You will see a list of workflows that you have access to and are attached to this IoT Central rule. Click **Explore templates** or **New > Create from template** and you can choose from any of the templates available. 
 
-    ![Available Microsoft Flow templates](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![Available Microsoft Flow templates](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. You will be prompted to sign into the connectors in the template you chose. Once the connectors are signed in, you will land in designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
 
@@ -47,7 +47,7 @@ This section shows you how to trigger a mobile notification in the Flow mobile a
     > [!NOTE]
     > Select the **See more** text in the Dynamic content window to get measurement and property values that triggered the rule.
 
-    ![Flow editing action with dynamic pane open](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![Flow editing action with dynamic pane open](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. When you are done editing your action, select **Save**. You'll be directed to your workflow's overview page. Here you can see the run history and share it with other colleagues.
 
@@ -74,7 +74,7 @@ This section shows you how to create a new device in IoT Central at the push of 
 
 1. Select the Device Name field. From the dynamic content pane, choose **Device Name**. This value is passed from the input the user enters through the mobile app, and is the name of your new device in IoT Central. In this example, the only required field is the device name, indicated by the red asterisk. Another device template may have multiple required fields that need to be filled in to create a new device.
 
-    ![Flow create device action dynamic pane](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![Flow create device action dynamic pane](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (Optional) Fill in other fields as you see fit for your creating new devices.
 
@@ -105,7 +105,7 @@ This section shows you how to update device settings and properties in IoT Centr
 
 1. You can update the device name. To update any of the device's properties and settings, you must select the device template of the device you want to update in the **Device Template** dropdown. The action tile expands to show all the properties and settings you can update.
 
-    ![Flow update device workflow](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![Flow update device workflow](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. Select each of the properties and settings you want to update. From the dynamic content pane, choose the corresponding input from the trigger. In this example, the Location value is propagated down to update the device's Location property.
 
@@ -121,7 +121,7 @@ You can get device information by its ID using the **Azure IoT Central - Get a d
 
 You can get information such as device name, device template name, property values, and settings values to pass to later actions in your workflow. Here is an example workflow that passes along the Customer Name property value from a device to Microsoft Teams.
 
-   ![Flow get device workflow](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![Flow get device workflow](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## Run a command on a device in a workflow
@@ -132,7 +132,7 @@ You can run a command on a device specified by its ID using the **Azure IoT Cent
     
 You can pick the command to run and pass in the parameters of the command through this action. Here is an example workflow that runs a device reboot command from a button in the Microsoft Flow mobile app.
 
-   ![Flow get device workflow](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![Flow get device workflow](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## Delete a device in a workflow
 

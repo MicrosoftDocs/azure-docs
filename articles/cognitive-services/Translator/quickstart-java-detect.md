@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ---
 
@@ -176,7 +176,7 @@ gradle run
 
 ## Sample response
 
-Find the country abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

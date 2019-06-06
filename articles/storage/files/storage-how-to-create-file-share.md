@@ -73,7 +73,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
     Replace ```<storage-account>``` and ```<resource_group>``` with your storage account name and resource group in the following example:
 
    ```azurecli
-    current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+    current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
         echo "Couldn't retrieve the connection string."
