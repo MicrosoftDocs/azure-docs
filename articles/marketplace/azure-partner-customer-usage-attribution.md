@@ -260,14 +260,13 @@ When you deploy this template, Microsoft is able to identify the installation of
 
 When you deploy \<PARTNER> software, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at https://www.microsoft.com/trustcenter.
 
-<!--
 ## Get support
 
-If you encounter any issues with report or sign in to Partner Center, create a support request with the Partner Center support team here: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-If you need assistance for Marketplace Onboarding and/or customer usage attribution, follow these steps.
+If you need assistance for Marketplace Onboarding and/or customer usage attribution in general, such as how to set up the customer usage attribution, follow the steps below:
 
 1. Go to the [support page](https://go.microsoft.com/fwlink/?linkid=844975).
 
@@ -294,9 +293,8 @@ If you need assistance for Marketplace Onboarding and/or customer usage attribut
 1. Complete the form, and then select **Submit**.
 
 You can also receive technical guidance from a Microsoft Partner Technical Consultant for technical presales, deployment and app development scenarios to understand and incorporate customer usage attribution.
--->
 
-## How to submit a technical consultation request
+### How to submit a technical consultation request
 
 1. Visit [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
 1. Select Cloud infrastructure and management, and a new page will open for you to view the technical journey.
