@@ -41,10 +41,6 @@ These capabilities are now available in Azure Security Center:
 
 ![Azure Security Center, displaying a list of alerts and general information about each alert](media/security-center-wdatp/image1.png)
 
-You can [investigate the alert](security-center-investigation.md) in Azure Security Center:
-
-![The alert investigation dashboard in Azure Security Center](media/security-center-wdatp/image2.png)
-
 You can further investigate the alert by pivoting to Windows Defender ATP. There you can see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
 ![Windows Defender ATP page with detailed information about an alert](media/security-center-wdatp/image3.png)

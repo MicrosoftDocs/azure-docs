@@ -3,7 +3,7 @@ title: How to render custom data on a raster map in Azure Maps | Microsoft Docs
 description: Render custom data on a raster map in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -37,7 +37,7 @@ To render pushpins with labels and a custom image, complete these steps:
 
 2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the pushpins, select the collection you created in the previous step as the location in which to save the request, and then select **Save**.
     
-    ![Create a request in Postman](./media/tutorial-geofence/postman-new.png)
+    ![Create a request in Postman](./media/how-to-render-custom-data/postman-new.png)
 
 3. Select the GET HTTP method on the builder tab and enter the following URL to create a GET request.
 
@@ -140,7 +140,7 @@ You can also obtain the path and pin location information by using the [Data Upl
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
-6. Here's the resulting image:
+    Here's the response image:
 
     ![Get data from Azure Maps data storage](./media/how-to-render-custom-data/uploaded-path.png)
 
@@ -159,9 +159,9 @@ You can modify the appearance of a polygon by using style modifiers with the [pa
     &subscription-key={subscription--key}
     ```
 
-Here's the resulting image:
+    Here's the response image:
 
-![Render an opaque polygon](./media/how-to-render-custom-data/opaque-polygon.png)
+    ![Render an opaque polygon](./media/how-to-render-custom-data/opaque-polygon.png)
 
 
 ## Render a circle and pushpins with custom labels
@@ -181,9 +181,9 @@ Follow these steps to render a circle and pushpins with custom labels:
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-Here's the resulting image:
+    Here's the response image:
 
-![Render a circle with custom pushpins](./media/how-to-render-custom-data/circle-custom-pins.png)
+    ![Render a circle with custom pushpins](./media/how-to-render-custom-data/circle-custom-pins.png)
 
 ## Next steps
 
