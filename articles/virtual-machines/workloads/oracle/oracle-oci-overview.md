@@ -70,4 +70,6 @@ Currently, this integration allows you to manage in one central location, which 
 
 ## Next steps
 
+Get started with a [cross-cloud network](configure-azure-oci-networking.md) between Azure and OCI. 
+
 For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation.
