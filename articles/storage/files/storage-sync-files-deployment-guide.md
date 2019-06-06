@@ -279,6 +279,32 @@ New-AzStorageSyncCloudEndpoint `
 
 ---
 
+
+## Grant the Hybrid File Sync Service (Microsoft.StorageSync)  permission to the Cloud Endpoint storage account
+For the syncronization process to work properly, the **Hybrid File Sync Service** (Microsoft.StorageSync) service must be granted the **Reader and Data Access** role on the cloud endpoint storage account:
+
+# [Portal](#tab/azure-portal)
+1. Click **Access control (IAM)** on the left-hand table of contents.
+1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
+1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
+
+    ![A screenshot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+
+	If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
+
+	- Click **Add**.
+	- In the **Role** field, select **Reader and Data Access**.
+	- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
+
+# [PowerShell](#tab/azure-powershell)
+```powershell    
+$ServicePrincipal = Get-AzADServicePrincipal -DisplayName "Hybrid File Sync Service"
+$storageAccountName = "<my-storage-account>"
+
+New-AzRoleAssignment -ApplicationId $ServicePrincipal.ApplicationId -ResourceGroupName $resourceGroupName -ResourceName $storageAccountName -ResourceType "Microsoft.Storage/storageaccounts" -RoleDefinitionName "Reader And Data Access"
+```
+---
+
 ## Create a server endpoint
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint must be a path on a registered server (rather than a mounted share), and to use cloud tiering, the path must be on a non-system volume. Network attached storage (NAS) is not supported.
 
