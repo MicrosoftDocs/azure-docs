@@ -6,6 +6,9 @@
   - name: What is Azure Machine Learning service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
+  - name: How the service works
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
 - name: Setup
   items:
   - name: Create a workspace
@@ -75,11 +78,17 @@
     - name: "Predict churn"
       displayName: Basic Sample, training, classification, sample 5
       href:  ui-sample-classification-predict-churn.md
+  - name: Azure Open Datasets
+    href: https://docs.microsoft.com/azure/open-datasets/samples
+    maintainContext: true
 - name: Concepts
   items:
-  - name: How the service works
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
+  - name: Workspace
+    displayName: concept definitions architecture
+    href: concept-workspace.md
+  - name: Visual interface
+    displayName: concept
+    href: ui-concept-visual-interface.md
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -123,7 +132,10 @@
       href: how-to-configure-environment.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
-      href: how-to-enable-logging.md  
+      href: how-to-enable-logging.md 
+    - name: Set input & output directories
+      displayName: large data, write, experiment files, size limit
+      href: how-to-save-write-experiment-files.md 
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
@@ -132,6 +144,18 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
+    - name: Explore data
+      displayName: data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
+      href: how-to-explore-prepare-data.md
+    - name: Version & manage data definitions
+      displayName: data, etl, dataset, data preparation, dataprep, version
+      href: how-to-manage-dataset-definitions.md
+    - name: Snapshot your data
+      displayName: snapshots, profile, summary statistics, data copy
+      href: how-to-create-dataset-snapshots.md
+    - name: Get data from a datastore
+      displayName: blob get fileshare access storage
+      href: how-to-access-data.md
     - name: 'Prepare with azureml.dataprep'
       items:
       - name: Load data
@@ -143,18 +167,6 @@
       - name: Write data
         displayName: data, etl, data prep, dataprep
         href: how-to-write-data.md
-    - name: 'Prepare with datasets (preview)'
-      displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
-      href: how-to-explore-prepare-data.md
-    - name: Version & manage data definitions
-      displayName: data, etl, dataset, data preparation, dataprep, version
-      href: how-to-manage-dataset-definitions.md
-    - name: Snapshot your data
-      displayName: snapshots, profile, summary statistics, data copy
-      href: how-to-create-dataset-snapshots.md
-    - name: Get data from a datastore
-      displayName: blob get fileshare access storage
-      href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments
@@ -164,7 +176,7 @@
       href: how-to-train-ml-models.md
     - name: Use PyTorch
       href: how-to-train-pytorch.md
-    - name: Use TensorFlow & Keras
+    - name: Use TensorFlow
       href: how-to-train-tensorflow.md
     - name: Tune hyperparameters
       displayName: parameter

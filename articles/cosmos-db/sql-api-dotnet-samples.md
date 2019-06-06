@@ -29,8 +29,8 @@ For .NET SDK Version 3.0 (Preview) code samples, see the latest samples in the [
 
 ## Prerequisites
 
-Visual Studio 2017 with the Azure development workflow installed
-- You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+Visual Studio 2019 with the Azure development workflow installed
+- You can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
 The [Microsoft.Azure.DocumentDB NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 

@@ -31,7 +31,7 @@ Existing marketplace publishers will find a familiar but improved user experienc
 
 ### Improvements on user experience and billing
 
-With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience. SaaS offerings which can be billed monthly or annually, support per-user licensing (seat-based) in addition to per-site (flat-rate). This new monetization model is ideal for business software. The introduction of SaaS per-user licensing aligns with new functionality allowing customers to complete purchases in AppSource, Microsoft’s commercial marketplace for business and industry solutions. 
+With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience. SaaS offerings, which can be billed monthly or annually, support per-user licensing (seat-based) in addition to per-site licensing (flat-rate). This new monetization model is ideal for business software. The introduction of SaaS per-user licensing aligns with new functionality that allows customers to complete purchases in AppSource, the Microsoft commercial marketplace for business and industry solutions. 
 
 ### Account and user management updates
 
@@ -53,3 +53,4 @@ Learn more about recent and future releases by visiting the [marketplace roadmap
 
 - For brand new Microsoft partners interested in publishing a SaaS offer to the marketplaces, see [Create a Commercial Marketplace account in Partner Center](./create-account.md).
 - For existing partners who have previously published offers in the Cloud Partner Portal, [Manage your Commercial Marketplace account in Partner Center](./manage-account.md). 
+- Learn more about cloud marketplace management moving to Partner Center in this [Partner Community blog post](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), including a demo video.

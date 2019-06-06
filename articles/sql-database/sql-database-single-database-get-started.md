@@ -131,4 +131,4 @@ When you're finished using these resources, you can delete them as follows:
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - To create a single database in the provisioned compute tier using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
 - To create a single database in the provisioned compute tier using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
-- To create a single database in the serverless compute tier using Azure Powershell, see [Create serverless database using PowerShell](sql-database-serverless.md#create-new-database-using-powershell)
+- To create a single database in the serverless compute tier using Azure Powershell, see [Create serverless database using PowerShell](sql-database-serverless.md#create-new-serverless-database-using-powershell)

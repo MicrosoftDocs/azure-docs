@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial:  Integrate a single AD forest to Azure using password hash sync (PHS) | Microsoft Docs'
+title: 'Tutorial:  Integrate a single AD forest to Azure using PHS'
 description: Demonstrates how to setup a hybrid identity environment using password hash sync.
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 
