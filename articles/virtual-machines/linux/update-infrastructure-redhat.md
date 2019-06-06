@@ -42,6 +42,11 @@ Information on Red Hat support policies for all versions of RHEL can be found on
 ## RHEL EUS and version-locking RHEL VMs
 Some customers may want to lock their RHEL VMs to a certain RHEL minor release. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. You can also undo the EUS version-locking operation.
 
+At the time of this writing, EUS support has ended for RHEL <= 7.3. See the "Red Hat Enterprise Linux Longer Support Add-Ons" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/) for more details.
+* RHEL 7.4 EUS support ends August 31, 2019
+* RHEL 7.5 EUS support ends April 30, 2020
+* RHEL 7.6 EUS support ends October 31, 2020
+
 ### Switch a RHEL VM to EUS (version-lock to a specific minor version)
 Use the following instructions to lock a RHEL VM to a particular minor release (run as root):
 
