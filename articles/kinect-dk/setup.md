@@ -1,17 +1,22 @@
 ---
-title: Build a new Azure Kinect application
-description: This article guides the Azure Kinect DK user through the process of creating a new application.
+title: Quickstart- Build a new Azure Kinect application
+description: This quickstart guides the Azure Kinect DK user through the process of creating a new application.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 05/26/2019
+ms.date: 06/10/2019
 ms.topic: conceptual 
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
+
+#Customer intent: As an Azure Kinect DK developer, I want to create a new Azure Kinect DK application.
+
 ---
 
 # Quickstart: Set up your first Azure Kinect DK application
 
-Getting started with the Azure Kinect DK API? Look no further! This document will get you up and running with access to the device!
+Getting started with the Azure Kinect DK API? This quickstart will get you up and running with access to the device!
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 

@@ -1,17 +1,22 @@
 ---
-title: Record Azure Kinect sensor streams to a file
-description: How to record data streams from the Sensor SDK to a file
+title: Quickstart- Record Azure Kinect sensor streams to a file
+description: Quickstart how to record data streams from the Sensor SDK to a file
 author: joylital
 ms.author: jawirth, joylital
 ms.prod: kinect-dk
 ms.date: 06/05/2019
 ms.topic: quickstart
 keywords: azure, kinect, record, play back, reader, matroska, mkv, streams, depth, rgb, camera, color, imu, audio, sensor
+
+#Customer intent: As an Azure Kinect DK developer, I want to record Azure Kinect sensor streams to a file.
+
 ---
 
 # Quickstart: Record sensor streams to file
 
-This page provides information about how you can use the `k4arecorder` command prompt tool to record data streams from the Sensor SDK to a file.
+This quickstart provides information about how you can use the `k4arecorder` command prompt tool to record data streams from the Sensor SDK to a file.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 

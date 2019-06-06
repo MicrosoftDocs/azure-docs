@@ -1,17 +1,22 @@
 ---
-title: Set up Azure Kinect body tracking
-description: Steps to set up body tracking SDK for Azure Kinect
+title: Quickstart- Set up Azure Kinect body tracking
+description: This quickstart provides steps to set up body tracking SDK for Azure Kinect
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 05/31/2019
+ms.date: 06/10/2019
 ms.topic: overview 
 keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, camera, imu, motion, sensor, audio, microphone, matroska, sensor sdk, download, body, tracking
+
+#Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect body tracking.
+
 ---
 
-# Set up Azure Kinect body tracking
+# Quickstart: Set up Azure Kinect body tracking
 
-This page will guide you through getting body tracking running on our Azure Kinect DK. 
+This quickstart will guide you through getting body tracking running on our Azure Kinect DK.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## System requirements
 
