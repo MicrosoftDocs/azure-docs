@@ -61,6 +61,8 @@
   items:  
    - name: Download the Sensor SDK
      href: sensor-sdk-download.md
+   - name: Download the Body Tracking SDK
+     href: body-sdk-download.md
    - name: System requirements
      href: system-requirements.md
    - name: Hardware specification
