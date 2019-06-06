@@ -11,11 +11,11 @@ ms.topic: "include"
 ms.date: 05/30/2019
 ---
 
-| Compute target | Usage | [GPU](../articles/machine-learning/service/how-to-deploy-inferencing-gpus.md) support | [FPGA](../articles/machine-learning/service/how-to-deploy-fpga-web-service.md) support | Description |
+| Compute target | Usage | GPU support | FPGA support | Description |
 | ----- | ----- | ----- | ----- | ----- |
 | [Local web service](../articles/machine-learning/service/how-to-deploy-and-where.md#local) | Testing/debug | maybe | &nbsp; | Good for limited testing and troubleshooting. Hardware acceleration depends on using libraries in the local system.
-| [Azure Kubernetes Service (AKS)](../articles/machine-learning/service/how-to-deploy-and-where.md#aks) | Real-time inference |  yes  | yes   |Good for high-scale production deployments. Provides autoscaling and fast response times.  This is the only option available for the visual interface. |
-| [Azure Container Instances (ACI)](../articles/machine-learning/service/how-to-deploy-and-where.md#aci) | Testing or dev | &nbsp;  | &nbsp; | Good for low scale, CPU-based workloads requiring <48GB RAM |
+| [Azure Kubernetes Service (AKS)](../articles/machine-learning/service/how-to-deploy-and-where.md#aks) | Real-time inference |  [yes](../articles/machine-learning/service/how-to-deploy-inferencing-gpus.md)  | [yes](../articles/machine-learning/service/how-to-deploy-fpga-web-service.md)   |Good for high-scale production deployments. Provides autoscaling and fast response times.  AKS is the only option available for the visual interface. |
+| [Azure Container Instances (ACI)](../articles/machine-learning/service/how-to-deploy-and-where.md#aci) | Testing or dev | &nbsp;  | &nbsp; | Good for low scale, CPU-based workloads requiring <48-GB RAM |
 | [Azure Machine Learning Compute](../articles/machine-learning/service/how-to-run-batch-predictions.md) | (Preview) Batch inference | yes | &nbsp;  | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
 | [Azure IoT Edge](../articles/machine-learning/service/how-to-deploy-and-where.md#iotedge) | (Preview) IoT module |  &nbsp; | &nbsp; | Deploy & serve ML models on IoT devices. |
-| [Azure Databox Edge](../articles/databox-online/data-box-edge-overview.md)   | via IoT Edge |  &nbsp; | yes | Deploy & serve ML models on IoT devices. |
+| [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | via IoT Edge |  &nbsp; | yes | Deploy & serve ML models on IoT devices. |
