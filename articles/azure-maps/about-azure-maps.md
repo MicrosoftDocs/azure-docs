@@ -49,7 +49,7 @@ Data is an imperative for maps, and bringing customer data closer to the Azure M
 Azure Maps Mobility services provide real-time location intelligence on nearby public transit services, including stops, route information, and travel time estimations. The service allows to search for specific object types such as public transit stops, shared bikes/scooters/cars around a given location returning a set of transit object with object details. The service lets developers also request transit line details covering basic information and additional details such as line geometry, list of stops, scheduled and real-time transit arrivals and service alerts. Users can also request how many available shared bikes are left in closest dock by requesting docking stations information. The Mobility Service also has the ability to search available car share vehicles, returning details such as future availability and current fuel level.
 Azure Maps Mobility service allows real-time trip planning, returning the best possible route options and providing a variety of travel modes, including walking, biking and public transit available within the metro area (city). In addition, developers can request transit itinerary details with additional information such geometry of the route and detailed itinerary schedules.
 
-To learn more about the service and the various features, please see our [API documentation](https://docs.microsoft.com/en-in/rest/api/maps/mobility)
+To learn more about the service and the various features, please see our [API documentation](https://docs.microsoft.com/rest/api/maps/mobility)
 
 ### Render service
 
