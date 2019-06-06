@@ -19,7 +19,7 @@ This article shows how to configure your native application or web application f
 
 For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-## Assign an RBAC role to an Azure AD security principal
+## Assign a role to an Azure AD security principal
 
 To authenticate a security principal from your Azure Storage application, first configure role-based access control (RBAC) settings for that security principal. Azure Storage defines built-in RBAC roles that encompass permissions for containers and queues. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC](storage-auth-aad-rbac.md).
 
@@ -50,7 +50,7 @@ Next, grant your application permissions to call Azure Storage APIs. This step e
 
     ![Screenshot showing permissions for storage](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. Under **What type of permissions does your application require?**, note that the available permission type is **Delegated permissions**. This option is selected for you by default.
+1. Under **What type of permissions does your application require?**, observe that the available permission type is **Delegated permissions**. This option is selected for you by default.
 1. In the **Select permissions** section of the **Request API permissions** pane, select the checkbox next to **user_impersonation**, then click  **Add permissions**.
 1. The **API permissions** pane now shows that your Azure AD application has access to both Microsoft Graph and the Azure Storage. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
 
@@ -78,13 +78,13 @@ For a list of scenarios for which acquiring tokens is supported, see the [Scenar
 
 The code example shows how to get an access token from Azure AD. The access token is used to authenticate the specified user and then authorize a request to create a block blob. To get this sample working, first follow the steps outlined in the preceding sections.
 
-To request the token, you will need the following values from your app's registration,
+To request the token, you will need the following values from your app's registration:
 
-- The name of your Azure AD domain. Retrieve this from the **Overview** page of your Azure Active Directory.
-- The tenant (or directory) ID. Retrieve this from the **Overview** page of your app registration.
-- The client (or application) ID. Retrieve this from the **Overview** page of your app registration.
-- The client redirection URI. Retrieve this from the **Authentication** settings for your app registration.
-- The value of the client secret. Retrieve this from the location to which you previously copied it.
+- The name of your Azure AD domain. Retrieve this value from the **Overview** page of your Azure Active Directory.
+- The tenant (or directory) ID. Retrieve this value from the **Overview** page of your app registration.
+- The client (or application) ID. Retrieve this value from the **Overview** page of your app registration.
+- The client redirection URI. Retrieve this value from the **Authentication** settings for your app registration.
+- The value of the client secret. Retrieve this value from the location to which you previously copied it.
 
 ### Well-known values for authentication with Azure AD
 
@@ -96,7 +96,7 @@ For Microsoft public cloud, the base Azure AD authority is as follows, where *te
 
 `https://login.microsoftonline.com/<tenant-id>/`
 
-The tenant ID identifies the Azure AD tenant to use for authentication. To retrieve the tenant ID, follow the steps outlined in the section titled **Get the tenant ID for your Azure Active Directory**.
+The tenant ID identifies the Azure AD tenant to use for authentication. It is also referred to as the directory ID. To retrieve the tenant ID, navigate to the **Overview** page for your app registration in the Azure portal, and copy the value from there.
 
 #### Storage resource ID
 
@@ -104,24 +104,14 @@ Use the Azure Storage resource ID to acquire a token for authorizing requests to
 
 `https://storage.azure.com/`
 
-### Get the tenant ID for your Azure Active Directory
-
-To get the tenant ID, follow these steps:
-
-1. In the Azure portal, select your Active Directory.
-2. Click **Properties**.
-3. Copy the GUID value provided for the **Directory ID**. This value is also called the tenant ID.
-
-![Screenshot showing how to copy the tenant ID](./media/storage-auth-aad-app/aad-tenant-id.png)
-
 ### Create a storage account and container
 
 To run the code sample, create a storage account within the same subscription as your Azure Active Directory. Then create a container within that storage account. The sample code will create a block blob in this container.
 
-Next, explicitly assign the **Storage Blob Data Contributor** role to yourself. For instructions on how to assign this role in the Azure portal, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
+Next, explicitly assign the **Storage Blob Data Contributor** role to the user account under which you will run the sample code. For instructions on how to assign this role in the Azure portal, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
-> As an owner of your Azure Storage account, you are not automatically assigned permissions to access data. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue.
+> When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue.
 
 ### Create a web application that authorizes access to Blob storage with Azure AD
 
@@ -228,7 +218,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 Next, add a method that requests a token from Azure AD. The token you request will be on behalf of the user, and we will use the GetTokenOnBehalfOfUser method.
 
-Remember that if you have just logged in, and you are requesting a token for the `storage.azure.com` resource, you will need to present the user with a UI where the user can consent to such an action on their behalf. To facilitate that you need to catch the `MsalUiRequiredException` and add the functionality to request user consent, as shown in the following example:
+Remember that if you have recently logged in, and you are requesting a token for the `storage.azure.com` resource, you will need to present the user with a UI where the user can consent to such an action on their behalf. To facilitate that you need to catch the `MsalUiRequiredException` and add the functionality to request user consent, as shown in the following example:
 
 ```csharp
 public async Task<IActionResult> Blob()
