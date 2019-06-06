@@ -21,7 +21,7 @@ This article provides the most common issues and solutions when using HB-series 
 
 ## DRAM on HB-series
 
-HB-series VMs can only expos 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM.
+HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM.
 
 ## Accelerated Networking
 
@@ -45,11 +45,11 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 
 ## Cache Cleaning
 
-On HPC systems it is often useful to clean up the memory after a job has finished before the next user is assigned the same node. After running applications in Linux you may find that your available memory reduces while your buffer memory increases, despite not running any applications.
+On HPC systems, it is often useful to clean up the memory after a job has finished before the next user is assigned the same node. After running applications in Linux you may find that your available memory reduces while your buffer memory increases, despite not running any applications.
 
 ![Screenshot of command prompt](./media/known-issues/cache-cleaning-1.png)
 
-Using `numactl -H` will show which NUMAnode(s) the memory is buffered with (possibly all). In Linux, users can clean the caches in 3 ways to return buffered or cached memory to ‘free’. You need to be root or have sudo permissions.
+Using `numactl -H` will show which NUMAnode(s) the memory is buffered with (possibly all). In Linux, users can clean the caches in three ways to return buffered or cached memory to ‘free’. You need to be root or have sudo permissions.
 
 ```console
 echo 1 > /proc/sys/vm/drop_caches [frees page-cache]
