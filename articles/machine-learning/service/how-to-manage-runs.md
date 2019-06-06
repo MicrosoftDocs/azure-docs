@@ -152,9 +152,11 @@ print("Has it completed?",notebook_run.get_status())
 
 ## Cancel or fail runs
 
+If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
+
 ### Using the SDK
 
- If you notice a mistake or if your run is taking too long to finish, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method to stop the run before it finishes and mark it as canceled.
+To cancel a run using the SDK, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method:
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -188,6 +190,9 @@ For more information, see [az ml run cancel](https://docs.microsoft.com/cli/azur
 ## Create child runs
 
 Create child runs to group together related runs, such as for different hyperparameter-tuning iterations.
+
+> [!NOTE]
+> Child runs can only be created using the SDK.
 
 This code example uses the `hello_with_children.py` script to create a batch of five child runs from within a submitted run by using the [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) method:
 
@@ -273,7 +278,16 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show basic queries using properties and tags:
 
-[?properties.author=='azureml-user']
+```azurecli-interactive
+# list runs where the author property = 'azureml-user'
+az ml run list --experiment-name <experiment> [?properties.author=='azureml-user']
+# list runs where the tag contains a key that starts with 'worth another look'
+az ml run list --experiment-name <experiment> [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+# list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+az ml run list --experiment-name <experiment> [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+```
+
+For more information on querying Azure CLI results, see [Query Azure CLI command output](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)
 
 ## Example notebooks
 
