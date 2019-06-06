@@ -48,8 +48,8 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 1. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same resource group and location as the virtual machine.
 1. Under **Choose backup policy**, keep the default **(New) DailyPolicy**, and and then click **Enable Backup**.
 1. To create an initial recovery point, on the **Backup** blade click **Backup now**.
-1. On the **Backup Now** blade, click the calendar icon, use the calendar control to how long the restore point is retained, and click **OK**.
-1. In the **Backup** blade for your VM, you see the number of restory points that are complete.
+1. On the **Backup Now** blade, click the calendar icon, use the calendar control to choose how long the restore point is retained, and click **OK**.
+1. In the **Backup** blade for your VM, you'll see the number of restore points that are complete.
 
 
 	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
@@ -74,17 +74,17 @@ In this example, we show how to recover the image file that is used in the defau
 
 1. On your local computer, open a new tab and go the [Azure portal](https://portal.azure.com).
 1. In the menu on the left, select **Virtual machines** and select the VM from the list.
-1. On the VM blade, in the **Settings** section, click **Backup**. The **Backup** blade opens. 
+1. On the VM blade, in the **Operations** section, click **Backup**. The **Backup** blade opens. 
 1. In the menu at the top of the blade, select **File Recovery**. The **File Recovery** blade opens.
 1. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
 1. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Copy the password for the file and save it somewhere safe.
 1. On your local computer, open **File Explorer** and navigate to your **Downloads** folder and copy the downloaded .exe file. The filename is prefixed by your VM name. 
-1. On your VM (over the RDP connection) paste the .exe file to the Desktop of your VM. 
-1. Navigate to the desktop of your VM and double-click on the .exe. This launches a command prompt and then mount the recovery point as a file share that you can access. When it is finished creating the share, type **q** to close the command prompt.
+1. On your VM (using the RDP connection) paste the .exe file to the Desktop of your VM. 
+1. Navigate to the desktop of your VM and double-click on the .exe. This launches a command prompt. The program mounts the recovery point as a file share that you can access. When it is finished creating the share, type **q** to close the command prompt.
 1. On your VM, open **File Explorer** and navigate to the drive letter that was used for the file share.
 1. Navigate to \inetpub\wwwroot and copy **iisstart.png** from the file share and paste it into \inetpub\wwwroot. For example, copy F:\inetpub\wwwroot\iisstart.png and paste it into c:\inetpub\wwwroot to recover the file.
 1. On your local computer, open the browser tab where you are connected to the IP address of the VM showing the IIS default page. Press CTRL + F5 to refresh the browser page. You should now see that the image has been restored.
-1. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button. If you forget to do this step, the connection to the mountpoint is automatically close after 12 hours. After those 12 hours, you need to download a new script to create a new mountpoint.
+1. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button. If you forget to do this step, the connection to the mountpoint is automatically closed after 12 hours. After those 12 hours, you need to download a new script to create a new mount point.
 
 
 
