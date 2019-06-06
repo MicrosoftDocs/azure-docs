@@ -173,7 +173,7 @@ You're provided the report link that you can share with anyone for report access
 
 ![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-end.png)
 
-![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-published.png)
+![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-publish.png)
 
 Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
 
