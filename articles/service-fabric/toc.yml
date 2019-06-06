@@ -75,7 +75,7 @@
       href: service-fabric-tutorial-delete-cluster.md
   - name: Create a standalone cluster 
     items:
-    - name: 1- Create the infrastructure on AWS
+    - name: 1- Create the infrastructure
       items:
       - name: Using AWS
         href: service-fabric-tutorial-standalone-create-infrastructure.md
