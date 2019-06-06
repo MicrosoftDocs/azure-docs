@@ -27,7 +27,6 @@ This article provides guidance on how to install a Microsoft Monitoring Agent an
 > [!NOTE]
 > - Data collection is only needed for Compute resources (VMs, virtual machine scale sets, IaaS containers, and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
 > - For the list of supported platforms, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
-> - Data collection for Virtual machine scale set is not currently supported.
 > - Storing data in Log Analytics, whether you use a new or existing workspace, might incur additional charges for data storage, see the pricing page for more details.
 
 ## Enable automatic provisioning of Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
