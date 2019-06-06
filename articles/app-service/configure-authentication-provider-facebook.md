@@ -26,7 +26,7 @@ This topic shows you how to configure Azure App Service to use Facebook as an au
 To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
 
 ## <a name="register"> </a>Register your application with Facebook
-2. Navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.
+1. Navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.
 3. (Optional) If you don't have a Facebook for Developers account, click **Get Started** and follow the registration steps.
 4. Click **My Apps** > **Add New App**.
 5. In **Display Name**, type a unique name for your app. Also provide your **Contact Email**, and then click **Create App ID** and complete the security check. This takes you to the developer dashboard for your new Facebook app.
