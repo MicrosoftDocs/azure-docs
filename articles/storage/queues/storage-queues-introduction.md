@@ -11,9 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ---
+
 # What are Azure Queues?
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
+Azure Queue storage is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account.
 
 ## Common uses
 
@@ -28,8 +29,8 @@ The Queue service contains the following components:
 
 ![Queue Concepts](./media/storage-queues-introduction/queue1.png)
 
-* **URL format:** Queues are addressable using the following URL format:   
-    https://`<storage account>`.queue.core.windows.net/`<queue>` 
+* **URL format:** Queues are addressable using the following URL format:
+    `https://<storage account>.queue.core.windows.net/<queue>`
   
     The following URL addresses a queue in the diagram:  
   
@@ -37,9 +38,9 @@ The Queue service contains the following components:
 
 * **Storage account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) for details about storage account capacity.
 
-* **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Queue:** A queue contains a set of messages. All messages must be in a queue. The queue name **must** be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Message:** A message, in any format, of up to 64 KB. Prior to version 2017-07-29, the maximum time-to-live allowed is 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, as well as -1 indicating that the message does not expire. If this parameter is omitted, the default time-to-live is 7 days.
+* **Message:** A message, in any format, of up to 64 KB. Before version 2017-07-29, the maximum time-to-live allowed is seven days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
 
 ## Next steps
 
