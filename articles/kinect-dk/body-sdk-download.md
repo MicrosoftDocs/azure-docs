@@ -34,9 +34,9 @@ Make sure you install the latest version referenced in the change log.
 
 ### v0.3.0
 
-* [Breaking Change] Added support for NVIDIA RTX GPUs by moving to CUDA 10.1 dependency
-* [Bug Fix] Provide the joint output in millimeters to be consistent with the Kinect for Windows v2 SDK.
-* Further improve the body tracking algorithm accuracy and reliability
+* Added support for NVIDIA RTX GPUs by moving to CUDA 10.1 dependency
+* Provide the joint output in millimeters to be consistent with the Kinect for Windows v2 SDK
+* Further improve the body tracking algorithm accuracy and reliability.
 
 ## Next steps
 
