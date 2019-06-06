@@ -18,18 +18,25 @@ Learn how to use a custom Docker image when deploying trained models with the Az
 
 When you deploy a trained model to a web service or IoT Edge device, a Docker image is created. This image contains the model, conda environment, and assets needed to use the model. It also contains a web server to handle incoming requests when deployed as a web service, and components needed to work with Azure IoT Hub.
 
-Azure Machine Learning service provides a default Docker image so you don't have to worry about creating on. You can also use a custom image that you create as a _base image_. A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image before deploying it.
-
-> [!IMPORTANT]
-> When deploying a model, you cannot override core components such as the web server or IoT Edge components. The components used provide a known working environment that is tested and supported by Microsoft.
+Azure Machine Learning service provides a default Docker image so you don't have to worry about creating one. You can also use a custom image that you create as a _base image_. A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image before deploying it.
 
 Microsoft also provides several base images that use the ONNX Runtime. These images are useful when deploying ONNX models.
 
+Typically, you create a custom image when you want to control component versions or save time during deployment. For example, you might want to standardize on a specific version of Python, Conda, or other component. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
+
+> [!IMPORTANT]
+> When deploying a model, you cannot override core components such as the web server or IoT Edge components. These components provide a known working environment that is tested and supported by Microsoft.
+
+> [!WARNING]
+> Microsoft may not be able to help troubleshoot problems caused by a custom image. If you encounter problems, you may be asked to use the default image or one of the images Microsoft provides to see if the problem is specific to your image.
+
 ## Prerequisites
 
-* An Azure Machine Learning service workgroup
-* The Azure CLI
-* An Azure Container Registry or other Docker registry that is accessible on the internet. The steps in this document use an Azure Container Registry.
+* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](setup-create-workspace.md) article.
+* The Azure Machine Learning SDK. For more information, see the Python SDK section of the [Create a workspace](setup-create-workspace.md#sdk) article.
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet. The steps in this document use the Azure Container Registry created when you [train](tutorial-train-models-with-aml.md) or [deploy](tutorial-deploy-models-with-aml.md) a model in your workspace.
+* A familiarity with deploying models using Azure Machine Learning service. For more information, see [Where to deploy and how](how-to-deploy-and-where.md).
 
 ## Image requirements
 
@@ -39,32 +46,28 @@ Azure Machine Learning service supports Docker images that provide the following
 * Conda 4.5.# or greater.
 * Python 3.5.# or 3.6.#.
 
-For example, the following Dockerfile uses Ubuntu 16.04, the latest miniconda, and finally uses conda to install Python 3.6:
+For example, the following Dockerfile uses Ubuntu 16.04, Miniconda 4.5.12, and finally uses the conda command to install Python 3.6:
 
 ```text
 FROM ubuntu:16.04
-# update and install wget and bzip2
-RUN apt-get update -y && yes|apt-get upgrade
-RUN apt-get install -y wget bzip2
-# add a user named 'ubuntu'
-RUN apt-get -y install sudo
-RUN adduser --disabled-password --gecos '' ubuntu
-RUN adduser ubuntu sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-# switch to 'ubuntu' user and set up home directory
-USER ubuntu
-WORKDIR /home/ubuntu/
-RUN chmod a+rwx /home/ubuntu
-# Install miniconda
-RUN wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh
-RUN bash Miniconda2-latest-Linux-x86_64.sh -b
-RUN rm Miniconda2-latest-Linux-x86_64.sh
-# Add to user path
-ENV PATH /home/ubuntu/miniconda2/bin:$PATH
-# Update conda packages
-RUN conda update conda
-# Set default python to 3.6
-RUN conda install python=3.6
+
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ENV PATH /opt/miniconda/bin:$PATH
+
+RUN apt-get update --fix-missing && \
+    apt-get install -y wget bzip2 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/miniconda && \
+    rm ~/miniconda.sh && \
+    /opt/miniconda/bin/conda clean -tipsy
+
+RUN conda install -y python=3.6 && \
+    conda clean -aqy && \
+    rm -rf /opt/miniconda/pkgs && \
+    find / -type d -name __pycache__ -prune -exec rm -rf {} \;
 ```
 
 ## Get container registry address
@@ -79,7 +82,7 @@ If you've already trained or deployed models using the Azure Machine Learning se
 
 1. Open a new shell or command-prompt and use the following command to authenticate to your Azure subscription:
 
-    ```
+    ```azurecli-interactive
     az login
     ```
 
@@ -87,7 +90,7 @@ If you've already trained or deployed models using the Azure Machine Learning se
 
 2. Use the following command to list the container registry for the workspace. Replace `<myworkspace>` with your Azure Machine Learning service workspace name. Replace `<resourcegroup>` with the Azure resource group that contains your workspace:
 
-    ```
+    ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
 
@@ -109,39 +112,35 @@ TBD
 
     ```text
     FROM ubuntu:16.04
-    # update and install wget and bzip2
-    RUN apt-get update -y && yes|apt-get upgrade
-    RUN apt-get install -y wget bzip2
-    # add a user named 'ubuntu'
-    RUN apt-get -y install sudo
-    RUN adduser --disabled-password --gecos '' ubuntu
-    RUN adduser ubuntu sudo
-    RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-    # switch to 'ubuntu' user and set up home directory
-    USER ubuntu
-    WORKDIR /home/ubuntu/
-    RUN chmod a+rwx /home/ubuntu
-    # Install miniconda
-    RUN wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh
-    RUN bash Miniconda2-latest-Linux-x86_64.sh -b
-    RUN rm Miniconda2-latest-Linux-x86_64.sh
-    # Add to user path
-    ENV PATH /home/ubuntu/miniconda2/bin:$PATH
-    # Update conda packages
-    RUN conda update conda
-    # Set default python to 3.6
-    RUN conda install python=3.6
+
+    ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+    ENV PATH /opt/miniconda/bin:$PATH
+
+    RUN apt-get update --fix-missing && \
+        apt-get install -y wget bzip2 && \
+        apt-get clean && \
+        rm -rf /var/lib/apt/lists/*
+
+    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh && \
+        /bin/bash ~/miniconda.sh -b -p /opt/miniconda && \
+        rm ~/miniconda.sh && \
+        /opt/miniconda/bin/conda clean -tipsy
+
+    RUN conda install -y python=3.6 && \
+        conda clean -aqy && \
+        rm -rf /opt/miniconda/pkgs && \
+        find / -type d -name __pycache__ -prune -exec rm -rf {} \;
     ```
 
 2. From a shell or command-prompt, use the following to authenticate to the Azure Container Registry. Replace the `<registry_name>` with the one retrieved earlier:
 
-    ```
+    ```azurecli-interactive
     az acr login --name <registry_name>
     ```
 
 3. To upload the Dockerfile, and build it, use the following command. Replace `<registry_name>` with the one retrieved earlier:
 
-    ```
+    ```azurecli-interactive
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
@@ -166,7 +165,7 @@ To use a custom image, set the `base_image` property of the [inference configura
 inference_config.base_image = "<registry_name>/myimage:v1"
 ```
 
-You can use the same approach to use an image in a __public container registry__. The following exmaple uses a default image provided by Microsoft:
+You can use the same approach to use an image in a __public container registry__. The following example uses a default image provided by Microsoft:
 
 ```python
 # use an image available in public Container Registry without authentication
@@ -204,3 +203,15 @@ To use these images, set the `base_image` to the URI from the list above.
 > # Use an image built during training with SDK 1.0.22 or greater
 > image_config.base_image = run.properties["AzureML.DerivedImageName"]
 > ```
+
+## Clean up resources
+
+To delete a custom image from your container registry, use the following Azure CLI command. Replace `<registry_name>` with the name of the Azure Container Registry. Replace `<image_name>` with the name of the image:
+
+```azurecli-interactive
+az acr repository delete -n <registry_name> --repository <image_name>
+```
+
+## Next steps
+
+Now that you understand how to use custom images, learn more about where you can deploy models by reading [Where to deploy and how](how-to-deploy-and-where.md).
