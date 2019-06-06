@@ -1,5 +1,5 @@
 ---
-title: Tutorial for setting up Azure App Configuration to send events to Web Endpoint | Microsoft Docs
+title: Tutorial for setting up Azure App Configuration to send events to a web endpoint | Microsoft Docs
 description: In this tutorial, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint.
 services: azure-app-configuration
 documentationcenter: ''
