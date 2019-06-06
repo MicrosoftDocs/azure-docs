@@ -76,7 +76,7 @@ This section outlines the default health criteria to monitor Azure Windows and L
 
 ## Sign in to the Azure portal
 
-Before you continue, sign in to the [Azure portal](https://portal.azure.com).
+To sign in, go to the [Azure portal](https://portal.azure.com).
 
 ## Introduction to Azure Monitor for VM's health feature
 
@@ -84,11 +84,11 @@ Before you use the health feature for a single VM or group of VMs, it's importan
 
 ### View health directly from a VM
 
-To view the health of an Azure VM, select **Insights (preview)** from the left pane of the VM. On the VM insights page, **Health** is open by default and shows the health view of the VM.
+To view the health of an Azure VM, select **Insights (preview)** from the left pane of the VM. On the VM insights page, the **Health** tab is open by default and shows the health view of the VM.
 
 ![Azure Monitor for VM's health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your VM and the total number of VM health alerts raised by an unhealthy component.
+On the **Health** tab, under the section **Guest VM health**, the table shows the health state of your VM and the total number of VM health alerts raised by an unhealthy component.
 
 For more information, see [Alerts](#alerts).
 
@@ -117,7 +117,7 @@ For more information, see [Health diagnostics](#health-diagnostics).
 
 In the **Component health** section, the table shows a health rollup status of the primary performance categories monitored by health criteria for those areas, specifically **CPU**, **Memory**, **Disk**, and **Network**. Selecting any one of the components opens a page that lists all of the health criterion monitoring and the respective health state of that component.
 
-When accessing Health from an Azure VM running the Windows operating system, the health state of the top five core Windows services is shown under the section **Core services health**. Selecting any one of the services opens a page listing the health criteria monitoring that component and its health state. Selecting the name of the health criteria will open the property pane. In this pane you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert defined.
+When accessing Health from an Azure VM running the Windows operating system, the health state of the top five core Windows services is shown under **Core services health**. Selecting any one of the services opens a page listing the health criteria monitoring that component and its health state. Selecting the name of the health criteria opens the property pane. In this pane, you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert.
 
 For more information, see [Health Diagnostics and working with health criteria](#health-diagnostics).
 
