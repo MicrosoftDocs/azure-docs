@@ -51,6 +51,9 @@ All three flavors of Azure SQL Database offer some ability to dynamically scale 
 - A [Managed Instance](sql-database-managed-instance.md) uses [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the instance will share the resources allocated to the instance.
 - [Elastic pools](sql-database-elastic-pool-scale.md) enable you to define maximum resource limit per group of databases in the pool.
 
+> [!NOTE]
+> You can expect a short connection break when the scale up/scale down process is finished. If you have implemented [Retry logic for standard transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), you will not notice the failover.
+
 ## Alternative scale methods
 
 Scaling resources is the easiest and the most effective way to improve performance of your database without changing either database or application code. In some cases, even the highest service tiers, compute sizes, and performance optimizations might not handle your workload on successful and cost-effective way. In that cases you have these additional options to scale your database:
