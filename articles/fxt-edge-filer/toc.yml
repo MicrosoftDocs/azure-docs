@@ -1,9 +1,11 @@
 - name: Azure FXT Edge Filer documentation
   href: index.yml 
+
 - name: Overview
   items:
   - name: What is Azure FXT Edge Filer?
     href: fxt-overview.md
+
 - name: Tutorials
   items:  
   - name: Install Azure FXT Edge Filer hardware 
@@ -12,14 +14,30 @@
     href: fxt-network.md  
   - name: Connect power 
     href: fxt-power.md
+  - name: Initialize hardware
+    href: fxt-node-password.md
+  - name: Create a cluster 
+    href: fxt-cluster-create.md
+  - name: Configure the cluster - Overview
+    href: fxt-cluster-config-overview.md
+  - name: Add cluster nodes 
+    href: fxt-add-nodes.md
+  - name: Configure back-end storage and virtual namespace
+    href: fxt-add-storage.md
 
+- name: How-to guides
+  items:
+  - name: Configure the cluster's network settings
+    href: fxt-configure-network.md
+  - name: Mount clients 
+    href: fxt-mount-clients.md
+  - name: Monitor the Azure FXT Edge Filer hardware
+    href: fxt-monitor.md
     
-- name: Reference
+- name: Resources
   items: 
   - name: Hardware specifications 
     href: fxt-specs.md
-  - name: Monitor the FXT Edge Filer hardware
-    href: fxt-monitor.md
   - name: Additional documentation
     href: fxt-additional-doc.md
 

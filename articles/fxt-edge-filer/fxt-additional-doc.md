@@ -10,11 +10,11 @@ ms.author: v-erkell
 
 # Additional documentation 
 
-Some resources outside of this docs.microsoft.com website might help you understand and work with your Microsoft Azure FXT Edge Filer hybrid cache. 
+Some resources outside of this docs.microsoft.com website might help you understand and work with your Microsoft Azure FXT Edge Filer hybrid cache.
 
 ## Avere vFXT for Azure cache documentation
 
-[Avere vFXT for Azure](https://docs.microsoft.com/azure/avere-vfxt/) is a similar cache product that uses virtual nodes in Microsoft Azure. It is created with the Azure portal, but uses the same control panel configuration software as the FXT Edge Filer hardware cache. 
+[Avere vFXT for Azure](https://docs.microsoft.com/azure/avere-vfxt/) is a similar cluster cache product that uses virtual nodes in Microsoft Azure. It is created with the Azure portal, but uses the same control panel configuration software as the Azure FXT Edge Filer hardware cache. 
 
 ## Legacy hardware documentation 
 
