@@ -70,7 +70,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Small-size instances: <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 </a>
+    - html: <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a>
     - html: Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azure monthly credit for Visual Studio subscribers </a>
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configure time zone</a> during instance creation.
     - html: Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>. 
