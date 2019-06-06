@@ -1,5 +1,5 @@
 ---
-title: Scaling HPC applications on Azure | Microsoft Docs
+title: Scaling HPC applications - Azure Virtual Machines | Microsoft Docs
 description: Learn how to scale HPC applications on Azure VMs. 
 services: virtual-machines
 documentationcenter: ''
@@ -27,7 +27,7 @@ Though not necessary, compiling applications with appropriate optimization flags
 
 The AMD Optimizing C/C++ Compiler (AOCC) compiler system offers a high level of advanced optimizations, multi-threading, and processor support that includes global optimization, vectorization, inter-procedural analyses, loop transformations, and code generation. AOCC compiler binaries are suitable for Linux systems having GNU C Library (glibc) version 2.17 and above. The compiler suite consists of a C/C++ compiler (clang), a Fortran compiler (FLANG) and a Fortran front end to Clang (Dragon Egg).
 
-### Clang 
+### Clang
 
 Clang is a C, C++, and Objective-C compiler handling preprocessing, parsing, optimization, code generation, assembly, and linking. 
 Clang supports the  `-march=znver1` flag to enable best code generation and tuning for AMD’s Zen based x86 architecture.

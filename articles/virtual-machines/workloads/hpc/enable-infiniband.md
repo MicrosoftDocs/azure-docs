@@ -1,5 +1,5 @@
 ---
-title: Enable InifinBand with SR-IOV in Azure | Microsoft Docs
+title: Enable InifinBand with SR-IOV - Azure Virtual Machines | Microsoft Docs
 description: Learn how to enable InfiniBand with SR-IOV. 
 services: virtual-machines
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: amverma
 
 
 The simplest and recommended way to configure your custom VM image with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
-Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
+Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
 To manually configure InfiniBand on SR-IOV enabled VMs (currently HB and HC series), follow the steps below. These steps are for RHEL/CentOS only. For Ubuntu (16.04 and 18.04), and SLES (12 SP4 and 15), the inbox drivers work well. For Ubuntu, 
 

@@ -1,5 +1,5 @@
 ---
-title: High Performance Computing on Azure | Microsoft Docs
+title: High Performance Computing - Azure Virtual Machines | Microsoft Docs
 description: Learn about High Performance Computing on Azure.
 services: virtual-machines
 documentationcenter: ''

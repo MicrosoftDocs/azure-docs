@@ -1,5 +1,5 @@
 ---
-title: Preview of the HC-series in Azure | Microsoft Docs
+title: Preview of the HC-series - Azure Virtual Machines | Microsoft Docs
 description: Learn about the preview support for the HC-series VM size in Azure. 
 services: virtual-machines
 documentationcenter: ''
@@ -37,12 +37,7 @@ For more detailed information, see the [Intel Xeon SP architecture](https://bit.
 
 See the [HC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VM size article for detailed specifications.
 
-
-Topology of Intel Xeon SP Server
-
-![Topology of Intel Xeon SP Server](./media/hc-series-overview/xeon-topology.png)
-
-Segregation of cores reserved for Azure Hypervisor and HC-series VMs
+The following diagram represents the segregation of cores reserved for Azure Hypervisor and for the HC-series VM.
 
 ![Segregation of cores reserved for Azure Hypervisor and HC-series VM](./media/hc-series-overview/segregation-cores.png)
 
@@ -71,6 +66,7 @@ Segregation of cores reserved for Azure Hypervisor and HC-series VMs
 | Azure Batch Support         | Yes                         |
 
 ## Next steps
+
 * Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
 
 * Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

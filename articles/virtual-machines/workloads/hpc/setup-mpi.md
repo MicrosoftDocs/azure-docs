@@ -1,5 +1,5 @@
 ---
-title: Set up MPI for HPC on Azure | Microsoft Docs
+title: Set up Message Passing Interface for HPC - Azure Virtual Machines | Microsoft Docs
 description: Learn how to set up MPI for HPC on Azure. 
 services: virtual-machines
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 05/15/2019
 ms.author: amverma
 ---
 
-# Set up MPI
+# Set up Message Passing Interface for HPC
 
 Message Passing Interface (MPI) workloads are a significant part of traditional HPC workloads. The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used. 
 
@@ -60,6 +60,7 @@ Run OpenMPI.
 Check your partition key as mentioned above.
 
 ## MPICH
+
 Install UCX as previously described.
 
 Build MPICH.
@@ -113,7 +114,7 @@ Follow the installation process.
 
 ## Intel MPI
 
-[Download Intel MPI](https://software.intel.com/en-us/mpi-library/choose-download).
+[Download Intel MPI](https://software.intel.com/mpi-library/choose-download).
 
 Change the I_MPI_FABRICS environment variable depending on the version. For Intel MPI 2018, use `I_MPI_FABRICS=shm:ofa` and for 2019, use `I_MPI_FABRICS=shm:ofi`.
 

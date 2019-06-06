@@ -1,5 +1,5 @@
 ---
-title: Create a VM using the HB-series size in Azure | Microsoft Docs
+title: Create a VM using the HB-series size - Azure Virtual Machines | Microsoft Docs
 description: Learn how to create a VM using the HB-series size in Azure. 
 services: virtual-machines
 documentationcenter: ''

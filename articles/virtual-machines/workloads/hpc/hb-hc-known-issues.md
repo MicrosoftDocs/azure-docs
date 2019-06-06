@@ -1,5 +1,5 @@
 ---
-title: Known issues for HB and HC-series VMs in Azure | Microsoft Docs
+title: Known issues for HB and HC-series VMs - Azure Virtual Machines | Microsoft Docs
 description: Learn about known issues with HB and HC-series VMs in Azure. 
 services: virtual-machines
 documentationcenter: ''

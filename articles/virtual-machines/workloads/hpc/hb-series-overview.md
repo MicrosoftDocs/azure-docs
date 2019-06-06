@@ -1,5 +1,5 @@
 ---
-title: Preview of the HB-series in Azure | Microsoft Docs
+title: Preview of the HB-series - Azure Virtual Machines | Microsoft Docs
 description: Learn about the preview support for the HB-series VM size in Azure. 
 services: virtual-machines
 documentationcenter: ''
@@ -35,11 +35,7 @@ See more on [AMD EPYC architecture](https://bit.ly/2Epv3kC) and [multi-chip arch
 
 See the [HC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VM size article for detailed specifications.
 
-Topology of EPYC 2P Server
-
-![Topology of EPYC 2P Server](./media/hb-series-overview/dual-socket.png)
-
-Segregation of cores reserved for Azure Hypervisor and HB-series VM
+The following diagram represents the segregation of cores reserved for Azure Hypervisor and for the HB-series VM.
 
 ![Segregation of cores reserved for Azure Hypervisor and HB-series VM](./media/hb-series-overview/segregation-cores.png)
 
@@ -68,7 +64,7 @@ Segregation of cores reserved for Azure Hypervisor and HB-series VM
 | Azure Batch Support         | Yes                         |
 
 ## Next steps
-* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc) in Azure.
 
-https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc
+* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
+
 * Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
