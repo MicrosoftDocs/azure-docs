@@ -9,7 +9,7 @@ ms.topic: overview
 keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, camera, imu, motion, sensor, audio, microphone, matroska, sensor sdk, download, body, tracking, support
 ---
 
-# Azure Kinect Support options and resources
+# Azure Kinect support options and resources
 
 This article will walk you through various support options.
 
