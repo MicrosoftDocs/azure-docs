@@ -1,5 +1,5 @@
 ---
-title: Known issues for HB-series VM sizes in Azure | Microsoft Docs
+title: Known issues for HB-series VM sizes - Azure Virtual Machines | Microsoft Docs
 description: Learn about known issues with HB-series VM sizes in Azure. 
 services: virtual-machines
 documentationcenter: ''

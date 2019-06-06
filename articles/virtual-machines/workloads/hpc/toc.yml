@@ -1,4 +1,4 @@
-- name: High perfomance Computing
+- name: High performance Computing
   items:
   - name: Overview
     href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
