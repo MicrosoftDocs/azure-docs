@@ -84,7 +84,7 @@ General-purpose storage accounts may be configured for either of the following p
 
 Block blob storage accounts provide a premium performance tier for storing block blobs and append blobs.
 
-FileStorage (preview) accounts provide a premium performance tier for Azure file shares.
+FileStorage (preview) storage accounts provide a premium performance tier for Azure file shares.
 
 ## Access tiers for block blob data
 
@@ -181,6 +181,6 @@ The Import/Export service can also be used to transfer data from Azure Blob stor
 
 ## Next steps
 
-* To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
+* To learn how to create a general-purpose Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
 * To learn how to create a block blob storage account, see [Create a block blob storage account](../blobs/storage-blob-create-account-block-blob.md).
 * To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-account-manage.md).
