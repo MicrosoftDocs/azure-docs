@@ -22,14 +22,14 @@ Your knowledge base doesn't change automatically. In order for any change to tak
 
 QnA Maker learns new question variations with implicit and explicit feedback.
  
-* Implicit feedback – The ranker understands when a user question has multiple answers with scores that are very close and considers this as feedback. You don't need to do anything for this to happen.
-* Explicit feedback – When multiple answers with little variation in scores are returned from the knowledge base, the client application asks the user which question is the correct question. The user's explicit feedback is sent to QnA Maker with the Train API. 
+* [Implicit feedback](#how-qna-makers-implicit-feedback-works) – The ranker understands when a user question has multiple answers with scores that are very close and considers this as feedback. You don't need to do anything for this to happen.
+* [Explicit feedback](#how-you-give-explicit-feedback-with-the-train-api) – When multiple answers with little variation in scores are returned from the knowledge base, the client application asks the user which question is the correct question. The user's explicit feedback is sent to QnA Maker with the [Train API](#train-api). 
 
-Both methods provides the ranker with similar queries that are clustered.
+Both methods provide the ranker with similar queries that are clustered.
 
 ## How active learning works
 
-Active learning is triggered based on the scores of the top few answers returned by QnA Maker. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
+Active learning is triggered based on the scores of the top few answers returned by QnA Maker. If the score differences lie within a small range, then the query is considered a possible suggestion (as an alternate question) for each of the possible QnA pairs. Once you accept the suggested question for a specific QnA pair, it is rejected for the other pairs. You need to remember to save and train, after accepting suggestions.
 
 Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries. When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject. All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users.
 
@@ -37,9 +37,7 @@ Once questions are suggested in the QnA Maker portal, you need to review and acc
 
 ## How QnA Maker's implicit feedback works
 
-QnA Maker's implicit feedback uses an algorithm to determine score proximity then make active learning suggestions. The algorithm to determine proximity is not a simple calculation.
-
-The ranges in the following example are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
+QnA Maker's implicit feedback uses an algorithm to determine score proximity then make active learning suggestions. The algorithm to determine proximity is not a simple calculation. The ranges in the following example are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
 
 When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores decreases as well, approximately within 4%. 
 
@@ -61,7 +59,7 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 
 1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not impact active learning.
 
-1. To turn active learning on, click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top-right corner.  
+1. To turn active learning on in the QnA Maker portal, go to the top-right corner, select your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings).  
 
     ![Turn on active learning's suggested question alternatives from the Service settings page. Select your user name in the top-right menu, then select Service Settings.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -70,7 +68,7 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 
     [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
-    Once **Active Learning** is enabled, the knowledge suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
+    Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 
 ## Accept an active learning suggestion in the knowledge base
 
@@ -82,17 +80,17 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 
     [![Use the Filter by suggestions toggle to view only the active learning's suggested question alternatives.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Each question section with suggestions shows the new questions with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
+1. Each QnA pair suggests the new question alternatives with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
 
     [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
-    You can add or delete _all suggestions_ by selecting **Add all** or **Reject all**.
+    You can add or delete _all suggestions_ by selecting **Add all** or **Reject all** in the contextual toolbar.
 
 1. Select **Save and Train** to save the changes to the knowledge base.
 
-1. Select **Publish** to allow the changes to be available from the GenerateAnswer API.
+1. Select **Publish** to allow the changes to be available from the [GenerateAnswer API](metadata-generateanswer-usage#generateanswer-request-configuration).
 
-    When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
+    When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the alternate questions for you to accept or reject.
 
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
@@ -101,16 +99,16 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 
 A bot or other client application should use the following architectural flow to use active learning:
 
-* Get the answer from the knowledge base with the GenerateAnswer API, using the `top` property to get a number of answers.
-* Determine explicit feedback:
-    * Using your own custom business logic, filter out low scores.
-    * Display list of possible answers to the user and get user's selected answer.
-* Send selected answer back to QnA Maker with the Train API.
+* Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
+* Bot determines explicit feedback:
+    * Using your own [custom business logic](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filter out low scores.
+    * In the bot or client-application, display list of possible answers to the user and get user's selected answer.
+* Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
 
 
 ### Use the top property in the GenerateAnswer request to get several matching answers
 
-When submitting a question to QnA Maker for an answer, part of the JSON body allows for returning more than one top answer. The `top` property allows you to request more than 1 answer. 
+When submitting a question to QnA Maker for an answer, the `top` property of the JSON body sets the number of answers to return. 
 
 ```json
 {
@@ -122,7 +120,7 @@ When submitting a question to QnA Maker for an answer, part of the JSON body all
 
 ### Use the score property along with business logic to get list of answers to show user
 
-When the client application (such as a chat bot) receives the response, the top 3 questions are returned. Use the `score` property to analyze the proximity between scores. This proximity is determined by your own business logic. 
+When the client application (such as a chat bot) receives the response, the top 3 questions are returned. Use the `score` property to analyze the proximity between scores. This proximity range is determined by your own business logic. 
 
 ```json
 {
@@ -163,7 +161,7 @@ When the client application (such as a chat bot) receives the response, the top 
 
 ## Client application follow-up when questions have similar scores
 
-Your client application displays the questions with an option for the user to select the question that most represents their intention. 
+Your client application displays the questions with an option for the user to select _the single question_ that most represents their intention. 
 
 Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
 
