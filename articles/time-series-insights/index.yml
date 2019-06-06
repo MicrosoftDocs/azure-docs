@@ -59,7 +59,7 @@ sections:
     className: cardsD
     items:
     - title: Time Series Insights GA APIs
-      html: <p><a href="rest/api/time-series-insights/ga">Data Access</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Query API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Query Syntax</a></p>
+      html: <p><a href="/rest/api/time-series-insights/ga">Data Access</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Query API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Query Syntax</a></p>
     - title: Time Series Insights Preview APIs
       html: <p><a href="/rest/api/time-series-insights/preview-query">Query API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Model API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Environment API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Time Series Expression API</a></p>
     - title: Client SDK
