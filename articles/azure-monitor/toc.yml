@@ -705,12 +705,14 @@
       items:
       - name: Overview
         href: log-query/log-query-overview.md
-      - name: Get started with Log Analytics
-        href: log-query/get-started-portal.md
-      - name: Get started with log queries
-        href: log-query/get-started-queries.md
       - name: Log Analytics scope
         href: log-query/scope.md
+      - name: Tutorials
+        items:
+        - name: Log Analytics
+          href: log-query/get-started-portal.md
+        - name: Log queries
+          href: log-query/get-started-queries.md
       - name: Log data
         items:
         - name: Log data structure

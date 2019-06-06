@@ -29,7 +29,7 @@ The following table lists the different resource types used for the query scope 
 | Log Analytics workspace | All records in the Log Analytics workspace. | Select **Logs** from the **Azure Monitor** menu or the **Log Analytics workspaces** menu.  | Can change scope to any other resource type. |
 | Application Insights application | All records in the Application Insights application. | Select **Analytics** from **Overview** page of Application Insights. | Can only change scope to another Application Insights application. |
 | Resource group | Records created by all resources in the resource group. May include data from multiple Log Analytics workspaces. | Select **Logs** from the resource group menu. | Cannot change scope.|
-| Subscription | Records created by all resources in the subsciption. May include data from multiple Log Analytics workspaces. | Select **Logs** from the **Azure Monitor** menu.<br>Click on scope.<br>Select **Multiple resources**.<br>Select subscription. | Can change scope to any other resource type. |
+| Subscription | Records created by all resources in the subsciption. May include data from multiple Log Analytics workspaces. | Select **Logs** from the subscription menu.   | Cannot change scope. |
 | Other Azure resources | Records created by the resource. May include data from multiple Log Analytics workspaces.  | Select **Logs** from the resource menu.<br>OR<br>Select **Logs** from the **Azure Monitor** menu and then select a new scope. | Can only change scope to same resource type. |
 
 
