@@ -46,7 +46,7 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 1. From the list, select a VM to back up.
 1. On the VM blade, in the **Operations** section, click **Backup**. The **Enable backup** blade opens.
 1. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same resource group and location as the virtual machine.
-1. Under **Choose backup policy**, keep the default **(New) DailyPolicy**, and and then click **Enable Backup**.
+1. Under **Choose backup policy**, keep the default **(New) DailyPolicy**, and then click **Enable Backup**.
 1. To create an initial recovery point, on the **Backup** blade click **Backup now**.
 1. On the **Backup Now** blade, click the calendar icon, use the calendar control to choose how long the restore point is retained, and click **OK**.
 1. In the **Backup** blade for your VM, you'll see the number of restore points that are complete.
@@ -79,8 +79,8 @@ In this example, we show how to recover the image file that is used in the defau
 1. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
 1. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Copy the password for the file and save it somewhere safe.
 1. On your local computer, open **File Explorer** and navigate to your **Downloads** folder and copy the downloaded .exe file. The filename is prefixed by your VM name. 
-1. On your VM (using the RDP connection) paste the .exe file to the Desktop of your VM. 
-1. Navigate to the desktop of your VM and double-click on the .exe. This launches a command prompt. The program mounts the recovery point as a file share that you can access. When it is finished creating the share, type **q** to close the command prompt.
+1. On your VM (using the RDP connection), paste the .exe file to the Desktop of your VM. 
+1. Navigate to the desktop of your VM and double-click on the .exe. A command prompt will start. The program mounts the recovery point as a file share that you can access. When it is finished creating the share, type **q** to close the command prompt.
 1. On your VM, open **File Explorer** and navigate to the drive letter that was used for the file share.
 1. Navigate to \inetpub\wwwroot and copy **iisstart.png** from the file share and paste it into \inetpub\wwwroot. For example, copy F:\inetpub\wwwroot\iisstart.png and paste it into c:\inetpub\wwwroot to recover the file.
 1. On your local computer, open the browser tab where you are connected to the IP address of the VM showing the IIS default page. Press CTRL + F5 to refresh the browser page. You should now see that the image has been restored.
